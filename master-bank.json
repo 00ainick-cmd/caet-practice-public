@@ -54,695 +54,6 @@
   ],
   "questions": [
     {
-      "id": "cat7-q001",
-      "category": "mod7-tools-test-equipment",
-      "difficulty": "medium",
-      "tags": [
-        "center punch",
-        "drill guide",
-        "indentation",
-        "metal"
-      ],
-      "learningObjective": "Center punch creates guide indentation to prevent drill wandering",
-      "fullObjective": "Explain the primary purpose of a center punch in an avionics repair shop: creating a precise indentation on metal to guide a drill bit and prevent it from wandering during drilling.",
-      "flashcard": {
-        "term": "Center Punch",
-        "definition": "A center punch is a hardened steel tool struck with a hammer to create a precise conical indentation in metal; the indentation seats the drill bit tip, preventing it from skating across the work surface and ensuring accurate hole placement.",
-        "analogy": "A center punch is like making a thumbprint in clay before poking a hole — the depression gives the drill bit a starting point so it doesn't slide sideways before cutting.",
-        "unit": "Tools & Test Equipment"
-      },
-      "jeopardy": {
-        "question": "In an avionics repair shop, this hardened tool is struck with a hammer to create a guide indentation that prevents a drill bit from wandering on metal.",
-        "choices": [
-          "Center punch",
-          "Scribe",
-          "Drift punch",
-          "Prick punch"
-        ],
-        "correctIndex": 0,
-        "explanation": "The center punch creates a conical seat for the drill bit tip, preventing lateral movement (wandering) before the drill cuts through the metal surface."
-      },
-      "multipleChoice": {
-        "question": "What is the primary purpose of a center punch in an avionics repair shop?",
-        "choices": [
-          "To remove stuck fasteners by driving them from the back side",
-          "To create a precise indentation that guides the drill bit and prevents wandering during drilling",
-          "To mark scribe lines on sheet metal for cutting",
-          "To test the hardness of a metal surface before drilling"
-        ],
-        "correctIndex": 1,
-        "explanation": "A center punch creates an indentation that seats the drill tip, preventing it from sliding when drilling begins. Without this, the drill wanders and holes are misplaced."
-      },
-      "practice": {
-        "question": "A technician needs to drill a hole in an avionics rack panel at a precise location for a new indicator lamp. What is the correct first step before drilling?",
-        "choices": [
-          "Apply masking tape to the panel and drill through the tape for precision",
-          "Start the drill at slow speed and walk it to the correct location",
-          "Mark the exact location with a scribe, then use a center punch to create a guide indentation before drilling",
-          "Use the drill bit to scratch a starting mark before applying full pressure"
-        ],
-        "correctIndex": 2,
-        "explanation": "Scribe the location for accuracy, then center punch to create the drill guide indentation. This two-step process ensures the drill starts and stays at the correct position."
-      },
-      "preassessment": {
-        "question": "Why is a center punch used before drilling metal?",
-        "choices": [
-          "To test metal hardness",
-          "To remove stuck fasteners",
-          "To mark scribe lines",
-          "To prevent drill bit wandering"
-        ],
-        "correctIndex": 3
-      }
-    },
-    {
-      "id": "cat7-q002",
-      "category": "mod7-tools-test-equipment",
-      "difficulty": "medium",
-      "tags": [
-        "oscilloscope",
-        "waveform",
-        "voltage",
-        "amplitude",
-        "frequency"
-      ],
-      "learningObjective": "Oscilloscope visualizes voltage waveforms showing amplitude, frequency, and shape",
-      "fullObjective": "Explain that an oscilloscope is used to visualize voltage waveforms over time, allowing a technician to observe signal amplitude, frequency, and waveform shape.",
-      "flashcard": {
-        "term": "Oscilloscope",
-        "definition": "An oscilloscope displays voltage as a function of time on a calibrated screen, allowing observation of signal amplitude (peak voltage), frequency (cycles per second), waveform shape (sine, square, triangle, digital), and timing relationships between signals.",
-        "analogy": "An oscilloscope is like a video camera for electricity — it shows you exactly what a voltage signal is doing over time, revealing information that a simple voltmeter can only partially capture.",
-        "unit": "Tools & Test Equipment"
-      },
-      "jeopardy": {
-        "question": "This test instrument allows a technician to visualize voltage waveforms over time, observing signal amplitude, frequency, and shape on a calibrated display.",
-        "choices": [
-          "Digital multimeter",
-          "Oscilloscope",
-          "Bus analyzer",
-          "Frequency counter"
-        ],
-        "correctIndex": 1,
-        "explanation": "An oscilloscope displays voltage vs. time, enabling measurement and visualization of amplitude, frequency, and waveform shape — information that a DMM cannot provide."
-      },
-      "multipleChoice": {
-        "question": "What information can an oscilloscope provide that a digital multimeter cannot?",
-        "choices": [
-          "Precise DC voltage measurements to six decimal places",
-          "Direct measurement of circuit resistance using a four-wire method",
-          "Visual display of signal waveform shape, amplitude over time, and frequency",
-          "Current measurement without breaking the circuit"
-        ],
-        "correctIndex": 2,
-        "explanation": "An oscilloscope shows voltage vs. time — waveform shape, amplitude changes, frequency, and timing. A DMM gives only a single steady-state value; it cannot show signal dynamics or waveform characteristics."
-      },
-      "practice": {
-        "question": "An avionics technician suspects the output of a sensor is clipping (flat-topping) at high values. Which tool should be used to confirm this?",
-        "choices": [
-          "A digital multimeter set to AC volts to measure RMS output",
-          "A frequency counter to measure the sensor's output update rate",
-          "A bus analyzer to capture the data words produced by the sensor",
-          "An oscilloscope to visualize the waveform and observe whether the peaks are clipped flat"
-        ],
-        "correctIndex": 3,
-        "explanation": "Clipping — where the waveform peaks are truncated — is a waveform shape characteristic visible only on an oscilloscope. A DMM would show an average or RMS value but would not reveal the clipping."
-      },
-      "preassessment": {
-        "question": "What does an oscilloscope display?",
-        "choices": [
-          "Voltage waveforms showing amplitude, frequency, and shape",
-          "Resistance values over time",
-          "Bus data words",
-          "Current flow direction"
-        ],
-        "correctIndex": 0
-      }
-    },
-    {
-      "id": "cat7-q003",
-      "category": "mod7-tools-test-equipment",
-      "difficulty": "easy",
-      "tags": [
-        "multimeter",
-        "OL",
-        "open circuit",
-        "ohms",
-        "over range"
-      ],
-      "learningObjective": "OL on multimeter ohms = open circuit or out of range",
-      "fullObjective": "State that 'OL' on a multimeter set to ohms means the measured resistance exceeds the meter's range, indicating an open circuit or resistance too high to measure on the selected scale.",
-      "flashcard": {
-        "term": "Multimeter OL Indication",
-        "definition": "'OL' (over limit or overload) on a multimeter set to ohms means the resistance is greater than the meter's maximum measurable range on the selected scale — typically indicating an open circuit (broken wire, open fuse, or disconnected path) or a very high resistance.",
-        "analogy": "OL is like a bathroom scale reading 'ERR' when an elephant stands on it — the scale's range is exceeded. OL means the resistance is beyond the meter's limit, most often because the circuit is open (no path for current).",
-        "unit": "Tools & Test Equipment"
-      },
-      "jeopardy": {
-        "question": "When a multimeter set to ohms displays 'OL', this is the most likely circuit condition being indicated.",
-        "choices": [
-          "A perfectly balanced resistance equal to the meter's full-scale reading",
-          "A short circuit reading below the meter's minimum range",
-          "An open circuit or resistance exceeding the meter's selected range",
-          "A reverse-biased diode in the measurement path"
-        ],
-        "correctIndex": 2,
-        "explanation": "'OL' means the resistance exceeds the meter's range — typically an open circuit (infinite resistance) or a legitimate high-resistance reading that exceeds the selected scale."
-      },
-      "multipleChoice": {
-        "question": "A multimeter set to the 200-ohm range shows 'OL' when connected across a wire. What does this indicate?",
-        "choices": [
-          "The wire has exactly 200 ohms resistance — the display switches to OL at full scale",
-          "The measurement polarity is reversed and the leads must be swapped",
-          "The multimeter is damaged and cannot measure the circuit correctly",
-          "The resistance is greater than the 200-ohm range, most likely an open circuit (broken wire) or very high resistance"
-        ],
-        "correctIndex": 3,
-        "explanation": "'OL' on the 200-ohm range means resistance exceeds 200 ohms. For a wire, this almost certainly means an open circuit — no conductive path exists between the probe points."
-      },
-      "practice": {
-        "question": "A technician checks a suspected broken wire for continuity using a multimeter on the 200-ohm range. The display shows 'OL'. What does this tell the technician?",
-        "choices": [
-          "The wire resistance exceeds the meter's 200-ohm range, strongly indicating an open circuit — a break in the wire or an open connection",
-          "The wire has 0 ohms — OL is the code for a good continuity reading",
-          "The wire has exactly 200 ohms resistance, confirming it is within normal tolerance",
-          "The multimeter leads are shorted — the test is invalid"
-        ],
-        "correctIndex": 0,
-        "explanation": "OL on the ohms range means no measurable resistance path — the wire has an open circuit. The technician should now locate the break by checking sections of the wire individually."
-      },
-      "preassessment": {
-        "question": "What does 'OL' mean on a multimeter set to ohms?",
-        "choices": [
-          "Optimal level",
-          "Open circuit or over-range",
-          "Output load",
-          "Ohm limit reached maximum"
-        ],
-        "correctIndex": 1
-      }
-    },
-    {
-      "id": "cat7-q004",
-      "category": "mod7-tools-test-equipment",
-      "difficulty": "medium",
-      "tags": [
-        "databus analyzer",
-        "protocol analyzer",
-        "ARINC 429",
-        "decode",
-        "diagnose"
-      ],
-      "learningObjective": "Digital databus analyzer captures, displays, and decodes bus traffic to verify and diagnose",
-      "fullObjective": "Explain the primary purpose of a digital databus analyzer in a GA avionics shop: capturing, displaying, and decoding bus traffic to verify correct data transmission and diagnose communication faults.",
-      "flashcard": {
-        "term": "Digital Databus Analyzer",
-        "definition": "A digital databus (protocol) analyzer connects non-intrusively to a databus and captures, timestamps, and decodes bus traffic in real time — displaying individual data words with their labels, values, and error conditions, enabling verification of correct operation and diagnosis of communication faults.",
-        "analogy": "A databus analyzer is like a flight data recorder for the ARINC 429 bus — it captures everything that flows by, decodes it into readable form, and helps you understand what happened when things went wrong.",
-        "unit": "Tools & Test Equipment"
-      },
-      "jeopardy": {
-        "question": "This test instrument captures, displays, and decodes ARINC 429 bus traffic in real time, enabling a technician to verify correct data transmission and identify communication faults.",
-        "choices": [
-          "Oscilloscope",
-          "Frequency counter",
-          "Digital multimeter",
-          "Digital databus analyzer"
-        ],
-        "correctIndex": 3,
-        "explanation": "A databus analyzer decodes the bus protocol layer — showing individual ARINC 429 labels, values, timing, and errors — unlike an oscilloscope which shows only the electrical waveform without decoding."
-      },
-      "multipleChoice": {
-        "question": "What is the primary function of a digital databus analyzer in avionics maintenance?",
-        "choices": [
-          "To capture, display, and decode bus traffic to verify correct data transmission and diagnose communication faults",
-          "To measure the DC power supply voltage to each avionics LRU",
-          "To program ARINC 429 LRUs with their initial configuration settings",
-          "To measure the resistance of the bus termination resistors at each end"
-        ],
-        "correctIndex": 0,
-        "explanation": "A databus analyzer provides non-intrusive, real-time decoding of bus protocol data — showing what labels are being transmitted, their values, timing, and any errors — the essential tool for ARINC 429 and MIL-STD-1553 diagnosis."
-      },
-      "practice": {
-        "question": "An autopilot is not responding to altitude data from the air data computer. Wiring continuity is confirmed. What is the next most useful diagnostic step?",
-        "choices": [
-          "Replace the ADC with a known-good unit to verify the fault by substitution",
-          "Connect a databus analyzer to the ARINC 429 bus between the ADC and autopilot to verify that the ADC is transmitting the altitude label with correct values",
-          "Check the autopilot's circuit breaker for intermittent trip",
-          "Verify the ADC's power supply voltage with a multimeter"
-        ],
-        "correctIndex": 1,
-        "explanation": "With good wiring, a databus analyzer inserted between the ADC and autopilot will confirm whether the ADC is actually transmitting the altitude label at the expected update rate and with valid data — the direct test for this type of fault."
-      },
-      "preassessment": {
-        "question": "What does a digital databus analyzer do?",
-        "choices": [
-          "Measures LRU power supply voltage",
-          "Programs LRU configurations",
-          "Captures and decodes bus traffic to diagnose communication faults",
-          "Measures termination resistance"
-        ],
-        "correctIndex": 2
-      }
-    },
-    {
-      "id": "cat7-q005",
-      "category": "mod7-tools-test-equipment",
-      "difficulty": "easy",
-      "tags": [
-        "databus analyzer",
-        "intermittent",
-        "digital bus",
-        "capture"
-      ],
-      "learningObjective": "Databus analyzer is most useful for capturing intermittent digital bus failures",
-      "fullObjective": "State that a digital databus analyzer or protocol analyzer is the test instrument most useful for capturing and evaluating intermittent digital databus failures.",
-      "flashcard": {
-        "term": "Tool for Intermittent Bus Failures",
-        "definition": "A digital databus analyzer (protocol analyzer) is the best tool for capturing intermittent bus failures — it monitors continuously and time-stamps all bus activity, capturing the failure event when it occurs even if it is brief and transient.",
-        "analogy": "An intermittent bus failure is like a car noise that only happens sometimes. A databus analyzer is the dashcam that records everything — when the noise finally happens, you have proof of what it was.",
-        "unit": "Tools & Test Equipment"
-      },
-      "jeopardy": {
-        "question": "For capturing and evaluating an intermittent digital databus failure that occurs randomly during flight, this instrument is the most useful because it monitors continuously and records all bus events.",
-        "choices": [
-          "Protocol (databus) analyzer",
-          "Digital multimeter",
-          "Oscilloscope",
-          "Pitot-static tester"
-        ],
-        "correctIndex": 0,
-        "explanation": "A protocol/databus analyzer captures all bus traffic continuously, recording error events and their timestamps even for brief, intermittent failures — unlike an oscilloscope which requires triggering at the right moment."
-      },
-      "multipleChoice": {
-        "question": "Which instrument is most useful for diagnosing an intermittent ARINC 429 bus failure that occurs unpredictably?",
-        "choices": [
-          "A digital multimeter measuring bus voltage",
-          "A digital databus (protocol) analyzer that continuously monitors and records all bus activity",
-          "An oscilloscope triggered on bus signal transitions",
-          "A megohmmeter measuring cable insulation resistance"
-        ],
-        "correctIndex": 1,
-        "explanation": "An intermittent failure by definition doesn't occur consistently. A databus analyzer continuously monitors and logs all bus activity, capturing the failure event with timestamp and context when it finally occurs."
-      },
-      "practice": {
-        "question": "A GPS intermittently stops providing data to the EFIS, but always works on the ground. No faults are found on ground test. What instrument should be left installed to capture the next inflight failure?",
-        "choices": [
-          "A multimeter with a peak-hold function on the bus voltage circuit",
-          "An oscilloscope triggered on GPS output signal transitions",
-          "A databus analyzer set to continuous record, capturing all ARINC 429 traffic between the GPS and EFIS to log the exact failure event when it occurs in flight",
-          "A BITE interrogator connected to the GPS maintenance port"
-        ],
-        "correctIndex": 2,
-        "explanation": "A databus analyzer in continuous record mode will capture the exact state of the bus when the failure occurs in flight — showing whether the GPS stops transmitting, sends invalid data, or the bus fails — providing definitive diagnostic information."
-      },
-      "preassessment": {
-        "question": "Which tool is best for capturing an intermittent digital databus failure?",
-        "choices": [
-          "DMM",
-          "Frequency counter",
-          "Oscilloscope",
-          "Protocol/databus analyzer"
-        ],
-        "correctIndex": 3
-      }
-    },
-    {
-      "id": "cat7-q006",
-      "category": "mod7-tools-test-equipment",
-      "difficulty": "easy",
-      "tags": [
-        "databus analyzer",
-        "real time",
-        "decode",
-        "data words",
-        "identify"
-      ],
-      "learningObjective": "Databus analyzer captures real-time bus traffic and decodes data words",
-      "fullObjective": "State the primary purpose of a digital databus analyzer in avionics troubleshooting: to capture bus traffic in real time, decode data words, and identify incorrect or missing transmissions.",
-      "flashcard": {
-        "term": "Databus Analyzer — Primary Purpose",
-        "definition": "A databus analyzer's primary troubleshooting purpose is to capture bus traffic in real time, decode individual data words (revealing label, value, and error status), and identify which transmissions are incorrect, corrupted, or missing entirely.",
-        "analogy": "Think of a databus analyzer like a network packet sniffer for avionics — it sees every data 'packet' (word) on the bus, decodes it from raw bits into readable labels and values, and flags anything that's wrong.",
-        "unit": "Tools & Test Equipment"
-      },
-      "jeopardy": {
-        "question": "In avionics troubleshooting, this instrument captures real-time bus traffic, decodes data words to reveal their labels and values, and identifies transmissions that are incorrect or missing.",
-        "choices": [
-          "BITE interrogator",
-          "Digital databus analyzer",
-          "Multimeter",
-          "Oscilloscope"
-        ],
-        "correctIndex": 1,
-        "explanation": "A databus analyzer captures and decodes bus traffic in real time — showing each data word's label, value, and any error status — enabling direct identification of bad or missing transmissions."
-      },
-      "multipleChoice": {
-        "question": "In avionics troubleshooting, what is the primary purpose of a digital databus analyzer?",
-        "choices": [
-          "To measure the AC impedance of the bus cable at various frequencies",
-          "To program replacement LRUs with the correct ARINC label configuration",
-          "To capture bus traffic in real time, decode data words, and identify incorrect or missing transmissions",
-          "To test bus cable shielding effectiveness against electromagnetic interference"
-        ],
-        "correctIndex": 2,
-        "explanation": "The databus analyzer is the window into what's actually happening on the bus: real-time capture, word-by-word decoding, and automatic flagging of errors or missing labels."
-      },
-      "practice": {
-        "question": "A flight computer shows a 'GPS invalid' flag even though the GPS appears operational. A databus analyzer is connected to the ARINC 429 output of the GPS. What information should the technician look for?",
-        "choices": [
-          "Whether the GPS is drawing the correct current from its power supply bus",
-          "Whether the flight computer's BITE code for GPS is current or historical",
-          "Whether the GPS antenna cable impedance matches the specified 50-ohm characteristic",
-          "Whether the GPS is transmitting the expected ARINC 429 labels (position, integrity, status) with valid values and at the expected update rate"
-        ],
-        "correctIndex": 3,
-        "explanation": "The databus analyzer shows exactly what the GPS is transmitting: label presence, data values, and update rates. If the GPS is missing required labels or sending invalid status words, the analyzer will reveal this directly."
-      },
-      "preassessment": {
-        "question": "What does a databus analyzer identify during troubleshooting?",
-        "choices": [
-          "Incorrect or missing data transmissions",
-          "Cable impedance mismatches",
-          "LRU power consumption",
-          "Antenna radiation patterns"
-        ],
-        "correctIndex": 0
-      }
-    },
-    {
-      "id": "cat7-q007",
-      "category": "mod7-tools-test-equipment",
-      "difficulty": "easy",
-      "tags": [
-        "databus analyzer",
-        "protocol analyzer",
-        "avionics maintenance",
-        "digital bus"
-      ],
-      "learningObjective": "Databus/protocol analyzer is the tool for digital databus traffic analysis",
-      "fullObjective": "State that a databus analyzer (protocol analyzer) is the tool commonly used to capture and analyze digital databus traffic in avionics maintenance.",
-      "flashcard": {
-        "term": "Protocol Analyzer — Common Name",
-        "definition": "A databus analyzer (also called a protocol analyzer) is the standard tool in avionics maintenance for capturing and analyzing digital databus traffic — available for ARINC 429, MIL-STD-1553, RS-232/485, and other protocols.",
-        "analogy": "Just as a mechanic has a scan tool for car computer diagnostics, an avionics technician has a protocol analyzer for databus diagnostics — the right specialized tool for the job.",
-        "unit": "Tools & Test Equipment"
-      },
-      "jeopardy": {
-        "question": "The standard specialized test instrument used in avionics maintenance to capture and analyze ARINC 429 and other digital databus traffic is called by this name.",
-        "choices": [
-          "Pitot-static tester",
-          "VSWR meter",
-          "Protocol analyzer (databus analyzer)",
-          "Logic probe"
-        ],
-        "correctIndex": 2,
-        "explanation": "A protocol analyzer (databus analyzer) is the specialized instrument for digital bus traffic capture and analysis in avionics — connecting non-intrusively to the bus and decoding all protocol data."
-      },
-      "multipleChoice": {
-        "question": "What instrument is commonly used in avionics maintenance to capture and analyze digital databus traffic?",
-        "choices": [
-          "Digital multimeter — the most versatile test instrument for all avionics measurements",
-          "Spectrum analyzer — for analyzing the frequency content of digital signals",
-          "Oscilloscope — the standard instrument for all digital signal analysis",
-          "Databus analyzer (protocol analyzer) — specialized for capturing and decoding digital bus communication"
-        ],
-        "correctIndex": 3,
-        "explanation": "A databus analyzer (protocol analyzer) is the specialized tool for ARINC 429, MIL-STD-1553, and other avionics bus analysis. Oscilloscopes show waveforms but don't decode protocol data; DMMs show only voltage."
-      },
-      "practice": {
-        "question": "A trainee asks which test instrument they will use most often for ARINC 429 troubleshooting. What is the correct answer?",
-        "choices": [
-          "A databus (protocol) analyzer — it captures and decodes ARINC 429 traffic at the protocol level, showing labels, values, and errors",
-          "An oscilloscope — it shows the electrical signal on the bus in the most detail",
-          "A digital multimeter — it can measure bus voltage levels to diagnose most ARINC 429 problems",
-          "A time-domain reflectometer — it locates cable faults on the bus wire pair"
-        ],
-        "correctIndex": 0,
-        "explanation": "A databus analyzer is the primary tool for ARINC 429 work. While oscilloscopes and multimeters have roles, the analyzer is the only tool that decodes the protocol layer and shows what data is being communicated."
-      },
-      "preassessment": {
-        "question": "What tool captures and analyzes digital databus traffic in avionics maintenance?",
-        "choices": [
-          "Multimeter",
-          "Protocol (databus) analyzer",
-          "Oscilloscope",
-          "Spectrum analyzer"
-        ],
-        "correctIndex": 1
-      }
-    },
-    {
-      "id": "cat7-q008",
-      "category": "mod7-tools-test-equipment",
-      "difficulty": "medium",
-      "tags": [
-        "continuity test",
-        "broken wire",
-        "multimeter",
-        "resistance"
-      ],
-      "learningObjective": "Continuity test with multimeter confirms broken wire using resistance measurement",
-      "fullObjective": "Select a continuity test with a multimeter as the correct method to confirm whether a broken wire is causing a warning light to fail, by measuring resistance between the wire ends.",
-      "flashcard": {
-        "term": "Continuity Test",
-        "definition": "A continuity test uses a multimeter (typically in the ohms or continuity beep mode) to measure resistance between two ends of a conductor; near-zero resistance confirms a complete circuit, while 'OL' or infinite resistance confirms an open/broken wire.",
-        "analogy": "A continuity test is like testing whether a garden hose leaks by blowing through it — if air comes out the other end (near-zero resistance), the path is complete. If nothing comes out (OL), there's a break.",
-        "unit": "Tools & Test Equipment"
-      },
-      "jeopardy": {
-        "question": "To confirm that a broken wire is preventing a warning light from illuminating, a technician should perform this type of test with a multimeter, measuring resistance between the wire's endpoints.",
-        "choices": [
-          "Voltage measurement with the circuit energized",
-          "Insulation resistance test with a megohmmeter",
-          "Current measurement in series with the warning light",
-          "Continuity test measuring resistance between wire ends"
-        ],
-        "correctIndex": 3,
-        "explanation": "A continuity test measures resistance between the two ends of a suspected broken wire. Near-zero ohms confirms an intact path; OL (infinite resistance) confirms the wire is broken."
-      },
-      "multipleChoice": {
-        "question": "A warning light is not illuminating. The lamp tests good. What test should the technician use to determine if a broken wire is the cause?",
-        "choices": [
-          "Perform a continuity test with a multimeter measuring resistance between the two ends of the suspect wire",
-          "Measure the voltage drop across the lamp with the circuit energized",
-          "Use an oscilloscope to check the lamp's activation signal waveform",
-          "Measure the current in the lamp circuit with an ammeter"
-        ],
-        "correctIndex": 0,
-        "explanation": "A continuity test directly tests wire integrity. With power OFF, measure resistance between wire ends: near-zero ohms = intact; OL = broken. This is the definitive test for a broken wire."
-      },
-      "practice": {
-        "question": "After replacing a gear position indicator lamp, the light still does not illuminate when gear is selected down. The circuit breaker is OK. What should the technician test next?",
-        "choices": [
-          "Replace the gear position switch — it is most likely faulty",
-          "Use a multimeter in continuity mode to test the wire from the switch to the indicator light for an open circuit",
-          "Test the power supply bus voltage at the main avionics bus bar",
-          "Check the landing gear mechanical position with a mirror and flashlight"
-        ],
-        "correctIndex": 1,
-        "explanation": "With the lamp confirmed good and the breaker OK, a broken wire is the next likely cause. A continuity test on the circuit wiring (power OFF) will confirm or eliminate this as the fault."
-      },
-      "preassessment": {
-        "question": "What test confirms whether a wire is broken or intact?",
-        "choices": [
-          "Voltage measurement",
-          "Current measurement",
-          "Continuity test with multimeter",
-          "Insulation resistance test"
-        ],
-        "correctIndex": 2
-      }
-    },
-    {
-      "id": "cat7-q009",
-      "category": "mod7-tools-test-equipment",
-      "difficulty": "medium",
-      "tags": [
-        "micrometer",
-        "measurement",
-        "zero",
-        "clean surfaces",
-        "consistent pressure"
-      ],
-      "learningObjective": "Micrometer use: clean, zero, apply gentle consistent pressure",
-      "fullObjective": "Apply the correct procedure for accurate micrometer measurement: clean the measuring surfaces, zero the micrometer before use, and apply consistent gentle pressure when taking readings.",
-      "flashcard": {
-        "term": "Micrometer Measurement Procedure",
-        "definition": "For accurate micrometer measurements: (1) clean both measuring surfaces (spindle and anvil) to remove debris, (2) zero the micrometer (close on nothing — verify it reads zero), (3) apply gentle, consistent pressure using the thimble ratchet (if equipped) — excessive pressure deforms the workpiece.",
-        "analogy": "Using a micrometer properly is like calibrating a scale: clean the pan (clean surfaces), check it reads zero with nothing on it (zero check), then place items with the same gentle touch each time (consistent pressure).",
-        "unit": "Tools & Test Equipment"
-      },
-      "jeopardy": {
-        "question": "The three steps for accurate micrometer measurement are: clean the measuring surfaces, apply consistent gentle pressure using the ratchet thimble, and do this before taking any reading.",
-        "choices": [
-          "Zero the micrometer with the surfaces closed",
-          "Lubricate the spindle thread",
-          "Set the reference temperature to 20°C",
-          "Mark the measurement point with a scribe"
-        ],
-        "correctIndex": 0,
-        "explanation": "Zeroing the micrometer before use ensures the zero reference is correct. A micrometer that doesn't read zero when closed will have a constant offset error in every measurement."
-      },
-      "multipleChoice": {
-        "question": "What are the correct steps for taking an accurate micrometer measurement?",
-        "choices": [
-          "Lubricate the spindle, set to expected range, take three rapid readings and average",
-          "Clean the measuring surfaces, zero the micrometer before use, and apply consistent gentle pressure when taking the reading",
-          "Apply oil to the workpiece, close the micrometer firmly, and read the display",
-          "Lock the barrel before closing on the workpiece to prevent overshooting"
-        ],
-        "correctIndex": 1,
-        "explanation": "Micrometer accuracy requires: clean surfaces (no contamination affecting the gap), verified zero (no baseline offset), and consistent gentle pressure (not deforming the workpiece or getting different readings based on force)."
-      },
-      "practice": {
-        "question": "A technician is measuring a wire crimp cross-section with a micrometer. After taking the measurement, the result seems larger than expected. What should the technician verify first?",
-        "choices": [
-          "That the micrometer anvil is the correct size for the wire gauge",
-          "Whether the wire is at the correct temperature for the measurement",
-          "Whether the micrometer was zeroed before use and the measuring faces were clean — a baseline error or debris between the faces would give a falsely large reading",
-          "Whether the measurement should be taken in metric rather than imperial units"
-        ],
-        "correctIndex": 2,
-        "explanation": "A larger-than-expected reading is consistent with either a zero-offset error (micrometer not zeroed) or debris on the measuring surfaces adding to the measured dimension. Check both before repeating the measurement."
-      },
-      "preassessment": {
-        "question": "What must be done before taking a micrometer measurement?",
-        "choices": [
-          "Lubricate spindle thread",
-          "Heat-stabilize the instrument",
-          "Set to expected range",
-          "Clean faces and zero the micrometer"
-        ],
-        "correctIndex": 3
-      }
-    },
-    {
-      "id": "cat7-q010",
-      "category": "mod7-tools-test-equipment",
-      "difficulty": "medium",
-      "tags": [
-        "screwdriver",
-        "cam-out",
-        "screw head damage",
-        "proper size",
-        "engagement"
-      ],
-      "learningObjective": "Screwdriver must fully engage the screw head to prevent cam-out",
-      "fullObjective": "Select a properly sized screwdriver that fully engages the screw head as the most important factor when using a manual screwdriver to prevent cam-out and screw head damage.",
-      "flashcard": {
-        "term": "Screwdriver Sizing and Cam-Out",
-        "definition": "Cam-out occurs when a screwdriver slips out of the screw head under torque, damaging the head and potentially the surrounding surface. Using a properly sized screwdriver that fully fills and engages the screw head recess is the primary prevention — an undersized blade has less contact area and cams out more easily.",
-        "analogy": "Using a screwdriver that's too small is like trying to turn a deadbolt with a toothpick — the toothpick will snap out under pressure because it doesn't fully engage the mechanism. A proper key fills the slot completely.",
-        "unit": "Tools & Test Equipment"
-      },
-      "jeopardy": {
-        "question": "The most important factor in preventing cam-out and screw head damage when using a manual screwdriver is using one that completely fills and does this to the screw head recess.",
-        "choices": [
-          "Exceeds the torque specification of the fastener",
-          "Fully engages (fits snugly into) the screw head",
-          "Has a rubber-grip handle for maximum torque",
-          "Matches the color code of the screw head material"
-        ],
-        "correctIndex": 1,
-        "explanation": "Full engagement means the blade or bit fills the screw head recess completely — maximizing contact area, distributing force evenly, and preventing the bit from riding up and camming out."
-      },
-      "multipleChoice": {
-        "question": "What is the most important factor when selecting a manual screwdriver to prevent cam-out?",
-        "choices": [
-          "The screwdriver should be as long as possible to provide maximum torque leverage",
-          "The screwdriver should be harder than the screw material to prevent wear",
-          "The screwdriver blade or bit should be properly sized to fully engage the screw head",
-          "The screwdriver should be rated for maximum torque exceeding the fastener specification"
-        ],
-        "correctIndex": 2,
-        "explanation": "Full engagement is the primary cam-out prevention measure. A correctly sized bit/blade fills the recess completely, maximizing the contact area that resists the tendency to cam out under torque."
-      },
-      "practice": {
-        "question": "A technician uses a Phillips screwdriver that is one size too small to remove a panel screw and notices the bit slipping out of the head. What is the correct action?",
-        "choices": [
-          "Apply more downward pressure and try again with the same bit",
-          "Add locking compound to the driver tip to prevent slipping",
-          "Use a flathead screwdriver in one of the Phillips slots for better contact",
-          "Select a correctly sized Phillips bit that fully engages the screw head recess — using the undersized bit risks damaging the screw head to the point of non-removal"
-        ],
-        "correctIndex": 3,
-        "explanation": "An undersized bit doesn't fill the Phillips recess — it contacts only the tips of the cross slots and cams out under torque. Using the correct size is the only proper fix."
-      },
-      "preassessment": {
-        "question": "What prevents screwdriver cam-out?",
-        "choices": [
-          "Proper size that fully engages the screw head",
-          "Maximum torque application",
-          "Rubber-grip handle",
-          "Hardened bit material"
-        ],
-        "correctIndex": 0
-      }
-    },
-    {
-      "id": "cat7-q011",
-      "category": "mod7-tools-test-equipment",
-      "difficulty": "medium",
-      "tags": [
-        "multimeter",
-        "voltage",
-        "current",
-        "resistance",
-        "single instrument"
-      ],
-      "learningObjective": "Multimeter measures voltage, current, and resistance",
-      "fullObjective": "Explain the primary function of a multimeter as measuring voltage, current, and resistance in electrical circuits using a single instrument.",
-      "flashcard": {
-        "term": "Multimeter",
-        "definition": "A multimeter (digital or analog) is a single instrument that measures multiple electrical quantities: voltage (volts AC and DC), current (amps AC and DC), and resistance (ohms) — replacing separate voltmeter, ammeter, and ohmmeter instruments.",
-        "analogy": "A multimeter is the Swiss Army knife of electrical test equipment — voltage meter, current meter, and ohmmeter all in one instrument, with a selector switch to choose which function you need.",
-        "unit": "Tools & Test Equipment"
-      },
-      "jeopardy": {
-        "question": "A multimeter measures these three electrical quantities in circuits, combining what were traditionally three separate instruments into one.",
-        "choices": [
-          "Frequency, power, and impedance",
-          "Capacitance, inductance, and impedance",
-          "Voltage, current, and resistance",
-          "Temperature, humidity, and pressure"
-        ],
-        "correctIndex": 2,
-        "explanation": "A multimeter combines voltmeter (voltage), ammeter (current), and ohmmeter (resistance) functions in one instrument — hence 'multi' (multiple) meter."
-      },
-      "multipleChoice": {
-        "question": "What are the three primary electrical quantities measured by a digital multimeter?",
-        "choices": [
-          "Frequency, power factor, and efficiency",
-          "Capacitance, inductance, and RF output",
-          "Impedance, reactance, and phase angle",
-          "Voltage, current, and resistance"
-        ],
-        "correctIndex": 3,
-        "explanation": "A multimeter's three primary measurements are voltage (V), current (A), and resistance (Ω). Modern DMMs often add capacitance, frequency, temperature, and diode test, but the three core functions are V, A, and Ω."
-      },
-      "practice": {
-        "question": "A new avionics apprentice is told to use a multimeter to diagnose an inoperative circuit. Which three basic measurements should they know how to take?",
-        "choices": [
-          "Voltage across components, current in series with the circuit, and resistance of wire segments",
-          "Frequency, waveform, and phase",
-          "Capacitance, inductance, and impedance",
-          "Signal-to-noise ratio, bit error rate, and frequency response"
-        ],
-        "correctIndex": 0,
-        "explanation": "The three essential multimeter measurements for circuit diagnosis: voltage (identify where voltage is present/absent), current (confirm correct current flow), and resistance (check continuity and component values)."
-      },
-      "preassessment": {
-        "question": "What three quantities does a multimeter measure?",
-        "choices": [
-          "Frequency, power, and impedance",
-          "Voltage, current, and resistance",
-          "Capacitance, inductance, and phase",
-          "Temperature, humidity, and pressure"
-        ],
-        "correctIndex": 1
-      }
-    },
-    {
       "id": "cat8-q001",
       "objective": "State that Safety Data Sheets (SDS) for shop chemicals must be kept in an accessible location readily available to all personnel who work with or near hazardous materials.",
       "topic": "Shop Safety & Hazmat",
@@ -12445,6 +11756,923 @@
           "Leave OFF and investigate the cause",
           "Install a larger breaker",
           "Jumper the breaker closed"
+        ],
+        "correctIndex": 1
+      }
+    },
+    {
+      "id": "CAT7-NEW-001",
+      "category": "mod7-tools-test-equipment",
+      "difficulty": "hard",
+      "tags": [
+        "multimeter",
+        "voltage",
+        "connection"
+      ],
+      "learningObjective": "Describe how a multimeter is connected to measure voltage across a component",
+      "fullObjective": "Recognize that a multimeter measuring voltage across a component is connected in PARALLEL with that component, with the meter's high-input-impedance voltmeter mode drawing negligible current from the circuit.",
+      "flashcard": {
+        "term": "Voltmeter connection — parallel",
+        "definition": "A multimeter measuring voltage is connected in PARALLEL with the component under test. The voltmeter input has high impedance (typically 10 MΩ or more) to avoid loading the circuit. Placing a voltmeter in series with the circuit would effectively block current flow.",
+        "analogy": "Voltmeter in parallel: 'tap' across the two points whose potential difference you want to measure — like using a bridge to compare water levels in two adjacent tanks.",
+        "unit": "Test Equipment — DMM"
+      },
+      "jeopardy": {
+        "question": "When measuring voltage across a component with a multimeter, this is how the meter is connected.",
+        "choices": [
+          "In series with the component",
+          "In parallel with the component",
+          "In diagonal with the component",
+          "The meter does not need to be connected to the circuit"
+        ],
+        "correctIndex": 1,
+        "explanation": "Voltage is measured in parallel. Series connection (correct for current) would not give a valid voltage reading and could disturb the circuit."
+      },
+      "multipleChoice": {
+        "question": "How is a multimeter connected to measure voltage across a component?",
+        "choices": [
+          "In series with the component, so current flows through the meter",
+          "In parallel with the component — the two meter leads touch the two points whose potential difference is being measured",
+          "Diagonally across the circuit board",
+          "The meter does not need to be connected to the circuit"
+        ],
+        "correctIndex": 1,
+        "explanation": "Voltage measurements are parallel measurements. The voltmeter's high input impedance ensures that connecting it across a component does not significantly alter the circuit's operation. Series connection is the configuration for current (ammeter) measurements."
+      },
+      "practice": {
+        "question": "A technician wants to measure the voltage across a resistor in an operating circuit. Which connection is correct?",
+        "choices": [
+          "Break the circuit and insert the meter in series with the resistor",
+          "Place the meter probes across the resistor (in parallel with it) while the circuit is operating; the high-impedance voltmeter input reads the voltage drop without disturbing the circuit",
+          "Connect one probe to the resistor and the other to airframe ground far away",
+          "Disconnect the resistor and measure it on the bench"
+        ],
+        "correctIndex": 1,
+        "explanation": "Voltage is measured in parallel, with the meter across the component. Series insertion is correct only for current measurement. Measuring the component off the bench would give its resistance, not its in-circuit voltage drop."
+      },
+      "preassessment": {
+        "question": "How is a multimeter connected to measure voltage?",
+        "choices": [
+          "In series",
+          "In parallel",
+          "Diagonally",
+          "Not connected"
+        ],
+        "correctIndex": 1
+      }
+    },
+    {
+      "id": "CAT7-NEW-002",
+      "category": "mod7-tools-test-equipment",
+      "difficulty": "medium",
+      "tags": [
+        "multimeter",
+        "abnormal-reading",
+        "troubleshooting"
+      ],
+      "learningObjective": "Identify possible causes of a grossly abnormal voltage reading during DC circuit testing",
+      "fullObjective": "Recognize that a voltmeter reading far higher than expected (e.g., reading hundreds of volts on a 24 V DC circuit) commonly indicates an incorrect meter range setting, incorrect AC/DC mode selection, a damaged probe or lead, or an induced-voltage artifact from a nearby AC source being picked up by a high-impedance meter on a disconnected point.",
+      "flashcard": {
+        "term": "Grossly abnormal voltage readings",
+        "definition": "A voltage reading far from expected (e.g., 235 V on a 24 V DC bus) is typically caused by: (1) wrong meter range or AC/DC mode, (2) damaged probe or lead, or (3) induced-voltage 'ghost readings' where a high-impedance meter picks up stray voltage from nearby AC sources when connected to a floating or disconnected point. True 10× discrepancies are rare without one of these explanations.",
+        "analogy": "When the reading is wildly wrong, first check the meter setup — not the circuit.",
+        "unit": "Test Equipment — DMM"
+      },
+      "jeopardy": {
+        "question": "While testing a 24 V DC circuit, this could cause a multimeter to display 235 V.",
+        "choices": [
+          "The circuit has mysteriously multiplied its voltage",
+          "Wrong meter range, wrong AC/DC mode, a damaged probe or lead, or induced-voltage 'ghost readings' on a high-impedance meter connected to a floating point",
+          "The battery has gained voltage",
+          "The meter is working correctly and the reading is accurate"
+        ],
+        "correctIndex": 1,
+        "explanation": "A 235 V reading on a 24 V DC circuit is almost always a meter-setup or ghost-voltage issue. The circuit itself cannot spontaneously produce 10× its source voltage."
+      },
+      "multipleChoice": {
+        "question": "A technician is conducting a voltage test on a 24 V DC circuit, and the multimeter shows a reading of 235 V. What could be the cause?",
+        "choices": [
+          "The circuit has spontaneously multiplied its source voltage",
+          "The meter is set to the wrong range or wrong AC/DC mode, a probe or lead is damaged, or the meter is picking up an induced-voltage 'ghost reading' from nearby AC sources on a high-impedance input",
+          "The battery has increased in voltage during the test",
+          "The meter reading is correct and the circuit is producing 235 V"
+        ],
+        "correctIndex": 1,
+        "explanation": "A reading 10× source voltage on a DC circuit is almost always a meter configuration issue (wrong range, wrong mode), a damaged lead, or an induced-voltage ghost reading. The first checks are always the meter setup — verify the mode, range, probes, and connection before assuming a circuit fault."
+      },
+      "practice": {
+        "question": "During voltage testing on a 24 V DC bus, a technician reads 235 V on the meter. What is the most productive first action?",
+        "choices": [
+          "Declare the bus has a major fault and disconnect the battery",
+          "Verify the meter setup: check that the meter is set to DC (not AC), check the voltage range, inspect the probes and leads for damage, and confirm the probes are properly seated in the meter jacks. Then remeasure. If the reading remains abnormal, investigate the circuit",
+          "Replace the 24 V battery",
+          "Log the 235 V reading as evidence of a manufacturing defect"
+        ],
+        "correctIndex": 1,
+        "explanation": "The meter setup is the most likely cause of a wildly wrong reading. Check DC/AC mode, range, probe integrity, and jack seating before assuming a circuit fault. Only after these checks still give an abnormal reading should circuit-level troubleshooting begin."
+      },
+      "preassessment": {
+        "question": "24 V DC circuit shows 235 V on the meter — likely cause?",
+        "choices": [
+          "Circuit spontaneously multiplied voltage",
+          "Wrong meter range/mode, damaged lead, or induced ghost reading",
+          "Battery gained voltage",
+          "Reading is correct"
+        ],
+        "correctIndex": 1
+      }
+    },
+    {
+      "id": "CAT7-NEW-003",
+      "category": "mod7-tools-test-equipment",
+      "difficulty": "medium",
+      "tags": [
+        "multimeter",
+        "resistance",
+        "power-off"
+      ],
+      "learningObjective": "Identify the requirement that must be met before measuring resistance with a multimeter",
+      "fullObjective": "Recognize that before measuring resistance with a multimeter, the circuit must be de-energized (power off) and the component under test should be isolated from parallel paths, because the meter supplies its own small test current and active voltage would give invalid readings or damage the meter.",
+      "flashcard": {
+        "term": "Measuring resistance — prerequisites",
+        "definition": "Before measuring resistance with a multimeter, ensure the circuit is de-energized (power off) and ideally the component is isolated from parallel paths. The meter supplies a small test current; any applied voltage from the circuit disrupts the measurement and can damage the meter's ohms range.",
+        "analogy": "Resistance measurement requires a 'still' circuit — the meter can't compete with live voltage.",
+        "unit": "Test Equipment — DMM"
+      },
+      "jeopardy": {
+        "question": "Before measuring resistance with a multimeter, this must be ensured.",
+        "choices": [
+          "The circuit is energized and operating",
+          "The circuit is de-energized (power off), and ideally the component is isolated from parallel paths",
+          "The component is hot",
+          "The component is installed in another circuit for reference"
+        ],
+        "correctIndex": 1,
+        "explanation": "Resistance measurement requires a de-energized circuit. Energized circuits disrupt the measurement and can damage the meter."
+      },
+      "multipleChoice": {
+        "question": "When using a multimeter to measure resistance, what must be ensured?",
+        "choices": [
+          "The circuit must be energized so the component is at its operating state",
+          "The circuit must be de-energized (power off), and ideally the component should be isolated from parallel paths",
+          "The component must be heated",
+          "The component must be installed in another circuit"
+        ],
+        "correctIndex": 1,
+        "explanation": "Resistance is measured with the meter's own small test current. Any applied voltage from the circuit will produce invalid readings and can damage the meter. The correct practice is to de-energize the circuit and, when possible, isolate the component."
+      },
+      "practice": {
+        "question": "A technician wants to check the resistance of a resistor on an energized circuit board. What is the correct practice?",
+        "choices": [
+          "Measure it while energized — modern meters can handle it",
+          "De-energize the circuit before measuring resistance. Measuring resistance with the circuit energized will give invalid readings because the meter's test current competes with the circuit's voltage, and can damage the meter's ohms range",
+          "Measure it with the meter set to AC volts",
+          "Skip the measurement entirely"
+        ],
+        "correctIndex": 1,
+        "explanation": "Resistance measurement requires a de-energized circuit. Modern meters have some protection, but relying on it is not good practice — de-energize the circuit, ensure isolation where possible, then measure. Measuring with the meter on the wrong function (AC volts) would not give resistance."
+      },
+      "preassessment": {
+        "question": "Before measuring resistance, the circuit must be:",
+        "choices": [
+          "Energized",
+          "De-energized (power off)",
+          "Heated",
+          "Installed in a reference circuit"
+        ],
+        "correctIndex": 1
+      }
+    },
+    {
+      "id": "CAT7-NEW-004",
+      "category": "mod7-tools-test-equipment",
+      "difficulty": "medium",
+      "tags": [
+        "multimeter",
+        "ol",
+        "over-range",
+        "open-circuit"
+      ],
+      "learningObjective": "Interpret an 'OL' display on a multimeter set to the ohms range",
+      "fullObjective": "Recognize that when a multimeter set to ohms displays 'OL' (over-limit or over-range), it means the resistance being measured is greater than the meter's selected range — most commonly indicating an open circuit or infinite resistance.",
+      "flashcard": {
+        "term": "'OL' reading on ohms range",
+        "definition": "When a multimeter set to ohms shows 'OL' (over-limit/over-range), the resistance exceeds the meter's selected range. In practical troubleshooting, this most often indicates an open circuit (broken wire, open switch, blown fuse, or blown component) — the resistance is effectively infinite.",
+        "analogy": "'OL' on ohms = 'too much resistance to measure' = usually 'no connection at all.'",
+        "unit": "Test Equipment — DMM"
+      },
+      "jeopardy": {
+        "question": "A multimeter set to the ohms range shows 'OL.' This is what the reading means.",
+        "choices": [
+          "The meter is overloaded and damaged",
+          "The resistance exceeds the meter's selected range — most commonly indicating an open circuit (infinite resistance)",
+          "The circuit is hot with voltage",
+          "The meter is out of calibration"
+        ],
+        "correctIndex": 1,
+        "explanation": "'OL' means 'over-limit' — the resistance is greater than the meter's scale can show. In troubleshooting, this almost always means an open circuit. The meter itself is fine, the circuit is open."
+      },
+      "multipleChoice": {
+        "question": "A multimeter set to ohms (Ω) shows 'OL.' What does this reading mean?",
+        "choices": [
+          "The meter has been damaged by overload",
+          "The resistance being measured is greater than the meter's selected range — most commonly indicating an open circuit (effectively infinite resistance)",
+          "The circuit is energized with dangerous voltage",
+          "The meter's internal calibration has drifted"
+        ],
+        "correctIndex": 1,
+        "explanation": "'OL' is 'over-limit' or 'over-range.' The meter is working correctly but the resistance exceeds its scale. In field troubleshooting, 'OL' almost always means an open circuit — the resistance path is broken. This is a valuable diagnostic indication."
+      },
+      "practice": {
+        "question": "A technician is looking for a broken wire in a circuit. The multimeter is set to ohms, and when probed across the suspect wire it reads 'OL.' What does this tell the technician?",
+        "choices": [
+          "The wire is fine",
+          "The wire is open — the resistance is beyond the meter's measurement range, which indicates a broken conductor or open splice. The technician has identified the fault location",
+          "The circuit is energized",
+          "The meter is faulty"
+        ],
+        "correctIndex": 1,
+        "explanation": "'OL' across a wire that should read near zero ohms (a good conductor) positively identifies it as open. This is a classic continuity-troubleshooting technique: a good wire reads near zero, a broken wire reads OL. The technician has successfully located the fault."
+      },
+      "preassessment": {
+        "question": "What does 'OL' mean on a multimeter set to ohms?",
+        "choices": [
+          "Meter is overloaded/damaged",
+          "Resistance exceeds the range (often an open circuit)",
+          "Circuit is hot with voltage",
+          "Meter is out of calibration"
+        ],
+        "correctIndex": 1
+      }
+    },
+    {
+      "id": "CAT7-NEW-005",
+      "category": "mod7-tools-test-equipment",
+      "difficulty": "medium",
+      "tags": [
+        "multimeter",
+        "continuity",
+        "broken-wire"
+      ],
+      "learningObjective": "Identify the most effective multimeter test to confirm a suspected broken wire",
+      "fullObjective": "Recognize that a continuity test (or resistance test, reading near zero for a good wire and 'OL' for a broken one) with the circuit de-energized is the most effective way to confirm a suspected broken wire.",
+      "flashcard": {
+        "term": "Confirming a broken wire — continuity test",
+        "definition": "With the circuit de-energized, set the multimeter to continuity (or ohms) and probe across the suspect wire. A good wire reads near zero ohms (audible beep in continuity mode); a broken wire reads 'OL' (no continuity, no beep). This is the most direct and reliable test for a suspected broken wire.",
+        "analogy": "Continuity testing is the simplest 'is this wire connected?' check. If the meter beeps or reads zero, it's connected. If it reads OL, it's not.",
+        "unit": "Test Equipment — DMM"
+      },
+      "jeopardy": {
+        "question": "This multimeter test is the MOST effective way to confirm a suspected broken wire.",
+        "choices": [
+          "AC voltage test",
+          "Continuity (or ohms) test with the circuit de-energized",
+          "Oscilloscope waveform analysis",
+          "Visual inspection only, with no meter"
+        ],
+        "correctIndex": 1,
+        "explanation": "Continuity/resistance testing directly confirms whether the wire is connected. AC voltage tests are for energized circuits. Oscilloscopes are overkill for a simple continuity question. Visual inspection alone cannot identify internal conductor breaks with intact insulation."
+      },
+      "multipleChoice": {
+        "question": "Which multimeter test is the MOST effective way to confirm a suspected broken wire?",
+        "choices": [
+          "AC voltage test",
+          "Continuity (or resistance) test with the circuit de-energized — a good wire reads near zero ohms (or beeps in continuity mode); a broken wire reads 'OL' (open)",
+          "Oscilloscope waveform analysis",
+          "Visual inspection only"
+        ],
+        "correctIndex": 1,
+        "explanation": "Continuity is the direct test for 'is this wire connected?' With the circuit de-energized, probe the two ends of the wire. Near-zero ohms (or a beep) means the wire is good. 'OL' means open. This is faster and more definitive than voltage testing or oscilloscope use, and more reliable than visual inspection alone."
+      },
+      "practice": {
+        "question": "A pilot reports that a warning light does not illuminate when it should. The technician suspects a broken wire between the sensor and the warning light. What is the most effective test?",
+        "choices": [
+          "Test the AC voltage on the wire",
+          "De-energize the circuit, set the multimeter to continuity (or ohms), and probe across the suspect wire from the sensor end to the warning-light end. A good wire reads near zero ohms; a broken wire reads 'OL,' confirming the break",
+          "Observe the wire visually for several hours",
+          "Replace the warning light first"
+        ],
+        "correctIndex": 1,
+        "explanation": "The continuity test directly answers the question. It is far more definitive than visual inspection (which misses internal breaks), faster than AC voltage testing (wrong tool), and avoids replacing innocent components (the warning light) without evidence. If the wire reads OL, the wire is broken and can be repaired."
+      },
+      "preassessment": {
+        "question": "Best multimeter test for a suspected broken wire?",
+        "choices": [
+          "AC voltage",
+          "Continuity test with circuit de-energized",
+          "Oscilloscope",
+          "Visual inspection only"
+        ],
+        "correctIndex": 1
+      }
+    },
+    {
+      "id": "CAT7-NEW-006",
+      "category": "mod7-tools-test-equipment",
+      "difficulty": "medium",
+      "tags": [
+        "multimeter",
+        "zero-volts",
+        "active-circuit",
+        "short-to-ground"
+      ],
+      "learningObjective": "Identify possible causes of a 0 V reading across a component in an active circuit",
+      "fullObjective": "Recognize that a 0 V reading across a component in an energized circuit could mean the component is shorted (zero ohms, dropping no voltage), the component is bypassed by a parallel short, or the component is not in the current path (e.g., a break upstream so no current flows — though that also produces 0 V differently).",
+      "flashcard": {
+        "term": "0 V across a component in active circuit",
+        "definition": "A 0 V reading across a component in an active circuit can indicate: (1) the component is shorted (zero resistance, so V=IR=0), (2) a parallel short bypasses the component, or (3) there is no current flowing (an upstream break) so there is no voltage drop to measure. The interpretation depends on whether current is flowing and the circuit's expected behavior.",
+        "analogy": "Zero volts across a component means either 'the component offers no resistance' or 'no current is flowing through it' — both can happen.",
+        "unit": "Test Equipment — DMM"
+      },
+      "jeopardy": {
+        "question": "If you measure 0 V across a component in an active circuit, this is a possible cause.",
+        "choices": [
+          "The circuit must be powered off",
+          "The component is shorted internally, a parallel short bypasses it, or no current is flowing through the circuit due to an upstream break",
+          "The meter must be broken",
+          "The component is functioning normally"
+        ],
+        "correctIndex": 1,
+        "explanation": "0 V with current flowing means zero resistance (shorted). 0 V with no current flowing can occur when an upstream break eliminates the current, leaving no voltage drop to measure. Either way, it merits investigation."
+      },
+      "multipleChoice": {
+        "question": "If you measure 0 V across a component in an active circuit, a possible cause is:",
+        "choices": [
+          "The circuit must be powered off",
+          "The component is shorted internally, a parallel short bypasses it, or no current is flowing (upstream break)",
+          "The meter is damaged",
+          "The component is functioning normally"
+        ],
+        "correctIndex": 1,
+        "explanation": "0 V across a component can indicate a short in that component (V = IR = 0 if R = 0), a parallel path shorting it, or the absence of current (an upstream break) so there is no voltage drop to measure. A healthy component with current flowing would show a non-zero voltage drop determined by its resistance and the circuit current."
+      },
+      "practice": {
+        "question": "A technician reads 0 V across a resistor that is supposed to be dropping voltage in an active circuit. What hypotheses should the technician investigate?",
+        "choices": [
+          "The resistor is definitely fine",
+          "The resistor may be shorted (zero resistance), a parallel short may be bypassing it, or there may be no current flowing due to an upstream break. The technician should verify current flow through the circuit and check for shorts",
+          "The meter is always wrong in such cases",
+          "Replace the resistor immediately without testing"
+        ],
+        "correctIndex": 1,
+        "explanation": "0 V on a component that should be dropping voltage is a symptom, not a diagnosis. Verify whether current is flowing (ammeter in the branch or a voltage drop elsewhere in the circuit). If current flows, the component is shorted. If no current flows, find the upstream break. Either way, replacement without diagnosis risks chasing the wrong problem."
+      },
+      "preassessment": {
+        "question": "0 V across a component in an active circuit — possible cause?",
+        "choices": [
+          "Circuit must be off",
+          "Component is shorted, parallel short, or no current flowing",
+          "Meter is broken",
+          "Component is normal"
+        ],
+        "correctIndex": 1
+      }
+    },
+    {
+      "id": "CAT7-NEW-007",
+      "category": "mod7-tools-test-equipment",
+      "difficulty": "easy",
+      "tags": [
+        "multimeter",
+        "function",
+        "purpose"
+      ],
+      "learningObjective": "Describe the primary function of a multimeter",
+      "fullObjective": "Recognize that the primary function of a multimeter is to measure multiple electrical quantities — voltage, current, and resistance — with additional features (continuity, diode test, capacitance, frequency) on modern units.",
+      "flashcard": {
+        "term": "Multimeter primary function",
+        "definition": "A multimeter is a multi-function electrical test instrument that measures voltage (V), current (A), and resistance (Ω) in a single unit. Modern DMMs (digital multimeters) add features including continuity, diode test, capacitance, frequency, and temperature.",
+        "analogy": "A multimeter is the Swiss Army knife of electrical measurement — several common measurement functions in one tool.",
+        "unit": "Test Equipment — DMM"
+      },
+      "jeopardy": {
+        "question": "This is the primary function of a multimeter.",
+        "choices": [
+          "To generate electrical signals",
+          "To measure multiple electrical quantities — primarily voltage, current, and resistance",
+          "To convert AC to DC",
+          "To amplify weak signals"
+        ],
+        "correctIndex": 1,
+        "explanation": "A multimeter measures — it does not generate signals, convert power, or amplify. The three core measurements are voltage, current, and resistance."
+      },
+      "multipleChoice": {
+        "question": "What is the primary function of a multimeter?",
+        "choices": [
+          "To generate electrical signals for circuit testing",
+          "To measure multiple electrical quantities — primarily voltage (V), current (A), and resistance (Ω) — in a single instrument",
+          "To convert AC to DC",
+          "To amplify weak signals"
+        ],
+        "correctIndex": 1,
+        "explanation": "A multimeter's purpose is measurement. The three core measurements are voltage, current, and resistance. Modern DMMs add continuity, diode test, capacitance, frequency, and sometimes temperature. Signal generation, AC/DC conversion, and amplification are separate functions for separate equipment."
+      },
+      "practice": {
+        "question": "A new technician is asked to verify voltage on a bus, check current draw of a load, and measure resistance of a component. How many instruments are needed at minimum?",
+        "choices": [
+          "Three different instruments",
+          "One — a standard multimeter combines voltage, current, and resistance measurement in a single unit (on different function settings)",
+          "Four, plus an oscilloscope",
+          "Two, but only for voltage and resistance; current requires a separate ammeter"
+        ],
+        "correctIndex": 1,
+        "explanation": "One multimeter handles all three tasks, switching among V, A, and Ω functions. Modern DMMs integrate these measurements, so separate voltmeters, ammeters, and ohmmeters are rarely needed in general avionics work."
+      },
+      "preassessment": {
+        "question": "What is the primary function of a multimeter?",
+        "choices": [
+          "Generate signals",
+          "Measure V, A, and Ω",
+          "Convert AC to DC",
+          "Amplify signals"
+        ],
+        "correctIndex": 1
+      }
+    },
+    {
+      "id": "CAT7-NEW-008",
+      "category": "mod7-tools-test-equipment",
+      "difficulty": "hard",
+      "tags": [
+        "oscilloscope",
+        "waveform",
+        "visualization"
+      ],
+      "learningObjective": "Describe what an oscilloscope is used to visualize",
+      "fullObjective": "Recognize that an oscilloscope is used to visualize electrical signal waveforms — voltage plotted as a function of time — enabling the technician to see signal shape, amplitude, frequency, rise/fall times, and anomalies that a multimeter cannot show.",
+      "flashcard": {
+        "term": "Oscilloscope",
+        "definition": "An oscilloscope visualizes electrical signal waveforms by plotting voltage as a function of time. The display reveals signal shape, amplitude, frequency, period, rise/fall times, ringing, glitches, and noise — information that a multimeter (which returns only magnitudes) cannot show.",
+        "analogy": "An oscilloscope is to electrical signals what a high-speed camera is to motion — it reveals how things change over time, not just their average state.",
+        "unit": "Test Equipment — Oscilloscope"
+      },
+      "jeopardy": {
+        "question": "An oscilloscope is used to visualize this.",
+        "choices": [
+          "Electrical resistance",
+          "Electrical signal waveforms (voltage plotted as a function of time)",
+          "Magnetic field strength",
+          "Pressure"
+        ],
+        "correctIndex": 1,
+        "explanation": "An oscilloscope displays waveforms — voltage vs time. Resistance is measured by ohmmeters; magnetic fields by gaussmeters; pressure by pressure gauges or ADCs."
+      },
+      "multipleChoice": {
+        "question": "An oscilloscope is used to visualize:",
+        "choices": [
+          "Electrical resistance values directly",
+          "Electrical signal waveforms — voltage plotted as a function of time — revealing signal shape, amplitude, frequency, and timing characteristics",
+          "Magnetic field strength in gauss",
+          "Pressure in inches of mercury"
+        ],
+        "correctIndex": 1,
+        "explanation": "An oscilloscope is a time-domain display instrument. It plots voltage on the vertical axis against time on the horizontal axis. This reveals waveform shape, amplitude, period, frequency, rise/fall times, and any anomalies — information that multimeters (which return scalar magnitudes) cannot show. Resistance, magnetic field, and pressure are measured by other instruments."
+      },
+      "practice": {
+        "question": "A technician needs to verify the shape of a digital clock signal to ensure clean transitions with no ringing or overshoot. Which test instrument is appropriate?",
+        "choices": [
+          "A multimeter set to AC volts",
+          "An oscilloscope, which displays voltage as a function of time and reveals waveform shape, rise and fall times, ringing, and any anomalies that would not be visible in a simple magnitude measurement",
+          "A megohmmeter",
+          "A milliohmmeter"
+        ],
+        "correctIndex": 1,
+        "explanation": "Waveform analysis — clean transitions, ringing, overshoot — is exactly what an oscilloscope is designed for. A multimeter can only report a magnitude (RMS or average) and cannot show the time-domain shape. Meggers and milliohmmeters are specialty meters for different purposes entirely."
+      },
+      "preassessment": {
+        "question": "What does an oscilloscope visualize?",
+        "choices": [
+          "Resistance",
+          "Voltage waveforms (voltage vs time)",
+          "Magnetic fields",
+          "Pressure"
+        ],
+        "correctIndex": 1
+      }
+    },
+    {
+      "id": "CAT7-NEW-009",
+      "category": "mod7-tools-test-equipment",
+      "difficulty": "easy",
+      "tags": [
+        "megger",
+        "insulation-resistance",
+        "purpose"
+      ],
+      "learningObjective": "Describe what a megohmmeter (megger) is used to test",
+      "fullObjective": "Recognize that a megohmmeter (megger) is used to test insulation resistance — applying a high DC voltage (typically 250 V, 500 V, or 1000 V) between a conductor and ground or between two conductors and measuring the very high resistance of the insulation in the megohm or gigaohm range.",
+      "flashcard": {
+        "term": "Megohmmeter (megger)",
+        "definition": "A megohmmeter, commonly called a megger, is a specialty test instrument that applies a high DC voltage (typically 250 V, 500 V, or 1000 V) between a conductor and ground (or between two conductors) to measure insulation resistance in the megohm or gigaohm range. Good insulation reads hundreds of megohms or higher; degraded insulation reads lower values.",
+        "analogy": "A megger tests the 'quality' of insulation by pushing it hard with high voltage and measuring how much leaks through.",
+        "unit": "Test Equipment — Megger"
+      },
+      "jeopardy": {
+        "question": "This is what a megohmmeter (megger) is used to test.",
+        "choices": [
+          "Wire length",
+          "Insulation resistance between a conductor and ground (or between two conductors), in the megohm range",
+          "Signal frequency",
+          "Ground bonding resistance in milliohms"
+        ],
+        "correctIndex": 1,
+        "explanation": "Meggers test insulation resistance at high voltage. Wire length is measured by TDR or physical measurement. Signal frequency is measured by a frequency counter or oscilloscope. Ground bonding is measured by a milliohmmeter, not a megger."
+      },
+      "multipleChoice": {
+        "question": "A megohmmeter (megger) is used to test:",
+        "choices": [
+          "Wire length using time-domain reflectometry",
+          "Insulation resistance — measuring the very high resistance of insulation between a conductor and ground or between two conductors, applying a high DC voltage (typically 250-1000 V) for the test",
+          "Signal frequency with high accuracy",
+          "Ground bonding resistance in milliohms"
+        ],
+        "correctIndex": 1,
+        "explanation": "A megger tests insulation resistance. It applies a high DC voltage to stress the insulation and measures the small leakage current to compute resistance in the megohm range. Meggers are used to identify degraded insulation before it fails in service. Length measurement uses TDR; frequency uses a counter; bonding resistance uses a milliohmmeter."
+      },
+      "practice": {
+        "question": "A technician is verifying the integrity of a newly installed wire harness before energizing the circuit. The test procedure calls for 'megger testing at 500 V between each conductor and ground.' What is the purpose of this test?",
+        "choices": [
+          "To measure the wire's resistance per foot",
+          "To measure insulation resistance — high DC voltage is applied between each conductor and ground, and the resulting very high resistance (typically hundreds of megohms or more) confirms the insulation is intact and free of defects. Lower readings would indicate compromised insulation",
+          "To check the wire's current-carrying capacity",
+          "To measure the frequency response of the cable"
+        ],
+        "correctIndex": 1,
+        "explanation": "Megger testing is an insulation-integrity test. Good insulation shows very high resistance (hundreds of MΩ or higher). Compromised insulation — from damage, moisture, or contamination — shows lower resistance, identifying the problem before the circuit is energized and potentially damages the aircraft. Conductor resistance, current capacity, and frequency response are measured by other means."
+      },
+      "preassessment": {
+        "question": "What does a megohmmeter test?",
+        "choices": [
+          "Wire length",
+          "Insulation resistance",
+          "Signal frequency",
+          "Bonding in milliohms"
+        ],
+        "correctIndex": 1
+      }
+    },
+    {
+      "id": "CAT7-NEW-010",
+      "category": "mod7-tools-test-equipment",
+      "difficulty": "medium",
+      "tags": [
+        "megger",
+        "safety",
+        "high-voltage"
+      ],
+      "learningObjective": "Identify the important safety precaution when using a megohmmeter",
+      "fullObjective": "Recognize that when using a megohmmeter, the most important safety precaution is to disconnect the circuit from its power source AND from any sensitive electronics (solid-state components, avionics) before applying megger voltage, because the high DC test voltage will damage electronics that are not rated for it.",
+      "flashcard": {
+        "term": "Megger safety precaution",
+        "definition": "When using a megohmmeter, the circuit must be disconnected from its power source and from any sensitive solid-state electronics before applying the high DC test voltage (typically 250-1000 V). Megger voltage will damage semiconductors and modern avionics. After testing, the capacitance in the cable or insulation system must be discharged before handling.",
+        "analogy": "A megger is a high-voltage test — anything sensitive connected to the circuit during the test will be damaged. Always isolate before testing.",
+        "unit": "Test Equipment — Megger"
+      },
+      "jeopardy": {
+        "question": "This is an important safety precaution when using a megohmmeter (megger).",
+        "choices": [
+          "Leave all avionics connected for a realistic test",
+          "Disconnect the circuit from its power source AND from any sensitive solid-state electronics or avionics before applying megger voltage; discharge the capacitance in the system after testing",
+          "Apply continuous voltage with no cool-down",
+          "Ignore manufacturer maximum test voltages"
+        ],
+        "correctIndex": 1,
+        "explanation": "Megger voltage damages solid-state electronics and avionics. Isolate before testing. Post-test discharge is important to handle safely. Manufacturer voltage limits must be respected."
+      },
+      "multipleChoice": {
+        "question": "When using a megohmmeter (megger), which is an important safety precaution?",
+        "choices": [
+          "Leave all avionics and sensitive electronics connected to the circuit for a realistic test",
+          "Disconnect the circuit from its power source AND from any sensitive solid-state electronics or avionics before applying the megger's high DC test voltage; also, discharge any capacitance in the system after the test before handling",
+          "Apply the test voltage continuously for as long as possible without cool-down",
+          "Ignore the manufacturer's maximum test voltage ratings for circuits being tested"
+        ],
+        "correctIndex": 1,
+        "explanation": "Megger voltage will damage solid-state electronics, avionics, and sensitive components. Always isolate the circuit from these before testing. After the test, discharge the capacitance in the insulation system (with a discharge stick or the megger's own discharge function) before handling. Respecting manufacturer maximum voltages is essential."
+      },
+      "practice": {
+        "question": "A technician plans to megger-test a harness that currently has an avionics LRU connected at one end. What is the required preparation before testing?",
+        "choices": [
+          "Leave the LRU connected and test anyway",
+          "Disconnect the LRU from the harness before applying megger voltage. Also ensure the harness is de-energized from aircraft power. After testing, discharge any capacitive storage in the cable before handling. Only then is it safe to reconnect the LRU",
+          "Only disconnect aircraft power but leave the LRU connected",
+          "Ignore the precaution if the megger is set to the lowest voltage"
+        ],
+        "correctIndex": 1,
+        "explanation": "Megger voltage will damage the LRU. Always isolate sensitive electronics before testing. Even the lowest megger voltage (typically 250 V) exceeds most avionics input ratings. Proper procedure: disconnect LRU, verify harness de-energized, megger-test, discharge capacitance, reconnect LRU."
+      },
+      "preassessment": {
+        "question": "Important megger safety precaution?",
+        "choices": [
+          "Leave avionics connected",
+          "Disconnect power and sensitive electronics before testing; discharge after",
+          "Apply continuous voltage",
+          "Ignore max voltage limits"
+        ],
+        "correctIndex": 1
+      }
+    },
+    {
+      "id": "CAT7-NEW-011",
+      "category": "mod7-tools-test-equipment",
+      "difficulty": "medium",
+      "tags": [
+        "milliohmmeter",
+        "bonding",
+        "low-resistance"
+      ],
+      "learningObjective": "Describe the primary use of a milliohmmeter",
+      "fullObjective": "Recognize that a milliohmmeter is primarily used to measure very low resistances in the milliohm range — typically for verifying bond resistance, contact resistance, and conductor quality where standard DMM ohms ranges lack resolution.",
+      "flashcard": {
+        "term": "Milliohmmeter",
+        "definition": "A milliohmmeter is a specialty meter designed to measure very low resistances in the milliohm range (thousandths of an ohm). It is used for verifying bond resistance, contact resistance, and conductor quality — measurements where a standard DMM's ohms range cannot resolve the small values. Milliohmmeters typically use a four-wire Kelvin connection to eliminate lead and contact resistance from the measurement.",
+        "analogy": "A milliohmmeter is the precision tool for measuring 'near-zero' resistance, where a standard DMM just reads 'near zero' without usable detail.",
+        "unit": "Test Equipment — Milliohmmeter"
+      },
+      "jeopardy": {
+        "question": "This is the primary use of a milliohmmeter.",
+        "choices": [
+          "Measuring high-voltage insulation resistance",
+          "Measuring very low resistances in the milliohm range, such as bonding resistance and contact resistance",
+          "Generating test signals",
+          "Measuring signal frequency"
+        ],
+        "correctIndex": 1,
+        "explanation": "Milliohmmeters measure very low resistances (milliohms). Insulation resistance is for meggers. Signal generation requires a function generator. Frequency measurement uses a counter or scope."
+      },
+      "multipleChoice": {
+        "question": "A milliohmmeter is primarily used to:",
+        "choices": [
+          "Measure high-voltage insulation resistance",
+          "Measure very low resistances in the milliohm range, such as bond resistance, contact resistance, and conductor integrity",
+          "Generate test signals for circuit stimulus",
+          "Measure the frequency of an AC signal"
+        ],
+        "correctIndex": 1,
+        "explanation": "A milliohmmeter measures very low resistance values. Its four-wire Kelvin measurement eliminates the lead and contact resistance that would dominate a two-wire DMM reading. Common uses include verifying aircraft bonding (milliohm-scale target), contact resistance in connectors, and conductor integrity. Insulation resistance, signal generation, and frequency measurement are different tasks with different instruments."
+      },
+      "practice": {
+        "question": "A technician needs to verify an aircraft bonding strap is within specification (typically well under 10 milliohms). Which instrument is appropriate?",
+        "choices": [
+          "A standard DMM on the ohms setting",
+          "A milliohmmeter with four-wire Kelvin measurement, because the target value is in milliohms and a standard DMM's lead and contact resistance would dominate the reading",
+          "A megger at 500 V",
+          "A frequency counter"
+        ],
+        "correctIndex": 1,
+        "explanation": "The target measurement is in milliohms, which is beyond the usable resolution of a standard DMM. A milliohmmeter's four-wire Kelvin technique cancels out lead and contact resistance, giving a true bond resistance reading. Megger and frequency counter are entirely different instruments for different tasks."
+      },
+      "preassessment": {
+        "question": "What is the milliohmmeter primarily used for?",
+        "choices": [
+          "High-voltage insulation testing",
+          "Measuring very low resistance (bonding, contact resistance)",
+          "Generating test signals",
+          "Measuring frequency"
+        ],
+        "correctIndex": 1
+      }
+    },
+    {
+      "id": "CAT7-NEW-012",
+      "category": "mod7-tools-test-equipment",
+      "difficulty": "easy",
+      "tags": [
+        "center-punch",
+        "hand-tool",
+        "purpose"
+      ],
+      "learningObjective": "Describe the primary purpose of a center punch in an avionics repair shop",
+      "fullObjective": "Recognize that a center punch is used to create a small indentation in metal that guides a drill bit, preventing the drill from 'walking' across the surface during drilling.",
+      "flashcard": {
+        "term": "Center punch",
+        "definition": "A center punch is a hand tool used to create a small conical indentation in metal that serves as a starting point for a drill bit. The indentation prevents the drill from 'walking' (sliding sideways) across the metal surface before it begins cutting, resulting in an accurately located hole.",
+        "analogy": "A center punch 'marks the spot' with a small dimple that captures the drill bit and keeps it from sliding off target.",
+        "unit": "Hand Tools"
+      },
+      "jeopardy": {
+        "question": "This is the primary purpose of a center punch in an avionics repair shop.",
+        "choices": [
+          "To drive nails into hardwood",
+          "To create a small indentation in metal that guides a drill bit and prevents it from walking during drilling",
+          "To test electrical continuity",
+          "To remove burrs from drilled holes"
+        ],
+        "correctIndex": 1,
+        "explanation": "A center punch creates a pilot indentation for drilling. Nail driving uses a hammer. Continuity testing uses a meter. Burr removal uses a deburring tool or countersink."
+      },
+      "multipleChoice": {
+        "question": "What is the primary purpose of a center punch in an avionics repair shop?",
+        "choices": [
+          "To drive nails into hardwood structures",
+          "To create a small indentation in metal that guides a drill bit, preventing the drill from 'walking' across the surface during drilling",
+          "To test electrical continuity in circuits",
+          "To remove burrs from drilled holes"
+        ],
+        "correctIndex": 1,
+        "explanation": "A center punch makes a conical indentation on a marked drill location. The indentation holds the tip of the drill bit in place during the first moments of drilling, preventing the bit from sliding ('walking') and ensuring the hole is located accurately. Other uses — nail driving, continuity testing, and deburring — require different tools."
+      },
+      "practice": {
+        "question": "A technician has marked a hole location on an aluminum panel and is about to drill. Why should the technician use a center punch before starting the drill?",
+        "choices": [
+          "To clean debris from the panel surface",
+          "To create an indentation at the marked location that captures the drill bit and prevents it from walking, ensuring the hole is drilled exactly where intended",
+          "To test the drill bit's sharpness",
+          "To cool the drill bit before use"
+        ],
+        "correctIndex": 1,
+        "explanation": "Without a center-punched starting point, a drill bit can slide across a flat metal surface before it begins cutting, producing a misplaced hole. The center-punched dimple captures the bit tip and holds it on the intended location. Cleaning, sharpness testing, and cooling are unrelated to the center punch function."
+      },
+      "preassessment": {
+        "question": "What is the primary purpose of a center punch?",
+        "choices": [
+          "Driving nails",
+          "Creating a drill-starting indentation in metal",
+          "Testing continuity",
+          "Deburring"
+        ],
+        "correctIndex": 1
+      }
+    },
+    {
+      "id": "CAT7-NEW-013",
+      "category": "mod7-tools-test-equipment",
+      "difficulty": "medium",
+      "tags": [
+        "screwdriver",
+        "technique",
+        "damage-prevention"
+      ],
+      "learningObjective": "Identify the most important factor when using a manual screwdriver to prevent damage to the screw head",
+      "fullObjective": "Recognize that the most important factor when using a manual screwdriver is matching the driver tip exactly to the screw head type and size, ensuring full engagement with the screw head to distribute torque evenly and prevent cam-out.",
+      "flashcard": {
+        "term": "Manual screwdriver technique",
+        "definition": "The most important factor when using a manual screwdriver is matching the driver tip exactly to the screw head — correct type (Phillips, flat, Torx, etc.), correct size, and full engagement with the screw head. Mismatched tips cam out, damaging the screw head and sometimes the underlying part. Apply axial pressure to keep the driver fully seated while turning.",
+        "analogy": "A screwdriver that matches the screw fits like a key in a lock — full engagement means force is distributed, not concentrated on a corner.",
+        "unit": "Hand Tools"
+      },
+      "jeopardy": {
+        "question": "When using a manual screwdriver, this is the MOST important factor for preventing damage to the screw head.",
+        "choices": [
+          "Using the longest available screwdriver",
+          "Matching the driver tip exactly to the screw head type and size and ensuring full engagement",
+          "Using maximum torque regardless of the screw",
+          "Lubricating the driver tip with grease"
+        ],
+        "correctIndex": 1,
+        "explanation": "Correct tip-to-screw match and full engagement distribute torque evenly. Longest driver is not a factor. Max torque is dangerous. Greasing the driver tip would just make it slip."
+      },
+      "multipleChoice": {
+        "question": "When using a manual screwdriver, what is the MOST important factor to consider to prevent damage to the screw head?",
+        "choices": [
+          "Using the longest available screwdriver",
+          "Matching the driver tip to the screw head exactly — correct type (Phillips, flat, Torx, etc.) and correct size — with full engagement in the screw head",
+          "Using maximum torque regardless of the screw",
+          "Lubricating the driver tip with grease for easier insertion"
+        ],
+        "correctIndex": 1,
+        "explanation": "Tip-to-screw match and full engagement are the key factors. A correctly matched and fully seated driver transfers torque evenly around the full engagement surface. A mismatched or poorly seated driver concentrates force on a few corners, causing cam-out and screw-head damage. Length does not matter for this consideration; maximum torque is dangerous; greasing the tip causes slippage."
+      },
+      "practice": {
+        "question": "A technician is removing a Phillips-head screw but the screwdriver keeps slipping out and the screw head is showing wear. What is the most likely fix?",
+        "choices": [
+          "Use more torque",
+          "Stop, examine the screw head, and match the correct Phillips size (typically #0, #1, #2, or #3) fully engaged in the screw. If the screw head is already damaged, switch to a tool designed for removing damaged screws (screw extractor, oversize bit, or locking pliers)",
+          "Lubricate the driver tip",
+          "Use a longer screwdriver"
+        ],
+        "correctIndex": 1,
+        "explanation": "The slipping suggests a mismatched driver size or already-damaged screw head. Correct action: stop before further damage, verify correct driver size, re-engage fully, and proceed. If the head is too damaged to re-engage, use a screw extractor or other damaged-screw tool. More torque on a slipping bit only worsens the damage. Lubrication and longer drivers do not address the root cause."
+      },
+      "preassessment": {
+        "question": "What prevents screwdriver damage to a screw head?",
+        "choices": [
+          "Longest driver",
+          "Matching tip size/type with full engagement",
+          "Maximum torque",
+          "Greased driver tip"
+        ],
+        "correctIndex": 1
+      }
+    },
+    {
+      "id": "CAT7-NEW-014",
+      "category": "mod7-tools-test-equipment",
+      "difficulty": "easy",
+      "tags": [
+        "wire-crimper",
+        "function",
+        "tool"
+      ],
+      "learningObjective": "Describe the function of a wire crimper in aircraft wiring work",
+      "fullObjective": "Recognize that a wire crimper is a hand tool that compresses a terminal barrel or connector onto a wire with the correct geometry and force, creating a gas-tight mechanical and electrical connection between conductor and terminal.",
+      "flashcard": {
+        "term": "Wire crimper",
+        "definition": "A wire crimper compresses a terminal or connector barrel onto a wire with controlled geometry and force, producing a gas-tight mechanical and electrical connection between conductor and terminal. Aircraft crimpers have ratcheting mechanisms that ensure the crimp completes to specification; they are matched to specific terminal types and wire gauges.",
+        "analogy": "A crimper is like a precision vise that squeezes a terminal into permanent contact with a wire — the right shape, the right force, every time.",
+        "unit": "Hand Tools — Crimping"
+      },
+      "jeopardy": {
+        "question": "This is the function of a wire crimper.",
+        "choices": [
+          "To cut wire to length",
+          "To compress a terminal or connector barrel onto a wire with controlled geometry and force, creating a gas-tight electrical and mechanical connection",
+          "To strip insulation from a wire",
+          "To apply solder to a joint"
+        ],
+        "correctIndex": 1,
+        "explanation": "A crimper compresses a terminal onto a wire. Cutting is done by cutters. Stripping is done by a stripper. Soldering uses a soldering iron."
+      },
+      "multipleChoice": {
+        "question": "What is the function of a wire crimper?",
+        "choices": [
+          "To cut a wire to a specified length",
+          "To compress a terminal or connector barrel onto a wire with controlled geometry and force, producing a gas-tight electrical and mechanical connection",
+          "To strip insulation from the end of a wire",
+          "To melt solder onto a wire joint"
+        ],
+        "correctIndex": 1,
+        "explanation": "A wire crimper creates the terminal-to-wire connection by compressing the terminal's barrel onto the conductor under controlled force. Aircraft crimpers use ratcheting mechanisms that ensure the crimp reaches the correct compression before releasing. Cutting, stripping, and soldering are separate operations requiring separate tools."
+      },
+      "practice": {
+        "question": "A technician has stripped insulation from a wire end and selected the correct terminal. What is the next step, and which tool is used?",
+        "choices": [
+          "Solder the wire to the terminal with a soldering iron",
+          "Crimp the terminal onto the wire using an approved aircraft crimper with the correct positioner for the terminal type and wire gauge, producing a gas-tight mechanical and electrical connection",
+          "Leave the wire in the terminal without crimping",
+          "Wrap the joint in electrical tape"
+        ],
+        "correctIndex": 1,
+        "explanation": "The standard aircraft termination process is strip, insert into terminal barrel, crimp with the correct tool. Soldering is used for specific termination types but the majority of aircraft terminations are crimped. Leaving a terminal unsecured is unacceptable. Tape does not create a terminal-to-wire connection."
+      },
+      "preassessment": {
+        "question": "What does a wire crimper do?",
+        "choices": [
+          "Cuts wire",
+          "Compresses a terminal onto a wire",
+          "Strips insulation",
+          "Melts solder"
+        ],
+        "correctIndex": 1
+      }
+    },
+    {
+      "id": "CAT7-NEW-015",
+      "category": "mod7-tools-test-equipment",
+      "difficulty": "medium",
+      "tags": [
+        "troubleshooting",
+        "wiggle-test",
+        "intermittent"
+      ],
+      "learningObjective": "Describe the purpose of a 'wiggle test' on aircraft wiring near connectors",
+      "fullObjective": "Recognize that a 'wiggle test' — lightly manipulating wires and connectors while monitoring the circuit's behavior — is used to identify intermittent connections that appear and disappear under movement, commonly caused by loose pins, cold solder joints, or chafed wiring.",
+      "flashcard": {
+        "term": "Wiggle test",
+        "definition": "A wiggle test is a troubleshooting technique: lightly manipulate wires and connectors while monitoring the circuit's behavior (signal, indicator light, meter reading). Intermittent connections that appear and disappear under movement reveal themselves immediately, pointing to loose pins, cold solder joints, chafed wiring, or cracked connector bodies. It is a fast and cheap way to find intermittent physical faults.",
+        "analogy": "The wiggle test is the electrical equivalent of squeezing a water hose to find the leak — motion reveals the problem.",
+        "unit": "Troubleshooting Techniques"
+      },
+      "jeopardy": {
+        "question": "This is why a technician performs a 'wiggle test' near connectors before finalizing an installation.",
+        "choices": [
+          "To add torque to the fastener",
+          "To identify intermittent connections — loose pins, cold solder joints, chafed wiring, or cracked bodies — that reveal themselves only when the wires or connectors are moved",
+          "To increase the signal voltage",
+          "To test the software load"
+        ],
+        "correctIndex": 1,
+        "explanation": "The wiggle test reveals intermittent physical connections. It is a diagnostic technique, not a torque application, voltage test, or software check."
+      },
+      "multipleChoice": {
+        "question": "Before finalizing an installation, why does a technician perform a 'wiggle test' near connectors?",
+        "choices": [
+          "To add torque to the connector fasteners",
+          "To identify intermittent connections — loose pins, cold solder joints, chafed wiring, or cracked connector bodies — that reveal themselves only when the wires and connectors are manipulated",
+          "To raise the signal voltage through the connection",
+          "To verify the software load on an avionics unit"
+        ],
+        "correctIndex": 1,
+        "explanation": "The wiggle test identifies intermittent physical connections. Lightly moving wires and connectors while watching a meter or indicator reveals problems that would be missed during static testing. Intermittents are the hardest type of failure to find in service; catching them before release is the goal. Torque, voltage, and software are separate concerns."
+      },
+      "practice": {
+        "question": "A technician has just completed wiring a new avionics unit. Before releasing the aircraft to service, the technician applies power and lightly wiggles each wire and connector at its entry point, watching the unit's indicator lights. What is the purpose of this procedure?",
+        "choices": [
+          "Nothing — it's just habit and does not identify real problems",
+          "The wiggle test identifies intermittent connections before they manifest in service. If moving a wire causes the indicator to blink or a signal to drop, the technician has found a loose pin, cold solder joint, or damaged connector that can be corrected before the aircraft leaves the shop",
+          "To warm up the connectors",
+          "To check the unit's internal temperature"
+        ],
+        "correctIndex": 1,
+        "explanation": "The wiggle test is a deliberate intermittent-hunt technique. It is especially valuable for new installations because small mistakes (partial pin seating, missed crimp, cracked connector) often reveal themselves under light mechanical stress but would pass static testing. Finding these problems before release saves both the customer and the shop from chasing intermittents later."
+      },
+      "preassessment": {
+        "question": "What is the purpose of a 'wiggle test'?",
+        "choices": [
+          "Add torque to fasteners",
+          "Identify intermittent connections revealed by movement",
+          "Increase signal voltage",
+          "Verify software loads"
         ],
         "correctIndex": 1
       }

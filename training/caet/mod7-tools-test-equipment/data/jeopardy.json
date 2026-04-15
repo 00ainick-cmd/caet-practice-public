@@ -9,476 +9,192 @@
   "categories": {
     "Multimeter Mastery": [
       {
-        "id": "cat7-q003",
-        "clue": "When measuring resistance with a multimeter, 'OL' displayed on the screen indicates this condition.",
+        "id": "CAT7-NEW-001",
+        "clue": "When measuring voltage across a component with a multimeter, this is how the meter is connected.",
         "choices": [
-          "An overloaded circuit breaker",
-          "Open circuit or out of range",
-          "Low battery on the meter",
-          "A resistance value of exactly zero ohms"
+          "In series with the component",
+          "In parallel with the component",
+          "In diagonal with the component",
+          "The meter does not need to be connected to the circuit"
         ],
         "correctIndex": 1,
-        "explanation": "'OL' means Over Limit \u2014 either the circuit is open (infinite resistance), or the measured value exceeds the selected range. Switch to a higher range; if it still reads OL, the circuit is open.",
-        "difficulty": 100,
-        "learningObjective": "OL on multimeter ohms = open circuit or out of range"
+        "explanation": "Voltage is measured in parallel. Series connection (correct for current) would not give a valid voltage reading and could disturb the circuit."
       },
       {
-        "id": "cat7-q011",
-        "clue": "This single instrument measures voltage, current, and resistance \u2014 making it the most versatile basic test tool in an avionics technician's kit.",
+        "id": "CAT7-NEW-002",
+        "clue": "While testing a 24 V DC circuit, this could cause a multimeter to display 235 V.",
         "choices": [
-          "Oscilloscope",
-          "Megohmmeter",
-          "Multimeter",
-          "Databus analyzer"
-        ],
-        "correctIndex": 2,
-        "explanation": "The digital multimeter (DMM) combines voltmeter, ammeter, and ohmmeter functions in one portable instrument. It's the first tool a tech reaches for during troubleshooting.",
-        "difficulty": 100,
-        "learningObjective": "Multimeter measures voltage, current, and resistance"
-      },
-      {
-        "id": "cat7-q008",
-        "clue": "To confirm a broken wire, a technician performs this test with a multimeter set to the ohms range, checking for continuity between two points in the circuit.",
-        "choices": [
-          "Insulation resistance test",
-          "Continuity test",
-          "High-pot test",
-          "Leakage current test"
+          "The circuit has mysteriously multiplied its voltage",
+          "Wrong meter range, wrong AC/DC mode, a damaged probe or lead, or induced-voltage 'ghost readings' on a high-impedance meter connected to a floating point",
+          "The battery has gained voltage",
+          "The meter is working correctly and the reading is accurate"
         ],
         "correctIndex": 1,
-        "explanation": "A continuity test applies a small current through the wire and measures resistance. Near-zero ohms = continuous wire. OL/infinite ohms = broken wire. Many meters beep on continuity for quick go/no-go testing.",
-        "difficulty": 200,
-        "learningObjective": "Continuity test with multimeter confirms broken wire using resistance measurement"
+        "explanation": "A 235 V reading on a 24 V DC circuit is almost always a meter-setup or ghost-voltage issue. The circuit itself cannot spontaneously produce 10× its source voltage."
       },
       {
-        "id": "cat7-mm-001",
-        "clue": "When measuring DC voltage in a circuit, the multimeter must be connected in this configuration relative to the load or component being measured.",
+        "id": "CAT7-NEW-003",
+        "clue": "Before measuring resistance with a multimeter, this must be ensured.",
         "choices": [
-          "In series with the load",
-          "In parallel (across) the load",
-          "Connected to the ground bus only",
-          "Through a current transformer"
+          "The circuit is energized and operating",
+          "The circuit is de-energized (power off), and ideally the component is isolated from parallel paths",
+          "The component is hot",
+          "The component is installed in another circuit for reference"
         ],
         "correctIndex": 1,
-        "explanation": "A voltmeter must always be connected in PARALLEL across the component or circuit being measured. Connecting in series would break the circuit. The meter's high internal impedance ensures it draws negligible current.",
-        "difficulty": 300,
-        "learningObjective": "Voltmeter connects in parallel across the load"
+        "explanation": "Resistance measurement requires a de-energized circuit. Energized circuits disrupt the measurement and can damage the meter."
       },
       {
-        "id": "cat7-mm-002",
-        "clue": "When measuring current, the multimeter must be connected in this configuration, which requires breaking the circuit to route current through the meter.",
+        "id": "CAT7-NEW-004",
+        "clue": "A multimeter set to the ohms range shows 'OL.' This is what the reading means.",
         "choices": [
-          "In parallel across the load",
-          "In series with the load",
-          "Connected to chassis ground only",
-          "Through a voltage divider"
+          "The meter is overloaded and damaged",
+          "The resistance exceeds the meter's selected range — most commonly indicating an open circuit (infinite resistance)",
+          "The circuit is hot with voltage",
+          "The meter is out of calibration"
         ],
         "correctIndex": 1,
-        "explanation": "An ammeter must be placed IN SERIES so all circuit current flows through it. This requires opening the circuit at a convenient point. NEVER connect an ammeter in parallel \u2014 its near-zero internal resistance would create a short circuit.",
-        "difficulty": 400,
-        "learningObjective": "Ammeter connects in series with the load"
+        "explanation": "'OL' means 'over-limit' — the resistance is greater than the meter's scale can show. In troubleshooting, this almost always means an open circuit. The meter itself is fine, the circuit is open."
       },
       {
-        "id": "cat7-mm-003",
-        "clue": "Before measuring resistance in a circuit, a technician must always do this to prevent damage to the meter and get accurate readings.",
+        "id": "CAT7-NEW-005",
+        "clue": "This multimeter test is the MOST effective way to confirm a suspected broken wire.",
         "choices": [
-          "Set the range to the highest scale",
-          "Remove power from the circuit",
-          "Ground the test leads together",
-          "Apply full voltage first to 'condition' the circuit"
+          "AC voltage test",
+          "Continuity (or ohms) test with the circuit de-energized",
+          "Oscilloscope waveform analysis",
+          "Visual inspection only, with no meter"
         ],
         "correctIndex": 1,
-        "explanation": "Never measure resistance in a powered circuit \u2014 the meter applies its own small current for measurement. External voltage will give false readings and can damage the meter. Always de-energize first.",
-        "difficulty": 500,
-        "learningObjective": "Remove power before measuring resistance"
+        "explanation": "Continuity/resistance testing directly confirms whether the wire is connected. AC voltage tests are for energized circuits. Oscilloscopes are overkill for a simple continuity question. Visual inspection alone cannot identify internal conductor breaks with intact insulation."
+      },
+      {
+        "id": "CAT7-NEW-006",
+        "clue": "If you measure 0 V across a component in an active circuit, this is a possible cause.",
+        "choices": [
+          "The circuit must be powered off",
+          "The component is shorted internally, a parallel short bypasses it, or no current is flowing through the circuit due to an upstream break",
+          "The meter must be broken",
+          "The component is functioning normally"
+        ],
+        "correctIndex": 1,
+        "explanation": "0 V with current flowing means zero resistance (shorted). 0 V with no current flowing can occur when an upstream break eliminates the current, leaving no voltage drop to measure. Either way, it merits investigation."
+      },
+      {
+        "id": "CAT7-NEW-007",
+        "clue": "This is the primary function of a multimeter.",
+        "choices": [
+          "To generate electrical signals",
+          "To measure multiple electrical quantities — primarily voltage, current, and resistance",
+          "To convert AC to DC",
+          "To amplify weak signals"
+        ],
+        "correctIndex": 1,
+        "explanation": "A multimeter measures — it does not generate signals, convert power, or amplify. The three core measurements are voltage, current, and resistance."
+      },
+      {
+        "id": "CAT7-NEW-009",
+        "clue": "This is what a megohmmeter (megger) is used to test.",
+        "choices": [
+          "Wire length",
+          "Insulation resistance between a conductor and ground (or between two conductors), in the megohm range",
+          "Signal frequency",
+          "Ground bonding resistance in milliohms"
+        ],
+        "correctIndex": 1,
+        "explanation": "Meggers test insulation resistance at high voltage. Wire length is measured by TDR or physical measurement. Signal frequency is measured by a frequency counter or oscilloscope. Ground bonding is measured by a milliohmmeter, not a megger."
+      },
+      {
+        "id": "CAT7-NEW-012",
+        "clue": "This is the primary purpose of a center punch in an avionics repair shop.",
+        "choices": [
+          "To drive nails into hardwood",
+          "To create a small indentation in metal that guides a drill bit and prevents it from walking during drilling",
+          "To test electrical continuity",
+          "To remove burrs from drilled holes"
+        ],
+        "correctIndex": 1,
+        "explanation": "A center punch creates a pilot indentation for drilling. Nail driving uses a hammer. Continuity testing uses a meter. Burr removal uses a deburring tool or countersink."
+      },
+      {
+        "id": "CAT7-NEW-014",
+        "clue": "This is the function of a wire crimper.",
+        "choices": [
+          "To cut wire to length",
+          "To compress a terminal or connector barrel onto a wire with controlled geometry and force, creating a gas-tight electrical and mechanical connection",
+          "To strip insulation from a wire",
+          "To apply solder to a joint"
+        ],
+        "correctIndex": 1,
+        "explanation": "A crimper compresses a terminal onto a wire. Cutting is done by cutters. Stripping is done by a stripper. Soldering uses a soldering iron."
       }
     ],
     "Opens, Shorts & Faults": [
       {
-        "id": "cat7-os-001",
-        "clue": "A multimeter reading of 'OL' (over limit) on the ohms range when testing a wire from end to end indicates this type of fault.",
+        "id": "CAT7-NEW-015",
+        "clue": "This is why a technician performs a 'wiggle test' near connectors before finalizing an installation.",
         "choices": [
-          "A short circuit to ground",
-          "An open circuit (broken wire)",
-          "A properly functioning wire",
-          "A high-resistance connection"
+          "To add torque to the fastener",
+          "To identify intermittent connections — loose pins, cold solder joints, chafed wiring, or cracked bodies — that reveal themselves only when the wires or connectors are moved",
+          "To increase the signal voltage",
+          "To test the software load"
         ],
         "correctIndex": 1,
-        "explanation": "OL on the ohms range means infinite resistance \u2014 no continuity. The wire is broken, disconnected, or there's a complete open somewhere in the path between the two test points.",
-        "difficulty": 100,
-        "learningObjective": "OL reading on ohms = open circuit"
-      },
-      {
-        "id": "cat7-os-002",
-        "clue": "A multimeter reading near 0 ohms between a wire and the aircraft structure (ground) indicates this type of fault.",
-        "choices": [
-          "An open circuit",
-          "Normal wire condition",
-          "A short circuit to ground",
-          "High-impedance leakage"
-        ],
-        "correctIndex": 2,
-        "explanation": "Near-zero resistance between a signal wire and ground means the wire insulation has failed and the conductor is making direct contact with the aircraft structure \u2014 a short to ground. This will typically blow a fuse or trip a breaker.",
-        "difficulty": 100,
-        "learningObjective": "Near-zero ohms to ground = short circuit"
-      },
-      {
-        "id": "cat7-os-003",
-        "clue": "A circuit breaker that 'pops' immediately when reset indicates this type of fault still exists in the protected circuit.",
-        "choices": [
-          "An open circuit downstream",
-          "A high-resistance connection",
-          "A short circuit or overload",
-          "Normal inrush current"
-        ],
-        "correctIndex": 2,
-        "explanation": "An immediately tripping breaker means excessive current is flowing \u2014 either from a direct short circuit (wire-to-wire or wire-to-ground) or from a component drawing more current than the breaker's rating.",
-        "difficulty": 200,
-        "learningObjective": "Immediately tripping breaker indicates short circuit or overload"
-      },
-      {
-        "id": "cat7-os-004",
-        "clue": "An intermittent fault that appears only when a wire harness is physically moved or flexed is most likely caused by this type of damage.",
-        "choices": [
-          "EMI from nearby power wires",
-          "A corroded circuit breaker contact",
-          "Chafed insulation or a cracked conductor",
-          "Software glitch in the LRU"
-        ],
-        "correctIndex": 2,
-        "explanation": "Intermittent faults that appear with physical movement point to mechanical damage \u2014 chafed insulation causing occasional shorts, or a cracked/fractured conductor that opens under flexing. The wiggle test deliberately reproduces this.",
-        "difficulty": 300,
-        "learningObjective": "Movement-dependent intermittent faults indicate chafed insulation or cracked conductors"
-      },
-      {
-        "id": "cat7-os-005",
-        "clue": "When troubleshooting a circuit with multiple loads and one load doesn't work while others do, the fault is most likely located here.",
-        "choices": [
-          "At the main circuit breaker",
-          "In the common ground bus",
-          "In the branch wiring or the failed load itself",
-          "In the aircraft battery"
-        ],
-        "correctIndex": 2,
-        "explanation": "If other loads on the same bus work fine, the common power source is good. The fault is isolated to the specific branch \u2014 either the branch wire, its connector, or the load component itself. Start at the failed component and work backward.",
-        "difficulty": 400,
-        "learningObjective": "One failed load with others working = fault in branch wiring or the load"
-      },
-      {
-        "id": "cat7-os-006",
-        "clue": "A 'high-resistance fault' in a connector shows up as this measurable symptom when current flows through the connection.",
-        "choices": [
-          "OL on the ohms reading with no current flowing",
-          "A voltage drop across the connector greater than 0.5V under load",
-          "Zero voltage at the connector",
-          "Reversed polarity at the load"
-        ],
-        "correctIndex": 1,
-        "explanation": "A high-resistance connection (dirty, corroded, or loose pins) acts as a small resistor. Under current flow, it causes a measurable voltage drop across the connector. Voltage drops >0.5V at a connector are abnormal and indicate a bad connection.",
-        "difficulty": 500,
-        "learningObjective": "High-resistance faults cause voltage drop under load"
+        "explanation": "The wiggle test reveals intermittent physical connections. It is a diagnostic technique, not a torque application, voltage test, or software check."
       }
     ],
     "Oscilloscope & Waveforms": [
       {
-        "id": "cat7-q002",
-        "clue": "This instrument visualizes voltage waveforms in real-time, showing amplitude, frequency, and shape \u2014 critical for diagnosing AC signals and digital bus timing issues.",
+        "id": "CAT7-NEW-008",
+        "clue": "An oscilloscope is used to visualize this.",
         "choices": [
-          "Multimeter",
-          "Oscilloscope",
-          "Spectrum analyzer",
-          "Signal generator"
+          "Electrical resistance",
+          "Electrical signal waveforms (voltage plotted as a function of time)",
+          "Magnetic field strength",
+          "Pressure"
         ],
         "correctIndex": 1,
-        "explanation": "An oscilloscope displays voltage vs. time, revealing waveform shape, amplitude (peak voltage), frequency, and timing characteristics that a multimeter cannot show.",
-        "difficulty": 100,
-        "learningObjective": "Oscilloscope visualizes voltage waveforms showing amplitude, frequency, and shape"
-      },
-      {
-        "id": "cat7-osc-001",
-        "clue": "On an oscilloscope display, the vertical axis represents voltage amplitude while the horizontal axis represents this parameter.",
-        "choices": [
-          "Frequency in Hertz",
-          "Current in amps",
-          "Time",
-          "Resistance"
-        ],
-        "correctIndex": 2,
-        "explanation": "An oscilloscope is a voltage-vs-time display. The vertical axis shows voltage amplitude, and the horizontal axis shows time. Frequency is derived by measuring the period (time for one complete cycle).",
-        "difficulty": 200,
-        "learningObjective": "Oscilloscope: vertical = voltage, horizontal = time"
-      },
-      {
-        "id": "cat7-osc-002",
-        "clue": "To measure the frequency of a signal on an oscilloscope, you first measure this parameter \u2014 the time for one complete cycle \u2014 then calculate frequency as its inverse.",
-        "choices": [
-          "Amplitude (peak-to-peak)",
-          "Period (time per cycle)",
-          "Rise time",
-          "Duty cycle"
-        ],
-        "correctIndex": 1,
-        "explanation": "Frequency = 1/Period. Measure the time between identical points on two consecutive cycles (the period in seconds), then f = 1/T. For example, a 1ms period = 1000 Hz.",
-        "difficulty": 300,
-        "learningObjective": "Frequency = 1/Period; measure period on oscilloscope to calculate frequency"
-      },
-      {
-        "id": "cat7-osc-004",
-        "clue": "A 'noisy' waveform on the oscilloscope showing irregular voltage spikes riding on top of a clean signal indicates this common avionics problem.",
-        "choices": [
-          "Normal ARINC 429 data encoding",
-          "EMI (electromagnetic interference) coupling into the signal",
-          "Correctly functioning shielded wiring",
-          "GPS multipath reception"
-        ],
-        "correctIndex": 1,
-        "explanation": "Irregular spikes or fuzz on a waveform indicate EMI coupling into the signal path. The source could be inadequate shielding, proximity to power wires, or a damaged shield termination.",
-        "difficulty": 400,
-        "learningObjective": "Noisy waveforms indicate EMI coupling"
-      },
-      {
-        "id": "cat7-osc-003",
-        "clue": "When using an oscilloscope to check an ARINC 429 bus, the expected waveform is a tri-state signal that switches between +10V, 0V (null), and this third voltage level.",
-        "choices": [
-          "+5V",
-          "-10V",
-          "-5V",
-          "+2.5V"
-        ],
-        "correctIndex": 1,
-        "explanation": "ARINC 429 uses tri-state signaling: +10V differential (logic '1'), 0V (NULL state between bits), and -10V differential (logic '0'). An oscilloscope is the only tool that can verify this waveform shape.",
-        "difficulty": 500,
-        "learningObjective": "ARINC 429 tri-state waveform: +10V, 0V (null), -10V"
-      }
-    ],
-    "Digital Bus Analyzers": [
-      {
-        "id": "cat7-q004",
-        "clue": "To decode and diagnose ARINC 429 data word content, label assignments, and transmission timing, this specialized avionics tool is required.",
-        "choices": [
-          "Digital multimeter",
-          "Digital databus/protocol analyzer",
-          "Radio test set",
-          "TDR (time-domain reflectometer)"
-        ],
-        "correctIndex": 1,
-        "explanation": "A databus analyzer captures, displays, and decodes bus traffic at the protocol level \u2014 showing labels, SSM, data fields, and timing. This is essential for verifying correct LRU data output.",
-        "difficulty": 100,
-        "learningObjective": "Digital databus analyzer captures, displays, and decodes bus traffic"
-      },
-      {
-        "id": "cat7-q006",
-        "clue": "A databus analyzer connected to an ARINC 429 bus captures this in real-time: data words, labels, and their content \u2014 allowing the technician to verify individual parameter values.",
-        "choices": [
-          "Only the bus voltage levels",
-          "Real-time bus traffic and decoded data words",
-          "The physical wire color codes",
-          "BITE codes from all connected LRUs"
-        ],
-        "correctIndex": 1,
-        "explanation": "The analyzer captures actual ARINC 429 words as they are transmitted, decodes the 8-bit label to identify the parameter (e.g., Label 203 = Airspeed), and displays the data value in engineering units.",
-        "difficulty": 200,
-        "learningObjective": "Databus analyzer captures real-time bus traffic and decodes data words"
-      },
-      {
-        "id": "cat7-q007",
-        "clue": "For troubleshooting and verifying digital avionics data bus traffic, the essential specialized test instrument is this type of analyzer.",
-        "choices": [
-          "Signal generator",
-          "Spectrum analyzer",
-          "Databus/protocol analyzer",
-          "Logic probe"
-        ],
-        "correctIndex": 2,
-        "explanation": "A protocol analyzer is purpose-built for digital bus diagnostics \u2014 it understands the bus protocol (ARINC 429, 1553, etc.) and can decode, filter, and display data at the application level.",
-        "difficulty": 300,
-        "learningObjective": "Databus/protocol analyzer is the tool for digital databus traffic analysis"
-      },
-      {
-        "id": "cat7-q005",
-        "clue": "A bus traffic analyzer is most useful when a fault is this type: appearing and disappearing unpredictably, difficult to reproduce during static bench tests.",
-        "choices": [
-          "A permanent open circuit",
-          "An intermittent digital bus failure",
-          "A blown fuse",
-          "A mis-wired connector"
-        ],
-        "correctIndex": 1,
-        "explanation": "Intermittent faults on digital buses often appear only under specific data conditions or timing. A bus analyzer captures real-time traffic and can log data over time to catch the moment an error occurs.",
-        "difficulty": 400,
-        "learningObjective": "Databus analyzer is most useful for capturing intermittent digital bus failures"
-      },
-      {
-        "id": "cat7-ba-001",
-        "clue": "Before suspecting an LRU failure, a tech should use a bus analyzer to verify that the LRU is actually receiving valid data. This step is called verifying the LRU's input data by checking these.",
-        "choices": [
-          "The LRU's BITE codes only",
-          "Input ARINC 429 labels and their data validity",
-          "The LRU power supply voltage",
-          "The physical connector pin resistance"
-        ],
-        "correctIndex": 1,
-        "explanation": "Many apparent LRU failures are actually caused by missing or bad input data. A bus analyzer lets you verify that the source LRU is transmitting valid data before replacing the downstream unit.",
-        "difficulty": 500,
-        "learningObjective": "Verify input data validity before replacing suspected failed LRU"
+        "explanation": "An oscilloscope displays waveforms — voltage vs time. Resistance is measured by ohmmeters; magnetic fields by gaussmeters; pressure by pressure gauges or ADCs."
       }
     ],
     "Precision Hand Tools": [
       {
-        "id": "cat7-q001",
-        "clue": "Before drilling a hole in a metal panel, a technician uses this tool to create a guide indentation that prevents the drill bit from wandering off the marked location.",
+        "id": "CAT7-NEW-013",
+        "clue": "When using a manual screwdriver, this is the MOST important factor for preventing damage to the screw head.",
         "choices": [
-          "Scribe",
-          "Center punch",
-          "Deburring tool",
-          "Pin gauge"
+          "Using the longest available screwdriver",
+          "Matching the driver tip exactly to the screw head type and size and ensuring full engagement",
+          "Using maximum torque regardless of the screw",
+          "Lubricating the driver tip with grease"
         ],
         "correctIndex": 1,
-        "explanation": "A center punch creates a small indent that guides the drill bit tip, preventing the bit from skating across the surface. This ensures the hole is drilled in the precise location.",
-        "difficulty": 100,
-        "learningObjective": "Center punch creates guide indentation to prevent drill wandering"
-      },
-      {
-        "id": "cat7-q010",
-        "clue": "A screwdriver that is too small for the screw head, or not fully engaged in the slot, causes this type of failure that damages both the screw head and the tool.",
-        "choices": [
-          "Cam-out (slipping out of the screw head)",
-          "Cross-threading",
-          "Cold-working",
-          "Torque shearing"
-        ],
-        "correctIndex": 0,
-        "explanation": "Cam-out occurs when the screwdriver tip isn't properly seated in the screw recess and slips out under torque. This strips the screw head recess and can damage the driver tip. Always use the correct size driver.",
-        "difficulty": 200,
-        "learningObjective": "Screwdriver must fully engage the screw head to prevent cam-out"
-      },
-      {
-        "id": "cat7-pt-001",
-        "clue": "When tightening fasteners on avionics LRU mounting trays and connectors, this tool ensures the fastener is tightened to the manufacturer's specified value and no more.",
-        "choices": [
-          "Impact wrench",
-          "Torque wrench",
-          "Ratchet with extension",
-          "Adjustable wrench"
-        ],
-        "correctIndex": 1,
-        "explanation": "A torque wrench applies a measured tightening force. Over-torquing can strip threads or crack housings; under-torquing allows vibration loosening. Avionics manuals specify torque values in inch-pounds.",
-        "difficulty": 300,
-        "learningObjective": "Torque wrench ensures fasteners are tightened to specified values"
-      },
-      {
-        "id": "cat7-q009",
-        "clue": "When taking precision measurements with a micrometer, the technician must follow these three practices: clean the surfaces, zero the instrument, and apply this type of pressure.",
-        "choices": [
-          "Maximum force to eliminate air gaps",
-          "Gentle consistent pressure using the thimble ratchet",
-          "Alternating light and heavy pressure",
-          "No pressure \u2014 just visual contact"
-        ],
-        "correctIndex": 1,
-        "explanation": "The ratchet mechanism on a micrometer provides repeatable, consistent measuring force. Over-tightening distorts the measurement; under-tightening gives inaccurate readings.",
-        "difficulty": 400,
-        "learningObjective": "Micrometer use: clean, zero, apply gentle consistent pressure"
-      },
-      {
-        "id": "cat7-pt-002",
-        "clue": "After using a torque wrench, the technician should always do this to maintain the tool's calibration accuracy for future use.",
-        "choices": [
-          "Store it at its maximum setting to keep the spring compressed",
-          "Return the setting to zero (or the lowest setting) before storage",
-          "Clean it with solvent and re-oil the mechanism",
-          "Leave it at the last used setting for quick reference"
-        ],
-        "correctIndex": 1,
-        "explanation": "Always return a click-type torque wrench to its lowest setting after use. Leaving it compressed fatigues the internal spring over time, causing inaccurate readings. This is a basic calibration maintenance practice.",
-        "difficulty": 500,
-        "learningObjective": "Return torque wrench to lowest setting after use to maintain calibration"
+        "explanation": "Correct tip-to-screw match and full engagement distribute torque evenly. Longest driver is not a factor. Max torque is dangerous. Greasing the driver tip would just make it slip."
       }
     ],
     "Troubleshooting Methodology": [
       {
-        "id": "cat7-ts-001",
-        "clue": "The first step in any systematic troubleshooting approach is to do this before touching any test equipment.",
+        "id": "CAT7-NEW-010",
+        "clue": "This is an important safety precaution when using a megohmmeter (megger).",
         "choices": [
-          "Replace the most likely failed component",
-          "Gather information: symptoms, when it started, what changed",
-          "Disconnect all avionics bus connections",
-          "Run a full system BITE test"
+          "Leave all avionics connected for a realistic test",
+          "Disconnect the circuit from its power source AND from any sensitive solid-state electronics or avionics before applying megger voltage; discharge the capacitance in the system after testing",
+          "Apply continuous voltage with no cool-down",
+          "Ignore manufacturer maximum test voltages"
         ],
         "correctIndex": 1,
-        "explanation": "Effective troubleshooting starts with information gathering: What are the exact symptoms? When did they start? What was changed recently? This narrows the search before you ever pick up a meter.",
-        "difficulty": 100,
-        "learningObjective": "Step 1 in troubleshooting: gather symptoms and history before testing"
+        "explanation": "Megger voltage damages solid-state electronics and avionics. Isolate before testing. Post-test discharge is important to handle safely. Manufacturer voltage limits must be respected."
       },
       {
-        "id": "cat7-ts-005",
-        "clue": "A technician documenting a squawk as 'Unit is bad \u2014 replaced' without recording test data is missing this critical part of proper troubleshooting documentation.",
+        "id": "CAT7-NEW-011",
+        "clue": "This is the primary use of a milliohmmeter.",
         "choices": [
-          "The LRU serial number only",
-          "Test results, measurements taken, and the logical reasoning that led to the conclusion",
-          "The aircraft hobbs time at repair",
-          "The part manufacturer's phone number"
+          "Measuring high-voltage insulation resistance",
+          "Measuring very low resistances in the milliohm range, such as bonding resistance and contact resistance",
+          "Generating test signals",
+          "Measuring signal frequency"
         ],
         "correctIndex": 1,
-        "explanation": "Good maintenance documentation records WHAT was measured, WHAT values were found, and WHY the conclusion was reached. This helps future techs, prevents repeat troubleshooting, and satisfies FAA recordkeeping requirements.",
-        "difficulty": 100,
-        "learningObjective": "Document test results and reasoning, not just 'replaced the unit'"
-      },
-      {
-        "id": "cat7-ts-002",
-        "clue": "The 'half-split' troubleshooting method works by testing at this strategic point in a circuit to eliminate half the possible fault locations with each measurement.",
-        "choices": [
-          "At the power source only",
-          "At the load only",
-          "At the midpoint of the circuit or signal path",
-          "At every single connector in sequence"
-        ],
-        "correctIndex": 2,
-        "explanation": "Half-split testing: test at the midpoint. If the signal is good there, the fault is downstream; if bad, the fault is upstream. Each test eliminates 50% of possible locations \u2014 much faster than sequential point-to-point checking.",
-        "difficulty": 200,
-        "learningObjective": "Half-split method: test at midpoint to eliminate 50% of fault locations per step"
-      },
-      {
-        "id": "cat7-ts-003",
-        "clue": "Before replacing an expensive avionics LRU, a technician should first verify these two things: that the LRU has valid input data and that this path is intact.",
-        "choices": [
-          "Input data + cooling airflow",
-          "Input data + ground/return path",
-          "Power supply + antenna connection",
-          "Software version + database currency"
-        ],
-        "correctIndex": 1,
-        "explanation": "Many LRU replacements are unnecessary \u2014 the actual fault is a bad input signal or a broken ground. Always verify: (1) the LRU is receiving valid input data, and (2) the ground/return path has continuity and low resistance. Only then replace the box.",
-        "difficulty": 300,
-        "learningObjective": "Verify input data and ground path before replacing an LRU"
-      },
-      {
-        "id": "cat7-ts-004",
-        "clue": "When a technician replaces a component and the fault persists, the next logical step in troubleshooting is this.",
-        "choices": [
-          "Replace the component again with another new part",
-          "Go back to the schematic and check wiring to/from the component",
-          "Replace all adjacent components too",
-          "File a Service Difficulty Report"
-        ],
-        "correctIndex": 1,
-        "explanation": "If a new component doesn't fix the problem, the fault isn't in the component \u2014 it's in the wiring, connectors, or signal path to or from it. Go back to the schematic and trace the circuit methodically.",
-        "difficulty": 400,
-        "learningObjective": "If replacement doesn't fix it, check wiring and signal path"
-      },
-      {
-        "id": "cat7-ts-006",
-        "clue": "In avionics troubleshooting, 'swapping' a suspected bad LRU with a known-good unit from another position or aircraft to confirm the diagnosis is called this technique.",
-        "choices": [
-          "Bench testing",
-          "Operational substitution",
-          "Component burnishing",
-          "Parallel testing"
-        ],
-        "correctIndex": 1,
-        "explanation": "Operational substitution (swap test) is a valid technique: if the fault moves with the suspect unit, that unit is confirmed bad. If the fault stays, the problem is in the wiring or installation \u2014 not the LRU.",
-        "difficulty": 500,
-        "learningObjective": "Operational substitution (swap test) confirms whether the fault is in the LRU or the installation"
+        "explanation": "Milliohmmeters measure very low resistances (milliohms). Insulation resistance is for meggers. Signal generation requires a function generator. Frequency measurement uses a counter or scope."
       }
     ]
   },
