@@ -9,569 +9,314 @@
   "categories": {
     "Wire Types & Selection": [
       {
-        "id": "cat6-q005",
-        "clue": "This military-specification wire, using PTFE (Teflon) insulation, is the most common choice in modern GA aircraft for its light weight, high temperature rating, and resistance to chemicals and abrasion.",
+        "id": "CAT6-NEW-007",
+        "clue": "This is the primary consideration when choosing wire insulation for an aircraft installation.",
         "choices": [
-          "MIL-W-22759 (PTFE/Teflon insulated wire)",
-          "MIL-W-5086 (PVC insulated wire)",
-          "MIL-C-17 (coaxial cable)",
-          "MIL-W-16878 (Nylon insulated wire)"
-        ],
-        "correctIndex": 0,
-        "explanation": "MIL-W-22759 PTFE (Teflon) wire is the dominant wire type in modern GA aircraft. Its combination of light weight, high temperature rating, chemical resistance, and durability makes it the standard.",
-        "difficulty": 100,
-        "learningObjective": "PTFE/MIL-W-22759 is most common wire insulation in GA aircraft",
-        "source": "PTFE"
-      },
-      {
-        "id": "cat6-q008",
-        "clue": "When routing an aircraft wire bundle, it must be kept away from these four hazard types to prevent chafing and insulation damage: heat sources, moving parts, sharp edges, and these.",
-        "choices": [
-          "Pressurized air lines",
-          "Navigation antenna cables",
-          "Oxygen system plumbing",
-          "Fuel and fluid lines"
-        ],
-        "correctIndex": 3,
-        "explanation": "The four wire routing hazard categories are: heat sources, moving parts, sharp edges, and fuel/fluid lines. Fluid line leaks combined with damaged wire insulation can create fire or short circuit hazards.",
-        "difficulty": 100,
-        "learningObjective": "Wire routing: keep away from heat, moving parts, sharp edges, fluid lines",
-        "source": "wire routing"
-      },
-      {
-        "id": "cat6-q013",
-        "clue": "In the high-temperature zone adjacent to an aircraft engine, wire insulation must be rated for elevated temperatures; PTFE (MIL-W-22759/16) or this type of insulation is typically required.",
-        "choices": [
-          "Fiberglass-insulated wire",
-          "PVC insulation rated to 60°C",
-          "Nylon-jacketed wire",
-          "Standard rubber-insulated wire"
-        ],
-        "correctIndex": 0,
-        "explanation": "Fiberglass-insulated wire handles temperatures up to 400°C+ and is used in the most extreme heat zones near engines. PTFE (MIL-W-22759) is used for moderate-high temperature zones.",
-        "difficulty": 200,
-        "learningObjective": "High-temperature wire required near aircraft engines",
-        "source": "high-temperature wire"
-      },
-      {
-        "id": "cat6-q018",
-        "clue": "In the AWG system, a 22 AWG wire is smaller in diameter than a 16 AWG wire because in this numbering system, higher numbers indicate smaller conductors.",
-        "choices": [
-          "A 16 AWG wire is smaller because lower numbers indicate finer wire",
-          "A 22 AWG wire is smaller — higher AWG numbers mean smaller conductor cross-section",
-          "Both wires are the same size because AWG only specifies insulation thickness",
-          "A 22 AWG wire has a larger conductor but thinner insulation than 16 AWG"
+          "The color of the insulation",
+          "Suitability for the installation environment — temperature range, fluid exposure, flame resistance, and abrasion resistance",
+          "The cost per foot",
+          "Availability from a local supplier"
         ],
         "correctIndex": 1,
-        "explanation": "In AWG, higher number = smaller wire. 22 AWG < 16 AWG in diameter. This counterintuitive system is important to know when selecting wire for current-carrying capacity.",
-        "difficulty": 300,
-        "learningObjective": "AWG: higher number = smaller wire",
-        "source": "AWG"
+        "explanation": "Environmental suitability is the driving factor. Wire insulation that cannot survive its installed temperature, fluid, or abrasion environment will fail prematurely. Color, cost, and availability are all secondary."
       },
       {
-        "id": "cat6-q026",
-        "clue": "When selecting wire insulation for an aircraft installation, it must be matched to the environment's maximum temperature, potential chemical exposure, and this third factor.",
+        "id": "CAT6-NEW-008",
+        "clue": "This type of wire is commonly used in high-temperature areas of an aircraft, such as near the engine.",
         "choices": [
-          "The wire's electromagnetic shielding requirement",
-          "Abrasion resistance of the installation area",
-          "The wire's minimum bend radius requirement",
-          "AWG gauge number compatibility"
+          "PVC-insulated consumer wire",
+          "Teflon-based insulation (PTFE, FEP, or ETFE/Tefzel)",
+          "Rubber-insulated household wire",
+          "Bare uninsulated copper"
         ],
         "correctIndex": 1,
-        "explanation": "The three environmental matching criteria for wire insulation are: temperature rating, chemical resistance, and abrasion resistance. All three must be appropriate for the installation location.",
-        "difficulty": 400,
-        "learningObjective": "Wire insulation selection: match temperature, chemical, and abrasion ratings to environment",
-        "source": "wire insulation"
+        "explanation": "Teflon-based insulations are the aircraft standard for high-temperature runs. PVC melts at aircraft engine-compartment temperatures. Rubber household wire is not aircraft-rated. Bare conductors cannot be used without insulation."
       },
       {
-        "id": "cat6-q009",
-        "clue": "To select the correct wire gauge for an aircraft installation, a technician must consult the wire load analysis and manufacturer's ampacity tables, considering current load, run length, and this factor.",
+        "id": "CAT6-NEW-009",
+        "clue": "In aircraft wiring, this is what the term 'gauge' refers to.",
         "choices": [
-          "Temperature environment of the installation area",
-          "Wire color and labeling requirements",
-          "Number of connectors in the circuit",
-          "ARINC 429 bus loading percentage"
+          "The wire's operating temperature rating",
+          "The physical size of the wire's conductor, as defined by the American Wire Gauge (AWG) system",
+          "The voltage rating of the insulation",
+          "The flame-resistance category of the insulation"
         ],
-        "correctIndex": 0,
-        "explanation": "Wire gauge selection depends on three factors: current load (ampacity), wire run length (voltage drop), and temperature environment (de-rating of ampacity in high-temp zones). All three must be considered.",
-        "difficulty": 500,
-        "learningObjective": "Select wire gauge using wire load analysis and ampacity tables",
-        "source": "wire gauge"
+        "correctIndex": 1,
+        "explanation": "Wire gauge describes conductor physical size (and by extension, resistance per foot and current-carrying capacity). Temperature rating, voltage rating, and flame resistance are separate properties — also important, but not what 'gauge' refers to."
+      },
+      {
+        "id": "CAT6-NEW-014",
+        "clue": "This is the most common type of wire insulation used for general-purpose wiring in modern general-aviation aircraft.",
+        "choices": [
+          "PVC (polyvinyl chloride)",
+          "ETFE (ethylene tetrafluoroethylene, Tefzel)",
+          "Cotton braid",
+          "Uninsulated bare copper"
+        ],
+        "correctIndex": 1,
+        "explanation": "ETFE (Tefzel) is the most common general-purpose insulation in modern GA aircraft. PVC is used in consumer and automotive wiring but is not aircraft-standard. Cotton braid is obsolete. Bare copper is not an option for insulated wiring."
+      },
+      {
+        "id": "CAT6-NEW-015",
+        "clue": "This is the approximate maximum continuous current for most AWG 22 aircraft wire in free-air chassis routing.",
+        "choices": [
+          "0.5 A",
+          "5 A",
+          "25 A",
+          "50 A"
+        ],
+        "correctIndex": 1,
+        "explanation": "AWG 22 aircraft wire in free-air chassis routing carries approximately 5 A continuous. 0.5 A is far too conservative. 25 A would require AWG 10 or larger. 50 A would require AWG 8 or larger."
       }
     ],
     "Connectors & Backshells": [
       {
-        "id": "cat6-q014",
-        "clue": "For installing contacts in aircraft multi-pin connectors, two specialized tools are required: a ratcheting crimp tool and these, which seat and remove contacts without damaging the connector insert.",
+        "id": "CAT6-NEW-010",
+        "clue": "This is the primary function of a connector in an aircraft wiring system.",
         "choices": [
-          "Needle-nose pliers and a pick set",
-          "Contact insertion and extraction tools",
-          "Torque wrench and anti-rotation tool",
-          "Soldering iron and desoldering wick"
+          "To increase the voltage traveling through the harness",
+          "To provide a mating interface allowing the harness to be disconnected from and reconnected to equipment without cutting or splicing the wiring",
+          "To convert AC to DC",
+          "To act as a circuit breaker during faults"
         ],
         "correctIndex": 1,
-        "explanation": "Contact insertion tools push the crimp contact into the connector insert until it locks; extraction tools release the retention clip to remove a contact. Using pliers or picks risks damaging contacts and inserts.",
-        "difficulty": 100,
-        "learningObjective": "Ratcheting crimp tool and contact insertion/extraction tools for connector work",
-        "source": "crimp tool"
+        "explanation": "Connectors provide a maintainable mating interface. They do not change voltage, convert AC to DC, or act as circuit protection — those are separate components."
       },
       {
-        "id": "cat6-q003",
-        "clue": "The primary function of connectors in aircraft wiring is to provide reliable electrical junctions between harnesses and avionics units that can be disconnected for this purpose.",
+        "id": "CAT6-NEW-012",
+        "clue": "This tool is commonly used to install connector pins on aircraft wiring.",
         "choices": [
-          "Higher current carrying capacity",
-          "Reduced electromagnetic emissions",
-          "Ease of installation and maintenance (removable junction)",
-          "Increased wire bundle rigidity"
-        ],
-        "correctIndex": 2,
-        "explanation": "Connectors allow LRUs to be removed and replaced without re-wiring the aircraft. This removability is the key function — reliable, repeatable electrical junctions for ease of maintenance.",
-        "difficulty": 200,
-        "learningObjective": "Connector function: reliable removable electrical junction for maintenance",
-        "source": "connector"
-      },
-      {
-        "id": "cat6-q007",
-        "clue": "This component on the rear of an aircraft connector clamps the wire bundle to provide strain relief, protect pin terminations from vibration, and (in sealed types) exclude moisture.",
-        "choices": [
-          "Connector coupling ring",
-          "Connector insert retention clip",
-          "Backshell",
-          "Outer shell ground band"
-        ],
-        "correctIndex": 2,
-        "explanation": "The backshell serves three functions: mechanical strain relief (clamps the bundle), protection of pin terminations (against vibration), and environmental sealing against moisture and contaminants.",
-        "difficulty": 300,
-        "learningObjective": "Backshells provide mechanical strain relief and protect terminations",
-        "source": "backshell"
-      },
-      {
-        "id": "cat6-q029",
-        "clue": "The extra wire coiled near a connector in a harness installation is called a service loop; its purpose is to allow re-termination or repair in the future without this costly fix.",
-        "choices": [
-          "Splicing in additional wire",
-          "Running an entirely new wire from the equipment",
-          "Shortening the connector contact positions",
-          "Replacing the entire harness"
-        ],
-        "correctIndex": 0,
-        "explanation": "Service loops provide wire for future re-terminations. Without a service loop, stripping and re-terminating a wire eventually uses up all the length, requiring a splice to add more wire.",
-        "difficulty": 400,
-        "learningObjective": "Service loop provides extra wire for future re-termination or repair",
-        "source": "service loop"
-      },
-      {
-        "id": "cat6-q030",
-        "clue": "Wire bundles routed near moving flight controls must be installed with approved conduit or spiral wrap AND this must be provided to prevent restriction of control movement.",
-        "choices": [
-          "Anti-chafe tape",
-          "Sufficient slack",
-          "Additional ground bonding",
-          "Heat shrink tubing"
+          "A consumer-grade adjustable crimper from a hardware store",
+          "An approved aircraft crimp tool with a positioner matched to the pin type and wire gauge",
+          "Ordinary pliers, squeezed firmly",
+          "A soldering iron and solder"
         ],
         "correctIndex": 1,
-        "explanation": "Slack is essential — a tight bundle near flight controls can be pinched or stretched when the control moves through its full range, risking wire damage or worse, restricting control movement.",
-        "difficulty": 500,
-        "learningObjective": "Wire bundles near flight controls: conduit with slack, prevent contact",
-        "source": "flight controls"
+        "explanation": "An approved aircraft crimp tool with the correct positioner for each pin type is the standard. Consumer crimpers produce inconsistent crimps. Pliers crush rather than form the barrel correctly. Soldering is used for some connectors but the majority of modern aircraft pins are crimp-terminated."
+      },
+      {
+        "id": "CAT6-NEW-013",
+        "clue": "This is the correct response to a coworker who suggests using automotive wire connectors on an avionics rack.",
+        "choices": [
+          "Agree, because automotive connectors are cheaper and readily available",
+          "Explain that automotive connectors lack the qualification and traceability required for aircraft avionics and are not an approved substitute for aircraft-rated connectors",
+          "Suggest using them only for non-critical signals",
+          "Use them temporarily and replace them at the next inspection"
+        ],
+        "correctIndex": 1,
+        "explanation": "Automotive connectors are not approved for aircraft avionics installations under any circumstance, including 'non-critical' signals. Temporary use followed by later replacement still violates the installation requirements and creates legal, safety, and documentation problems."
       }
     ],
     "Crimping & Soldering": [
       {
-        "id": "cat6-q004",
-        "clue": "The critical step in making a reliable solder joint is to heat this — not the solder — so the solder flows into the joint rather than balling up on a cold surface.",
+        "id": "CAT6-NEW-016",
+        "clue": "This is the type of solder typically used in avionics work.",
         "choices": [
-          "The soldering iron tip only",
-          "The heat-shrink tubing adjacent to the joint",
-          "The solder wire only before touching the joint",
-          "The work (wire and terminal)"
-        ],
-        "correctIndex": 3,
-        "explanation": "Heating the work (wire + terminal) ensures solder wets into the joint properly. Applying solder directly to the iron's tip produces cold joints that look shiny but have poor mechanical and electrical integrity.",
-        "difficulty": 100,
-        "learningObjective": "Solder joints: heat the work before applying solder",
-        "source": "soldering"
-      },
-      {
-        "id": "cat6-q020",
-        "clue": "In avionics work, 60/40 tin-lead rosin-core solder is standard; this type of solder is strictly prohibited because its flux leaves a corrosive residue that attacks conductors.",
-        "choices": [
-          "Lead-free solder for environmental compliance",
-          "Water-soluble flux solder",
-          "Silver-bearing solder for high-temperature joints",
-          "Acid-core solder"
-        ],
-        "correctIndex": 3,
-        "explanation": "Acid-core solder contains an acidic flux that remains on the joint after soldering, continuing to corrode copper conductors and contacts. It is absolutely prohibited in avionics work.",
-        "difficulty": 100,
-        "learningObjective": "60/40 rosin-core solder used; acid-core prohibited",
-        "source": "solder"
-      },
-      {
-        "id": "cat6-q025",
-        "clue": "In aircraft wheel wells and engine bays where moisture and fluids are present, this type of wire splice is preferred to protect the connection from environmental contamination.",
-        "choices": [
-          "Environmentally sealed splice (solder-sleeve or adhesive-lined heat-shrink)",
-          "Open barrel crimp splice",
-          "Standard butt splice connector",
-          "Tape-wrapped crimp splice"
-        ],
-        "correctIndex": 0,
-        "explanation": "Environmentally sensitive areas require splices that are sealed against moisture and fluids — solder-sleeve splices or adhesive-lined heat-shrink over crimp splices provide this protection.",
-        "difficulty": 200,
-        "learningObjective": "Environmentally sealed splices preferred in exposed areas",
-        "source": "environmentally sealed splice"
-      },
-      {
-        "id": "cat6-q002",
-        "clue": "For aircraft wire termination, the preferred tool is this type of crimp tool because it cannot be released until the crimp cycle is fully completed, ensuring a consistent connection.",
-        "choices": [
-          "Non-ratcheting pliers-type crimp tool",
-          "Calibrated ratcheting crimp tool",
-          "Soldering iron with rosin-core solder",
-          "Hex driver with compression insert"
+          "Acid-core plumbing solder",
+          "Tin/lead rosin-core solder, commonly Sn63/Pb37",
+          "Silver-bearing brazing rod",
+          "Aluminum-brazing flux paste"
         ],
         "correctIndex": 1,
-        "explanation": "A calibrated ratcheting crimp tool locks at the correct crimp force and cannot be released prematurely, ensuring full crimp completion every time — the FAA-preferred method for aircraft wiring.",
-        "difficulty": 300,
-        "learningObjective": "Properly sized crimped terminals with calibrated ratcheting tool are preferred",
-        "source": "crimp"
+        "explanation": "Tin/lead rosin-core solder (Sn63/Pb37) is the avionics standard. Acid-core solder is strictly for plumbing and would corrode electrical connections. Silver brazing and aluminum brazing are used in metal fabrication, not avionics wiring."
       },
       {
-        "id": "cat6-q015",
-        "clue": "A properly crimped aircraft wire terminal creates this type of connection by mechanically deforming metal tightly around wire strands, excluding air and preventing oxidation.",
+        "id": "CAT6-NEW-017",
+        "clue": "This is a critical step for making a good solder joint.",
         "choices": [
-          "A mechanically welded fusion bond",
-          "A soldered joint with rosin flux residue",
-          "A gas-tight, low-resistance electrical and mechanical connection",
-          "A press-fit thermal joint using heat-activated adhesive"
-        ],
-        "correctIndex": 2,
-        "explanation": "The crimp process deforms the terminal barrel tightly around wire strands, creating gas-tight metal-to-metal contact. No air means no oxidation, producing a stable, low-resistance, permanently secure connection.",
-        "difficulty": 400,
-        "learningObjective": "Wire crimper creates gas-tight low-resistance connection by mechanical deformation",
-        "source": "crimp tool"
-      },
-      {
-        "id": "cat6-q022",
-        "clue": "When replacing a wire connector, the ratcheting crimp tool must be fitted with a die that matches both the contact type and this, to ensure a correct gas-tight termination.",
-        "choices": [
-          "The wire insulation color code",
-          "The wire gauge (AWG size)",
-          "The connector housing material",
-          "The circuit voltage level"
+          "Applying solder to the iron tip first, then touching the iron to a cold joint",
+          "Heating the parent metal (wire and terminal) to the proper temperature, then feeding solder into the joint so it wicks in by capillary action",
+          "Using as much solder as possible to ensure complete coverage",
+          "Avoiding flux, because it contaminates the joint"
         ],
         "correctIndex": 1,
-        "explanation": "The crimp die must match both the contact/terminal type AND the wire gauge. The die geometry sets the crimp depth — too shallow (under-crimp) leaves a loose connection; too deep (over-crimp) damages the contact.",
-        "difficulty": 500,
-        "learningObjective": "Select correct crimping tool and die for connector and wire size",
-        "source": "crimp tool"
+        "explanation": "The critical step is heating the parent metal first so the solder flows into the joint. Touching the iron to a cold joint produces a cold solder joint with poor electrical and mechanical properties. Excess solder does not improve the joint. Rosin flux is required — it cleans the metal so solder can wet the surface."
+      },
+      {
+        "id": "CAT6-NEW-018",
+        "clue": "This type of splice is generally preferred for environmentally sensitive areas of an aircraft such as near the engine or in a wheel well.",
+        "choices": [
+          "Twist-and-tape splice",
+          "Environmentally sealed crimp splice with heat-shrink adhesive jacket",
+          "Wire-nut connector",
+          "Open butt splice with no covering"
+        ],
+        "correctIndex": 1,
+        "explanation": "Sealed heat-shrink crimp splices are the aircraft standard for environmentally sensitive areas. Twist-and-tape, wire-nuts, and open splices admit moisture, fuel, and oil, leading to corrosion and intermittent connections. Wire-nuts are not acceptable on aircraft at all."
       }
     ],
     "Harness & Routing": [
       {
-        "id": "cat6-q028",
-        "clue": "Three acceptable methods for securing aircraft wire harnesses are: approved lacing cord, cushioned clamps at specified intervals, and this method with edge protectors where needed.",
+        "id": "CAT6-NEW-001",
+        "clue": "This is the most important consideration when routing aircraft wiring.",
         "choices": [
-          "Automotive spiral wrap",
-          "Metal cable trays",
-          "Electrical tape wrapping",
-          "Nylon tie wraps"
-        ],
-        "correctIndex": 3,
-        "explanation": "Nylon tie wraps (with edge protection where the harness contacts structure) are an approved harness securing method along with lacing cord and cushioned AdEL-type clamps.",
-        "difficulty": 100,
-        "learningObjective": "Harness securing methods: lacing cord, nylon tie wraps, cushioned clamps",
-        "source": "harness securing"
-      },
-      {
-        "id": "cat6-q024",
-        "clue": "The correct first step when fabricating an aircraft wire harness from a wiring diagram is to study the diagram completely — understanding wire runs, connector locations, and pin assignments — before doing this.",
-        "choices": [
-          "Ordering the connector hardware",
-          "Crimping the connector contacts",
-          "Labeling the harness breakout points",
-          "Cutting any wire"
-        ],
-        "correctIndex": 3,
-        "explanation": "Studying the diagram first is essential — harness errors discovered after cutting wire waste materials and require re-work. Understanding the complete wire list before cutting is the first and most critical step.",
-        "difficulty": 200,
-        "learningObjective": "Harness fabrication first step: study the diagram completely before cutting",
-        "source": "harness fabrication"
-      },
-      {
-        "id": "cat6-q027",
-        "clue": "An aircraft wire harness must be supported at regular intervals using approved clamps, kept clear of moving parts and heat, and routed to avoid this type of bend that can damage conductors.",
-        "choices": [
-          "Gradual curves above 90 degrees",
-          "Right-angle turns over 45 degrees",
-          "Sharp bends below the minimum bend radius",
-          "Reverse bends above 180 degrees"
-        ],
-        "correctIndex": 2,
-        "explanation": "Sharp bends below the minimum bend radius damage insulation, kink conductors, and fracture strands over time. Approved clamps at correct intervals prevent movement and chafing.",
-        "difficulty": 300,
-        "learningObjective": "Harness routing: supported at intervals, clear of moving parts and heat",
-        "source": "harness routing"
-      },
-      {
-        "id": "cat6-q011",
-        "clue": "When a wire bundle is too large for its designated routing path, the correct first action is to consult this document for an approved alternate routing solution.",
-        "choices": [
-          "The aircraft logbook for previous maintenance entries",
-          "The shop supervisor to determine if the bundle can be forced in",
-          "The installation manual for an approved alternate route",
-          "The wire manufacturer's data sheet for a thinner equivalent"
-        ],
-        "correctIndex": 2,
-        "explanation": "The installation manual is the authority for all routing decisions. An approved alternate route maintains airworthiness; forcing a bundle or trimming wires without approval compromises the certified design.",
-        "difficulty": 400,
-        "learningObjective": "Wire bundle too large for routing path: consult manual for alternate route",
-        "source": "wire bundle"
-      },
-      {
-        "id": "cat6-q034",
-        "clue": "Per AC 43.13-1B, wire bundles routed through pressurized areas must have this minimum clearance from flight control cables, hydraulic lines, and high-temperature ducting to prevent chafing, heat damage, and interference.",
-        "choices": [
-          "No clearance required if a wrap of silicone tape is applied",
-          "A minimum separation distance specified in the aircraft's wiring diagram or IPC",
-          "One inch from all other aircraft systems regardless of installation",
-          "Contact is acceptable if anti-chafe conduit is installed over the bundle"
+          "Using the shortest possible cable length",
+          "Protecting the harness from chafing, abrasion, heat, fluids, and moving parts",
+          "Making the harness visible for easy inspection",
+          "Color-coordinating the harness with nearby structures"
         ],
         "correctIndex": 1,
-        "explanation": "The aircraft manufacturer's IPC and wiring diagrams specify required separation distances, which vary by system and area.",
-        "difficulty": 300,
-        "category": "Harness & Routing",
-        "source": "Wire bundle separation requirements"
+        "explanation": "Physical protection is the driving consideration. Short length, visibility, and appearance are secondary to keeping the harness safe from mechanical and environmental damage. Chafing on a metal edge can destroy insulation in a few flight hours."
       },
       {
-        "id": "cat6-q035",
-        "clue": "When routing a new wire bundle through an existing harness clamp, the clamp must not be overtightened to prevent this failure mode — which creates high-resistance connections and intermittent faults.",
+        "id": "CAT6-NEW-002",
+        "clue": "This is the correct corrective action when a wire bundle is found chafed against a metal edge.",
         "choices": [
-          "Insulation discoloration from UV exposure",
-          "Conductor fatigue from vibration resonance",
-          "Conductor crushing that deforms the wire and damages insulation",
-          "Electrolytic corrosion from moisture ingress at connector backshells"
+          "Wrap the chafed area with electrical tape and continue flying",
+          "Inspect and repair or replace damaged wires, then correct the routing or protect the edge to prevent recurrence",
+          "Cut out the chafed section and splice in shorter wires",
+          "Ignore the damage if the circuit still functions"
         ],
-        "correctIndex": 2,
-        "explanation": "Overtightened clamps crush conductors and damage insulation, creating high-resistance points and intermittent opens under vibration.",
-        "difficulty": 500,
-        "category": "Harness & Routing",
-        "source": "Clamp overtightening damage"
+        "correctIndex": 1,
+        "explanation": "The correct action is both repair AND root-cause correction. Taping alone is temporary and will fail again. Splicing without rerouting leaves the same edge in place. Ignoring damage, even if the circuit currently works, risks progressive failure and in-flight fire."
+      },
+      {
+        "id": "CAT6-NEW-003",
+        "clue": "This is the best practice for routing a wire bundle near moving flight controls to prevent chafing.",
+        "choices": [
+          "Let the bundle hang loosely so it can move out of the way",
+          "Provide adequate clearance through the full range of control motion, secure the bundle properly, and use protective sleeving where clearance is tight",
+          "Tape the bundle directly to the moving control surface",
+          "Coil excess length near the control for flexibility"
+        ],
+        "correctIndex": 1,
+        "explanation": "Clearance through full control travel plus proper securing and protective sleeving is the accepted practice. Loose bundles are not acceptable — they will move into contact with the control. Taping the bundle to a moving surface would cause immediate damage. Coiled excess creates its own chafing and weight-distribution problems."
+      },
+      {
+        "id": "CAT6-NEW-004",
+        "clue": "This is the primary purpose of a service loop in an aircraft wire harness.",
+        "choices": [
+          "To reduce the total weight of the harness",
+          "To provide extra wire length at terminations so future repairs can be made without rebuilding the entire harness",
+          "To improve signal strength through a longer conductor",
+          "To serve as an antenna for RF signals"
+        ],
+        "correctIndex": 1,
+        "explanation": "A service loop provides reusable length for future terminations. It does not reduce weight (it adds a little), does not improve signal strength, and is not designed as an antenna."
+      },
+      {
+        "id": "CAT6-NEW-005",
+        "clue": "This is the primary reason for using strain relief in aircraft wiring.",
+        "choices": [
+          "To improve the electrical resistance of the connection",
+          "To prevent tension and bending loads from damaging the termination or fatiguing the conductor",
+          "To reduce the overall weight of the harness",
+          "To provide a path for draining moisture"
+        ],
+        "correctIndex": 1,
+        "explanation": "Strain relief transfers mechanical load away from the termination point. It does not affect electrical resistance. It adds a small amount of weight. It is not a drainage feature."
+      },
+      {
+        "id": "CAT6-NEW-006",
+        "clue": "This is an acceptable method for securing wire harnesses in aircraft.",
+        "choices": [
+          "Consumer-grade nylon zip ties from a hardware store",
+          "Approved aircraft cable clamps with cushion inserts, installed at intervals specified by the maintenance manual",
+          "Duct tape wrapped around the harness at each support point",
+          "Steel staples driven into the airframe structure"
+        ],
+        "correctIndex": 1,
+        "explanation": "Approved clamps at specified intervals are the correct method. Consumer-grade zip ties can fail under vibration, temperature extremes, or fluid exposure. Duct tape leaves residue, ages poorly, and is not airworthy. Staples would damage both the harness and the structure."
+      },
+      {
+        "id": "CAT6-NEW-011",
+        "clue": "This is the primary purpose of a backshell on an aircraft connector.",
+        "choices": [
+          "To serve as a backup electrical ground path",
+          "To provide cable strain relief, environmental sealing, shield termination, and controlled cable exit angle",
+          "To display the connector's part number for identification",
+          "To increase the connector's contact density"
+        ],
+        "correctIndex": 1,
+        "explanation": "Backshells are primarily mechanical and EMI features: strain relief, environmental sealing, shield termination, and cable exit-angle control. They are not identification markers, do not increase contact count, and while they may provide an EMI ground they are not an electrical backup ground."
+      },
+      {
+        "id": "CAT6-NEW-024",
+        "clue": "This is the typical acceptable twist rate for aircraft safety wire installed with the double-twist method using 0.032-inch wire.",
+        "choices": [
+          "1 to 2 twists per inch",
+          "6 to 8 twists per inch",
+          "15 to 20 twists per inch",
+          "30 to 40 twists per inch"
+        ],
+        "correctIndex": 1,
+        "explanation": "The typical specification is 6 to 8 twists per inch for 0.032-inch safety wire, double-twist method. Values of 1-2 would be too loose to secure against vibration; 15-20 or higher would overwork the wire and cause breakage."
       }
     ],
     "EMI & Shielding": [
       {
-        "id": "cat6-q010",
-        "clue": "When wiring an aircraft lighting system to prevent EMI in adjacent avionics, power wires should be separated from signal wires, and these cable types should be used for sensitive signals.",
+        "id": "CAT6-NEW-019",
+        "clue": "This is the primary reason shielded wire is used in avionics systems.",
         "choices": [
-          "Unshielded solid-core wire",
-          "Twisted-pair or shielded cables",
-          "High-voltage coaxial cables",
-          "Standard PVC automotive wire"
+          "To increase the wire's current-carrying capacity",
+          "To reduce electromagnetic interference (EMI) — both ingress into sensitive signals and emission from noisy conductors",
+          "To improve mechanical strength of the cable",
+          "To provide a backup ground path for power circuits"
         ],
         "correctIndex": 1,
-        "explanation": "The two key EMI reduction techniques are: (1) physical separation of power and signal wires, and (2) using twisted-pair or shielded cable for sensitive signals to reduce coupling from nearby power wiring.",
-        "difficulty": 100,
-        "learningObjective": "EMI reduction: separate power/signal wires, use twisted pair or shielded cable",
-        "source": "EMI"
+        "explanation": "Shielded wire exists primarily to control EMI. It does not meaningfully change current capacity (that is determined by the conductor gauge). It adds some mechanical mass but is not used for mechanical strength. It is not a backup power ground — the shield is typically a signal-ground reference, not a power return."
       },
       {
-        "id": "cat6-q012",
-        "clue": "The standard shield termination practice for avionics wiring grounds the drain wire at one end only to prevent this type of interference caused by potential differences between two ground points.",
+        "id": "CAT6-NEW-020",
+        "clue": "This is a commonly followed guideline for shield termination to reduce EMI in avionics wiring.",
         "choices": [
-          "Short circuit faults",
-          "Voltage spikes from circuit switching",
-          "Capacitive coupling at high frequencies",
-          "Ground loops causing EMI"
+          "Leave the shield unterminated and floating at both ends",
+          "Terminate the shield with a 360-degree connection to the backshell or chassis, minimize the unshielded length at the termination, and ground per the installation specification",
+          "Connect the shield only through a long pigtail wire to the nearest screw",
+          "Twist the shield together with a signal conductor and route both to the same pin"
         ],
-        "correctIndex": 3,
-        "explanation": "Grounding a shield at both ends creates a ground loop — a closed conductor loop that acts as a transformer secondary. Any AC difference between the two ground points drives circulating current, creating EMI.",
-        "difficulty": 200,
-        "learningObjective": "Shield termination: ground at one end only to prevent ground loops",
-        "source": "shield termination"
+        "correctIndex": 1,
+        "explanation": "360-degree shield termination to the backshell or chassis provides uniform EMI coverage. Pigtails leave gaps in the electromagnetic envelope and create a series inductance that degrades high-frequency shielding. A floating shield provides essentially no EMI benefit. Connecting shield to a signal pin would short the shield to the signal — a major error."
       },
       {
-        "id": "cat6-q019",
-        "clue": "Shielded wire in avionics systems prevents external EMI from coupling in AND prevents signal emissions from doing this.",
+        "id": "CAT6-NEW-021",
+        "clue": "This instrument is best suited to measuring very low resistance in an aircraft bonding system.",
         "choices": [
-          "Grounding through the connector backshell",
-          "Reducing cable capacitance",
-          "Interfering with other systems",
-          "Creating voltage drops along the run"
+          "A standard handheld DMM on the ohms setting",
+          "A milliohmmeter (bonding meter) using four-wire Kelvin measurement",
+          "A megohmmeter (megger) at 500 V",
+          "A clamp ammeter measuring AC current"
         ],
-        "correctIndex": 2,
-        "explanation": "Shielded wire provides bi-directional EMI protection: it blocks external fields from reaching the signal conductor AND contains signal emissions that could interfere with adjacent avionics.",
-        "difficulty": 300,
-        "learningObjective": "Shielded wire prevents EMI coupling into and emission from sensitive signal wires",
-        "source": "shielded wire"
+        "correctIndex": 1,
+        "explanation": "A milliohmmeter is purpose-built for low-resistance measurement using four-wire Kelvin technique. A standard DMM lacks the resolution and is dominated by lead resistance. A megohmmeter is for insulation resistance at the opposite end of the range. A clamp ammeter measures current, not resistance."
       },
       {
-        "id": "cat6-q017",
-        "clue": "A shielded cable provides no EMI protection when the shield is floating (ungrounded) at both ends because induced interference currents have no path to flow here.",
+        "id": "CAT6-NEW-022",
+        "clue": "This is the BEST next step when a milliohmmeter reading fluctuates significantly while testing a bonding strap.",
         "choices": [
-          "To ground",
-          "Into the signal conductors",
-          "Through the outer jacket",
-          "Into the connector backshell"
+          "Accept the reading and sign off the bond as good",
+          "Remove the bond hardware, clean the mating surfaces to bare metal, reinstall with proper torque, and retest",
+          "Ignore the fluctuation and use the lowest observed reading",
+          "Replace the milliohmmeter because its calibration is drifting"
         ],
-        "correctIndex": 0,
-        "explanation": "A grounded shield provides a low-impedance path to ground for induced currents. A floating shield cannot divert these currents — they have nowhere to go except into the signal conductors.",
-        "difficulty": 400,
-        "learningObjective": "Shield floating at both ends provides no EMI protection",
-        "source": "shield"
+        "correctIndex": 1,
+        "explanation": "Fluctuating readings indicate an intermittent physical connection, almost always at one of the terminations. Remove, clean, retorque, retest. Accepting or averaging the reading leaves a bad bond in service. Replacing the meter without evidence of its failure is premature."
       },
       {
-        "id": "cat6-q036",
-        "clue": "The braided metal shield surrounding a sensitive signal wire in an avionics installation serves this primary purpose — and must be grounded per the installation drawing to be effective.",
+        "id": "CAT6-NEW-025",
+        "clue": "This is what shear wire is designed to do.",
         "choices": [
-          "Preventing external electromagnetic interference from coupling into the signal path",
-          "Providing a redundant ground return path for the signal current",
-          "Increasing the wire's current-carrying capacity by adding conductor area",
-          "Protecting the wire from physical abrasion during maintenance"
+          "Carry electrical current as a primary conductor",
+          "Break deliberately at a defined force to indicate that a component has been actuated or disturbed",
+          "Support the weight of engine mounts",
+          "Provide a bonding path between airframe structures"
         ],
-        "correctIndex": 0,
-        "explanation": "EMI shielding intercepts external electromagnetic fields and shunts them to ground before they can induce noise in the signal conductor.",
-        "difficulty": 200,
-        "category": "EMI & Shielding",
-        "source": "EMI shield purpose"
-      },
-      {
-        "id": "cat6-q037",
-        "clue": "After installing a new comm radio, the pilot reports alternator whine in the headset that varies with engine RPM. The most likely cause is EMI entering the audio system through this path.",
-        "choices": [
-          "The VHF antenna picking up alternator harmonics on the comm frequency",
-          "The headset jack's internal microphone preamp oscillating due to impedance mismatch",
-          "The comm radio's internal power supply filter capacitor failing open",
-          "The power supply wiring — inadequate filtering or a missing ground on the radio's power input"
-        ],
-        "correctIndex": 3,
-        "explanation": "Alternator whine varying with RPM is conducted EMI on the power bus, entering through the radio's DC power input.",
-        "difficulty": 400,
-        "category": "EMI & Shielding",
-        "source": "Alternator whine diagnosis"
+        "correctIndex": 1,
+        "explanation": "Shear wire's purpose is deliberate mechanical failure at a calibrated force, to indicate actuation. It is not an electrical conductor, not a structural support, and not a bonding component."
       }
     ],
     "Damage, Repair & Inspection": [
       {
-        "id": "cat6-q016",
-        "clue": "Three practices prohibited in aircraft wiring installations are: using automotive-grade connectors, leaving unterminated wire ends unprotected, and this.",
+        "id": "CAT6-NEW-023",
+        "clue": "This is the correct action when a coax cable's center conductor is found nicked.",
         "choices": [
-          "Using PTFE-insulated wire in ambient temperature areas",
-          "Using ratcheting crimp tools for contact installation",
-          "Installing heat-shrink tubing over connector backshells",
-          "Soldering wires to contacts designed for crimping"
-        ],
-        "correctIndex": 3,
-        "explanation": "Soldering onto crimp contacts wicks solder up the wire, creating a brittle heat-affected zone at the solder line — a common point of wire fracture under vibration. Crimp contacts must be crimped, not soldered.",
-        "difficulty": 100,
-        "learningObjective": "Prohibited wiring practices: soldering crimp contacts, automotive connectors, unprotected wire ends",
-        "source": "prohibited practices"
-      },
-      {
-        "id": "cat6-q001",
-        "clue": "This wiring feature prevents mechanical tension on a wire from being transferred to connector pins or solder joints, reducing the risk of intermittent connections.",
-        "choices": [
-          "Strain relief",
-          "Backshell",
-          "Heat shrink tubing",
-          "Connector lock ring"
-        ],
-        "correctIndex": 0,
-        "explanation": "Strain relief clamps the wire near the connector so any pulling force is absorbed by the clamp rather than transmitted to the pins or solder joints — preventing intermittent faults.",
-        "difficulty": 100,
-        "learningObjective": "Strain relief prevents tension transfer to connector pins or solder joints",
-        "source": "strain relief"
-      },
-      {
-        "id": "cat6-q006",
-        "clue": "Before finalizing an avionics installation, this test involves gently flexing wires near connectors to detect intermittent connections that static continuity tests would not find.",
-        "choices": [
-          "Continuity test",
-          "Wiggle test",
-          "Megohm insulation test",
-          "Bus voltage measurement"
+          "Apply a dab of solder to rebuild the nicked area and continue",
+          "Remove the damaged section and replace it with a new cable length or properly connectorized repair",
+          "Tape over the nick with electrical tape",
+          "Ignore the nick if the signal still passes"
         ],
         "correctIndex": 1,
-        "explanation": "The wiggle test simulates in-service wire movement. Intermittent connections from loose pins or marginal crimps will show up as momentary circuit breaks during the flex test.",
-        "difficulty": 200,
-        "learningObjective": "Wiggle test detects intermittent connections not found in static testing",
-        "source": "wiggle test"
-      },
-      {
-        "id": "cat6-q021",
-        "clue": "Automotive-grade wire connectors are unacceptable in aircraft avionics racks because they fail to meet this regulatory requirement for aviation maintenance materials.",
-        "choices": [
-          "FAA-approved material standards required under Part 43",
-          "ARINC 404 LRU mounting specifications",
-          "MIL-SPEC connector size standards",
-          "RTCA DO-160 vibration testing specifications"
-        ],
-        "correctIndex": 0,
-        "explanation": "Part 43 requires that maintenance use materials and parts that meet or exceed FAA-approved standards. Automotive connectors are designed for automotive environments and do not meet aviation temperature, vibration, or altitude specifications.",
-        "difficulty": 200,
-        "learningObjective": "Automotive connectors not acceptable in avionics — not FAA-approved materials",
-        "source": "automotive connectors"
-      },
-      {
-        "id": "cat6-q023",
-        "clue": "When stripping PTFE-insulated wire, automatic stripper blade depth must be set precisely to avoid this defect that weakens the conductor and can cause eventual wire breakage.",
-        "choices": [
-          "Insulation wicking up the stripped area",
-          "Oxidizing the copper surface",
-          "Nicking the conductor strands",
-          "Stretching the insulation beyond the strip length"
-        ],
-        "correctIndex": 2,
-        "explanation": "Nicking conductor strands weakens the wire at the strip point — a nicked conductor has reduced cross-section and will fail under vibration or bending stress at the nick.",
-        "difficulty": 300,
-        "learningObjective": "Teflon wire stripping: verify blade depth to avoid nicking conductor",
-        "source": "Teflon wire"
-      },
-      {
-        "id": "cat6-q031",
-        "clue": "When a wire bundle is found chafed against a metal edge, the first step is to remove power, then assess the full extent of damage, and then follow only approved procedures from this document.",
-        "choices": [
-          "The aircraft weight and balance report",
-          "The aircraft's airworthiness certificate",
-          "The applicable maintenance manual or FAA AC 43.13",
-          "The avionics shop's standard operating procedure"
-        ],
-        "correctIndex": 2,
-        "explanation": "Approved repair procedures from the maintenance manual or AC 43.13 are the only acceptable methods for repairing chafed wiring. Unapproved repairs render the aircraft unairworthy.",
-        "difficulty": 400,
-        "learningObjective": "Chafed wire bundle: remove power, assess damage, follow approved repair procedure",
-        "source": "chafed wire"
-      },
-      {
-        "id": "cat6-q032",
-        "clue": "A nicked coaxial cable center conductor requires complete cable replacement because the nick creates a local impedance change and compromises this property of the conductor.",
-        "choices": [
-          "Electrical resistance rating",
-          "Shield coverage percentage",
-          "Temperature rating of the insulation",
-          "Structural integrity and mechanical strength"
-        ],
-        "correctIndex": 3,
-        "explanation": "A nick reduces the center conductor cross-section, compromising mechanical strength (vibration fatigue) and changing local impedance (causing signal reflections). Neither is repairable — the run must be replaced.",
-        "difficulty": 400,
-        "learningObjective": "Nicked coaxial center conductor: replace the entire cable run",
-        "source": "coaxial cable"
-      },
-      {
-        "id": "cat6-q033",
-        "clue": "When a wire harness outer jacket is damaged, the correct response depends on extent of damage: minor damage allows heat-shrink or conduit repair per the manual, but severe damage requires this.",
-        "choices": [
-          "Harness replacement",
-          "Application of vinyl tape over the damaged section",
-          "Installation of a metal shield over the damaged area",
-          "A one-time logbook notation"
-        ],
-        "correctIndex": 0,
-        "explanation": "Severe outer jacket damage — especially if individual wire insulation is compromised — cannot be repaired to original airworthiness. The harness must be replaced.",
-        "difficulty": 500,
-        "learningObjective": "Damaged harness jacket: assess damage and repair per manual or replace if severe",
-        "source": "harness"
+        "explanation": "A nicked center conductor alters coax impedance and causes signal reflections. The proper fix is replacement of the affected section. Soldering over a nick does not restore uniform impedance. Tape does not repair the conductor itself. Ignoring a known defect is unacceptable."
       }
     ]
   },
