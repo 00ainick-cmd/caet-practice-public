@@ -1,0 +1,3216 @@
+{
+  "metadata": {
+    "lessonId": "cat-2-basic-electrical",
+    "lessonTitle": "Basic Electrical Theory & Circuit Analysis",
+    "exam": "CAET Entry",
+    "category": "Category 2",
+    "version": "2.0.0",
+    "lastUpdated": "2026-02-23",
+    "objectiveSource": "CAET-Objective-Master-Redesign-v2.xlsx",
+    "totalObjectives": 52,
+    "questionCount": 52,
+    "positionDistribution": {
+      "A": 48,
+      "B": 57,
+      "C": 47,
+      "D": 56
+    },
+    "writingStandards": "docs/question-writing-standards.md"
+  },
+  "questions": [
+    {
+      "id": "CAT2-DC-001",
+      "category": "dc-fundamentals",
+      "difficulty": "easy",
+      "tags": [
+        "ohms-law",
+        "current",
+        "dc-circuits"
+      ],
+      "learningObjective": "State Ohm's Law: I = V / R",
+      "fullObjective": "State Ohm's Law and the correct formula: I = V / R, where current equals voltage divided by resistance.",
+      "flashcard": {
+        "term": "Ohm's Law (current form)",
+        "definition": "Current (I) equals voltage (V) divided by resistance (R): I = V / R. This fundamental law relates the three primary quantities in any DC circuit.",
+        "analogy": "Think of a garden hose: voltage is water pressure, resistance is how narrow the hose is, and current is the flow rate \u2014 more pressure with the same hose gives you more flow.",
+        "unit": "DC Electrical Fundamentals"
+      },
+      "jeopardy": {
+        "question": "This formula expresses current as voltage divided by resistance and is the foundational equation of DC circuit analysis.",
+        "choices": [
+          "I = V x R",
+          "I = V / R",
+          "V = I / R",
+          "R = V x I"
+        ],
+        "correctIndex": 1,
+        "explanation": "I = V / R is Ohm's Law solved for current. Rearranging gives the other two forms: V = I x R (solve for voltage) and R = V / I (solve for resistance). All three rearrangements are equally valid \u2014 knowing which variable is unknown determines which form to use."
+      },
+      "multipleChoice": {
+        "question": "Which equation correctly states Ohm's Law when solving for current?",
+        "choices": [
+          "I = V / R",
+          "I = V + R",
+          "I = R / V",
+          "I = V x R"
+        ],
+        "correctIndex": 0,
+        "explanation": "Ohm's Law states that current (I) equals voltage (V) divided by resistance (R): I = V / R. The other forms \u2014 V = I x R and R = V / I \u2014 are algebraic rearrangements of the same relationship. A common error is inverting the fraction, giving R / V instead of V / R."
+      },
+      "practice": {
+        "question": "A new avionics technician is asked to find the current through a circuit breaker. The bus voltage is known and the load resistance is given on the component datasheet. Which formula applies?",
+        "choices": [
+          "I = V x R, because more resistance means more current",
+          "I = R / V, because resistance drives current inversely",
+          "I = V - R, because voltage must overcome resistance",
+          "I = V / R, because current equals voltage divided by resistance"
+        ],
+        "correctIndex": 3,
+        "explanation": "Ohm's Law \u2014 I = V / R \u2014 is the correct formula for finding current when voltage and resistance are known. Dividing voltage by resistance gives the rate of electron flow (current) in amperes. The other options invert the relationship or misuse arithmetic operations."
+      },
+      "preassessment": {
+        "question": "Ohm's Law for calculating current is:",
+        "choices": [
+          "I = V x R",
+          "I = R / V",
+          "I = V - R",
+          "I = V / R"
+        ],
+        "correctIndex": 3
+      }
+    },
+    {
+      "id": "CAT2-DC-002",
+      "category": "dc-fundamentals",
+      "difficulty": "medium",
+      "tags": [
+        "ohms-law",
+        "current",
+        "calculation"
+      ],
+      "learningObjective": "Calculate current: 24V / 12 ohms = 2A",
+      "fullObjective": "Calculate circuit current using Ohm's Law given a supply voltage of 24V and total resistance of 12 ohms, arriving at a result of 2 amps.",
+      "flashcard": {
+        "term": "Current calculation (24V / 12\u03a9)",
+        "definition": "Applying I = V / R: with 24 volts and 12 ohms of resistance, the circuit current is 2 amperes. This is a direct application of Ohm's Law.",
+        "analogy": "If a water pipe delivers 24 units of pressure through a valve with 12 units of restriction, the flow rate is exactly 2 units \u2014 the restriction cuts the flow proportionally.",
+        "unit": "DC Electrical Fundamentals"
+      },
+      "jeopardy": {
+        "question": "Applying Ohm's Law to a 24-volt circuit with 12 ohms of total resistance produces this current value.",
+        "choices": [
+          "0.5 amps",
+          "2 amps",
+          "12 amps",
+          "288 amps"
+        ],
+        "correctIndex": 1,
+        "explanation": "I = V / R = 24V / 12\u03a9 = 2 amps. Dividing 24 by 12 gives exactly 2. The distractor 0.5 amps results from inverting (12/24). The distractor 12 amps ignores the voltage entirely. The distractor 288 amps multiplies instead of divides."
+      },
+      "multipleChoice": {
+        "question": "A circuit is powered by a 24-volt battery and has a total resistance of 12 ohms. What is the current flowing through the circuit?",
+        "choices": [
+          "0.5 amps",
+          "12 amps",
+          "24 amps",
+          "2 amps"
+        ],
+        "correctIndex": 3,
+        "explanation": "Using I = V / R: I = 24V / 12\u03a9 = 2 amps. Multiplying voltage by resistance (24 x 12 = 288) or confusing units are common errors. Always divide voltage by resistance to find current."
+      },
+      "practice": {
+        "question": "You are bench-testing a landing light control module powered from a 24V lab supply. The module's datasheet lists an input resistance of 12 ohms. How much current will flow through the supply lead?",
+        "choices": [
+          "12 amps \u2014 the resistance value directly equals the current in this special case",
+          "2 amps \u2014 calculated as 24V divided by 12 ohms",
+          "0.5 amps \u2014 calculated as 12 ohms divided by 24 volts",
+          "288 amps \u2014 calculated as 24 volts multiplied by 12 ohms"
+        ],
+        "correctIndex": 1,
+        "explanation": "I = V / R = 24V / 12\u03a9 = 2 amps. Dividing voltage by resistance always gives current. This matters practically because the supply lead and fuse must be rated above 2 amps to protect the circuit during testing."
+      },
+      "preassessment": {
+        "question": "A 24V circuit has 12 ohms of resistance. What is the current?",
+        "choices": [
+          "0.5 amps",
+          "2 amps",
+          "12 amps",
+          "288 amps"
+        ],
+        "correctIndex": 1
+      }
+    },
+    {
+      "id": "CAT2-DC-003",
+      "category": "dc-fundamentals",
+      "difficulty": "medium",
+      "tags": [
+        "series-circuit",
+        "resistance",
+        "ohms-law"
+      ],
+      "learningObjective": "Calculate total series resistance: Rt = R1 + R2 + R3",
+      "fullObjective": "Calculate total resistance in a series circuit by adding all individual resistor values: Rt = R1 + R2 + R3.",
+      "flashcard": {
+        "term": "Series resistance formula",
+        "definition": "In a series circuit, total resistance equals the sum of all individual resistances: Rt = R1 + R2 + R3. Because current has only one path, every resistor adds to the total opposition.",
+        "analogy": "Like driving through multiple toll booths in a row \u2014 each one adds delay to your total trip time, and you cannot bypass any of them.",
+        "unit": "DC Electrical Fundamentals"
+      },
+      "jeopardy": {
+        "question": "This formula gives the total resistance of a series circuit containing three resistors: Rt equals R1 plus R2 plus this.",
+        "choices": [
+          "R3",
+          "R1 + R2 \u2014 the third resistor does not add resistance",
+          "R1 x R2 x R3",
+          "R1 / (R2 + R3)"
+        ],
+        "correctIndex": 0,
+        "explanation": "In a series circuit, Rt = R1 + R2 + R3. The formula completes with R3 because every series resistor contributes its full value to total opposition. Unlike parallel circuits, series resistors simply add together with no complex reciprocal calculation needed."
+      },
+      "multipleChoice": {
+        "question": "Three resistors of 5 ohms, 8 ohms, and 7 ohms are connected in series. What is the total resistance of the circuit?",
+        "choices": [
+          "20 ohms",
+          "2.2 ohms",
+          "5 ohms",
+          "280 ohms"
+        ],
+        "correctIndex": 0,
+        "explanation": "Series resistance: Rt = R1 + R2 + R3 = 5 + 8 + 7 = 20 ohms. In a series circuit, current flows through all resistors in sequence and each one adds to the total. The result is always larger than any single resistor in the string."
+      },
+      "practice": {
+        "question": "While tracing a wiring fault, you determine that a 28VDC circuit passes current through three wire segment resistances: 2 ohms, 4 ohms, and 6 ohms. What total resistance must the power supply overcome?",
+        "choices": [
+          "1.1 ohms \u2014 the parallel equivalent of the three segments",
+          "4 ohms \u2014 the average resistance of the three segments",
+          "48 ohms \u2014 the product of resistance and voltage",
+          "12 ohms \u2014 the sum of all three series resistances"
+        ],
+        "correctIndex": 3,
+        "explanation": "Series resistance adds directly: Rt = 2 + 4 + 6 = 12 ohms. When current has only one path \u2014 as in a single wire run \u2014 every resistance in that path adds to the total the load must overcome. This is why multiple corroded connections in a wiring harness can stack up and starve a load of voltage."
+      },
+      "preassessment": {
+        "question": "What is the total resistance of a series circuit with resistors of 3 ohms, 5 ohms, and 2 ohms?",
+        "choices": [
+          "1.0 ohm",
+          "30 ohms",
+          "5 ohms",
+          "10 ohms"
+        ],
+        "correctIndex": 3
+      }
+    },
+    {
+      "id": "CAT2-DC-004",
+      "category": "dc-fundamentals",
+      "difficulty": "hard",
+      "tags": [
+        "parallel-circuit",
+        "fault-analysis",
+        "navigation-lights"
+      ],
+      "learningObjective": "Analyze parallel circuit: remaining loads stay lit if one fails",
+      "fullObjective": "Determine that navigation lights wired in parallel will allow the remaining bulbs to stay lit if one bulb fails, based on the described failure scenario.",
+      "flashcard": {
+        "term": "Parallel circuit fault isolation",
+        "definition": "In a parallel circuit, each load has its own independent path to the power source. If one branch opens (bulb burns out), the remaining branches continue to receive full voltage and remain operational.",
+        "analogy": "Like outlets on a wall \u2014 if one lamp blows a bulb, the other plugged-in devices keep working because each has its own independent connection to the panel.",
+        "unit": "DC Electrical Fundamentals"
+      },
+      "jeopardy": {
+        "question": "Navigation light bulbs are wired this way so that the failure of one lamp does not extinguish the others.",
+        "choices": [
+          "In parallel, each bulb on its own independent branch",
+          "In series, sharing a single current path",
+          "In series-parallel with a bypass switch",
+          "Through a single common resistor to limit current"
+        ],
+        "correctIndex": 0,
+        "explanation": "Parallel wiring gives each bulb an independent path to the bus. When one bulb burns out (open circuit), that branch is lost but all other branches remain unaffected. In a series circuit, one open stops all current and all lights would fail \u2014 clearly unacceptable for a safety-critical system."
+      },
+      "multipleChoice": {
+        "question": "An aircraft's navigation lights are wired in parallel across the 28VDC bus. One bulb burns out, creating an open in that branch. What happens to the other navigation lights?",
+        "choices": [
+          "All lights go out because the circuit is broken",
+          "The remaining lights glow dimmer due to reduced total resistance",
+          "The bus voltage drops and a circuit breaker trips",
+          "The remaining lights stay at full brightness because each branch is independent"
+        ],
+        "correctIndex": 3,
+        "explanation": "In a parallel circuit, each branch has direct access to the full supply voltage. An open in one branch only stops current in that branch \u2014 the other branches are unaffected and continue operating at full voltage. This is why safety-critical aircraft lights use parallel wiring rather than series."
+      },
+      "practice": {
+        "question": "During a preflight inspection, the pilot reports the right navigation light is inoperative but the left and tail lights are normal. You confirm the right light bulb is burned out. The wiring diagram shows all three lights in parallel on the same circuit breaker. What is your analysis?",
+        "choices": [
+          "The open in the right bulb branch has increased current through the left and tail branches, indicating a shorted bulb",
+          "The parallel wiring has isolated the fault to the right branch only; the other lights are unaffected because each branch is independent",
+          "The circuit breaker must be faulty because at least one light is working",
+          "The open right bulb has reduced total circuit resistance, which should have tripped the breaker"
+        ],
+        "correctIndex": 1,
+        "explanation": "Parallel branch independence means the open right-bulb branch does not disturb the other branches. Each branch connects directly across the same bus, so the left and tail lights see full voltage regardless of the right branch's state. This behavior confirms correct parallel wiring and isolates the fault to the right bulb only."
+      },
+      "preassessment": {
+        "question": "Navigation lights wired in parallel: if one bulb fails, the others will:",
+        "choices": [
+          "All go out",
+          "Stay at full brightness",
+          "Glow at reduced brightness",
+          "Cause the circuit breaker to trip"
+        ],
+        "correctIndex": 1
+      }
+    },
+    {
+      "id": "CAT2-DC-005",
+      "category": "dc-fundamentals",
+      "difficulty": "medium",
+      "tags": [
+        "ohms-law",
+        "current",
+        "proportionality"
+      ],
+      "learningObjective": "Predict current doubles when voltage doubles (R constant)",
+      "fullObjective": "Predict that current will double if voltage doubles while resistance stays constant, applying Ohm's Law: I = V / R.",
+      "flashcard": {
+        "term": "Current-voltage proportionality",
+        "definition": "When resistance is held constant, current is directly proportional to voltage. If voltage doubles, current doubles: I = V / R means I scales linearly with V.",
+        "analogy": "Doubling the water pressure in a pipe with the same valve opening forces twice as much water through \u2014 the flow is directly proportional to pressure.",
+        "unit": "DC Electrical Fundamentals"
+      },
+      "jeopardy": {
+        "question": "If the voltage applied to a fixed-resistance circuit is doubled, this is what happens to the current.",
+        "choices": [
+          "It is cut in half",
+          "It stays the same",
+          "It quadruples",
+          "It doubles"
+        ],
+        "correctIndex": 3,
+        "explanation": "I = V / R. If V doubles and R is unchanged, the ratio V/R doubles. Current and voltage are directly proportional when resistance is constant. This is a linear relationship \u2014 a 2x change in voltage produces a 2x change in current, not a squared or square-root change."
+      },
+      "multipleChoice": {
+        "question": "A circuit has a fixed resistance of 10 ohms. The voltage is increased from 12V to 24V. What happens to the circuit current?",
+        "choices": [
+          "Current doubles because current is directly proportional to voltage",
+          "Current stays the same because resistance did not change",
+          "Current is halved because voltage and current are inversely related",
+          "Current quadruples because power increases with the square of voltage"
+        ],
+        "correctIndex": 0,
+        "explanation": "Using I = V / R: at 12V, I = 1.2A; at 24V, I = 2.4A \u2014 exactly double. When resistance is constant, current is directly proportional to voltage. Doubling voltage doubles current. This linear relationship is central to predicting how a circuit responds to bus voltage changes."
+      },
+      "practice": {
+        "question": "A technician notices that the aircraft's bus voltage rises from 14V to 28V when the alternator comes online. An LED indicator with a fixed 700-ohm series resistor is connected to the bus. What happens to the LED current?",
+        "choices": [
+          "The current doubles from approximately 20mA to 40mA, and the LED brightness increases",
+          "The current stays the same because the resistor limits it regardless of voltage",
+          "The current is halved because higher voltage means more resistance by Ohm's Law",
+          "The current quadruples because power scales with voltage squared"
+        ],
+        "correctIndex": 0,
+        "explanation": "At 14V: I = 14/700 = 20mA. At 28V: I = 28/700 = 40mA. Doubling the voltage with a constant resistance doubles the current. This is why LED circuits designed for 14V systems will over-drive (and may damage) the LED if operated on a 28V bus without changing the series resistor."
+      },
+      "preassessment": {
+        "question": "Voltage is doubled while resistance stays constant. Current will:",
+        "choices": [
+          "Stay the same",
+          "Quadruple",
+          "Be halved",
+          "Double"
+        ],
+        "correctIndex": 3
+      }
+    },
+    {
+      "id": "CAT2-DC-006",
+      "category": "dc-fundamentals",
+      "difficulty": "medium",
+      "tags": [
+        "ohms-law",
+        "resistance",
+        "calculation"
+      ],
+      "learningObjective": "Calculate resistance: 14V / 7A = 2 ohms",
+      "fullObjective": "Calculate circuit resistance using Ohm's Law given a measured voltage of 14V and current of 7A, arriving at 2 ohms.",
+      "flashcard": {
+        "term": "Resistance calculation (14V / 7A)",
+        "definition": "Using R = V / I: with 14 volts across a component and 7 amperes through it, the resistance is 2 ohms. This form of Ohm's Law identifies unknown resistance from measured quantities.",
+        "analogy": "If you know how hard you pushed (voltage) and how fast the result came (current), you can calculate how much friction was in the system (resistance).",
+        "unit": "DC Electrical Fundamentals"
+      },
+      "jeopardy": {
+        "question": "A component with 14 volts across it and 7 amps through it has this resistance value.",
+        "choices": [
+          "0.5 ohms",
+          "2 ohms",
+          "7 ohms",
+          "98 ohms"
+        ],
+        "correctIndex": 1,
+        "explanation": "R = V / I = 14V / 7A = 2 ohms. The distractor 0.5 ohms results from inverting (7/14). The distractor 7 ohms confuses resistance with current value. The distractor 98 ohms multiplies instead of divides. Always divide voltage by current to find resistance."
+      },
+      "multipleChoice": {
+        "question": "A multimeter measures 14 volts across a circuit element, and a clamp meter reads 7 amps through the same element. What is the element's resistance?",
+        "choices": [
+          "98 ohms",
+          "0.5 ohms",
+          "7 ohms",
+          "2 ohms"
+        ],
+        "correctIndex": 3,
+        "explanation": "R = V / I = 14V / 7A = 2 ohms. This rearrangement of Ohm's Law is used when both voltage and current can be measured but resistance is not directly readable. It is commonly used to verify connector and switch contact resistance in aircraft wiring audits."
+      },
+      "practice": {
+        "question": "While troubleshooting a dimmer switch circuit, you measure 14V across the switch contacts and 7A through the switch with a clamp meter. What is the resistance of the switch in this condition?",
+        "choices": [
+          "2 ohms \u2014 calculated as 14V divided by 7A",
+          "7 ohms \u2014 the current value reflects the resistance directly",
+          "0.5 ohms \u2014 calculated as 7A divided by 14V",
+          "14 ohms \u2014 resistance equals voltage when current is greater than 1 amp"
+        ],
+        "correctIndex": 0,
+        "explanation": "R = V / I = 14V / 7A = 2 ohms. A healthy switch should have near-zero voltage drop; measuring 14V across closed contacts indicates significant resistance in the switch path. Knowing resistance is 2 ohms gives a concrete value to compare against specification and helps confirm the switch is faulty."
+      },
+      "preassessment": {
+        "question": "A component has 14V across it and 7A through it. Its resistance is:",
+        "choices": [
+          "2 ohms",
+          "7 ohms",
+          "0.5 ohms",
+          "98 ohms"
+        ],
+        "correctIndex": 0
+      }
+    },
+    {
+      "id": "CAT2-DC-007",
+      "category": "dc-fundamentals",
+      "difficulty": "medium",
+      "tags": [
+        "power",
+        "watts",
+        "dc-circuits"
+      ],
+      "learningObjective": "Calculate power: P = V x I, 12V x 2A = 24W",
+      "fullObjective": "Calculate total power consumption using P = V x I given a 12V supply and 2A current, arriving at 24 watts.",
+      "flashcard": {
+        "term": "Power formula: P = V x I",
+        "definition": "Electrical power in watts equals voltage multiplied by current: P = V x I. At 12 volts and 2 amperes, the power is 24 watts.",
+        "analogy": "Power is work rate \u2014 voltage is like the height of a waterfall (potential energy per unit), current is the volume of water flowing, and power is how fast total energy is delivered.",
+        "unit": "DC Electrical Fundamentals"
+      },
+      "jeopardy": {
+        "question": "A 12-volt circuit carrying 2 amperes dissipates this amount of power.",
+        "choices": [
+          "24 watts",
+          "6 watts",
+          "14 watts",
+          "144 watts"
+        ],
+        "correctIndex": 0,
+        "explanation": "P = V x I = 12V x 2A = 24 watts. The distractor 6 watts comes from dividing. The distractor 14 watts adds instead of multiplies. The distractor 144 watts squares the voltage. Power is always voltage times current \u2014 not a sum, quotient, or square."
+      },
+      "multipleChoice": {
+        "question": "An avionics unit is powered by a 12-volt bus and draws 2 amperes. What is the power consumption of the unit?",
+        "choices": [
+          "24 watts",
+          "6 watts",
+          "10 watts",
+          "144 watts"
+        ],
+        "correctIndex": 0,
+        "explanation": "P = V x I = 12V x 2A = 24 watts. Understanding power consumption is essential for electrical load analysis \u2014 ensuring that installed avionics do not exceed the aircraft's generator and bus capacity."
+      },
+      "practice": {
+        "question": "You are performing a load analysis for a retrofit installation on a 12-volt aircraft. The new display unit draws 2 amps. How much power must the electrical system supply to this unit?",
+        "choices": [
+          "24 watts, calculated as voltage multiplied by current",
+          "6 watts, calculated as voltage divided by current",
+          "14 watts, calculated as voltage added to current",
+          "2 watts, equal to the current draw in watts"
+        ],
+        "correctIndex": 0,
+        "explanation": "P = V x I = 12V x 2A = 24 watts. This value is used to verify the alternator has enough capacity for the added load. A 14V alternator rated at 60 amps delivers up to 840 watts total; knowing each unit's wattage allows the technician to determine remaining capacity and confirm the installation is within limits."
+      },
+      "preassessment": {
+        "question": "A 12V circuit draws 2A. Power consumed is:",
+        "choices": [
+          "144 watts",
+          "6 watts",
+          "10 watts",
+          "24 watts"
+        ],
+        "correctIndex": 3
+      }
+    },
+    {
+      "id": "CAT2-DC-008",
+      "category": "dc-fundamentals",
+      "difficulty": "medium",
+      "tags": [
+        "parallel-circuit",
+        "current",
+        "kirchhoffs-laws"
+      ],
+      "learningObjective": "Calculate total parallel current: It = I1 + I2 + I3",
+      "fullObjective": "Calculate total current in a parallel circuit by summing the individual branch currents: It = I1 + I2 + I3.",
+      "flashcard": {
+        "term": "Parallel circuit total current",
+        "definition": "In a parallel circuit, total current from the source equals the sum of all individual branch currents: It = I1 + I2 + I3. Each branch draws independently, and the source must supply all of them.",
+        "analogy": "Like multiple faucets on the same water main \u2014 each open faucet draws its own flow, and the main supply must deliver the sum of all flows simultaneously.",
+        "unit": "DC Electrical Fundamentals"
+      },
+      "jeopardy": {
+        "question": "When three parallel branches draw 1A, 2A, and 3A respectively, this formula and result give the total current from the source.",
+        "choices": [
+          "It = I1 x I2 x I3 = 6A",
+          "It = I1 + I2 + I3 = 6A",
+          "It = I1 / (I2 + I3) = 0.17A",
+          "It = the largest branch current only = 3A"
+        ],
+        "correctIndex": 1,
+        "explanation": "Total parallel current is the sum of all branch currents: It = 1 + 2 + 3 = 6A. Unlike series circuits where current is the same everywhere, parallel circuits split current among branches \u2014 but the source must supply all branches combined. This is why adding parallel loads increases total current draw."
+      },
+      "multipleChoice": {
+        "question": "A 28VDC bus feeds three parallel avionics loads drawing 3A, 2A, and 1A respectively. What is the total current the bus must supply?",
+        "choices": [
+          "6 amps",
+          "2 amps",
+          "1 amp",
+          "3 amps"
+        ],
+        "correctIndex": 0,
+        "explanation": "It = I1 + I2 + I3 = 3 + 2 + 1 = 6 amps. In a parallel circuit, each branch draws its own current from the source, and the total is the sum of all branches. Knowing the total current is essential for sizing fuses, circuit breakers, and bus wiring."
+      },
+      "practice": {
+        "question": "You are completing a load analysis for a panel with three parallel-wired avionics units. Unit A draws 4 amps, Unit B draws 3 amps, and Unit C draws 2 amps. The panel bus fuse must handle what minimum continuous current?",
+        "choices": [
+          "4 amps \u2014 only the largest load determines fuse size",
+          "3 amps \u2014 the average of the three loads",
+          "9 amps \u2014 the sum of all branch currents in the parallel circuit",
+          "2.2 amps \u2014 the reciprocal parallel equivalent"
+        ],
+        "correctIndex": 2,
+        "explanation": "It = 4 + 3 + 2 = 9 amps. The bus fuse must protect the wiring from total current, which equals the sum of all parallel branch currents. Using only the largest single load (4A) would undersize the fuse and risk nuisance trips or wiring damage."
+      },
+      "preassessment": {
+        "question": "Three parallel branches draw 2A, 3A, and 5A. Total source current is:",
+        "choices": [
+          "5 amps",
+          "10 amps",
+          "3.33 amps",
+          "30 amps"
+        ],
+        "correctIndex": 1
+      }
+    },
+    {
+      "id": "CAT2-DC-009",
+      "category": "dc-fundamentals",
+      "difficulty": "medium",
+      "tags": [
+        "power",
+        "28vdc",
+        "watts",
+        "calculation"
+      ],
+      "learningObjective": "Calculate power on 28V bus at 25A = 700W",
+      "fullObjective": "Calculate power consumed by a 28V DC bus drawing 25A using P = V x I, arriving at 700 watts.",
+      "flashcard": {
+        "term": "Power on 28V bus at 25A",
+        "definition": "P = V x I = 28V x 25A = 700 watts. Calculating bus power is essential in aircraft electrical system load analysis to ensure generator capacity is not exceeded.",
+        "analogy": "A 28V bus drawing 25A is like 700 one-watt bulbs all lit simultaneously \u2014 a significant load that must be accounted for in the aircraft's electrical budget.",
+        "unit": "DC Electrical Fundamentals"
+      },
+      "jeopardy": {
+        "question": "A 28-volt DC bus supplying 25 amps to the combined avionics load delivers this total power.",
+        "choices": [
+          "53 watts",
+          "700 watts",
+          "1,960 watts",
+          "0.89 watts"
+        ],
+        "correctIndex": 1,
+        "explanation": "P = V x I = 28 x 25 = 700 watts. The 28VDC aircraft bus is a standard reference point for power calculations. Knowing total power draw \u2014 not just individual loads \u2014 is required when verifying the aircraft's alternator capacity is sufficient for all installed equipment."
+      },
+      "multipleChoice": {
+        "question": "During a load analysis, the total current draw from a 28VDC bus is measured at 25 amps. What is the total electrical power being consumed?",
+        "choices": [
+          "700 watts",
+          "196 watts",
+          "53 watts",
+          "25 watts"
+        ],
+        "correctIndex": 0,
+        "explanation": "P = V x I = 28V x 25A = 700 watts. This is a standard aircraft electrical load calculation. Most general aviation alternators are rated in watts or amps at 28V; knowing the total load in watts allows direct comparison to the alternator's rated output."
+      },
+      "practice": {
+        "question": "A Cessna 172 avionics upgrade adds equipment bringing total bus current to 25 amps on the 28VDC bus. The aircraft's alternator is rated at 800 watts. Is the new load within the alternator's capacity?",
+        "choices": [
+          "No \u2014 28V at 25A equals 700 watts, which is within the 800-watt rating, but only by 100 watts of margin",
+          "Yes \u2014 25 amps is less than the alternator's 60-amp limit, so no calculation is needed",
+          "No \u2014 700 watts exceeds the 800-watt rating by 100 watts",
+          "Yes \u2014 28V at 25A equals 700 watts, which is within the 800-watt rating with 100 watts of margin"
+        ],
+        "correctIndex": 3,
+        "explanation": "P = 28V x 25A = 700 watts. The alternator is rated at 800W, so 700W is within limits with 100W of margin. The first option contains a factual error in its conclusion. Always compare total calculated power against the alternator nameplate rating during load analysis."
+      },
+      "preassessment": {
+        "question": "A 28V bus carries 25A of current. The total power consumed is:",
+        "choices": [
+          "53 watts",
+          "196 watts",
+          "700 watts",
+          "1,960 watts"
+        ],
+        "correctIndex": 2
+      }
+    },
+    {
+      "id": "CAT2-DC-010",
+      "category": "dc-fundamentals",
+      "difficulty": "easy",
+      "tags": [
+        "ohms-law",
+        "voltage",
+        "dc-circuits"
+      ],
+      "learningObjective": "State Ohm's Law as V = I x R",
+      "fullObjective": "State the correct representation of Ohm's Law in a DC circuit as V = I x R.",
+      "flashcard": {
+        "term": "Ohm's Law (voltage form)",
+        "definition": "Voltage equals current multiplied by resistance: V = I x R. This form is used when current and resistance are known and voltage is the unknown quantity.",
+        "analogy": "Voltage is the 'push' a circuit needs. The more current you want to force through a given resistance, the more voltage you must apply \u2014 they multiply together.",
+        "unit": "DC Electrical Fundamentals"
+      },
+      "jeopardy": {
+        "question": "This form of Ohm's Law is used to calculate voltage when current and resistance are both known.",
+        "choices": [
+          "V = I / R",
+          "V = R / I",
+          "V = I x R",
+          "V = I + R"
+        ],
+        "correctIndex": 2,
+        "explanation": "V = I x R is Ohm's Law solved for voltage. It shows that voltage equals the product of current and resistance. The other options are incorrect rearrangements: dividing by R gives current, not voltage. This form is used to calculate voltage drop across a resistor when current and resistance are known."
+      },
+      "multipleChoice": {
+        "question": "Which equation correctly states Ohm's Law when voltage is the unknown?",
+        "choices": [
+          "V = I + R",
+          "V = I x R",
+          "V = I / R",
+          "V = R - I"
+        ],
+        "correctIndex": 1,
+        "explanation": "V = I x R is the voltage form of Ohm's Law. It is used to predict the voltage developed across a known resistance when current is given \u2014 for example, calculating voltage drop across a wire or connector resistance."
+      },
+      "practice": {
+        "question": "A technician needs to determine how much voltage is dropped across a 3-ohm bonding strap carrying 5 amps of return current. Which formula and calculation apply?",
+        "choices": [
+          "V = I / R = 5 / 3 = 1.67V across the strap",
+          "V = I x R = 5 x 3 = 15V across the strap",
+          "V = R / I = 3 / 5 = 0.6V across the strap",
+          "V = I + R = 5 + 3 = 8V across the strap"
+        ],
+        "correctIndex": 1,
+        "explanation": "V = I x R = 5A x 3\u03a9 = 15 volts. This is the voltage drop across the bonding strap. A 15V drop on a 28VDC return path would be catastrophically high \u2014 aircraft bonding straps should have near-zero resistance to avoid this. The calculation is used to verify compliance with AC 43.13-1B bonding resistance limits."
+      },
+      "preassessment": {
+        "question": "Ohm's Law for calculating voltage is:",
+        "choices": [
+          "V = R / I",
+          "V = I + R",
+          "V = I / R",
+          "V = I x R"
+        ],
+        "correctIndex": 3
+      }
+    },
+    {
+      "id": "CAT2-DC-011",
+      "category": "dc-fundamentals",
+      "difficulty": "medium",
+      "tags": [
+        "ohms-law",
+        "voltage",
+        "proportionality"
+      ],
+      "learningObjective": "Predict voltage doubles when current doubles (R constant)",
+      "fullObjective": "Predict that voltage will double if current doubles while resistance stays constant, applying Ohm's Law: V = I x R.",
+      "flashcard": {
+        "term": "Voltage-current proportionality",
+        "definition": "When resistance is constant, voltage is directly proportional to current (V = I x R). Doubling the current through a fixed resistance doubles the voltage across it.",
+        "analogy": "Double the flow through the same pipe restriction and the back-pressure (voltage) doubles \u2014 the restriction (resistance) amplifies the pressure effect proportionally.",
+        "unit": "DC Electrical Fundamentals"
+      },
+      "jeopardy": {
+        "question": "If current through a fixed resistor doubles, this is the effect on the voltage across that resistor.",
+        "choices": [
+          "Voltage is halved",
+          "Voltage stays the same",
+          "Voltage quadruples",
+          "Voltage doubles"
+        ],
+        "correctIndex": 3,
+        "explanation": "V = I x R. If I doubles and R is constant, the product I x R doubles, so V doubles. Voltage and current are directly proportional for a given resistance \u2014 a linear relationship. This is different from power, which scales with the square of current."
+      },
+      "multipleChoice": {
+        "question": "Current through a 10-ohm resistor increases from 1 amp to 2 amps. What happens to the voltage across the resistor?",
+        "choices": [
+          "Voltage decreases from 10V to 5V",
+          "Voltage stays constant at 10V",
+          "Voltage increases from 10V to 100V",
+          "Voltage increases from 10V to 20V"
+        ],
+        "correctIndex": 3,
+        "explanation": "V = I x R. At 1A: V = 1 x 10 = 10V. At 2A: V = 2 x 10 = 20V. The voltage doubles because current doubled with resistance held constant. This linear proportionality is a direct consequence of Ohm's Law."
+      },
+      "practice": {
+        "question": "A heating element in an avionics enclosure has a fixed resistance of 5 ohms. Normal operating current is 2 amps. A fault causes the current to increase to 4 amps. What voltage is now across the element?",
+        "choices": [
+          "10 volts \u2014 the original voltage, unchanged because the element's resistance is fixed",
+          "40 volts \u2014 voltage scales with the square of current",
+          "2.5 volts \u2014 current increase causes a voltage drop",
+          "20 volts \u2014 the voltage doubles when current doubles through a fixed resistance"
+        ],
+        "correctIndex": 3,
+        "explanation": "V = I x R. At 2A: V = 2 x 5 = 10V. At 4A: V = 4 x 5 = 20V. The voltage doubles because current doubled with constant resistance. This also means power (P = V x I) quadruples, which explains why fault currents cause rapid overheating."
+      },
+      "preassessment": {
+        "question": "Current through a fixed resistance doubles. Voltage across it will:",
+        "choices": [
+          "Halve",
+          "Quadruple",
+          "Stay the same",
+          "Double"
+        ],
+        "correctIndex": 3
+      }
+    },
+    {
+      "id": "CAT2-DC-012",
+      "category": "dc-fundamentals",
+      "difficulty": "medium",
+      "tags": [
+        "parallel-circuit",
+        "resistance",
+        "circuit-analysis"
+      ],
+      "learningObjective": "Understand adding parallel resistors reduces total resistance",
+      "fullObjective": "Explain that adding more resistors in parallel reduces total resistance in the circuit because additional current paths are created.",
+      "flashcard": {
+        "term": "Parallel resistance reduction",
+        "definition": "Adding resistors in parallel always reduces total circuit resistance because each new branch provides an additional current path. Total parallel resistance is always less than the smallest individual resistor.",
+        "analogy": "Opening extra checkout lanes at a store reduces the total wait time \u2014 more lanes (paths) mean the total flow capacity increases, so the overall resistance to traffic decreases.",
+        "unit": "DC Electrical Fundamentals"
+      },
+      "jeopardy": {
+        "question": "This is the effect on total circuit resistance each time a new load is added in parallel across the aircraft bus.",
+        "choices": [
+          "Total resistance increases because more components are added",
+          "Total resistance stays the same because each branch is independent",
+          "Total resistance is undefined until all branch values are known",
+          "Total resistance decreases because additional current paths are created"
+        ],
+        "correctIndex": 3,
+        "explanation": "Every parallel branch creates an additional path for current, so total resistance drops. The formula 1/Rt = 1/R1 + 1/R2 + ... always produces a result smaller than the smallest individual branch. This is why adding avionics loads to a bus increases total current draw \u2014 lower total resistance draws more current from the same voltage."
+      },
+      "multipleChoice": {
+        "question": "A 100-ohm resistor is connected across a circuit. A second 100-ohm resistor is added in parallel. What happens to the total resistance?",
+        "choices": [
+          "It increases to 200 ohms because resistance adds in parallel",
+          "It decreases to 10 ohms because the values multiply in parallel",
+          "It stays at 100 ohms because the resistors are identical",
+          "It decreases to 50 ohms because parallel paths reduce total resistance"
+        ],
+        "correctIndex": 3,
+        "explanation": "For two equal resistors in parallel: Rt = R/2 = 100/2 = 50 ohms. Adding any parallel branch always reduces total resistance \u2014 it never stays the same or increases. The general rule: Rt is always less than the smallest branch resistor in a parallel combination."
+      },
+      "practice": {
+        "question": "A technician adds a second avionics display to an existing bus circuit that already has one display connected. Both displays have the same input resistance. After the second display is connected in parallel, the technician should expect:",
+        "choices": [
+          "Total bus resistance to halve, causing twice as much current to flow from the bus",
+          "Total bus resistance to double, causing less current to flow",
+          "Total bus resistance to stay the same, because both units are identical",
+          "Total bus resistance to be undefined until a load test is performed"
+        ],
+        "correctIndex": 0,
+        "explanation": "Two equal parallel resistances produce half the resistance of one alone: Rt = R/2. With half the resistance, Ohm's Law (I = V/R) shows twice the current flows. This is the physical reason each added avionics load increases alternator demand \u2014 more parallel paths mean lower total impedance and higher total current."
+      },
+      "preassessment": {
+        "question": "Adding a resistor in parallel to an existing parallel circuit will:",
+        "choices": [
+          "Decrease total resistance",
+          "Keep total resistance the same",
+          "Double total resistance",
+          "Increase total resistance"
+        ],
+        "correctIndex": 0
+      }
+    },
+    {
+      "id": "CAT2-DC-013",
+      "category": "dc-fundamentals",
+      "difficulty": "medium",
+      "tags": [
+        "power",
+        "proportionality",
+        "calculation"
+      ],
+      "learningObjective": "Predict power quadruples when both V and I double",
+      "fullObjective": "Calculate that power quadruples when both voltage and current double, using P = V x I.",
+      "flashcard": {
+        "term": "Power quadrupling effect",
+        "definition": "Power = V x I. If both voltage and current double simultaneously, power quadruples: (2V) x (2I) = 4(V x I). Each quantity doubling multiplies the power by its own factor.",
+        "analogy": "If you double both the flow rate and the pressure in a hydraulic system, the total power (rate of work) increases by four \u2014 each factor independently multiplies the result.",
+        "unit": "DC Electrical Fundamentals"
+      },
+      "jeopardy": {
+        "question": "When voltage doubles and current doubles simultaneously in a circuit, power changes by this factor.",
+        "choices": [
+          "It doubles \u2014 because two quantities each doubled",
+          "It quadruples \u2014 because 2V x 2I = 4 x original power",
+          "It triples \u2014 the midpoint between doubling each quantity",
+          "It stays the same \u2014 voltage and current increases cancel out"
+        ],
+        "correctIndex": 1,
+        "explanation": "P = V x I. If V becomes 2V and I becomes 2I, then new power = 2V x 2I = 4 x (V x I). Power is the product of voltage and current \u2014 when both factors double, the product increases by 2 x 2 = 4. This compounding effect is why fault conditions with both elevated voltage and current can cause catastrophic damage rapidly."
+      },
+      "multipleChoice": {
+        "question": "A circuit originally operates at 6 volts and 2 amps. Both the voltage and the current are then doubled to 12 volts and 4 amps. What happens to the power dissipation?",
+        "choices": [
+          "It doubles from 12W to 24W",
+          "It triples from 12W to 36W",
+          "It increases by 4W, from 12W to 16W",
+          "It quadruples from 12W to 48W"
+        ],
+        "correctIndex": 3,
+        "explanation": "Original power: P = 6V x 2A = 12W. New power: P = 12V x 4A = 48W. That is exactly 4 times the original \u2014 power quadruples when both voltage and current double. This demonstrates why overcurrent faults are destructive: heat in a conductor scales with I\u00b2, and if voltage also rises, power scales even faster."
+      },
+      "practice": {
+        "question": "During a fault simulation, both bus voltage and fault current in a test circuit double. An instructor asks a student what happens to power dissipation in the affected branch. The correct answer is:",
+        "choices": [
+          "Power doubles, because two quantities each increased once",
+          "Power quadruples, because P = V x I and both factors doubled (2 x 2 = 4)",
+          "Power remains the same, because the ratio of voltage to current did not change",
+          "Power triples, because the two doublings average to a factor of 3"
+        ],
+        "correctIndex": 1,
+        "explanation": "P = V x I. Doubling both V and I multiplies their product by 2 x 2 = 4. If the original power was, say, 100W, the new power is 400W. This is why aircraft circuit protection (fuses and breakers) must react quickly \u2014 even a brief doubling of both voltage and current under fault conditions delivers four times the thermal energy to the wiring."
+      },
+      "preassessment": {
+        "question": "Both voltage and current in a circuit are doubled. Power will:",
+        "choices": [
+          "Double",
+          "Quadruple",
+          "Triple",
+          "Stay the same"
+        ],
+        "correctIndex": 1
+      }
+    },
+    {
+      "id": "CAT2-DC-014",
+      "category": "dc-fundamentals",
+      "difficulty": "medium",
+      "tags": [
+        "parallel-circuit",
+        "resistance",
+        "calculation"
+      ],
+      "learningObjective": "Calculate parallel resistance: 10k, 1k, 500 ohms \u2248 476 ohms",
+      "fullObjective": "Calculate total resistance in a parallel circuit with resistors of 10k, 1k, and 500 ohms using the parallel resistance formula, arriving at approximately 476 ohms.",
+      "flashcard": {
+        "term": "Parallel resistance (10k, 1k, 500\u03a9)",
+        "definition": "Using 1/Rt = 1/10000 + 1/1000 + 1/500 = 0.0001 + 0.001 + 0.002 = 0.0021 \u2192 Rt = 1/0.0021 \u2248 476 ohms. The result is always less than the smallest branch (500 ohms).",
+        "analogy": "Three traffic lanes of different widths merge into one \u2014 a very wide lane (low resistance, 500\u03a9) dominates the total flow capacity. The narrowest lanes add a little but the total is controlled mostly by the widest.",
+        "unit": "DC Electrical Fundamentals"
+      },
+      "jeopardy": {
+        "question": "The parallel combination of 10,000 ohms, 1,000 ohms, and 500 ohms produces this total resistance.",
+        "choices": [
+          "11,500 ohms",
+          "3,833 ohms",
+          "500 ohms",
+          "approximately 476 ohms"
+        ],
+        "correctIndex": 3,
+        "explanation": "1/Rt = 1/10000 + 1/1000 + 1/500 = 0.0001 + 0.001 + 0.002 = 0.0021. Rt = 1/0.0021 \u2248 476 ohms. The answer must be less than 500 ohms (the smallest branch). Adding 11,500 (series) or averaging (3,833) are common errors from misapplying the formula."
+      },
+      "multipleChoice": {
+        "question": "Three resistors \u2014 10,000 ohms, 1,000 ohms, and 500 ohms \u2014 are wired in parallel. What is the approximate total resistance?",
+        "choices": [
+          "476 ohms",
+          "11,500 ohms",
+          "3,833 ohms",
+          "500 ohms"
+        ],
+        "correctIndex": 0,
+        "explanation": "1/Rt = 1/10000 + 1/1000 + 1/500 = 0.0001 + 0.001 + 0.002 = 0.0021 \u2192 Rt \u2248 476 ohms. Total parallel resistance is always less than the smallest branch. Note that the 10k\u03a9 resistor contributes very little compared to the 500\u03a9 branch \u2014 the low-resistance branch dominates in parallel circuits."
+      },
+      "practice": {
+        "question": "A technician is analyzing a parallel bus segment with three loads: a 10,000-ohm sensor input, a 1,000-ohm display input, and a 500-ohm indicator resistor. Using the parallel resistance formula, the effective input resistance seen by the bus is approximately:",
+        "choices": [
+          "11,500 ohms \u2014 the total of all three in series",
+          "3,833 ohms \u2014 the arithmetic average of the three resistors",
+          "500 ohms \u2014 the lowest branch resistance limits the total",
+          "476 ohms \u2014 the reciprocal-sum result of the three parallel branches"
+        ],
+        "correctIndex": 3,
+        "explanation": "1/Rt = 1/10000 + 1/1000 + 1/500 = 0.0001 + 0.001 + 0.002 = 0.0021 \u2192 Rt \u2248 476 ohms. The key insight is that the 500\u03a9 branch dominates the parallel combination. The 10k\u03a9 branch adds only a tiny contribution (0.0001 S of conductance) compared to the 500\u03a9 branch (0.002 S). Total resistance must be less than 500\u03a9."
+      },
+      "preassessment": {
+        "question": "Three resistors of 10k, 1k, and 500 ohms are in parallel. Total resistance is approximately:",
+        "choices": [
+          "11,500 ohms",
+          "3,833 ohms",
+          "500 ohms",
+          "476 ohms"
+        ],
+        "correctIndex": 3
+      }
+    },
+    {
+      "id": "CAT2-DC-015",
+      "category": "dc-fundamentals",
+      "difficulty": "medium",
+      "tags": [
+        "ohms-law",
+        "current",
+        "calculation"
+      ],
+      "learningObjective": "Calculate current: 12V / 6 ohms = 2A",
+      "fullObjective": "Calculate current in a circuit with a 12V battery and 6 ohms total resistance using Ohm's Law, arriving at 2 amps.",
+      "flashcard": {
+        "term": "Current calculation (12V / 6\u03a9)",
+        "definition": "I = V / R = 12V / 6\u03a9 = 2 amps. This straightforward application of Ohm's Law confirms that a 12-volt supply drives 2 amperes through 6 ohms of total circuit resistance.",
+        "analogy": "A 12-unit pressure source pushing through a 6-unit restriction delivers exactly 2 units of flow \u2014 halving the resistance compared to 12 ohms doubles the 1-amp result you would expect there.",
+        "unit": "DC Electrical Fundamentals"
+      },
+      "jeopardy": {
+        "question": "A 12-volt battery connected to a 6-ohm circuit drives this much current.",
+        "choices": [
+          "0.5 amps",
+          "2 amps",
+          "6 amps",
+          "72 amps"
+        ],
+        "correctIndex": 1,
+        "explanation": "I = V / R = 12V / 6\u03a9 = 2 amps. The distractor 0.5 amps comes from inverting (6/12). The distractor 6 amps ignores the voltage. The distractor 72 amps multiplies voltage by resistance. Always divide voltage by resistance to find current."
+      },
+      "multipleChoice": {
+        "question": "A 12-volt battery is the sole power source in a circuit with a total resistance of 6 ohms. What is the circuit current?",
+        "choices": [
+          "0.5 amps",
+          "6 amps",
+          "72 amps",
+          "2 amps"
+        ],
+        "correctIndex": 3,
+        "explanation": "I = V / R = 12V / 6\u03a9 = 2 amps. This is a direct Ohm's Law calculation. Selecting 6 amps is a common error where the student uses the resistance value as the current answer. Selecting 0.5 amps results from dividing R by V instead of V by R."
+      },
+      "practice": {
+        "question": "A portable test light is powered by a 12-volt aircraft battery. The lamp has a cold resistance of 6 ohms. What current flows through the test light when first connected?",
+        "choices": [
+          "6 amps \u2014 the resistance value equals the current for 12-volt circuits",
+          "72 amps \u2014 voltage times resistance gives current",
+          "2 amps \u2014 voltage divided by resistance gives 12/6 = 2A",
+          "0.5 amps \u2014 resistance divided by voltage gives 6/12 = 0.5A"
+        ],
+        "correctIndex": 2,
+        "explanation": "I = V / R = 12V / 6\u03a9 = 2 amps. The test light draws 2 amps at cold resistance. In practice, lamp resistance increases as the filament heats up (positive temperature coefficient), so steady-state current will be somewhat lower. However, the Ohm's Law cold-resistance calculation gives the starting current."
+      },
+      "preassessment": {
+        "question": "A 12V source drives current through 6 ohms. Current is:",
+        "choices": [
+          "2 amps",
+          "0.5 amps",
+          "6 amps",
+          "72 amps"
+        ],
+        "correctIndex": 0
+      }
+    },
+    {
+      "id": "CAT2-DC-016",
+      "category": "dc-fundamentals",
+      "difficulty": "medium",
+      "tags": [
+        "ohms-law",
+        "current",
+        "resistance",
+        "proportionality"
+      ],
+      "learningObjective": "Predict current halved when resistance doubles (V constant)",
+      "fullObjective": "Predict that current will be halved if resistance doubles while voltage stays the same, applying Ohm's Law: I = V / R.",
+      "flashcard": {
+        "term": "Current-resistance inverse proportionality",
+        "definition": "When voltage is constant, current is inversely proportional to resistance (I = V / R). Doubling resistance halves current; halving resistance doubles current.",
+        "analogy": "If you partially close a valve in a pipe while keeping the same upstream pressure, flow rate drops \u2014 double the restriction, half the flow.",
+        "unit": "DC Electrical Fundamentals"
+      },
+      "jeopardy": {
+        "question": "With voltage held constant, doubling the resistance in a circuit produces this change in current.",
+        "choices": [
+          "Current doubles",
+          "Current stays the same",
+          "Current quadruples",
+          "Current is halved"
+        ],
+        "correctIndex": 3,
+        "explanation": "I = V / R. If R doubles (becomes 2R) and V is constant: new current = V / (2R) = (V/R) / 2 = half the original current. Resistance and current are inversely proportional at constant voltage \u2014 a fundamental inverse relationship in Ohm's Law."
+      },
+      "multipleChoice": {
+        "question": "A 28V circuit normally carries 4 amps through a 7-ohm load. The load is replaced with a 14-ohm component. The voltage stays at 28V. What is the new current?",
+        "choices": [
+          "8 amps \u2014 doubling resistance doubles current",
+          "2 amps \u2014 doubling resistance halves current",
+          "4 amps \u2014 current is determined solely by voltage",
+          "1 amp \u2014 current is quartered when resistance doubles"
+        ],
+        "correctIndex": 1,
+        "explanation": "At 7\u03a9: I = 28/7 = 4A. At 14\u03a9: I = 28/14 = 2A. Doubling resistance halves the current when voltage is constant \u2014 an inverse relationship. This is why an undersized resistor (lower R) allows more current than intended and can overheat."
+      },
+      "practice": {
+        "question": "A static discharge resistor in an avionics grounding circuit has corroded, doubling its resistance from 100 ohms to 200 ohms. The bus voltage remains at 28V. How does the current through the resistor change?",
+        "choices": [
+          "Current is halved from 0.28A to 0.14A because doubled resistance inversely reduces current",
+          "Current doubles from 0.28A to 0.56A because increased resistance drives more current at the same voltage",
+          "Current is quartered from 0.28A to 0.07A because doubling resistance squares the effect",
+          "Current stays at 0.28A because voltage did not change"
+        ],
+        "correctIndex": 0,
+        "explanation": "Original: I = 28/100 = 0.28A. After corrosion: I = 28/200 = 0.14A. Doubled resistance halves current (inverse proportionality at constant voltage). In a static discharge path this matters because reduced current means reduced static dissipation capability, potentially allowing dangerous charge buildup on antenna components."
+      },
+      "preassessment": {
+        "question": "Resistance doubles while voltage stays constant. Current will:",
+        "choices": [
+          "Double",
+          "Be halved",
+          "Stay the same",
+          "Quadruple"
+        ],
+        "correctIndex": 1
+      }
+    },
+    {
+      "id": "CAT2-AC-001",
+      "category": "ac-fundamentals",
+      "difficulty": "medium",
+      "tags": [
+        "ac-frequency",
+        "test-equipment",
+        "alternator"
+      ],
+      "learningObjective": "Select correct instrument to verify AC alternator output frequency",
+      "fullObjective": "Select a frequency counter or calibrated oscilloscope as the correct instrument to verify the output frequency of an aircraft AC alternator on the bench.",
+      "flashcard": {
+        "term": "Verifying AC alternator frequency",
+        "definition": "A frequency counter or calibrated oscilloscope are the correct instruments to verify that an AC alternator is producing the correct output frequency (typically 400 Hz) during bench testing.",
+        "analogy": "Like using a stopwatch to verify the beat rate of a metronome \u2014 you need an instrument specifically designed to count cycles per second, not one that just measures magnitude.",
+        "unit": "DC Electrical Fundamentals"
+      },
+      "jeopardy": {
+        "question": "These two instruments are the correct choices for verifying the output frequency of an aircraft AC alternator during bench testing.",
+        "choices": [
+          "A voltmeter and an ammeter",
+          "A frequency counter or calibrated oscilloscope",
+          "A megohmmeter and a clamp meter",
+          "A digital multimeter and a tachometer"
+        ],
+        "correctIndex": 1,
+        "explanation": "A frequency counter directly measures cycles per second (Hz). A calibrated oscilloscope allows a technician to measure the period of one cycle and calculate frequency from it. A standard DMM's AC voltage function measures RMS magnitude, not frequency \u2014 it will not confirm the alternator is outputting 400 Hz versus 380 Hz or 420 Hz."
+      },
+      "multipleChoice": {
+        "question": "A technician needs to confirm that a repaired aircraft AC alternator is producing the correct output frequency before returning it to service. Which instrument is most appropriate for this verification?",
+        "choices": [
+          "A standard AC voltmeter to measure output voltage magnitude",
+          "A frequency counter or calibrated oscilloscope to measure output frequency",
+          "An ammeter to measure current output at full load",
+          "A digital multimeter set to resistance to verify winding continuity"
+        ],
+        "correctIndex": 1,
+        "explanation": "Frequency must be verified with a frequency counter or oscilloscope. A voltmeter confirms output amplitude but gives no frequency information. An ammeter verifies current capacity. Resistance measurement is useful for winding checks but does not verify operational frequency. Only a frequency counter or oscilloscope directly measures Hz."
+      },
+      "practice": {
+        "question": "After overhauling an aircraft AC alternator, a shop supervisor asks a technician to verify the output frequency meets the 400 Hz specification. The technician has access to a digital multimeter, a frequency counter, an oscilloscope, and a clamp-on ammeter. Which tools are appropriate for the frequency check?",
+        "choices": [
+          "The digital multimeter \u2014 its AC voltage setting will display the frequency alongside the voltage",
+          "The clamp-on ammeter \u2014 measuring current variation rate reveals the output frequency",
+          "The frequency counter or the oscilloscope \u2014 both are capable of directly measuring cycles per second",
+          "The digital multimeter and clamp-on ammeter together \u2014 comparing their readings gives frequency by ratio"
+        ],
+        "correctIndex": 2,
+        "explanation": "A frequency counter directly displays output frequency in Hz. An oscilloscope shows the waveform; measuring the period of one cycle (in milliseconds) and calculating f = 1/T confirms frequency. A standard DMM's AC mode measures RMS voltage only \u2014 it does not display or measure frequency unless it has a dedicated Hz function. A clamp meter measures current magnitude, not frequency."
+      },
+      "preassessment": {
+        "question": "To verify an AC alternator's output frequency, the correct instruments are:",
+        "choices": [
+          "A voltmeter and an ohmmeter",
+          "A frequency counter or oscilloscope",
+          "A clamp meter and a tachometer",
+          "A digital multimeter and a megger"
+        ],
+        "correctIndex": 1
+      }
+    },
+    {
+      "id": "CAT2-AC-002",
+      "category": "ac-fundamentals",
+      "difficulty": "easy",
+      "tags": [
+        "ac-frequency",
+        "hertz",
+        "units"
+      ],
+      "learningObjective": "State that frequency is measured in hertz (Hz)",
+      "fullObjective": "State that frequency in an AC electrical system is measured in hertz (Hz), representing the number of complete cycles per second.",
+      "flashcard": {
+        "term": "Frequency unit: hertz (Hz)",
+        "definition": "Frequency is measured in hertz (Hz). One hertz equals one complete AC cycle per second. Aircraft AC systems typically operate at 400 Hz; household power in the US is 60 Hz.",
+        "analogy": "Hertz is to AC cycles what RPM is to engine rotation \u2014 it counts how many times something completes a full cycle every second.",
+        "unit": "DC Electrical Fundamentals"
+      },
+      "jeopardy": {
+        "question": "The unit used to measure the number of complete AC cycles occurring each second in an electrical system.",
+        "choices": [
+          "Volts (V)",
+          "Ohms (\u03a9)",
+          "Watts (W)",
+          "Hertz (Hz)"
+        ],
+        "correctIndex": 3,
+        "explanation": "Hertz (Hz) is the SI unit of frequency, named after Heinrich Hertz. One hertz equals one complete cycle per second. Aircraft AC systems operate at 400 Hz (400 cycles per second), while US household power is 60 Hz. Frequency is distinct from voltage (V), resistance (\u03a9), or power (W)."
+      },
+      "multipleChoice": {
+        "question": "The frequency of an AC electrical system is expressed in which unit?",
+        "choices": [
+          "Watts (W)",
+          "Amperes (A)",
+          "Hertz (Hz)",
+          "Ohms (\u03a9)"
+        ],
+        "correctIndex": 2,
+        "explanation": "Frequency is measured in hertz (Hz), which represents the number of complete cycles per second. Watts measure power, amperes measure current, and ohms measure resistance \u2014 none of these units describe how many times per second an AC waveform completes a cycle."
+      },
+      "practice": {
+        "question": "During a pre-installation briefing, an instructor asks a student what unit is used to specify the frequency of an aircraft's 400-cycle AC power system. The correct answer is:",
+        "choices": [
+          "Volts \u2014 because frequency is a property of the voltage waveform",
+          "Amps \u2014 because frequency describes the rate of current reversal",
+          "Ohms \u2014 because the system operates at an impedance of 400",
+          "Hertz \u2014 because frequency represents complete cycles per second"
+        ],
+        "correctIndex": 3,
+        "explanation": "Hertz (Hz) is the correct unit for frequency. Aircraft AC power is specified as 400 Hz \u2014 meaning the voltage completes 400 full cycles every second. The frequency specification is part of the aircraft's power quality standard (MIL-STD-704) and must be verified with appropriate test equipment during system checkout."
+      },
+      "preassessment": {
+        "question": "Frequency in an AC electrical system is measured in:",
+        "choices": [
+          "Volts",
+          "Ohms",
+          "Hertz (Hz)",
+          "Watts"
+        ],
+        "correctIndex": 2
+      }
+    },
+    {
+      "id": "CAT2-AC-003",
+      "category": "ac-fundamentals",
+      "difficulty": "easy",
+      "tags": [
+        "capacitance",
+        "farads",
+        "units",
+        "avionics"
+      ],
+      "learningObjective": "State that capacitance is measured in farads; microfarads most common in avionics",
+      "fullObjective": "State that the unit of capacitance is the farad (F), with microfarads (\u00b5F) being the most common unit in avionics circuits.",
+      "flashcard": {
+        "term": "Capacitance unit: farad (F) and microfarad (\u00b5F)",
+        "definition": "Capacitance is measured in farads (F). Because one farad is extremely large, practical avionics capacitors are rated in microfarads (\u00b5F, 10\u207b\u2076 F) or picofarads (pF, 10\u207b\u00b9\u00b2 F). Microfarads are most common in avionics power filtering circuits.",
+        "analogy": "The farad is like measuring road distance in light-years \u2014 technically correct but impractically large. Avionics engineers use microfarads for the same reason road builders use miles or kilometers.",
+        "unit": "DC Electrical Fundamentals"
+      },
+      "jeopardy": {
+        "question": "This is the SI unit of capacitance, though avionics capacitors are almost always specified in one-millionth of this unit.",
+        "choices": [
+          "Henry (H)",
+          "Ohm (\u03a9)",
+          "Farad (F)",
+          "Siemen (S)"
+        ],
+        "correctIndex": 2,
+        "explanation": "The farad (F) is the SI unit of capacitance. Because one farad is impractically large, avionics capacitors are specified in microfarads (\u00b5F = 10\u207b\u2076 F) or picofarads (pF = 10\u207b\u00b9\u00b2 F). The henry measures inductance, the ohm measures resistance, and the siemen measures conductance."
+      },
+      "multipleChoice": {
+        "question": "What is the SI unit of capacitance, and what smaller denomination is most commonly used when specifying capacitors in avionics circuits?",
+        "choices": [
+          "Henry (H); millihenries are most common in avionics",
+          "Farad (F); microfarads (\u00b5F) are most common in avionics",
+          "Ohm (\u03a9); milliohms are most common in avionics",
+          "Coulomb (C); microcoulombs are most common in avionics"
+        ],
+        "correctIndex": 1,
+        "explanation": "Capacitance is measured in farads (F). The farad is too large for practical components, so avionics capacitors are typically specified in microfarads (\u00b5F). For high-frequency RF circuits, picofarads (pF) are used. Henries measure inductance, ohms measure resistance, and coulombs measure charge \u2014 not capacitance."
+      },
+      "practice": {
+        "question": "While reading a wiring diagram for a 28VDC power conditioning board, a technician finds capacitors labeled 47\u00b5F and 100\u00b5F. What does the '\u00b5F' unit represent, and why is it used instead of farads?",
+        "choices": [
+          "Microfarads \u2014 one millionth of a farad; practical capacitors are far smaller than one farad, so \u00b5F provides convenient numbers",
+          "Megafarads \u2014 one million farads; power capacitors need very high values for aircraft systems",
+          "Millifarads \u2014 one thousandth of a farad; used because farads are too small for avionics filter capacitors",
+          "Microfarads \u2014 a unit of inductance used in capacitor-inductor filter pairs"
+        ],
+        "correctIndex": 0,
+        "explanation": "\u00b5F means microfarads \u2014 one millionth of a farad (10\u207b\u2076 F). One farad of capacitance would be a physically enormous component; practical capacitors for avionics power filtering are in the microfarad range. Reading component labels correctly is essential when selecting or verifying replacement parts."
+      },
+      "preassessment": {
+        "question": "Capacitance is measured in farads, and the most common unit in avionics is:",
+        "choices": [
+          "Millifarads (mF)",
+          "Kilofarads (kF)",
+          "Microfarads (\u00b5F)",
+          "Picofarads (pF)"
+        ],
+        "correctIndex": 2
+      }
+    },
+    {
+      "id": "CAT2-AC-004",
+      "category": "ac-fundamentals",
+      "difficulty": "medium",
+      "tags": [
+        "ac-waveform",
+        "sinusoidal",
+        "waveform-shape"
+      ],
+      "learningObjective": "Describe AC waveform as sinusoidal curve alternating above/below zero",
+      "fullObjective": "Describe a simple single-phase AC waveform as a sinusoidal curve that alternates above and below zero voltage at the system frequency.",
+      "flashcard": {
+        "term": "AC waveform shape",
+        "definition": "A single-phase AC waveform is a sinusoidal (sine wave) curve that rises above zero to a positive peak, returns through zero, falls to a negative peak, and returns to zero \u2014 completing one full cycle at the system frequency.",
+        "analogy": "Imagine a cork bobbing on ocean waves \u2014 it continuously rises above and dips below the calm waterline in a smooth, repeating pattern. The voltage does the same around the zero-volt line.",
+        "unit": "DC Electrical Fundamentals"
+      },
+      "jeopardy": {
+        "question": "This is the shape of the voltage waveform produced by an AC generator, characterized by smooth, continuous alternation above and below zero.",
+        "choices": [
+          "A sawtooth wave with sharp transitions",
+          "A square wave alternating between fixed positive and negative values",
+          "A sinusoidal curve that smoothly crosses zero at the system frequency",
+          "A pulsed DC waveform that never goes below zero"
+        ],
+        "correctIndex": 2,
+        "explanation": "AC generators produce a sinusoidal waveform because the magnetic flux through the rotating winding follows a sine function. The voltage rises smoothly to a positive peak, crosses zero, falls to a negative peak, and returns to zero each cycle. Square waves and sawtooth waves are generated by electronic circuits, not rotating AC alternators."
+      },
+      "multipleChoice": {
+        "question": "How is the voltage waveform of a single-phase AC electrical system best described?",
+        "choices": [
+          "A constant DC level interrupted by brief spikes",
+          "A square wave toggling between a fixed positive and fixed negative voltage",
+          "A sinusoidal curve that smoothly alternates above and below zero voltage",
+          "A triangular wave that linearly ramps between peak and zero"
+        ],
+        "correctIndex": 2,
+        "explanation": "A single-phase AC waveform is sinusoidal \u2014 it follows a sine function over time, continuously and smoothly alternating between positive and negative values. One complete trip from zero, to positive peak, back through zero, to negative peak, and back to zero constitutes one cycle. This shape results directly from the physics of rotating electromagnetic alternators."
+      },
+      "practice": {
+        "question": "A student connects an oscilloscope to a 400 Hz aircraft AC bus and observes the display. What waveform shape should appear if the system is functioning normally?",
+        "choices": [
+          "A flat horizontal line at the RMS voltage value",
+          "A sinusoidal wave smoothly alternating above and below zero, completing 400 full cycles per second",
+          "A series of sharp square pulses repeating 400 times per second",
+          "An irregular waveform with random peaks and valleys"
+        ],
+        "correctIndex": 1,
+        "explanation": "A healthy 400 Hz AC system produces a sinusoidal waveform \u2014 a smooth sine curve crossing zero 800 times per second (twice per cycle). On an oscilloscope set to display a few milliseconds per division, you should see clean, symmetric positive and negative half-cycles. Distorted, non-sinusoidal waveforms indicate system faults such as alternator problems or significant harmonic distortion from loads."
+      },
+      "preassessment": {
+        "question": "A single-phase AC waveform is best described as:",
+        "choices": [
+          "A constant positive voltage",
+          "A square wave between fixed limits",
+          "A sinusoidal curve alternating above and below zero",
+          "A DC pulse train"
+        ],
+        "correctIndex": 2
+      }
+    },
+    {
+      "id": "CAT2-AC-005",
+      "category": "ac-fundamentals",
+      "difficulty": "easy",
+      "tags": [
+        "ac-systems",
+        "transformers",
+        "aircraft-power",
+        "weight"
+      ],
+      "learningObjective": "State AC advantage: transformers enable lighter wiring",
+      "fullObjective": "State the primary advantage of AC electrical systems in aircraft: the ability to efficiently transform voltage levels using transformers, enabling lighter wiring for high-power loads.",
+      "flashcard": {
+        "term": "AC advantage: voltage transformation",
+        "definition": "The primary advantage of AC in aircraft is the ability to use transformers to step voltage up or down. Higher voltage means lower current for the same power (P = V x I), which allows smaller, lighter wiring \u2014 critical in weight-sensitive aircraft.",
+        "analogy": "High-tension power lines carry electricity cross-country at very high voltage and low current, using thinner wire than would be needed at household voltage. Aircraft AC systems exploit the same physics.",
+        "unit": "DC Electrical Fundamentals"
+      },
+      "jeopardy": {
+        "question": "This is the primary advantage of AC electrical systems over DC in aircraft: the ability to use this device to change voltage levels and reduce wiring weight.",
+        "choices": [
+          "Rectifiers, which convert AC to DC for lightweight storage",
+          "Alternators, which produce AC more efficiently than DC generators",
+          "Transformers, which step voltage up or down enabling lighter wiring",
+          "Inverters, which convert DC to AC for high-voltage loads"
+        ],
+        "correctIndex": 2,
+        "explanation": "Transformers only work with AC \u2014 they cannot change DC voltage levels. By stepping up voltage, transformers allow the same power to be transmitted at lower current. Lower current means smaller wire is adequate (P = V x I; at higher V, I is lower for the same P), reducing wire bundle weight. This is why aircraft with high power loads (radar, galleys) use AC distribution."
+      },
+      "multipleChoice": {
+        "question": "What is the primary advantage of using an AC electrical system in aircraft compared to a purely DC system?",
+        "choices": [
+          "AC is safer to work on than DC systems of equivalent voltage",
+          "AC can be stored in batteries more efficiently than DC",
+          "AC systems allow transformers to change voltage levels, enabling lighter wiring for high-power loads",
+          "AC eliminates the need for circuit breakers in aircraft wiring systems"
+        ],
+        "correctIndex": 2,
+        "explanation": "The key advantage of AC is transformer compatibility. Transformers can step voltage up or down, allowing high-power loads to be powered at high voltage and low current \u2014 which means thinner, lighter wiring. DC voltage cannot be changed by a simple transformer; you need electronic converters instead, which are heavier and less efficient for large power levels."
+      },
+      "practice": {
+        "question": "A large transport aircraft uses a 115V AC distribution system rather than 28V DC for its high-power systems such as hydraulic pumps and galley power. An avionics student asks why. The most accurate explanation is:",
+        "choices": [
+          "115V AC is less hazardous to personnel than 28V DC, so it is preferred for safety",
+          "AC systems require no protective devices like circuit breakers, reducing weight",
+          "Transformers allow 115V AC to be stepped up or down efficiently, enabling lower current and lighter wiring for high-power loads compared to equivalent DC systems",
+          "AC power can be stored in capacitor banks as a backup, unlike DC which requires heavy batteries"
+        ],
+        "correctIndex": 2,
+        "explanation": "At 115V AC, a 10kW load requires about 87A. At 28V DC, the same 10kW would require over 350A \u2014 demanding much heavier wiring. Transformers make it practical to distribute AC at high voltage, convert to lower voltages where needed, and achieve overall system weight savings. This is the fundamental engineering reason transport aircraft use AC distribution."
+      },
+      "preassessment": {
+        "question": "The primary advantage of AC over DC in aircraft electrical systems is:",
+        "choices": [
+          "AC can be stored in batteries",
+          "AC eliminates circuit breakers",
+          "Transformers enable voltage changes and lighter wiring",
+          "AC is always safer than DC"
+        ],
+        "correctIndex": 2
+      }
+    },
+    {
+      "id": "CAT2-AC-006",
+      "category": "ac-fundamentals",
+      "difficulty": "easy",
+      "tags": [
+        "inductive-reactance",
+        "inductors",
+        "ac-circuits",
+        "frequency"
+      ],
+      "learningObjective": "State inductive reactance: opposition to AC by inductors, measured in ohms, increases with frequency",
+      "fullObjective": "State that inductive reactance is the opposition to AC current flow caused by inductors, measured in ohms and increasing with frequency.",
+      "flashcard": {
+        "term": "Inductive reactance (XL)",
+        "definition": "Inductive reactance (XL) is the opposition an inductor presents to AC current flow. It is measured in ohms and increases proportionally with frequency: XL = 2\u03c0fL. Higher frequency \u2192 higher reactance \u2192 less AC current through the inductor.",
+        "analogy": "An inductor resists changes in current. At higher frequency, current changes direction faster, so the inductor opposes it more strongly \u2014 like a shock absorber that stiffens up at higher vibration frequencies.",
+        "unit": "DC Electrical Fundamentals"
+      },
+      "jeopardy": {
+        "question": "This property of inductors opposes AC current flow, is measured in ohms, and increases as the AC frequency rises.",
+        "choices": [
+          "Capacitive reactance (XC)",
+          "Resistance (R)",
+          "Conductance (G)",
+          "Inductive reactance (XL)"
+        ],
+        "correctIndex": 3,
+        "explanation": "Inductive reactance (XL = 2\u03c0fL) describes how strongly an inductor opposes AC current. It is measured in ohms, like resistance, but is frequency-dependent. As frequency increases, XL increases \u2014 the opposite of capacitive reactance (XC), which decreases with frequency. At DC (f = 0), an ideal inductor has zero reactance and acts as a plain wire."
+      },
+      "multipleChoice": {
+        "question": "Which statement correctly describes inductive reactance?",
+        "choices": [
+          "It is the opposition to DC current flow by an inductor, measured in henries",
+          "It is the opposition to AC current flow by an inductor, measured in ohms and increasing with frequency",
+          "It is the opposition to current flow by a capacitor, measured in ohms and decreasing with frequency",
+          "It is the total opposition to current flow in any circuit, combining resistance and reactance"
+        ],
+        "correctIndex": 1,
+        "explanation": "Inductive reactance (XL) is the opposition to AC current flow produced by an inductor, measured in ohms, with the value increasing as frequency rises (XL = 2\u03c0fL). The henry is the unit of inductance itself, not reactance. Capacitive reactance decreases with frequency (the opposite behavior). Impedance combines both resistance and reactance."
+      },
+      "practice": {
+        "question": "An avionics power filter uses an inductor (choke) to block high-frequency AC noise from reaching the regulated DC bus. The technician wants to confirm the inductor will be more effective at 400 Hz than at 60 Hz. Based on the properties of inductive reactance, is this expectation correct?",
+        "choices": [
+          "No \u2014 inductive reactance decreases with frequency, so the choke is more effective at 60 Hz",
+          "Yes \u2014 inductive reactance increases with frequency, so higher frequency noise sees greater opposition from the inductor",
+          "No \u2014 inductive reactance is constant regardless of frequency; only the inductor's DC resistance matters",
+          "Yes \u2014 but only when the inductor is connected in parallel with the load, not in series"
+        ],
+        "correctIndex": 1,
+        "explanation": "XL = 2\u03c0fL. At 400 Hz, XL is 400/60 \u2248 6.7 times higher than at 60 Hz. Greater reactance means greater opposition to current \u2014 so the inductor blocks 400 Hz noise far more effectively than 60 Hz noise. This frequency-dependent property is why inductors are selected as series chokes in avionics power filtering applications."
+      },
+      "preassessment": {
+        "question": "Inductive reactance is the opposition to AC by an inductor, measured in ohms. As frequency increases, inductive reactance:",
+        "choices": [
+          "Decreases",
+          "Stays the same",
+          "Increases",
+          "Goes to zero"
+        ],
+        "correctIndex": 2
+      }
+    },
+    {
+      "id": "CAT2-AC-007",
+      "category": "ac-fundamentals",
+      "difficulty": "medium",
+      "tags": [
+        "transformer",
+        "electromagnetic-induction",
+        "ac-circuits",
+        "voltage"
+      ],
+      "learningObjective": "Explain how transformers step voltage via electromagnetic induction",
+      "fullObjective": "Explain that a transformer is used in AC electrical systems to step voltage up or down between circuit levels while transferring power through electromagnetic induction.",
+      "flashcard": {
+        "term": "Transformer operation",
+        "definition": "A transformer transfers electrical power from one AC circuit to another through electromagnetic induction, simultaneously stepping voltage up or down based on the turns ratio of the primary and secondary windings. Transformers only work with AC.",
+        "analogy": "A transformer is like a mechanical gear system for electrical power \u2014 it trades off voltage for current (or current for voltage) to match the 'gear ratio' of the winding turns, just as gears trade off speed for torque.",
+        "unit": "DC Electrical Fundamentals"
+      },
+      "jeopardy": {
+        "question": "This AC component transfers power between two circuits through electromagnetic induction while changing the voltage level according to its turns ratio.",
+        "choices": [
+          "A rectifier, which converts AC to DC",
+          "A relay, which uses magnetic force to switch contacts",
+          "A capacitor, which stores energy in an electric field",
+          "A transformer, which steps voltage up or down via electromagnetic induction"
+        ],
+        "correctIndex": 3,
+        "explanation": "A transformer uses a changing magnetic field (created by AC in the primary winding) to induce voltage in the secondary winding. The ratio of turns determines whether voltage is stepped up or down. A rectifier converts AC to DC. A relay uses magnetism to switch, not to transfer power between windings. A capacitor stores energy electrostatically, not electromagnetically."
+      },
+      "multipleChoice": {
+        "question": "How does a transformer transfer power from its primary circuit to its secondary circuit?",
+        "choices": [
+          "By direct electrical conduction through a common wire connecting both windings",
+          "Through electromagnetic induction, where the AC in the primary winding creates a changing magnetic field that induces voltage in the secondary winding",
+          "By converting AC to DC in the primary and regenerating AC in the secondary",
+          "By storing energy in a magnetic core and releasing it at a different voltage during the off cycle"
+        ],
+        "correctIndex": 1,
+        "explanation": "Transformers work by electromagnetic induction. The AC primary current creates a changing magnetic flux in the core. This changing flux induces a voltage in the secondary winding proportional to the turns ratio. There is no direct electrical connection between primary and secondary windings \u2014 power is coupled magnetically. This galvanic isolation is a secondary benefit used in avionics power supplies."
+      },
+      "practice": {
+        "question": "An avionics shop receives a transformer labeled '115V primary / 28V secondary.' A technician asks how it converts 115V AC to 28V AC. The correct explanation is:",
+        "choices": [
+          "The transformer uses a voltage divider of resistors inside to drop the voltage proportionally from 115V to 28V",
+          "The transformer rectifies the 115V AC to DC, then inverts it at 28V AC on the output side",
+          "The AC in the primary winding creates a changing magnetic field in the core, which induces 28V in the secondary winding at the turns ratio that corresponds to 28/115",
+          "The transformer stores charge at 115V and releases it at 28V through a spark gap in the magnetic core"
+        ],
+        "correctIndex": 2,
+        "explanation": "A transformer works by electromagnetic induction. The 115V AC primary current produces a time-varying magnetic flux in the iron core. The secondary winding \u2014 wound with fewer turns in a step-down ratio \u2014 intercepts this changing flux and has 28V induced across it. Power is transferred magnetically with no direct electrical connection. This is why transformers only work with AC; DC produces no changing flux and therefore no induction in the secondary."
+      },
+      "preassessment": {
+        "question": "A transformer steps voltage up or down by:",
+        "choices": [
+          "Direct electrical conduction between windings",
+          "Capacitive coupling between the primary and secondary",
+          "Electromagnetic induction through a shared magnetic core",
+          "Converting AC to DC and re-inverting at a new voltage"
+        ],
+        "correctIndex": 2
+      }
+    },
+    {
+      "id": "CAT2-CA-001",
+      "category": "circuit-analysis",
+      "difficulty": "medium",
+      "tags": [
+        "milliohmmeter",
+        "bonding",
+        "test-equipment"
+      ],
+      "learningObjective": "Select milliohmmeter for bonding resistance measurement",
+      "fullObjective": "Select a milliohmmeter as the correct instrument for measuring very low resistance values in aircraft bonding systems where standard multimeters lack sufficient resolution.",
+      "flashcard": {
+        "term": "Milliohmmeter",
+        "definition": "A precision instrument for measuring very low resistance values (milliohms). Used to verify aircraft bonding straps, connector contact resistance, and ground return paths where a standard DMM lacks resolution.",
+        "analogy": "Like using a precision scale to weigh a feather \u2014 a bathroom scale can't detect it, but a jeweler's scale can.",
+        "unit": "Circuit Analysis & Troubleshooting"
+      },
+      "jeopardy": {
+        "question": "This instrument is chosen over a standard DMM when measuring the resistance of aircraft bonding straps because it has far greater precision at sub-ohm values.",
+        "choices": [
+          "Digital multimeter (DMM)",
+          "Megohmmeter (megger)",
+          "Oscilloscope",
+          "Milliohmmeter"
+        ],
+        "correctIndex": 3,
+        "explanation": "A milliohmmeter measures resistance in the milliohm range with high accuracy. Standard DMMs lack the resolution to reliably measure bonding resistance, which must typically be under 0.003 ohms per AC 43.13."
+      },
+      "multipleChoice": {
+        "question": "Which instrument is best suited to verify that an aircraft bonding strap meets the required low-resistance specification?",
+        "choices": [
+          "Milliohmmeter",
+          "Megohmmeter",
+          "Standard digital multimeter",
+          "Clamp-on ammeter"
+        ],
+        "correctIndex": 0,
+        "explanation": "Milliohmmeter measures resistance at milliohm precision, required for bonding verification. A standard DMM lacks sufficient resolution for sub-ohm values. A megohmmeter tests insulation, not bonding straps."
+      },
+      "practice": {
+        "question": "You need to verify that a newly installed avionics rack bonding strap meets spec. Your DMM reads 0.0 ohms on all ranges. What is the correct instrument to use?",
+        "choices": [
+          "Continue using the DMM \u2014 0.0 is passing",
+          "Use a megohmmeter to check insulation",
+          "Use a milliohmmeter for precise low-resistance measurement",
+          "Use an oscilloscope to check for noise on the ground path"
+        ],
+        "correctIndex": 2,
+        "explanation": "A DMM reading 0.0 just means it can't resolve the value \u2014 not that resistance is zero. A milliohmmeter provides the precision (typically reading tenths of milliohms) needed to verify bonding meets specification."
+      },
+      "preassessment": {
+        "question": "What instrument measures very low resistance values like bonding straps?",
+        "choices": [
+          "Megohmmeter",
+          "Milliohmmeter",
+          "Clamp-on ammeter",
+          "Oscilloscope"
+        ],
+        "correctIndex": 1
+      }
+    },
+    {
+      "id": "CAT2-CA-002",
+      "category": "circuit-analysis",
+      "difficulty": "easy",
+      "tags": [
+        "milliohmmeter",
+        "bonding",
+        "ground-return"
+      ],
+      "learningObjective": "State primary use of milliohmmeter",
+      "fullObjective": "State the primary use of a milliohmmeter as measuring very low resistance values such as bonding straps, connector contact resistance, and ground return paths.",
+      "flashcard": {
+        "term": "Milliohmmeter primary use",
+        "definition": "Measuring very low resistance values: bonding straps, connector contact resistance, and ground return paths. Provides milliohm-level precision where standard DMMs cannot.",
+        "analogy": "A caliper versus a ruler \u2014 both measure length, but the caliper resolves tiny differences a ruler would miss.",
+        "unit": "Circuit Analysis & Troubleshooting"
+      },
+      "jeopardy": {
+        "question": "Bonding straps, connector contact resistance, and ground return paths are the primary targets of this precision low-resistance instrument.",
+        "choices": [
+          "Milliohmmeter",
+          "Megohmmeter",
+          "Oscilloscope",
+          "LCR meter"
+        ],
+        "correctIndex": 0,
+        "explanation": "The milliohmmeter's primary applications are bonding straps (structural ground integrity), connector contacts (ensuring good electrical connections), and ground return paths (verifying current return to bus)."
+      },
+      "multipleChoice": {
+        "question": "A milliohmmeter is primarily used to measure which of the following?",
+        "choices": [
+          "Insulation resistance of wire bundles",
+          "Frequency of AC signals",
+          "Very low resistance values like bonding straps and ground return paths",
+          "High-voltage breakdown thresholds"
+        ],
+        "correctIndex": 2,
+        "explanation": "The milliohmmeter excels at measuring very low resistances \u2014 bonding straps, connector contacts, and ground return paths. Insulation resistance is measured with a megohmmeter; frequency with a frequency counter or oscilloscope."
+      },
+      "practice": {
+        "question": "During a post-maintenance inspection, a tech needs to verify the resistance of several ground return paths throughout the avionics bay. Which instrument should they reach for?",
+        "choices": [
+          "Digital multimeter set to ohms",
+          "Megohmmeter",
+          "Clamp-on ammeter",
+          "Milliohmmeter"
+        ],
+        "correctIndex": 3,
+        "explanation": "Ground return paths require milliohm-level measurement precision. A standard DMM cannot resolve the small differences that indicate a degraded ground path. The milliohmmeter is the correct tool."
+      },
+      "preassessment": {
+        "question": "What is the milliohmmeter primarily used to measure?",
+        "choices": [
+          "Insulation resistance",
+          "Very low resistance values",
+          "AC frequency",
+          "High voltage breakdown"
+        ],
+        "correctIndex": 1
+      }
+    },
+    {
+      "id": "CAT2-CA-003",
+      "category": "circuit-analysis",
+      "difficulty": "medium",
+      "tags": [
+        "multimeter",
+        "voltage-measurement",
+        "parallel"
+      ],
+      "learningObjective": "Connect multimeter in parallel to measure voltage",
+      "fullObjective": "Connect a multimeter in parallel across a component to measure voltage, with the circuit powered on.",
+      "flashcard": {
+        "term": "Voltage measurement \u2014 multimeter connection",
+        "definition": "To measure voltage, connect the multimeter IN PARALLEL across the component (red probe to positive side, black to negative). Circuit must be POWERED ON. The meter's high internal resistance prevents it from affecting circuit operation.",
+        "analogy": "Like checking water pressure at a tap \u2014 you put the gauge across the pipe outlet without interrupting the flow.",
+        "unit": "Circuit Analysis & Troubleshooting"
+      },
+      "jeopardy": {
+        "question": "When using a multimeter to measure voltage across a component, this is how the meter must be connected and what the circuit state must be.",
+        "choices": [
+          "In parallel; circuit on",
+          "In series; circuit on",
+          "In parallel; circuit off",
+          "In series; circuit off"
+        ],
+        "correctIndex": 0,
+        "explanation": "Voltage measurement requires parallel connection (across the component) with the circuit powered on. Series connection would interrupt the circuit; circuit off would give zero volts."
+      },
+      "multipleChoice": {
+        "question": "How should a multimeter be connected to measure voltage across an avionics component?",
+        "choices": [
+          "In series with the load, circuit off",
+          "In parallel with the load, circuit off",
+          "In series with the load, circuit on",
+          "In parallel with the load, circuit on"
+        ],
+        "correctIndex": 3,
+        "explanation": "Voltage is always measured in parallel (across the component) with the circuit powered on. A multimeter has very high internal resistance, so parallel connection doesn't significantly load the circuit."
+      },
+      "practice": {
+        "question": "A technician wants to check the supply voltage at an avionics connector. How should they set up the multimeter?",
+        "choices": [
+          "Break the circuit and insert meter in series with power off",
+          "Place probes across the connector pins with power off",
+          "Place probes across the connector pins with power on",
+          "Connect in series with the load with power on"
+        ],
+        "correctIndex": 2,
+        "explanation": "To measure voltage at a connector, place the probes across the relevant pins (parallel connection) with the circuit energized. Power must be on \u2014 you're measuring a live voltage."
+      },
+      "preassessment": {
+        "question": "To measure voltage, connect the multimeter:",
+        "choices": [
+          "In series, circuit off",
+          "In parallel, circuit on",
+          "In parallel, circuit off",
+          "In series, circuit on"
+        ],
+        "correctIndex": 1
+      }
+    },
+    {
+      "id": "CAT2-CA-004",
+      "category": "circuit-analysis",
+      "difficulty": "easy",
+      "tags": [
+        "parasitic-draw",
+        "battery-drain",
+        "troubleshooting"
+      ],
+      "learningObjective": "List causes of parasitic current draw",
+      "fullObjective": "List common causes of parasitic current draw in general aviation aircraft: faulty relay contacts, stuck switches, and incorrect avionics installation wiring.",
+      "flashcard": {
+        "term": "Parasitic current draw \u2014 common causes",
+        "definition": "Three main causes: (1) faulty relay contacts that remain closed when they should open, (2) stuck switches that don't fully disconnect a circuit, (3) incorrect avionics installation wiring that leaves circuits energized. All drain the battery when the master is off.",
+        "analogy": "Like a house where a light switch is broken and the light stays on \u2014 something that should be off is staying on and draining power.",
+        "unit": "Circuit Analysis & Troubleshooting"
+      },
+      "jeopardy": {
+        "question": "Faulty relay contacts, stuck switches, and incorrect avionics installation wiring are the three common causes of this battery-draining phenomenon.",
+        "choices": [
+          "Parasitic current draw",
+          "Voltage drop",
+          "Inductive reactance",
+          "Ground loop"
+        ],
+        "correctIndex": 0,
+        "explanation": "Parasitic draw is current consumed when the master is OFF. Its common causes are faulty relay contacts (stuck closed), stuck switches (not opening), and incorrectly wired avionics that remain powered after shutdown."
+      },
+      "multipleChoice": {
+        "question": "Which of the following is a common cause of parasitic current draw in general aviation aircraft?",
+        "choices": [
+          "Excessive wire gauge for the circuit",
+          "Faulty relay contacts that remain closed",
+          "High battery internal resistance",
+          "Overcharged alternator output"
+        ],
+        "correctIndex": 1,
+        "explanation": "Faulty relay contacts that fail to open keep circuits energized after master shutdown, draining the battery. Wire gauge, battery resistance, and alternator output don't cause parasitic draw on their own."
+      },
+      "practice": {
+        "question": "A pilot reports a dead battery after the aircraft sat for two days. No obvious lights were left on. What should the technician check first as a likely cause?",
+        "choices": [
+          "Alternator output voltage",
+          "Fuel system wiring",
+          "Relay contacts, switches, and recent avionics installation wiring",
+          "Pitot heat element resistance"
+        ],
+        "correctIndex": 2,
+        "explanation": "Relay contacts, switches, and recently installed avionics wiring are the primary suspects for parasitic draw. These can leave circuits energized after shutdown without being obvious to the pilot."
+      },
+      "preassessment": {
+        "question": "Which is a common cause of parasitic current draw?",
+        "choices": [
+          "Oversized wire gauge",
+          "Alternator overcharge",
+          "High battery voltage",
+          "Faulty relay contacts"
+        ],
+        "correctIndex": 3
+      }
+    },
+    {
+      "id": "CAT2-CA-005",
+      "category": "circuit-analysis",
+      "difficulty": "hard",
+      "tags": [
+        "milliohmmeter",
+        "bonding",
+        "corrosion",
+        "troubleshooting"
+      ],
+      "learningObjective": "Diagnose fluctuating milliohmmeter reading on bonding strap",
+      "fullObjective": "Given a fluctuating milliohmmeter reading on a bonding strap, determine the correct next step: inspect and clean both attachment points for corrosion, then re-measure.",
+      "flashcard": {
+        "term": "Fluctuating milliohmmeter reading",
+        "definition": "An unstable or fluctuating milliohmmeter reading on a bonding strap indicates a poor, intermittent contact \u2014 almost always caused by corrosion or contamination at one or both attachment points. Correct action: inspect, clean, and re-measure.",
+        "analogy": "Like a loose headphone plug causing crackling audio \u2014 the connection exists but isn't solid.",
+        "unit": "Circuit Analysis & Troubleshooting"
+      },
+      "jeopardy": {
+        "question": "A milliohmmeter gives a fluctuating reading on a bonding strap. This is the correct next step before re-measuring.",
+        "choices": [
+          "Replace the bonding strap immediately",
+          "Increase torque on the bonding fastener only",
+          "Use a higher-range ohmmeter setting",
+          "Inspect and clean both attachment points for corrosion"
+        ],
+        "correctIndex": 3,
+        "explanation": "Fluctuating readings indicate an intermittent contact, almost always due to corrosion at the attachment surface. Clean both surfaces, reinstall, and re-measure. Simply retorquing without cleaning doesn't address the corrosion."
+      },
+      "multipleChoice": {
+        "question": "During a bonding check, the milliohmmeter reading fluctuates rather than settling on a stable value. What does this indicate and what should be done?",
+        "choices": [
+          "The strap is good \u2014 fluctuation is normal for milliohmmeter readings",
+          "The meter is faulty \u2014 replace the instrument",
+          "There is an intermittent contact \u2014 inspect and clean attachment points for corrosion",
+          "The circuit has AC interference \u2014 use DC excitation mode"
+        ],
+        "correctIndex": 2,
+        "explanation": "A fluctuating reading means the contact is intermittent \u2014 not consistently solid. This is characteristic of corrosion or contamination at the bonding surface. Inspect and clean both attachment points before re-measuring."
+      },
+      "practice": {
+        "question": "You're performing a bonding continuity check on an avionics tray. The milliohmmeter reading jumps between 0.001 and 0.8 ohms. What is your next action?",
+        "choices": [
+          "Inspect and clean both bonding attachment points for corrosion, then re-measure",
+          "Replace the bonding strap since it failed",
+          "Record the average reading as the measurement",
+          "Tighten the bonding fastener to maximum torque and re-measure"
+        ],
+        "correctIndex": 0,
+        "explanation": "Fluctuating readings signal an intermittent connection \u2014 corrosion is the most likely culprit. Remove the strap, inspect and clean both mating surfaces, reinstall to proper torque, and re-measure to confirm a stable, low reading."
+      },
+      "preassessment": {
+        "question": "A milliohmmeter reading on a bonding strap is fluctuating. What should you do next?",
+        "choices": [
+          "Replace the strap immediately",
+          "Inspect and clean both attachment points, then re-measure",
+          "Use a different meter",
+          "Record the lowest reading"
+        ],
+        "correctIndex": 1
+      }
+    },
+    {
+      "id": "CAT2-CA-006",
+      "category": "circuit-analysis",
+      "difficulty": "hard",
+      "tags": [
+        "voltage",
+        "troubleshooting",
+        "ground",
+        "voltage-regulator"
+      ],
+      "learningObjective": "Diagnose unstable within-limits voltage",
+      "fullObjective": "Given unstable but within-limits voltage in an avionics system, determine that an intermittent ground connection or failing voltage regulator is the most likely cause.",
+      "flashcard": {
+        "term": "Unstable within-limits voltage",
+        "definition": "Voltage that fluctuates but stays within acceptable limits points to an intermittent ground connection or a failing voltage regulator \u2014 not a hard fault. Both cause varying resistance in the return/regulation path.",
+        "analogy": "Like a dimmer switch that flickers but doesn't go out \u2014 the connection is there but inconsistent.",
+        "unit": "Circuit Analysis & Troubleshooting"
+      },
+      "jeopardy": {
+        "question": "Avionics voltage is fluctuating but remains within limits. This intermittent ground connection or failing component is the most likely cause.",
+        "choices": [
+          "Intermittent ground connection or failing voltage regulator",
+          "Open circuit in the main bus",
+          "Blown fuse",
+          "Shorted capacitor on the bus"
+        ],
+        "correctIndex": 0,
+        "explanation": "Unstable but within-limits voltage points to intermittent (not failed) components. An intermittent ground adds variable resistance to the return path; a failing regulator produces inconsistent output \u2014 both create fluctuating readings."
+      },
+      "multipleChoice": {
+        "question": "Avionics voltage is measured as unstable \u2014 fluctuating slightly but never going out of spec. What is the most likely cause?",
+        "choices": [
+          "Blown fuse in the circuit",
+          "Open circuit upstream",
+          "Intermittent ground or failing voltage regulator",
+          "Overloaded bus with too many parallel loads"
+        ],
+        "correctIndex": 2,
+        "explanation": "A blown fuse or open circuit would cause zero voltage. An overloaded bus would cause consistently low (not fluctuating) voltage. Intermittent ground connections and failing regulators produce the characteristic unstable-but-within-limits pattern."
+      },
+      "practice": {
+        "question": "During a functional check, you notice avionics bus voltage is hunting between 27.2V and 28.4V (spec is 27\u201329V). The system never drops out. What do you suspect?",
+        "choices": [
+          "A blown fuse \u2014 replace it and recheck",
+          "An open bus wire \u2014 trace and repair the break",
+          "A short circuit \u2014 isolate loads one by one",
+          "An intermittent ground connection or failing voltage regulator"
+        ],
+        "correctIndex": 3,
+        "explanation": "The voltage is in spec but unstable \u2014 this rules out a hard fault like an open or blown fuse (those cause zero volts). Hunting voltage within limits is characteristic of an intermittent ground adding variable resistance, or a regulator that's starting to fail."
+      },
+      "preassessment": {
+        "question": "Avionics voltage fluctuates but stays within limits. What is the most likely cause?",
+        "choices": [
+          "Blown fuse",
+          "Intermittent ground or failing voltage regulator",
+          "Open circuit",
+          "Overloaded bus"
+        ],
+        "correctIndex": 1
+      }
+    },
+    {
+      "id": "CAT2-CA-007",
+      "category": "circuit-analysis",
+      "difficulty": "hard",
+      "tags": [
+        "voltage-drop",
+        "resistance",
+        "troubleshooting",
+        "corroded-connection"
+      ],
+      "learningObjective": "Diagnose lower-than-expected voltage across load",
+      "fullObjective": "Given lower-than-expected voltage across a load, determine that excessive resistance in the circuit \u2014 such as a corroded connection or undersized wiring \u2014 is the most likely cause.",
+      "flashcard": {
+        "term": "Lower-than-expected voltage across load",
+        "definition": "If voltage at a load is lower than expected, excessive resistance upstream is consuming voltage (V=IR voltage drop). Causes: corroded connections, undersized wire, loose terminals. The extra resistance steals voltage from the load.",
+        "analogy": "Water pressure drops at the end of a garden hose with a partially kinked section \u2014 the kink steals the pressure before it reaches the nozzle.",
+        "unit": "Circuit Analysis & Troubleshooting"
+      },
+      "jeopardy": {
+        "question": "Voltage measured across a load is lower than the supply voltage would predict. Corroded connections and undersized wiring are examples of this root cause.",
+        "choices": [
+          "Open circuit upstream",
+          "Excessive current draw by the load",
+          "Excessive resistance between source and load",
+          "Failed voltage regulator output"
+        ],
+        "correctIndex": 2,
+        "explanation": "Excessive resistance in the wiring or connectors creates a voltage drop (V=IR) before reaching the load. Corroded connections and undersized wiring are the most common culprits. A true open circuit would give zero volts, not reduced volts."
+      },
+      "multipleChoice": {
+        "question": "A nav radio shows 24V supply at the bus but only 21V at the radio connector. What is the most likely cause?",
+        "choices": [
+          "Excessive resistance in the wiring or connectors between the bus and radio",
+          "There is an open circuit between the bus and the radio",
+          "The radio is drawing more current than rated",
+          "The voltage regulator output is too low"
+        ],
+        "correctIndex": 0,
+        "explanation": "The 3V drop is a classic sign of excessive resistance in the wiring path (V=IR). Corroded pins, a loose terminal, or undersized wire creates resistance that drops voltage before it reaches the load. An open would give 0V at the radio."
+      },
+      "practice": {
+        "question": "After installing a new GPS unit, the tech notices it powers up but displays a low-voltage warning. The bus measures 28V but the GPS connector only shows 25V. What should the tech inspect?",
+        "choices": [
+          "The GPS unit itself \u2014 it must be defective",
+          "The circuit breaker \u2014 replace it with a higher-rated one",
+          "The battery \u2014 low-charge batteries cause component warnings",
+          "The wiring and connectors for excessive resistance, corrosion, or undersized wire"
+        ],
+        "correctIndex": 3,
+        "explanation": "A 3V drop between the bus and the unit means resistance in the circuit path is stealing voltage. Inspect each connector, pin, splice, and wire run for corrosion, loose contacts, or undersized wire gauge \u2014 all create the IR voltage drop seen at the load."
+      },
+      "preassessment": {
+        "question": "Lower-than-expected voltage across a load most likely indicates:",
+        "choices": [
+          "Open circuit upstream",
+          "Excessive resistance between source and load",
+          "Too many parallel branches",
+          "Failed voltage regulator"
+        ],
+        "correctIndex": 1
+      }
+    },
+    {
+      "id": "CAT2-CA-008",
+      "category": "circuit-analysis",
+      "difficulty": "medium",
+      "tags": [
+        "multimeter",
+        "resistance-measurement",
+        "safety"
+      ],
+      "learningObjective": "Correct procedure before measuring resistance with multimeter",
+      "fullObjective": "Apply the correct procedure before measuring resistance with a multimeter: ensure the circuit power is off and capacitors are discharged to prevent damage to the meter and obtain accurate readings.",
+      "flashcard": {
+        "term": "Resistance measurement procedure",
+        "definition": "Before measuring resistance: (1) Turn circuit power OFF. (2) Discharge any capacitors in the circuit. Reason: applied voltage will damage the meter's ohmmeter circuit and give false readings. The DMM supplies its own small test current for resistance measurement.",
+        "analogy": "Like checking the temperature of a cup with your finger \u2014 you need to set it down first, you can't check it while it's on the stove.",
+        "unit": "Circuit Analysis & Troubleshooting"
+      },
+      "jeopardy": {
+        "question": "Before connecting a multimeter to measure resistance, you must do these two things to protect the meter and get accurate readings.",
+        "choices": [
+          "Set the range to auto and enable AC mode",
+          "Verify calibration and enable DC mode",
+          "Connect in series and set to the highest range",
+          "Turn the circuit power off and discharge capacitors"
+        ],
+        "correctIndex": 3,
+        "explanation": "Measuring resistance with power applied will damage the meter's ohmmeter circuit and give false readings. Capacitors must also be discharged \u2014 they can hold charge that appears as voltage to the meter."
+      },
+      "multipleChoice": {
+        "question": "Which procedure must be followed before using a multimeter to measure resistance in an avionics circuit?",
+        "choices": [
+          "Ensure circuit power is on and set meter to AC range",
+          "Ensure circuit power is off and capacitors are discharged",
+          "Connect meter in series with the circuit powered on",
+          "Connect meter in parallel with circuit powered on"
+        ],
+        "correctIndex": 1,
+        "explanation": "Power must be OFF before measuring resistance \u2014 applied voltage damages the ohmmeter circuit and gives false readings. Capacitors must be discharged as they can hold a charge that masquerades as a voltage source."
+      },
+      "practice": {
+        "question": "A technician is about to measure the resistance of a connector pin to ground. What steps must be taken before connecting the ohmmeter?",
+        "choices": [
+          "Turn power off and verify any capacitors in the circuit are discharged",
+          "Turn power off only \u2014 capacitors are not a concern for connectors",
+          "Leave power on to simulate normal operating conditions",
+          "Connect the meter in parallel and set to highest resistance range"
+        ],
+        "correctIndex": 0,
+        "explanation": "Power must be off AND capacitors discharged before any resistance measurement. Even if the connector itself has no capacitor, nearby filter capacitors on the bus can retain charge and skew the reading or damage the meter."
+      },
+      "preassessment": {
+        "question": "Before measuring resistance with a multimeter, you must:",
+        "choices": [
+          "Turn power on and set to AC",
+          "Connect in series with power on",
+          "Turn power off and discharge capacitors",
+          "Connect in parallel with power on"
+        ],
+        "correctIndex": 2
+      }
+    },
+    {
+      "id": "CAT2-CA-009",
+      "category": "circuit-analysis",
+      "difficulty": "hard",
+      "tags": [
+        "voltage-drop",
+        "wiring",
+        "connectors",
+        "troubleshooting"
+      ],
+      "learningObjective": "Identify cause of 0.5V drop in 24V DC circuit",
+      "fullObjective": "Given a 0.5V voltage drop in a 24V DC circuit, determine that resistance in the wiring or connectors between the source and the test point is the probable cause.",
+      "flashcard": {
+        "term": "Voltage drop \u2014 cause",
+        "definition": "A voltage drop between source and load is caused by resistance in the wiring path: V_drop = I \u00d7 R_wire. Common sources: corroded connectors, undersized wire, loose terminals, bad splices. Even small resistance creates measurable drops at normal aircraft current levels.",
+        "analogy": "Friction in a pipe reduces water pressure at the outlet \u2014 more friction (resistance) means more pressure (voltage) lost before the water (current) arrives.",
+        "unit": "Circuit Analysis & Troubleshooting"
+      },
+      "jeopardy": {
+        "question": "A 0.5V drop measured in a 24V DC circuit between the source and a test point indicates this is present in the wiring or connectors along that path.",
+        "choices": [
+          "Resistance in the wiring or connectors",
+          "A shorted component",
+          "An open circuit",
+          "Insufficient bus voltage"
+        ],
+        "correctIndex": 0,
+        "explanation": "Voltage drop = I \u00d7 R. Any resistance in the wiring path (corroded pin, undersized wire, loose terminal) creates a proportional voltage drop. A 0.5V drop in a 24V circuit indicates measurable resistance between the source and test point."
+      },
+      "multipleChoice": {
+        "question": "You measure 24V at the bus and 23.5V at a downstream connector. What does this 0.5V difference most likely indicate?",
+        "choices": [
+          "A blown fuse between the bus and connector",
+          "Normal voltage variation within tolerance",
+          "Resistance in the wiring or connectors between those two points",
+          "The downstream equipment is drawing excessive current"
+        ],
+        "correctIndex": 2,
+        "explanation": "V_drop = I \u00d7 R_path. A measurable voltage difference between source and load means there is resistance in the path consuming voltage. This points to corroded connectors, a bad terminal, undersized wire, or a poor splice."
+      },
+      "practice": {
+        "question": "Probing a 24V DC circuit at the main bus gives 24.1V. At the avionics unit's power pin, you measure 23.6V. The unit is operating normally. What should you document and investigate?",
+        "choices": [
+          "Nothing \u2014 0.5V difference is within normal tolerance for all aircraft systems",
+          "A short to ground somewhere in the circuit",
+          "An open circuit that is causing intermittent loss of power",
+          "A 0.5V drop indicating resistance in the wiring or connectors between the bus and the unit"
+        ],
+        "correctIndex": 3,
+        "explanation": "A 0.5V drop across a wiring run indicates resistance in that path. While some drop is acceptable, investigate the connectors and wire run to ensure the drop won't increase over time as corrosion worsens. Document the finding per maintenance records."
+      },
+      "preassessment": {
+        "question": "What causes a 0.5V voltage drop between the bus and a load in a 24V circuit?",
+        "choices": [
+          "Open circuit",
+          "Resistance in wiring or connectors",
+          "Shorted component",
+          "Low bus voltage"
+        ],
+        "correctIndex": 1
+      }
+    },
+    {
+      "id": "CAT2-CA-010",
+      "category": "circuit-analysis",
+      "difficulty": "hard",
+      "tags": [
+        "voltage",
+        "open-circuit",
+        "troubleshooting",
+        "fuse"
+      ],
+      "learningObjective": "Diagnose 0V across component in active circuit",
+      "fullObjective": "Given 0V measured across a component in an active circuit, determine that an open circuit upstream \u2014 blown fuse, tripped breaker, or broken wire \u2014 causing no current to flow is the most likely cause.",
+      "flashcard": {
+        "term": "0V across component \u2014 diagnosis",
+        "definition": "If you measure 0V across a component in an active circuit, there is an open circuit UPSTREAM. No current flows through the component so no voltage appears across it. Check: blown fuse, tripped breaker, broken wire, or open switch upstream of the component.",
+        "analogy": "If a section of a highway is completely blocked, no cars reach the exit \u2014 the exit measures 'zero traffic' not because it's broken, but because nothing is getting through upstream.",
+        "unit": "Circuit Analysis & Troubleshooting"
+      },
+      "jeopardy": {
+        "question": "A voltmeter reads 0V across a component in an energized circuit. This upstream condition \u2014 blown fuse, tripped breaker, or broken wire \u2014 is the most likely explanation.",
+        "choices": [
+          "Short circuit at the component",
+          "Open circuit upstream of the component",
+          "Excessive load on the bus",
+          "Reversed polarity at the connector"
+        ],
+        "correctIndex": 1,
+        "explanation": "0V across a component in a live circuit means no current is flowing through it \u2014 which requires an open circuit upstream. Check fuses, breakers, and wire continuity between the source and the component."
+      },
+      "multipleChoice": {
+        "question": "With the circuit powered on, a technician measures 0V across a component. The circuit breaker appears set. What is the most likely cause?",
+        "choices": [
+          "The component is drawing too much current",
+          "There is a short circuit at the component's output",
+          "An open circuit upstream \u2014 broken wire, blown fuse, or tripped breaker",
+          "The bus voltage is too low to appear at the component"
+        ],
+        "correctIndex": 2,
+        "explanation": "Zero volts across a component in a live circuit means no current is flowing \u2014 which requires an open path upstream. Even if the breaker appears set, it may have tripped internally. A blown fuse or broken wire upstream would also produce 0V."
+      },
+      "practice": {
+        "question": "You're troubleshooting an avionics unit that won't power on. The circuit breaker is set. You probe the unit's power connector and read 0V supply, 0V ground. Bus reads 28V. What is the most likely fault?",
+        "choices": [
+          "An open circuit between the bus and the connector \u2014 broken wire, blown fuse, or bad connector",
+          "The unit needs a software reset before voltage appears",
+          "The unit has an internal short circuit pulling voltage to zero",
+          "The bus is overloaded and has reduced voltage to zero at this branch"
+        ],
+        "correctIndex": 0,
+        "explanation": "28V at the bus and 0V at the connector means the open is somewhere in the wiring path between them. Trace the circuit: check for a blown inline fuse, bad connector pin, or broken wire. 0V at both supply and ground pins also suggests the ground path may be open."
+      },
+      "preassessment": {
+        "question": "You measure 0V across a component in a powered circuit. What does this most likely indicate?",
+        "choices": [
+          "Component is shorted",
+          "Reversed polarity",
+          "Bus is overloaded",
+          "Open circuit upstream"
+        ],
+        "correctIndex": 3
+      }
+    },
+    {
+      "id": "CAT2-CA-011",
+      "category": "circuit-analysis",
+      "difficulty": "easy",
+      "tags": [
+        "megohmmeter",
+        "insulation",
+        "wiring"
+      ],
+      "learningObjective": "Identify megohmmeter use for insulation resistance testing",
+      "fullObjective": "State that the megohmmeter (megger) is the instrument used to test insulation resistance of wiring, motors, and generator windings for breakdown or degradation.",
+      "flashcard": {
+        "term": "Megohmmeter (Megger)",
+        "definition": "An instrument that applies high voltage (typically 500V\u20131000V DC) to test insulation resistance in wiring, motors, and generators. Measures in megohms (M\u03a9). Low megohm readings indicate insulation breakdown or moisture contamination.",
+        "analogy": "Like applying high water pressure to check a hose for leaks \u2014 normal pressure wouldn't reveal pinhole leaks, but high pressure does.",
+        "unit": "Circuit Analysis & Troubleshooting"
+      },
+      "jeopardy": {
+        "question": "This instrument applies high voltage to test the insulation resistance of wiring, motors, and generator windings, measuring results in megohms.",
+        "choices": [
+          "Megohmmeter (megger)",
+          "Oscilloscope",
+          "Milliohmmeter",
+          "Clamp-on ammeter"
+        ],
+        "correctIndex": 0,
+        "explanation": "The megohmmeter (megger) applies high DC voltage to stress insulation and measure its resistance in megohms. Low readings indicate degraded or compromised insulation that could lead to shorts or failures."
+      },
+      "multipleChoice": {
+        "question": "Which instrument is used to test the insulation resistance of aircraft wiring and generator windings?",
+        "choices": [
+          "Digital multimeter (DMM)",
+          "Milliohmmeter",
+          "Megohmmeter (megger)",
+          "LCR meter"
+        ],
+        "correctIndex": 2,
+        "explanation": "The megohmmeter tests insulation integrity by applying high voltage and measuring resistance in megohms. A DMM cannot generate the high test voltage needed to stress insulation and reveal degradation."
+      },
+      "practice": {
+        "question": "After an aircraft was exposed to flood water, a technician suspects wire insulation degradation throughout the avionics bay. What instrument should be used to test each wire bundle?",
+        "choices": [
+          "Digital multimeter on resistance range",
+          "Megohmmeter (megger) to test insulation resistance",
+          "Milliohmmeter on bonding test mode",
+          "Oscilloscope to check for signal noise"
+        ],
+        "correctIndex": 1,
+        "explanation": "Flood water can degrade wire insulation and introduce moisture that reduces insulation resistance. The megohmmeter applies high voltage to reveal compromised insulation \u2014 readings significantly below 1 M\u03a9 indicate damaged wire bundles."
+      },
+      "preassessment": {
+        "question": "What instrument tests insulation resistance of aircraft wiring?",
+        "choices": [
+          "DMM",
+          "Milliohmmeter",
+          "Oscilloscope",
+          "Megohmmeter"
+        ],
+        "correctIndex": 3
+      }
+    },
+    {
+      "id": "CAT2-CA-012",
+      "category": "circuit-analysis",
+      "difficulty": "easy",
+      "tags": [
+        "parasitic-draw",
+        "battery-drain",
+        "master-switch"
+      ],
+      "learningObjective": "Define parasitic current draw",
+      "fullObjective": "State that a parasitic current draw is current consumed by a circuit or component when the aircraft's master switch is off, draining the battery over time.",
+      "flashcard": {
+        "term": "Parasitic current draw",
+        "definition": "Current consumed by a circuit or component when the aircraft master switch is OFF. Even small amounts (50\u2013100 mA) will drain a battery in hours or days. Causes: stuck relay contacts, latched switches, always-on avionics wiring.",
+        "analogy": "A slow leak in a water tank \u2014 you come back after a week and it's empty even though you 'turned off' the supply.",
+        "unit": "Circuit Analysis & Troubleshooting"
+      },
+      "jeopardy": {
+        "question": "Current consumed by a circuit when the aircraft's master switch is OFF, which drains the battery over time, is called this.",
+        "choices": [
+          "Inrush current",
+          "Residual magnetism current",
+          "Reactive current",
+          "Parasitic current draw"
+        ],
+        "correctIndex": 3,
+        "explanation": "Parasitic current draw is any current flowing when the master is off. It slowly discharges the battery, leading to a dead battery after the aircraft sits unused. Common in aircraft with improperly installed avionics or failing relays."
+      },
+      "multipleChoice": {
+        "question": "What is parasitic current draw?",
+        "choices": [
+          "Current drawn during engine start that exceeds normal levels",
+          "Current consumed by a component when the master switch is off, draining the battery",
+          "Extra current drawn by avionics during warm-up",
+          "Current flowing back from the bus to the battery during charging"
+        ],
+        "correctIndex": 1,
+        "explanation": "Parasitic draw occurs when master is off but current still flows \u2014 from stuck relays, faulty switches, or improperly wired avionics. Over hours or days, even 100mA will discharge an aircraft battery."
+      },
+      "practice": {
+        "question": "After securing an aircraft for the night with the master switch off, the avionics technician uses an ammeter in series with the battery lead and measures 180mA flowing. What is this called and why is it a problem?",
+        "choices": [
+          "Normal standby current \u2014 all aircraft have this with GPS units installed",
+          "Inrush current \u2014 caused by starting capacitors recharging",
+          "Parasitic current draw \u2014 180mA will drain the battery in a day or two if not corrected",
+          "Reactive current \u2014 caused by inductors in the avionics bus filter"
+        ],
+        "correctIndex": 2,
+        "explanation": "180mA with the master off is parasitic draw. A typical GA aircraft battery of 35Ah would be drained in less than 10 hours at that rate. The source must be found and eliminated \u2014 likely a stuck relay, switch, or incorrectly wired avionics."
+      },
+      "preassessment": {
+        "question": "Parasitic current draw occurs when:",
+        "choices": [
+          "Master switch is off but current still flows",
+          "Engine is running at high RPM",
+          "Battery is being charged by the alternator",
+          "Avionics are drawing peak power on startup"
+        ],
+        "correctIndex": 0
+      }
+    },
+    {
+      "id": "CAT2-CA-013",
+      "category": "circuit-analysis",
+      "difficulty": "hard",
+      "tags": [
+        "voltage-drop",
+        "dim-lights",
+        "resistance",
+        "troubleshooting"
+      ],
+      "learningObjective": "Diagnose dimmer-than-normal bulbs",
+      "fullObjective": "Given dimmer-than-normal bulbs in an aircraft lighting circuit, determine that excessive resistance from corroded connections or undersized wiring causing a voltage drop is the most likely cause.",
+      "flashcard": {
+        "term": "Dim lights \u2014 voltage drop diagnosis",
+        "definition": "Dim bulbs in a lighting circuit indicate reduced voltage at the bulb \u2014 caused by excessive resistance upstream stealing voltage (V=IR drop). Common causes: corroded connectors, loose terminals, undersized wire, or a poor ground return.",
+        "analogy": "Like a clogged showerhead producing weak pressure \u2014 the water supply is fine, but something in the path is choking the flow.",
+        "unit": "Circuit Analysis & Troubleshooting"
+      },
+      "jeopardy": {
+        "question": "Aircraft lighting circuit bulbs that are dimmer than normal indicate this condition in the wiring or connectors between the bus and the bulbs.",
+        "choices": [
+          "Excessive resistance causing a voltage drop",
+          "Excessive voltage causing overdriven bulbs",
+          "An open circuit interrupting current flow",
+          "A short circuit bypassing the bulbs"
+        ],
+        "correctIndex": 0,
+        "explanation": "Dim bulbs mean reduced voltage at the bulb (V_bulb = V_supply \u2212 V_drop). Excessive resistance in the wiring or connectors upstream creates a voltage drop, leaving less voltage for the bulb \u2014 resulting in reduced brightness."
+      },
+      "multipleChoice": {
+        "question": "Navigation lights in an aircraft are noticeably dimmer than when the aircraft was new. What is the most likely cause?",
+        "choices": [
+          "The bulbs are drawing more current as they age",
+          "There is an open circuit in one of the branches",
+          "Excessive resistance from corroded connections or undersized wiring is causing a voltage drop",
+          "The bus voltage has increased beyond normal limits"
+        ],
+        "correctIndex": 2,
+        "explanation": "Dim but functioning lights indicate reduced voltage \u2014 not zero volts. Corroded connectors, loose pins, or undersized wire create resistance that drops voltage before it reaches the bulbs. This is the classic presentation of a wiring/connection problem."
+      },
+      "practice": {
+        "question": "During a preflight, a pilot reports the cabin map lights seem dimmer than usual. The circuit breaker is set. Where should the tech start troubleshooting?",
+        "choices": [
+          "Replace all the light bulbs immediately",
+          "Check bus voltage \u2014 it must be too low",
+          "Replace the circuit breaker with a higher-rated one",
+          "Inspect connectors and wiring for corroded connections or undersized wire causing a voltage drop"
+        ],
+        "correctIndex": 3,
+        "explanation": "Dim but working lights = reduced voltage at the load = resistance in the circuit path. The tech should measure voltage at the bus vs. at the light fixture to quantify the drop, then trace the source \u2014 corroded connectors and loose pins are the most common culprits."
+      },
+      "preassessment": {
+        "question": "Dimmer-than-normal lights in an aircraft circuit most likely indicate:",
+        "choices": [
+          "Open circuit",
+          "Voltage drop from excessive resistance",
+          "Excessive bus voltage",
+          "Short circuit at the bulbs"
+        ],
+        "correctIndex": 1
+      }
+    },
+    {
+      "id": "CAT2-CA-014",
+      "category": "circuit-analysis",
+      "difficulty": "hard",
+      "tags": [
+        "voltage-drop",
+        "wiring",
+        "ground-return",
+        "troubleshooting"
+      ],
+      "learningObjective": "Identify cause of 0.5V drop \u2014 wiring, connectors, or ground",
+      "fullObjective": "Given a 0.5V drop in a 24V DC circuit, determine that resistance in the wiring, connectors, or ground return path between the source and measurement point is the probable cause.",
+      "flashcard": {
+        "term": "0.5V drop \u2014 ground return included",
+        "definition": "A 0.5V drop can occur anywhere in the complete circuit loop: supply wiring, connectors, AND the ground return path. Don't forget that the ground wire and ground connections also have resistance. A bad ground creates the same voltage drop symptom as a bad supply wire.",
+        "analogy": "A water system with a constricted intake pipe AND a constricted drain \u2014 both limit overall flow and pressure.",
+        "unit": "Circuit Analysis & Troubleshooting"
+      },
+      "jeopardy": {
+        "question": "A 0.5V drop measured in a 24V circuit can be caused by resistance in any of these three places in the circuit path.",
+        "choices": [
+          "The bus, the alternator, or the battery",
+          "The relay, the switch, or the fuse",
+          "The wiring, the connectors, or the ground return path",
+          "The LRU, the bus bar, or the voltage regulator"
+        ],
+        "correctIndex": 2,
+        "explanation": "Voltage drop (V=IR) can occur anywhere current flows: supply wiring, connector pins, and the ground return path. Technicians often forget to check the ground return, which can have just as much resistance as the supply side."
+      },
+      "multipleChoice": {
+        "question": "A 0.5V drop is measured between the bus and a downstream load in a 24V circuit. Which of the following should be inspected as potential causes?",
+        "choices": [
+          "The wiring, connectors, and ground return path between the source and the load",
+          "Only the ground connection at the load",
+          "Only the positive supply wire",
+          "The load itself \u2014 it must be drawing too much current"
+        ],
+        "correctIndex": 0,
+        "explanation": "Voltage drop can occur in any part of the circuit: supply wire, connectors, and the ground return. All three must be checked. Focusing only on one side misses the complete picture \u2014 a degraded ground is just as capable of creating a measured drop."
+      },
+      "practice": {
+        "question": "A newly installed radio measures 3V less than bus voltage. The supply wiring, connectors, and fuse all check out. What else should the technician inspect?",
+        "choices": [
+          "The antenna impedance mismatch",
+          "The radio's internal power supply circuit",
+          "The circuit breaker trip characteristics",
+          "The ground return path from the radio back to the bus"
+        ],
+        "correctIndex": 3,
+        "explanation": "If the supply side checks out, the drop must be in the ground return path \u2014 the wire from the radio chassis to the airframe ground point. A corroded ground stud, undersized ground wire, or loose ground terminal creates resistance that drops voltage at the load."
+      },
+      "preassessment": {
+        "question": "Where can resistance cause a voltage drop in a DC circuit?",
+        "choices": [
+          "Only in positive supply wires",
+          "In wiring, connectors, or the ground return path",
+          "Only at connector pins",
+          "Only at the load itself"
+        ],
+        "correctIndex": 1
+      }
+    },
+    {
+      "id": "CAT2-CA-015",
+      "category": "circuit-analysis",
+      "difficulty": "hard",
+      "tags": [
+        "circuit-breaker",
+        "short-circuit",
+        "pitot-heat",
+        "troubleshooting"
+      ],
+      "learningObjective": "Diagnose breaker that trips immediately on reset",
+      "fullObjective": "Given a pitot heat circuit breaker that trips immediately upon reset, determine the correct next step: do not reset again; isolate the circuit and inspect for a short circuit or failed heating element before further action.",
+      "flashcard": {
+        "term": "Breaker trips immediately on reset",
+        "definition": "A circuit breaker that trips immediately when reset indicates a hard fault \u2014 almost always a short circuit or failed heating element. Do NOT reset repeatedly. Each reset attempt forces current through the fault, worsening damage. Isolate and inspect before further action.",
+        "analogy": "Like a safety valve that keeps tripping the moment you reset it \u2014 the valve is working correctly; the problem is the pressure it's protecting against.",
+        "unit": "Circuit Analysis & Troubleshooting"
+      },
+      "jeopardy": {
+        "question": "The pitot heat circuit breaker trips the instant it is reset. This is the correct next action before any further steps.",
+        "choices": [
+          "Do not reset again; isolate the circuit and inspect for a short or failed element",
+          "Replace the circuit breaker with a higher-rated one",
+          "Reset it a second time to confirm the fault",
+          "Apply power to the pitot heat and measure current draw"
+        ],
+        "correctIndex": 0,
+        "explanation": "An immediately-tripping breaker signals a hard fault \u2014 likely a short or failed heating element. Repeated resets force excessive current through the fault, risking fire or further damage. Isolate the circuit, then inspect before any power is reapplied."
+      },
+      "multipleChoice": {
+        "question": "A pitot heat circuit breaker trips the moment it is reset. What is the correct procedure?",
+        "choices": [
+          "Reset it one more time \u2014 breakers sometimes need two resets after a thermal trip",
+          "Replace the breaker with a 5-amp higher-rated unit and reset",
+          "Do not reset again; isolate the circuit and inspect for a short circuit or failed element",
+          "Apply full bus voltage and measure the current spike to identify the fault"
+        ],
+        "correctIndex": 2,
+        "explanation": "Immediate tripping on reset means the fault is still present \u2014 a short or failed element is drawing excessive current the instant power is applied. Do not reset again; isolate the circuit and perform a proper inspection before any further action."
+      },
+      "practice": {
+        "question": "During preflight, the pilot set the pitot heat ON and the circuit breaker immediately popped out. The technician resets it and it immediately pops again. What should the technician do?",
+        "choices": [
+          "Reset it a third time \u2014 two trips may indicate a sticky breaker, not a fault",
+          "Do not reset; de-energize the circuit, inspect the pitot heater element and wiring for a short or failure",
+          "Replace the breaker with a higher-amperage unit to allow the heat element to warm up",
+          "Measure the current draw with the breaker held in for 3 seconds to identify the fault level"
+        ],
+        "correctIndex": 1,
+        "explanation": "Repeated immediate trips confirm a persistent fault \u2014 most likely a shorted or failed heater element. Do NOT reset again; each attempt risks fire or further wiring damage. Isolate the circuit, remove the pitot tube, and inspect the heating element resistance before any further power application."
+      },
+      "preassessment": {
+        "question": "A circuit breaker trips immediately when reset. What should you do?",
+        "choices": [
+          "Reset it a second time",
+          "Replace with higher-rated breaker",
+          "Measure current draw with breaker held in",
+          "Do not reset; isolate and inspect for a short"
+        ],
+        "correctIndex": 3
+      }
+    },
+    {
+      "id": "CAT2-CA-016",
+      "category": "circuit-analysis",
+      "difficulty": "medium",
+      "tags": [
+        "troubleshooting",
+        "avionics-installation",
+        "power-up"
+      ],
+      "learningObjective": "First checks when new avionics won't power up",
+      "fullObjective": "Given a newly installed avionics system that fails to power up, determine the first things to check: circuit breaker is set, wiring is connected to the correct bus, and the ground wire is properly terminated.",
+      "flashcard": {
+        "term": "New avionics won't power up \u2014 first checks",
+        "definition": "First three checks for new avionics that won't power on: (1) Circuit breaker is set (not tripped), (2) power wiring is connected to the correct bus, (3) ground wire is properly terminated with good contact to airframe. These cover 90% of new installation no-power faults.",
+        "analogy": "First checks when a new appliance doesn't work: Is it plugged in? Is the outlet switch on? Is the outlet actually live?",
+        "unit": "Circuit Analysis & Troubleshooting"
+      },
+      "jeopardy": {
+        "question": "When a newly installed avionics system fails to power on, these are the first three things to verify before any further troubleshooting.",
+        "choices": [
+          "Software version, antenna connection, and cooling airflow",
+          "Connector torque, backshell install, and wire gauge verification",
+          "Frequency programming, squelch level, and display brightness",
+          "Circuit breaker set, correct bus connection, and proper ground termination"
+        ],
+        "correctIndex": 3,
+        "explanation": "New installation no-power faults are almost always basics: breaker not set (or tripped), power wire on wrong bus, or ground wire not properly terminated. Check these three before any deeper troubleshooting."
+      },
+      "multipleChoice": {
+        "question": "A newly installed GPS/NAV/COMM fails to power on during initial test. What should be checked first?",
+        "choices": [
+          "Antenna SWR and impedance matching",
+          "Circuit breaker, correct bus connection, and ground wire termination",
+          "Software version compatibility with the panel system",
+          "Cooling fan operation and avionics bay temperature"
+        ],
+        "correctIndex": 1,
+        "explanation": "The vast majority of new-install no-power situations trace to one of three basic issues: tripped or unset breaker, wire connected to wrong bus, or ground wire not making solid contact. Check these before suspecting the unit itself."
+      },
+      "practice": {
+        "question": "After installing a new transponder, you apply power and the unit is completely dead \u2014 no display, no startup sound. The previous tenant unit worked fine. What do you check first?",
+        "choices": [
+          "Verify the circuit breaker is set, the power wire is on the correct avionics bus, and the ground wire is properly terminated",
+          "Check the antenna coax impedance and connector torque",
+          "Remove the unit and bench test it \u2014 it was probably damaged in shipping",
+          "Check the aircraft's main bus voltage \u2014 a low battery can cause no-power symptoms"
+        ],
+        "correctIndex": 0,
+        "explanation": "New installation no-power issues are almost always installation errors, not unit defects. Before assuming a bad unit: (1) Confirm the breaker is set and hasn't tripped, (2) verify power leads are on the correct bus per the wiring diagram, (3) confirm the ground wire makes solid contact with the airframe ground stud."
+      },
+      "preassessment": {
+        "question": "New avionics won't power up. What should you check first?",
+        "choices": [
+          "Antenna and software version",
+          "Cooling airflow and display brightness",
+          "Circuit breaker, bus connection, and ground",
+          "Frequency programming and squelch"
+        ],
+        "correctIndex": 2
+      }
+    },
+    {
+      "id": "CAT2-CA-017",
+      "category": "circuit-analysis",
+      "difficulty": "medium",
+      "tags": [
+        "ammeter",
+        "current-measurement",
+        "series",
+        "multimeter"
+      ],
+      "learningObjective": "Connect ammeter in series to measure current",
+      "fullObjective": "Connect an ammeter in series with the circuit load to measure current flow, ensuring the circuit is broken to insert the meter.",
+      "flashcard": {
+        "term": "Current measurement \u2014 ammeter connection",
+        "definition": "To measure current, connect the ammeter IN SERIES \u2014 break the circuit and insert the meter so all current flows through it. The ammeter has very low internal resistance so it doesn't significantly affect circuit operation. Never connect an ammeter in parallel \u2014 it will short-circuit the supply.",
+        "analogy": "Like measuring water flow by cutting the pipe and inserting a flow meter \u2014 the water must pass through the meter to be counted.",
+        "unit": "Circuit Analysis & Troubleshooting"
+      },
+      "jeopardy": {
+        "question": "To measure current in a circuit, the ammeter must be connected this way, requiring the circuit to be broken to insert it.",
+        "choices": [
+          "In parallel, circuit powered on",
+          "In parallel, circuit powered off",
+          "In series, circuit powered on",
+          "In series, circuit powered off to insert, then powered on"
+        ],
+        "correctIndex": 3,
+        "explanation": "Current measurement requires series connection \u2014 break the circuit, insert the ammeter, then restore power so current flows through the meter. Parallel connection would short the supply through the meter's near-zero resistance."
+      },
+      "multipleChoice": {
+        "question": "How must an ammeter be connected to measure current in an aircraft circuit?",
+        "choices": [
+          "In series with the load, circuit broken to insert meter",
+          "In parallel across the load, circuit off",
+          "In parallel across the load, circuit on",
+          "In series with the source only, load bypassed"
+        ],
+        "correctIndex": 0,
+        "explanation": "An ammeter must be in series so all circuit current flows through it. You must break the circuit to insert the meter. Never connect in parallel \u2014 the ammeter's near-zero resistance would create a short circuit."
+      },
+      "practice": {
+        "question": "A technician wants to measure the standby current draw of an ELT. How should the ammeter be connected?",
+        "choices": [
+          "Place probes across the ELT power terminals with power on",
+          "Place probes across the ELT power terminals with power off",
+          "Break the power wire to the ELT, insert ammeter in series, then restore power",
+          "Connect ammeter across the circuit breaker terminals"
+        ],
+        "correctIndex": 2,
+        "explanation": "Current measurement requires series connection. Break the power lead, insert the ammeter in series, then restore power. All current to the ELT flows through the meter. Placing the ammeter across the terminals (parallel) would short the supply \u2014 never do this."
+      },
+      "preassessment": {
+        "question": "To measure current, connect the ammeter:",
+        "choices": [
+          "In parallel with circuit on",
+          "In series with circuit broken to insert",
+          "In parallel with circuit off",
+          "Across the power supply terminals"
+        ],
+        "correctIndex": 1
+      }
+    },
+    {
+      "id": "CAT2-AE-001",
+      "category": "aircraft-electrical",
+      "difficulty": "medium",
+      "tags": [
+        "alternator",
+        "generator",
+        "DC-electrical-system"
+      ],
+      "learningObjective": "Explain why alternators are preferred over generators",
+      "fullObjective": "Explain why alternators are preferred over generators in modern DC aircraft electrical systems, citing their ability to produce usable output at lower RPM and lighter weight.",
+      "flashcard": {
+        "term": "Alternator vs. generator",
+        "definition": "Alternators are preferred in modern aircraft because: (1) they produce usable charging voltage at low RPM (including idle), and (2) they are lighter than generators of equivalent output. Generators require higher RPM to produce the same output and are heavier.",
+        "analogy": "Like a newer, more efficient engine that makes full power from idle rather than needing high RPM to get going.",
+        "unit": "Aircraft Electrical Systems"
+      },
+      "jeopardy": {
+        "question": "These two advantages over generators explain why modern DC aircraft electrical systems use alternators as the primary power source.",
+        "choices": [
+          "Higher voltage output and simpler brush design",
+          "Lower RPM usable output and lighter weight",
+          "AC output capability and lower cost",
+          "Solid-state rectification and no field winding"
+        ],
+        "correctIndex": 1,
+        "explanation": "Alternators produce usable output at low RPM (charging at idle) and are lighter than equivalent generators. These two factors make them the standard in modern GA and transport aircraft DC electrical systems."
+      },
+      "multipleChoice": {
+        "question": "Why are alternators preferred over generators in modern aircraft DC electrical systems?",
+        "choices": [
+          "They produce AC power directly usable by avionics",
+          "They produce usable output at lower RPM and are lighter weight",
+          "They require no voltage regulator for output control",
+          "They have higher internal resistance which protects against surges"
+        ],
+        "correctIndex": 1,
+        "explanation": "The two key advantages: (1) alternators charge at low RPM \u2014 including idle \u2014 whereas generators need higher RPM to produce charging voltage; (2) alternators are lighter for equivalent output. Both matter greatly in aviation."
+      },
+      "practice": {
+        "question": "A student asks why modern Cessna 172s use alternators instead of generators. What is the correct explanation?",
+        "choices": [
+          "Alternators produce AC directly, which is more efficient for avionics",
+          "Generators are more reliable but alternators are cheaper to manufacture",
+          "Alternators produce usable charging voltage at low RPM and weigh less than equivalent generators",
+          "Alternators require no rectification, making the system simpler"
+        ],
+        "correctIndex": 2,
+        "explanation": "The practical advantages: alternators charge the battery and power avionics even at idle RPM \u2014 generators require higher engine speeds. Alternators also weigh less for the same output rating, an important consideration in aircraft weight management."
+      },
+      "preassessment": {
+        "question": "Why are alternators preferred over generators in modern aircraft?",
+        "choices": [
+          "Usable output at lower RPM and lighter weight",
+          "They produce AC output directly",
+          "No voltage regulator needed",
+          "Higher internal resistance"
+        ],
+        "correctIndex": 0
+      }
+    },
+    {
+      "id": "CAT2-AE-002",
+      "category": "aircraft-electrical",
+      "difficulty": "medium",
+      "tags": [
+        "fuses",
+        "circuit-breakers",
+        "overcurrent",
+        "protection"
+      ],
+      "learningObjective": "Explain purpose of fuses and circuit breakers",
+      "fullObjective": "Explain that fuses and circuit breakers are used primarily to protect wiring and equipment from overcurrent conditions that could cause fire or damage.",
+      "flashcard": {
+        "term": "Fuses and circuit breakers \u2014 purpose",
+        "definition": "Fuses and circuit breakers protect wiring and equipment from overcurrent. When current exceeds the rated value, they interrupt the circuit before the wire overheats and starts a fire. They protect the WIRE, not the equipment \u2014 sized to the wire's current capacity.",
+        "analogy": "Like a pressure relief valve on a boiler \u2014 it blows before the boiler does, protecting the more expensive and dangerous component.",
+        "unit": "Aircraft Electrical Systems"
+      },
+      "jeopardy": {
+        "question": "These protective devices are sized to the wire's current capacity and interrupt the circuit before wiring overheats, primarily protecting against this hazard.",
+        "choices": [
+          "Voltage surges",
+          "Electromagnetic interference",
+          "Reverse polarity connections",
+          "Overcurrent conditions that could cause fire or damage"
+        ],
+        "correctIndex": 3,
+        "explanation": "Fuses and circuit breakers are overcurrent protection devices. They interrupt the circuit when current exceeds the wire's safe capacity, preventing the wiring from overheating and catching fire. They are sized to protect the wire, not necessarily the connected equipment."
+      },
+      "multipleChoice": {
+        "question": "What is the primary purpose of fuses and circuit breakers in an aircraft electrical system?",
+        "choices": [
+          "To regulate voltage to connected avionics",
+          "To protect wiring and equipment from overcurrent that could cause fire or damage",
+          "To filter noise from the electrical bus",
+          "To disconnect the battery during engine shutdown"
+        ],
+        "correctIndex": 1,
+        "explanation": "Fuses and breakers are overcurrent protection \u2014 they protect the wire from carrying more current than its insulation can safely handle. Wire insulation failures from overcurrent are a primary cause of aircraft electrical fires."
+      },
+      "practice": {
+        "question": "A technician is selecting a circuit breaker for a new avionics circuit. The equipment draws 3A maximum. Why should the breaker be sized to the wire gauge rather than just the equipment draw?",
+        "choices": [
+          "The breaker protects the wire from overcurrent \u2014 if undersized wire is used, a fault could heat the wire before the breaker trips",
+          "Equipment draw is irrelevant \u2014 always use a 10A breaker as standard",
+          "The breaker must match equipment draw exactly to prevent nuisance trips",
+          "Breakers protect equipment, not wiring \u2014 size to the equipment spec"
+        ],
+        "correctIndex": 0,
+        "explanation": "Circuit breakers protect the WIRE from overcurrent. A breaker sized larger than the wire's current capacity won't trip before the wire overheats \u2014 allowing insulation damage and potential fire. Size the breaker to the wire, not just the equipment."
+      },
+      "preassessment": {
+        "question": "What is the primary purpose of fuses and circuit breakers?",
+        "choices": [
+          "Regulate voltage",
+          "Filter electrical noise",
+          "Protect wiring from overcurrent fire risk",
+          "Disconnect battery at shutdown"
+        ],
+        "correctIndex": 2
+      }
+    },
+    {
+      "id": "CAT2-AE-003",
+      "category": "aircraft-electrical",
+      "difficulty": "easy",
+      "tags": [
+        "battery",
+        "engine-start",
+        "DC-electrical-system"
+      ],
+      "learningObjective": "State battery role as initial power source",
+      "fullObjective": "State that the battery is the initial power source in a DC electrical system used for engine starting before the alternator or generator comes online.",
+      "flashcard": {
+        "term": "Aircraft battery \u2014 role in DC system",
+        "definition": "The battery is the initial power source: it powers avionics, fuel pump, and starter motor during engine starting. Once the engine is running and up to speed, the alternator (or generator) takes over as the primary power source and recharges the battery.",
+        "analogy": "Like a car's starter battery \u2014 it gets the engine going, then the alternator takes over to run everything and recharge it.",
+        "unit": "Aircraft Electrical Systems"
+      },
+      "jeopardy": {
+        "question": "This component serves as the initial power source in a DC aircraft electrical system, providing energy for engine starting before the alternator comes online.",
+        "choices": [
+          "Voltage regulator",
+          "Main electrical bus",
+          "Battery",
+          "Capacitor bank"
+        ],
+        "correctIndex": 2,
+        "explanation": "The battery provides initial power for engine starting and pre-start avionics. Once the engine reaches sufficient RPM, the alternator takes over and recharges the battery. Without battery power, engine starting is not possible."
+      },
+      "multipleChoice": {
+        "question": "What is the battery's role in a DC aircraft electrical system during engine start?",
+        "choices": [
+          "It regulates alternator output voltage",
+          "It filters noise from the electrical bus",
+          "It stores excess power generated during cruise flight only",
+          "It is the initial power source before the alternator comes online"
+        ],
+        "correctIndex": 3,
+        "explanation": "The battery provides all electrical power during engine starting \u2014 before the alternator reaches its operating speed and output voltage. Once the alternator is online, it becomes the primary source and recharges the battery."
+      },
+      "practice": {
+        "question": "During a preflight, an avionics student asks why the battery must be serviceable even if the alternator is in perfect condition. How should you explain it?",
+        "choices": [
+          "The battery filters alternator noise during flight",
+          "The alternator cannot start the engine \u2014 the battery provides all initial power for starting before the alternator comes online",
+          "A dead battery causes the voltage regulator to malfunction",
+          "The battery is only needed as backup during alternator failure"
+        ],
+        "correctIndex": 1,
+        "explanation": "The alternator requires the engine to be running before it produces output. The battery must power the starter and essential avionics during the start sequence. Without a charged battery, the alternator has no way to come online."
+      },
+      "preassessment": {
+        "question": "What is the battery's primary role in a DC aircraft electrical system?",
+        "choices": [
+          "Initial power source for engine starting",
+          "Filtering bus noise",
+          "Regulating voltage",
+          "Backup power during cruise only"
+        ],
+        "correctIndex": 0
+      }
+    },
+    {
+      "id": "CAT2-AE-004",
+      "category": "aircraft-electrical",
+      "difficulty": "medium",
+      "tags": [
+        "fuse",
+        "overcurrent",
+        "protection",
+        "wiring"
+      ],
+      "learningObjective": "Explain fuse purpose \u2014 open circuit on overcurrent",
+      "fullObjective": "Explain that the purpose of a fuse is to open the circuit and interrupt current flow when a fault causes current to exceed the rated value, protecting the wiring from heat and fire.",
+      "flashcard": {
+        "term": "Fuse \u2014 function",
+        "definition": "A fuse contains a metal element that melts when current exceeds its rated value, permanently opening the circuit. Unlike a circuit breaker, a fuse cannot be reset \u2014 it must be replaced. It protects the wiring from overheating by interrupting excessive current.",
+        "analogy": "Like a one-time safety link in a chain \u2014 it breaks before the chain does, but has to be replaced after.",
+        "unit": "Aircraft Electrical Systems"
+      },
+      "jeopardy": {
+        "question": "This protective device opens the circuit permanently when current exceeds its rated value, protecting wiring from heat and fire, and must be replaced after operating.",
+        "choices": [
+          "Fuse",
+          "Circuit breaker",
+          "Voltage regulator",
+          "Surge protector"
+        ],
+        "correctIndex": 0,
+        "explanation": "A fuse permanently opens when its element melts due to overcurrent. Unlike a circuit breaker (which can be reset), a blown fuse must be replaced. Both protect wiring from current levels that would cause overheating."
+      },
+      "multipleChoice": {
+        "question": "What happens inside a fuse when current exceeds its rated value?",
+        "choices": [
+          "It trips a mechanical switch that can be reset",
+          "Its element melts, permanently opening the circuit to protect the wiring",
+          "It reduces the circuit voltage to safe levels",
+          "It redirects excess current to a ground bus"
+        ],
+        "correctIndex": 1,
+        "explanation": "A fuse's metal element melts when overcurrent occurs, permanently breaking the circuit. This protects the wiring from carrying current levels that would overheat the insulation. The fuse must then be replaced \u2014 it cannot be reset like a breaker."
+      },
+      "practice": {
+        "question": "During maintenance, a technician replaces a blown fuse with one of a higher amperage rating. Why is this practice dangerous?",
+        "choices": [
+          "Higher-rated fuses cost more and are harder to source",
+          "Mismatched fuse ratings prevent the avionics from initializing correctly",
+          "The higher-rated fuse will cause the alternator to overcharge the battery",
+          "A higher-rated fuse may not blow until the wiring has already overheated and started a fire"
+        ],
+        "correctIndex": 3,
+        "explanation": "Fuses are sized to the wire's current-carrying capacity. A higher-rated fuse allows more current before blowing \u2014 potentially more than the wire can safely carry. The wire can overheat and ignite insulation before the oversized fuse opens."
+      },
+      "preassessment": {
+        "question": "What does a fuse do when current exceeds its rated value?",
+        "choices": [
+          "Trips and can be reset",
+          "Reduces voltage to the load",
+          "Melts and permanently opens the circuit",
+          "Redirects current to ground"
+        ],
+        "correctIndex": 2
+      }
+    },
+    {
+      "id": "CAT2-AE-005",
+      "category": "aircraft-electrical",
+      "difficulty": "easy",
+      "tags": [
+        "voltage-regulator",
+        "alternator",
+        "generator"
+      ],
+      "learningObjective": "Identify voltage regulator function",
+      "fullObjective": "State that the voltage regulator is the component responsible for maintaining consistent output voltage from an alternator or generator in a DC electrical system.",
+      "flashcard": {
+        "term": "Voltage regulator",
+        "definition": "The voltage regulator controls alternator or generator field current to maintain a consistent output voltage (typically 28V \u00b10.5V in aircraft). Without it, alternator output would vary with RPM and load, potentially overcharging the battery or under-powering avionics.",
+        "analogy": "Like a thermostat for electrical voltage \u2014 it constantly adjusts to keep output steady regardless of engine speed or load.",
+        "unit": "Aircraft Electrical Systems"
+      },
+      "jeopardy": {
+        "question": "This component maintains consistent DC output voltage from an alternator or generator despite changes in engine RPM and electrical load.",
+        "choices": [
+          "Bus tie relay",
+          "Voltage regulator",
+          "Rectifier bridge",
+          "Current limiter"
+        ],
+        "correctIndex": 1,
+        "explanation": "The voltage regulator controls the alternator's field current to hold output voltage steady \u2014 typically 27.5\u201328.5V \u2014 regardless of engine speed or how many electrical loads are active. Without it, voltage would fluctuate widely."
+      },
+      "multipleChoice": {
+        "question": "Which component is responsible for maintaining consistent alternator output voltage in an aircraft DC electrical system?",
+        "choices": [
+          "Main bus tie",
+          "Voltage regulator",
+          "Battery contactor",
+          "Rectifier diode assembly"
+        ],
+        "correctIndex": 1,
+        "explanation": "The voltage regulator monitors alternator output and adjusts field excitation to maintain the setpoint voltage. It compensates for changes in engine speed and electrical load to keep bus voltage stable."
+      },
+      "practice": {
+        "question": "After replacing an alternator, the avionics tech notices bus voltage climbs to 32V at cruise RPM. The alternator itself checks out on the bench. What is the most likely remaining fault?",
+        "choices": [
+          "The voltage regulator is faulty and not limiting alternator output",
+          "The bus tie relay is stuck open, preventing voltage sharing",
+          "The battery is fully charged and rejecting the charge",
+          "The ammeter shunt is miscalibrated, giving a false high reading"
+        ],
+        "correctIndex": 0,
+        "explanation": "32V in a 28V system means the alternator is unregulated. The voltage regulator controls field current to hold voltage at setpoint \u2014 if it's failed or misconfigured, the alternator produces maximum output and the voltage rises to unsafe levels."
+      },
+      "preassessment": {
+        "question": "What component maintains consistent alternator output voltage?",
+        "choices": [
+          "Bus tie relay",
+          "Rectifier assembly",
+          "Battery contactor",
+          "Voltage regulator"
+        ],
+        "correctIndex": 3
+      }
+    },
+    {
+      "id": "CAT2-AE-006",
+      "category": "aircraft-electrical",
+      "difficulty": "easy",
+      "tags": [
+        "battery",
+        "disconnect",
+        "safety",
+        "ground-cable"
+      ],
+      "learningObjective": "State correct first step when disconnecting aircraft battery",
+      "fullObjective": "State the correct first step when disconnecting an aircraft battery: remove the ground (negative) cable first to prevent sparking and accidental short circuits.",
+      "flashcard": {
+        "term": "Battery disconnect \u2014 correct sequence",
+        "definition": "Always remove the NEGATIVE (ground) cable FIRST when disconnecting a battery. If a tool touches the airframe while removing the positive cable with the negative already disconnected, no circuit is completed \u2014 no spark. Removing positive first risks a short if the tool contacts the airframe.",
+        "analogy": "Like turning off the water main before disconnecting a pipe fitting \u2014 remove the source of danger before handling the connection.",
+        "unit": "Aircraft Electrical Systems"
+      },
+      "jeopardy": {
+        "question": "When disconnecting an aircraft battery, this cable must be removed first to prevent sparking and accidental short circuits.",
+        "choices": [
+          "Positive (hot) cable",
+          "Ground (negative) cable",
+          "Either \u2014 order doesn't matter",
+          "The bus tie cable"
+        ],
+        "correctIndex": 1,
+        "explanation": "Remove the negative (ground) cable first. With the negative disconnected, accidental contact of a tool with the airframe while removing the positive cable won't complete a circuit \u2014 no spark, no short. Removing positive first leaves the battery connected to the airframe, creating shock and spark hazard."
+      },
+      "multipleChoice": {
+        "question": "What is the correct first step when disconnecting an aircraft battery?",
+        "choices": [
+          "Remove the ground (negative) cable first",
+          "Remove the positive (hot) cable first",
+          "Remove both cables simultaneously",
+          "Turn off the master switch, then remove either cable"
+        ],
+        "correctIndex": 0,
+        "explanation": "Always remove negative first. With the ground disconnected, the positive terminal is no longer connected to the return path \u2014 accidental contact of the positive terminal with the airframe won't cause a short. Removing positive first with negative still connected creates a short circuit risk."
+      },
+      "practice": {
+        "question": "An avionics tech is replacing a battery in a GA aircraft. A student asks which cable to remove first. What is the correct answer and why?",
+        "choices": [
+          "Positive first \u2014 to de-energize the bus before removing the ground",
+          "Either first \u2014 both must be off before working anyway",
+          "Negative (ground) first \u2014 so that accidental tool contact with the airframe won't complete a circuit",
+          "The bus strap first \u2014 to isolate the battery from the bus completely"
+        ],
+        "correctIndex": 2,
+        "explanation": "Remove negative first. If you remove positive first while negative is still connected, any accidental contact between the positive cable or terminal and the airframe will short the battery through the airframe \u2014 potentially causing arcing, fire, or injury. Removing negative first eliminates this risk."
+      },
+      "preassessment": {
+        "question": "Which cable do you remove FIRST when disconnecting an aircraft battery?",
+        "choices": [
+          "Positive",
+          "The bus strap",
+          "Either one",
+          "Negative (ground)"
+        ],
+        "correctIndex": 3
+      }
+    },
+    {
+      "id": "CAT2-AE-007",
+      "category": "aircraft-electrical",
+      "difficulty": "medium",
+      "tags": [
+        "DC-bus",
+        "electrical-system",
+        "avionics",
+        "purpose"
+      ],
+      "learningObjective": "Explain primary purpose of aircraft DC electrical system",
+      "fullObjective": "Explain that the primary purpose of the aircraft DC electrical system is to supply power to avionics, lights, ignition, fuel systems, and other electrical equipment during all phases of operation.",
+      "flashcard": {
+        "term": "Aircraft DC electrical system \u2014 purpose",
+        "definition": "The DC electrical system supplies power to all electrically-powered equipment: avionics (radios, navigation, flight instruments), lighting, ignition systems, fuel pumps, and other electrical loads \u2014 during all phases of flight from pre-start through shutdown.",
+        "analogy": "The aircraft's DC system is like the bloodstream of the aircraft's electrical life \u2014 everything that needs power gets it from here.",
+        "unit": "Aircraft Electrical Systems"
+      },
+      "jeopardy": {
+        "question": "Avionics, lights, ignition systems, and fuel pumps are examples of equipment powered by this aircraft system during all phases of operation.",
+        "choices": [
+          "The pitot-static system",
+          "The hydraulic system",
+          "The DC electrical system",
+          "The pneumatic system"
+        ],
+        "correctIndex": 2,
+        "explanation": "The DC electrical system powers all electrically-dependent equipment throughout the aircraft. Failure of this system in flight can result in loss of communications, navigation, engine management (fuel pump), and lighting."
+      },
+      "multipleChoice": {
+        "question": "What is the primary purpose of an aircraft's DC electrical system?",
+        "choices": [
+          "To convert AC power from the alternator into usable DC",
+          "To supply power to avionics, lights, ignition, fuel systems, and electrical equipment during all phases of operation",
+          "To charge the battery only when the alternator is operating at cruise RPM",
+          "To distribute power solely to flight-critical instruments"
+        ],
+        "correctIndex": 1,
+        "explanation": "The DC electrical system serves as the backbone of all electrical power distribution \u2014 from pre-start checks through engine shutdown. It powers both flight-critical and non-critical electrical loads at all times."
+      },
+      "practice": {
+        "question": "A student asks what would happen in a total DC electrical failure in a GA aircraft at night. What systems are at risk?",
+        "choices": [
+          "Avionics, navigation lights, interior lights, fuel boost pump, and in some aircraft ignition \u2014 nearly all electrical systems",
+          "Only avionics \u2014 lights and ignition operate independently",
+          "Only the radios \u2014 flight instruments are mechanically driven",
+          "Only the autopilot \u2014 all other systems have mechanical backups"
+        ],
+        "correctIndex": 0,
+        "explanation": "A total DC failure in a GA aircraft at night is a serious emergency. Most lighting, all radios and navigation, electric fuel pump, and potentially ignition (in some installations) run on DC power. The DC system powers nearly everything."
+      },
+      "preassessment": {
+        "question": "What is the primary purpose of the aircraft DC electrical system?",
+        "choices": [
+          "Convert AC to DC only",
+          "Power flight-critical instruments only",
+          "Charge battery at cruise RPM only",
+          "Supply power to avionics, lights, ignition, and fuel systems"
+        ],
+        "correctIndex": 3
+      }
+    },
+    {
+      "id": "CAT2-AE-008",
+      "category": "aircraft-electrical",
+      "difficulty": "easy",
+      "tags": [
+        "electrical-bus",
+        "power-distribution",
+        "DC-system"
+      ],
+      "learningObjective": "Define aircraft electrical bus",
+      "fullObjective": "State that an aircraft electrical bus is a common distribution point that supplies power from one or more sources to multiple electrical loads simultaneously.",
+      "flashcard": {
+        "term": "Aircraft electrical bus",
+        "definition": "An electrical bus is a common conductive distribution point connected to one or more power sources (battery, alternator) and multiple loads (avionics, lights, systems). All loads connected to the bus share the same voltage source.",
+        "analogy": "Like a power strip \u2014 one plug into the wall (power source), many devices plugged in (loads), all sharing the same supply.",
+        "unit": "Aircraft Electrical Systems"
+      },
+      "jeopardy": {
+        "question": "This common distribution point in an aircraft electrical system receives power from one or more sources and supplies it to multiple electrical loads simultaneously.",
+        "choices": [
+          "Voltage regulator",
+          "Battery contactor",
+          "Aircraft electrical bus",
+          "Bus tie relay"
+        ],
+        "correctIndex": 2,
+        "explanation": "An electrical bus is the distribution backbone of the aircraft electrical system \u2014 it connects power sources (battery, alternator) to all loads (avionics, lights, systems) through a common node. Multiple buses (avionics bus, essential bus, main bus) provide load separation and redundancy."
+      },
+      "multipleChoice": {
+        "question": "What is an aircraft electrical bus?",
+        "choices": [
+          "A dedicated cable that connects the battery directly to each load",
+          "A protective device that interrupts power during faults",
+          "A voltage regulation device for sensitive avionics",
+          "A common distribution point that supplies power from one or more sources to multiple loads"
+        ],
+        "correctIndex": 3,
+        "explanation": "A bus is a distribution node: power comes in from sources (battery, alternator) and goes out to all connected loads. Multiple buses allow circuit separation \u2014 essential loads on one bus, non-essential on another \u2014 for fault tolerance."
+      },
+      "practice": {
+        "question": "A tech is explaining an aircraft wiring diagram to a student. The diagram shows one battery, one alternator, and 15 loads all connected to a single node labeled 'Main Bus.' What is the function of this node?",
+        "choices": [
+          "It is a common distribution point providing power from the battery and alternator to all 15 loads",
+          "It regulates voltage for each individual load",
+          "It is a fuse block that protects each load individually",
+          "It is a ground reference point for the entire aircraft"
+        ],
+        "correctIndex": 0,
+        "explanation": "The main bus is a common distribution point \u2014 both the battery and alternator connect here as sources, and all 15 loads tap power from it. The bus itself is just a conductor (typically a metal bar or terminal strip) that connects everything at the same voltage potential."
+      },
+      "preassessment": {
+        "question": "What is an aircraft electrical bus?",
+        "choices": [
+          "Connects battery directly to each load",
+          "Common distribution point from one or more sources to multiple loads",
+          "Voltage regulator for avionics",
+          "Overcurrent protection device"
+        ],
+        "correctIndex": 1
+      }
+    },
+    {
+      "id": "CAT2-AE-009",
+      "category": "aircraft-electrical",
+      "difficulty": "easy",
+      "tags": [
+        "noise-filter",
+        "alternator-noise",
+        "capacitor",
+        "inductor"
+      ],
+      "learningObjective": "Identify components that filter alternator noise",
+      "fullObjective": "State that capacitors and inductors (chokes) are components used to filter and suppress alternator noise in an aircraft electrical system.",
+      "flashcard": {
+        "term": "Alternator noise filtering",
+        "definition": "Capacitors and inductors (chokes) are used to filter alternator-generated electrical noise from the DC bus. Capacitors shunt high-frequency noise to ground; inductors block high-frequency noise from passing through. Together they form a low-pass filter keeping the bus clean for sensitive avionics.",
+        "analogy": "Like a water filter \u2014 lets clean water (clean DC) through while trapping particles (electrical noise).",
+        "unit": "Aircraft Electrical Systems"
+      },
+      "jeopardy": {
+        "question": "These two components \u2014 one that shunts high-frequency noise to ground and one that blocks it from passing \u2014 are used together to filter alternator noise from the aircraft electrical bus.",
+        "choices": [
+          "Resistors and fuses",
+          "Capacitors and inductors (chokes)",
+          "Diodes and transistors",
+          "Transformers and rectifiers"
+        ],
+        "correctIndex": 1,
+        "explanation": "Capacitors shunt high-frequency alternator noise to ground; inductors (chokes) block noise from propagating along the bus. Together they form a low-pass filter \u2014 passing clean DC while suppressing the RF interference generated by the alternator's rectifier."
+      },
+      "multipleChoice": {
+        "question": "Which components are used to filter and suppress alternator noise in an aircraft DC electrical system?",
+        "choices": [
+          "Resistors and fuses",
+          "Voltage regulators and bus relays",
+          "Capacitors and inductors (chokes)",
+          "Diodes and Zener references"
+        ],
+        "correctIndex": 2,
+        "explanation": "Capacitors and inductors form a filter network on the alternator output. Capacitors shunt high-frequency noise to ground; inductors block noise from reaching the bus. This protects avionics from electrical interference generated by the alternator."
+      },
+      "practice": {
+        "question": "A COM radio has audio hash that increases with engine RPM. What type of components should the technician check or add to the alternator output circuit?",
+        "choices": [
+          "Capacitors and inductors (chokes) to filter alternator noise from the bus",
+          "A voltage regulator bypass capacitor to reduce ripple",
+          "Additional fuses to limit alternator current",
+          "A bus tie relay to isolate the avionics bus from the main bus"
+        ],
+        "correctIndex": 0,
+        "explanation": "Audio hash that scales with RPM is classic alternator noise reaching the avionics bus. Capacitors shunt the high-frequency interference to ground; inductors block it from propagating. Adding these components (or verifying existing ones aren't failed) typically resolves the issue."
+      },
+      "preassessment": {
+        "question": "What components filter alternator noise from the aircraft bus?",
+        "choices": [
+          "Resistors and fuses",
+          "Voltage regulators and relays",
+          "Diodes and transistors",
+          "Capacitors and inductors"
+        ],
+        "correctIndex": 3
+      }
+    },
+    {
+      "id": "CAT2-AE-010",
+      "category": "aircraft-electrical",
+      "difficulty": "easy",
+      "tags": [
+        "DC-electrical-system",
+        "avionics",
+        "purpose"
+      ],
+      "learningObjective": "State DC system purpose \u2014 power avionics, lights, ignition",
+      "fullObjective": "State that the primary purpose of the DC electrical system in a general aviation aircraft is to power avionics, lighting, ignition systems, and other electrical equipment.",
+      "flashcard": {
+        "term": "GA aircraft DC system purpose",
+        "definition": "The DC electrical system in a GA aircraft powers: avionics (radios, navigation equipment), lighting (position lights, landing lights, interior), ignition systems, electric fuel pump, and any other electrically-operated equipment.",
+        "analogy": "The DC system is the electrical utility network of the aircraft \u2014 like the electrical panel in a house powering everything from the refrigerator to the lights.",
+        "unit": "Aircraft Electrical Systems"
+      },
+      "jeopardy": {
+        "question": "Avionics, lighting, ignition systems, and the electric fuel pump are all loads powered by this system in a general aviation aircraft.",
+        "choices": [
+          "The DC electrical system",
+          "The vacuum system",
+          "The pitot-static system",
+          "The pneumatic bleed-air system"
+        ],
+        "correctIndex": 0,
+        "explanation": "The DC electrical system powers essentially all electrically-dependent equipment in a GA aircraft: radios, navigation, lights, ignition, and the fuel pump. Loss of DC power is an immediate emergency requiring action."
+      },
+      "multipleChoice": {
+        "question": "In a general aviation aircraft, what does the DC electrical system primarily power?",
+        "choices": [
+          "Only the avionics and radios",
+          "Only flight-critical instruments and the battery charger",
+          "Avionics, lighting, ignition systems, and other electrical equipment",
+          "Only lighting and the electric fuel pump"
+        ],
+        "correctIndex": 2,
+        "explanation": "The DC system is comprehensive \u2014 it powers all electrical loads: avionics, all lighting systems, ignition, fuel pump, and miscellaneous electrical equipment. GA aircraft have very few non-electrical systems."
+      },
+      "practice": {
+        "question": "During an avionics systems class, a student asks what would be affected if the main bus lost power in a Piper Cherokee. What should the instructor say is affected?",
+        "choices": [
+          "Only the radios and GPS \u2014 all other systems are mechanical",
+          "Only the navigation lights and fuel pump \u2014 other systems have separate batteries",
+          "Nothing critical \u2014 GA aircraft are designed to fly without electrical power indefinitely",
+          "Avionics, navigation lights, landing lights, electric fuel pump, and potentially the ignition system"
+        ],
+        "correctIndex": 3,
+        "explanation": "Main bus loss in a Cherokee affects essentially all electrical systems: all avionics, lighting, electric fuel pump, and in many installations, the ignition system. The aircraft may not be legally able to continue flight without these systems, and safety is immediately compromised."
+      },
+      "preassessment": {
+        "question": "What does a GA aircraft's DC electrical system primarily power?",
+        "choices": [
+          "Avionics only",
+          "Avionics, lighting, ignition, and electrical equipment",
+          "Lights and fuel pump only",
+          "Only flight-critical instruments"
+        ],
+        "correctIndex": 1
+      }
+    },
+    {
+      "id": "CAT2-AE-011",
+      "category": "aircraft-electrical",
+      "difficulty": "medium",
+      "tags": [
+        "bonding-jumper",
+        "grounding",
+        "lightning-protection",
+        "EMI"
+      ],
+      "learningObjective": "Explain bonding jumper purpose",
+      "fullObjective": "Explain the primary purpose of a bonding jumper in aircraft electrical systems: providing a low-resistance electrical path between components and aircraft structure for grounding, lightning protection, and EMI reduction.",
+      "flashcard": {
+        "term": "Bonding jumper \u2014 purpose",
+        "definition": "A bonding jumper creates a low-resistance electrical path between a component and the aircraft structure. Three purposes: (1) current return path (grounding), (2) lightning protection (provides controlled dissipation path), (3) EMI reduction (prevents static buildup and ground loops).",
+        "analogy": "Like a bridge between two islands \u2014 it ensures current can flow freely between them rather than building up on one side.",
+        "unit": "Aircraft Electrical Systems"
+      },
+      "jeopardy": {
+        "question": "This component provides a low-resistance electrical path between avionics and aircraft structure for grounding, lightning protection, and EMI reduction.",
+        "choices": [
+          "Voltage regulator",
+          "Bus tie relay",
+          "Bonding jumper",
+          "Shielded coaxial cable"
+        ],
+        "correctIndex": 2,
+        "explanation": "Bonding jumpers ensure all metal components share a common electrical reference (ground), provide a low-impedance path to dissipate lightning strikes safely, and reduce EMI by preventing differential potentials between components."
+      },
+      "multipleChoice": {
+        "question": "What is the primary purpose of bonding jumpers in an aircraft electrical system?",
+        "choices": [
+          "To carry main power from the bus to avionics LRUs",
+          "To provide a low-resistance path between components and structure for grounding, lightning protection, and EMI reduction",
+          "To carry return current only from AC systems",
+          "To mechanically secure avionics equipment to the aircraft rack"
+        ],
+        "correctIndex": 1,
+        "explanation": "Bonding jumpers serve three critical electrical functions: they provide the current return path (ground), they give lightning energy a controlled low-resistance path to the airframe (rather than through avionics), and they reduce EMI by equalizing potentials between components."
+      },
+      "practice": {
+        "question": "After replacing an avionics tray, a technician skips re-installing the bonding strap, saying 'the rack is metal and already touching the airframe.' Why is the dedicated bonding strap still required?",
+        "choices": [
+          "It is only required for regulatory compliance, not technical function",
+          "It prevents the avionics from overheating by providing a thermal path to the airframe",
+          "The bonding strap is only needed for AC systems, not DC avionics",
+          "Metal-to-metal contact through rack hardware provides insufficient low-resistance bonding \u2014 the dedicated jumper ensures milliohm-level resistance for proper grounding and lightning protection"
+        ],
+        "correctIndex": 3,
+        "explanation": "Rack-to-airframe contact through mounting hardware may have paint, anodizing, or corrosion creating unacceptably high resistance. The dedicated bonding strap provides a verified low-resistance path (measured with a milliohmmeter) for current return, lightning dissipation, and EMI control."
+      },
+      "preassessment": {
+        "question": "What is the primary purpose of a bonding jumper?",
+        "choices": [
+          "Low-resistance path for grounding, lightning, and EMI",
+          "Carry main power to avionics",
+          "Carry AC return current",
+          "Secure equipment mechanically"
+        ],
+        "correctIndex": 0
+      }
+    },
+    {
+      "id": "CAT2-AE-012",
+      "category": "aircraft-electrical",
+      "difficulty": "medium",
+      "tags": [
+        "bonding-jumper",
+        "grounding",
+        "static-discharge",
+        "current-return"
+      ],
+      "learningObjective": "Explain bonding jumper purpose \u2014 current return and static discharge",
+      "fullObjective": "Explain the primary purpose of a bonding jumper in aircraft electrical systems: to create a low-resistance electrical path between components and structure for current return and static discharge.",
+      "flashcard": {
+        "term": "Bonding jumper \u2014 current return and static discharge",
+        "definition": "Bonding jumpers provide two key functions: (1) current return \u2014 the low-resistance path for DC current to return from loads back to the battery/bus through the airframe, and (2) static discharge \u2014 preventing static charge buildup that could cause interference or spark ignition near fuel.",
+        "analogy": "Like a dedicated return lane on a highway \u2014 it ensures the traffic (current) that went out can efficiently come back.",
+        "unit": "Aircraft Electrical Systems"
+      },
+      "jeopardy": {
+        "question": "Providing a low-resistance path between components and aircraft structure for current return and static charge dissipation are the two functions of this component.",
+        "choices": [
+          "Grounding relay",
+          "Voltage regulator",
+          "Static discharger wick",
+          "Bonding jumper"
+        ],
+        "correctIndex": 3,
+        "explanation": "Bonding jumpers enable DC current to return through the airframe (as the aircraft's common 'negative' conductor) and dissipate static charges before they build to levels that cause interference or ignition risk near fuel systems."
+      },
+      "multipleChoice": {
+        "question": "In a single-wire aircraft electrical system, what role does the airframe play, and how does a bonding jumper enable it?",
+        "choices": [
+          "The airframe carries positive current; bonding connects positive terminals to structure",
+          "The airframe serves as the negative current return conductor; bonding jumpers provide the low-resistance connection from components to structure",
+          "The airframe insulates components from ground; bonding jumpers add resistance to prevent faults",
+          "The airframe is the positive bus; bonding jumpers connect it to the battery negative"
+        ],
+        "correctIndex": 1,
+        "explanation": "Most GA aircraft use single-wire electrical systems where the airframe IS the negative return conductor. Bonding jumpers connect avionics and components to the airframe so current can return to the battery. Without proper bonding, return current has no path and equipment won't function."
+      },
+      "practice": {
+        "question": "After an avionics installation, the comm radio transmits but receives intermittent audio with static. The antenna checks out. The tech discovers the radio chassis bonding strap is loose. How does a loose bonding strap cause static in the receiver?",
+        "choices": [
+          "A loose strap increases supply voltage, overdriving the receiver front end",
+          "A loose strap allows RF to enter through the power supply instead of the antenna",
+          "A loose strap creates a high-resistance return path that causes ground potential differences, which appear as noise in the audio",
+          "A loose strap prevents the squelch circuit from closing properly"
+        ],
+        "correctIndex": 2,
+        "explanation": "A loose bonding strap increases ground path resistance. With the chassis at a different (floating) ground potential than the avionics bus reference, ground loops and differential noise are introduced into the audio chain. Good bonding keeps all components at the same reference potential."
+      },
+      "preassessment": {
+        "question": "A bonding jumper provides a low-resistance path for:",
+        "choices": [
+          "Current return and static discharge",
+          "Positive power distribution",
+          "RF signal shielding",
+          "Voltage regulation"
+        ],
+        "correctIndex": 0
+      }
+    }
+  ]
+}

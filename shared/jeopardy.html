@@ -1,0 +1,4812 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Battle Ace — ACE Training</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="ace-theme.css">
+  <style id="ace-arena-inline">
+    /* ============================================================================
+   ACE'S ARENA - Stage Enhancement (navy+gold skin)
+   ============================================================================ */
+
+    :root {
+      --arena-spotlight: rgba(212, 168, 83, 0.3);
+      --arena-glow: #D4A853;
+      --arena-stage: #080C1A;
+      --arena-accent: #D4A853;
+      --arena-pixel-font: 'Inter', system-ui, sans-serif;
+    }
+
+    /* ============================================================================
+   CRT SCANLINE OVERLAY - Subtle retro TV effect
+   ============================================================================ */
+    .crt-overlay {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9999;
+      background: repeating-linear-gradient(0deg,
+          rgba(0, 0, 0, 0.03) 0px,
+          rgba(0, 0, 0, 0.03) 1px,
+          transparent 1px,
+          transparent 2px);
+      animation: crt-flicker 0.15s infinite;
+    }
+
+    @keyframes crt-flicker {
+
+      0%,
+      100% {
+        opacity: 0.97;
+      }
+
+      50% {
+        opacity: 1;
+      }
+    }
+
+    /* ============================================================================
+   PIXEL STAGE LIGHTS - Corner decorations
+   ============================================================================ */
+    .pixel-stage-lights {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    .pixel-light {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      border-radius: 0;
+      animation: light-pulse 1.5s ease-in-out infinite;
+    }
+
+    .pixel-light:nth-child(odd) {
+      animation-delay: 0.75s;
+    }
+
+    .pixel-light.top-left {
+      top: 20px;
+      left: 20px;
+      background: #ef4444;
+    }
+
+    .pixel-light.top-right {
+      top: 20px;
+      right: 20px;
+      background: #22c55e;
+    }
+
+    .pixel-light.bottom-left {
+      bottom: 20px;
+      left: 20px;
+      background: #3b82f6;
+    }
+
+    .pixel-light.bottom-right {
+      bottom: 20px;
+      right: 20px;
+      background: #eab308;
+    }
+
+    /* Additional lights for fuller effect */
+    .pixel-light.top-mid-left {
+      top: 20px;
+      left: 40px;
+      background: #a855f7;
+    }
+
+    .pixel-light.top-mid-right {
+      top: 20px;
+      right: 40px;
+      background: #f43f5e;
+    }
+
+    @keyframes light-pulse {
+
+      0%,
+      100% {
+        opacity: 0.4;
+        box-shadow: 0 0 4px currentColor;
+      }
+
+      50% {
+        opacity: 1;
+        box-shadow: 0 0 12px currentColor, 0 0 20px currentColor;
+      }
+    }
+
+    /* ============================================================================
+   ACE INTRO OVERLAY - Welcome screen with Ace front and center
+   ============================================================================ */
+    .ace-arena-intro {
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(180deg, var(--bg, #080C1A) 0%, var(--surface, #0F1428) 50%, var(--surface-2, #161C35) 100%);
+      z-index: 20000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      opacity: 1;
+      transition: opacity 0.5s ease, visibility 0.5s ease;
+    }
+
+    .ace-arena-intro.hidden {
+      opacity: 0;
+      pointer-events: none;
+      visibility: hidden;
+    }
+
+    /* Spotlight effect behind Ace */
+    .intro-spotlight {
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(ellipse at center,
+          rgba(245, 158, 11, 0.25) 0%,
+          rgba(245, 158, 11, 0.1) 30%,
+          transparent 70%);
+      border-radius: 50%;
+      animation: spotlight-breathe 3s ease-in-out infinite;
+    }
+
+    @keyframes spotlight-breathe {
+
+      0%,
+      100% {
+        transform: scale(1);
+        opacity: 0.8;
+      }
+
+      50% {
+        transform: scale(1.1);
+        opacity: 1;
+      }
+    }
+
+    /* Title */
+    .intro-title {
+      font-family: var(--arena-pixel-font);
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--arena-glow);
+      text-shadow: 0 2px 8px rgba(212, 168, 83, 0.4);
+      margin-bottom: 30px;
+      text-align: center;
+      letter-spacing: -0.02em;
+      animation: title-glow 2s ease-in-out infinite;
+      position: relative;
+      z-index: 2;
+    }
+
+    @keyframes title-glow {
+
+      0%,
+      100% {
+        text-shadow: 0 2px 8px rgba(212, 168, 83, 0.3);
+      }
+
+      50% {
+        text-shadow: 0 2px 16px rgba(212, 168, 83, 0.6), 0 0 32px rgba(212, 168, 83, 0.3);
+      }
+    }
+
+    /* Pixel art stage/podium under Ace */
+    .intro-stage {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      z-index: 2;
+    }
+
+    .intro-ace-avatar {
+      width: 192px;
+      height: 192px;
+      image-rendering: pixelated;
+      animation: ace-float 3s ease-in-out infinite;
+      filter: drop-shadow(0 0 20px rgba(244, 63, 94, 0.5));
+    }
+
+    @keyframes ace-float {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-8px);
+      }
+    }
+
+    /* Pixel podium */
+    .intro-podium {
+      width: 200px;
+      height: 40px;
+      background: linear-gradient(180deg, #1E2545 0%, #161C35 50%, #0F1428 100%);
+      border: 3px solid rgba(212, 168, 83, 0.6);
+      border-top: none;
+      margin-top: -4px;
+      position: relative;
+    }
+
+    .intro-podium::before {
+      content: '';
+      position: absolute;
+      top: -6px;
+      left: -3px;
+      right: -3px;
+      height: 6px;
+      background: linear-gradient(90deg, #D4A853, #e8c87a, #D4A853);
+    }
+
+    /* Intro dialogue bubble */
+    .intro-dialogue {
+      max-width: 500px;
+      margin-top: 30px;
+      padding: 20px 30px;
+      background: rgba(15, 20, 40, 0.95);
+      border: 2px solid var(--arena-accent);
+      border-radius: 12px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .intro-dialogue::before {
+      content: '';
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      border: 12px solid transparent;
+      border-bottom-color: var(--arena-accent);
+      border-top: none;
+    }
+
+    .intro-dialogue-text {
+      font-family: var(--font-body, 'Inter', system-ui, sans-serif);
+      font-size: 1.1rem;
+      color: #f0f4ff;
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    .intro-dialogue-text .ace-name {
+      color: var(--arena-accent);
+      font-weight: 700;
+      font-family: var(--arena-pixel-font);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    /* Start button */
+    .intro-start-btn {
+      margin-top: 40px;
+      padding: 14px 40px;
+      font-family: var(--arena-pixel-font);
+      font-size: 0.9rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #D4A853, #c49440);
+      border: none;
+      color: #0a0a0a;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border-radius: 8px;
+      position: relative;
+      z-index: 2;
+      transition: all 0.15s ease;
+      animation: btn-pulse 2s ease-in-out infinite;
+    }
+
+    .intro-start-btn:hover {
+      transform: scale(1.05);
+      background: linear-gradient(135deg, #e8c87a, #D4A853);
+      box-shadow: 0 4px 20px rgba(212, 168, 83, 0.4);
+    }
+
+    @keyframes btn-pulse {
+
+      0%,
+      100% {
+        box-shadow: 0 2px 12px rgba(212, 168, 83, 0.3);
+      }
+
+      50% {
+        box-shadow: 0 4px 24px rgba(212, 168, 83, 0.5);
+      }
+    }
+
+    /* ============================================================================
+   ACE STAGE MODAL - Center-stage feedback with dramatic reveal
+   ============================================================================ */
+    .ace-stage-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(8, 12, 26, 0.96);
+      z-index: 15000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .ace-stage-modal.show {
+      opacity: 1;
+      pointer-events: auto;
+      visibility: visible;
+    }
+
+    /* Spotlight cone effect */
+    .stage-spotlight {
+      position: absolute;
+      width: 300px;
+      height: 500px;
+      background: linear-gradient(180deg,
+          rgba(245, 158, 11, 0.4) 0%,
+          rgba(245, 158, 11, 0.2) 30%,
+          rgba(245, 158, 11, 0.05) 60%,
+          transparent 100%);
+      clip-path: polygon(30% 0%, 70% 0%, 100% 100%, 0% 100%);
+      top: 0;
+      animation: spotlight-sway 4s ease-in-out infinite;
+    }
+
+    @keyframes spotlight-sway {
+
+      0%,
+      100% {
+        transform: rotate(-2deg);
+      }
+
+      50% {
+        transform: rotate(2deg);
+      }
+    }
+
+    /* Stage content container */
+    .stage-content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 600px;
+      width: 90%;
+    }
+
+    /* Large Ace avatar on stage */
+    .stage-ace-container {
+      position: relative;
+      margin-bottom: 20px;
+    }
+
+
+    .stage-ace-avatar,
+    .li-ace,
+    .buzzer-ace-face {
+      object-fit: contain !important;
+      max-width: 100%;
+      height: auto;
+    }
+
+    .stage-ace-avatar {
+      width: 192px;
+      height: 192px;
+      image-rendering: pixelated;
+      filter: drop-shadow(0 0 30px rgba(244, 63, 94, 0.6));
+      transition: all 0.3s ease;
+    }
+
+    .stage-ace-avatar.celebrating {
+      animation: ace-celebrate 0.5s ease-in-out;
+    }
+
+    .stage-ace-avatar.disappointed {
+      animation: ace-shake 0.4s ease-in-out;
+    }
+
+    @keyframes ace-celebrate {
+
+      0%,
+      100% {
+        transform: scale(1) rotate(0deg);
+      }
+
+      25% {
+        transform: scale(1.1) rotate(-5deg);
+      }
+
+      75% {
+        transform: scale(1.1) rotate(5deg);
+      }
+    }
+
+    @keyframes ace-shake {
+
+      0%,
+      100% {
+        transform: translateX(0);
+      }
+
+      25% {
+        transform: translateX(-8px);
+      }
+
+      75% {
+        transform: translateX(8px);
+      }
+    }
+
+    /* Pixel podium on stage */
+    .stage-podium {
+      width: 220px;
+      height: 50px;
+      background: linear-gradient(180deg, #1E2545 0%, #161C35 50%, #0F1428 100%);
+      border: 3px solid rgba(212, 168, 83, 0.6);
+      border-top: none;
+      margin-top: -4px;
+      position: relative;
+      border-radius: 0 0 8px 8px;
+    }
+
+    .stage-podium::before {
+      content: 'ACE';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: var(--arena-pixel-font);
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #D4A853;
+      letter-spacing: 4px;
+    }
+
+    /* Result reveal container */
+    .stage-result {
+      margin-top: 30px;
+      text-align: center;
+    }
+
+    /* Dramatic result badge */
+    .stage-result-badge {
+      display: inline-block;
+      padding: 12px 30px;
+      font-family: var(--arena-pixel-font);
+      font-size: 1rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      border: 3px solid;
+      margin-bottom: 15px;
+      animation: result-appear 0.5s ease-out;
+      text-transform: uppercase;
+    }
+
+    .stage-result-badge.correct {
+      background: rgba(34, 197, 94, 0.2);
+      border-color: #22c55e;
+      color: #22c55e;
+      box-shadow: 0 0 30px rgba(34, 197, 94, 0.4);
+    }
+
+    .stage-result-badge.wrong {
+      background: rgba(239, 68, 68, 0.2);
+      border-color: #ef4444;
+      color: #ef4444;
+      box-shadow: 0 0 30px rgba(239, 68, 68, 0.4);
+    }
+
+    .stage-result-badge.timeout {
+      background: rgba(245, 158, 11, 0.2);
+      border-color: #f59e0b;
+      color: #f59e0b;
+      box-shadow: 0 0 30px rgba(245, 158, 11, 0.4);
+    }
+
+    @keyframes result-appear {
+      0% {
+        transform: scale(0.5);
+        opacity: 0;
+      }
+
+      50% {
+        transform: scale(1.2);
+      }
+
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    /* Ace dialogue on stage */
+    .stage-dialogue {
+      font-size: 1.2rem;
+      color: #f0f4ff;
+      line-height: 1.6;
+      margin-bottom: 20px;
+      text-align: center;
+      max-width: 450px;
+    }
+
+    /* Explanation box */
+    .stage-explanation {
+      background: rgba(212, 168, 83, 0.08);
+      border: 2px solid rgba(212, 168, 83, 0.4);
+      padding: 15px 20px;
+      max-width: 500px;
+      text-align: left;
+      margin-bottom: 25px;
+      border-radius: 8px;
+    }
+
+    .stage-explanation-title {
+      font-family: var(--arena-pixel-font);
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--arena-accent);
+      margin-bottom: 8px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .stage-explanation-text {
+      font-size: 0.95rem;
+      color: #d0d8f0;
+      line-height: 1.5;
+    }
+
+    /* Got it button */
+    .stage-dismiss-btn {
+      padding: 12px 35px;
+      font-family: var(--arena-pixel-font);
+      font-size: 0.8rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #D4A853, #c49440);
+      border: none;
+      color: #0a0a0a;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border-radius: 8px;
+      transition: all 0.15s ease;
+    }
+
+    .stage-dismiss-btn:hover {
+      transform: scale(1.03);
+      background: linear-gradient(135deg, #e8c87a, #D4A853);
+      box-shadow: 0 4px 16px rgba(212, 168, 83, 0.4);
+    }
+
+    /* Score change animation */
+    .stage-score-change {
+      font-family: var(--arena-pixel-font);
+      font-size: 1.5rem;
+      margin: 10px 0;
+      animation: score-pop 0.6s ease-out;
+    }
+
+    .stage-score-change.positive {
+      color: #22c55e;
+    }
+
+    .stage-score-change.negative {
+      color: #ef4444;
+    }
+
+    @keyframes score-pop {
+      0% {
+        transform: scale(0);
+        opacity: 0;
+      }
+
+      50% {
+        transform: scale(1.3);
+      }
+
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    /* ============================================================================
+   SUSPENSE OVERLAY - Drum roll moment before reveal
+   ============================================================================ */
+    .suspense-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(8, 12, 26, 0.98);
+      z-index: 14999;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      visibility: hidden;
+      transition: opacity 0.2s ease;
+    }
+
+    .suspense-overlay.show {
+      opacity: 1;
+      pointer-events: auto;
+      visibility: visible;
+    }
+
+    .suspense-text {
+      font-family: var(--arena-pixel-font);
+      font-size: 1.5rem;
+      color: var(--arena-glow);
+      animation: suspense-pulse 0.3s ease-in-out infinite;
+    }
+
+    @keyframes suspense-pulse {
+
+      0%,
+      100% {
+        opacity: 0.5;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 1;
+        transform: scale(1.05);
+      }
+    }
+
+    .suspense-dots {
+      display: flex;
+      gap: 8px;
+      margin-top: 20px;
+    }
+
+    .suspense-dot {
+      width: 12px;
+      height: 12px;
+      background: var(--arena-glow);
+      animation: dot-bounce 0.6s ease-in-out infinite;
+    }
+
+    .suspense-dot:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    .suspense-dot:nth-child(3) {
+      animation-delay: 0.4s;
+    }
+
+    @keyframes dot-bounce {
+
+      0%,
+      100% {
+        transform: translateY(0);
+        opacity: 0.3;
+      }
+
+      50% {
+        transform: translateY(-10px);
+        opacity: 1;
+      }
+    }
+
+    /* ============================================================================
+   HIDE ORIGINAL ACE PANEL - When using stage modal
+   ============================================================================ */
+    body.ace-arena-active .ace-mentor-panel {
+      display: none !important;
+    }
+
+    /* ============================================================================
+   RESPONSIVE ADJUSTMENTS
+   ============================================================================ */
+    @media (max-width: 600px) {
+      .intro-title {
+        font-size: 1.2rem;
+      }
+
+      .intro-ace-avatar,
+
+      .stage-ace-avatar,
+      .li-ace,
+      .buzzer-ace-face {
+        object-fit: contain !important;
+        max-width: 100%;
+        height: auto;
+      }
+
+      .stage-ace-avatar {
+        width: 128px;
+        height: 128px;
+      }
+
+      .intro-podium {
+        width: 150px;
+        height: 30px;
+      }
+
+      .stage-podium {
+        width: 160px;
+        height: 40px;
+      }
+
+      .intro-dialogue {
+        padding: 15px 20px;
+        margin: 20px 15px 0;
+      }
+
+      .intro-dialogue-text {
+        font-size: 0.95rem;
+      }
+
+      .intro-start-btn {
+        padding: 12px 30px;
+        font-size: 0.7rem;
+      }
+
+      .stage-result-badge {
+        font-size: 0.8rem;
+        padding: 10px 20px;
+      }
+
+      .stage-dialogue {
+        font-size: 1rem;
+        padding: 0 15px;
+      }
+
+      .stage-explanation {
+        margin: 0 15px 25px;
+      }
+
+      .spotlight-cone {
+        width: 200px;
+      }
+    }
+
+    .ms-card {
+      display: block;
+      background: #12122a;
+      border: 1px solid #1e1e3a;
+      border-radius: 12px;
+      padding: 24px;
+      text-decoration: none;
+      color: #e0e0e0;
+      transition: all 0.2s;
+    }
+
+    .ms-card:hover {
+      border-color: #D4A853;
+      transform: translateY(-2px);
+    }
+
+    .ms-card-number {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #D4A853;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .ms-card-title {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .ms-cat-tag {
+      display: inline-block;
+      background: rgba(212, 168, 83, 0.12);
+      color: #D4A853;
+      padding: 3px 10px;
+      border-radius: 10px;
+      font-size: 11px;
+      font-weight: 600;
+      margin-right: 4px;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+  </style>
+  <style>
+    /* ==================== JEOPARDY GAME SKIN — navy+gold ====================
+     Token aliases map game-specific names → ace-theme vars + overrides
+  ====================================================================== */
+    :root {
+      --bg: #080C1A;
+      --panel: #0F1428;
+      --board: #080C1A;
+      --tile: #1E2545;
+      --tile-hover: #262e55;
+      --tile-text: #D4A853;
+      --ink: #F0F0F5;
+      --ink-dim: #8891A8;
+      --border: #1E2545;
+      --ok: #34D399;
+      --warn: #FBBF24;
+      --err: #F87171;
+      --player: #D4A853;
+      --ai: #F87171;
+      --font-heading: 'Inter', system-ui, sans-serif;
+      --font-body: 'Inter', system-ui, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--font-body);
+      background: var(--bg);
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .wrap {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 16px;
+      display: grid;
+      gap: 16px
+    }
+
+    .top {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      justify-content: space-between
+    }
+
+    .badge {
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      color: var(--ink-dim);
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    /* Scores Section */
+    .scores {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+
+    .boss-avatar-wrapper {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+    }
+
+    .boss-avatar-wrapper img {
+      width: 140px;
+      height: 140px;
+      filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.8));
+      pointer-events: none;
+    }
+
+    .boss-vs-badge {
+      position: absolute;
+      bottom: -12px;
+      background: var(--bg);
+      padding: 4px 16px;
+      border-radius: 99px;
+      border: 1px solid rgba(212, 168, 83, 0.3);
+      font-weight: 900;
+      color: #D4A853;
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+      z-index: 11;
+    }
+
+    .player-box {
+      background: var(--panel);
+      border: 2px solid var(--player);
+      border-radius: 12px;
+      padding: 16px;
+      text-align: center;
+    }
+
+    .player-box.active {
+      box-shadow: 0 0 20px var(--player);
+      animation: pulse 1.5s ease-in-out infinite;
+    }
+
+    .ai-box {
+      background: var(--panel);
+      border: 2px solid var(--ai);
+      border-radius: 12px;
+      padding: 16px;
+      text-align: center;
+    }
+
+    .ai-box.active {
+      box-shadow: 0 0 20px var(--ai);
+      animation: pulse 1.5s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        transform: scale(1)
+      }
+
+      50% {
+        transform: scale(1.02)
+      }
+    }
+
+    .player-name {
+      font-size: 0.9rem;
+      color: var(--ink-dim);
+      margin-bottom: 4px
+    }
+
+    .player-score {
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--player);
+      font-family: var(--font-heading)
+    }
+
+    .ai-score {
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--ai);
+      font-family: var(--font-heading)
+    }
+
+    .turn-indicator {
+      margin-top: 8px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--tile-text)
+    }
+
+    .board {
+      background: var(--panel);
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      padding: 16px;
+      display: grid;
+      gap: 12px;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
+    }
+
+    .row {
+      display: grid;
+      gap: 12px
+    }
+
+    .row-3 {
+      grid-template-columns: repeat(3, 1fr)
+    }
+
+    .tile {
+      display: grid;
+      place-items: center;
+      padding: 18px;
+      border-radius: 12px;
+      background: var(--tile);
+      border: 1px solid rgba(212, 168, 83, 0.15);
+      color: var(--tile-text);
+      font-family: var(--font-heading);
+      font-weight: 900;
+      font-size: clamp(1rem, 4vw, 1.6rem);
+      cursor: pointer;
+      min-height: 80px;
+      text-align: center;
+      user-select: none;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      transition: transform 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease;
+      position: relative;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .tile:not(.used):hover {
+      transform: scale(1.05);
+      background: var(--tile-hover);
+      box-shadow: 0 4px 15px rgba(212, 168, 83, 0.25);
+      border: 1px solid rgba(212, 168, 83, 0.4);
+    }
+
+    .tile.used {
+      background: rgba(31, 41, 55, 0.5);
+      color: #6b7280;
+      cursor: not-allowed;
+      text-shadow: none;
+    }
+
+    .tile.ai-thinking {
+      animation: ai-glow 0.5s ease-in-out infinite alternate;
+    }
+
+    @keyframes ai-glow {
+      from {
+        box-shadow: 0 0 10px var(--ai)
+      }
+
+      to {
+        box-shadow: 0 0 25px var(--ai)
+      }
+    }
+
+    .cats {
+      gap: 12px;
+      margin-bottom: 8px
+    }
+
+    .cat {
+      display: grid;
+      place-items: center;
+      padding: 10px;
+      border-radius: 10px;
+      background: var(--bg);
+      color: var(--ink);
+      border: 1px solid var(--border);
+      font-family: var(--font-heading);
+      font-weight: 700;
+      min-height: 50px;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    .round-indicator {
+      padding: 8px 16px;
+      border-radius: 999px;
+      background: var(--tile);
+      border: 1px solid rgba(212, 168, 83, 0.4);
+      color: var(--tile-text);
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      box-shadow: 0 2px 8px rgba(212, 168, 83, 0.15);
+    }
+
+    /* Buzzer Section */
+    .buzzer-section {
+      display: grid;
+      gap: 12px;
+      margin-top: 16px;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .buzz-btn {
+      padding: 20px;
+      border-radius: 12px;
+      font-size: 1.3rem;
+      font-weight: 900;
+      font-family: var(--font-heading);
+      cursor: pointer;
+      border: 3px solid;
+      transition: all 0.15s ease;
+      text-transform: uppercase;
+    }
+
+    /* --- PIXEL/8-BIT CIRCULAR BUZZER --- */
+    .pixel-buzzer {
+      position: relative;
+      display: inline-block;
+      width: 180px;
+      height: 180px;
+      margin: 10px auto;
+      text-align: center;
+      cursor: pointer;
+      outline: none;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+      /* Slight continuous breathing animation in steps */
+      animation: buzzer-breathe 0.5s infinite alternate steps(2);
+    }
+
+    @keyframes buzzer-breathe {
+      0% {
+        transform: scale(1);
+      }
+
+      100% {
+        transform: scale(1.03);
+      }
+    }
+
+    .pixel-buzzer.disabled {
+      pointer-events: none;
+      animation: none;
+    }
+
+    .pixel-buzzer .buzzer-base {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: #5f0f0f;
+      border: 8px solid #1a1a1a;
+      /* 8-bit chunky border */
+      box-shadow: 0 10px 0 #1a1a1a, 0 15px 20px rgba(0, 0, 0, 0.5);
+      /* Chunky cast shadow */
+      box-sizing: border-box;
+    }
+
+    .pixel-buzzer .buzzer-top {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: #ef4444;
+      /* Bright red top */
+      box-sizing: border-box;
+      transform: translateY(-12px);
+      transition: all 0.1s steps(2);
+      border: 8px solid #1a1a1a;
+      box-shadow: inset 8px 8px 0 rgba(255, 255, 255, 0.3), inset -8px -8px 0 rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+    }
+
+    .pixel-buzzer .buzzer-text {
+      font-family: 'Courier New', Courier, monospace;
+      font-weight: 900;
+      font-size: 3rem;
+      color: white;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      text-shadow: 4px 4px 0 rgba(0, 0, 0, 0.5);
+    }
+
+    .buzzer-ace-face {
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      bottom: -15px;
+      pointer-events: none;
+      image-rendering: pixelated;
+    }
+
+    /* Active (Pressed) State for Player */
+    .pixel-buzzer:active .buzzer-top,
+    .pixel-buzzer.pressed .buzzer-top {
+      transform: translateY(0px);
+      background: #dc2626;
+      box-shadow: inset 4px 4px 0 rgba(255, 255, 255, 0.1), inset -4px -4px 0 rgba(0, 0, 0, 0.4);
+    }
+
+    .pixel-buzzer:active .buzzer-base,
+    .pixel-buzzer.pressed .buzzer-base {
+      box-shadow: 0 0px 0 #1a1a1a, 0 5px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Winning States */
+    .pixel-buzzer.ai-won .buzzer-top {
+      background: var(--ai) !important;
+      transform: translateY(0px);
+    }
+
+    .pixel-buzzer.ai-won .buzzer-base {
+      box-shadow: 0 0px 0 #1a1a1a, 0 5px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .pixel-buzzer.player-won .buzzer-top {
+      background: var(--player) !important;
+      transform: translateY(0px);
+    }
+
+    .pixel-buzzer.player-won .buzzer-base {
+      box-shadow: 0 0px 0 #1a1a1a, 0 5px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .qhead {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .qtext {
+      font-size: clamp(1.4rem, 4vw, 2rem);
+      line-height: 1.4;
+      color: #ffffff;
+      font-weight: 800;
+      margin: 16px 0;
+      text-align: center;
+      text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .choices {
+      display: grid;
+      gap: 10px;
+      margin-top: 16px
+    }
+
+    .choice {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      padding: 14px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      color: var(--ink);
+      cursor: pointer;
+      transition: transform 0.15s ease, background-color 0.15s ease;
+      text-align: left;
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+
+    .choice:hover:not(:disabled) {
+      background: var(--panel);
+      border-color: rgba(212, 168, 83, 0.4);
+      transform: translateY(-2px);
+    }
+
+    .choice.correct {
+      border-color: var(--ok);
+      background: rgba(34, 197, 94, 0.1);
+      color: var(--ok);
+    }
+
+    .choice.wrong {
+      border-color: var(--err);
+      background: rgba(239, 68, 68, 0.1);
+      color: var(--err);
+    }
+
+    .choice>strong {
+      color: var(--tile-text);
+    }
+
+    .choice.correct>strong,
+    .choice.wrong>strong {
+      color: inherit;
+    }
+
+    .explanation {
+      margin-top: 16px;
+      padding: 16px;
+      background: rgba(212, 168, 83, 0.08);
+      border: 1px solid rgba(212, 168, 83, 0.3);
+      border-radius: 10px;
+      line-height: 1.6;
+    }
+
+    .explanation h4 {
+      margin: 0 0 8px 0;
+      color: var(--tile-text);
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+
+    .explanation p {
+      margin: 8px 0;
+      color: var(--ink);
+    }
+
+    .explanation small {
+      color: var(--ink-dim);
+      font-style: italic;
+    }
+
+    .meta {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      align-items: center
+    }
+
+    .kpi {
+      font-variant-numeric: tabular-nums;
+      font-weight: 700;
+      color: var(--tile-text);
+    }
+
+    .btn {
+      padding: 10px 16px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: var(--tile);
+      color: var(--ink);
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.15s ease;
+      font-family: var(--font-body);
+    }
+
+    .btn:hover {
+      border-color: rgba(212, 168, 83, 0.4);
+      background: var(--tile-hover);
+      transform: translateY(-1px);
+    }
+
+    .btn.ghost {
+      background: transparent;
+      color: var(--ink-dim);
+      border-color: var(--border)
+    }
+
+    .btn.ghost:hover {
+      color: var(--ink);
+      border-color: rgba(212, 168, 83, 0.4);
+      background: rgba(212, 168, 83, 0.06);
+    }
+
+    .btn.ghost.end-session {
+      color: var(--err);
+      border-color: rgba(239, 68, 68, 0.4);
+    }
+
+    .btn.ghost.end-session:hover {
+      background: rgba(239, 68, 68, 0.15);
+      border-color: var(--err);
+    }
+
+    .center {
+      text-align: center
+    }
+
+    .hidden {
+      display: none
+    }
+
+    .ok {
+      color: var(--ok)
+    }
+
+    .warn {
+      color: var(--warn)
+    }
+
+    .err {
+      color: var(--err)
+    }
+
+    .timer {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    #qTimer {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      padding: 6px 12px;
+      border-radius: 999px;
+    }
+
+    .bar {
+      height: 10px;
+      background: var(--bg);
+      border-radius: 999px;
+      overflow: hidden;
+      width: 100px;
+      border: 1px solid var(--border)
+    }
+
+    .bar>div {
+      height: 100%;
+      background: linear-gradient(90deg, var(--ok), var(--warn), var(--err));
+      width: 100%;
+      transition: width 1s linear;
+    }
+
+    .overlay {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 200;
+    }
+
+    .confetti i {
+      position: absolute;
+      width: 8px;
+      height: 14px;
+      opacity: .95;
+      animation: fall 1.6s linear forwards
+    }
+
+    .confetti .money {
+      position: absolute;
+      font-size: 2rem;
+      animation: fall 2.5s linear forwards;
+      z-index: 1000;
+    }
+
+    .confetti .doom {
+      position: absolute;
+      font-size: 3.5rem;
+      animation: fall 2.5s linear forwards;
+      z-index: 1000;
+      filter: drop-shadow(0 0 10px red);
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(120vh) rotate(360deg);
+        opacity: .2
+      }
+    }
+
+    @keyframes camera-shake {
+      0% {
+        transform: translate(0, 0) rotate(0deg);
+      }
+
+      10% {
+        transform: translate(-10px, -10px) rotate(-2deg);
+      }
+
+      20% {
+        transform: translate(10px, 10px) rotate(2deg);
+      }
+
+      30% {
+        transform: translate(-10px, 10px) rotate(-2deg);
+      }
+
+      40% {
+        transform: translate(10px, -10px) rotate(2deg);
+      }
+
+      50% {
+        transform: translate(-5px, 5px) rotate(-1deg);
+      }
+
+      60% {
+        transform: translate(5px, -5px) rotate(1deg);
+      }
+
+      70% {
+        transform: translate(-5px, -5px) rotate(-1deg);
+      }
+
+      80% {
+        transform: translate(5px, 5px) rotate(1deg);
+      }
+
+      90% {
+        transform: translate(0, 0) rotate(0deg);
+        filter: hue-rotate(90deg) drop-shadow(0 0 50px red);
+      }
+
+      100% {
+        transform: translate(0, 0) rotate(0deg);
+      }
+    }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(8, 12, 26, 0.96);
+      backdrop-filter: blur(6px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      z-index: 100;
+      opacity: 0;
+      transform: scale(0.98);
+      pointer-events: none;
+      visibility: hidden;
+      transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s 0.2s;
+      /* Override ace-theme.css constraints */
+      max-width: none !important;
+      max-height: none !important;
+      border: none !important;
+      border-radius: 0 !important;
+      width: 100vw;
+      height: 100vh;
+    }
+
+    .modal.show {
+      opacity: 1;
+      transform: scale(1);
+      pointer-events: auto;
+      visibility: visible;
+      transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s 0s;
+    }
+
+    .card {
+      background: var(--panel);
+      color: var(--ink);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      max-width: 650px;
+      width: 100%;
+      margin: auto;
+      /* Added to fix modal docking on left edge */
+      padding: 24px;
+      display: grid;
+      gap: 12px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+
+    /* Question cards — centered fullscreen overlay */
+    #qCard .card,
+    #finalCard .card {
+      position: relative;
+      max-width: 720px;
+      width: 94%;
+      max-height: 92vh;
+      height: auto;
+      border-radius: 16px;
+      border: 1px solid var(--gold, #D4A853);
+      padding: 40px 36px;
+      align-content: start;
+      box-shadow: 0 0 60px rgba(212, 168, 83, 0.15), 0 12px 40px rgba(0, 0, 0, 0.5);
+      overflow-y: auto;
+    }
+
+    .card-close-btn {
+      position: absolute;
+      top: 16px;
+      right: 24px;
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 1.4rem;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.15s ease;
+      z-index: 10;
+    }
+
+    .card-close-btn:hover {
+      color: var(--ink);
+      border-color: var(--ink);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .card h2 {
+      margin: 0;
+      font-family: var(--font-heading);
+      font-size: 1.6rem;
+      color: var(--tile-text);
+    }
+
+    .input {
+      display: flex;
+      gap: 8px;
+      align-items: center
+    }
+
+    .input input {
+      flex: 1;
+      padding: 10px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      color: var(--ink);
+      font-size: 1rem;
+    }
+
+    #gameEndModal .card {
+      padding: 0;
+      overflow: hidden;
+      text-align: center;
+      max-width: 500px;
+    }
+
+    .endGameContent {
+      padding: 24px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .endGameContent h2 {
+      font-size: 2.2rem;
+      color: var(--tile-text);
+      margin-bottom: 5px;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+    }
+
+    .endGameContent .final-scores {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 16px 0;
+    }
+
+    .endGameContent .score-box {
+      padding: 12px;
+      border-radius: 10px;
+      border: 2px solid;
+    }
+
+    .endGameContent .player-final {
+      border-color: var(--player);
+      background: rgba(59, 130, 246, 0.1);
+    }
+
+    .endGameContent .ai-final {
+      border-color: var(--ai);
+      background: rgba(248, 113, 113, 0.08);
+    }
+
+    .endGameContent p {
+      color: var(--ink-dim);
+      line-height: 1.5;
+    }
+
+    #finalRestartBtn {
+      background: linear-gradient(135deg, #D4A853, #c49440);
+      color: #0a0a0a;
+      font-weight: 700;
+      font-size: 1.1rem;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(212, 168, 83, 0.3);
+    }
+
+    #finalRestartBtn:hover {
+      background: linear-gradient(135deg, #e8c87a, #D4A853);
+      box-shadow: 0 6px 20px rgba(212, 168, 83, 0.5);
+    }
+
+    .round-transition {
+      position: fixed;
+      inset: 0;
+      background: rgba(8, 12, 26, 0.96);
+      backdrop-filter: blur(8px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 150;
+      opacity: 0;
+      pointer-events: none;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0s 0.3s;
+    }
+
+    .round-transition.show {
+      opacity: 1;
+      pointer-events: auto;
+      visibility: visible;
+      transition: opacity 0.3s ease, visibility 0s 0s;
+    }
+
+    .round-transition h1 {
+      font-family: var(--font-heading);
+      font-size: 3.5rem;
+      font-weight: 800;
+      color: var(--tile-text);
+      margin: 0;
+      letter-spacing: -0.02em;
+      text-shadow: 0 2px 16px rgba(212, 168, 83, 0.5);
+      animation: glow 2s ease-in-out infinite;
+    }
+
+    @keyframes glow {
+
+      0%,
+      100% {
+        text-shadow: 0 2px 16px rgba(212, 168, 83, 0.4)
+      }
+
+      50% {
+        text-shadow: 0 2px 32px rgba(212, 168, 83, 0.7)
+      }
+    }
+
+    .round-transition p {
+      font-size: 1.3rem;
+      color: var(--ink);
+      margin-top: 16px;
+    }
+
+    /* Ace Mentor Panel - Centered Overlay */
+    .ace-mentor-panel {
+      position: fixed;
+      inset: 0;
+      z-index: 20000;
+      /* above the question modal */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: rgba(8, 12, 26, 0.85);
+      backdrop-filter: blur(4px);
+      pointer-events: none;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0s 0.3s;
+    }
+
+    .ace-mentor-panel.show {
+      pointer-events: auto;
+      opacity: 1;
+      visibility: visible;
+      transition: opacity 0.3s ease, visibility 0s 0s;
+    }
+
+    .ace-mentor-avatar {
+      width: 140px;
+      height: 140px;
+      flex-shrink: 0;
+      opacity: 0;
+      transform: translateY(20px) scale(0.9);
+      transition: all 0.3s ease;
+      pointer-events: none;
+      margin-bottom: -15px;
+      /* overlap slightly with bubble */
+      z-index: 2;
+    }
+
+    .ace-mentor-panel.show .ace-mentor-avatar {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    .ace-mentor-avatar img {
+      width: 100%;
+      height: 100%;
+      image-rendering: pixelated;
+    }
+
+    .ace-mentor-bubble {
+      background: rgba(15, 20, 40, 0.98);
+      border: 2px solid rgba(212, 168, 83, 0.5);
+      border-radius: 16px;
+      padding: 24px;
+      max-width: 500px;
+      min-width: 320px;
+      width: 90%;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.3s ease;
+      pointer-events: none;
+      text-align: center;
+      z-index: 1;
+    }
+
+    .ace-mentor-panel.show .ace-mentor-bubble {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    .ace-name {
+      font-family: var(--font-heading);
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--tile-text);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+    }
+
+    .ace-text {
+      font-size: 1.05rem;
+      line-height: 1.6;
+      color: #f0f4ff;
+      margin-bottom: 12px;
+      font-weight: 500;
+    }
+
+    .ace-explanation {
+      background: rgba(212, 168, 83, 0.08);
+      border-left: 3px solid rgba(212, 168, 83, 0.5);
+      padding: 12px 14px;
+      border-radius: 0 8px 8px 0;
+      margin: 12px 0;
+    }
+
+    .ace-explanation-title {
+      font-size: 0.75rem;
+      color: var(--tile-text);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 6px;
+      font-weight: 700;
+    }
+
+    .ace-explanation-text {
+      font-size: 0.95rem;
+      color: #d0d8f0;
+      line-height: 1.5;
+    }
+
+    .ace-result {
+      display: inline-block;
+      padding: 5px 12px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .ace-result.correct {
+      background: rgba(34, 197, 94, 0.25);
+      color: var(--ok);
+      border: 1px solid var(--ok);
+    }
+
+    .ace-result.wrong {
+      background: rgba(239, 68, 68, 0.25);
+      color: var(--err);
+      border: 1px solid var(--err);
+    }
+
+    .ace-dismiss-btn {
+      background: linear-gradient(135deg, rgba(212, 168, 83, 0.2), rgba(212, 168, 83, 0.1));
+      border: 1px solid rgba(212, 168, 83, 0.5);
+      border-radius: 6px;
+      padding: 10px 20px;
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--tile-text);
+      cursor: pointer;
+      text-transform: uppercase;
+      transition: all 0.2s;
+      margin-top: 10px;
+    }
+
+    .ace-dismiss-btn:hover {
+      background: rgba(212, 168, 83, 0.25);
+      box-shadow: 0 4px 16px rgba(212, 168, 83, 0.3);
+    }
+
+    /* Mood colors */
+    .ace-mentor-panel[data-mood="happy"] .ace-mentor-bubble {
+      border-color: var(--ok);
+    }
+
+    .ace-mentor-panel[data-mood="happy"] .ace-name {
+      color: var(--ok);
+    }
+
+    .ace-mentor-panel[data-mood="proud"] .ace-mentor-bubble {
+      border-color: var(--tile-text);
+    }
+
+    .ace-mentor-panel[data-mood="proud"] .ace-name {
+      color: var(--tile-text);
+    }
+
+    .ace-mentor-panel[data-mood="concerned"] .ace-mentor-bubble {
+      border-color: var(--warn);
+    }
+
+    .ace-mentor-panel[data-mood="concerned"] .ace-name {
+      color: var(--warn);
+    }
+
+    @media (max-width: 700px) {
+      .ace-mentor-panel {
+        bottom: 10px;
+        left: 10px;
+        right: 10px;
+        max-width: none;
+      }
+
+      .ace-mentor-avatar {
+        width: 80px;
+        height: 80px;
+      }
+
+      .ace-mentor-bubble {
+        max-width: none;
+        min-width: 0;
+        flex: 1;
+      }
+    }
+
+    .ace-result.incorrect {
+      background: rgba(239, 68, 68, 0.2);
+      color: var(--err);
+      border: 1px solid var(--err);
+    }
+
+    /* === COMPREHENSIVE MOBILE STYLES === */
+    @media (max-width: 900px) {
+      .wrap {
+        padding: 12px;
+        gap: 12px;
+      }
+
+      .top {
+        flex-direction: column;
+        gap: 8px;
+        align-items: stretch;
+      }
+
+      .meta {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 6px;
+      }
+
+      .badge {
+        text-align: center;
+        font-size: 0.8rem;
+      }
+
+      .round-indicator {
+        font-size: 0.8rem;
+        padding: 6px 12px;
+      }
+
+      .btn {
+        padding: 8px 12px;
+        font-size: 0.75rem;
+      }
+
+      /* Scores - side by side on tablets, stacked on phones */
+      .scores {
+        gap: 10px;
+      }
+
+      .player-box,
+      .ai-box {
+        padding: 12px;
+      }
+
+      .player-score,
+      .ai-score {
+        font-size: 1.5rem;
+      }
+
+      .player-name {
+        font-size: 0.8rem;
+      }
+
+      /* Board - 3 columns still but smaller */
+      .board {
+        padding: 12px;
+        gap: 8px;
+      }
+
+      .cats {
+        gap: 8px;
+        margin-bottom: 6px;
+      }
+
+      .cat {
+        padding: 8px 6px;
+        font-size: 0.7rem;
+        min-height: 40px;
+      }
+
+      .row {
+        gap: 8px;
+      }
+
+      .tile {
+        padding: 12px 8px;
+        min-height: 60px;
+        font-size: 1.2rem;
+        border-radius: 8px;
+      }
+
+      /* Buzzer */
+      .buzzer-section {
+        gap: 10px;
+      }
+
+      .buzz-btn {
+        padding: 14px;
+        font-size: 1rem;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .wrap {
+        padding: 8px;
+        gap: 10px;
+      }
+
+      /* Scores side by side on phones */
+      .scores {
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+      }
+
+      .player-box,
+      .ai-box {
+        padding: 10px 8px;
+      }
+
+      .player-score,
+      .ai-score {
+        font-size: 1.3rem;
+      }
+
+      .turn-indicator {
+        font-size: 0.7rem;
+        margin-top: 4px;
+      }
+
+      /* Board - HORIZONTAL SCROLL on mobile to preserve 3-column Jeopardy layout */
+      .board {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        padding: 12px;
+        margin: 0 -8px;
+        padding-left: 8px;
+        padding-right: 8px;
+      }
+
+      /* Fixed minimum widths for proper display */
+      .row-3 {
+        grid-template-columns: repeat(3, minmax(100px, 1fr));
+        min-width: 340px;
+      }
+
+      .cats.row.row-3 {
+        grid-template-columns: repeat(3, minmax(100px, 1fr));
+        min-width: 340px;
+      }
+
+      .cat {
+        font-size: 0.7rem;
+        padding: 8px 6px;
+        min-height: 50px;
+        line-height: 1.3;
+        word-wrap: break-word;
+        hyphens: auto;
+      }
+
+      .tile {
+        min-height: 55px;
+        font-size: clamp(0.85rem, 3.5vw, 1.1rem);
+        padding: 10px 8px;
+      }
+
+      /* Scroll hint shadow */
+      .board::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        width: 20px;
+        background: linear-gradient(to right, transparent, rgba(17, 24, 39, 0.8));
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+
+      .board:not(:hover)::after {
+        opacity: 1;
+      }
+
+      /* Buzzer stacked */
+      .buzzer-section {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+
+      .buzz-btn {
+        padding: 16px;
+        font-size: 1.1rem;
+      }
+
+      /* Modal cards */
+      .card {
+        padding: 16px;
+        max-height: 85vh;
+      }
+
+      #qCard .card,
+      #finalCard .card {
+        padding: 24px 16px;
+      }
+
+      .card h2 {
+        font-size: 1.3rem;
+      }
+
+      .qhead {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+
+      .qtext {
+        font-size: 1rem;
+      }
+
+      .choices {
+        gap: 8px;
+      }
+
+      .choice {
+        padding: 12px;
+        font-size: 0.9rem;
+      }
+
+      .explanation {
+        padding: 12px;
+      }
+
+      .explanation h4 {
+        font-size: 1rem;
+      }
+
+      /* Timer */
+      .timer {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .bar {
+        width: 80px;
+      }
+
+      /* Round transition */
+      .round-transition h1 {
+        font-size: 2rem;
+      }
+
+      .round-transition p {
+        font-size: 1rem;
+      }
+
+      /* End game modal */
+      #gameEndModal .card {
+        max-width: 95%;
+      }
+
+      .endGameContent h2 {
+        font-size: 1.6rem;
+      }
+
+      .endGameContent .final-scores {
+        gap: 8px;
+      }
+    }
+
+    @media (max-width: 420px) {
+
+      /* Extra small phones - keep 3-column scroll layout */
+      .row-3 {
+        grid-template-columns: repeat(3, minmax(90px, 1fr));
+        min-width: 300px;
+        gap: 6px;
+      }
+
+      .cats.row.row-3 {
+        grid-template-columns: repeat(3, minmax(90px, 1fr));
+        min-width: 300px;
+      }
+
+      .cat {
+        font-size: 0.65rem;
+        min-height: 45px;
+        padding: 6px 4px;
+      }
+
+      .tile {
+        min-height: 50px;
+        font-size: clamp(0.8rem, 3vw, 1rem);
+        padding: 8px 6px;
+      }
+
+      .scores {
+        grid-template-columns: 1fr 70px 1fr;
+        gap: 8px;
+        margin-bottom: 16px;
+      }
+
+      .boss-avatar-wrapper img {
+        width: 80px;
+        height: 80px;
+      }
+
+      .boss-vs-badge {
+        font-size: 0.75rem;
+        padding: 2px 8px;
+        bottom: -8px;
+      }
+
+      .player-box,
+      .ai-box {
+        padding: 8px;
+      }
+
+      .player-score,
+      .ai-score {
+        font-size: 1.1rem;
+      }
+
+      .card {
+        padding: 12px;
+        border-radius: 12px;
+      }
+
+      .choice {
+        padding: 10px;
+        font-size: 0.85rem;
+      }
+
+      .round-transition h1 {
+        font-size: 1.6rem;
+      }
+
+      /* Ace mentor panel - full width on tiny screens */
+      .ace-mentor-panel {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .ace-mentor-avatar {
+        width: 60px;
+        height: 60px;
+      }
+
+      .ace-mentor-bubble {
+        min-width: 0;
+        width: 100%;
+        text-align: center;
+      }
+
+      .ace-explanation {
+        text-align: left;
+      }
+    }
+
+    /* Hide scrollbar but keep functionality */
+    .board::-webkit-scrollbar {
+      height: 6px;
+    }
+
+    .board::-webkit-scrollbar-track {
+      background: var(--bg);
+      border-radius: 3px;
+    }
+
+    .board::-webkit-scrollbar-thumb {
+      background: var(--border);
+      border-radius: 3px;
+    }
+
+    .board::-webkit-scrollbar-thumb:hover {
+      background: var(--tile);
+    }
+
+    /* ═══ LOADING INTRO SCREEN ═══ */
+    .loading-intro {
+      position: fixed;
+      inset: 0;
+      z-index: 99999;
+      background: linear-gradient(180deg, #080C1A 0%, #0f1629 40%, #1a1040 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Inter', system-ui, sans-serif;
+      overflow: hidden;
+    }
+
+    .loading-intro.hidden {
+      display: none;
+    }
+
+    /* Radial spotlight behind Ace */
+    .li-spotlight {
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(ellipse at center,
+          rgba(212, 168, 83, 0.22) 0%, rgba(212, 168, 83, 0.08) 35%, transparent 70%);
+      border-radius: 50%;
+      animation: spotlight-breathe 3s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    /* Title */
+    .li-title {
+      font-size: 2.6rem;
+      font-weight: 900;
+      background: linear-gradient(135deg, #D4A853 0%, #f0d78c 50%, #D4A853 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 8px;
+      position: relative;
+      z-index: 2;
+      letter-spacing: -0.5px;
+      animation: title-glow 2s ease-in-out infinite;
+    }
+
+    .li-subtitle {
+      color: rgba(255, 255, 255, 0.45);
+      font-size: 0.95rem;
+      margin-bottom: 32px;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Avatar */
+    .li-ace {
+      width: 200px;
+      height: 200px;
+      image-rendering: pixelated;
+      filter: drop-shadow(0 0 30px rgba(212, 168, 83, 0.5));
+      animation: ace-float 3s ease-in-out infinite;
+      position: relative;
+      z-index: 2;
+      margin-bottom: 24px;
+    }
+
+    /* Loading bar */
+    .li-progress-track {
+      width: 280px;
+      height: 6px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 99px;
+      overflow: hidden;
+      margin-bottom: 14px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .li-progress-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #D4A853, #f0d78c);
+      border-radius: 99px;
+      transition: width 0.4s ease;
+    }
+
+    /* Status text */
+    .li-status {
+      font-size: 0.8rem;
+      color: rgba(212, 168, 83, 0.7);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-weight: 600;
+      margin-bottom: 32px;
+      min-height: 1.2em;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Career stats */
+    .li-stats {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 12px 28px;
+      border-radius: 10px;
+      display: inline-flex;
+      gap: 28px;
+      margin-bottom: 36px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .li-stat {
+      text-align: center;
+    }
+
+    .li-stat-label {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: rgba(255, 255, 255, 0.35);
+      margin-bottom: 4px;
+    }
+
+    .li-stat-value {
+      font-size: 1.15rem;
+      font-weight: 700;
+    }
+
+    .li-stat-divider {
+      width: 1px;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    /* Enter button */
+    .li-enter-btn {
+      padding: 16px 44px;
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 1rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #D4A853, #c49440);
+      border: none;
+      color: #0a0a0a;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      border-radius: 10px;
+      position: relative;
+      z-index: 2;
+      transition: all 0.2s ease;
+      opacity: 0;
+      transform: translateY(16px);
+      pointer-events: none;
+      box-shadow: 0 4px 20px rgba(212, 168, 83, 0.3);
+    }
+
+    .li-enter-btn.ready {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+      animation: btn-pulse 2s ease-in-out infinite;
+    }
+
+    .li-enter-btn:hover {
+      transform: scale(1.05) translateY(-2px);
+      box-shadow: 0 8px 32px rgba(212, 168, 83, 0.5);
+      background: linear-gradient(135deg, #e8c87a, #D4A853);
+    }
+
+    @media (max-width: 640px) {
+      .li-title {
+        font-size: 1.8rem;
+      }
+
+      .li-ace {
+        width: 140px;
+        height: 140px;
+      }
+
+      .li-stats {
+        gap: 16px;
+        padding: 10px 18px;
+      }
+
+      .li-enter-btn {
+        padding: 14px 32px;
+        font-size: 0.85rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ═══ LOADING INTRO ═══ -->
+  <div class="loading-intro hidden" id="loadingIntro">
+    <div class="li-spotlight"></div>
+    <img class="li-ace stage-ace-avatar" src="ace-sprites/ace-192-idle.png" alt="Ace">
+    <div class="li-title">⚡ Battle Ace</div>
+    <div class="li-subtitle">All-Module Arena Challenge</div>
+    <div class="li-progress-track">
+      <div class="li-progress-fill" id="liProgressFill"></div>
+    </div>
+    <div class="li-status" id="liStatus">Initializing...</div>
+    <div class="li-stats" id="liStats"></div>
+    <button class="li-enter-btn" id="liEnterBtn">⚡ Enter the Arena</button>
+    <a href="../index.html"
+      style="display:block;margin-top:20px;color:#8891a8;text-decoration:none;font-size:14px;transition:color 0.2s;"
+      onmouseover="this.style.color='#D4A853'" onmouseout="this.style.color='#8891a8'">← Back to Practice</a>
+  </div>
+
+  <!-- ═══ CINEMATIC INTRO ═══ -->
+  <div id="cinematicIntro" class="hidden"
+    style="position: fixed; inset: 0; z-index: 100000; background: #000; display: none; flex-direction: column; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.5s;">
+    <div
+      style="position: absolute; inset: 0; background: radial-gradient(circle at center, rgba(212,168,83,0.15) 0%, transparent 70%);">
+    </div>
+    <img class="stage-ace-avatar" src="ace-sprites/ace-192-talk1.png"
+      style="width: 200px; height: 200px; filter: drop-shadow(0 0 20px rgba(212,168,83,0.5)); transform: scale(0.8); transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);"
+      id="cinematicAce">
+    <div id="cinematicText"
+      style="color: #fff; font-size: 1.5rem; text-align: center; max-width: 600px; margin: 30px; line-height: 1.5; font-weight: 600; font-family: 'Inter', sans-serif; opacity: 0; transform: translateY(20px); transition: all 0.5s;">
+    </div>
+    <button id="cinematicStartBtn" class="btn"
+      style="opacity: 0; font-size: 1.2rem; padding: 16px 32px; letter-spacing: 2px; transform: translateY(20px); transition: all 0.5s;">START
+      BATTLE</button>
+  </div>
+
+
+  <!-- MODULE SELECTOR -->
+  <div id="moduleSelector" class="hidden" style="min-height:100vh;padding:40px 20px;max-width:900px;margin:0 auto;">
+    <div class="ms-header" style="text-align:center;margin-bottom:32px;">
+      <h1 style="font-size:2rem;font-weight:800;color:#D4A853;margin-bottom:8px;">⚡ Battle ACE</h1>
+      <p style="color:#8891a8;font-size:14px;">Choose a module to challenge ACE in Jeopardy-style combat</p>
+      <p style="color:#6b7280;font-size:12px;margin-top:4px;">Each game picks 6 random categories across all modules —
+        test your knowledge from every angle!</p>
+    </div>
+    <div id="moduleGrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;"></div>
+    <div style="text-align:center;margin-top:24px;">
+      <a href="../index.html" style="color:#8891a8;text-decoration:none;font-size:14px;">← Back to Practice</a>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="top">
+      <a href="../index.html" style="display:block;flex-shrink:0;"><img src="logo.png" alt="CAET Prep Course"
+          style="height:26px;width:auto;display:block;"></a>
+      <div class="badge" id="gameTitleBadge">Battle Ace</div>
+      <div class="meta">
+        <span class="round-indicator" id="roundIndicator">ROUND 1: JEOPARDY</span>
+        <span>Tiles left: <span class="kpi" id="qLeft">15</span></span>
+        <button id="mute" class="btn ghost">🔈 Sound</button>
+        <button id="endSessionBtn" class="btn ghost end-session">✕ End Session</button>
+      </div>
+    </div>
+
+    <div class="scores" id="scoresGrid">
+      <div class="player-box" id="playerBox">
+        <div class="player-name">YOU</div>
+        <div class="player-score" id="pScore">$0</div>
+        <div class="turn-indicator" id="playerTurn"></div>
+      </div>
+
+      <div class="boss-avatar-wrapper">
+        <img class="stage-ace-avatar" id="stageAceAvatar" src="ace-sprites/ace-192-idle.png" alt="Ace">
+        <div class="boss-vs-badge">VS</div>
+      </div>
+
+      <div class="ai-box" id="aiBox">
+        <div class="player-name">ACE</div>
+        <div class="ai-score" id="aiScore">$0</div>
+        <div class="turn-indicator" id="aiTurn"></div>
+      </div>
+    </div>
+
+    <div class="board">
+      <div class="cats row row-3" id="catRow"></div>
+      <div class="row row-3" id="valRow1"></div>
+      <div class="row row-3" id="valRow2"></div>
+      <div class="row row-3" id="valRow3"></div>
+      <div class="row row-3" id="valRow4"></div>
+      <div class="row row-3" id="valRow5"></div>
+    </div>
+  </div>
+
+  <div class="round-transition" id="roundTransition">
+    <h1 id="transitionTitle">DOUBLE JEOPARDY</h1>
+    <p id="transitionSubtitle">All values are doubled!</p>
+  </div>
+
+  <div class="modal" id="qCard">
+    <div class="card">
+      <div class="qhead">
+        <div class="meta"><span id="qCat" class="badge"></span><span id="qValue" class="badge"></span></div>
+        <div class="meta">
+          <div class="timer" id="qTimer">
+            <span>Time:</span>
+            <div class="bar">
+              <div id="tFill"></div>
+            </div>
+            <span class="kpi" id="tLeft">10</span>s
+          </div>
+          <span class="badge" id="ddBadge"
+            style="display:none;background:var(--warn);border-color:var(--warn);color:#111;">DAILY DOUBLE</span>
+        </div>
+      </div>
+      <div class="qtext" id="qText">Question</div>
+
+      <div id="buzzSection" class="buzzer-section hidden"
+        style="display: flex; justify-content: center; margin: 30px 0;">
+        <div class="clash-container"
+          style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 24px; border-radius: 16px; border: 1px solid rgba(212,168,83,0.3); width: 100%; max-width: 400px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); background: transparent;">
+
+          <!-- 8-Bit Animated Buzzer -->
+          <div class="pixel-buzzer disabled" id="playerBuzz">
+            <div class="buzzer-base"></div>
+            <div class="buzzer-top">
+              <span class="buzzer-text" id="buzzerText">BUZZ</span>
+              <img class="buzzer-ace-face" id="buzzerAceFace" src="ace-sprites/ace-192-idle.png" style="display: none;"
+                alt="Ace">
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="choices" id="choices"></div>
+
+      <div class="center" style="margin-top:10px;">
+        <button id="closeQ" class="btn hidden">Continue</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Ace Mentor Panel - Fixed Position Bottom Left -->
+  <div class="ace-mentor-panel" id="aceDialogue">
+    <div class="ace-mentor-avatar">
+      <img class="ace-avatar" id="aceAvatar" src="ace-sprites/ace-192-idle.png" alt="Ace">
+    </div>
+    <div class="ace-mentor-bubble">
+      <div class="ace-name">ACE</div>
+      <div class="ace-result" id="aceResult"></div>
+      <div class="ace-text" id="aceText"></div>
+      <div class="ace-explanation" id="aceExplanation">
+        <div class="ace-explanation-title">💡 The Answer</div>
+        <div class="ace-explanation-text" id="aceExplanationText"></div>
+      </div>
+      <button class="ace-dismiss-btn" id="aceDismissBtn">Got it</button>
+    </div>
+  </div>
+
+  <div class="modal" id="finalCard">
+    <div class="card">
+      <div class="qhead">
+        <div class="meta"><span class="badge" id="finalCat">Final Category</span></div>
+        <div class="meta"><span class="badge"
+            style="background:linear-gradient(135deg,#D4A853,#c49440);border-color:#D4A853;color:#0a0a0a;font-weight:700;">FINAL
+            JEOPARDY</span></div>
+      </div>
+      <div class="qtext" id="finalText">Final question text…</div>
+      <div class="choices" id="finalChoices"></div>
+      <div id="finalFeedback" class="center"></div>
+      <div class="center" style="margin-top:10px;">
+        <button id="closeFinal" class="btn hidden">See Results</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="overlay confetti" id="confetti"></div>
+
+  <div class="modal" id="ddModal">
+    <div class="card">
+      <h2 id="ddTitle">DAILY DOUBLE!</h2>
+      <div id="ddWho"></div>
+      <div id="ddScoreDisplay"></div>
+      <div id="ddWagerSection"></div>
+      <div class="meta" id="ddButtons"></div>
+    </div>
+  </div>
+
+  <div class="modal" id="fjModal">
+    <div class="card">
+      <h2>FINAL JEOPARDY</h2>
+      <div>Category: <b id="fjCat">Category</b></div>
+      <div style="margin:16px 0">
+        <div style="margin-bottom:8px">Your Score: <b class="kpi" style="color:var(--player)" id="fjPScore">$0</b></div>
+        <div class="input"><span>Your Wager: $</span><input id="fjPWager" type="number" min="0" step="50" value="0">
+        </div>
+      </div>
+      <div style="margin:16px 0">
+        <div style="margin-bottom:8px">Ace's Score: <b class="kpi" style="color:var(--ai)" id="fjAIScore">$0</b></div>
+        <div>Ace's Wager: <b class="kpi" style="color:var(--ai)" id="fjAIWager">$???</b> (Hidden)</div>
+      </div>
+      <div class="meta">
+        <button id="fjStart" class="btn">Reveal Final Question</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="gameEndModal">
+    <div class="card">
+      <div class="endGameContent">
+        <h2 id="endGameTitle">Game Over!</h2>
+        <div class="final-scores">
+          <div class="score-box player-final">
+            <div style="font-size:0.9rem;color:var(--ink-dim)">YOU</div>
+            <div class="kpi" style="color:var(--player);font-size:1.8rem" id="endPlayerScore">$0</div>
+          </div>
+          <div class="score-box ai-final">
+            <div style="font-size:0.9rem;color:var(--ink-dim)">AI</div>
+            <div class="kpi" style="color:var(--ai);font-size:1.8rem" id="endAIScore">$0</div>
+          </div>
+        </div>
+        <p id="endGameMessage">Thanks for playing!</p>
+        <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+          <button id="finalRestartBtn" class="btn">Play Again</button>
+          <button id="finishSessionBtn" class="btn"
+            style="background:linear-gradient(135deg,#10b981,#059669);border-color:#10b981;">Finish Session</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Ensure AceArena exists even if loaded outside the parent frame
+    window.AceArena = window.AceArena || {
+      init: () => { },
+      update: () => { },
+      isIntroShown: () => true,
+      showIntro: async () => { }
+    };
+    window.GameEngine = window.GameEngine || { track: () => { }, emit: () => { } };
+    window.NotificationSystem = window.NotificationSystem || { show: () => { } };
+  </script>
+
+  <script>
+    /* ========================================================================
+       QUESTION BANK - CUSTOMIZE THIS SECTION FOR DIFFERENT JEOPARDY GAMES
+       ========================================================================
+    
+       TO CREATE A NEW JEOPARDY GAME:
+       1. Keep the structure exactly the same
+       2. Change category names (must have exactly 6 categories + FINAL)
+       3. Update questions, answers, and explanations for your topic
+       4. Each category needs exactly 5 questions
+       5. Round 1 categories use base values: $100, $200, $300, $400, $500
+       6. Round 2 categories use doubled values: $200, $400, $600, $800, $1000
+    
+       STRUCTURE:
+       - First 3 categories = Round 1 (Jeopardy)
+       - Next 3 categories = Round 2 (Double Jeopardy)
+       - FINAL = Final Jeopardy question
+    
+       ======================================================================== */
+
+    // ========================================================================
+    // GLOBAL DYNAMIC PARAMETERS
+    // ========================================================================
+    const _jParams = new URLSearchParams(location.search);
+    let _backUrl = '../index.html';
+    const GLOBAL_CAT_ID = _jParams.get('cat') || 'jeopardy';
+    const GLOBAL_TITLE = _jParams.get('title') || 'Battle Ace';
+    const GLOBAL_COLOR = _jParams.get('color');
+
+    if (GLOBAL_COLOR) {
+      document.documentElement.style.setProperty('--gold', GLOBAL_COLOR);
+      document.documentElement.style.setProperty('--player', GLOBAL_COLOR);
+    }
+    if (_jParams.get('title')) {
+      document.title = GLOBAL_TITLE + " | ACE CAET Prep";
+    }
+
+    let QUESTION_BANK = {};
+
+    // ================================================================
+    // MODULE REGISTRY — all available Battle Ace modules
+    // ================================================================
+    const MODULE_REGISTRY = [
+      { id: 'cat-1', num: 1, title: 'Maintenance Regs & Documentation', abbr: 'MRD', color: '#D4A853', path: '../training/caet/mod1-maintenance-regs/data/jeopardy.json', categories: ['The FARs', 'Records & Logbooks', 'Forms & Approvals', 'Repair Station Ops', 'Inspections & Testing', 'Shop Safety & Hazmat'] },
+      { id: 'cat-2', num: 2, title: 'Basic Electrical Theory', abbr: 'BET', color: '#22d3ee', path: '../training/caet/mod2-basic-electrical/data/jeopardy.json', categories: ['DC Fundamentals', 'AC Theory', 'Circuit Analysis', 'Components & Devices', 'Aircraft Power Systems', 'Protection & Safety'] },
+      { id: 'cat-3', num: 3, title: 'CNS Systems', abbr: 'CNS', color: '#34d399', path: '../training/caet/mod3-cns-systems/data/jeopardy.json', categories: ['VOR & ILS Navigation', 'GPS & WAAS', 'DME, ADF & Weather', 'VHF Communications', 'Transponders & Surveillance', 'Audio & Intercom'] },
+      { id: 'cat-4', num: 4, title: 'Flight Instruments & AHRS', abbr: 'FIA', color: '#f472b6', path: '../training/caet/mod4-flight-instruments/data/jeopardy.json', categories: ['Altimeter & Barometric', 'Airspeed Indicator', 'VSI & Rate of Climb', 'Gyros & Vacuum System', 'AHRS & Glass Cockpit', 'Static System & Troubleshooting'] },
+      { id: 'cat-5', num: 5, title: 'Digital Databuses', abbr: 'DDB', color: '#a78bfa', path: '../training/caet/mod5-digital-databus/data/jeopardy.json', categories: ['ARINC 429 Basics', 'ARINC 429 Protocol', 'MIL-STD-1553', 'RS-232 & Serial', 'Digital Fundamentals', 'Bus Troubleshooting'] },
+      { id: 'cat-6', num: 6, title: 'Aircraft Wiring Practices', abbr: 'AWP', color: '#fb923c', path: '../training/caet/mod6-aircraft-wiring/data/jeopardy.json', categories: ['Wire Types & Selection', 'Connectors & Backshells', 'Crimping & Soldering', 'Harness & Routing', 'EMI & Shielding', 'Damage, Repair & Inspection'] },
+      { id: 'cat-7', num: 7, title: 'Tools & Test Equipment', abbr: 'TTE', color: '#facc15', path: '../training/caet/mod7-tools-test-equipment/data/jeopardy.json', categories: ['Multimeter Mastery', 'Opens, Shorts & Faults', 'Oscilloscope & Waveforms', 'Digital Bus Analyzers', 'Precision Hand Tools', 'Troubleshooting Methodology'] },
+      { id: 'cat-8', num: 8, title: 'Shop Safety & Best Practices', abbr: 'SSP', color: '#ef4444', path: '../training/caet/mod8-shop-safety/data/jeopardy.json', categories: ['Hazmat Handling', 'PPE & Protection', 'Fire & Emergency', 'Shop Procedures', 'ESD Prevention', 'FOD Control'] }
+    ];
+
+    // ================================================================
+    // LOADING INTRO — shown when no ?data= param (all-module arena)
+    // ================================================================
+    function showLoadingIntro() {
+      const intro = document.getElementById('loadingIntro');
+      const gameWrap = document.querySelector('.wrap');
+      if (gameWrap) gameWrap.style.display = 'none';
+
+      // Inject career stats
+      const stats = loadSummaryStats();
+      const wins = stats.jeopardy?.wins || 0;
+      const money = stats.jeopardy?.totalMoneyEarned || 0;
+      const totalPlayed = stats.jeopardy?.gamesPlayed || 0;
+      const missed = stats.jeopardy?.missedTiles || 0;
+
+      document.getElementById('liStats').innerHTML = `
+        <div class="li-stat">
+          <div class="li-stat-label">Career Earnings</div>
+          <div class="li-stat-value" style="color:#10b981;">$${money.toLocaleString()}</div>
+        </div>
+        <div class="li-stat-divider"></div>
+        <div class="li-stat">
+          <div class="li-stat-label">Tiles Missed</div>
+          <div class="li-stat-value" style="color:#ef4444;">${missed}</div>
+        </div>
+        <div class="li-stat-divider"></div>
+        <div class="li-stat">
+          <div class="li-stat-label">Ace Defeats</div>
+          <div class="li-stat-value" style="color:#D4A853;">${wins} <span style="font-size:0.85rem;color:#71717a;">/ ${totalPlayed}</span></div>
+        </div>
+      `;
+
+      intro.classList.remove('hidden');
+    }
+
+    function updateLoadingStatus(text, progress) {
+      document.getElementById('liStatus').textContent = text;
+      document.getElementById('liProgressFill').style.width = progress + '%';
+    }
+
+    function showCinematicIntro(callback) {
+      const introEl = document.getElementById('cinematicIntro');
+      const textEl = document.getElementById('cinematicText');
+      const aceImg = document.getElementById('cinematicAce');
+      const btn = document.getElementById('cinematicStartBtn');
+
+      introEl.classList.remove('hidden');
+      introEl.style.display = 'flex';
+
+      // Select random text from ACE_DIALOGUE or default
+      const lines = ACE_DIALOGUE?.introLines || ["Game time. Pick your battles smart. Or don't. I'm not your mother."];
+      textEl.textContent = lines[Math.floor(Math.random() * lines.length)];
+
+      // Sequence
+      setTimeout(() => {
+        introEl.style.opacity = '1';
+        setAceEmotion('talk1');
+        setTimeout(() => {
+          aceImg.style.transform = 'scale(1)';
+          textEl.style.opacity = '1';
+          textEl.style.transform = 'translateY(0)';
+
+          setTimeout(() => {
+            setAceEmotion('idle');
+            btn.style.opacity = '1';
+            btn.style.transform = 'translateY(0)';
+          }, 1500);
+        }, 500);
+      }, 100);
+
+      btn.onclick = () => {
+        // Shatter out
+        introEl.style.transform = 'scale(1.1)';
+        introEl.style.opacity = '0';
+        buzzSound(); // intense start sound
+        setTimeout(() => {
+          introEl.style.display = 'none';
+          callback();
+        }, 500);
+      };
+    }
+
+    // Load questions and dialogue from JSON files
+    (async function loadJeopardyData() {
+      // ════════════════════════════════════════════════════════════════
+      // ALL-MODULE ARENA: when no ?data= param, load ALL modules
+      // ════════════════════════════════════════════════════════════════
+      if (!_jParams.get('data') && !_jParams.get('cat')) {
+        showLoadingIntro();
+        updateLoadingStatus('Loading question banks...', 5);
+
+        try {
+          // Load dialogue first
+          let dialogueLoaded = false;
+          try {
+            const dialogueResp = await fetch('ace-sprites/ACE-DIALOGUES.json');
+            if (dialogueResp.ok) {
+              const dialogueData = await dialogueResp.json();
+              const jd = dialogueData.jeopardy_specific;
+              ACE_DIALOGUE = {
+                introLines: dialogueData.welcome.jeopardy,
+                playerCorrect: jd.player_correct,
+                playerWrong: jd.player_wrong,
+                aceWins: jd.ace_wins_buzz,
+                playerBeatAce: jd.player_beat_ace,
+                timeout: jd.timeout,
+                gameWinPlayer: jd.player_wins,
+                gameWinAce: jd.player_loses,
+                gameTie: jd.game_tie
+              };
+              dialogueLoaded = true;
+            }
+          } catch (e) { /* fallback below */ }
+          if (!dialogueLoaded) ACE_DIALOGUE = getDefaultDialogue();
+
+          updateLoadingStatus('Loading all 8 modules...', 15);
+
+          // Fetch all module JSON files in parallel
+          const results = await Promise.allSettled(
+            MODULE_REGISTRY.map(mod => fetch(mod.path).then(r => {
+              if (!r.ok) throw new Error(`HTTP ${r.status}`);
+              return r.json().then(data => ({ mod, data }));
+            }))
+          );
+
+          // Gather all categories from successful loads
+          const allCats = []; // { catName, pool, moduleId, moduleTitle }
+          const allFinals = [];
+          let loadedCount = 0;
+
+          results.forEach((result, i) => {
+            if (result.status === 'fulfilled') {
+              const { mod, data } = result.value;
+              loadedCount++;
+              const catNames = Object.keys(data.categories || {});
+              catNames.forEach(catName => {
+                allCats.push({
+                  catName,
+                  pool: data.categories[catName],
+                  moduleId: mod.id,
+                  moduleTitle: mod.title
+                });
+              });
+              if (data.final) {
+                const finals = Array.isArray(data.final) ? data.final : [data.final];
+                allFinals.push(...finals);
+              }
+              updateLoadingStatus(`Loaded ${loadedCount} of ${MODULE_REGISTRY.length} modules...`, 15 + (loadedCount / MODULE_REGISTRY.length) * 60);
+            } else {
+              console.warn(`[Battle Ace] Could not load module ${MODULE_REGISTRY[i].abbr}:`, result.reason);
+            }
+          });
+
+          if (allCats.length < 6) {
+            throw new Error(`Not enough categories loaded (found ${allCats.length}, need at least 6).`);
+          }
+
+          updateLoadingStatus('Randomizing your arena...', 85);
+
+          // Shuffle and pick 6 categories, max 2 from any single module
+          const shuffled = allCats.sort(() => Math.random() - 0.5);
+          const picked = [];
+          const modCount = {};
+
+          for (const cat of shuffled) {
+            if (picked.length >= 6) break;
+            const mc = modCount[cat.moduleId] || 0;
+            if (mc < 2) {
+              picked.push(cat);
+              modCount[cat.moduleId] = mc + 1;
+            }
+          }
+
+          // If we still don't have 6 (unlikely), fill from remaining
+          if (picked.length < 6) {
+            for (const cat of shuffled) {
+              if (picked.length >= 6) break;
+              if (!picked.includes(cat)) picked.push(cat);
+            }
+          }
+
+          // Build the QUESTION_BANK
+          const round1Values = [100, 200, 300, 400, 500];
+          const round2Values = [200, 400, 600, 800, 1000];
+
+          for (let i = 0; i < 3; i++) {
+            QUESTION_BANK[picked[i].catName] = pickQuestionsGlobal(picked[i].pool, round1Values);
+          }
+          for (let i = 3; i < 6; i++) {
+            QUESTION_BANK[picked[i].catName] = pickQuestionsGlobal(picked[i].pool, round2Values);
+          }
+
+          // Final Jeopardy
+          const selectedFinal = allFinals.length > 0
+            ? allFinals[Math.floor(Math.random() * allFinals.length)]
+            : { category: 'Final Challenge', clue: 'No final question available', choices: ['A', 'B', 'C', 'D'], correctIndex: 0, explanation: '' };
+          QUESTION_BANK['FINAL'] = {
+            cat: selectedFinal.category || 'Final Challenge',
+            question: selectedFinal.clue || selectedFinal.question || '',
+            answers: selectedFinal.choices || ['A', 'B', 'C', 'D'],
+            correctIndex: selectedFinal.correctIndex || 0,
+            explanation: selectedFinal.explanation || '',
+            reference: selectedFinal.source || 'CAET Training'
+          };
+
+          updateLoadingStatus('Arena ready — ' + loadedCount + ' modules loaded', 100);
+
+          const totalCats = allCats.length;
+          console.log(`[Battle Ace] All-module arena: ${loadedCount} modules, ${totalCats} total categories, 6 selected`);
+          picked.forEach((c, i) => console.log(`  ${i < 3 ? 'R1' : 'R2'} "${c.catName}" (${c.moduleTitle})`));
+
+          // Show enter button
+          const enterBtn = document.getElementById('liEnterBtn');
+          setTimeout(() => enterBtn.classList.add('ready'), 400);
+
+          enterBtn.onclick = () => {
+            const intro = document.getElementById('loadingIntro');
+            intro.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            intro.style.transform = 'scale(1.05)';
+            intro.style.opacity = '0';
+            buzzSound();
+            setTimeout(() => {
+              intro.style.display = 'none';
+              init();
+            }, 500);
+          };
+
+        } catch (error) {
+          console.error('[Battle Ace] Error loading all modules:', error);
+          document.getElementById('liStatus').textContent = 'Error: ' + error.message;
+          document.getElementById('liStatus').style.color = '#ef4444';
+        }
+        return;
+      }
+
+      // Helper shared between all-module and single-module loaders
+      function pickQuestionsGlobal(pool, values) {
+        let picked = [];
+        let available = [...pool];
+        const getNumDiff = (q) => {
+          if (typeof q.difficulty === 'number') return q.difficulty;
+          if (q.difficulty === 'easy') return 100;
+          if (q.difficulty === 'hard') return 500;
+          return 300;
+        };
+        const tiers = [100, 200, 300, 400, 500];
+        tiers.forEach(targetDiff => {
+          const tierQs = available.filter(q => getNumDiff(q) === targetDiff);
+          if (tierQs.length > 0) {
+            const randIdx = Math.floor(Math.random() * tierQs.length);
+            const selected = tierQs[randIdx];
+            picked.push(selected);
+            available.splice(available.indexOf(selected), 1);
+          } else {
+            if (available.length === 0) available = [...pool];
+            const randIdx = Math.floor(Math.random() * available.length);
+            const selected = available[randIdx];
+            picked.push(selected);
+            available.splice(randIdx, 1);
+          }
+        });
+        picked.sort((a, b) => getNumDiff(a) - getNumDiff(b));
+        return picked.map((q, i) => ({
+          id: q.id || `q-${i + 1}`,
+          difficulty: i + 1,
+          pointValue: values[i],
+          timeLimit: 30 + (i * 5),
+          question: q.clue || q.question || 'Question not available',
+          answers: q.choices || ['A', 'B', 'C', 'D'],
+          correctIndex: q.correctIndex != null ? q.correctIndex : 0,
+          explanation: q.explanation || '',
+          reference: q.source || 'CAET Training',
+          learningObjective: q.learningObjective || null
+        }));
+      }
+
+      function showModuleSelector() {
+        document.getElementById('moduleSelector').classList.remove('hidden');
+        document.querySelector('.wrap').style.display = 'none';
+
+        // Inject lifetime stats
+        const stats = loadSummaryStats();
+        const wins = stats.jeopardy?.wins || 0;
+        const money = stats.jeopardy?.totalMoneyEarned || 0;
+        const totalPlayed = stats.jeopardy?.gamesPlayed || 0;
+        const missed = stats.jeopardy?.missedTiles || 0;
+
+        let statsHtml = `
+          <div style="background: rgba(255,255,255,0.05); padding: 12px 24px; border-radius: 8px; display: inline-flex; gap: 32px; margin-top: 16px; border: 1px solid rgba(255,255,255,0.1);">
+            <div style="text-align: center;">
+              <div style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: #a1a1aa; margin-bottom: 4px;">Career Earnings</div>
+              <div style="font-size: 1.25rem; font-weight: 700; color: #10b981;">$${money.toLocaleString()}</div>
+            </div>
+            <div style="width: 1px; background: rgba(255,255,255,0.1);"></div>
+            <div style="text-align: center;">
+              <div style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: #a1a1aa; margin-bottom: 4px;">Tiles Missed</div>
+              <div style="font-size: 1.25rem; font-weight: 700; color: #ef4444;">${missed}</div>
+            </div>
+            <div style="width: 1px; background: rgba(255,255,255,0.1);"></div>
+            <div style="text-align: center;">
+              <div style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: #a1a1aa; margin-bottom: 4px;">Ace Defeats</div>
+              <div style="font-size: 1.25rem; font-weight: 700; color: #D4A853;">${wins} <span style="font-size:1rem;color:#71717a;">/ ${totalPlayed}</span></div>
+            </div>
+          </div>
+        `;
+
+        // Find or create stats container in header
+        let statsContainer = document.getElementById('msStatsContainer');
+        if (!statsContainer) {
+          const header = document.querySelector('.ms-header');
+          statsContainer = document.createElement('div');
+          statsContainer.id = 'msStatsContainer';
+          header.appendChild(statsContainer);
+        }
+        statsContainer.innerHTML = statsHtml;
+
+        const CATEGORIES = [
+          { id: 'cat-1', num: 'MOD 1', name: 'Maintenance Regulations', accent: 'a-gold', dataPath: '../training/caet/mod1-maintenance-regs/data/jeopardy.json' },
+          { id: 'cat-2', num: 'MOD 2', name: 'Electrical Theory', accent: 'a-blue', dataPath: '../training/caet/mod2-basic-electrical/data/jeopardy.json' },
+          { id: 'cat-3', num: 'MOD 3', name: 'CNS Systems', accent: 'a-gold', dataPath: '../training/caet/mod3-cns-systems/data/jeopardy.json' },
+          { id: 'cat-4', num: 'MOD 4', name: 'Instruments & Pitot-Static', accent: 'a-blue', dataPath: '../training/caet/mod4-flight-instruments/data/jeopardy.json' },
+          { id: 'cat-5', num: 'MOD 5', name: 'Digital Databus Systems', accent: 'a-gold', dataPath: '../training/caet/mod5-digital-databus/data/jeopardy.json' },
+          { id: 'cat-6', num: 'MOD 6', name: 'Aircraft Wiring & Hardware', accent: 'a-blue', dataPath: '../training/caet/mod6-aircraft-wiring/data/jeopardy.json' },
+          { id: 'cat-7', num: 'MOD 7', name: 'Tools & Test Equipment', accent: 'a-gold', dataPath: '../training/caet/mod7-tools-test-equipment/data/jeopardy.json' },
+          { id: 'cat-8', num: 'MOD 8', name: 'Shop Safety', accent: 'a-blue', dataPath: '../training/caet/mod8-shop-safety/data/jeopardy.json' }
+        ];
+
+        const grid = document.getElementById('moduleGrid');
+        grid.innerHTML = CATEGORIES.map(cat => `
+          <a href="?data=${cat.dataPath}&cat=${cat.id}" class="ms-card">
+            <div class="ms-card-number">${cat.num}</div>
+            <div class="ms-card-title">${cat.name}</div>
+            <div class="ms-card-categories">
+              <span class="ms-cat-tag">Jeopardy Match</span>
+              <span class="ms-cat-tag">vs. Ace</span>
+            </div>
+          </a>
+        `).join('');
+      }
+
+      try {
+        // Read data path from URL param, fall back to jeopardy.json
+        _backUrl = _jParams.get('back') || '../index.html';
+        let fetchUrl = _jParams.get('data') || 'data/jeopardy.json';
+        // Auto-upgrade old references from questions.json → jeopardy.json
+        if (fetchUrl.endsWith('questions.json')) {
+          fetchUrl = fetchUrl.replace('questions.json', 'jeopardy.json');
+        }
+
+        const badge = document.getElementById('gameTitleBadge');
+        if (badge && _jParams.get('title')) {
+          badge.textContent = GLOBAL_TITLE;
+        }
+
+        console.log('[Battle Ace] Loading questions from:', fetchUrl);
+
+        // Load questions and dialogue in parallel
+        const [questionsResponse, dialogueResponse] = await Promise.all([
+          fetch(fetchUrl),
+          fetch('ace-sprites/ACE-DIALOGUES.json')
+        ]);
+
+        if (!questionsResponse.ok) {
+          throw new Error(`HTTP ${questionsResponse.status}: Failed to load ${fetchUrl}`);
+        }
+
+        // Load dialogue (with fallback if it fails)
+        if (dialogueResponse.ok) {
+          const dialogueData = await dialogueResponse.json();
+          const jd = dialogueData.jeopardy_specific;
+          ACE_DIALOGUE = {
+            introLines: dialogueData.welcome.jeopardy,
+            playerCorrect: jd.player_correct,
+            playerWrong: jd.player_wrong,
+            aceWins: jd.ace_wins_buzz,
+            playerBeatAce: jd.player_beat_ace,
+            timeout: jd.timeout,
+            gameWinPlayer: jd.player_wins,
+            gameWinAce: jd.player_loses,
+            gameTie: jd.game_tie
+          };
+        } else {
+          console.warn('[Battle Ace] Could not load dialogue, using defaults');
+          ACE_DIALOGUE = getDefaultDialogue();
+        }
+
+        const bank = await questionsResponse.json();
+
+        /* ══════════════════════════════════════════════════════════════════════
+           JEOPARDY.JSON DIRECT LOADER
+           Reads the pre-built jeopardy.json with named categories and full
+           question pools. Randomly picks 5 questions per category at runtime.
+        ══════════════════════════════════════════════════════════════════════ */
+
+        const categories = bank.categories;
+        const catNames = Object.keys(categories);
+
+        if (catNames.length < 2) {
+          throw new Error(`Not enough categories for Battle Ace. Found ${catNames.length}, need at least 2.`);
+        }
+
+        // Use the exact categories in the order provided by the module json
+        // (Do not shuffle, this ensures a logical learning progression)
+        const gameCats = catNames.slice(0, Math.min(6, catNames.length));
+
+        // Determine how many go in each round
+        const r1Count = Math.min(3, gameCats.length);
+        const r2Count = gameCats.length - r1Count;
+
+        const round1Values = [100, 200, 300, 400, 500];
+        const round2Values = [200, 400, 600, 800, 1000];
+
+        // Build Round 1 categories
+        for (let i = 0; i < r1Count; i++) {
+          QUESTION_BANK[gameCats[i]] = pickQuestions(categories[gameCats[i]], round1Values);
+        }
+
+        // Build Round 2 categories
+        for (let i = r1Count; i < gameCats.length; i++) {
+          QUESTION_BANK[gameCats[i]] = pickQuestions(categories[gameCats[i]], round2Values);
+        }
+
+        // Final Challenge
+        const finalData = bank.final;
+        const selectedFinal = Array.isArray(finalData)
+          ? finalData[Math.floor(Math.random() * finalData.length)]
+          : finalData;
+
+        QUESTION_BANK["FINAL"] = {
+          cat: selectedFinal.category || "Final Challenge",
+          question: selectedFinal.clue || selectedFinal.question || '',
+          answers: selectedFinal.choices || ['A', 'B', 'C', 'D'],
+          correctIndex: selectedFinal.correctIndex || 0,
+          explanation: selectedFinal.explanation || '',
+          reference: selectedFinal.source || 'CAET Training'
+        };
+
+        console.log(`[Battle Ace] Loaded ${gameCats.length} categories + Final`);
+        gameCats.forEach((c, i) => console.log(`  ${i < r1Count ? 'R1' : 'R2'} "${c}": ${categories[c].length} total, 5 selected`));
+
+        // Initialize the game after data loads
+        if (typeof AceArena !== 'undefined' && !AceArena.isIntroShown()) {
+          await AceArena.showIntro();
+          init();
+        } else {
+          showCinematicIntro(() => init());
+        }
+
+      } catch (error) {
+        console.error('[Battle Ace] Error loading questions:', error);
+        document.body.innerHTML = `
+      <div style="padding:40px;text-align:center;font-family:system-ui;color:#fff;background:#1a1a2e;min-height:100vh;">
+        <h2>Could not load Battle Ace questions</h2>
+        <p>Make sure you're running a local server from the project root folder.</p>
+        <p style="color:#888;font-size:14px;">Error: ${error.message}</p>
+        <p style="color:#666;font-size:12px;margin-top:16px;">
+          Current URL: ${window.location.href}<br>
+          Data source: ${new URLSearchParams(location.search).get('data') || 'data/jeopardy.json'}
+        </p>
+        <button onclick="window.location.href='../index.html'" style="margin-top:1rem;padding:0.75rem 1.5rem;background:#D4A853;color:#080C1A;border:none;border-radius:6px;font-weight:700;cursor:pointer;">Back to Practice</button>
+      </div>`;
+        return;
+      }
+
+      /**
+       * Pick 5 questions from the pool for a category.
+       * Shuffles the pool, then picks 5, sorted by difficulty for point-value assignment.
+       */
+      function pickQuestions(pool, values) {
+        let picked = [];
+        let available = [...pool];
+
+        // Helper to get numeric difficulty, with fallback for legacy easy/medium/hard
+        const getNumDiff = (q) => {
+          if (typeof q.difficulty === 'number') return q.difficulty;
+          if (q.difficulty === 'easy') return 100;
+          if (q.difficulty === 'hard') return 500;
+          return 300;
+        };
+
+        // We want one question for each difficulty tier if possible
+        const tiers = [100, 200, 300, 400, 500];
+
+        tiers.forEach(targetDiff => {
+          // Find all available questions in this tier
+          const tierQs = available.filter(q => getNumDiff(q) === targetDiff);
+          if (tierQs.length > 0) {
+            // Pick a random one from this tier
+            const randIdx = Math.floor(Math.random() * tierQs.length);
+            const selected = tierQs[randIdx];
+            picked.push(selected);
+            // Remove from available so we don't pick it again
+            available.splice(available.indexOf(selected), 1);
+          } else {
+            // If tier is missing (thin category), pick any random available question
+            if (available.length === 0) available = [...pool]; // Reset if pool is < 5
+            const randIdx = Math.floor(Math.random() * available.length);
+            const selected = available[randIdx];
+            picked.push(selected);
+            available.splice(randIdx, 1);
+          }
+        });
+
+        // Ensure they are sorted from easiest to hardest to map to the board tiles
+        picked.sort((a, b) => getNumDiff(a) - getNumDiff(b));
+
+        // Map to the game engine's expected format
+        return picked.map((q, i) => ({
+          id: q.id || `q-${i + 1}`,
+          difficulty: i + 1,
+          pointValue: values[i], // e.g. Round 1: 100-500, Round 2: 200-1000
+          timeLimit: 30 + (i * 5),
+          question: q.clue || q.question || 'Question not available',
+          answers: q.choices || ['A', 'B', 'C', 'D'],
+          correctIndex: q.correctIndex != null ? q.correctIndex : 0,
+          explanation: q.explanation || '',
+          reference: q.source || 'CAET Training',
+          learningObjective: q.learningObjective || null
+        }));
+      }
+    })();
+
+
+
+    /* ========================================================================
+       END OF CUSTOMIZABLE QUESTION BANK SECTION
+       ======================================================================== */
+
+    /* Game State */
+    const GameState = {
+      TILE_SELECTION: 'TILE_SELECTION',
+      QUESTION_READING: 'QUESTION_READING',
+      BUZZER_ACTIVE: 'BUZZER_ACTIVE',
+      ANSWERING: 'ANSWERING',
+      SHOWING_RESULT: 'SHOWING_RESULT',
+      DAILY_DOUBLE: 'DAILY_DOUBLE',
+      ROUND_TRANSITION: 'ROUND_TRANSITION',
+      FINAL_JEOPARDY: 'FINAL_JEOPARDY',
+      GAME_OVER: 'GAME_OVER'
+    };
+
+    let gameState = GameState.TILE_SELECTION;
+    let currentRound = 1; // 1 = Jeopardy, 2 = Double Jeopardy
+    let tiles = {};
+    let playerScore = 0, aiScore = 0;
+    let currentTurn = 'player';
+    let currentQ = null;
+    let buzzWinner = null;
+    let dailyDoubleIds = [];
+    let questionsLeft = 15;
+    let aiBuzzTimeout = null;
+    let questionsAnswered = 0, questionsCorrect = 0; // Track for stats
+
+    // ============================================================================
+    // CUMULATIVE JEOPARDY STATS TRACKING
+    // Persists across sessions for the lesson summary page
+    // ============================================================================
+    const SUMMARY_STATS_KEY = 'caet_summary_stats';
+
+    function loadSummaryStats() {
+      try { return JSON.parse(localStorage.getItem(SUMMARY_STATS_KEY)) || getDefaultSummaryStats(); }
+      catch (e) { return getDefaultSummaryStats(); }
+    }
+
+    function getDefaultSummaryStats() {
+      return {
+        flashcards: { easy: 0, medium: 0, difficult: 0, totalSorted: 0 },
+        practice: { gotIt: 0, missedIt: 0 },
+        jeopardy: { tilesAnswered: 0, correctTiles: 0, totalMoneyEarned: 0, gamesPlayed: 0, wins: 0, missedTiles: 0 },
+        moduleAccess: { dc: false, ac: false, solid: false, digital: false },
+        lastUpdated: Date.now()
+      };
+    }
+
+    function saveSummaryStats(stats) {
+      try { stats.lastUpdated = Date.now(); localStorage.setItem(SUMMARY_STATS_KEY, JSON.stringify(stats)); }
+      catch (e) { }
+    }
+
+    function trackJeopardyTile(isCorrect, moneyEarned) {
+      try {
+        const stats = loadSummaryStats();
+        if (!stats.jeopardy) stats.jeopardy = { tilesAnswered: 0, correctTiles: 0, totalMoneyEarned: 0, gamesPlayed: 0, wins: 0, missedTiles: 0 };
+
+        stats.jeopardy.tilesAnswered = (stats.jeopardy.tilesAnswered || 0) + 1;
+        if (isCorrect) {
+          stats.jeopardy.correctTiles = (stats.jeopardy.correctTiles || 0) + 1;
+          stats.jeopardy.totalMoneyEarned = (stats.jeopardy.totalMoneyEarned || 0) + moneyEarned;
+        } else {
+          stats.jeopardy.missedTiles = (stats.jeopardy.missedTiles || 0) + 1;
+        }
+        stats.moduleAccess.dc = true;
+        saveSummaryStats(stats);
+      } catch (e) { }
+    }
+
+    // Track LO mastery from Jeopardy answers
+    function trackLOFromJeopardy(question, isCorrect) {
+      if (!question || !question.learningObjective) return;
+      try {
+        if (typeof LOMasteryTracker !== 'undefined' && LOMasteryTracker.record) {
+          LOMasteryTracker.record(LESSON_ID, question.learningObjective, isCorrect, 'jeopardy');
+        } else {
+          // Fallback: Save to legacy localStorage format
+          const loKey = `caet_lo_scores_${LESSON_ID}`;
+          const loScores = JSON.parse(localStorage.getItem(loKey) || '{}');
+          if (!loScores[question.learningObjective]) loScores[question.learningObjective] = { correct: 0, total: 0 };
+          loScores[question.learningObjective].total += 1;
+          if (isCorrect) loScores[question.learningObjective].correct += 1;
+          localStorage.setItem(loKey, JSON.stringify(loScores));
+        }
+      } catch (e) { console.warn('Could not track LO from Jeopardy:', e); }
+    }
+
+    function trackJeopardyGameEnd(didWin) {
+      try {
+        const stats = loadSummaryStats();
+        if (!stats.jeopardy) stats.jeopardy = { tilesAnswered: 0, correctTiles: 0, totalMoneyEarned: 0, gamesPlayed: 0, wins: 0, missedTiles: 0 };
+        stats.jeopardy.gamesPlayed = (stats.jeopardy.gamesPlayed || 0) + 1;
+        if (didWin) {
+          stats.jeopardy.wins = (stats.jeopardy.wins || 0) + 1;
+        }
+        // Money is tracked per-tile in trackJeopardyTile — no need to add here
+        stats.moduleAccess.dc = true;
+        saveSummaryStats(stats);
+      } catch (e) { console.log('trackJeopardyGameEnd error:', e); }
+    }
+
+    // ============================================================================
+    // LEARNING OBJECTIVE TRACKING
+    // Tracks LO mastery: correct answer = correct, wrong answer = wrong
+    // Uses best percentage system: >= 80% met, 60-79% learning, < 60% not met
+    // ============================================================================
+    // Derive LESSON_ID from ?data= param (e.g. '../cat-4-flight-instruments/data/questions.json' → 'cat-4-flight-instruments')
+    const LESSON_ID = (function () {
+      const dp = new URLSearchParams(location.search).get('data') || '';
+      const m = dp.match(/(?:cat|mod)-?\d+-[\w-]+/);
+      return m ? m[0] : (new URLSearchParams(location.search).get('cat') || 'jeopardy-general');
+    })();
+    const LO_SCORES_KEY = `caet_lo_scores_${LESSON_ID}`;
+
+    function loadLOScores() {
+      try {
+        return JSON.parse(localStorage.getItem(LO_SCORES_KEY)) || {};
+      } catch (e) {
+        return {};
+      }
+    }
+
+    function saveLOScores(scores) {
+      try {
+        localStorage.setItem(LO_SCORES_KEY, JSON.stringify(scores));
+      } catch (e) {
+        console.warn('Could not save LO scores:', e);
+      }
+    }
+
+    function trackLO(learningObjective, isCorrect) {
+      if (!learningObjective) return;
+
+      try {
+        const scores = loadLOScores();
+
+        // Initialize if needed
+        if (!scores[learningObjective]) {
+          scores[learningObjective] = { correct: 0, total: 0, bestPercent: 0, status: 'not_met' };
+        }
+
+        // Update counts
+        scores[learningObjective].total++;
+        if (isCorrect) {
+          scores[learningObjective].correct++;
+        }
+
+        // Calculate current percentage
+        const currentPercent = Math.round((scores[learningObjective].correct / scores[learningObjective].total) * 100);
+
+        // Keep best percentage (never goes down)
+        scores[learningObjective].bestPercent = Math.max(scores[learningObjective].bestPercent || 0, currentPercent);
+
+        // Update status based on best percentage
+        if (scores[learningObjective].bestPercent >= 80) {
+          scores[learningObjective].status = 'met';
+        } else if (scores[learningObjective].bestPercent >= 60) {
+          scores[learningObjective].status = 'learning';
+        } else {
+          scores[learningObjective].status = 'not_met';
+        }
+
+        saveLOScores(scores);
+        console.log(`📊 LO ${learningObjective}: ${scores[learningObjective].bestPercent}% (${scores[learningObjective].status})`);
+      } catch (e) {
+        console.warn('Could not track LO:', e);
+      }
+    }
+
+    /* AI Settings - Expert mode: Ace always answers correctly, user races the timer */
+    const AI_DIFFICULTY = {
+      easy: { reactionMin: 3000, reactionMax: 4500, accuracy: 1.0, name: 'Rookie' },
+      medium: { reactionMin: 2000, reactionMax: 3500, accuracy: 1.0, name: 'Skilled' },
+      hard: { reactionMin: 1500, reactionMax: 2500, accuracy: 1.0, name: 'Expert' },
+      expert: { reactionMin: 1000, reactionMax: 1800, accuracy: 1.0, name: 'Master' }
+    };
+    let currentDifficulty = 'medium';
+
+    /* Timer */
+    let TMAX = 10, t = TMAX, tInt = null, soundOn = true;
+    /* Track current Daily Double wager so timeouts score correctly */
+    let currentDDWager = 0;
+
+    /* DOM */
+    const $ = s => document.querySelector(s);
+    const catRow = $('#catRow'), qLeft = $('#qLeft');
+    const pScore = $('#pScore'), aiScoreEl = $('#aiScore');
+    const playerBox = $('#playerBox'), aiBox = $('#aiBox');
+    const playerTurn = $('#playerTurn'), aiTurn = $('#aiTurn');
+    const rows = [$('#valRow1'), $('#valRow2'), $('#valRow3'), $('#valRow4'), $('#valRow5')];
+    const qCard = $('#qCard'), qCat = $('#qCat'), qValue = $('#qValue'), qText = $('#qText');
+    const choices = $('#choices'), closeQ = $('#closeQ');
+    const buzzSection = $('#buzzSection'), playerBuzz = $('#playerBuzz');
+    const qTimer = $('#qTimer'), tFill = $('#tFill'), tLeft = $('#tLeft');
+    const ddBadge = $('#ddBadge'), ddModal = $('#ddModal');
+    const confetti = $('#confetti');
+    const muteBtn = $('#mute');
+    const fjModal = $('#fjModal'), fjCat = $('#fjCat'), fjStart = $('#fjStart');
+    const fjPScore = $('#fjPScore'), fjAIScore = $('#fjAIScore'), fjPWager = $('#fjPWager'), fjAIWager = $('#fjAIWager');
+    const finalCard = $('#finalCard'), finalCat = $('#finalCat'), finalText = $('#finalText');
+    const finalChoices = $('#finalChoices'), finalFeedback = $('#finalFeedback'), closeFinal = $('#closeFinal');
+    const gameEndModal = $('#gameEndModal'), endGameTitle = $('#endGameTitle');
+    const endPlayerScore = $('#endPlayerScore'), endAIScore = $('#endAIScore'), endGameMessage = $('#endGameMessage');
+    const finalRestartBtn = $('#finalRestartBtn');
+    const roundIndicator = $('#roundIndicator');
+    const roundTransition = $('#roundTransition'), transitionTitle = $('#transitionTitle'), transitionSubtitle = $('#transitionSubtitle');
+
+    /* Ace Dialogue Elements */
+    const aceDialogue = $('#aceDialogue');
+    const aceAvatar = $('#aceAvatar');
+    const aceResult = $('#aceResult');
+    const aceText = $('#aceText');
+    const aceExplanationText = $('#aceExplanationText');
+
+    /* --- ACE ANIMATION SYSTEM --- */
+    let currentAceEmotion = 'idle';
+    let aceAnimFrame = 0;
+
+    setInterval(() => {
+      const avatars = document.querySelectorAll('.ace-avatar, .stage-ace-avatar');
+      const frames = ['', '-steam1', '-steam2', '-steam3'];
+      aceAnimFrame = (aceAnimFrame + 1) % frames.length;
+
+      avatars.forEach(img => {
+        // extract path up to the last slash to support different relative roots
+        const pathMatch = img.src.match(/(.*\/)ace-192-/);
+        const basePath = pathMatch ? pathMatch[1] : 'ace-sprites/';
+        img.src = `${basePath}ace-192-${currentAceEmotion}${frames[aceAnimFrame]}.png`;
+      });
+    }, 350);
+
+    function setAceEmotion(emotion) {
+      currentAceEmotion = emotion;
+      aceAnimFrame = 0; // Reset frame to apply immediately on next tick
+    }
+
+    /* Ace Dialogue - loaded from central JSON file */
+    let ACE_DIALOGUE = null;
+
+    function getDefaultDialogue() {
+      return {
+        playerCorrect: ["Correct.", "Right.", "That's the one."],
+        playerWrong: ["Wrong.", "Incorrect.", "Nope."],
+        aceWins: ["Too slow.", "My point.", "Beat you to it."],
+        playerBeatAce: ["Fast reflexes.", "Quick draw."],
+        timeout: ["Time's up.", "Too slow."],
+        gameWinPlayer: ["You won.", "Victory."],
+        gameWinAce: ["I win.", "My victory."],
+        gameTie: ["A tie.", "Dead even."]
+      };
+    }
+
+    /* Audio */
+    let AC = null;
+    function ensureAudio() { if (!AC) { AC = new (window.AudioContext || window.webkitAudioContext)(); } if (AC.state === 'suspended') { AC.resume(); } }
+    function play(freq = 880, ms = 180, type = 'sine', gain = 0.06) {
+      if (!soundOn) return;
+      ensureAudio();
+      const o = AC.createOscillator(), g = AC.createGain();
+      o.type = type; o.frequency.value = freq;
+      g.gain.value = gain; g.gain.setValueAtTime(gain, AC.currentTime);
+      g.gain.exponentialRampToValueAtTime(0.0001, AC.currentTime + ms / 1000);
+      o.connect(g); g.connect(AC.destination); o.start(); o.stop(AC.currentTime + ms / 1000);
+    }
+    function chordOK() { play(987, 140, 'sine', 0.08); setTimeout(() => play(1479, 160, 'sine', 0.07), 110); }
+    function buzzer() {
+      if (!soundOn) return; ensureAudio();
+      const o = AC.createOscillator(), g = AC.createGain(); o.type = 'square';
+      o.frequency.setValueAtTime(120, AC.currentTime); o.frequency.exponentialRampToValueAtTime(70, AC.currentTime + 0.35);
+      g.gain.value = 0.08; g.gain.setValueAtTime(0.08, AC.currentTime); g.gain.exponentialRampToValueAtTime(0.0001, AC.currentTime + 0.4);
+      o.connect(g); g.connect(AC.destination); o.start(); o.stop(AC.currentTime + 0.42);
+    }
+    function selectBlip() { play(660, 90, 'triangle', 0.06); }
+    function tick() { play(660, 45, 'sine', 0.03); }
+    function buzzSound() { play(800, 200, 'square', 0.1); }
+
+    function celebrate() {
+      const colors = ["#22c55e", "#3b82f6", "#eab308", "#a855f7", "#f43f5e"];
+
+      // Lots of colorful confetti
+      for (let i = 0; i < 150; i++) {
+        const p = document.createElement('i');
+        p.style.left = Math.random() * 100 + '%';
+        p.style.top = '-10px';
+        p.style.background = colors[Math.floor(Math.random() * colors.length)];
+        p.style.transform = 'rotate(' + Math.random() * 360 + 'deg)';
+        p.style.animationDelay = (Math.random() * 2) + 's';
+        confetti.appendChild(p);
+        setTimeout(() => p.remove(), 4000);
+      }
+
+      // Lots of money dropping
+      for (let i = 0; i < 50; i++) {
+        const m = document.createElement('div');
+        m.className = 'money';
+        m.textContent = Math.random() > 0.5 ? '💵' : '💰';
+        m.style.left = Math.random() * 100 + '%';
+        m.style.top = '-40px';
+        m.style.transform = 'rotate(' + Math.random() * 360 + 'deg)';
+        m.style.animationDelay = (Math.random() * 3) + 's';
+        confetti.appendChild(m);
+        setTimeout(() => m.remove(), 5000);
+      }
+    }
+
+    function devastate() {
+      // Screen shake effect
+      document.body.style.animation = 'camera-shake 0.7s cubic-bezier(.36,.07,.19,.97) both';
+      setTimeout(() => { document.body.style.animation = ''; }, 800);
+
+      // Hysterical doom emojis falling
+      const emojis = ['💀', '🔥', '📉', '😭', '👎', '☠️', '🚀💥'];
+      for (let i = 0; i < 60; i++) {
+        const m = document.createElement('div');
+        m.className = 'doom';
+        m.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+        m.style.left = Math.random() * 100 + '%';
+        m.style.top = '-50px';
+        m.style.transform = `rotate(${Math.random() * 90 - 45}deg) scale(${Math.random() + 0.5})`;
+        m.style.animationDelay = (Math.random() * 1.5) + 's';
+        confetti.appendChild(m);
+        setTimeout(() => m.remove(), 4000);
+      }
+    }
+
+    function updateTurnIndicator() {
+      playerBox.classList.toggle('active', currentTurn === 'player');
+      aiBox.classList.toggle('active', currentTurn === 'ai');
+
+      if (gameState === GameState.TILE_SELECTION) {
+        playerTurn.textContent = currentTurn === 'player' ? '👉 Your Turn to Select' : '';
+        aiTurn.textContent = currentTurn === 'ai' ? '👉 AI is Selecting...' : '';
+      } else {
+        playerTurn.textContent = '';
+        aiTurn.textContent = '';
+      }
+    }
+
+    /* Validate the structure up front so bad data fails fast */
+    function validateBank() {
+      const cats = Object.keys(QUESTION_BANK).filter(k => k !== 'FINAL');
+      if (cats.length !== 6) throw new Error(`QUESTION_BANK must have exactly 6 categories (+ FINAL). Found ${cats.length}.`);
+      cats.forEach(c => {
+        const arr = QUESTION_BANK[c];
+        if (!Array.isArray(arr) || arr.length !== 5) {
+          throw new Error(`Category "${c}" must contain exactly 5 items (has ${Array.isArray(arr) ? arr.length : 'invalid'}).`);
+        }
+        arr.forEach((q, i) => {
+          if (!Array.isArray(q.answers) || q.answers.length !== 4) {
+            throw new Error(`"${c}" item ${i + 1} must have exactly 4 answers.`);
+          }
+          if (q.correctIndex < 0 || q.correctIndex > 3) {
+            throw new Error(`"${c}" item ${i + 1} has invalid correctIndex (expected 0–3).`);
+          }
+        });
+      });
+    }
+
+    async function init() {
+      validateBank();
+
+      // Ensure the game board wrap is visible (it may have been hidden by the module selector)
+      const gameWrap = document.querySelector('.wrap');
+      if (gameWrap) gameWrap.style.display = 'grid';
+
+      // Cloud tracking — jeopardyTracker is already created by assessment-tracker.js
+      // Just verify it exists; it auto-derives lessonId from the URL
+      if (!window.jeopardyTracker) {
+        console.warn('[Jeopardy] Cloud tracking not available (assessment-tracker.js not loaded)');
+      }
+
+      // Show Ace's Arena intro on first load
+      if (typeof AceArena !== 'undefined' && !AceArena.isIntroShown()) {
+        await AceArena.showIntro();
+      }
+
+      const allCategoryNames = Object.keys(QUESTION_BANK).filter(k => k !== "FINAL");
+      // Get first 3 categories for Round 1
+      const round1Categories = allCategoryNames.slice(0, 3);
+
+      playerScore = 0;
+      aiScore = 0;
+      questionsAnswered = 0;
+      questionsCorrect = 0;
+      currentRound = 1;
+      currentTurn = 'player';
+      gameState = GameState.TILE_SELECTION;
+      currentQ = null;
+      buzzWinner = null;
+      aiBuzzTimeout = null;
+      dailyDoubleIds = [];
+      currentDDWager = 0;
+
+      pScore.textContent = '$' + playerScore;
+      aiScoreEl.textContent = '$' + aiScore;
+      roundIndicator.textContent = 'ROUND 1: JEOPARDY';
+
+      qCard.classList.remove('show');
+      finalCard.classList.remove('show');
+      gameEndModal.classList.remove('show');
+      ddModal.classList.remove('show');
+      fjModal.classList.remove('show');
+      roundTransition.classList.remove('show');
+
+      loadRound(round1Categories, 1);
+    }
+
+    function loadRound(categories, roundNum) {
+      currentRound = roundNum;
+      const baseValues = roundNum === 1 ? [100, 200, 300, 400, 500] : [200, 400, 600, 800, 1000];
+
+      tiles = {};
+      const allRoundQuestions = [];
+
+      categories.forEach(catName => {
+        const pool = QUESTION_BANK[catName] || [];
+
+        // Guard: ensure exactly 5 per category
+        if (pool.length !== 5) {
+          throw new Error(`Category "${catName}" must have exactly 5 questions (has ${pool.length}).`);
+        }
+
+        pool.forEach((q, idx) => {
+          const id = `${catName}-${baseValues[idx]}`;
+          tiles[id] = {
+            ...q,
+            id,
+            category: catName,      // store the real category
+            used: false,
+            pointValue: baseValues[idx]
+          };
+          allRoundQuestions.push(tiles[id]);
+        });
+      });
+
+      questionsLeft = categories.length * baseValues.length;
+      qLeft.textContent = questionsLeft;
+
+      catRow.innerHTML = '';
+      categories.forEach(c => {
+        const el = document.createElement('div');
+        el.className = 'cat';
+        el.textContent = c;
+        catRow.appendChild(el);
+      });
+
+      rows.forEach((r, i) => {
+        r.innerHTML = '';
+        const v = baseValues[i];
+        categories.forEach(catName => {
+          const id = `${catName}-${v}`;
+          const t = document.createElement('button');
+          t.className = 'tile';
+          t.textContent = `$${v}`;
+          t.dataset.id = id;
+
+          if (tiles[id]) {
+            t.addEventListener('click', () => {
+              if (gameState === GameState.TILE_SELECTION && currentTurn === 'player' && !tiles[id].used) {
+                openTile(id, t);
+              }
+            });
+          }
+          r.appendChild(t);
+        });
+      });
+
+      // Select Daily Doubles for this round
+      const candidates = allRoundQuestions.filter(q => q.difficulty >= 3 && q.pointValue >= (roundNum === 1 ? 300 : 600));
+      const numDailyDoubles = roundNum === 1 ? 1 : 2;
+      dailyDoubleIds = [];
+
+      for (let i = 0; i < numDailyDoubles && candidates.length > 0; i++) {
+        const idx = Math.floor(Math.random() * candidates.length);
+        dailyDoubleIds.push(candidates[idx].id);
+        candidates.splice(idx, 1);
+      }
+
+      updateTurnIndicator();
+    }
+
+    function openTile(id, btn) {
+      const data = tiles[id];
+      if (!data || data.used) return;
+
+      data.used = true;
+      btn.classList.add('used');
+      btn.innerHTML = '—';
+      selectBlip();
+
+      const isDailyDouble = dailyDoubleIds.includes(id);
+
+      if (isDailyDouble) {
+        showDailyDouble(data);
+      } else {
+        showQuestion(data);
+      }
+    }
+
+    function aiSelectTile() {
+      const availableTiles = Object.values(tiles).filter(t => !t.used);
+      if (availableTiles.length === 0) {
+        if (currentRound === 1) {
+          startRound2();
+        } else {
+          openFinalJeopardy();
+        }
+        return;
+      }
+
+      gameState = GameState.TILE_SELECTION;
+      updateTurnIndicator();
+
+      availableTiles.forEach(t => {
+        const btn = document.querySelector(`[data-id="${t.id}"]`);
+        if (btn) btn.classList.add('ai-thinking');
+      });
+
+      setTimeout(() => {
+        if (gameState === GameState.GAME_OVER) return; // Prevent AI from forcing a tile open if session ended
+
+        let selected;
+        if (aiScore < playerScore - 300) {
+          const highValue = availableTiles.filter(t => t.pointValue >= (currentRound === 1 ? 400 : 800));
+          selected = highValue.length > 0 ? highValue[Math.floor(Math.random() * highValue.length)] : availableTiles[0];
+        } else {
+          selected = availableTiles[Math.floor(Math.random() * availableTiles.length)];
+        }
+
+        availableTiles.forEach(t => {
+          const btn = document.querySelector(`[data-id="${t.id}"]`);
+          if (btn) btn.classList.remove('ai-thinking');
+        });
+
+        const btn = document.querySelector(`[data-id="${selected.id}"]`);
+        openTile(selected.id, btn);
+      }, 1000 + Math.random() * 1000);
+    }
+
+    function startRound2() {
+      gameState = GameState.ROUND_TRANSITION;
+
+      // Determine who starts Round 2 (lower score)
+      if (playerScore < aiScore) {
+        currentTurn = 'player';
+      } else if (aiScore < playerScore) {
+        currentTurn = 'ai';
+      } else {
+        currentTurn = 'player';
+      }
+
+      transitionTitle.textContent = 'DOUBLE JEOPARDY';
+      transitionSubtitle.textContent = 'All values are doubled! ' + (currentTurn === 'player' ? 'You start this round!' : 'AI starts this round!');
+      roundTransition.classList.add('show');
+      buzzSound();
+      setAceEmotion('talk2');
+
+      setTimeout(() => {
+        if (gameState === GameState.GAME_OVER) return;
+
+        roundTransition.classList.remove('show');
+        roundIndicator.textContent = 'ROUND 2: DOUBLE JEOPARDY';
+
+        // Load Round 2 categories (second set of 3)
+        const allCategoryNames = Object.keys(QUESTION_BANK).filter(k => k !== "FINAL");
+        const round2Categories = allCategoryNames.slice(3, 6);
+
+        loadRound(round2Categories, 2);
+
+        gameState = GameState.TILE_SELECTION;
+        updateTurnIndicator();
+
+        if (currentTurn === 'ai') {
+          setTimeout(() => {
+            if (gameState !== GameState.GAME_OVER) aiSelectTile();
+          }, 1000);
+        }
+      }, 3000);
+    }
+
+    function showDailyDouble(data) {
+      currentQ = data;
+      const isDDOwner = currentTurn;
+
+      ddModal.classList.add('show');
+      $('#ddWho').innerHTML = isDDOwner === 'player'
+        ? '<div style="color:var(--player);font-weight:700">You found the Daily Double!</div>'
+        : '<div style="color:var(--ai);font-weight:700">AI found the Daily Double!</div>';
+
+      const score = isDDOwner === 'player' ? playerScore : aiScore;
+      $('#ddScoreDisplay').innerHTML = `Current Score: <b class="kpi">$${score}</b>`;
+
+      if (isDDOwner === 'player') {
+        const maxWager = Math.max(currentRound === 1 ? 1000 : 2000, score);
+        $('#ddWagerSection').innerHTML = `
+      <div>Wager an amount (min $100, max $${maxWager}):</div>
+      <div class="input"><span>$</span><input id="ddWagerInput" type="number" min="100" max="${maxWager}" value="${Math.min(maxWager, currentRound === 1 ? 500 : 1000)}" step="50"></div>
+    `;
+        $('#ddButtons').innerHTML = '<button id="ddStartBtn" class="btn">Answer Question</button>';
+        $('#ddStartBtn').addEventListener('click', () => {
+          const wager = Math.max(100, Math.min(maxWager, Number($('#ddWagerInput').value) || 100));
+          ddModal.classList.remove('show');
+          showQuestion(data, true, wager);
+        });
+      } else {
+        const maxWager = Math.max(currentRound === 1 ? 1000 : 2000, score);
+        const aiWager = Math.floor(maxWager * (0.3 + Math.random() * 0.5));
+        $('#ddWagerSection').innerHTML = `<div>AI is considering their wager...</div>`;
+        $('#ddButtons').innerHTML = '';
+
+        setTimeout(() => {
+          if (gameState === GameState.GAME_OVER) return;
+          $('#ddWagerSection').innerHTML = `<div>AI wagers: <b class="kpi">$${aiWager}</b></div>`;
+          setTimeout(() => {
+            if (gameState === GameState.GAME_OVER) return;
+            ddModal.classList.remove('show');
+            showQuestion(data, true, aiWager);
+          }, 1500);
+        }, 2000);
+      }
+    }
+
+    function showQuestion(data, isDailyDouble = false, ddWager = 0) {
+      currentQ = data;
+      gameState = GameState.QUESTION_READING;
+      buzzWinner = null;
+      currentDDWager = isDailyDouble ? ddWager : 0; // remember DD wager
+
+      qCard.classList.add('show');
+
+      // Use stored category instead of parsing the id
+      const catName = data.category;
+      qCat.textContent = catName;
+      qValue.textContent = '$' + data.pointValue;
+      qText.textContent = data.question;
+      choices.innerHTML = '';
+      hideAceDialogue();
+      closeQ.classList.add('hidden');
+      buzzSection.classList.add('hidden');
+      buzzSection.style.display = 'none';
+      ddBadge.style.display = isDailyDouble ? 'inline-block' : 'none';
+
+      if (isDailyDouble) {
+        qTimer.style.visibility = 'visible';
+        startAnswerTimer(data.timeLimit || 15);
+
+        setTimeout(() => {
+          if (gameState === GameState.GAME_OVER) return;
+          gameState = GameState.ANSWERING;
+          showAnswerChoices(isDailyDouble, ddWager);
+        }, 2000);
+      } else {
+        qTimer.style.visibility = 'hidden';
+
+        setTimeout(() => {
+          if (gameState === GameState.GAME_OVER) return;
+          gameState = GameState.BUZZER_ACTIVE;
+          showBuzzerSection();
+        }, 500); // reduced from 3000 to 500ms so the mechanic starts almost immediately
+      }
+    }
+
+    let aceProgressInterval = null;
+
+    function showBuzzerSection() {
+      // Make sure it's visible before removing hidden class
+      buzzSection.style.display = 'flex';
+      buzzSection.classList.remove('hidden');
+
+      playerBuzz.className = 'pixel-buzzer'; // reset classes, removing disabled, pressed, won states
+      $('#buzzerText').textContent = "BUZZ";
+      $('#buzzerText').style.display = 'block';
+      $('#buzzerAceFace').style.display = 'none';
+
+      buzzSound();
+      setAceEmotion('thinking');
+
+      const aiSettings = AI_DIFFICULTY[currentDifficulty];
+      const aiReactionTime = aiSettings.reactionMin + Math.random() * (aiSettings.reactionMax - aiSettings.reactionMin);
+
+      let playerBuzzed = false;
+
+      playerBuzz.onpointerdown = () => {
+        if (gameState !== GameState.BUZZER_ACTIVE || playerBuzzed) return;
+        playerBuzz.classList.add('pressed');
+      };
+
+      // Handle pointer up/leave to trigger buzz
+      const handleBuzz = () => {
+        if (gameState !== GameState.BUZZER_ACTIVE || playerBuzzed) return;
+        playerBuzzed = true;
+        buzzWinner = 'player';
+        if (aiBuzzTimeout) clearTimeout(aiBuzzTimeout);
+        handleBuzzWin();
+      };
+
+      playerBuzz.onpointerup = handleBuzz;
+
+      aiBuzzTimeout = setTimeout(() => {
+        if (gameState === GameState.BUZZER_ACTIVE && !playerBuzzed) {
+          buzzWinner = 'ai';
+          handleBuzzWin();
+        }
+      }, aiReactionTime);
+    }
+
+    function handleBuzzWin() {
+      gameState = GameState.ANSWERING;
+      buzzSound();
+
+      playerBuzz.classList.add('disabled');
+      playerBuzz.classList.remove('pressed');
+
+      if (buzzWinner === 'player') {
+        playerBuzz.classList.add('player-won');
+        $('#buzzerText').textContent = "YOU!";
+        setAceEmotion('concerned');
+      } else {
+        playerBuzz.classList.add('ai-won');
+        $('#buzzerText').style.display = 'none';
+        $('#buzzerAceFace').style.display = 'block';
+        setAceEmotion('proud');
+      }
+
+      // Keep it on screen for 1.2 seconds so user sees who won, then hide it entirely
+      setTimeout(() => {
+        if (gameState === GameState.GAME_OVER) return;
+        buzzSection.style.display = 'none';
+        qTimer.style.visibility = 'visible';
+        startAnswerTimer(currentQ.timeLimit || 10);
+        showAnswerChoices(false, 0);
+      }, 1200);
+    }
+
+    function showAnswerChoices(isDailyDouble, ddWager) {
+      choices.innerHTML = '';
+
+      currentQ.answers.forEach((t, idx) => {
+        const b = document.createElement('button');
+        b.className = 'choice';
+        b.innerHTML = '<strong>' + String.fromCharCode(65 + idx) + '.</strong> ' + t;
+        b.dataset.idx = idx;
+
+        if (isDailyDouble) {
+          if (currentTurn === 'player') {
+            b.addEventListener('click', () => handleAnswer(idx, true, ddWager));
+          } else {
+            b.disabled = true;
+          }
+        } else {
+          if (buzzWinner === 'player') {
+            b.addEventListener('click', () => handleAnswer(idx, false, 0));
+          } else {
+            b.disabled = true;
+          }
+        }
+
+        choices.appendChild(b);
+      });
+
+      if ((isDailyDouble && currentTurn === 'ai') || (!isDailyDouble && buzzWinner === 'ai')) {
+        const aiSettings = AI_DIFFICULTY[currentDifficulty];
+        const thinkTime = 1000 + Math.random() * 2000;
+
+        setTimeout(() => {
+          if (gameState === GameState.GAME_OVER) return;
+          const correctAnswer = currentQ.correctIndex;
+          let aiAnswer;
+
+          if (Math.random() < aiSettings.accuracy) {
+            aiAnswer = correctAnswer;
+          } else {
+            const wrongAnswers = [0, 1, 2, 3].filter(i => i !== correctAnswer);
+            aiAnswer = wrongAnswers[Math.floor(Math.random() * wrongAnswers.length)];
+          }
+
+          handleAnswer(aiAnswer, isDailyDouble, ddWager);
+        }, thinkTime);
+      }
+    }
+
+    function handleAnswer(answerIdx, isDailyDouble, ddWager) {
+      if (!currentQ) return;
+      stopTimer();
+      gameState = GameState.SHOWING_RESULT;
+
+      [...choices.children].forEach(b => b.disabled = true);
+
+      const correct = currentQ.correctIndex;
+      const isCorrect = (answerIdx === correct);
+      const answerer = isDailyDouble ? currentTurn : buzzWinner;
+      const value = isDailyDouble ? ddWager : currentQ.pointValue;
+      const wasTimeout = answerIdx === -1;
+
+      // Track cumulative stats for EVERY tile (player or Ace)
+      trackJeopardyTile(answerer === 'player' && isCorrect, answerer === 'player' && isCorrect ? value : 0);
+
+      // Detailed tracking for player answers
+      if (answerer === 'player') {
+        questionsAnswered++;
+        if (isCorrect) questionsCorrect++;
+
+        // Track LO mastery using best percentage system
+        if (currentQ.learningObjective) {
+          trackLOFromJeopardy(currentQ, isCorrect);
+        }
+
+        // Cloud tracking for Jeopardy
+        if (window.jeopardyTracker && currentQ.learningObjective) {
+          window.jeopardyTracker.recordQuestion({
+            questionId: currentQ.id || `jeo-${Date.now()}`,
+            loId: currentQ.learningObjective,
+            isCorrect: isCorrect,
+            userAnswer: answerIdx,
+            correctAnswer: correct,
+            points: value
+          });
+        }
+
+        sendAnalyticsEvent('question_answered', {
+          correct: isCorrect,
+          category: currentQ.category || 'general',
+          module: 'jeopardy'
+        });
+
+        // ── Supabase Cloud Tracking ──
+        try {
+          if (window.AceSupabase && typeof window.AceSupabase.trackQuestionEvent === 'function') {
+            window.AceSupabase.trackQuestionEvent({
+              lessonId: 'jeopardy',
+              questionId: currentQ.id || `jeo-${Date.now()}`,
+              format: 'jeopardy',
+              loId: currentQ.learningObjective || null,
+              category: currentQ.category || null,
+              selectedIndex: answerIdx,
+              correctIndex: correct,
+              isCorrect: isCorrect,
+              points: isCorrect ? value : -value
+            });
+          }
+        } catch (e) { console.warn('[Jeopardy] Supabase tracking error:', e); }
+      }
+
+      if (isCorrect) {
+        choices.children[correct].classList.add('correct');
+        if (answerer === 'player') {
+          playerScore += value;
+          pScore.textContent = '$' + playerScore;
+        } else {
+          aiScore += value;
+          aiScoreEl.textContent = '$' + aiScore;
+        }
+        chordOK();
+        celebrate();
+        currentTurn = answerer;
+      } else {
+        if (answerIdx >= 0 && choices.children[answerIdx]) choices.children[answerIdx].classList.add('wrong');
+        choices.children[correct].classList.add('correct');
+        if (answerer === 'player') {
+          playerScore -= value;
+          pScore.textContent = '$' + playerScore;
+        } else {
+          aiScore -= value;
+          aiScoreEl.textContent = '$' + aiScore;
+        }
+        buzzer();
+
+        if (!isDailyDouble) {
+          currentTurn = answerer === 'player' ? 'ai' : 'player';
+        }
+      }
+
+      showExplanation(currentQ, isCorrect, answerer, wasTimeout);
+      // closeQ is no longer shown here; the Ace Dialogue "Got It" button handles continuation.
+    }
+
+    function showExplanation(question, wasCorrect, answerer, wasTimeout = false) {
+      // Helper to pick random dialogue
+      const pick = arr => arr[Math.floor(Math.random() * arr.length)];
+
+      // Determine the right dialogue
+      let dialogue;
+
+      if (wasTimeout) {
+        dialogue = pick(ACE_DIALOGUE.timeout);
+      } else if (answerer === 'player') {
+        if (wasCorrect) {
+          dialogue = pick(ACE_DIALOGUE.playerCorrect);
+        } else {
+          dialogue = pick(ACE_DIALOGUE.playerWrong);
+        }
+      } else {
+        // Ace answered (won the buzz)
+        dialogue = pick(ACE_DIALOGUE.aceWins);
+      }
+
+      // Explicitly state the correct answer text
+      const correctText = question.answers[question.correctIndex];
+      const answerReveal = `The correct answer is: <strong>${correctText}</strong>`;
+
+      // Use Ace Arena dramatic reveal if available
+      if (typeof AceArena !== 'undefined' && typeof AceArena.showDramaticReveal === 'function') {
+        const isDD = ddBadge.style.display !== 'none';
+        const value = isDD ? currentDDWager : question.pointValue;
+
+        AceArena.showDramaticReveal({
+          isCorrect: wasCorrect,
+          wasTimeout: wasTimeout,
+          answerer: answerer,
+          pointValue: value,
+          dialogue: dialogue,
+          explanation: question.explanation,
+          onDismiss: () => {
+            qCard.classList.remove('show');
+            checkEndOrNext();
+          }
+        });
+      } else {
+        // Fallback to original panel
+        let sprite, mood;
+
+        if (wasTimeout) {
+          sprite = 'disgust';
+          mood = 'concerned';
+        } else if (answerer === 'player') {
+          sprite = wasCorrect ? 'happy' : 'disgust';
+          mood = wasCorrect ? 'happy' : 'default';
+        } else {
+          sprite = 'proud';
+          mood = 'proud';
+        }
+
+        setAceEmotion(sprite);
+        aceDialogue.setAttribute('data-mood', mood);
+
+        if (wasTimeout) {
+          aceResult.textContent = '⏱ Time ran out!';
+          aceResult.className = 'ace-result wrong';
+        } else if (answerer === 'player') {
+          aceResult.textContent = wasCorrect ? '✓ You answered correctly!' : '✗ You answered incorrectly';
+          aceResult.className = 'ace-result ' + (wasCorrect ? 'correct' : 'wrong');
+        } else {
+          aceResult.textContent = '✓ Ace answered correctly!';
+          aceResult.className = 'ace-result correct';
+        }
+
+        aceText.innerHTML = `${dialogue}<br><br>${answerReveal}`;
+        aceExplanationText.textContent = question.explanation;
+        aceDialogue.classList.add('show');
+      }
+    }
+
+    function hideAceDialogue() {
+      aceDialogue.classList.remove('show');
+    }
+
+    // Dismiss button handler (Now acts as the master "Continue" button)
+    document.getElementById('aceDismissBtn')?.addEventListener('click', () => {
+      hideAceDialogue();
+      if (qCard.classList.contains('show')) {
+        qCard.classList.remove('show');
+        checkEndOrNext();
+      }
+    });
+
+    closeQ.addEventListener('click', () => {
+      qCard.classList.remove('show');
+      closeQ.classList.add('hidden');
+      hideAceDialogue();
+      checkEndOrNext();
+    });
+
+
+
+    function checkEndOrNext() {
+      questionsLeft = Object.values(tiles).filter(t => !t.used).length;
+      qLeft.textContent = questionsLeft;
+
+      if (questionsLeft === 0) {
+        if (currentRound === 1) {
+          startRound2();
+        } else {
+          openFinalJeopardy();
+        }
+      } else {
+        gameState = GameState.TILE_SELECTION;
+        updateTurnIndicator();
+
+        if (currentTurn === 'ai') {
+          aiSelectTile();
+        }
+      }
+    }
+
+    function openFinalJeopardy() {
+      gameState = GameState.ROUND_TRANSITION;
+      transitionTitle.textContent = 'FINAL JEOPARDY';
+      transitionSubtitle.textContent = 'Consider your wager carefully. Ace is calculating...';
+      transitionTitle.style.color = '#ef4444';
+      roundTransition.classList.add('show');
+      buzzSound();
+      setAceEmotion('thinking');
+
+      setTimeout(() => {
+        if (gameState === GameState.GAME_OVER) return;
+        roundTransition.classList.remove('show');
+        transitionTitle.style.color = ''; // reset to default
+        roundIndicator.textContent = 'FINAL JEOPARDY';
+
+        gameState = GameState.FINAL_JEOPARDY;
+        fjCat.textContent = QUESTION_BANK.FINAL.cat;
+        fjPScore.textContent = '$' + playerScore;
+        fjAIScore.textContent = '$' + aiScore;
+        fjPWager.max = Math.max(0, playerScore);
+        fjPWager.value = Math.max(0, Math.min(playerScore, Math.floor(playerScore / 2)));
+        fjAIWager.textContent = '$???';
+        fjModal.classList.add('show');
+      }, 3500);
+    }
+
+    fjStart.addEventListener('click', () => {
+      const playerWager = Math.max(0, Math.min(playerScore, Number(fjPWager.value) || 0));
+
+      let aiWager;
+      if (aiScore > playerScore) {
+        aiWager = Math.max(0, Math.min(aiScore, playerScore * 2 - aiScore + 100));
+      } else {
+        aiWager = Math.max(0, aiScore);
+      }
+      aiWager = Math.max(0, Math.min(aiScore, aiWager));
+
+      fjModal.classList.remove('show');
+      renderFinalQuestion(playerWager, aiWager);
+    });
+
+    function renderFinalQuestion(playerWager, aiWager) {
+      finalCard.classList.add('show');
+      finalCat.textContent = QUESTION_BANK.FINAL.cat;
+      finalText.textContent = QUESTION_BANK.FINAL.question;
+      finalChoices.innerHTML = '';
+      finalFeedback.innerHTML = '';
+      closeFinal.classList.add('hidden');
+
+      QUESTION_BANK.FINAL.answers.forEach((t, idx) => {
+        const b = document.createElement('button');
+        b.className = 'choice';
+        b.innerHTML = `<strong>${String.fromCharCode(65 + idx)}.</strong> ${t}`;
+        b.addEventListener('click', () => {
+          handleFinalAnswer(idx, playerWager, aiWager);
+        });
+        finalChoices.appendChild(b);
+      });
+    }
+
+    function handleFinalAnswer(playerAnswerIdx, playerWager, aiWager) {
+      [...finalChoices.children].forEach(b => b.disabled = true);
+
+      const correct = QUESTION_BANK.FINAL.correctIndex;
+      const playerCorrect = (playerAnswerIdx === correct);
+
+      const aiSettings = AI_DIFFICULTY[currentDifficulty];
+      const aiCorrect = Math.random() < (aiSettings.accuracy * 0.85);
+
+      finalChoices.children[playerAnswerIdx].classList.add(playerCorrect ? 'correct' : 'wrong');
+      if (!playerCorrect) {
+        finalChoices.children[correct].classList.add('correct');
+      }
+
+      if (playerCorrect) {
+        playerScore += playerWager;
+      } else {
+        playerScore -= playerWager;
+      }
+
+      if (aiCorrect) {
+        aiScore += aiWager;
+      } else {
+        aiScore -= aiWager;
+      }
+
+      pScore.textContent = '$' + playerScore;
+      aiScoreEl.textContent = '$' + aiScore;
+
+      const expDiv = document.createElement('div');
+      expDiv.className = 'explanation';
+      expDiv.innerHTML = `
+    <h4>Final Jeopardy Results</h4>
+    <p><strong>Your answer:</strong> ${playerCorrect ? '✓ Correct!' : '✗ Incorrect'} (Wagered $${playerWager})</p>
+    <p><strong>AI answer:</strong> ${aiCorrect ? '✓ Correct!' : '✗ Incorrect'} (Wagered $${aiWager})</p>
+    <p><strong>Explanation:</strong> ${QUESTION_BANK.FINAL.explanation}</p>
+    ${QUESTION_BANK.FINAL.reference ? `<p><small>📚 Reference: ${QUESTION_BANK.FINAL.reference}</small></p>` : ''}
+  `;
+      finalFeedback.appendChild(expDiv);
+
+      if (playerCorrect) chordOK();
+      else buzzer();
+
+      closeFinal.classList.remove('hidden');
+    }
+
+    closeFinal.addEventListener('click', () => {
+      finalCard.classList.remove('show');
+      endGame();
+    });
+
+    async function endGame() {
+      gameState = GameState.GAME_OVER;
+      gameEndModal.classList.add('show');
+
+      endPlayerScore.textContent = '$' + playerScore;
+      endAIScore.textContent = '$' + aiScore;
+
+      // Complete cloud tracking
+      if (window.jeopardyTracker && typeof window.jeopardyTracker.recordGameEnd === 'function') {
+        try {
+          window.jeopardyTracker.recordGameEnd({ questionsAnswered: 0, questionsCorrect: 0 }).then(results => {
+            console.log('☁️ Jeopardy cloud tracking complete:', results);
+          }).catch(e => console.log('Cloud tracking skipped:', e.message));
+        } catch (e) { console.log('Cloud tracking skipped'); }
+      }
+
+      // ── Supabase Session Summary ──
+      try {
+        if (window.AceSupabase && typeof window.AceSupabase.trackSessionSummary === 'function') {
+          window.AceSupabase.trackSessionSummary({
+            lessonId: 'jeopardy',
+            format: 'jeopardy',
+            questionsSeen: questionsAnswered || 0,
+            questionsCorrect: questionsCorrect || 0,
+            durationSec: null
+          });
+        }
+      } catch (e) { console.warn('[Jeopardy] Session summary tracking error:', e); }
+
+      const pick = arr => arr[Math.floor(Math.random() * arr.length)];
+
+      const didWin = playerScore > aiScore;
+
+      // Track cumulative stats for summary page
+      trackJeopardyGameEnd(didWin);
+
+      if (didWin) {
+        endGameTitle.innerHTML = '<span style="font-size:3rem;color:#10b981;text-shadow:0 0 20px #10b981;display:block;margin-bottom:10px;">🏆 YOU CRUSHED ACE!</span>';
+        endGameMessage.textContent = pick(ACE_DIALOGUE.gameWinPlayer);
+        endGameMessage.style.fontSize = '1.5rem';
+        endGameMessage.style.color = 'var(--gold)';
+        celebrate();
+      } else if (aiScore > playerScore) {
+        endGameTitle.innerHTML = '<span style="font-size:3rem;color:#ef4444;text-shadow:0 0 20px #ef4444;display:block;margin-bottom:10px;">💀 ACE DESTROYED YOU!</span>';
+        endGameMessage.textContent = pick(ACE_DIALOGUE.gameWinAce);
+        endGameMessage.style.fontSize = '1.5rem';
+        endGameMessage.style.color = '#ef4444';
+        endGameMessage.style.fontWeight = '800';
+        devastate();
+      } else {
+        endGameTitle.innerHTML = '<span style="font-size:2.5rem;color:#eab308;text-shadow:0 0 20px #eab308;display:block;margin-bottom:10px;">🤝 IT\'S A STANDOFF!</span>';
+        endGameMessage.textContent = pick(ACE_DIALOGUE.gameTie);
+        endGameMessage.style.fontSize = '1.2rem';
+      }
+
+      // Auto-report score to parent page for gamification
+      reportJeopardyScore(playerScore, aiScore);
+    }
+
+    function startAnswerTimer(timeLimit) {
+      stopTimer();
+      TMAX = timeLimit;
+      t = TMAX;
+      tLeft.textContent = t;
+      tFill.style.transition = 'none';
+      tFill.style.width = '100%';
+      void tFill.offsetWidth;
+      tFill.style.transition = 'width 1s linear';
+
+      // Start thinking music if available
+      if (typeof AceArena !== 'undefined' && typeof AceArena.startThinkingMusic === 'function' && soundOn) {
+        AceArena.startThinkingMusic();
+      }
+
+      tInt = setInterval(() => {
+        t--;
+        tLeft.textContent = t;
+        const percent = (t / TMAX) * 100;
+        tFill.style.width = percent + '%';
+        if (t <= 5 && t > 0) tick();
+        if (t <= 0) {
+          stopTimer();
+          const isDD = ddBadge.style.display !== 'none';
+          handleAnswer(-1, isDD, isDD ? currentDDWager : 0); // use stored DD wager on timeout
+        }
+      }, 1000);
+    }
+
+    function stopTimer() {
+      clearInterval(tInt);
+      tInt = null;
+      // Stop thinking music if playing
+      if (typeof AceArena !== 'undefined' && typeof AceArena.stopThinkingMusic === 'function') {
+        AceArena.stopThinkingMusic();
+      }
+    }
+
+    muteBtn.addEventListener('click', () => {
+      soundOn = !soundOn;
+      muteBtn.textContent = soundOn ? '🔈 Sound' : '🔇 Muted';
+      // Sync with AceArena
+      if (typeof AceArena !== 'undefined') {
+        AceArena.setSoundEnabled(soundOn);
+      }
+    });
+
+
+
+    // Return to dashboard (back button / standalone fallback)
+    function returnToDashboard() {
+      try {
+        if (window.parent && window.parent !== window) {
+          window.parent.postMessage({ type: 'ACE_CLOSE' }, '*');
+          return;
+        }
+      } catch (e) { }
+      // Always go back to practice page
+      window.location.href = _backUrl;
+    }
+
+    // End Session button
+    document.getElementById('endSessionBtn').addEventListener('click', () => {
+      if (confirm('End this session and return to Practice?')) {
+        gameState = GameState.GAME_OVER;
+        stopTimer();
+        if (aiBuzzTimeout) clearTimeout(aiBuzzTimeout);
+
+        // Log stats before leaving
+        try {
+          trackJeopardyGameEnd(playerScore > aiScore);
+          if (window.jeopardyTracker && typeof window.jeopardyTracker.recordGameEnd === 'function') {
+            window.jeopardyTracker.recordGameEnd({ questionsAnswered: 0, questionsCorrect: 0 }).catch(function () { });
+          }
+          reportJeopardyScore(playerScore, aiScore);
+        } catch (e) { console.log('Stats save error:', e); }
+
+        // Go back to practice
+        window.location.href = _backUrl;
+      }
+    });
+
+    finalRestartBtn.addEventListener('click', init);
+
+    document.addEventListener('click', () => { ensureAudio(); }, { once: true });
+
+    // init() is called after JSON loads - see loadJeopardyQuestions() at top of script
+
+    // ============================================================================
+    // ANALYTICS EVENT SYSTEM
+    // Sends performance data to parent index for dashboard
+    // ============================================================================
+
+    function sendAnalyticsEvent(event, data) {
+      try {
+        window.parent.postMessage({
+          type: 'ACE_ANALYTICS',
+          event: event,
+          ...data
+        }, '*');
+      } catch (e) {
+        console.warn('Could not send analytics event:', e);
+      }
+    }
+
+    // ============================================================================
+    // ROBUST GAMIFICATION HANDSHAKE SYSTEM
+    // 3-layer approach: Direct call → localStorage → postMessage
+    // ============================================================================
+
+    const COMPLETION_STORAGE_KEY = 'ace_module_completions';
+
+    /**
+     * Save completion data to localStorage (Layer 2)
+     */
+    function saveCompletionToStorage(moduleName, score, stats) {
+      try {
+        const completions = JSON.parse(localStorage.getItem(COMPLETION_STORAGE_KEY) || '{}');
+        completions[moduleName] = {
+          score: score,
+          stats: stats,
+          timestamp: Date.now(),
+          synced: false
+        };
+        localStorage.setItem(COMPLETION_STORAGE_KEY, JSON.stringify(completions));
+        console.log('💾 Saved completion to localStorage:', moduleName, score + '%');
+      } catch (e) {
+        console.warn('Could not save to localStorage:', e);
+      }
+    }
+
+    /**
+     * Send completion via postMessage (Layer 3)
+     */
+    function sendCompletionMessage(moduleName, score, stats) {
+      try {
+        const message = {
+          type: 'ACE_MODULE_COMPLETE',
+          module: moduleName,
+          score: score,
+          stats: stats,
+          timestamp: Date.now()
+        };
+
+        if (window.parent && window.parent !== window) {
+          window.parent.postMessage(message, '*');
+          console.log('📤 Sent postMessage to parent:', moduleName, score + '%');
+        }
+      } catch (e) {
+        console.warn('Could not send postMessage:', e);
+      }
+    }
+
+    /**
+     * Main handshake function - tries all 3 layers
+     */
+    function reportModuleCompletion(moduleName, score, stats) {
+      console.log('🎮 Reporting module completion:', moduleName, score + '%');
+
+      let directCallSuccess = false;
+
+      // Layer 1: Direct parent function call
+      try {
+        if (window.parent && window.parent.completeModule && typeof window.parent.completeModule === 'function') {
+          window.parent.completeModule(moduleName, score);
+          directCallSuccess = true;
+          console.log('✅ Layer 1 SUCCESS: Direct parent call');
+        }
+      } catch (e) {
+        console.log('⚠️ Layer 1 FAILED: Direct parent call -', e.message);
+      }
+
+      // Layer 2: localStorage (persistent backup)
+      saveCompletionToStorage(moduleName, score, stats);
+      console.log('✅ Layer 2: localStorage saved');
+
+      // Layer 3: postMessage (cross-origin safe)
+      sendCompletionMessage(moduleName, score, stats);
+      console.log('✅ Layer 3: postMessage sent');
+
+      // === GAMIFICATION: Award XP and check badges ===
+      try {
+        if (typeof GameEngine !== 'undefined') {
+          // XP for playing: 25 base + 50 if won
+          let totalXP = 25;
+          if (stats && stats.playerScore > stats.aiScore) {
+            totalXP += 50; // Won against Ace
+            GameEngine.updateBadgeProgress('ace-slayer', 1);
+          }
+
+          GameEngine.awardXP(totalXP, 'jeopardy', { lessonId: LESSON_ID });
+          console.log('🎮 Awarded ' + totalXP + ' XP for Jeopardy');
+
+          // Notify parent window about XP update
+          if (window.parent && window.parent !== window) {
+            window.parent.postMessage({
+              type: 'XP_UPDATED',
+              lessonId: LESSON_ID,
+              awarded: totalXP,
+              totalXP: GameEngine.getTotalXP()
+            }, '*');
+          }
+
+          // Check for first activity badge
+          GameEngine.unlockBadge('first-steps');
+        }
+      } catch (e) {
+        console.log('GameEngine not available:', e.message);
+      }
+
+      return directCallSuccess;
+    }
+
+    /**
+     * Legacy function - now uses robust handshake
+     */
+    function reportJeopardyScore(pScore, aScore) {
+      const totalScore = pScore + aScore;
+      const percentage = totalScore > 0 ? Math.round((pScore / totalScore) * 100) : 0;
+      const playerWon = pScore > aScore;
+
+      // Send to parent for progression tracking
+      try {
+        if (window.parent && window.parent !== window) {
+          window.parent.postMessage({
+            type: 'ACE_JEOPARDY_RESULT',
+            playerWon: playerWon,
+            playerScore: pScore,
+            aiScore: aScore,
+            stats: {
+              questionsAnswered: questionsAnswered,
+              questionsCorrect: questionsCorrect
+            }
+          }, '*');
+        }
+      } catch (e) {
+        console.log('Could not post to parent:', e);
+      }
+
+      reportModuleCompletion(GLOBAL_CAT_ID, percentage, {
+        playerScore: pScore,
+        aiScore: aScore,
+        playerWon: playerWon,
+        difficulty: currentDifficulty
+      });
+    }
+
+    /**
+     * Finish Session - called from the Finish Session button
+     */
+    function finishJeopardySession() {
+      const totalScore = playerScore + aiScore;
+      const percentage = totalScore > 0 ? Math.round((playerScore / totalScore) * 100) : 0;
+      const winner = playerScore > aiScore ? 'You won!' : (aiScore > playerScore ? 'AI won!' : 'Tie game!');
+
+      // Report through all 3 layers
+      reportModuleCompletion(GLOBAL_CAT_ID, percentage, {
+        playerScore: playerScore,
+        aiScore: aiScore,
+        difficulty: currentDifficulty,
+        winner: winner
+      });
+
+      // Dismiss any game overlays before navigation
+      if (typeof window.dismissAllGameOverlays === 'function') {
+        window.dismissAllGameOverlays();
+      }
+
+      // Try to return to hub if embedded, otherwise navigate to index
+      try {
+        if (window.parent && window.parent !== window && window.parent.showTab) {
+          window.parent.showTab('home');
+        } else {
+          // Standalone mode - navigate back to module index
+          returnToDashboard();
+        }
+      } catch (e) {
+        // Running in standalone mode - navigate back
+        returnToDashboard();
+      }
+    }
+
+    // Wire up Finish Session button
+    document.getElementById('finishSessionBtn').addEventListener('click', finishJeopardySession);
+
+    // Save on page unload (catch unexpected closes)
+    window.addEventListener('beforeunload', function () {
+      if (gameState === GameState.GAME_OVER || playerScore > 0 || aiScore > 0) {
+        const totalScore = playerScore + aiScore;
+        const percentage = totalScore > 0 ? Math.round((playerScore / totalScore) * 100) : 0;
+        saveCompletionToStorage(GLOBAL_CAT_ID, percentage, {
+          playerScore: playerScore,
+          aiScore: aiScore,
+          difficulty: currentDifficulty
+        });
+
+        // Award XP via GameEngine even on early exit
+        if (typeof GameEngine !== 'undefined') {
+          let xp = 25; // Base XP for playing
+          if (playerScore > aiScore) xp += 50; // Win bonus
+          GameEngine.awardXP(xp, 'Jeopardy');
+        }
+      }
+    });
+
+    window.reportJeopardyScore = reportJeopardyScore;
+    window.finishJeopardySession = finishJeopardySession;
+  </script>
+  <!-- LO Mastery Tracker -->
+  <script src="js/lo-mastery-tracker.js"></script>
+
+  <!-- ============ SUPABASE CLOUD TRACKING ============ -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/supabase-client.js"></script>
+  <script src="js/assessment-tracker.js"></script>
+</body>
+
+</html>

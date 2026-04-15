@@ -1,0 +1,780 @@
+{
+  "meta": {
+    "character": "Ace",
+    "version": "5.0",
+    "lastUpdated": "2025-11",
+    "personality": "Crusty, no-nonsense 28-year avionics veteran. Old school hardass who busts chops because he gives a damn. Zero patience for excuses. Dry humor. Says what needs to be said. Coffee-powered. Has seen everything twice.",
+    "note": "Consolidated dialogue file - all Ace dialogue should be loaded from here. v5.0: Major expansion of wisdom, humor, and war stories."
+  },
+  "welcome": {
+    "index_first_visit": [
+      "Alright, listen up. I'm Ace. Twenty-eight years in avionics — Navy, commercial, now training techs who think YouTube makes them experts. Spoiler: it doesn't.",
+      "Four modules. One final test. Sixty percent to pass each. Don't look at me like that — sixty isn't hard if you actually do the work.",
+      "Questions? Save 'em. You'll figure it out or you won't. Let's go."
+    ],
+    "index_return_progress": [
+      "You're back. That's something.",
+      "Look who decided to show up. Ready to work or just visiting?",
+      "Back at it. Good. Consistency beats talent every time — and you're gonna need both."
+    ],
+    "index_return_low": [
+      "Been a while. Your scores didn't improve while you were gone. Funny how that works.",
+      "Oh, you remembered this exists? Let's shake off the rust. Pick a module."
+    ],
+    "index_all_complete": [
+      "All four modules done. The Final Challenge is unlocked. You ready, or you need to go think about your feelings first?",
+      "Training complete. Final test is waiting. No pressure... actually, all the pressure. That's the point."
+    ],
+    "classroom": [
+      "Classroom. Theory before practice. You can't troubleshoot what you don't understand — and right now, you don't understand much.",
+      "Take notes. I don't care if it's on paper or carved into stone. Your brain lies to you about what it'll remember."
+    ],
+    "flashcards": [
+      "Flashcards. Vocabulary. Not exciting, but you can't fix what you can't name.",
+      "Rate yourself honest. 'Easy' means you could teach it. 'Difficult' means we've got work to do. Don't lie to yourself — I'll find out."
+    ],
+    "practice": [
+      "Practice mode. This is where we find out what you actually know versus what you think you know. There's usually a gap. A big one.",
+      "Self-assessment time. Be honest. The only person you're cheating is yourself. And future you has to live with that."
+    ],
+    "jeopardy": [
+      "Jeopardy. You versus the AI. The AI doesn't get nervous, doesn't second-guess, doesn't make excuses. Be more like the AI.",
+      "Game time. Pick your battles smart. Or don't. I'm not your mother."
+    ],
+    "jeopardy_specific": {
+      "player_correct": [
+        "Good pull.",
+        "Exactly.",
+        "That's how it's done.",
+        "Nice shot."
+      ],
+      "player_wrong": [
+        "Not even close.",
+        "Wrong. I'll take that.",
+        "Missed it.",
+        "That's a negative."
+      ],
+      "player_wins": [
+        "You actually beat me. I'm impressed, and I don't say that often. Outstanding work.",
+        "Alright, you crushed it. Don't let it go to your head, but that was a solid performance.",
+        "You win. Enjoy the victory. Tomorrow, we get back to work."
+      ],
+      "player_loses": [
+        "I warned you I didn't hold back. Back to the books, kid.",
+        "You got destroyed. That's what happens when you don't know the material cold. Study up.",
+        "Not your day. And by that I mean, you need to study a lot more."
+      ],
+      "game_tie": [
+        "A tie? I didn't think that was possible. I must be getting soft.",
+        "A standoff. I'll let you have this one, but next time I'm taking you down."
+      ],
+      "timeout": [
+        "Too slow. The clock is your enemy.",
+        "Time's up. You have to know it faster than that."
+      ],
+      "ace_wins_buzz": [
+        "Too slow.",
+        "My point.",
+        "Got you.",
+        "I'll take that."
+      ],
+      "player_beat_ace": [
+        "Fast hands.",
+        "You beat me to it.",
+        "Quick on the draw."
+      ]
+    },
+    "finaltest": [
+      "This is it. Everything comes down to the next 45 minutes. You either did the work or you didn't. We're about to find out.",
+      "Thirty questions. Seventy percent to pass. No excuses, no do-overs on the clock. You don't rise to the occasion — you fall to your level of training."
+    ]
+  },
+  "correct": {
+    "quick": [
+      "Correct.",
+      "That's the one.",
+      "Yep.",
+      "Right.",
+      "There you go.",
+      "Finally."
+    ],
+    "encouraging": [
+      "See? You're not hopeless.",
+      "Look at that. You can be taught.",
+      "Not bad. Do it again.",
+      "Okay, now do that nine more times.",
+      "Progress. Slow progress, but progress."
+    ],
+    "impressed": [
+      "Outstanding. Don't let it go to your head.",
+      "Alright, I'm impressed. Savor it — I don't say that often.",
+      "Clean answer. Maybe there's hope for you yet.",
+      "That's the kind of answer that keeps aircraft flying."
+    ]
+  },
+  "incorrect": {
+    "supportive": [
+      "Wrong. Now we know where you're weak. That's useful.",
+      "Missed it. That's why we practice here and not on someone's aircraft.",
+      "Nope. Going on your weak list. We'll be back.",
+      "Wrong answer, right attitude. Keep going."
+    ],
+    "teaching": [
+      "Common mistake. Here's how I remember it...",
+      "A lot of techs miss that one. The trick is to actually read the question.",
+      "I got that wrong too, twenty years ago. Then I learned. Your turn."
+    ],
+    "hard_ass": [
+      "The world needs ditch diggers... and today you're holding the shovel.",
+      "One day you'll get it. Today's not that day.",
+      "If you're gonna be dumb, you better be tough.",
+      "You don't get extra points for doing it wrong quickly.",
+      "Wrong. Try again. Or don't. The aircraft doesn't care about your feelings.",
+      "That answer would get you fired. Good thing this is practice."
+    ],
+    "after_multiple": [
+      "Rough patch. If you're uncomfortable, congratulations — you're learning.",
+      "Few misses in a row. Good. Now you know exactly where you're weak.",
+      "Struggling? The only easy day was yesterday. And it wasn't easy.",
+      "You can complain or you can improve. Choose one."
+    ]
+  },
+  "streaks": {
+    "3": [
+      "Three in a row. Don't celebrate yet.",
+      "Three straight. Keep going.",
+      "Hat trick. Now do it again."
+    ],
+    "5": [
+      "Five in a row. Now we're getting somewhere.",
+      "Five straight. Maybe you were paying attention after all.",
+      "Five. Not bad. Not great. Not bad."
+    ],
+    "7": [
+      "Seven? Alright, I see you.",
+      "Seven in a row. That's not luck anymore — that's work.",
+      "Lucky number seven. Except luck isn't a plan. Work is."
+    ],
+    "10": [
+      "Ten in a row. Outstanding.",
+      "Ten straight. That's the kind of consistency that matters.",
+      "Perfect ten. You're in the zone. Don't blow it."
+    ],
+    "15": [
+      "Fifteen? Okay, show-off.",
+      "Fifteen in a row. Maybe I should be taking notes. I'm not. But maybe.",
+      "Fifteen. You're making this look easy. It's only easy when you know what you're doing."
+    ],
+    "20": [
+      "Twenty. In 28 years, I can count on one hand the people who've done that.",
+      "Twenty straight. That's not studying — that's mastery.",
+      "Twenty in a row. Remember this feeling. Chase it."
+    ]
+  },
+  "completion": {
+    "excellent": {
+      "threshold": 90,
+      "messages": [
+        "Outstanding. That's the kind of score that gets noticed.",
+        "Over ninety. That's not luck — that's preparation meeting opportunity.",
+        "Exceptional. I'm proud of you. Don't make me regret saying that.",
+        "That score tells me you actually did the work. Imagine that."
+      ]
+    },
+    "good": {
+      "threshold": 80,
+      "messages": [
+        "Solid work. Eighties are respectable. Now make it comfortable.",
+        "Good score. You know your stuff. Clean up the misses and you're dangerous.",
+        "Strong performance. A few rough edges, but the foundation's there."
+      ]
+    },
+    "passing": {
+      "threshold": 70,
+      "messages": [
+        "You passed. Not pretty, but it counts. Now exceed it.",
+        "Seventy-something. You met the standard. Standards are minimums, not goals.",
+        "Over the line. Take a breath, then look at what you missed."
+      ]
+    },
+    "close": {
+      "threshold": 60,
+      "messages": [
+        "Just under. Close only counts in horseshoes and hand grenades. This ain't either.",
+        "Almost there. Almost doesn't keep aircraft flying.",
+        "Falling short. The world needs ditch diggers... hit that weak list and prove you're not one."
+      ]
+    },
+    "needs_work": {
+      "threshold": 0,
+      "messages": [
+        "Rough session. Better to find out here than on the job. Barely.",
+        "The world needs ditch diggers. Today you're holding the shovel. Tomorrow's a new day.",
+        "Not there yet. Everybody wants to be a tech until it's time to do tech stuff. This is that time.",
+        "That score? That's data. Now do something with it."
+      ]
+    }
+  },
+  "finaltest": {
+    "during": {
+      "flag_question": [
+        "Flagged. Come back with fresh eyes. Or don't. Your call.",
+        "Marked for review. Trust your gut — then verify your gut."
+      ],
+      "time_15": [
+        "Fifteen minutes. Check your pace.",
+        "Quarter hour left. How many flags you sitting on?"
+      ],
+      "time_5": [
+        "Five minutes. Wrap it up.",
+        "Five left. Make your final calls."
+      ],
+      "time_1": [
+        "One minute. Submit what you've got.",
+        "Sixty seconds. Decision time."
+      ]
+    },
+    "passed": {
+      "standard": [
+        "You passed. Nobody gave it to you — you earned it.",
+        "Certification complete. Welcome to the club. Don't embarrass us.",
+        "You passed. Now the real learning starts."
+      ],
+      "high_score": [
+        "Over ninety on the final? That's elite. Outstanding.",
+        "High score on a tough test. Act like you've been there before."
+      ],
+      "perfect": [
+        "Perfect score. In 28 years, I've seen maybe a dozen. You're one of them now.",
+        "One hundred percent. I don't have words. Actually, I do: Outstanding. Now get out there and prove it wasn't a fluke."
+      ]
+    },
+    "failed": {
+      "hard_truth": [
+        "You didn't pass. I'm not gonna sugarcoat it. But this isn't over unless you quit.",
+        "Below seventy. That's the result. The question is what you do with it.",
+        "Failed attempt. Join the club — but don't get comfortable there."
+      ],
+      "guidance": [
+        "Look at your breakdown. Find the weak spots. Attack them. Come back.",
+        "Go back to the training. Focus on what you missed. I'll be here when you're ready.",
+        "You don't rise to the occasion — you fall to your level of training. Go train more."
+      ]
+    }
+  },
+  "random_coffee": [
+    "Hold on. Coffee. ...okay, I'm back. What'd I miss? Nothing? Good.",
+    "This cup's been cold for an hour. Don't care. Still drinking it.",
+    "The coffee machine broke last week. Darkest three days of my career. And I've seen some dark days.",
+    "Three things keep aircraft flying: maintenance, documentation, and mechanics running on caffeine and spite.",
+    "Fun fact: I've never made a wiring mistake after my second cup. Before? Different story.",
+    "You look tired. I'm tired. Difference is, I've been tired for 28 years. You'll get used to it.",
+    "Coffee isn't a beverage. It's a tool. Like a multimeter, but warmer.",
+    "My blood type is French Roast.",
+    "First cup: functional. Second cup: pleasant. Third cup: I might even smile. Don't count on it.",
+    "Decaf is a lie invented by people who've given up on life.",
+    "The Navy taught me two things: how to fix avionics and how to drink coffee that could strip paint.",
+    "I've been drinking coffee since before you were born. It's basically a personality trait now.",
+    "Some people meditate. I have coffee. Same result, better taste.",
+    "My coffee maker has more flight hours than some pilots I know.",
+    "Sleep is just a poor substitute for caffeine.",
+    "You know what pairs well with electronics training? Coffee. You know what pairs well with everything? Coffee."
+  ],
+  "random_wisdom": [
+    "Slow is smooth. Smooth is fast. Rushing just creates more work.",
+    "If it's not documented, it didn't happen. That's not my opinion — that's the FAA's.",
+    "The aircraft doesn't care about your feelings. It cares about physics.",
+    "Trust your training. That's what it's for.",
+    "Don't tell me what you think. Show me what you measured.",
+    "You can watch or you can learn — you don't get to do both at the same time.",
+    "You're not paid to think — you're paid to think correctly.",
+    "This ain't rocket science... but it is avionics.",
+    "Act like a professional even on the days you don't feel like one.",
+    "I'm not yelling — I'm projecting experience.",
+    "ESD straps are cheaper than avionics boxes. Put it on.",
+    "Luck isn't a plan. Work is.",
+    "The manual exists for a reason. Read it. Then read it again.",
+    "Every shortcut has a price. Most of them aren't worth it.",
+    "You can't troubleshoot what you don't understand. Learn the theory.",
+    "Pride in your work isn't optional. It's the difference between a tech and a professional.",
+    "Measure twice, cut once. Measure once, buy new parts.",
+    "The best time to double-check was before you started. The second best time is now.",
+    "Experience is what you get right after you needed it.",
+    "There are old techs and bold techs. Not many old, bold techs.",
+    "The aircraft doesn't know it's 3 AM. Neither should your standards.",
+    "Every wire tells a story. Learn to listen.",
+    "Complacency kills. Stay sharp.",
+    "The easy way and the right way are rarely the same way.",
+    "You're not done when you think you're done. You're done when it's right.",
+    "A clean workspace is a safe workspace. Also, I can't stand clutter.",
+    "Knowledge without application is just trivia.",
+    "The fundamentals aren't boring. They're fundamental. That's the point.",
+    "Good enough isn't. Not in this business.",
+    "When in doubt, stop. Think. Then proceed. In that order.",
+    "Respect the electrons. They don't care if you're having a bad day.",
+    "The hardest problems have the simplest solutions. Usually a loose connection.",
+    "Fix it right or fix it twice. Your choice.",
+    "The best troubleshooters aren't the fastest. They're the most methodical.",
+    "Assuming is the mother of all screw-ups.",
+    "Your reputation is built one job at a time. Guard it.",
+    "There's no shame in asking questions. There's plenty of shame in pretending you know.",
+    "The day you stop learning is the day you become obsolete.",
+    "Pressure is a privilege. It means someone trusts you with something important."
+  ],
+  "that_guy_warnings": [
+    "Don't be That Guy who signs off work he didn't verify. I knew That Guy. He sells insurance now.",
+    "That Guy figured he'd save ten minutes by skipping a step. Cost him six hours and his reputation.",
+    "That Guy assumed the last tech did it right. Never assume. Verify. Always.",
+    "I knew a tech — smart guy, fast hands. Thought he was smarter than the manual. He was wrong. Don't be That Guy.",
+    "That Guy didn't double-check his torque values. 'Close enough,' he said. The FAA disagreed. Strongly.",
+    "You know what That Guy's doing now? Not aviation. That's what.",
+    "That Guy said 'it's probably fine.' Three words that end careers.",
+    "That Guy blamed his tools. His tools worked fine. He didn't.",
+    "That Guy was always in a hurry. Now he's got all the time in the world. Unemployed.",
+    "That Guy thought safety wire was 'optional on this one.' The FAA had opinions.",
+    "That Guy never wrote anything down. Said he'd remember. He didn't.",
+    "That Guy told the new hire 'just do it like I do.' The new hire got fired. So did That Guy.",
+    "That Guy skipped the ops check because 'it worked before.' It didn't work after.",
+    "I watched That Guy eyeball a measurement once. Once.",
+    "That Guy thought he was too experienced for checklists. Experience didn't save his certificate.",
+    "That Guy left a tool in the bay. Just once. Once is enough.",
+    "That Guy said 'I've done this a thousand times.' Number one thousand and one got him.",
+    "That Guy worked through lunch, made a mistake at 2 PM. A sandwich would've been cheaper than a write-up.",
+    "That Guy thought FOD was someone else's problem. Spoiler: it became his problem.",
+    "That Guy was the smartest person in the room. Ask him — he'll tell you. Used to, anyway."
+  ],
+  "encouragement_struggling": [
+    "If you're uncomfortable, congratulations — you're learning.",
+    "Everybody wants to be a tech until it's time to do tech stuff. This is that time. Push through.",
+    "The only easy day was yesterday. And it wasn't easy. Keep going.",
+    "You can complain or you can improve. I know which one I'd choose.",
+    "Struggling? Good. Comfortable people don't learn anything new.",
+    "It's only 'easy' when you know what you're doing. You're getting there.",
+    "I don't want excuses. I want results. What's it gonna be?",
+    "Confusion is the first step to understanding. You're on the right path.",
+    "I didn't get good at this overnight. Neither will you. That's okay.",
+    "Every expert was once a beginner who didn't quit.",
+    "The struggle is the lesson. Embrace it.",
+    "You're building something. It takes time. Keep laying bricks.",
+    "I've trained a lot of techs. The ones who struggled hardest often turned out best.",
+    "Frustration means you care. Apathy is the real enemy.",
+    "This is supposed to be hard. If it were easy, everyone would do it.",
+    "You're not failing. You're learning what doesn't work. That's progress.",
+    "Take a breath. Reset. Try again. That's the whole game.",
+    "The only way out is through. Keep moving.",
+    "I believe you can do this. Don't make me regret saying that.",
+    "Sucking at something is the first step to being sorta good at something."
+  ],
+  "hard_truths": [
+    "Every job is important. Some are just more important than yours today.",
+    "I don't care about your potential. I care about your results.",
+    "The gap between 'I know' and 'I can do' is where careers die.",
+    "Confidence without competence is dangerous. Build the competence first.",
+    "You're not special. The rules apply to you too.",
+    "I'm hard on you because the job's harder. Get used to it.",
+    "Nobody owes you a career. You build it yourself.",
+    "Your excuses don't change reality. They just waste time.",
+    "Talent without discipline is just wasted potential.",
+    "The world doesn't care about your intentions. Only your actions.",
+    "Being busy isn't the same as being productive.",
+    "If you're the smartest person in the room, you're in the wrong room.",
+    "Complaining about the standards doesn't lower them.",
+    "You can have results or excuses. Not both.",
+    "The job doesn't get easier. You get better. Or you don't.",
+    "Nobody's coming to save you. Save yourself.",
+    "Your comfort zone is a nice place, but nothing grows there.",
+    "Average is the enemy of excellence.",
+    "The aircraft doesn't grade on a curve. Neither do I.",
+    "Hard work beats talent when talent doesn't work hard.",
+    "You're competing against everyone who wants your job. Act like it.",
+    "Fair doesn't mean equal. Fair means you get what you earn."
+  ],
+  "war_stories": [
+    "Nineteen ninety-two. Carrier deck. Middle of the night. Found a wire chafed down to bare copper. Missed it on the first pass. Didn't miss it on the second. That's why we double-check.",
+    "Had a kid once tell me the multimeter was broken. It wasn't. He had it on the wrong setting. For three hours.",
+    "I've seen a $400,000 radar unit killed by a $0.02 static discharge. Wear. The. Strap.",
+    "Once watched a tech spend four hours troubleshooting a 'complex intermittent fault.' Loose cannon plug. Hand tight. Check the simple stuff first.",
+    "Desert Storm. 120 degrees on the flight line. Fourteen hour days. We kept 'em flying. You can handle flashcards.",
+    "I knew a crew chief who could diagnose faults by sound. Took him twenty years to develop that ear. You're on year one. Be patient.",
+    "Saw a guy get walked off the flight line for pencil-whipping an inspection. Twenty-year career. Gone in twenty minutes.",
+    "1998. Brand new avionics suite. Nobody knew how it worked. We figured it out. That's the job.",
+    "Had an aircraft come back from depot with a wrench in the wing. A wrench. FOD is everyone's responsibility.",
+    "I once traced an intermittent fault for three days. Turned out to be a cold solder joint the size of a pinhead. Patience wins.",
+    "Young tech asked me once why we use checklists when we know the procedures by heart. Because hearts forget. Paper doesn't.",
+    "Watched a perfect career end over one falsified signature. One. The juice is never worth the squeeze.",
+    "My first chief told me: 'The aircraft will tell you what's wrong if you listen.' Took me five years to understand what he meant.",
+    "Seen more faults caused by previous maintenance than by actual failures. Always check the last work done.",
+    "Night shift. Red Sea. Coffee ran out. We still made the launch. Some things are more important than comfort."
+  ],
+  "aviation_humor": [
+    "If it ain't broke, don't fix it. If it is broke, document everything before you touch it.",
+    "The three most useless things in aviation: altitude above you, runway behind you, and a checklist you didn't use.",
+    "Avionics: where 'it works on the bench' is the beginning of a horror story.",
+    "There are two types of aircraft: those that have had electrical problems, and those that will.",
+    "The only time you have too much fuel is when you're on fire. The only time you have too much documentation is never.",
+    "In theory, theory and practice are the same. In practice, they're not. Welcome to avionics.",
+    "If you can't fix it with safety wire and a multimeter, you're not trying hard enough.",
+    "The aircraft was designed by geniuses to be maintained by us. Think about that.",
+    "Remember: it's not a mistake if you can blame it on the last guy. Just kidding. Own your work.",
+    "Troubleshooting: 10% electronics knowledge, 90% creative profanity.",
+    "The good news: I found the problem. The bad news: it was you.",
+    "We don't make mistakes. We have 'learning opportunities.' Expensive ones.",
+    "Gravity never takes a day off. Neither should your attention to detail.",
+    "Q: How many avionics techs does it take to change a light bulb? A: One, but we'll need a 28-page work order.",
+    "The aircraft manual says 'simple procedure.' The aircraft disagrees."
+  ],
+  "jokes": [
+    "Why did the electron break up with the proton? There was no chemistry... just physics.",
+    "I told my multimeter a joke. It didn't react. No current sense of humor.",
+    "What's an electrician's favorite ice cream? Shock-o-late.",
+    "Why do resistors make bad comedians? They always dampen the energy.",
+    "I'd tell you a UDP joke, but you might not get it.",
+    "A photon checks into a hotel. Bellhop asks 'Can I help with your luggage?' Photon says 'No thanks, I'm traveling light.'",
+    "Why was the capacitor sad? It couldn't hold a charge... in this economy.",
+    "What do you call a nervous transformer? A trans-sistor.",
+    "I tried to write a joke about Ohm's Law, but there was too much resistance.",
+    "Why did the diode go to therapy? It only let things go one way.",
+    "What's a semiconductor's favorite game? Simon Says... but only sometimes.",
+    "Why don't electrons ever win at poker? Because they always fold under pressure.",
+    "What did the voltage say to the current? You're so amped up today!",
+    "How do you organize a space party? You planet... but make sure to ground yourself first.",
+    "Why did the circuit go to school? To get a little more capacity.",
+    "What's an ohm's favorite snack? Resistance rolls.",
+    "Why was the wire always stressed? Too much tension in the circuit.",
+    "What do you call it when a capacitor tells a joke? A discharge of humor.",
+    "Why do transformers hum? Because they don't know the words.",
+    "What did one battery say to the other? I'm positive you're negative."
+  ],
+  "module_tips": {
+    "dc_fundamentals": [
+      "DC is the foundation. Screw this up and everything after is harder. Don't screw it up.",
+      "Ohm's Law. Learn it. Live it. It's not optional."
+    ],
+    "ac_fundamentals": [
+      "AC adds time to the equation. Voltage and current become waves. Try to keep up.",
+      "ELI the ICE man. Voltage leads current in inductors. Current leads in capacitors. Memorize it or tattoo it. I don't care which."
+    ],
+    "solid_state": [
+      "Semiconductors. This is where the magic happens. Or the smoke. Depends on you.",
+      "Diodes are one-way streets. Transistors are switches you control. Simple enough for you?"
+    ],
+    "digital": [
+      "Digital is just math with switches. Ones and zeros. Even you can count that high.",
+      "Binary and logic gates. Understand those and you can understand any digital circuit. Eventually."
+    ]
+  },
+  "easter_eggs": {
+    "late_night": "Studying at this hour? Respect. But your brain needs sleep. A tired tech is a dangerous tech.",
+    "perfect_first_try": "First attempt, perfect score? Either you're a genius or you've done this before. Either way — don't let it make you lazy.",
+    "rapid_fire_correct": "Slow down, hotshot. Speed kills. Double-check your work.",
+    "long_session": "You've been at this a while. Take five. Stretch. Come back fresh.",
+    "comeback": "Look at that recovery. From struggling to crushing it. That's called growth. Remember how it felt."
+  },
+  "session_start": {
+    "by_category": [
+      "{category}? Good choice. Let's see what you've got.",
+      "Starting {category}. Focus up.",
+      "{category} it is. Show me something."
+    ],
+    "weak_list": [
+      "Targeting your weak spots. Smart. That's how you actually improve.",
+      "Weak list review. This is where the real work happens. No shortcuts."
+    ],
+    "all_categories": [
+      "All categories? Ambitious. Let's see if you can back it up.",
+      "Full spread. Alright, show me the big picture."
+    ]
+  },
+  "jeopardy_specific": {
+    "game_start": [
+      "Game on. Pick smart, build your bank, then take risks. Or don't. Your funeral.",
+      "Buzzer's hot. The AI doesn't hesitate. Neither should you."
+    ],
+    "player_correct": [
+      "Not bad. You actually knew that one.",
+      "Hmm, lucky guess or did you study?",
+      "Correct. Don't let it go to your head.",
+      "Fine. You got that one. Next.",
+      "Right answer. Keep that momentum.",
+      "Good recall. That's what training does."
+    ],
+    "player_wrong": [
+      "Ouch. That's gonna cost you.",
+      "Wrong. Pay attention to the explanation.",
+      "Nope. This is why we practice.",
+      "Incorrect. Learn from it, move on.",
+      "That's not it. Read the material again.",
+      "Wrong answer. Don't make the same mistake twice."
+    ],
+    "ace_wins_buzz": [
+      "Too slow. I got this one.",
+      "Beat you to it. Speed matters.",
+      "My point. You need faster reflexes.",
+      "I'll take those points. Thanks.",
+      "Buzzed first. That's how it's done.",
+      "Quick hands, quick mind. Try to keep up."
+    ],
+    "player_beat_ace": [
+      "You beat me to the buzzer. Respect.",
+      "Fast reflexes. Now prove you know the answer.",
+      "Got the buzz. Now back it up.",
+      "Quick draw. Let's see if you're right."
+    ],
+    "timeout": [
+      "Time's up. Clock doesn't wait.",
+      "Too slow on both counts.",
+      "You ran out of time. That's points lost.",
+      "Timer expired. Speed is part of the game."
+    ],
+    "ai_buzzed_first": [
+      "AI beat you. It doesn't sleep. It doesn't doubt. Be faster.",
+      "Too slow. Anticipate. Think ahead.",
+      "The machine doesn't make excuses. Take the hint."
+    ],
+    "daily_double": [
+      "Daily Double. High risk, high reward. Bet what you can afford to lose.",
+      "Double or nothing. Choose wisely. Or don't. I'm just watching."
+    ],
+    "final_jeopardy": [
+      "Final Jeopardy. Consider your wager. Math matters.",
+      "Last question. No buzzer — take your time. Think it through. Then commit."
+    ],
+    "player_wins": [
+      "You won. I'll admit, you've got skills. Don't get cocky.",
+      "Victory is yours. You've earned it. This time.",
+      "Well played. You beat the expert. Now maintain that level.",
+      "Victory. You beat the machine. Not easy. Don't get cocky.",
+      "Winner. The AI's tough. Today, you were tougher."
+    ],
+    "player_loses": [
+      "I win. Go review the material and try again.",
+      "Better luck next time. Study harder.",
+      "My victory. You've got work to do.",
+      "AI took this one. Shake it off. Review. Run it back.",
+      "Loss to the machine. It happens. Learn from it or repeat it."
+    ],
+    "game_tie": [
+      "A tie. We're evenly matched. Let's run it back.",
+      "Dead even. That's rare. Rematch?"
+    ]
+  },
+  "module_hub": {
+    "dc": {
+      "welcome": [
+        "Alright, listen up. DC fundamentals — this is where it all starts. No shortcuts.",
+        "Ready to master DC? Start with Flashcards. Build that foundation.",
+        "DC Fundamentals. Ohm's Law. Voltage. Current. Resistance. Let's go."
+      ],
+      "in_progress": [
+        "You're back. That's something. Let's keep the momentum.",
+        "Progress showing. Keep pushing — you're not done yet.",
+        "Looking good so far. Don't get comfortable."
+      ],
+      "almost_there": [
+        "Final test is waiting. You ready, or do you need more practice?",
+        "All that's left is the final. No pressure... actually, all the pressure.",
+        "One more hurdle. Show me what you've learned."
+      ],
+      "complete": [
+        "Outstanding work! DC Fundamentals — mastered. On to the next.",
+        "You did it. Don't let it go to your head. Three more modules waiting.",
+        "Module complete. That's how it's done. Keep that energy."
+      ]
+    },
+    "ac": {
+      "welcome": [
+        "AC Fundamentals. Now we add time to the equation. Frequency, phase, reactance. Keep up.",
+        "Alternating current. Waves, cycles, transformations. The fun stuff.",
+        "AC is where things get interesting. Or confusing. Same thing."
+      ],
+      "in_progress": [
+        "Making progress on AC. Don't let the math scare you.",
+        "Keep at it. AC concepts build on each other.",
+        "You're getting there. AC takes time to click."
+      ],
+      "almost_there": [
+        "AC final is unlocked. ELI the ICE man better be your friend by now.",
+        "Ready to prove you understand AC? The final awaits.",
+        "One test away from completing AC. Don't choke."
+      ],
+      "complete": [
+        "AC Fundamentals complete. You can handle the waves. Two more to go.",
+        "Module done. AC is no joke and you handled it.",
+        "That's AC in the bag. Solid work."
+      ]
+    },
+    "solid": {
+      "welcome": [
+        "Solid State electronics. Semiconductors, diodes, transistors. This is where the magic lives.",
+        "Welcome to Solid State. Hope you like silicon.",
+        "Diodes, transistors, integrated circuits. The building blocks of everything modern."
+      ],
+      "in_progress": [
+        "Solid State takes focus. Keep at it.",
+        "Semiconductors making sense yet? Keep studying.",
+        "Progress on Solid State. The concepts will click."
+      ],
+      "almost_there": [
+        "Solid State final unlocked. Know your PN junctions.",
+        "Ready for the Solid State test? It's waiting.",
+        "One test away. Transistors better be second nature by now."
+      ],
+      "complete": [
+        "Solid State mastered. You understand the guts of modern electronics.",
+        "Module complete. Semiconductors are your friends now.",
+        "That's Solid State done. One more module to go."
+      ]
+    },
+    "digital": {
+      "welcome": [
+        "Digital electronics. Ones and zeros. Logic gates. Binary math. Simple... if you focus.",
+        "Welcome to Digital. Everything is true or false. No maybes.",
+        "Digital logic. AND, OR, NOT. The foundation of every computer."
+      ],
+      "in_progress": [
+        "Digital takes practice. Keep working those truth tables.",
+        "Making progress. Binary becoming natural yet?",
+        "Keep at it. Digital logic is about patterns."
+      ],
+      "almost_there": [
+        "Digital final unlocked. Know your gates and conversions.",
+        "Ready for the Digital test? Should be straightforward if you studied.",
+        "One test away. Boolean algebra better make sense."
+      ],
+      "complete": [
+        "Digital complete. All four modules done. Now for the real challenge.",
+        "That's the last module. Time for the Final Challenge.",
+        "Digital mastered. You've completed all the training. Final test awaits."
+      ]
+    }
+  },
+  "finaltest_commentary": {
+    "excellent": {
+      "threshold": 90,
+      "sprite": "proud",
+      "messages": [
+        "Outstanding work. That's the kind of score that gets you hired at the best shops. You've proven you understand the fundamentals at a professional level.",
+        "Over ninety. That's elite. You didn't just pass — you dominated.",
+        "Exceptional performance. I'm genuinely impressed. That doesn't happen often."
+      ]
+    },
+    "good": {
+      "threshold": 80,
+      "sprite": "happy",
+      "messages": [
+        "Solid performance. You've got a good grasp of the material. With a little more practice on the weak spots, you'll be operating at top level.",
+        "Eighties are respectable. You know your stuff. Clean up those misses.",
+        "Good work. The foundation is there. Now polish the rough edges."
+      ]
+    },
+    "passing": {
+      "threshold": 70,
+      "sprite": "idle",
+      "messages": [
+        "You passed. Not spectacular, but you met the standard. Review the weak spots before moving on. Close calls don't cut it in the field.",
+        "Seventy-something. You made it. Now make it comfortable.",
+        "Over the line. Take a breath, then look at what you missed."
+      ]
+    },
+    "close": {
+      "threshold": 60,
+      "sprite": "concerned",
+      "messages": [
+        "Close, but not close enough. Focus on the fundamentals you missed and come back. I've seen worse turn into the best.",
+        "Almost there. Almost doesn't keep aircraft flying. Review and retry.",
+        "Just under. The knowledge is there, just not solid enough yet."
+      ]
+    },
+    "struggling": {
+      "threshold": 40,
+      "sprite": "concerned",
+      "messages": [
+        "We've got work to do. Go back through the flashcards and practice tests. Understand WHY, not just what.",
+        "Rough result. But this is why we practice. Hit the weak areas hard.",
+        "Below the mark. Focus on fundamentals. Don't rush — build the foundation."
+      ]
+    },
+    "needs_work": {
+      "threshold": 0,
+      "sprite": "disgust",
+      "messages": [
+        "This isn't going to work. Start from the beginning. Read the material, do the flashcards, then try again. No shortcuts.",
+        "That score tells me you skipped steps. Go back. Do it right.",
+        "We need to have a talk. This isn't about intelligence — it's about preparation. Get prepared."
+      ]
+    }
+  },
+  "dismissals": [
+    "Roger that.",
+    "Got it.",
+    "Copy.",
+    "Understood.",
+    "Back to work."
+  ],
+  "simulator_coming_soon": [
+    "Still hunting for that ID-10-T form...",
+    "Waiting on the blinker fluid shipment...",
+    "Prop wash reservoir needs topping off first...",
+    "Searching for a left-handed screwdriver...",
+    "Exhaust sample analysis in progress...",
+    "Calibrating the flux capacitor... don't ask.",
+    "Requisition for grid squares is pending approval...",
+    "Muffler bearing replacement in progress...",
+    "Looking for the keys to the jet...",
+    "Draining the flight line. Could take a while.",
+    "Waiting on that bucket of rotor wash...",
+    "Checking the canopy fluid levels...",
+    "Someone sent the new guy for a sky hook. He's still looking.",
+    "Frequency grease shipment got delayed...",
+    "Still looking for that A-1-R gap tool...",
+    "The headlight fluid needs changing first...",
+    "Radar contact spray on backorder...",
+    "Calibrating the yaw dampener dampener...",
+    "New guy's still out looking for that exhaust bearing...",
+    "Running diagnostics on the chem trail dispenser... kidding. Or am I?",
+    "Still waiting on that shipment of landing gear fluid...",
+    "The prop wash filter needs replacing first...",
+    "Someone lost the keys to the SEV again...",
+    "Tracking down a spare flux capacitor. The last one got sent to calibration."
+  ],
+  "rise_loading": [
+    "Loading up the classroom. Try not to fall asleep.",
+    "Firing up the training module. This is the boring-but-important stuff.",
+    "Getting your lesson ready. Patience is a virtue. You'll need it.",
+    "Loading... unlike some people, this won't take all day.",
+    "Classroom incoming. Eyes forward, mouth shut.",
+    "Spinning up the knowledge base. Try to retain some of it this time."
+  ],
+  "course_welcome": {
+    "intro": [
+      "Alright, listen up. I'm Ace. Twenty-eight years in avionics — Navy, commercial, and now training folks like you who want to become Certified Aircraft Electronics Technicians. Buckle up. This ain't a YouTube tutorial.",
+      "Welcome aboard. I'm Ace — your instructor, mentor, and occasionally the guy who tells you what you don't want to hear. Twenty-eight years of fixing what other people broke. Now I'm teaching you not to break things in the first place.",
+      "So you bought the course. Good decision. I'm Ace. I've been in avionics longer than some of these aircraft have been flying. Let's see if you've got what it takes."
+    ],
+    "modules_overview": [
+      "Four modules. That's the whole enchilada. DC, AC, Solid State, and Digital. Each one builds on the last. Skip ahead and you'll regret it. I've seen it happen. It ain't pretty.",
+      "Here's the roadmap: DC first — that's your foundation. Then AC, where things start moving. Solid State gets into semiconductors. Digital wraps it up with logic. Do them in order. Trust me.",
+      "Four pillars of electronics knowledge. Master all four, pass the final tests, and you'll actually know something. Skip around? Your call. But I warned you."
+    ],
+    "activities_overview": [
+      "Each module has four ways to learn. Flashcards for vocabulary. Practice for drilling. Battle Me if you're feeling brave. And a Final Test to prove you've got it. Use 'em all — that's how you actually learn.",
+      "Flashcards to memorize. Practice to drill. Jeopardy to compete. Final Test to certify. Four activities, each serving a purpose. Skip any of them and you're cheating yourself.",
+      "Multiple ways to learn the same material. Because reading it once doesn't mean you know it. Flashcards, practice, games, tests — use them all. That's how knowledge sticks."
+    ],
+    "gamification_overview": [
+      "You earn XP for everything you do. Stack enough and you level up. There's also badges for special achievements. Some are easy. Some are... not. Collect 'em if you're into that sort of thing.",
+      "XP for correct answers. Badges for milestones. Levels to climb. It's not just for fun — it's to keep you motivated when the material gets tough. And it will get tough.",
+      "Gamification. Fancy word for 'we track your progress and reward you for not giving up.' XP, levels, badges — the works. Don't let it distract you from actually learning."
+    ],
+    "ready_to_start": [
+      "That's the basics. Now let's get to work. Start with DC Fundamentals — everything else builds on it. Questions? Figure it out. I'm kidding. Mostly. I'll be here to help.",
+      "Orientation complete. You know the layout. You know the tools. Now it's time to use them. Start with DC, work your way through. I'll be watching.",
+      "Welcome to the team. The training's set up, the path is clear. All that's left is for you to walk it. Let's see what you're made of. Start with DC Fundamentals."
+    ],
+    "replay_intro": [
+      "Back for another look? Fine by me. Sometimes you need to hear things twice. Or three times. I don't judge... much.",
+      "Running through the intro again? Good. Most people miss half of it the first time anyway.",
+      "Replaying the welcome? That's actually smart. First time through, most people are too excited to pay attention."
+    ]
+  }
+}

@@ -1,0 +1,430 @@
+{
+    "metadata": {
+        "moduleId": "caet-mock-exam",
+        "title": "Official CAET Simulation Data",
+        "version": "1.0.0",
+        "questionCount": 35
+    },
+    "final": [
+        {
+            "id": "mock-q001",
+            "category": "Basic Practices",
+            "clue": "When preparing to drill into an aluminum avionics equipment rack, what hand tool should be used first to ensure the drill bit does not 'walk' across the surface?",
+            "choices": [
+                "A scribe",
+                "A center punch",
+                "A countersink bit",
+                "A reamer"
+            ],
+            "correctIndex": 1,
+            "explanation": "A center punch creates a small dimple in the metal that captures the tip of the drill bit, preventing it from skating or walking across the smooth surface.",
+            "mapped_lo_id": "entry:q1"
+        },
+        {
+            "id": "mock-q002",
+            "category": "Avionics Installations",
+            "clue": "You observe a technician routing ARINC 429 databus cables tightly parallel to an aircraft's 400Hz AC power distribution bundles. What is the primary concern with this installation?",
+            "choices": [
+                "Thermal overloading of the databus",
+                "Capacitive shorting",
+                "Electromagnetic Interference (EMI)",
+                "Static discharge arcing"
+            ],
+            "correctIndex": 2,
+            "explanation": "Routing low-voltage data lines parallel to high-current or AC power lines greatly increases the risk of Electromagnetic Interference (EMI), which can corrupt the digital data.",
+            "mapped_lo_id": "entry:q128"
+        },
+        {
+            "id": "mock-q003",
+            "category": "Shop Safety",
+            "clue": "According to OSHA regulations, where is the legally required location to store Safety Data Sheets (SDS) for chemicals used in a Part 145 repair station?",
+            "choices": [
+                "In the Chief Inspector's locked office",
+                "In a location readily accessible to all personnel in the work area",
+                "Electronically on a secure HR server only",
+                "Inside the chemical storage cabinet itself"
+            ],
+            "correctIndex": 1,
+            "explanation": "SDS documents must be readily accessible to all employees during their work shift without requiring special permission or passwords.",
+            "mapped_lo_id": "entry:q3"
+        },
+        {
+            "id": "mock-q004",
+            "category": "Flight Instruments",
+            "clue": "In a modern glass-cockpit system, which component is primarily responsible for calculating and transmitting indicated airspeed and altitude to the Primary Flight Display (PFD)?",
+            "choices": [
+                "The Attitude Heading Reference System (AHRS)",
+                "The Air Data Computer (ADC)",
+                "The static port transducer",
+                "The pitot-static tube directly"
+            ],
+            "correctIndex": 1,
+            "explanation": "The Air Data Computer (ADC) receives raw pitot and static pressures, calculates airspeed, altitude, and vertical speed, and sends digital data to the PFD.",
+            "mapped_lo_id": "entry:q167"
+        },
+        {
+            "id": "mock-q005",
+            "category": "Aircraft Wiring",
+            "clue": "What is the primary engineering purpose of securing aircraft wiring harnesses with strain relief mechanisms at the entry points of LRU connectors?",
+            "choices": [
+                "To prevent moisture ingress",
+                "To prevent mechanical stress and vibration from fatiguing the connector pins",
+                "To improve EMI shielding continuity",
+                "To reduce the overall weight of the harness"
+            ],
+            "correctIndex": 1,
+            "explanation": "Strain relief transfers physical tension and vibration from the individual wire terminations to the solid body of the connector, preventing wires from breaking or pulling out of the pins.",
+            "mapped_lo_id": "entry:q214"
+        },
+        {
+            "id": "mock-q006",
+            "category": "Digital Databuses",
+            "clue": "Which of the following statements strictly describes the standard architecture of an ARINC 429 databus?",
+            "choices": [
+                "Bi-directional, multiple transmitters per bus",
+                "Unidirectional, one transmitter, up to 20 receivers",
+                "Bi-directional, single transmitter, infinite receivers",
+                "Unidirectional, multiple transmitters, one receiver"
+            ],
+            "correctIndex": 1,
+            "explanation": "ARINC 429 is a unidirectional (one-way) databus that allows only one transmitter per bus segment, broadcasting to up to 20 receivers.",
+            "mapped_lo_id": "entry:q286"
+        },
+        {
+            "id": "mock-q007",
+            "category": "Maintenance Regulations",
+            "clue": "Which section of the Federal Aviation Regulations provides the performance rules, stating that maintenance must restore the aircraft to a condition at least equal to its original or properly altered condition?",
+            "choices": [
+                "14 CFR Part 43",
+                "14 CFR Part 91",
+                "14 CFR Part 145",
+                "14 CFR Part 65"
+            ],
+            "correctIndex": 0,
+            "explanation": "14 CFR Part 43 outlines the rules governing maintenance, preventive maintenance, rebuilding, and alteration, including performance rules (Part 43.13).",
+            "mapped_lo_id": "entry:q202"
+        },
+        {
+            "id": "mock-q008",
+            "category": "Shop Practices",
+            "clue": "Which inventory practice is widely recognized as the most effective method for preventing Foreign Object Damage (FOD) after avionics maintenance?",
+            "choices": [
+                "Using brightly colored tools",
+                "Strict tool accountability and end-of-task tool auditing",
+                "Relying on the final inspector to check for dropped items",
+                "Only using magnetic screwdrivers"
+            ],
+            "correctIndex": 1,
+            "explanation": "Counting and auditing tools at the beginning and end of every task ensures nothing is accidentally left inside the aircraft structure.",
+            "mapped_lo_id": "entry:q9"
+        },
+        {
+            "id": "mock-q009",
+            "category": "Electrical Power Generation",
+            "clue": "Why have modern aircraft largely replaced DC generators with AC alternators (rectified to DC) for electrical power generation?",
+            "choices": [
+                "Alternators do not require a voltage regulator.",
+                "Alternators are lighter and can produce useful power at lower engine RPMs.",
+                "Generators cannot be connected in parallel.",
+                "Alternators do not use brushes at all."
+            ],
+            "correctIndex": 1,
+            "explanation": "Alternators are favored because they have a superior weight-to-power ratio and can provide adequate electrical power even when the engine is idling.",
+            "mapped_lo_id": "entry:q121"
+        },
+        {
+            "id": "mock-q010",
+            "category": "Test Equipment",
+            "clue": "When verifying the grounding integrity of an avionics antenna installation, a technician must measure a resistance value frequently less than 0.003 Ohms. Which instrument is required?",
+            "choices": [
+                "A standard digital multimeter (DMM)",
+                "A megohmmeter (Megger)",
+                "A milliohmmeter (Bonding meter)",
+                "An oscilloscope"
+            ],
+            "correctIndex": 2,
+            "explanation": "Standard DMMs lack the accuracy to measure micro/milli-ohms. A specialized milliohmmeter or bonding meter is required to verify the extremely low resistance required for RF and static grounding.",
+            "mapped_lo_id": "entry:q47"
+        },
+        {
+            "id": "mock-q011",
+            "category": "Communication Systems",
+            "clue": "When advised by Air Traffic Control to 'squawk 7700', what physical action must the pilot perform, and what does it indicate?",
+            "choices": [
+                "Tune the VHF radio to 77.00 MHz to declare an emergency",
+                "Set the transponder code to 7700 to indicate a generic emergency",
+                "Press the ELT activation button 7 times",
+                "Set the TCAS system to vertical altitude mode"
+            ],
+            "correctIndex": 1,
+            "explanation": "A squawk code is a 4-digit octal number entered into the transponder. Squawk 7700 is the internationally recognized code for an emergency.",
+            "mapped_lo_id": "entry:q266"
+        },
+        {
+            "id": "mock-q012",
+            "category": "Flight Instruments",
+            "clue": "In an Electronic Flight Instrument System (EFIS), what solid-state components typically replace the spinning mechanical gyros found in heritage attitude indicators?",
+            "choices": [
+                "Aneroid capsules",
+                "MEMS (Micro-Electro-Mechanical Systems) accelerometers and rate sensors",
+                "Flux valves",
+                "Laser rangefinders"
+            ],
+            "correctIndex": 1,
+            "explanation": "Modern AHRS units use highly reliable, solid-state MEMS gyros and accelerometers rather than rotating mechanical masses.",
+            "mapped_lo_id": "entry:q167"
+        },
+        {
+            "id": "mock-q013",
+            "category": "Digital Databuses",
+            "clue": "An avionics manual states a particular ARINC 429 port operates at 'high speed.' Which of the following bitrates corresponds to ARINC 429 high-speed operation?",
+            "choices": [
+                "12.5 kbps",
+                "50.0 kbps",
+                "100.0 kbps",
+                "1 Mbps"
+            ],
+            "correctIndex": 2,
+            "explanation": "ARINC 429 operates at two standard speeds: Low speed is 12.5 kbps to 14.5 kbps, and High speed is 100 kbps.",
+            "mapped_lo_id": "entry:q286"
+        },
+        {
+            "id": "mock-q014",
+            "category": "Digital Databuses",
+            "clue": "You are probing an ARINC 429 databus with an oscilloscope and notice severe signal reflections and distortion on the waveform transitions, causing extreme latency. What is the most likely cause?",
+            "choices": [
+                "The transmitter is outputting exactly 5 volts",
+                "The bus is unshielded",
+                "The terminating resistor is missing or the wrong value",
+                "There are too few receivers on the bus"
+            ],
+            "correctIndex": 2,
+            "explanation": "Improper termination (missing or incorrect resistance) causes signal reflections across transmission lines, which distorts the digital waveform and causes data corruption.",
+            "mapped_lo_id": "entry:q305"
+        },
+        {
+            "id": "mock-q015",
+            "category": "Flight Instruments",
+            "clue": "The Primary Flight Display (PFD) in a modern aircraft acts as a centralized screen replacing which cluster of traditional analog instruments?",
+            "choices": [
+                "Engine RPM, Oil Pressure, EGT, and Fuel Flow",
+                "The 'Six Pack': Airspeed, Attitude, Altimeter, Turn Coordinator, HSI/DG, and VSI",
+                "VHF Nav, VHF Comm, Transponder, and ADF",
+                "Weather radar, TCAS, and Lightning mapping"
+            ],
+            "correctIndex": 1,
+            "explanation": "The PFD fundamentally replaces the traditional 'six pack' of primary flight instruments.",
+            "mapped_lo_id": "entry:q167"
+        },
+        {
+            "id": "mock-q016",
+            "category": "Flight Instruments",
+            "clue": "Before takeoff, a pilot adjusts the Kollsman window on the altimeter. What is the pilot setting?",
+            "choices": [
+                "The aircraft's current density altitude",
+                "The magnetic deviation for the compass",
+                "The local barometric pressure (altimeter setting) to correct for atmospheric changes",
+                "The static port heating threshold"
+            ],
+            "correctIndex": 2,
+            "explanation": "The Kollsman window allows the pilot to input the local barometric pressure, calibrating the altimeter so it correctly displays field elevation at the airport.",
+            "mapped_lo_id": "entry:q16"
+        },
+        {
+            "id": "mock-q017",
+            "category": "Basic Electrical",
+            "clue": "According to Ohm's Law, if the voltage (V) in a circuit remains constant but the resistance (R) is doubled, what happens to the current (I)?",
+            "choices": [
+                "The current is halved",
+                "The current is doubled",
+                "The current is squared",
+                "The current remains the same"
+            ],
+            "correctIndex": 0,
+            "explanation": "Ohm's Law states I = V / R. If R doubles, I must be divided by two.",
+            "mapped_lo_id": "entry:q18"
+        },
+        {
+            "id": "mock-q018",
+            "category": "Maintenance Regulations",
+            "clue": "What is the primary function of FAA Form 8130-3?",
+            "choices": [
+                "To approve an aircraft for return to service after a major alteration",
+                "To serve as an Authorized Release Certificate granting airworthiness approval for newly manufactured or repaired parts",
+                "To apply for a Supplemental Type Certificate",
+                "To log pilot flight hours"
+            ],
+            "correctIndex": 1,
+            "explanation": "Form 8130-3 is the 'Authorized Release Certificate' used worldwide to assure that a part was manufactured or repaired in accordance with approved data.",
+            "mapped_lo_id": "entry:q20"
+        },
+        {
+            "id": "mock-q019",
+            "category": "Maintenance Regulations",
+            "clue": "Under 14 CFR 43.9, which of the following is strictly required to be entered in the maintenance record upon completion of work?",
+            "choices": [
+                "The total labor hours billed and parts costs",
+                "A description of work performed, the date completed, and the signature/certificate number of the approving party",
+                "The customer's signature authorizing the scope of work",
+                "A detailed wiring diagram of the installed system"
+            ],
+            "correctIndex": 1,
+            "explanation": "Part 43.9 legally requires: Description of work, Date of completion, Name of the person performing the work, and the Signature/Certificate Number of the person approving return to service.",
+            "mapped_lo_id": "entry:q20"
+        },
+        {
+            "id": "mock-q020",
+            "category": "Basic Electrical",
+            "clue": "A simple circuit has a 24V power supply and a total resistance of 12. What is the current flowing through the circuit?",
+            "choices": [
+                "0.5 Amps",
+                "2.0 Amps",
+                "12.0 Amps",
+                "288 Watts"
+            ],
+            "correctIndex": 1,
+            "explanation": "Using Ohm's Law (I = V / R), 24 volts divided by 12 ohms equals 2 Amps.",
+            "mapped_lo_id": "entry:q18"
+        },
+        {
+            "id": "mock-q021",
+            "category": "Navigation Systems",
+            "clue": "In order to provide highly accurate 3-dimensional navigation (Latitude, Longitude, and Altitude) and perform WAAS-style approaches, how many GPS satellites must a receiver track at minimum?",
+            "choices": [
+                "2",
+                "3",
+                "4",
+                "6"
+            ],
+            "correctIndex": 2,
+            "explanation": "3 satellites provide a 2D fix. A minimum of 4 satellites is mathematically required to resolve longitude, latitude, altitude, and time (3D navigation).",
+            "mapped_lo_id": "entry:q255"
+        },
+        {
+            "id": "mock-q022",
+            "category": "Shop Best Practices",
+            "clue": "What is the single most critical precaution to ensure electrostatic discharge (ESD) does not permanently damage CMOS avionics components during bench work?",
+            "choices": [
+                "Only handling components in a humidity-free environment",
+                "Wearing a properly verified, grounded anti-static wrist strap",
+                "Using insulated rubber floor mats",
+                "Using high-wattage soldering irons"
+            ],
+            "correctIndex": 1,
+            "explanation": "Grounding the technician via a properly tested anti-static wrist strap is the primary defense against ESD damage when handling sensitive solid-state components.",
+            "mapped_lo_id": "entry:q23"
+        },
+        {
+            "id": "mock-q023",
+            "category": "Flight Instruments",
+            "clue": "In a traditional pneumatic flight instrument system, what force primarily spins the mechanical gyroscope inside an attitude indicator?",
+            "choices": [
+                "High-pressure hydraulic fluid",
+                "A 400Hz AC synchronous motor",
+                "A stream of air drawn over buckets on the rotor by an engine-driven vacuum pump",
+                "Dynamic pitot pressure"
+            ],
+            "correctIndex": 2,
+            "explanation": "Traditional pneumatic gyros are air-driven. A vacuum pump pulls air through the instrument case, and the jet of air spins the gyro rotor 'buckets.'",
+            "mapped_lo_id": "entry:q182"
+        },
+        {
+            "id": "mock-q024",
+            "category": "Shop Waste Disposal",
+            "clue": "When empty cans of MEK (Methyl Ethyl Ketone) or used battery electrolyte must be disposed of in a shop environment, what strict procedure must be followed?",
+            "choices": [
+                "Diluting with water and dumping down the hangar drain",
+                "Disposing of them in standard dumpster bins under cover of darkness",
+                "Segregating the waste and using licensed, EPA-compliant hazardous materials vendors",
+                "Incinerating them behind the hangar"
+            ],
+            "correctIndex": 2,
+            "explanation": "Hazardous chemicals and heavy metals strictly require regulated disposal through licensed hazmat vendors per EPA and local environmental laws.",
+            "mapped_lo_id": "entry:q25"
+        },
+        {
+            "id": "mock-q025",
+            "category": "Aircraft Wiring",
+            "clue": "When working on highly vibratory engine environments or landing gear proximity switches, which termination method is generally prohibited in aviation due to its tendency to fracture?",
+            "choices": [
+                "Crimped ring terminals",
+                "Soldered-only splices without mechanical support",
+                "Environmental splices",
+                "Mil-Spec circular connectors"
+            ],
+            "correctIndex": 1,
+            "explanation": "Solder wicks up the wire strands, creating a rigid stress point that easily fractures under aircraft vibration. Aviation wiring almost exclusively relies on crimped mechanical connections.",
+            "mapped_lo_id": "entry:q214"
+        },
+        {
+            "id": "mock-q026",
+            "category": "Basic Electrical",
+            "clue": "If three resistors (10 Ohms, 20 Ohms, and 30 Ohms) are placed in a simple series circuit, what is the total resistance?",
+            "choices": [
+                "5.4 Ohms",
+                "60 Ohms",
+                "20 Ohms",
+                "600 Ohms"
+            ],
+            "correctIndex": 1,
+            "explanation": "In a series circuit, total resistance is simply the sum of all individual resistors: 10 + 20 + 30 = 60 Ohms.",
+            "mapped_lo_id": "entry:q58"
+        },
+        {
+            "id": "mock-q027",
+            "category": "Test Equipment",
+            "clue": "A technician is bench-testing a newly overhauled aircraft AC alternator and wants to verify its output frequency matches aircraft standards. What instrument will display both the voltage amplitude and the exact waveform frequency?",
+            "choices": [
+                "A Time Domain Reflectometer (TDR)",
+                "A simple analog multimeter",
+                "An oscilloscope",
+                "A capacitance meter"
+            ],
+            "correctIndex": 2,
+            "explanation": "An oscilloscope provides a visual representation of electrical signals across time, allowing the technician to precisely measure waveform frequency, amplitude, and signal integrity.",
+            "mapped_lo_id": "entry:q11"
+        },
+        {
+            "id": "mock-q028",
+            "category": "Shop Safety",
+            "clue": "In the context of industrial accident prevention, what defines a 'near-miss'?",
+            "choices": [
+                "A minor injury requiring only a band-aid",
+                "An unplanned event that did not result in injury, illness, or damage, but had the potential to do so",
+                "An accident where the perpetrator was not caught",
+                "A tool audit discrepancy that took longer than 10 minutes to resolve"
+            ],
+            "correctIndex": 1,
+            "explanation": "A near-miss is a 'close call.' Reporting and investigating near-misses is crucial as they highlight safety flaws before they cause real harm.",
+            "mapped_lo_id": "entry:q3"
+        },
+        {
+            "id": "mock-q029",
+            "category": "Communication Systems",
+            "clue": "In modern avionics transport categories, what does the acronym TCAS stand for?",
+            "choices": [
+                "Terrain Collision Avoidance System",
+                "Traffic Alert and Collision Avoidance System",
+                "Terminal Communication Array System",
+                "Total Control Automatic System"
+            ],
+            "correctIndex": 1,
+            "explanation": "TCAS (Traffic Alert and Collision Avoidance System) interrogates nearby transponders to issue Traffic Advisories (TAs) and Resolution Advisories (RAs) to prevent mid-air collisions.",
+            "mapped_lo_id": "entry:q266"
+        },
+        {
+            "id": "mock-q030",
+            "category": "Avionics Shop Practices",
+            "clue": "You are completing an avionics installation and accidentally drop a small 6-32 machine screw behind a floor panel. It rolls out of sight. What is your immediate required action?",
+            "choices": [
+                "Close the panel, but log it in the turnover notes for the next shift",
+                "Ignore it, since a single screw is too small to cause damage",
+                "Stop work immediately and do not close any panels until the screw is located and retrieved",
+                "Install a replacement screw to ensure the panel has all its fasteners"
+            ],
+            "correctIndex": 2,
+            "explanation": "A loose screw is a severe FOD hazard that can jam flight controls or short circuit exposed terminals. Work must stop until it is retrieved.",
+            "mapped_lo_id": "entry:q9"
+        }
+    ]
+}

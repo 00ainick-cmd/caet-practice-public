@@ -1,0 +1,526 @@
+{
+  "metadata": {
+    "moduleId": "cat-4-flight-instruments",
+    "title": "FIA: Flight Instruments & AHRS",
+    "version": "2.0.0",
+    "questionCount": 42,
+    "categoryCount": 6
+  },
+  "categories": {
+    "Altimeter & Barometric": [
+      {
+        "id": "cat4-q016",
+        "clue": "Standard atmospheric pressure at sea level is defined by ICAO as this specific value in inches of mercury.",
+        "choices": [
+          "30.12 inHg",
+          "28.92 inHg",
+          "29.92 inHg",
+          "31.00 inHg"
+        ],
+        "correctIndex": 2,
+        "explanation": "The standard atmosphere defines sea-level pressure as 29.92 inHg (1013.25 hPa). This is the baseline for pressure altitude and flight level assignments.",
+        "difficulty": 100,
+        "learningObjective": "Standard atmospheric pressure at sea level is 29.92 inHg"
+      },
+      {
+        "id": "cat4-alt-002",
+        "clue": "The aneroid capsule inside the altimeter case is surrounded by this pressure, and the capsule expands or contracts as it changes with altitude.",
+        "choices": [
+          "Ram air pressure",
+          "Vacuum pump suction",
+          "Static atmospheric pressure",
+          "Dynamic pressure"
+        ],
+        "correctIndex": 2,
+        "explanation": "Static pressure from the static port fills the altimeter case. The aneroid capsule is sealed \u2014 as static pressure drops with altitude, the capsule expands; as it rises with descent, the capsule compresses.",
+        "difficulty": 100,
+        "learningObjective": "Altimeter aneroid capsule responds to static pressure changes"
+      },
+      {
+        "id": "cat4-q004",
+        "clue": "Before flight, this value in inches of mercury must be entered in the altimeter's Kollsman window so the instrument correctly reads altitude above sea level.",
+        "choices": [
+          "Standard pressure of 29.92 inHg always",
+          "Ram air pressure from the pitot tube",
+          "The airport elevation in feet",
+          "Current local barometric pressure (altimeter setting)"
+        ],
+        "correctIndex": 3,
+        "explanation": "The local altimeter setting (QNH) is dialed into the Kollsman window to reference the altimeter to local atmospheric pressure, giving an accurate MSL altitude reading.",
+        "difficulty": 200,
+        "learningObjective": "Altimeter must be set to local barometric pressure before flight"
+      },
+      {
+        "id": "cat4-q018",
+        "clue": "The altimeter measures barometric altitude by sensing changes in this pressure through an aneroid capsule and converting expansion to a feet or meters reading.",
+        "choices": [
+          "Ram air (pitot) pressure",
+          "Static atmospheric pressure",
+          "Differential cabin pressure",
+          "Total pressure from both pitot and static"
+        ],
+        "correctIndex": 1,
+        "explanation": "The altimeter uses only static pressure \u2014 sensed through the static port \u2014 feeding an aneroid capsule that expands as static pressure decreases with altitude increase.",
+        "difficulty": 300,
+        "learningObjective": "Altimeter measures barometric altitude via static pressure changes"
+      },
+      {
+        "id": "cat4-alt-001",
+        "clue": "An altimeter reading 500 feet higher than field elevation on the ground most likely has this problem with the Kollsman window setting.",
+        "choices": [
+          "The altimeter setting is too high",
+          "The altimeter setting is too low",
+          "The altimeter is stuck",
+          "The aneroid capsule has a leak"
+        ],
+        "correctIndex": 0,
+        "explanation": "If the altimeter setting (Kollsman window) is higher than actual local pressure, the instrument over-reports altitude. High setting = high reading. Remember: 'High to low, look out below.'",
+        "difficulty": 400,
+        "learningObjective": "Incorrect Kollsman setting causes altitude errors"
+      },
+      {
+        "id": "cat4-alt-003",
+        "clue": "When transitioning from a high-pressure area to a low-pressure area, the altimeter will indicate this if the pilot doesn't update the setting.",
+        "choices": [
+          "Higher than actual altitude",
+          "Lower than actual altitude",
+          "The correct altitude",
+          "Alternating readings"
+        ],
+        "correctIndex": 0,
+        "explanation": "Flying from high to low pressure without updating the altimeter setting, the instrument reads higher than actual altitude. 'High to low, look out below' \u2014 the aircraft is lower than indicated.",
+        "difficulty": 500,
+        "learningObjective": "Pressure changes cause altimeter errors if setting not updated"
+      }
+    ],
+    "Airspeed Indicator": [
+      {
+        "id": "cat4-q017",
+        "clue": "This forward-facing probe senses and delivers ram air pressure \u2014 the key input to the airspeed indicator and air data computer.",
+        "choices": [
+          "Pitot tube",
+          "Angle-of-attack vane",
+          "Static port",
+          "Total air temperature probe"
+        ],
+        "correctIndex": 0,
+        "explanation": "The pitot tube collects ram (impact) air pressure and delivers it to the ASI and ADC. The pressure increases with airspeed, enabling airspeed computation.",
+        "difficulty": 100,
+        "learningObjective": "Pitot tube senses and delivers ram air pressure to airspeed indicator"
+      },
+      {
+        "id": "cat4-asi-001",
+        "clue": "The airspeed indicator works by measuring the difference between ram air pressure from the pitot tube and this second pressure from the static port.",
+        "choices": [
+          "Cabin pressure",
+          "Vacuum system pressure",
+          "Static atmospheric pressure",
+          "Fuel system pressure"
+        ],
+        "correctIndex": 2,
+        "explanation": "The ASI is a differential pressure instrument \u2014 it measures the difference between pitot (ram) pressure and static pressure. The resulting differential equals dynamic pressure, which corresponds to airspeed.",
+        "difficulty": 100,
+        "learningObjective": "ASI measures differential between pitot and static pressure"
+      },
+      {
+        "id": "cat4-q006",
+        "clue": "When a pitot tube becomes completely blocked, this flight instrument is primarily affected because it needs ram air pressure to calculate airspeed.",
+        "choices": [
+          "Altimeter",
+          "Airspeed indicator",
+          "Vertical speed indicator",
+          "Attitude indicator"
+        ],
+        "correctIndex": 1,
+        "explanation": "The ASI uses the differential between ram (pitot) pressure and static pressure. A blocked pitot tube eliminates the ram pressure input, making the ASI unable to measure airspeed.",
+        "difficulty": 200,
+        "learningObjective": "Blocked pitot tube primarily affects airspeed indicator"
+      },
+      {
+        "id": "cat4-q009",
+        "clue": "During descent, a blocked pitot tube causes the ASI to read falsely high because static pressure increases while this pressure remains trapped and constant.",
+        "choices": [
+          "Ram (impact) air pressure",
+          "Dynamic pressure",
+          "Cabin differential pressure",
+          "Total pressure"
+        ],
+        "correctIndex": 0,
+        "explanation": "In descent, static port pressure rises. The trapped ram pressure stays constant. The ASI sees an increasing pitot-minus-static differential and registers a falsely high airspeed.",
+        "difficulty": 300,
+        "learningObjective": "Blocked pitot during descent causes falsely high ASI reading"
+      },
+      {
+        "id": "cat4-q013",
+        "clue": "During a climb with a blocked pitot tube, static pressure decreases while this pressure stays constant, causing the ASI to show falsely increasing airspeed.",
+        "choices": [
+          "Ram air pressure (trapped)",
+          "Dynamic pressure",
+          "Cabin pressure",
+          "Manifold pressure"
+        ],
+        "correctIndex": 0,
+        "explanation": "During climb, atmospheric pressure falls. Blocked pitot traps ram pressure constant. ASI measures pitot minus static \u2014 as static decreases, the differential grows, reading falsely high airspeed.",
+        "difficulty": 400,
+        "learningObjective": "Blocked pitot during climb causes falsely increasing ASI reading"
+      },
+      {
+        "id": "cat4-q015",
+        "clue": "An airspeed indicator that consistently reads lower than actual aircraft speed most likely has this type of fault in the pitot pressure system.",
+        "choices": [
+          "Blocked static port",
+          "Over-pressurized pitot system",
+          "Partial pitot tube blockage or leak in pitot plumbing",
+          "Defective VSI orifice"
+        ],
+        "correctIndex": 2,
+        "explanation": "A consistent low reading means less ram pressure is reaching the ASI than expected. A partial blockage (reduced flow) or a leak (pressure escaping) in the pitot line both reduce effective ram pressure.",
+        "difficulty": 500,
+        "learningObjective": "Consistently low ASI reading indicates partial pitot blockage or leak"
+      }
+    ],
+    "VSI & Rate of Climb": [
+      {
+        "id": "cat4-q010",
+        "clue": "This pitot-static instrument displays the rate of change of barometric altitude in feet per minute by sensing how quickly static pressure is changing.",
+        "choices": [
+          "Altimeter",
+          "Vertical Speed Indicator (VSI)",
+          "Airspeed indicator",
+          "Air data computer"
+        ],
+        "correctIndex": 1,
+        "explanation": "The VSI uses a differential between a direct static port connection and a calibrated metering orifice to measure how fast static pressure is changing, giving a climb/descent rate in fpm.",
+        "difficulty": 100,
+        "learningObjective": "VSI displays rate of change of barometric altitude"
+      },
+      {
+        "id": "cat4-vsi-002",
+        "clue": "In level flight, the VSI pointer should indicate zero. If the pointer rests slightly off zero on the ground, the pilot should use this feature to correct it.",
+        "choices": [
+          "The Kollsman window knob",
+          "The zero-adjust screw on the VSI face",
+          "The alternate static source",
+          "The pitot heat switch"
+        ],
+        "correctIndex": 1,
+        "explanation": "A small zero-adjust screw on the VSI face allows the pilot or tech to mechanically reposition the pointer to zero when the aircraft is stationary on the ground. This is a normal preflight check.",
+        "difficulty": 200,
+        "learningObjective": "VSI zero-adjust screw corrects zero-point offset"
+      },
+      {
+        "id": "cat4-vsi-001",
+        "clue": "The VSI achieves its rate indication by routing static pressure through this precision device that creates a controlled delay in pressure equalization.",
+        "choices": [
+          "An aneroid wafer stack",
+          "A calibrated metering orifice (leak)",
+          "A pitot-static selector valve",
+          "A differential bellows assembly"
+        ],
+        "correctIndex": 1,
+        "explanation": "The VSI's calibrated metering orifice creates a controlled 'lag' \u2014 direct static pressure changes immediately on one side of the diaphragm, while the other side equalizes slowly through the orifice, creating a pressure differential that indicates climb/descent rate.",
+        "difficulty": 300,
+        "learningObjective": "VSI uses a calibrated orifice to delay pressure equalization"
+      },
+      {
+        "id": "cat4-vsi-003",
+        "clue": "The VSI is sometimes called a 'trend instrument' because it has this inherent characteristic that causes a delay in reading during the start of a climb or descent.",
+        "choices": [
+          "Gyroscopic precession",
+          "Pressure lag (6-9 second delay)",
+          "Electrical latency",
+          "Compass deviation error"
+        ],
+        "correctIndex": 1,
+        "explanation": "The VSI's calibrated orifice creates an inherent 6-9 second lag when entering or exiting a climb or descent. The instrument trend is reliable even during the lag period, hence 'trend instrument.'",
+        "difficulty": 400,
+        "learningObjective": "VSI has inherent lag of 6-9 seconds"
+      },
+      {
+        "id": "cat4-q022",
+        "clue": "A VSI consistently shows a rate of descent in level flight because this fault allows static pressure to equalize faster than the instrument's calibrated metering orifice.",
+        "choices": [
+          "A blocked pitot tube",
+          "A leak in the static system",
+          "A failed gyro erection system",
+          "An over-sensitive aneroid capsule"
+        ],
+        "correctIndex": 1,
+        "explanation": "A static system leak provides a path for pressure to equalize faster than the VSI's calibrated orifice. The VSI senses the higher pressure influx as an apparent descent, even in level flight.",
+        "difficulty": 500,
+        "learningObjective": "VSI showing descent in level flight indicates static system leak"
+      }
+    ],
+    "Gyros & Vacuum System": [
+      {
+        "id": "cat4-q008",
+        "clue": "Among primary flight instruments, this directional reference instrument requires no gyro or power source because it aligns directly to Earth's magnetic field.",
+        "choices": [
+          "Heading indicator (DI)",
+          "Turn coordinator",
+          "HSI (Horizontal Situation Indicator)",
+          "Magnetic compass"
+        ],
+        "correctIndex": 3,
+        "explanation": "The magnetic compass uses Earth's magnetic field \u2014 not a gyro. It works without electrical or vacuum power, making it the ultimate backup directional reference.",
+        "difficulty": 100,
+        "learningObjective": "Magnetic compass is not gyroscopically driven"
+      },
+      {
+        "id": "cat4-q012",
+        "clue": "These two flight instruments are commonly powered by the aircraft vacuum system, which spins their gyro rotors via air jets.",
+        "choices": [
+          "Airspeed indicator and altimeter",
+          "VSI and altimeter",
+          "Turn coordinator and magnetic compass",
+          "Attitude indicator and directional gyro"
+        ],
+        "correctIndex": 3,
+        "explanation": "The AI and DG (heading indicator) are conventionally vacuum-driven. The ASI, altimeter, and VSI are pitot-static; the TC is typically electrically driven.",
+        "difficulty": 100,
+        "learningObjective": "Attitude indicator and DG are vacuum-powered"
+      },
+      {
+        "id": "cat4-q005",
+        "clue": "In a vacuum-driven attitude indicator, air is drawn through this component by the vacuum system and directed at rotor buckets to spin the gyro.",
+        "choices": [
+          "A nozzle",
+          "A centrifugal impeller",
+          "A venturi tube mounted externally",
+          "An electric motor armature"
+        ],
+        "correctIndex": 0,
+        "explanation": "The vacuum system draws filtered air through a nozzle aimed at buckets machined around the rotor rim; the jet of air impinges on the buckets to spin the gyro.",
+        "difficulty": 200,
+        "learningObjective": "Vacuum system spins gyro rotor via air through nozzle"
+      },
+      {
+        "id": "cat4-q007",
+        "clue": "Unlike the turn-and-bank indicator, this instrument senses both roll rate and yaw rate because its gyro is canted at approximately 30 degrees.",
+        "choices": [
+          "Attitude indicator",
+          "Directional gyro",
+          "Turn coordinator",
+          "Heading indicator"
+        ],
+        "correctIndex": 2,
+        "explanation": "The turn coordinator's gyro is tilted at ~30\u00b0 so it responds to both yaw and roll. The turn-and-bank indicator has a vertically mounted gyro that only senses yaw.",
+        "difficulty": 300,
+        "learningObjective": "Turn coordinator senses roll rate and yaw rate; turn-and-bank senses only yaw rate"
+      },
+      {
+        "id": "cat4-q021",
+        "clue": "This gyroscopic property allows the attitude indicator's rotor to maintain a fixed orientation in space, resisting aircraft pitch and roll movements to provide a stable reference.",
+        "choices": [
+          "Rigidity in space",
+          "Precession",
+          "Gyroscopic drift",
+          "Gyroscopic wander"
+        ],
+        "correctIndex": 0,
+        "explanation": "Rigidity in space (also called gyroscopic inertia) causes a spinning rotor to resist any force changing its axis orientation. This resistance provides the stable reference needed for the attitude indicator.",
+        "difficulty": 400,
+        "learningObjective": "Gyroscopic rigidity in space allows stable attitude reference"
+      },
+      {
+        "id": "cat4-gyro-001",
+        "clue": "Gyroscopic precession causes a force applied to a spinning gyro to produce a reaction that occurs 90 degrees later in the direction of rotation. This is why a heading indicator has this operational requirement.",
+        "choices": [
+          "It must be periodically reset to the magnetic compass heading",
+          "It requires pitot heat to function",
+          "It can only be used above 500 feet AGL",
+          "It does not work in turbulence"
+        ],
+        "correctIndex": 0,
+        "explanation": "Precession causes the directional gyro to gradually drift from the correct heading over time. Pilots must periodically reset the DG to match the magnetic compass \u2014 typically every 15 minutes.",
+        "difficulty": 500,
+        "learningObjective": "Gyroscopic precession requires periodic DG resetting to magnetic compass"
+      }
+    ],
+    "AHRS & Glass Cockpit": [
+      {
+        "id": "cat4-q001",
+        "clue": "In a glass-cockpit aircraft, this computer processes pitot-static pressure data to supply airspeed and altitude information to the Primary Flight Display.",
+        "choices": [
+          "Air Data Computer (ADC)",
+          "GPS receiver",
+          "Attitude and Heading Reference System (AHRS)",
+          "Flight Management System (FMS)"
+        ],
+        "correctIndex": 0,
+        "explanation": "The ADC interfaces directly with the pitot-static system and converts pressure measurements into digital airspeed and altitude data for the PFD.",
+        "difficulty": 100,
+        "learningObjective": "ADC as source of airspeed and altitude for PFD"
+      },
+      {
+        "id": "cat4-q002",
+        "clue": "These solid-state devices, used in modern EFIS attitude sensing, measure angular rate and linear acceleration without any rotating or moving mechanical components.",
+        "choices": [
+          "Laser ring gyroscopes only",
+          "MEMS gyroscopes and accelerometers",
+          "Vacuum-driven spinning gyro rotors",
+          "Flux gate compass sensors"
+        ],
+        "correctIndex": 1,
+        "explanation": "EFIS systems use MEMS (Micro-Electro-Mechanical Systems) sensors \u2014 solid-state gyroscopes and accelerometers \u2014 to determine attitude and motion without mechanical moving parts.",
+        "difficulty": 200,
+        "learningObjective": "EFIS uses MEMS gyroscopes and accelerometers for attitude data"
+      },
+      {
+        "id": "cat4-q020",
+        "clue": "In the standard 'Basic T' instrument layout, the attitude indicator occupies this position, with the airspeed indicator to its left and the altimeter to its right.",
+        "choices": [
+          "Lower-center",
+          "Upper-right",
+          "Upper-left",
+          "Upper-center"
+        ],
+        "correctIndex": 3,
+        "explanation": "The Basic T puts the AI at upper-center \u2014 the reference instrument for all cross-checks \u2014 with ASI upper-left, ALT upper-right, and DI/HI lower-center.",
+        "difficulty": 300,
+        "learningObjective": "Standard T arrangement of flight instruments"
+      },
+      {
+        "id": "cat4-q014",
+        "clue": "The AHRS in a modern EFIS determines attitude, heading, and angular rates using these three types of solid-state sensors instead of spinning mechanical gyros.",
+        "choices": [
+          "GPS receivers, barometric sensors, and radar altimeters",
+          "Rate gyroscopes, accelerometers, and magnetometers",
+          "Pitot probes, static ports, and angle-of-attack vanes",
+          "MEMS chips, ADC units, and flux gate compasses only"
+        ],
+        "correctIndex": 1,
+        "explanation": "AHRS systems combine rate gyros (angular rate), accelerometers (linear motion/gravity), and magnetometers (magnetic heading) in solid-state form \u2014 no mechanical spinning gyros needed.",
+        "difficulty": 400,
+        "learningObjective": "AHRS uses rate gyros, accelerometers, magnetometers \u2014 no mechanical gyros"
+      },
+      {
+        "id": "cat4-ahrs-001",
+        "clue": "Unlike traditional gyro systems, modern AHRS requires this initialization process after power-up before attitude and heading data becomes valid for flight.",
+        "choices": [
+          "Vacuum pump warm-up spin cycle",
+          "GPS satellite lock confirmation only",
+          "Alignment and calibration (usually 30-90 seconds stationary)",
+          "Manual compass swing to set deviation card"
+        ],
+        "correctIndex": 2,
+        "explanation": "AHRS units need an alignment period after power-up. The system must be stationary so accelerometers can find gravity (level) and magnetometers can sense magnetic north. This takes 30-90 seconds depending on the system.",
+        "difficulty": 500,
+        "learningObjective": "AHRS requires alignment period after power-up"
+      }
+    ],
+    "Static System & Troubleshooting": [
+      {
+        "id": "cat4-q019",
+        "clue": "Flush-mounted static ports supply ambient atmospheric pressure to these three flight instruments: the altimeter, VSI, and one more.",
+        "choices": [
+          "Magnetic compass",
+          "Attitude indicator",
+          "Airspeed indicator",
+          "Turn coordinator"
+        ],
+        "correctIndex": 2,
+        "explanation": "The static pressure system feeds three instruments: the altimeter (altitude reference), the VSI (rate of pressure change), and the airspeed indicator (static side of differential pressure).",
+        "difficulty": 100,
+        "learningObjective": "Static port supplies altimeter, VSI, and ASI"
+      },
+      {
+        "id": "cat4-q023",
+        "clue": "These three flight instruments all rely on an accurate static port reading: the altimeter, the VSI, and this third instrument.",
+        "choices": [
+          "Attitude indicator",
+          "Heading indicator",
+          "Airspeed indicator",
+          "Turn coordinator"
+        ],
+        "correctIndex": 2,
+        "explanation": "The ASI uses static pressure as the reference side of its differential measurement. Along with the altimeter and VSI, all three require a clean, accurate static port connection.",
+        "difficulty": 200,
+        "learningObjective": "Altimeter, VSI, and ASI rely on static port"
+      },
+      {
+        "id": "cat4-stat-001",
+        "clue": "When the primary static ports are blocked (such as by ice), many aircraft provide this emergency feature that connects the instruments to an interior pressure source.",
+        "choices": [
+          "Pitot bypass valve",
+          "Emergency ram air scoop",
+          "Alternate static source valve",
+          "Static port breather line"
+        ],
+        "correctIndex": 2,
+        "explanation": "The alternate static source valve connects the instruments to cabin static pressure. Cabin pressure is slightly lower than outside due to airflow, so altimeter reads slightly high and ASI reads slightly high with alternate static selected.",
+        "difficulty": 300,
+        "learningObjective": "Alternate static source provides emergency backup when ports are blocked"
+      },
+      {
+        "id": "cat4-q011",
+        "clue": "A blocked static port causes these two instruments to become unusable: one freezes at the altitude where the blockage occurred, and the other reads zero continuously.",
+        "choices": [
+          "ASI and turn coordinator",
+          "Attitude indicator and heading indicator",
+          "Altimeter and VSI",
+          "VSI and airspeed indicator"
+        ],
+        "correctIndex": 2,
+        "explanation": "Both the altimeter and VSI rely on static pressure changes. A blocked static port traps pressure \u2014 the altimeter freezes at the blocked altitude, and the VSI reads zero (no pressure change detected).",
+        "difficulty": 400,
+        "learningObjective": "Blocked static port freezes altimeter and VSI at zero"
+      },
+      {
+        "id": "cat4-stat-002",
+        "clue": "During a static system leak check per 14 CFR 91.411, the system must hold vacuum without leaking more than this amount over one minute to pass inspection.",
+        "choices": [
+          "50 feet in one minute",
+          "100 feet in one minute",
+          "200 feet in one minute",
+          "500 feet in one minute"
+        ],
+        "correctIndex": 1,
+        "explanation": "Per FAR 91.411, the static system must not leak more than 100 feet of altitude equivalent in one minute when tested under vacuum. This ensures instrument accuracy for IFR flight.",
+        "difficulty": 500,
+        "learningObjective": "Static system leak check tolerance is 100 feet per minute"
+      }
+    ]
+  },
+  "final": [
+    {
+      "category": "Final Challenge: Glass Cockpit Systems",
+      "clue": "In an EFIS architecture, a failure of the Air Data Computer (ADC) will result in red 'X's over which combination of primary flight instruments?",
+      "choices": [
+        "Attitude and Heading",
+        "Airspeed, Altimeter, and VSI",
+        "Navigation Maps and Weather Radar",
+        "Engine Instruments"
+      ],
+      "correctIndex": 1,
+      "explanation": "The ADC processes pitot-static information. A failure blanks out the Airspeed Indicator, Altimeter, and Vertical Speed Indicator. Attitude and Heading are handled by the AHRS.",
+      "difficulty": 500
+    },
+    {
+      "category": "Final Challenge: AHRS Alignment",
+      "clue": "A modern AHRS unit uses this specific sensor combination to align to magnetic north without requiring a physical spinning flux valve.",
+      "choices": [
+        "A 3-axis solid-state magnetometer",
+        "A ring laser gyro",
+        "Dual GPS receivers",
+        "A tuned resonant cavity"
+      ],
+      "correctIndex": 0,
+      "explanation": "Modern AHRS uses a 3-axis solid-state magnetometer (usually mounted in the wing to avoid interference) to electronically sense the Earth's magnetic field and derive magnetic heading.",
+      "difficulty": 500
+    },
+    {
+      "category": "Final Challenge: Pitot-Static Faults",
+      "clue": "If an aircraft takes off with the static port taped over, how will the airspeed indicator react during the climb?",
+      "choices": [
+        "It will read zero",
+        "It will lock at the takeoff speed",
+        "It will read falsely low",
+        "It will read falsely high"
+      ],
+      "correctIndex": 2,
+      "explanation": "With a trapped static pressure from takeoff altitude (which is higher pressure than at altitude), the pitot-static differential is smaller than it should be. The ASI will read falsely low in a climb.",
+      "difficulty": 500
+    }
+  ]
+}

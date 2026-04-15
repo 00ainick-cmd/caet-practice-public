@@ -1,0 +1,2018 @@
+{
+  "metadata": {
+    "lessonId": "cat-5-digital-databus",
+    "lessonTitle": "Digital Databuses: ARINC 429, MIL-STD-1553 & Serial Interfaces",
+    "exam": "CAET Entry",
+    "category": "Category 5",
+    "version": "2.0.0",
+    "lastUpdated": "2026-02-23",
+    "objectiveSource": "CAET-Objective-Master-Redesign-v2.xlsx",
+    "totalObjectives": 32,
+    "questionCount": 32,
+    "positionDistribution": {
+      "A": 32,
+      "B": 32,
+      "C": 32,
+      "D": 32
+    },
+    "writingStandards": "docs/question-writing-standards.md"
+  },
+  "questions": [
+    {
+      "id": "cat5-q001",
+      "category": "cat-5-digital-databus",
+      "difficulty": "medium",
+      "tags": [
+        "ARINC 429",
+        "unidirectional",
+        "serial",
+        "LRU",
+        "databus"
+      ],
+      "learningObjective": "ARINC 429 is a unidirectional two-wire serial bus for avionics LRU communication",
+      "fullObjective": "Describe ARINC 429 as a unidirectional, two-wire serial data bus standard widely used in general aviation avionics for point-to-point or broadcast communication between LRUs.",
+      "flashcard": {
+        "term": "ARINC 429",
+        "definition": "A unidirectional, two-wire (shielded twisted pair) serial data bus standard used in general aviation and commercial avionics; one transmitter sends data to one or more receivers in a point-to-point or broadcast configuration.",
+        "analogy": "ARINC 429 is like a one-way radio broadcast \u2014 one announcer (transmitter) sends data that multiple listeners (receivers) can hear, but no listener can talk back on the same wire.",
+        "unit": "Digital Databus Fundamentals (ARINC 429)"
+      },
+      "jeopardy": {
+        "question": "This avionics data bus standard uses two wires in a unidirectional configuration, allowing one transmitter to send data to multiple LRU receivers.",
+        "choices": [
+          "ARINC 429",
+          "MIL-STD-1553",
+          "RS-485",
+          "AFDX"
+        ],
+        "correctIndex": 0,
+        "explanation": "ARINC 429 is the standard unidirectional, shielded twisted-pair serial bus used throughout general and commercial aviation for LRU-to-LRU data exchange."
+      },
+      "multipleChoice": {
+        "question": "How does ARINC 429 data flow between avionics LRUs?",
+        "choices": [
+          "Bidirectionally on a single cable with a bus controller managing traffic",
+          "Unidirectionally from one transmitter to one or more receivers on a two-wire bus",
+          "Via a token-ring topology where each LRU passes a transmission token",
+          "Through a central switch that routes packets between any two LRUs"
+        ],
+        "correctIndex": 1,
+        "explanation": "ARINC 429 is strictly unidirectional \u2014 one transmitter, one or more receivers \u2014 on a shielded twisted-pair. For two-way communication, two separate buses are needed."
+      },
+      "practice": {
+        "question": "A technician is tracing an ARINC 429 bus from a GPS receiver to a flight director and an autopilot. Which statement best describes the expected wiring topology?",
+        "choices": [
+          "A single two-wire bus connects all three units and each unit can transmit or receive as needed",
+          "The bus requires a bus controller unit to route data between the GPS, flight director, and autopilot",
+          "The GPS transmits on a dedicated two-wire bus; the flight director and autopilot each receive on the same pair \u2014 one transmitter, multiple receivers",
+          "Each pair of units requires its own bidirectional serial connection"
+        ],
+        "correctIndex": 2,
+        "explanation": "ARINC 429 is unidirectional \u2014 the GPS is the single transmitter on its output bus; both the flight director and autopilot can receive on the same twisted pair."
+      },
+      "preassessment": {
+        "question": "What type of data flow does ARINC 429 support?",
+        "choices": [
+          "Bidirectional on one bus",
+          "Command-response with a bus controller",
+          "Multi-master with token passing",
+          "Unidirectional from one transmitter to one or more receivers"
+        ],
+        "correctIndex": 3
+      }
+    },
+    {
+      "id": "cat5-q002",
+      "category": "cat-5-digital-databus",
+      "difficulty": "easy",
+      "tags": [
+        "ARINC 429",
+        "transmission speed",
+        "12.5 kbps",
+        "100 kbps"
+      ],
+      "learningObjective": "ARINC 429 speeds: 12.5 kbps low speed, 100 kbps high speed",
+      "fullObjective": "State the two standard ARINC 429 transmission speeds: low speed at 12.5 to 14.5 kbps and high speed at 100 kbps.",
+      "flashcard": {
+        "term": "ARINC 429 Transmission Speeds",
+        "definition": "ARINC 429 operates at two standard speeds: low speed at 12.5\u201314.5 kbps (kilobits per second) and high speed at 100 kbps.",
+        "analogy": "Think of low-speed ARINC 429 as a slow, careful walkie-talkie and high-speed as a fast CB radio \u2014 same protocol, different transmission rates for different data urgency.",
+        "unit": "Digital Databus Fundamentals (ARINC 429)"
+      },
+      "jeopardy": {
+        "question": "The two standard ARINC 429 data rates are this low-speed range and a high-speed rate of 100 kbps.",
+        "choices": [
+          "1\u20135 kbps low speed",
+          "12.5\u201314.5 kbps low speed",
+          "25\u201350 kbps low speed",
+          "50\u201375 kbps low speed"
+        ],
+        "correctIndex": 1,
+        "explanation": "ARINC 429 defines low-speed operation at 12.5\u201314.5 kbps and high-speed operation at 100 kbps. High speed is used for critical flight data; low speed for less time-critical data."
+      },
+      "multipleChoice": {
+        "question": "What are the two standard ARINC 429 bus data rates?",
+        "choices": [
+          "1 kbps and 10 kbps",
+          "50 kbps and 500 kbps",
+          "12.5\u201314.5 kbps (low) and 100 kbps (high)",
+          "100 kbps and 1 Mbps"
+        ],
+        "correctIndex": 2,
+        "explanation": "ARINC 429 specifies low-speed (12.5\u201314.5 kbps) for less time-critical data and high-speed (100 kbps) for time-critical avionics data such as attitude and navigation."
+      },
+      "practice": {
+        "question": "While reviewing an avionics system installation specification, a technician sees an ARINC 429 output from an ADC labeled 'High Speed ARINC 429.' What data rate should the receiving LRU be configured to accept?",
+        "choices": [
+          "12.5 kbps",
+          "14.5 kbps",
+          "1 Mbps",
+          "100 kbps"
+        ],
+        "correctIndex": 3,
+        "explanation": "ARINC 429 high speed is 100 kbps. A receiver on a high-speed bus must be configured for 100 kbps to properly decode the data."
+      },
+      "preassessment": {
+        "question": "What is the ARINC 429 high-speed data rate?",
+        "choices": [
+          "100 kbps",
+          "14.5 kbps",
+          "50 kbps",
+          "12.5 kbps"
+        ],
+        "correctIndex": 0
+      }
+    },
+    {
+      "id": "cat5-q003",
+      "category": "cat-5-digital-databus",
+      "difficulty": "hard",
+      "tags": [
+        "ARINC 429",
+        "latency",
+        "bus loading",
+        "troubleshooting"
+      ],
+      "learningObjective": "High latency on ARINC 429 indicates high bus loading or infrequent data source",
+      "fullObjective": "Given high latency between data updates on an ARINC 429 bus, determine whether high bus loading or an infrequently updating data source is the most likely cause before replacing hardware.",
+      "flashcard": {
+        "term": "ARINC 429 Update Latency",
+        "definition": "High latency between data updates on an ARINC 429 bus is caused by either high bus loading (too many labels being transmitted, slowing the update rate for each) or an infrequently updating source LRU \u2014 not necessarily a hardware failure.",
+        "analogy": "Like a busy highway \u2014 more cars (labels) on the road means each car (data word) takes longer to arrive. Or the source simply isn't sending updates often.",
+        "unit": "Digital Databus Fundamentals (ARINC 429)"
+      },
+      "jeopardy": {
+        "question": "Before replacing a suspected faulty ARINC 429 LRU due to slow data updates, a technician should first determine whether this condition or an infrequent source is causing the latency.",
+        "choices": [
+          "Low bus voltage",
+          "Shorted termination resistor",
+          "High bus loading",
+          "Incorrect word parity"
+        ],
+        "correctIndex": 2,
+        "explanation": "High bus loading means more labels are being transmitted per cycle, extending the time between updates for any single label. This is a configuration issue, not a hardware failure."
+      },
+      "multipleChoice": {
+        "question": "An avionics system shows unusually slow update rates on the ARINC 429 display. Before replacing the transmitting LRU, what should the technician investigate?",
+        "choices": [
+          "Whether the receiving LRU has a failed demodulator circuit",
+          "Whether the static discharge system is affecting digital signal timing",
+          "Whether the data bus cable is too long and requires a signal repeater",
+          "Whether high bus loading or an infrequently updating data source is causing the slow updates"
+        ],
+        "correctIndex": 3,
+        "explanation": "Slow update rates are often caused by high bus loading (many labels competing for bandwidth) or a source that transmits infrequently by design \u2014 not hardware failure. Check both before condemning a box."
+      },
+      "practice": {
+        "question": "A pilot reports that GPS position on the MFD updates slowly, sometimes with 3\u20134 second gaps. ARINC 429 continuity checks out. The GPS appears otherwise operational. What should the technician check next?",
+        "choices": [
+          "Check the ARINC 429 bus loading \u2014 if many other LRUs are also transmitting, the update rate for any single label drops",
+          "Replace the GPS receiver as slow updates indicate internal processing failure",
+          "Inspect the pitot-static system for interference with the GPS antenna",
+          "Verify the ARINC 429 bus termination is not open-circuited"
+        ],
+        "correctIndex": 0,
+        "explanation": "With good continuity, slow GPS position updates are consistent with bus loading \u2014 many labels on the bus reduce each label's update frequency. Bus analyzer data showing label density would confirm this."
+      },
+      "preassessment": {
+        "question": "What should be checked before replacing hardware when ARINC 429 data updates are slower than expected?",
+        "choices": [
+          "Wire gauge and length",
+          "Bus loading and source update rate",
+          "Receiver amplifier gain",
+          "Connector pin tension"
+        ],
+        "correctIndex": 1
+      }
+    },
+    {
+      "id": "cat5-q004",
+      "category": "cat-5-digital-databus",
+      "difficulty": "medium",
+      "tags": [
+        "digital databus",
+        "avionics",
+        "standardized",
+        "LRU",
+        "data transfer"
+      ],
+      "learningObjective": "Digital databus purpose: standardized reliable data transfer between LRUs",
+      "fullObjective": "Explain the primary purpose of a digital databus in avionics systems: to enable reliable, standardized transfer of data between multiple avionics units using a shared communication medium.",
+      "flashcard": {
+        "term": "Digital Databus Purpose",
+        "definition": "A digital databus in avionics enables reliable, standardized transfer of data between multiple LRUs (Line Replaceable Units) over a shared communication medium, replacing individual point-to-point analog wiring.",
+        "analogy": "A databus is like a shared office network \u2014 instead of running a separate cable between every two computers, all computers share one network cable using a standard protocol.",
+        "unit": "Digital Databus Fundamentals (ARINC 429)"
+      },
+      "jeopardy": {
+        "question": "A digital databus in avionics is designed to provide this primary benefit: enabling reliable, standardized data transfer between multiple avionics units over a shared medium.",
+        "choices": [
+          "Increased electrical power distribution to avionics",
+          "Reduction of avionics cooling requirements",
+          "Redundant navigation signal reception",
+          "Reliable standardized data transfer between multiple LRUs"
+        ],
+        "correctIndex": 3,
+        "explanation": "The fundamental purpose of a databus is standardized, reliable communication between LRUs \u2014 replacing analog point-to-point wiring with a shared digital medium."
+      },
+      "multipleChoice": {
+        "question": "What is the primary purpose of a digital avionics databus?",
+        "choices": [
+          "To enable reliable, standardized data transfer between multiple avionics units over a shared communication medium",
+          "To provide backup electrical power distribution during an LRU failure",
+          "To encrypt navigation data to prevent interception by hostile parties",
+          "To store flight data for retrieval by maintenance personnel after flight"
+        ],
+        "correctIndex": 0,
+        "explanation": "A databus provides a common, standardized communication medium so multiple LRUs can exchange data reliably without requiring dedicated point-to-point analog wiring between each pair."
+      },
+      "practice": {
+        "question": "A legacy aircraft has separate analog connections from each sensor to each display instrument. During an upgrade, the shop proposes replacing this wiring with an ARINC 429 digital databus. What is the most significant benefit the customer should expect?",
+        "choices": [
+          "The bus eliminates all electrical noise in the aircraft because digital signals are immune to interference",
+          "Standardized digital data exchange between all connected LRUs with reduced wiring complexity and improved integration",
+          "The ARINC 429 bus allows each instrument to be powered directly from the bus instead of from the electrical system",
+          "All instruments will update at exactly 100 kbps regardless of individual sensor output rates"
+        ],
+        "correctIndex": 1,
+        "explanation": "The key benefit is standardized, reliable data exchange between multiple LRUs with significantly less wiring complexity compared to individual analog connections."
+      },
+      "preassessment": {
+        "question": "What is the primary purpose of a digital avionics databus?",
+        "choices": [
+          "Power distribution",
+          "Navigation signal encryption",
+          "Standardized data transfer between LRUs",
+          "Flight data recording"
+        ],
+        "correctIndex": 2
+      }
+    },
+    {
+      "id": "cat5-q005",
+      "category": "cat-5-digital-databus",
+      "difficulty": "easy",
+      "tags": [
+        "ARINC 429",
+        "word length",
+        "32-bit",
+        "data word"
+      ],
+      "learningObjective": "ARINC 429 uses 32-bit word structure",
+      "fullObjective": "State that 'word length' in avionics data buses is the fixed number of bits in a single transmitted data word, such as the 32-bit word structure used in ARINC 429.",
+      "flashcard": {
+        "term": "ARINC 429 Word Length",
+        "definition": "An ARINC 429 data word is 32 bits long, consisting of a label (8 bits), status/source destination identifier (2 bits), data field (19 bits), and sign/status matrix or parity bit (1 bit each).",
+        "analogy": "Think of the 32-bit ARINC 429 word as a standardized form with exactly 32 checkboxes \u2014 each is always filled, always in the same order, regardless of what data is being transmitted.",
+        "unit": "Digital Databus Fundamentals (ARINC 429)"
+      },
+      "jeopardy": {
+        "question": "In ARINC 429, a single transmitted data unit contains exactly this many bits, including the 8-bit label and data fields.",
+        "choices": [
+          "32 bits",
+          "16 bits",
+          "64 bits",
+          "8 bits"
+        ],
+        "correctIndex": 0,
+        "explanation": "ARINC 429 uses a fixed 32-bit word structure for every transmitted data word, regardless of the type of data being sent."
+      },
+      "multipleChoice": {
+        "question": "How many bits are in an ARINC 429 data word?",
+        "choices": [
+          "8 bits (one byte)",
+          "32 bits",
+          "16 bits",
+          "64 bits"
+        ],
+        "correctIndex": 1,
+        "explanation": "ARINC 429 transmits data in fixed-length 32-bit words. This standardized word length ensures consistent encoding and decoding across all compliant LRUs."
+      },
+      "practice": {
+        "question": "A technician using a bus analyzer is capturing ARINC 429 traffic. Each word on the analyzer display shows 32 bit positions. The technician notes the first 8 bits are the same for a group of words from the ADC. What do these first 8 bits represent?",
+        "choices": [
+          "The data value encoded in binary for that transmission",
+          "The parity check bits for error detection",
+          "The label \u2014 the 8-bit field identifying the type of data contained in the word",
+          "The source and destination address fields"
+        ],
+        "correctIndex": 2,
+        "explanation": "In an ARINC 429 32-bit word, bits 1\u20138 (transmitted first) are the label, which identifies the data type (e.g., airspeed, altitude). The same label appears repeatedly for the same parameter."
+      },
+      "preassessment": {
+        "question": "What is the word length of an ARINC 429 data word?",
+        "choices": [
+          "8 bits",
+          "16 bits",
+          "64 bits",
+          "32 bits"
+        ],
+        "correctIndex": 3
+      }
+    },
+    {
+      "id": "cat5-q006",
+      "category": "cat-5-digital-databus",
+      "difficulty": "medium",
+      "tags": [
+        "ARINC 429",
+        "troubleshooting",
+        "continuity",
+        "connectors",
+        "intermittent"
+      ],
+      "learningObjective": "Intermittent ARINC 429 loss: first check wiring and connector integrity",
+      "fullObjective": "Given intermittent ARINC 429 communication loss, determine that the correct first step is to check wiring continuity and connector integrity at both the transmitter and receiver ends.",
+      "flashcard": {
+        "term": "ARINC 429 Intermittent Loss \u2014 First Step",
+        "definition": "For intermittent ARINC 429 communication loss, the correct first troubleshooting step is to check wiring continuity and connector integrity at both the transmitter and receiver ends, before suspecting LRU failure.",
+        "analogy": "Like a flickering lamp \u2014 before buying a new bulb, check whether the cord or plug is loose. Most intermittent failures are connection problems, not component failures.",
+        "unit": "Digital Databus Fundamentals (ARINC 429)"
+      },
+      "jeopardy": {
+        "question": "When troubleshooting intermittent ARINC 429 communication loss, this should be the first step before suspecting a failed LRU.",
+        "choices": [
+          "Replace the transmitting LRU with a known-good unit",
+          "Check wiring continuity and connector integrity at both ends",
+          "Reprogram the receiving LRU's ARINC label configuration",
+          "Install a bus signal repeater to boost signal strength"
+        ],
+        "correctIndex": 1,
+        "explanation": "Intermittent faults are most commonly caused by loose connectors or wiring issues. Checking continuity and connector integrity at both ends is the correct first step per systematic troubleshooting."
+      },
+      "multipleChoice": {
+        "question": "An autopilot intermittently loses ARINC 429 data from the air data computer. What should the technician do first?",
+        "choices": [
+          "Immediately swap the ADC with a serviceable unit to confirm the fault",
+          "Reprogram the autopilot's ARINC 429 receiver threshold settings",
+          "Check wiring continuity and connector integrity at both the ADC output and the autopilot input connectors",
+          "Replace the ARINC 429 bus cable with a new shielded twisted pair"
+        ],
+        "correctIndex": 2,
+        "explanation": "Intermittent faults are most often connection-related. Inspect connectors and verify continuity at both ends before condemning an expensive LRU or replacing cable."
+      },
+      "practice": {
+        "question": "An avionics technician gets a squawk: 'GPS occasionally drops off the EFIS.' The problem has been reported three times on different flights. GPS works on the ground. What is the correct first troubleshooting action?",
+        "choices": [
+          "Remove and replace the GPS unit \u2014 intermittent failures indicate an aging component",
+          "Install a signal analyzer on the ARINC 429 bus during flight to capture the failure",
+          "Verify the GPS satellite acquisition settings and update the database",
+          "Check wiring and connector integrity on the ARINC 429 bus between the GPS and EFIS, looking for loose pins, chafing, or intermittent continuity"
+        ],
+        "correctIndex": 3,
+        "explanation": "Ground-works, air-fails pattern is a classic symptom of a loose connector that opens under vibration or thermal stress. Inspect the ARINC 429 wiring and connectors at both ends before replacing any LRU."
+      },
+      "preassessment": {
+        "question": "What is the first step when troubleshooting intermittent ARINC 429 communication loss?",
+        "choices": [
+          "Check wiring and connector integrity",
+          "Replace the transmitting LRU",
+          "Reprogram bus parameters",
+          "Install a signal repeater"
+        ],
+        "correctIndex": 0
+      }
+    },
+    {
+      "id": "cat5-q007",
+      "category": "cat-5-digital-databus",
+      "difficulty": "hard",
+      "tags": [
+        "MIL-STD-1553",
+        "remote terminal",
+        "bus controller",
+        "fault isolation"
+      ],
+      "learningObjective": "MIL-STD-1553 device not responding: check controller config, RT address, wiring",
+      "fullObjective": "Given a MIL-STD-1553 device not responding, determine whether a bus controller configuration error, incorrect remote terminal address, or wiring fault is the most likely cause before replacing the device.",
+      "flashcard": {
+        "term": "MIL-STD-1553 Device Not Responding \u2014 Diagnosis",
+        "definition": "When a MIL-STD-1553 device does not respond, check three things before replacing hardware: bus controller configuration (is the correct RT address being commanded?), remote terminal address setting (is it set correctly on the device?), and wiring continuity.",
+        "analogy": "Like calling a phone \u2014 if no one answers, first check if you dialed the right number (RT address), then check if the phone is connected (wiring), before concluding the phone is broken.",
+        "unit": "Digital Databus Systems (MIL-STD-1553, RS-232, RS-485)"
+      },
+      "jeopardy": {
+        "question": "Before replacing a non-responding MIL-STD-1553 remote terminal, a technician should first check these three potential causes: wiring, bus controller configuration, and this.",
+        "choices": [
+          "Bus voltage amplitude",
+          "Parity error rate",
+          "Incorrect remote terminal address",
+          "Bus loading percentage"
+        ],
+        "correctIndex": 2,
+        "explanation": "A wrong remote terminal (RT) address means the device will never receive its command \u2014 it will appear to not respond even though it's otherwise functional."
+      },
+      "multipleChoice": {
+        "question": "A MIL-STD-1553 remote terminal is not responding to bus controller commands. What should the technician investigate first?",
+        "choices": [
+          "Power cycle the bus controller and retry",
+          "Increase bus voltage above specification to overcome signal loss",
+          "Replace the remote terminal with a known-good unit and retest",
+          "Check bus controller configuration, the remote terminal's address setting, and wiring continuity before condemning the device"
+        ],
+        "correctIndex": 3,
+        "explanation": "MIL-STD-1553 non-response is most commonly caused by address mismatch (bus controller calling wrong RT address or RT set to wrong address) or wiring issues \u2014 not hardware failure."
+      },
+      "practice": {
+        "question": "After installing a new MIL-STD-1553 remote terminal (RT) in a military avionics system, the bus controller reports the device as non-responsive. All other RTs are communicating normally. What should be checked first?",
+        "choices": [
+          "The new RT's address setting \u2014 it may be set to a different remote terminal address than the bus controller expects",
+          "The new RT's firmware version \u2014 newer firmware may be incompatible with the bus controller",
+          "The bus stub cable resistance \u2014 a new RT may have a different input impedance",
+          "The bus controller's polling interval \u2014 it may not be polling the new RT fast enough"
+        ],
+        "correctIndex": 0,
+        "explanation": "When only the new RT fails to respond, the most likely cause is the RT address not matching what the bus controller is commanding. Verify the RT's address strapping/configuration matches the expected address."
+      },
+      "preassessment": {
+        "question": "What should be checked first when a MIL-STD-1553 device is not responding?",
+        "choices": [
+          "Replace the device immediately",
+          "Bus controller config, RT address, and wiring",
+          "Power supply voltage levels",
+          "Bus cable shield continuity only"
+        ],
+        "correctIndex": 1
+      }
+    },
+    {
+      "id": "cat5-q008",
+      "category": "cat-5-digital-databus",
+      "difficulty": "easy",
+      "tags": [
+        "digital databus",
+        "noise immunity",
+        "analog vs digital",
+        "interference"
+      ],
+      "learningObjective": "Digital buses provide greater noise immunity than analog signals",
+      "fullObjective": "State that greater noise immunity and resistance to interference is a key advantage of digital data buses over analog signals in avionics applications.",
+      "flashcard": {
+        "term": "Digital Bus Noise Immunity",
+        "definition": "Digital data buses offer significantly greater noise immunity than analog signals because they transmit discrete logic states (0 or 1) that can be reliably detected even in the presence of electrical interference, while analog signals degrade continuously with noise.",
+        "analogy": "Digital is like a light switch \u2014 it's either on or off, and small vibrations don't matter. Analog is like a dimmer \u2014 any vibration or noise shifts the reading by some amount.",
+        "unit": "Digital Databus Fundamentals (ARINC 429)"
+      },
+      "jeopardy": {
+        "question": "This key advantage makes digital data buses more reliable than analog signals in the electrically noisy avionics environment.",
+        "choices": [
+          "Higher maximum data throughput",
+          "Compatibility with legacy analog instruments",
+          "Lower installation cost",
+          "Greater noise immunity and interference resistance"
+        ],
+        "correctIndex": 3,
+        "explanation": "Digital signals represent data as discrete states (0/1). Small amounts of electrical noise don't change the state unless they exceed the noise margin, providing far greater reliability than analog in noisy environments."
+      },
+      "multipleChoice": {
+        "question": "What is a key advantage of digital data buses over analog signals in avionics?",
+        "choices": [
+          "Digital buses have greater noise immunity because discrete logic states are not degraded by small amounts of electrical interference",
+          "Digital buses are cheaper to install and require less cable shielding",
+          "Digital buses can transmit more types of data because they support variable voltage levels",
+          "Digital buses eliminate the need for aircraft grounding and bonding"
+        ],
+        "correctIndex": 0,
+        "explanation": "Digital signals are binary \u2014 noise must exceed the noise margin to cause an error. Analog signals degrade proportionally with any noise, making digital buses far more resistant to EMI/RFI in aircraft environments."
+      },
+      "practice": {
+        "question": "An aircraft with all-analog instrument connections experiences persistent heading indicator oscillations whenever a high-power HF radio transmitter is keyed. After upgrading to an EFIS with an ARINC 429 digital bus, the problem disappears. What principle explains this improvement?",
+        "choices": [
+          "The ARINC 429 bus uses a metal shield that absorbs HF radio energy before it reaches the instruments",
+          "Digital signals have greater noise immunity \u2014 small amounts of RF interference don't change the discrete binary states, so the data is unaffected by the HF transmission",
+          "The ARINC 429 bus increases the signal voltage, making it stronger than the HF interference",
+          "The EFIS filters all radio frequencies using a digital notch filter built into the ADC"
+        ],
+        "correctIndex": 1,
+        "explanation": "Noise immunity is the fundamental advantage of digital: the logic threshold means small noise levels don't corrupt data. Analog signals, being continuous, are corrupted by any interference that exceeds their noise floor."
+      },
+      "preassessment": {
+        "question": "What key advantage do digital buses have over analog signals?",
+        "choices": [
+          "Lower cost",
+          "Higher voltage levels",
+          "Greater noise immunity",
+          "Simpler installation"
+        ],
+        "correctIndex": 2
+      }
+    },
+    {
+      "id": "cat5-q009",
+      "category": "cat-5-digital-databus",
+      "difficulty": "easy",
+      "tags": [
+        "ARINC 429",
+        "high speed",
+        "100 kbps"
+      ],
+      "learningObjective": "ARINC 429 high-speed rate is 100 kbps",
+      "fullObjective": "State the maximum data rate of the ARINC 429 high-speed bus as 100 kilobits per second (kbps).",
+      "flashcard": {
+        "term": "ARINC 429 High-Speed Rate",
+        "definition": "The ARINC 429 high-speed bus operates at 100 kilobits per second (kbps), used for time-critical avionics data such as attitude, navigation, and air data.",
+        "analogy": "100 kbps is the fast lane of ARINC 429 \u2014 used when data needs to get there quickly, like attitude updates to the autopilot.",
+        "unit": "Digital Databus Fundamentals (ARINC 429)"
+      },
+      "jeopardy": {
+        "question": "The ARINC 429 high-speed bus transmits data at this maximum rate, used for time-critical avionics parameters.",
+        "choices": [
+          "100 kbps",
+          "1 Mbps",
+          "12.5 kbps",
+          "500 kbps"
+        ],
+        "correctIndex": 0,
+        "explanation": "ARINC 429 high speed is 100 kbps. This is used for time-critical data like attitude, airspeed, and navigation that must be updated rapidly."
+      },
+      "multipleChoice": {
+        "question": "What is the maximum data rate of the ARINC 429 high-speed bus?",
+        "choices": [
+          "14.5 kbps",
+          "100 kbps",
+          "50 kbps",
+          "1,000 kbps"
+        ],
+        "correctIndex": 1,
+        "explanation": "ARINC 429 high speed is defined as 100 kbps. Low speed is 12.5\u201314.5 kbps. The high-speed standard handles flight-critical parameters requiring faster update rates."
+      },
+      "practice": {
+        "question": "A service bulletin specifies replacing a legacy GPS with a unit that outputs 'ARINC 429 HS.' The technician needs to verify the EFIS is configured to receive at the correct rate. What data rate should be specified?",
+        "choices": [
+          "12.5 kbps \u2014 the low-speed standard rate",
+          "RS-232 9600 baud \u2014 the legacy standard rate",
+          "100 kbps \u2014 the ARINC 429 high-speed rate",
+          "1 Mbps \u2014 the high-bandwidth ARINC standard"
+        ],
+        "correctIndex": 2,
+        "explanation": "ARINC 429 HS (high speed) is 100 kbps. The EFIS receiver must be configured for 100 kbps to correctly decode the GPS output."
+      },
+      "preassessment": {
+        "question": "What is the ARINC 429 high-speed maximum data rate?",
+        "choices": [
+          "12.5 kbps",
+          "50 kbps",
+          "1 Mbps",
+          "100 kbps"
+        ],
+        "correctIndex": 3
+      }
+    },
+    {
+      "id": "cat5-q010",
+      "category": "cat-5-digital-databus",
+      "difficulty": "medium",
+      "tags": [
+        "ARINC 429",
+        "bus voltage",
+        "termination",
+        "troubleshooting"
+      ],
+      "learningObjective": "ARINC 429 data errors: first verify bus voltage and termination resistance",
+      "fullObjective": "Given ARINC 429 data errors, determine that the correct first troubleshooting step is to verify bus voltage levels and termination resistance are within specification before replacing components.",
+      "flashcard": {
+        "term": "ARINC 429 Data Error \u2014 First Step",
+        "definition": "When ARINC 429 data errors occur, the first troubleshooting step is to verify bus voltage levels (+10V/0V/-10V differential) and bus termination resistance (nominally 75\u201385 \u03a9) are within specification \u2014 before replacing any LRU.",
+        "analogy": "Before assuming the radio is broken when you get garbled audio, check the signal strength and antenna connection first. Bus voltage and termination are the ARINC 429 equivalent of signal quality.",
+        "unit": "Digital Databus Fundamentals (ARINC 429)"
+      },
+      "jeopardy": {
+        "question": "Before replacing any LRU on an ARINC 429 bus showing data errors, a technician should first measure these two parameters at the bus connection.",
+        "choices": [
+          "Bit error rate and frame count",
+          "Bus voltage levels and termination resistance",
+          "Cable capacitance and inductance",
+          "Temperature and humidity at the avionics bay"
+        ],
+        "correctIndex": 1,
+        "explanation": "ARINC 429 signal quality depends on proper differential voltage levels (+10V/0V/-10V) and correct termination resistance (75\u201385 \u03a9). Both affect the ability of receivers to decode data accurately."
+      },
+      "multipleChoice": {
+        "question": "An ARINC 429 bus is producing intermittent data errors. What is the correct first troubleshooting step?",
+        "choices": [
+          "Replace the transmitting LRU with a known-good spare to confirm the fault",
+          "Increase the bus operating speed from low to high to improve signal quality",
+          "Verify that bus voltage levels and termination resistance are within specification",
+          "Re-route the bus cable away from power wiring to reduce interference"
+        ],
+        "correctIndex": 2,
+        "explanation": "Bus voltage levels and termination are the most common causes of ARINC 429 data errors. Verifying these first is more efficient and less costly than replacing LRUs."
+      },
+      "practice": {
+        "question": "A navigation display shows occasional corrupted data from an FMS via ARINC 429. A bus analyzer confirms word errors. No wiring faults are found. What should the technician measure next at the bus connector?",
+        "choices": [
+          "The FMS firmware version compatibility with the navigation display",
+          "The ARINC 429 word transmission interval to check for timing violations",
+          "The navigational database age to determine if it needs updating",
+          "The ARINC 429 differential voltage levels and termination resistance to ensure they meet specification"
+        ],
+        "correctIndex": 3,
+        "explanation": "With wiring ruled out, the next step is to verify bus signal quality. Out-of-spec voltage levels or incorrect termination are common causes of data word errors on ARINC 429 buses."
+      },
+      "preassessment": {
+        "question": "What should be measured first when ARINC 429 data errors are present?",
+        "choices": [
+          "Bus voltage and termination resistance",
+          "LRU firmware version",
+          "Cable length",
+          "Bus loading percentage"
+        ],
+        "correctIndex": 0
+      }
+    },
+    {
+      "id": "cat5-q011",
+      "category": "cat-5-digital-databus",
+      "difficulty": "medium",
+      "tags": [
+        "ARINC 429",
+        "broadcast",
+        "shielded twisted pair",
+        "transmitter"
+      ],
+      "learningObjective": "ARINC 429 is unidirectional broadcast on shielded twisted pair",
+      "fullObjective": "Describe ARINC 429 as a unidirectional broadcast bus where one transmitter sends data to one or more receivers on a shielded twisted-pair wire.",
+      "flashcard": {
+        "term": "ARINC 429 Topology",
+        "definition": "ARINC 429 uses a point-to-point or broadcast topology: one transmitter on a shielded twisted-pair bus, sending to one or multiple receivers. No receiver can transmit back on the same bus.",
+        "analogy": "Like a TV broadcast \u2014 the transmitter sends to all TVs tuned to its frequency, but no TV can 'reply' on the same broadcast channel.",
+        "unit": "Digital Databus Fundamentals (ARINC 429)"
+      },
+      "jeopardy": {
+        "question": "This describes ARINC 429's physical topology: a single transmitter on shielded twisted-pair wiring that sends data to one or more receivers that cannot transmit back.",
+        "choices": [
+          "Multi-master bidirectional ring",
+          "Command-response dual-redundant bus",
+          "Unidirectional broadcast on shielded twisted pair",
+          "Full-duplex point-to-point link"
+        ],
+        "correctIndex": 2,
+        "explanation": "ARINC 429 is a unidirectional broadcast bus \u2014 one transmitter, one or more receivers, on shielded twisted pair. Communication is strictly one-way on any given bus pair."
+      },
+      "multipleChoice": {
+        "question": "Which statement best describes ARINC 429 physical architecture?",
+        "choices": [
+          "Two transmitters share a bidirectional shielded cable using a time-division scheme",
+          "Each LRU has its own dedicated coaxial cable for full-duplex data exchange",
+          "Multiple transmitters are managed by a central bus controller on a single shielded cable",
+          "One transmitter sends on shielded twisted-pair to one or more receivers; all flow is unidirectional"
+        ],
+        "correctIndex": 3,
+        "explanation": "ARINC 429: one transmitter, shielded twisted-pair wire, one or more receivers. The bus is strictly unidirectional \u2014 only the transmitter can send on that bus."
+      },
+      "practice": {
+        "question": "A technician is designing an interface between an AHRS, an autopilot, and an EFIS where the AHRS must send attitude data to both the autopilot and the EFIS. Using ARINC 429, how should this be wired?",
+        "choices": [
+          "Run a single ARINC 429 output from the AHRS to both the autopilot and EFIS inputs on the same twisted pair \u2014 one transmitter, two receivers is standard ARINC 429",
+          "Run one ARINC 429 bus from the AHRS to the autopilot, then daisy-chain the EFIS as a second receiver on the same bus \u2014 separate transmit lines are not needed",
+          "Install a bidirectional ARINC 429 hub so any unit can communicate with any other",
+          "Run separate RS-422 cables to each unit since ARINC 429 only supports one receiver"
+        ],
+        "correctIndex": 0,
+        "explanation": "ARINC 429 supports one transmitter broadcasting to multiple receivers on the same bus pair. The AHRS output connects to both the autopilot and EFIS ARINC 429 inputs \u2014 this is normal ARINC 429 topology."
+      },
+      "preassessment": {
+        "question": "How does ARINC 429 handle broadcast communication?",
+        "choices": [
+          "Multiple transmitters share a managed bus",
+          "One transmitter sends to multiple receivers on a single pair",
+          "A bus controller routes data to each receiver separately",
+          "Each receiver pair has a dedicated cable"
+        ],
+        "correctIndex": 1
+      }
+    },
+    {
+      "id": "cat5-q012",
+      "category": "cat-5-digital-databus",
+      "difficulty": "medium",
+      "tags": [
+        "digital databus",
+        "wiring complexity",
+        "LRU integration",
+        "purpose"
+      ],
+      "learningObjective": "Digital buses reduce wiring complexity and improve system integration",
+      "fullObjective": "Explain the main reason for using digital data buses in modern avionics: standardized, reliable data transfer between multiple LRUs that reduces wiring complexity and improves system integration.",
+      "flashcard": {
+        "term": "Digital Bus \u2014 Wiring Reduction Benefit",
+        "definition": "Using a digital databus instead of individual analog connections reduces wiring complexity by replacing multiple point-to-point analog cables with a single shared bus, improving reliability, maintainability, and system integration.",
+        "analogy": "Without a databus, connecting 10 avionics boxes to each other would require up to 45 separate cables. With a shared databus, all 10 connect to one cable \u2014 like switching from individual landlines to a conference call.",
+        "unit": "Digital Databus Fundamentals (ARINC 429)"
+      },
+      "jeopardy": {
+        "question": "The main engineering reason to use a digital databus instead of individual analog connections in an avionics system is this benefit.",
+        "choices": [
+          "Higher signal voltage enabling longer cable runs",
+          "Lower cost per wire compared to analog coaxial cable",
+          "Elimination of the need for connector maintenance",
+          "Reduced wiring complexity and improved system integration between LRUs"
+        ],
+        "correctIndex": 3,
+        "explanation": "Digital buses replace many point-to-point analog connections with a single shared bus, dramatically reducing wire count, connector count, and improving overall system integration."
+      },
+      "multipleChoice": {
+        "question": "What is the primary engineering justification for using digital data buses in modern avionics instead of individual analog connections?",
+        "choices": [
+          "Digital buses reduce wiring complexity and improve integration by providing a standardized shared medium for reliable data exchange between multiple LRUs",
+          "Analog connections are no longer supported by avionics manufacturers",
+          "Digital buses are required by FAA regulations for all transport category aircraft",
+          "Digital buses eliminate the need for EMC testing because they are inherently immune to all interference"
+        ],
+        "correctIndex": 0,
+        "explanation": "The key engineering benefit is reduced wiring complexity: a single bus replaces many analog cables, reducing weight, connector count, failure points, and improving maintainability."
+      },
+      "practice": {
+        "question": "A maintenance manual notes that replacing a legacy analog interface with a digital ARINC 429 bus reduced the wiring harness from 48 individual wires to a single shielded pair. What benefit does this provide for maintainability?",
+        "choices": [
+          "The reduced wire count eliminates the need for any pre-installation testing",
+          "Fewer connectors and wires mean fewer potential failure points, easier fault isolation, reduced weight, and simplified maintenance",
+          "The single shielded pair allows for self-healing in the event of a wire break",
+          "The ARINC 429 bus eliminates the need for periodic connector cleaning"
+        ],
+        "correctIndex": 1,
+        "explanation": "Reducing wire count from 48 to 2 (plus shield) dramatically lowers the number of connectors, solder joints, and individual wire failure points \u2014 improving reliability and making faults much easier to isolate."
+      },
+      "preassessment": {
+        "question": "What is the main benefit of using a digital bus over individual analog connections?",
+        "choices": [
+          "Higher signal voltage",
+          "No connector maintenance needed",
+          "Reduced wiring complexity and better integration",
+          "Cheaper installation cost"
+        ],
+        "correctIndex": 2
+      }
+    },
+    {
+      "id": "cat5-q013",
+      "category": "cat-5-digital-databus",
+      "difficulty": "easy",
+      "tags": [
+        "ARINC 429",
+        "binary 1",
+        "voltage",
+        "+10V",
+        "differential"
+      ],
+      "learningObjective": "ARINC 429 binary '1' is approximately +10V differential between A and B",
+      "fullObjective": "State that in ARINC 429, a binary '1' is represented by a high voltage differential of approximately +10V between the A and B lines.",
+      "flashcard": {
+        "term": "ARINC 429 Logic Levels",
+        "definition": "ARINC 429 uses tri-state encoding: binary '1' = +10V (A high, B low); NULL = 0V; binary '0' = -10V (A low, B high). The voltage differential between the A and B lines determines the bit value.",
+        "analogy": "Think of lines A and B as two sides of a see-saw: when A is up (+10V), it's a '1'; when A is down (-10V) relative to B, it's a '0'; and when both are level (0V), it's a NULL space between words.",
+        "unit": "Digital Databus Fundamentals (ARINC 429)"
+      },
+      "jeopardy": {
+        "question": "In ARINC 429 encoding, a binary '1' bit is represented by this voltage differential between the A and B lines.",
+        "choices": [
+          "+10V differential (A high, B low)",
+          "-10V differential (A low, B high)",
+          "+5V differential (TTL level)",
+          "0V (null state)"
+        ],
+        "correctIndex": 0,
+        "explanation": "ARINC 429 tri-state encoding: +10V differential = binary '1', 0V = NULL, -10V = binary '0'. The A line is positive and B is negative for a logic '1'."
+      },
+      "multipleChoice": {
+        "question": "How is a binary '1' encoded in an ARINC 429 signal?",
+        "choices": [
+          "A voltage of -10V on the A line with B at 0V",
+          "A differential of approximately +10V between the A and B lines (A positive, B negative)",
+          "A voltage of +5V on both A and B lines simultaneously",
+          "A zero-voltage NULL state between B line transitions"
+        ],
+        "correctIndex": 1,
+        "explanation": "ARINC 429 uses differential encoding: +10V between A and B (A high relative to B) represents binary '1'. NULL (0V) separates words; -10V represents binary '0'."
+      },
+      "practice": {
+        "question": "Using a differential probe on an ARINC 429 bus, a technician observes the A line reading +10V and the B line reading -10V during a bit period. What bit value is being transmitted?",
+        "choices": [
+          "Binary '0' \u2014 A is below the threshold",
+          "NULL \u2014 the zero crossing between words",
+          "Binary '1' \u2014 the A-line positive differential confirms a logic high state",
+          "Parity error \u2014 both lines should be at the same voltage"
+        ],
+        "correctIndex": 2,
+        "explanation": "In ARINC 429, +10V on A with -10V on B means the differential is +10V (A relative to B), which represents binary '1'."
+      },
+      "preassessment": {
+        "question": "What voltage differential represents binary '1' in ARINC 429?",
+        "choices": [
+          "-10V",
+          "+5V",
+          "0V",
+          "+10V"
+        ],
+        "correctIndex": 3
+      }
+    },
+    {
+      "id": "cat5-q014",
+      "category": "cat-5-digital-databus",
+      "difficulty": "easy",
+      "tags": [
+        "RS-232",
+        "point-to-point",
+        "asynchronous",
+        "single-ended",
+        "15 meters"
+      ],
+      "learningObjective": "RS-232: point-to-point asynchronous, single-ended, \u226415m",
+      "fullObjective": "State that RS-232 uses point-to-point asynchronous serial communication with single-ended voltage levels, typically limited to 15 meters in length.",
+      "flashcard": {
+        "term": "RS-232 Characteristics",
+        "definition": "RS-232 is a point-to-point, asynchronous serial interface using single-ended voltage levels (\u00b13V to \u00b115V) with a practical cable length limit of approximately 15 meters (50 feet).",
+        "analogy": "RS-232 is like a tin-can telephone \u2014 two cans, one string, very short range, and it's a one-on-one conversation only.",
+        "unit": "Digital Databus Systems (MIL-STD-1553, RS-232, RS-485)"
+      },
+      "jeopardy": {
+        "question": "This serial interface standard uses single-ended voltage levels for asynchronous point-to-point communication and is typically limited to cable runs of about 15 meters.",
+        "choices": [
+          "RS-485",
+          "RS-232",
+          "ARINC 429",
+          "MIL-STD-1553"
+        ],
+        "correctIndex": 1,
+        "explanation": "RS-232 is a point-to-point, single-ended, asynchronous interface with a ~15 meter practical cable limit due to capacitance and noise susceptibility."
+      },
+      "multipleChoice": {
+        "question": "Which characteristics best describe the RS-232 serial interface?",
+        "choices": [
+          "Bidirectional multi-drop differential bus supporting up to 32 devices",
+          "Command-response bus with a central controller managing all connected devices",
+          "Point-to-point asynchronous serial with single-ended voltages, limited to approximately 15 meters",
+          "Unidirectional broadcast with differential voltages and shielded twisted pair"
+        ],
+        "correctIndex": 2,
+        "explanation": "RS-232 is point-to-point (two devices only), asynchronous, uses single-ended (not differential) voltages, and is limited to ~15m because the single-ended nature makes it susceptible to noise over long runs."
+      },
+      "practice": {
+        "question": "A technician is setting up a laptop data loader connected to an avionics unit via a DB-9 RS-232 cable. The unit is 25 meters from the laptop. The connection is unreliable. What is the most likely cause?",
+        "choices": [
+          "The RS-232 cable is not shielded \u2014 add a shielded cable to fix the problem",
+          "The ARINC 429 termination is incorrect \u2014 RS-232 requires termination resistors",
+          "The laptop's RS-232 port voltage is too high for the avionics unit",
+          "The RS-232 cable exceeds the practical ~15 meter length limit, causing signal degradation due to its single-ended design"
+        ],
+        "correctIndex": 3,
+        "explanation": "RS-232 single-ended signaling is susceptible to noise and capacitance over long cables. The practical limit is ~15 meters; a 25-meter run is almost double this, causing signal degradation and unreliable communication."
+      },
+      "preassessment": {
+        "question": "What is the typical maximum cable length for RS-232?",
+        "choices": [
+          "15 meters",
+          "50 meters",
+          "100 meters",
+          "1,200 meters"
+        ],
+        "correctIndex": 0
+      }
+    },
+    {
+      "id": "cat5-q015",
+      "category": "cat-5-digital-databus",
+      "difficulty": "easy",
+      "tags": [
+        "RS-232",
+        "asynchronous",
+        "single-ended",
+        "serial"
+      ],
+      "learningObjective": "RS-232 is asynchronous single-ended serial communication",
+      "fullObjective": "State that RS-232 uses asynchronous, single-ended serial communication with voltage levels that represent logic high and low states.",
+      "flashcard": {
+        "term": "RS-232 Signal Type",
+        "definition": "RS-232 uses single-ended (referenced to a common ground) serial communication with asynchronous timing; logic high is typically -3V to -15V and logic low is +3V to +15V (inverted logic convention).",
+        "analogy": "Single-ended means only one wire carries the signal \u2014 like a single garden hose where the water level (voltage) tells you whether it's a '1' or '0', with the ground being the reference.",
+        "unit": "Digital Databus Systems (MIL-STD-1553, RS-232, RS-485)"
+      },
+      "jeopardy": {
+        "question": "RS-232 transmits data using this signal type, where a single conductor referenced to ground represents the data, unlike differential standards that use two wires per signal.",
+        "choices": [
+          "Differential twisted-pair",
+          "Balanced coaxial",
+          "Single-ended serial",
+          "Tri-state digital"
+        ],
+        "correctIndex": 2,
+        "explanation": "RS-232 is single-ended \u2014 one signal conductor references to common ground. This contrasts with differential standards like RS-485 and ARINC 429 that use two wires per signal."
+      },
+      "multipleChoice": {
+        "question": "What type of signaling does RS-232 use?",
+        "choices": [
+          "Differential balanced using two wires per signal for noise rejection",
+          "Current-loop serial at 20 mA to provide noise immunity",
+          "Optical fiber to eliminate electrical noise entirely",
+          "Single-ended serial using voltage levels relative to a common ground to represent logic states"
+        ],
+        "correctIndex": 3,
+        "explanation": "RS-232 uses single-ended signaling \u2014 each signal line references to a common ground. This makes it susceptible to ground noise and limits its range compared to differential standards."
+      },
+      "practice": {
+        "question": "A technician is selecting a serial interface for connecting an avionics data loader to a test fixture in a high-noise avionics shop. The run is only 2 meters. Which statement about RS-232 is most relevant?",
+        "choices": [
+          "RS-232 single-ended signaling is acceptable for short-distance use but would be problematic in noisy environments or over longer runs",
+          "RS-232 cannot be used at distances less than 5 meters",
+          "RS-232 differential signaling is immune to all noise at any distance",
+          "RS-232 requires a 75-ohm termination at each end to function correctly"
+        ],
+        "correctIndex": 0,
+        "explanation": "For a 2-meter run in a relatively controlled environment, RS-232 single-ended signaling will work \u2014 the limitation is over long distances or in very high-noise environments where a differential standard like RS-485 would be better."
+      },
+      "preassessment": {
+        "question": "What signaling method does RS-232 use?",
+        "choices": [
+          "Differential twisted pair",
+          "Single-ended voltage levels",
+          "Current loop",
+          "Optical fiber"
+        ],
+        "correctIndex": 1
+      }
+    },
+    {
+      "id": "cat5-q016",
+      "category": "cat-5-digital-databus",
+      "difficulty": "easy",
+      "tags": [
+        "RS-485",
+        "differential",
+        "twisted pair",
+        "multi-drop",
+        "noise resistant"
+      ],
+      "learningObjective": "RS-485 uses differential twisted-pair for noise-resistant multi-drop communication",
+      "fullObjective": "State that RS-485 systems typically use a differential twisted-pair wiring configuration to achieve long-distance, noise-resistant multi-drop communication.",
+      "flashcard": {
+        "term": "RS-485 Wiring",
+        "definition": "RS-485 uses differential signaling on a twisted-pair cable, where the logic state is determined by the voltage difference between two wires rather than one wire versus ground, enabling multi-drop topologies over distances up to 1,200 meters with high noise immunity.",
+        "analogy": "RS-485 differential signaling is like two people pushing against each other \u2014 both pushing measures the 'difference' in force, and outside interference affects both equally and cancels out.",
+        "unit": "Digital Databus Systems (MIL-STD-1553, RS-232, RS-485)"
+      },
+      "jeopardy": {
+        "question": "RS-485 achieves noise immunity and long-distance multi-drop communication by using this wiring configuration where data is encoded as the voltage difference between two conductors.",
+        "choices": [
+          "Coaxial cable with center conductor and shield",
+          "Shielded multi-conductor ribbon cable",
+          "Single-ended coaxial with 75-ohm termination",
+          "Differential twisted-pair wiring"
+        ],
+        "correctIndex": 3,
+        "explanation": "RS-485 uses differential twisted-pair: noise affects both wires equally and cancels out in the differential measurement, enabling long distances (up to 1,200m) and multi-drop topologies."
+      },
+      "multipleChoice": {
+        "question": "What wiring configuration makes RS-485 suitable for long-distance, multi-drop avionics communication?",
+        "choices": [
+          "Differential twisted-pair where data is the voltage difference between two wires",
+          "Single-ended coaxial with low-impedance termination",
+          "Optical fiber to eliminate electrical interference entirely",
+          "Shielded coaxial with 50-ohm characteristic impedance"
+        ],
+        "correctIndex": 0,
+        "explanation": "RS-485 differential twisted-pair: the receiver measures the voltage difference between the two wires. Common-mode noise affects both wires equally and cancels, giving superior noise immunity for multi-drop, long-distance use."
+      },
+      "practice": {
+        "question": "An avionics system needs to connect 12 sensor nodes distributed throughout an aircraft up to 100 meters apart. RS-232 was used previously but suffered noise problems. Which RS-485 characteristic solves this problem?",
+        "choices": [
+          "RS-485 can carry more data because it uses larger wire gauge",
+          "RS-485 differential twisted-pair cancels common-mode noise that equally affects both wires, solving the noise immunity problem",
+          "RS-485 operates at higher voltages (15V) that override external interference",
+          "RS-485 is shielded internally, preventing all external electromagnetic interference"
+        ],
+        "correctIndex": 1,
+        "explanation": "RS-485's differential nature means noise induced on both wires equally is cancelled when the receiver computes the difference, making it far more noise-immune than single-ended RS-232 for long, multi-drop runs."
+      },
+      "preassessment": {
+        "question": "What wiring does RS-485 use for noise-resistant communication?",
+        "choices": [
+          "Single-ended coaxial",
+          "Balanced coaxial",
+          "Differential twisted pair",
+          "Multi-strand unshielded"
+        ],
+        "correctIndex": 2
+      }
+    },
+    {
+      "id": "cat5-q017",
+      "category": "cat-5-digital-databus",
+      "difficulty": "medium",
+      "tags": [
+        "RS-422",
+        "RS-485",
+        "shielded twisted pair",
+        "termination",
+        "installation"
+      ],
+      "learningObjective": "RS-422/RS-485 wiring: shielded twisted pair, terminated at both ends",
+      "fullObjective": "Apply correct wiring practices for RS-422 or RS-485 installations, including using shielded twisted-pair cable and terminating the bus at both ends with the characteristic impedance.",
+      "flashcard": {
+        "term": "RS-485 Installation Requirements",
+        "definition": "RS-485 (and RS-422) installations require shielded twisted-pair cable and termination resistors at BOTH ends of the bus, matched to the cable's characteristic impedance (typically 120 \u03a9), to prevent signal reflections and ensure clean data.",
+        "analogy": "Termination resistors on a bus are like padding on the ends of a bowling lane \u2014 without them, the ball (signal) would bounce back and interfere with the next roll.",
+        "unit": "Digital Databus Systems (MIL-STD-1553, RS-232, RS-485)"
+      },
+      "jeopardy": {
+        "question": "For a correct RS-485 installation, the cable type is shielded twisted-pair, and the bus must be terminated at both ends using this method.",
+        "choices": [
+          "The characteristic impedance (typically 120 \u03a9) at both ends",
+          "A 1 M\u03a9 pull-up resistor at one end only",
+          "A 75 \u03a9 coaxial terminator at the transmitter only",
+          "No termination \u2014 RS-485 is self-terminating"
+        ],
+        "correctIndex": 0,
+        "explanation": "RS-485 buses must be terminated at both ends with the characteristic impedance (typically 120 \u03a9). Unterminated or single-end terminated buses cause reflections that corrupt data."
+      },
+      "multipleChoice": {
+        "question": "What are the two critical wiring requirements for a correctly installed RS-485 data bus?",
+        "choices": [
+          "Unshielded twisted-pair and termination at one end only",
+          "Shielded twisted-pair cable and termination resistors at both ends matching the characteristic impedance",
+          "Coaxial cable and no termination resistors",
+          "Shielded twisted-pair and termination at the transmitter end only"
+        ],
+        "correctIndex": 1,
+        "explanation": "RS-485 requires: (1) shielded twisted-pair for noise immunity and (2) termination at both physical ends of the bus to absorb signal energy and prevent reflections that cause data errors."
+      },
+      "practice": {
+        "question": "After installing an RS-485 multi-drop bus connecting 6 avionics nodes, the system shows intermittent data errors that increase with bus length. Which installation error is most likely?",
+        "choices": [
+          "The shielded twisted-pair was replaced with a higher-capacitance unshielded cable",
+          "The nodes are all connected in parallel rather than as a daisy-chain \u2014 RS-485 requires serial connection",
+          "Termination resistors are missing or only installed at one end; reflections are corrupting data on the long bus run",
+          "The RS-485 voltage exceeds 12V, causing receiver input damage"
+        ],
+        "correctIndex": 2,
+        "explanation": "Without proper end-to-end termination, signal reflections travel back and forth on the bus. On longer buses, reflections arrive during valid data windows and cause bit errors \u2014 errors increasing with length is a telltale sign."
+      },
+      "preassessment": {
+        "question": "Where must termination resistors be placed on an RS-485 bus?",
+        "choices": [
+          "Transmitter only",
+          "No termination needed",
+          "At each device junction",
+          "Both ends of the bus"
+        ],
+        "correctIndex": 3
+      }
+    },
+    {
+      "id": "cat5-q018",
+      "category": "cat-5-digital-databus",
+      "difficulty": "hard",
+      "tags": [
+        "MIL-STD-1553",
+        "non-idle",
+        "remote terminal",
+        "bus controller",
+        "fault"
+      ],
+      "learningObjective": "MIL-STD-1553 stuck non-idle: RT transmitting out of turn or BC not releasing bus",
+      "fullObjective": "Given a MIL-STD-1553 bus remaining in a non-idle state longer than expected, determine whether a remote terminal transmitting out of turn or a bus controller failing to release the bus is the most likely cause.",
+      "flashcard": {
+        "term": "MIL-STD-1553 Bus Non-Idle Fault",
+        "definition": "A MIL-STD-1553 bus stuck in non-idle state (continuously active) is caused by either a remote terminal that is transmitting without receiving a valid command (rogue RT) or a bus controller that fails to release the bus after completing a data transfer.",
+        "analogy": "It's like a walkie-talkie where someone gets their PTT button stuck down \u2014 the channel stays occupied and no one else can transmit. Either an RT or the BC can be the stuck talker.",
+        "unit": "Digital Databus Systems (MIL-STD-1553, RS-232, RS-485)"
+      },
+      "jeopardy": {
+        "question": "A MIL-STD-1553 bus stuck in non-idle state longer than expected is caused by either a rogue remote terminal or this unit failing to release the bus.",
+        "choices": [
+          "A stub cable with incorrect impedance",
+          "The bus controller failing to release the bus",
+          "A termination resistor that has failed open",
+          "An RT that has lost its address strapping"
+        ],
+        "correctIndex": 1,
+        "explanation": "The two causes of stuck non-idle on MIL-STD-1553 are: (1) an RT transmitting without a valid command (rogue), and (2) the bus controller hanging and failing to release the bus to idle."
+      },
+      "multipleChoice": {
+        "question": "A MIL-STD-1553 bus monitor shows the bus remains non-idle far longer than normal inter-message gaps. What are the two most likely causes?",
+        "choices": [
+          "A wiring short and an incorrect termination resistor value",
+          "Too many remote terminals on the bus and insufficient bus voltage",
+          "A remote terminal transmitting out of turn, or the bus controller failing to release the bus",
+          "Corrupted bus controller firmware and a defective bus coupler"
+        ],
+        "correctIndex": 2,
+        "explanation": "MIL-STD-1553 non-idle conditions are caused by either an RT that is transmitting when it shouldn't (rogue RT) or a BC that hangs and doesn't transition the bus back to idle state."
+      },
+      "practice": {
+        "question": "A bus analyzer on a MIL-STD-1553 system shows the bus is continuously active with no idle periods between messages. Removing one specific remote terminal from the bus stub cures the problem. What does this indicate?",
+        "choices": [
+          "The removed RT's stub was causing a 1553 bus impedance violation",
+          "The removed RT's power supply was causing a ground fault on the bus signal wiring",
+          "The removed RT had an incorrect address, causing the bus controller to retry commands continuously",
+          "The removed RT was a rogue remote terminal transmitting without receiving a command, jamming the bus"
+        ],
+        "correctIndex": 3,
+        "explanation": "When removing one RT cures the stuck non-idle condition, that RT was the source \u2014 it was transmitting out of turn (a rogue RT fault), blocking all other bus traffic."
+      },
+      "preassessment": {
+        "question": "What causes a MIL-STD-1553 bus to remain in non-idle state?",
+        "choices": [
+          "Rogue RT or BC failing to release the bus",
+          "Incorrect termination impedance",
+          "Too many nodes on the bus",
+          "Bus voltage too high"
+        ],
+        "correctIndex": 0
+      }
+    },
+    {
+      "id": "cat5-q019",
+      "category": "cat-5-digital-databus",
+      "difficulty": "medium",
+      "tags": [
+        "ARINC 429",
+        "MIL-STD-1553",
+        "comparison",
+        "unidirectional",
+        "command-response"
+      ],
+      "learningObjective": "ARINC 429 unidirectional broadcast vs MIL-STD-1553 command-response",
+      "fullObjective": "Distinguish ARINC 429 from MIL-STD-1553: ARINC 429 is a unidirectional broadcast bus; MIL-STD-1553 is a bidirectional, command-response bus with a central bus controller.",
+      "flashcard": {
+        "term": "ARINC 429 vs MIL-STD-1553",
+        "definition": "ARINC 429: unidirectional (one-way), one transmitter to multiple receivers, no bus controller required. MIL-STD-1553: bidirectional, command-response with a central Bus Controller (BC) that manages all Remote Terminals (RTs) on a redundant dual-bus.",
+        "analogy": "ARINC 429 is like a bulletin board \u2014 one person posts, everyone reads, no interaction. MIL-STD-1553 is like a controlled radio net \u2014 the net controller (BC) calls each station (RT) in turn, and they respond.",
+        "unit": "Digital Databus Systems (MIL-STD-1553, RS-232, RS-485)"
+      },
+      "jeopardy": {
+        "question": "Unlike ARINC 429's one-way broadcast topology, this military databus standard uses bidirectional command-response communication managed by a central bus controller.",
+        "choices": [
+          "RS-485",
+          "ARINC 664 (AFDX)",
+          "MIL-STD-1553",
+          "RS-422"
+        ],
+        "correctIndex": 2,
+        "explanation": "MIL-STD-1553 is bidirectional with a Bus Controller commanding Remote Terminals. ARINC 429 is strictly unidirectional with no bus controller required."
+      },
+      "multipleChoice": {
+        "question": "What is the key structural difference between ARINC 429 and MIL-STD-1553?",
+        "choices": [
+          "ARINC 429 uses fiber optic cable while MIL-STD-1553 uses copper wire",
+          "ARINC 429 requires a bus controller; MIL-STD-1553 operates without one",
+          "ARINC 429 supports 31 devices; MIL-STD-1553 supports only 2",
+          "ARINC 429 is unidirectional broadcast; MIL-STD-1553 is bidirectional command-response with a central bus controller"
+        ],
+        "correctIndex": 3,
+        "explanation": "ARINC 429: unidirectional broadcast, one transmitter per bus, no bus controller. MIL-STD-1553: bidirectional, command-response, with a Bus Controller that manages all communication between Remote Terminals."
+      },
+      "practice": {
+        "question": "A technician trained on commercial aircraft (ARINC 429) is transitioning to military avionics maintenance. Which difference about MIL-STD-1553 is most important to understand?",
+        "choices": [
+          "MIL-STD-1553 is bidirectional command-response \u2014 every transmission is controlled by a central Bus Controller, and each Remote Terminal can both send and receive, unlike ARINC 429",
+          "MIL-STD-1553 uses the same unidirectional broadcast principle as ARINC 429 but at military specifications",
+          "MIL-STD-1553 eliminates the need for bus terminators used in ARINC 429",
+          "MIL-STD-1553 uses ARINC 429 word structure but on a mil-spec cable"
+        ],
+        "correctIndex": 0,
+        "explanation": "The fundamental architecture difference: MIL-STD-1553 is bidirectional command-response managed by a BC, while ARINC 429 is unidirectional broadcast. This affects troubleshooting, configuration, and fault isolation techniques."
+      },
+      "preassessment": {
+        "question": "What type of bus architecture is MIL-STD-1553?",
+        "choices": [
+          "Unidirectional broadcast like ARINC 429",
+          "Bidirectional command-response with a bus controller",
+          "Token ring with shared access",
+          "Full duplex point-to-point"
+        ],
+        "correctIndex": 1
+      }
+    },
+    {
+      "id": "cat5-q020",
+      "category": "cat-5-digital-databus",
+      "difficulty": "medium",
+      "tags": [
+        "ARINC 429",
+        "autopilot",
+        "termination",
+        "functional check"
+      ],
+      "learningObjective": "Verify ARINC 429 termination and valid sensor data before autopilot functional check",
+      "fullObjective": "Verify that all ARINC 429 data bus connections are properly terminated and that the autopilot receives valid sensor data before performing a functional check of a digital autopilot.",
+      "flashcard": {
+        "term": "Pre-Functional Check Verification",
+        "definition": "Before a digital autopilot functional check, verify: (1) all ARINC 429 bus connections are properly terminated, and (2) the autopilot is receiving valid sensor data on all required input buses \u2014 failure to do either will cause a false test failure.",
+        "analogy": "Before testing a car's cruise control, make sure the speedometer cable is connected and the car is running \u2014 testing without valid inputs will always give a false failure result.",
+        "unit": "Digital Databus Fundamentals (ARINC 429)"
+      },
+      "jeopardy": {
+        "question": "Before performing a functional check of a digital autopilot, a technician should verify ARINC 429 bus termination and confirm that the autopilot is receiving this type of data on all input buses.",
+        "choices": [
+          "Encrypted navigation data",
+          "High-speed burst transmissions at 100 kbps",
+          "Manufacturer test vectors from a data loader",
+          "Valid sensor data from all connected ARINC 429 sources"
+        ],
+        "correctIndex": 3,
+        "explanation": "A digital autopilot requires valid sensor inputs (attitude, airspeed, navigation) on its ARINC 429 buses. Improper termination or missing valid data will cause the autopilot to fault or produce a test failure unrelated to the autopilot itself."
+      },
+      "multipleChoice": {
+        "question": "What two things should be verified before performing a functional check of a digital autopilot that uses ARINC 429 inputs?",
+        "choices": [
+          "All ARINC 429 connections are properly terminated and the autopilot receives valid sensor data on all input buses",
+          "The autopilot firmware version and the aircraft gross weight",
+          "The ARINC 429 bus speed is set to low speed and the autopilot power supply is within 0.1V",
+          "The circuit breaker is in and the ARINC 429 bus labels match the aircraft flight manual"
+        ],
+        "correctIndex": 0,
+        "explanation": "For a valid functional check: bus termination must be correct (ensures signal integrity) and all sensor data must be valid (ensures the autopilot has real inputs to respond to)."
+      },
+      "practice": {
+        "question": "A technician is performing a post-installation functional check on a new digital autopilot. The autopilot fails to engage and shows a 'sensor fault' code. The installation appears correct. What should be checked first?",
+        "choices": [
+          "The autopilot's internal BITE memory for historical fault codes from the factory",
+          "Whether all ARINC 429 buses are properly terminated and the autopilot is receiving valid data from the ADC, AHRS, and GPS inputs",
+          "Whether the aircraft is pointed into the wind to simulate airspeed",
+          "Whether the autopilot was configured for the correct aircraft type in the manufacturer's database"
+        ],
+        "correctIndex": 1,
+        "explanation": "A 'sensor fault' on a new installation strongly suggests missing or invalid ARINC 429 sensor data. Verify all input buses are properly terminated and that valid outputs from the ADC, AHRS, and GPS are reaching the autopilot."
+      },
+      "preassessment": {
+        "question": "What must be confirmed before a digital autopilot functional check?",
+        "choices": [
+          "ARINC 429 firmware version",
+          "Bus speed setting at 12.5 kbps",
+          "Proper termination and valid sensor data",
+          "ADC calibration certificate"
+        ],
+        "correctIndex": 2
+      }
+    },
+    {
+      "id": "cat5-q021",
+      "category": "cat-5-digital-databus",
+      "difficulty": "easy",
+      "tags": [
+        "BITE",
+        "built-in test",
+        "LRU",
+        "fault codes",
+        "self-diagnostic"
+      ],
+      "learningObjective": "BITE: self-diagnostic system in LRUs that stores fault codes",
+      "fullObjective": "State that BITE (Built-In Test Equipment) is a self-diagnostic system embedded in avionics LRUs that continuously monitors unit health and stores fault codes for maintenance use.",
+      "flashcard": {
+        "term": "BITE (Built-In Test Equipment)",
+        "definition": "BITE is a self-diagnostic system built into avionics LRUs that continuously monitors the unit's internal health, performs power-on self-tests, and stores fault codes and event records retrievable during maintenance.",
+        "analogy": "BITE is like the 'check engine' light and OBD-II port in a modern car \u2014 the car continuously monitors itself, stores fault codes when something is wrong, and you can plug in a reader to see what happened.",
+        "unit": "Digital Databus Fundamentals (ARINC 429)"
+      },
+      "jeopardy": {
+        "question": "This self-diagnostic system, embedded in avionics LRUs, monitors internal unit health during operation and stores fault codes that maintenance personnel can retrieve.",
+        "choices": [
+          "BITE (Built-In Test Equipment)",
+          "ARINC 429 bus monitor",
+          "FDR (Flight Data Recorder)",
+          "AFCS (Automatic Flight Control System)"
+        ],
+        "correctIndex": 0,
+        "explanation": "BITE is integrated into each LRU, continuously monitoring internal functions and recording fault codes. Technicians retrieve BITE data to diagnose failures without needing external test equipment for basic fault identification."
+      },
+      "multipleChoice": {
+        "question": "What is the purpose of BITE in an avionics LRU?",
+        "choices": [
+          "To provide backup navigation data when the primary system fails",
+          "To continuously monitor unit health and store fault codes for maintenance retrieval and diagnosis",
+          "To calibrate sensor inputs automatically before each flight",
+          "To encrypt data on ARINC 429 buses to prevent unauthorized access"
+        ],
+        "correctIndex": 1,
+        "explanation": "BITE (Built-In Test Equipment) provides self-monitoring and fault code storage within the LRU \u2014 enabling technicians to identify failures quickly without full bench testing."
+      },
+      "practice": {
+        "question": "A pilot writes up an intermittent GPS failure that occurred twice during cruise. On the ground, the GPS appears fully functional. How should the technician use BITE to assist the diagnosis?",
+        "choices": [
+          "BITE cannot capture intermittent failures \u2014 only failures present at power-on are recorded",
+          "BITE only works when connected to a maintenance terminal \u2014 it cannot store data without external equipment",
+          "Access the GPS BITE fault history \u2014 BITE stores fault codes and event records that may show what failure occurred in flight, even if the unit is currently operating",
+          "BITE data is only available on ground test mode and will not show airborne faults"
+        ],
+        "correctIndex": 2,
+        "explanation": "BITE continuously stores fault codes during operation. An intermittent in-flight failure will likely have generated a BITE fault code, even if the unit currently appears normal \u2014 BITE history is the right first step."
+      },
+      "preassessment": {
+        "question": "What does BITE do in an avionics LRU?",
+        "choices": [
+          "Provides backup power",
+          "Encrypts ARINC 429 data",
+          "Calibrates sensors automatically",
+          "Monitors health and stores fault codes"
+        ],
+        "correctIndex": 3
+      }
+    },
+    {
+      "id": "cat5-q022",
+      "category": "cat-5-digital-databus",
+      "difficulty": "easy",
+      "tags": [
+        "shielded twisted pair",
+        "EMI",
+        "digital data",
+        "cable"
+      ],
+      "learningObjective": "Shielded twisted pair is used for digital data transfer to reduce EMI",
+      "fullObjective": "State that shielded twisted pair wire is the cable type commonly used for digital data transfer in general aviation avionics to reduce electromagnetic interference.",
+      "flashcard": {
+        "term": "Shielded Twisted Pair (STP)",
+        "definition": "Shielded twisted-pair wire consists of two insulated conductors twisted together (reduces magnetic field emissions and susceptibility) with an overall conductive shield (reduces capacitive coupling with external signals); it is the standard cable for avionics digital data buses including ARINC 429.",
+        "analogy": "Twisted pair is like braiding two ropes together \u2014 twisting cancels out noise by making each loop pick up equal and opposite interference. The shield is like a metal jacket blocking external signals.",
+        "unit": "Digital Databus Fundamentals (ARINC 429)"
+      },
+      "jeopardy": {
+        "question": "ARINC 429 and other avionics digital data buses use this cable type, which combines twisting to reduce magnetic interference with a conductive shield to block electromagnetic coupling.",
+        "choices": [
+          "50-ohm coaxial cable",
+          "Shielded twisted-pair wire",
+          "Unshielded flat ribbon cable",
+          "Fiber optic cable"
+        ],
+        "correctIndex": 1,
+        "explanation": "Shielded twisted-pair is the standard for avionics digital buses: the twist cancels differential noise, and the shield reduces capacitive coupling and EMI \u2014 both essential in aircraft electrical environments."
+      },
+      "multipleChoice": {
+        "question": "What cable type is commonly used for ARINC 429 and other digital avionics data buses?",
+        "choices": [
+          "RG-58 coaxial cable for its low attenuation",
+          "Unshielded twisted pair to reduce cost and weight",
+          "Shielded twisted-pair wire to reduce electromagnetic interference",
+          "Multi-strand power cable for its high current capacity"
+        ],
+        "correctIndex": 2,
+        "explanation": "Shielded twisted-pair is the standard for digital avionics buses. The twisted construction provides differential noise cancellation and the shield prevents EMI coupling \u2014 critical in the electrically noisy aircraft environment."
+      },
+      "practice": {
+        "question": "A technician is replacing a damaged ARINC 429 cable segment. The maintenance manual specifies 'shielded twisted pair, 78 ohm characteristic impedance.' The supply room only has unshielded twisted pair. What should the technician do?",
+        "choices": [
+          "Use the unshielded twisted pair \u2014 the characteristic impedance matches, so the shielding is not critical",
+          "Request a deviation from the maintenance manual since shielded cable is heavier",
+          "Add aluminum foil tape around the unshielded pair after installation to approximate the shielding",
+          "Obtain the correct shielded twisted-pair cable \u2014 the shield is required to meet the EMI/RFI protection requirement"
+        ],
+        "correctIndex": 3,
+        "explanation": "The shield is a required part of the ARINC 429 wiring specification for EMI reasons. Using unshielded cable would not meet the installation standard and could cause EMI problems \u2014 obtain the correct cable."
+      },
+      "preassessment": {
+        "question": "What cable type is used for ARINC 429 to reduce EMI?",
+        "choices": [
+          "Shielded twisted pair",
+          "Coaxial RG-58",
+          "Unshielded twisted pair",
+          "Fiber optic"
+        ],
+        "correctIndex": 0
+      }
+    },
+    {
+      "id": "cat5-q023",
+      "category": "cat-5-digital-databus",
+      "difficulty": "hard",
+      "tags": [
+        "ARINC 429",
+        "bus corruption",
+        "bus analyzer",
+        "isolate",
+        "troubleshooting"
+      ],
+      "learningObjective": "Suspected bus corruption: first isolate with bus analyzer, don't replace LRU",
+      "fullObjective": "Given a digital flight control computer sending erroneous attitude data due to suspected bus corruption, determine that the correct first step is to isolate the bus with an analyzer to verify the data content before replacing the computer.",
+      "flashcard": {
+        "term": "Bus Corruption Diagnosis",
+        "definition": "When a digital LRU appears to send erroneous data due to suspected bus corruption, the correct first step is to connect a bus analyzer to the ARINC 429 bus and capture the actual data words \u2014 confirming whether the source LRU or the bus/wiring is responsible before replacing any hardware.",
+        "analogy": "Before blaming the messenger for a garbled message, read the original message at the source \u2014 a bus analyzer lets you see exactly what is being sent before deciding if the sender or the transmission line is at fault.",
+        "unit": "Digital Databus Fundamentals (ARINC 429)"
+      },
+      "jeopardy": {
+        "question": "When a flight control computer is suspected of sending corrupted attitude data via ARINC 429, the first step before replacing the computer is to use this tool to examine the actual bus data.",
+        "choices": [
+          "A multimeter to check bus voltage polarity",
+          "A wiring diagram to trace the signal path",
+          "A bus analyzer to capture and verify the data content at the bus",
+          "A BITE interrogator to read the flight computer's fault log"
+        ],
+        "correctIndex": 2,
+        "explanation": "A bus analyzer captures actual ARINC 429 words as transmitted. This confirms whether the flight computer is actually sending bad data or if the bus/wiring is corrupting good data downstream."
+      },
+      "multipleChoice": {
+        "question": "A flight control computer is suspected of transmitting erroneous attitude data on its ARINC 429 output. What is the correct first troubleshooting step?",
+        "choices": [
+          "Immediately replace the flight control computer with a serviceable spare",
+          "Check the ARINC 429 termination resistance at both ends of the bus",
+          "Re-calibrate the AHRS to ensure the flight computer is receiving correct inputs",
+          "Connect a bus analyzer to the ARINC 429 output and verify the actual data content before condemning the computer"
+        ],
+        "correctIndex": 3,
+        "explanation": "A bus analyzer non-intrusively captures data words at the bus. If the analyzer confirms the FC computer is transmitting correct data, the fault is downstream (wiring, receiver). Only if the analyzer confirms bad data should the FC computer be suspected."
+      },
+      "practice": {
+        "question": "The EFIS shows erratic attitude data from the flight computer. Before the technician condemns the flight computer, which test approach is most appropriate?",
+        "choices": [
+          "Connect a bus analyzer to the ARINC 429 bus between the flight computer and EFIS; if the analyzer shows good data, the fault is between the analyzer tap and the EFIS \u2014 not the flight computer",
+          "Swap the flight computer with another aircraft's unit to verify by substitution",
+          "Check the EFIS BITE for fault codes, then replace the EFIS if codes are present",
+          "Perform a static test of the flight computer using the manufacturer's built-in test mode and report the result"
+        ],
+        "correctIndex": 0,
+        "explanation": "Inserting a bus analyzer between the two units isolates the fault: if the analyzer shows good data, the flight computer is exonerated and the fault is downstream. If the analyzer shows bad data, the flight computer is the suspect."
+      },
+      "preassessment": {
+        "question": "What is the first step when suspecting bus corruption on an ARINC 429 link?",
+        "choices": [
+          "Replace the transmitting LRU",
+          "Connect a bus analyzer to verify data content",
+          "Check BITE codes on the receiver",
+          "Measure cable impedance"
+        ],
+        "correctIndex": 1
+      }
+    },
+    {
+      "id": "cat5-q024",
+      "category": "cat-5-digital-databus",
+      "difficulty": "medium",
+      "tags": [
+        "MIL-STD-1553",
+        "bus controller",
+        "command word",
+        "remote terminal",
+        "schedule"
+      ],
+      "learningObjective": "MIL-STD-1553 bus controller schedules all transfers by issuing command words",
+      "fullObjective": "Explain the function of a bus controller in a MIL-STD-1553 system: the unit responsible for scheduling all data transfers by issuing command words to remote terminals.",
+      "flashcard": {
+        "term": "MIL-STD-1553 Bus Controller",
+        "definition": "The Bus Controller (BC) in a MIL-STD-1553 system is the master controller that initiates and schedules all data transfers by issuing command words to Remote Terminals (RTs); no data transfer occurs without a BC command.",
+        "analogy": "The bus controller is like an air traffic controller \u2014 it tells each aircraft (remote terminal) exactly when to transmit, what to send, and how much, in a strict controlled sequence.",
+        "unit": "Digital Databus Systems (MIL-STD-1553, RS-232, RS-485)"
+      },
+      "jeopardy": {
+        "question": "In a MIL-STD-1553 system, this unit initiates all data transfers by issuing command words to remote terminals in a scheduled sequence.",
+        "choices": [
+          "Remote Terminal (RT)",
+          "Stub Coupler",
+          "Bus Monitor (BM)",
+          "Bus Controller (BC)"
+        ],
+        "correctIndex": 3,
+        "explanation": "The Bus Controller (BC) is the master of MIL-STD-1553. No RT transmits unless the BC issues a command \u2014 the BC schedules all data transfers by sending command words to each RT."
+      },
+      "multipleChoice": {
+        "question": "What is the role of the Bus Controller in a MIL-STD-1553 system?",
+        "choices": [
+          "It schedules all data transfers by issuing command words to Remote Terminals \u2014 no transmission occurs without a BC command",
+          "It monitors bus traffic passively and logs data without initiating transmissions",
+          "It amplifies signals on the bus and extends bus length to more than 100 feet",
+          "It provides backup communication when the primary bus fails"
+        ],
+        "correctIndex": 0,
+        "explanation": "The BC is the active master: it issues command words that instruct each RT when to transmit or receive. Without a functioning BC, no data transfers occur on MIL-STD-1553."
+      },
+      "practice": {
+        "question": "After a software update to the flight management computer on a military aircraft, a MIL-STD-1553 remote terminal stops receiving commands. The RT is confirmed functional. What should the technician investigate?",
+        "choices": [
+          "The RT's address strapping \u2014 a software update may have changed the expected RT address",
+          "The bus controller software \u2014 the update may have changed the BC's scheduling table so it no longer issues commands to that RT's address",
+          "The 1553 bus cable continuity \u2014 software updates sometimes affect physical connections",
+          "The RT's power supply \u2014 software updates can change the LRU's power draw"
+        ],
+        "correctIndex": 1,
+        "explanation": "After a BC software update, the scheduling table or RT address mapping may have changed, causing the BC to stop commanding that RT. The BC software change is the prime suspect before hardware investigation."
+      },
+      "preassessment": {
+        "question": "What does the MIL-STD-1553 bus controller do?",
+        "choices": [
+          "Passively monitors bus traffic",
+          "Amplifies bus signals",
+          "Schedules all transfers by issuing command words to RTs",
+          "Provides backup communication"
+        ],
+        "correctIndex": 2
+      }
+    },
+    {
+      "id": "cat5-q025",
+      "category": "cat-5-digital-databus",
+      "difficulty": "medium",
+      "tags": [
+        "MIL-STD-1553",
+        "command-response",
+        "redundant bus",
+        "remote terminal",
+        "BC"
+      ],
+      "learningObjective": "MIL-STD-1553: command-response bidirectional dual-redundant bus",
+      "fullObjective": "Describe the MIL-STD-1553 data transmission protocol as a command-response system using a central bus controller that manages all communication between remote terminals on a redundant shielded twisted-pair bus.",
+      "flashcard": {
+        "term": "MIL-STD-1553 Protocol",
+        "definition": "MIL-STD-1553 is a bidirectional, command-response serial data bus where a Bus Controller (BC) commands Remote Terminals (RTs) on a dual-redundant shielded twisted-pair bus at 1 Mbps.",
+        "analogy": "MIL-STD-1553 is like military radio protocol: the net controller (BC) calls each station (RT) in sequence, the station responds only when called, on two redundant frequencies (dual bus A and B).",
+        "unit": "Digital Databus Systems (MIL-STD-1553, RS-232, RS-485)"
+      },
+      "jeopardy": {
+        "question": "This military databus standard operates at 1 Mbps with a Bus Controller issuing command words to Remote Terminals on a dual-redundant shielded twisted-pair cable.",
+        "choices": [
+          "MIL-STD-1553",
+          "ARINC 429 high-speed",
+          "RS-485 multi-drop",
+          "ARINC 664 (AFDX)"
+        ],
+        "correctIndex": 0,
+        "explanation": "MIL-STD-1553 is the military command-response bus: BC commands RTs, bidirectional at 1 Mbps, on dual-redundant shielded twisted-pair (Bus A and Bus B)."
+      },
+      "multipleChoice": {
+        "question": "Which statement best describes MIL-STD-1553 data transmission?",
+        "choices": [
+          "Unidirectional broadcast at 100 kbps on single twisted pair",
+          "Command-response bidirectional at 1 Mbps with a central Bus Controller and dual-redundant shielded twisted-pair buses",
+          "Token-ring at 10 Mbps where each RT passes a token when it has data to send",
+          "Peer-to-peer at 500 kbps without a central controller"
+        ],
+        "correctIndex": 1,
+        "explanation": "MIL-STD-1553: bidirectional command-response, 1 Mbps, Bus Controller manages all RTs, dual-redundant bus (A and B), shielded twisted pair. All of these characteristics distinguish it from ARINC 429."
+      },
+      "practice": {
+        "question": "During a system briefing, a technician needs to explain MIL-STD-1553 to a crew member. Which description is most accurate?",
+        "choices": [
+          "MIL-STD-1553 works like ARINC 429 but at a higher data rate \u2014 it's a one-way broadcast at 1 Mbps",
+          "MIL-STD-1553 is a civilian standard used in commercial aircraft at airports below 10,000 feet MSL",
+          "MIL-STD-1553 is a controlled network where one Bus Controller manages all data exchanges between Remote Terminals on a dual-redundant cable \u2014 nothing is transmitted without a BC command",
+          "MIL-STD-1553 uses packet switching similar to Ethernet to allow any device to initiate communication"
+        ],
+        "correctIndex": 2,
+        "explanation": "MIL-STD-1553 is a command-response bus: the BC controls everything, dual-redundant (A and B), and nothing moves without a BC command. This is fundamentally different from ARINC 429 or Ethernet."
+      },
+      "preassessment": {
+        "question": "What type of protocol is MIL-STD-1553?",
+        "choices": [
+          "Unidirectional broadcast",
+          "Peer-to-peer",
+          "Token ring",
+          "Command-response bidirectional with a bus controller"
+        ],
+        "correctIndex": 3
+      }
+    },
+    {
+      "id": "cat5-q026",
+      "category": "cat-5-digital-databus",
+      "difficulty": "easy",
+      "tags": [
+        "ARINC 429",
+        "LRU",
+        "standardized",
+        "data exchange",
+        "purpose"
+      ],
+      "learningObjective": "ARINC 429 primary purpose: standardized digital data exchange between LRUs",
+      "fullObjective": "State the primary purpose of ARINC 429 in modern avionics: providing a standardized method for digital data exchange between avionics line replaceable units.",
+      "flashcard": {
+        "term": "ARINC 429 Primary Purpose",
+        "definition": "ARINC 429 provides a standardized method for digital data exchange between avionics Line Replaceable Units (LRUs), ensuring interoperability between equipment from different manufacturers.",
+        "analogy": "ARINC 429 is like a universal USB standard \u2014 different manufacturers build to the same interface spec, so any compliant LRU can communicate with any other without custom adapters.",
+        "unit": "Digital Databus Fundamentals (ARINC 429)"
+      },
+      "jeopardy": {
+        "question": "The primary purpose of ARINC 429 in modern avionics is to provide this benefit, ensuring that LRUs from different manufacturers can exchange data reliably.",
+        "choices": [
+          "High-speed radar data processing",
+          "Standardized digital data exchange between avionics LRUs",
+          "Encrypted secure communications for military applications",
+          "Real-time backup power to avionics computers"
+        ],
+        "correctIndex": 1,
+        "explanation": "ARINC 429 standardizes digital data exchange so that LRUs from different manufacturers use a common interface, enabling interoperability and system integration."
+      },
+      "multipleChoice": {
+        "question": "What is the primary purpose of the ARINC 429 standard?",
+        "choices": [
+          "To define the physical shape and connector pinout of all avionics LRUs",
+          "To specify maximum electrical power consumption for each class of avionics unit",
+          "To provide a standardized method for digital data exchange between avionics line replaceable units",
+          "To define the test procedures required for avionics TSO approval"
+        ],
+        "correctIndex": 2,
+        "explanation": "ARINC 429 standardizes digital data communication between LRUs \u2014 defining the electrical characteristics, word structure, and data labels so equipment from different manufacturers can reliably exchange data."
+      },
+      "practice": {
+        "question": "A shop is upgrading a GPS receiver from Brand A to Brand B. The installation manual confirms both are ARINC 429 compatible. What does this mean for the interface to the existing EFIS?",
+        "choices": [
+          "The technician must write a custom interface adapter because different manufacturers use proprietary encoding",
+          "ARINC 429 only standardizes the cable connector; the data encoding may still differ between manufacturers",
+          "The EFIS must be reconfigured to receive the Brand B GPS's proprietary bus format",
+          "ARINC 429 compliance ensures the Brand B GPS will use the same electrical interface, word format, and data labels as Brand A, so the existing EFIS wiring should work without modification"
+        ],
+        "correctIndex": 3,
+        "explanation": "ARINC 429 standardization means any compliant LRU can replace another compliant LRU without custom interfaces \u2014 the electrical levels, word format, and data labels are all standardized."
+      },
+      "preassessment": {
+        "question": "What is the primary purpose of ARINC 429?",
+        "choices": [
+          "Standardized LRU digital data exchange",
+          "High-speed radar processing",
+          "Encrypted military communications",
+          "Backup power to avionics"
+        ],
+        "correctIndex": 0
+      }
+    },
+    {
+      "id": "cat5-q027",
+      "category": "cat-5-digital-databus",
+      "difficulty": "easy",
+      "tags": [
+        "binary",
+        "base-2",
+        "digital avionics",
+        "0s and 1s"
+      ],
+      "learningObjective": "Binary (base-2) is the number system for digital avionics data",
+      "fullObjective": "State that the binary (base-2) number system is the most essential number system for digital avionics data processing, where all data is represented as combinations of 0s and 1s.",
+      "flashcard": {
+        "term": "Binary Number System",
+        "definition": "The binary (base-2) number system uses only two digits \u2014 0 and 1 \u2014 to represent all data in digital systems. Every digital avionics value (altitude, airspeed, heading) is ultimately stored and transmitted as a sequence of binary digits.",
+        "analogy": "Binary is like Morse code with only dots and dashes \u2014 two simple symbols that, combined in different patterns, can represent any number, letter, or instruction.",
+        "unit": "Digital Databus Fundamentals (ARINC 429)"
+      },
+      "jeopardy": {
+        "question": "All digital avionics data \u2014 from ARINC 429 words to BITE fault codes \u2014 is ultimately represented as combinations of these two digits.",
+        "choices": [
+          "0 through 9 (decimal digits)",
+          "0 through F (hexadecimal digits)",
+          "0 and 1 (binary digits)",
+          "Any voltage between 0 and 5V"
+        ],
+        "correctIndex": 2,
+        "explanation": "All digital data is binary at the fundamental level \u2014 sequences of 0s and 1s. Higher representations like hex are just shorthand for groups of binary digits."
+      },
+      "multipleChoice": {
+        "question": "What number system is fundamental to all digital avionics data processing?",
+        "choices": [
+          "Decimal (base-10), because avionics displays show decimal numbers",
+          "Octal (base-8), as defined in the ARINC 429 label specification",
+          "Hexadecimal (base-16), because avionics computers use 16-bit processors",
+          "Binary (base-2), where all data is represented as combinations of 0s and 1s"
+        ],
+        "correctIndex": 3,
+        "explanation": "All digital data processing is ultimately binary \u2014 0s and 1s. Decimal or hex are just human-friendly representations of underlying binary values."
+      },
+      "practice": {
+        "question": "A technician reading a maintenance manual finds an ARINC 429 altitude word with a data field shown as: 00101100001 (binary). Why is the data expressed this way?",
+        "choices": [
+          "ARINC 429 data is transmitted as binary bits \u2014 0s and 1s \u2014 because digital systems process and transmit all data in binary form",
+          "Binary representation is required by FAA regulations for all ARINC 429 documents",
+          "The manual is showing the data in octal notation for brevity",
+          "Binary notation is only used for negative values in ARINC 429"
+        ],
+        "correctIndex": 0,
+        "explanation": "Digital systems fundamentally work in binary. ARINC 429 transmits 32-bit binary words \u2014 each bit is either 0 or 1. The binary representation in the manual shows the actual data structure."
+      },
+      "preassessment": {
+        "question": "What number system forms the basis of all digital avionics data?",
+        "choices": [
+          "Decimal (base-10)",
+          "Binary (base-2)",
+          "Hexadecimal (base-16)",
+          "Octal (base-8)"
+        ],
+        "correctIndex": 1
+      }
+    },
+    {
+      "id": "cat5-q028",
+      "category": "cat-5-digital-databus",
+      "difficulty": "easy",
+      "tags": [
+        "ARINC 429",
+        "general aviation",
+        "commercial avionics",
+        "standard"
+      ],
+      "learningObjective": "ARINC 429 is a common digital databus standard in avionics",
+      "fullObjective": "State that ARINC 429 is a commonly used digital databus standard in avionics systems.",
+      "flashcard": {
+        "term": "ARINC 429 \u2014 Common Avionics Standard",
+        "definition": "ARINC 429 is one of the most widely used digital data bus standards in aviation, found in the majority of general aviation glass-cockpit avionics and commercial transport aircraft systems.",
+        "analogy": "ARINC 429 is to avionics what USB is to personal computers \u2014 the go-to standard interface that most devices support.",
+        "unit": "Digital Databus Fundamentals (ARINC 429)"
+      },
+      "jeopardy": {
+        "question": "This digital databus standard is found in the majority of general aviation and commercial avionics installations, from glass cockpits to transport category aircraft.",
+        "choices": [
+          "RS-485",
+          "ARINC 664",
+          "MIL-STD-1553",
+          "ARINC 429"
+        ],
+        "correctIndex": 3,
+        "explanation": "ARINC 429 is the dominant avionics databus standard in general aviation and commercial transport aircraft. Its prevalence makes it the standard all technicians must understand."
+      },
+      "multipleChoice": {
+        "question": "In the avionics industry, which data bus standard is most commonly encountered by general aviation technicians?",
+        "choices": [
+          "ARINC 429 \u2014 the widely used GA and commercial avionics databus standard",
+          "MIL-STD-1553 \u2014 the universal avionics bus standard",
+          "RS-232 \u2014 the standard interface for all avionics LRU communication",
+          "ARINC 664 (AFDX) \u2014 used in all modern aircraft"
+        ],
+        "correctIndex": 0,
+        "explanation": "ARINC 429 is the most common databus standard in general aviation and commercial avionics. MIL-STD-1553 is primarily military. RS-232 is used for maintenance loader interfaces. AFDX is newer and primarily transport category."
+      },
+      "practice": {
+        "question": "A new avionics technician asks which databus standard they will encounter most frequently when maintaining GA and commercial glass-cockpit avionics. What is the correct answer?",
+        "choices": [
+          "MIL-STD-1553, because it is the FAA-mandated standard for all IFR avionics",
+          "ARINC 429, which is the most widely used databus standard in general and commercial aviation",
+          "RS-485, which is required for all IFR GPS installations",
+          "ARINC 664 (AFDX), which replaced ARINC 429 on all modern aircraft"
+        ],
+        "correctIndex": 1,
+        "explanation": "ARINC 429 is the dominant standard in GA and commercial avionics. New technicians will encounter it in virtually every glass-cockpit system they maintain."
+      },
+      "preassessment": {
+        "question": "Which databus standard is most commonly used in general aviation avionics?",
+        "choices": [
+          "RS-485",
+          "MIL-STD-1553",
+          "ARINC 429",
+          "ARINC 664"
+        ],
+        "correctIndex": 2
+      }
+    },
+    {
+      "id": "cat5-q029",
+      "category": "cat-5-digital-databus",
+      "difficulty": "easy",
+      "tags": [
+        "ARINC 429",
+        "topology",
+        "single transmitter",
+        "multiple receivers"
+      ],
+      "learningObjective": "ARINC 429 uses single-transmitter to multiple-receivers topology",
+      "fullObjective": "State that the ARINC 429 bus architecture uses a point-to-point or single transmitter to multiple receivers topology.",
+      "flashcard": {
+        "term": "ARINC 429 Bus Topology",
+        "definition": "ARINC 429 uses a single-transmitter-to-multiple-receivers (or point-to-point) topology: one LRU is the designated transmitter for each bus, and up to 20 receivers can be connected to the same two-wire bus.",
+        "analogy": "One radio station broadcasting on a frequency that many radios can receive simultaneously \u2014 only one transmitter, many receivers, all on the same channel.",
+        "unit": "Digital Databus Fundamentals (ARINC 429)"
+      },
+      "jeopardy": {
+        "question": "ARINC 429 uses this bus topology where a single LRU transmits on a two-wire bus and one or more LRUs receive the broadcast.",
+        "choices": [
+          "Single transmitter to multiple receivers",
+          "Multi-master with token passing",
+          "Command-response with BC managing all RTs",
+          "Full-duplex peer-to-peer"
+        ],
+        "correctIndex": 0,
+        "explanation": "ARINC 429 topology: one transmitter per bus, one or more receivers. The transmitter continuously broadcasts; any connected receiver can listen."
+      },
+      "multipleChoice": {
+        "question": "How is an ARINC 429 bus architecturally organized?",
+        "choices": [
+          "Multiple transmitters share the bus using collision detection",
+          "One transmitter broadcasts on the bus while one or more receivers listen",
+          "A central switch routes data between any two connected LRUs on demand",
+          "All LRUs can both transmit and receive using a master-slave negotiation"
+        ],
+        "correctIndex": 1,
+        "explanation": "ARINC 429 architecture: one transmitter sends data continuously; one or more receivers are connected to the same bus pair and receive all transmitted words."
+      },
+      "practice": {
+        "question": "A technician is reviewing an avionics wiring diagram and notices four LRUs connected to a single ARINC 429 bus \u2014 one labeled 'TX' and three labeled 'RX.' Is this a valid ARINC 429 installation?",
+        "choices": [
+          "No \u2014 ARINC 429 only supports one receiver per bus; the other two receivers need their own bus",
+          "No \u2014 ARINC 429 requires all four units to have both TX and RX capability",
+          "Yes \u2014 ARINC 429 supports a single transmitter broadcasting to multiple receivers on the same bus pair; this is the correct topology",
+          "Yes, but only if a bus controller is added to manage the multiple receiver addresses"
+        ],
+        "correctIndex": 2,
+        "explanation": "One TX, multiple RX on a single bus pair is the standard ARINC 429 topology. The specification supports up to 20 receivers on one transmitter's bus \u2014 this installation is correct."
+      },
+      "preassessment": {
+        "question": "What is the ARINC 429 bus topology?",
+        "choices": [
+          "Multi-master token ring",
+          "Full duplex peer-to-peer",
+          "Command-response BC/RT",
+          "Single TX to multiple RX"
+        ],
+        "correctIndex": 3
+      }
+    },
+    {
+      "id": "cat5-q030",
+      "category": "cat-5-digital-databus",
+      "difficulty": "easy",
+      "tags": [
+        "bit",
+        "binary digit",
+        "digital",
+        "fundamental"
+      ],
+      "learningObjective": "Bit (binary digit) is the fundamental unit of digital systems",
+      "fullObjective": "State that the bit (binary digit), representing either a 0 or 1, is the fundamental building block of all digital systems.",
+      "flashcard": {
+        "term": "Bit (Binary Digit)",
+        "definition": "A bit is the most fundamental unit of digital information, representing one of two possible states: 0 or 1. All digital data in avionics systems is stored, processed, and transmitted as groups of bits.",
+        "analogy": "A bit is like a single light switch \u2014 it has only two states (on/off = 1/0). Everything digital is built from combinations of these simple switches.",
+        "unit": "Digital Databus Fundamentals (ARINC 429)"
+      },
+      "jeopardy": {
+        "question": "This fundamental unit of digital information can represent exactly two states \u2014 0 or 1 \u2014 and is the basic building block of all digital avionics data.",
+        "choices": [
+          "Byte",
+          "Bit (binary digit)",
+          "Word",
+          "Label"
+        ],
+        "correctIndex": 1,
+        "explanation": "A bit is the smallest unit of digital data \u2014 a single 0 or 1. Bytes, words, and labels are all groups of bits. Everything in digital avionics reduces to bits at the fundamental level."
+      },
+      "multipleChoice": {
+        "question": "What is the fundamental building block of all digital systems?",
+        "choices": [
+          "A byte \u2014 the standard 8-bit unit used by all computers",
+          "A word \u2014 the standard 32-bit unit used in ARINC 429",
+          "A bit (binary digit) \u2014 the smallest unit of digital information representing a 0 or 1",
+          "A label \u2014 the ARINC 429 unit that identifies each data type"
+        ],
+        "correctIndex": 2,
+        "explanation": "A bit is the smallest, most fundamental unit \u2014 a single binary digit that can be 0 or 1. Bytes, words, and all higher structures are just groups of bits."
+      },
+      "practice": {
+        "question": "An ARINC 429 word is described as '32 bits.' A technician student asks what a bit is. What is the most accurate explanation?",
+        "choices": [
+          "A bit is a group of 8 binary digits that forms one character in the data stream",
+          "A bit is the ARINC 429 term for one complete message between two LRUs",
+          "A bit is a voltage measurement that encodes the signal amplitude on the ARINC 429 bus",
+          "A bit is the smallest unit of digital data \u2014 a single binary digit that is either 0 or 1; 32 of these make up one complete ARINC 429 word"
+        ],
+        "correctIndex": 3,
+        "explanation": "A bit = one binary digit = 0 or 1. An ARINC 429 word is 32 bits \u2014 32 individual binary positions, each being a 0 or 1, combined to encode a complete data message."
+      },
+      "preassessment": {
+        "question": "What does a single bit represent?",
+        "choices": [
+          "One 0 or 1",
+          "8 binary digits",
+          "One ARINC 429 word",
+          "One data label"
+        ],
+        "correctIndex": 0
+      }
+    },
+    {
+      "id": "cat5-q031",
+      "category": "cat-5-digital-databus",
+      "difficulty": "easy",
+      "tags": [
+        "ARINC 429",
+        "unidirectional",
+        "serial",
+        "common aviation standard"
+      ],
+      "learningObjective": "ARINC 429 is a unidirectional serial databus for avionics",
+      "fullObjective": "State that ARINC 429 is a unidirectional serial data bus standard used in avionics for transmitting digital data from one source to one or more receiving units.",
+      "flashcard": {
+        "term": "ARINC 429 \u2014 Unidirectional Serial Standard",
+        "definition": "ARINC 429 is a unidirectional serial data bus standard where digital data flows in one direction only \u2014 from a single source transmitter to one or more receiving LRUs.",
+        "analogy": "A one-way street where traffic only flows in one direction \u2014 no two-way travel, no U-turns. Data travels only from the transmitter to the receiver(s).",
+        "unit": "Digital Databus Fundamentals (ARINC 429)"
+      },
+      "jeopardy": {
+        "question": "ARINC 429 is described as this type of data bus because digital data flows in one direction only \u2014 from the transmitting LRU to receiving LRUs.",
+        "choices": [
+          "Bidirectional",
+          "Command-response",
+          "Unidirectional serial",
+          "Token-ring"
+        ],
+        "correctIndex": 2,
+        "explanation": "ARINC 429 is unidirectional: data flows from transmitter to receiver(s) only, on a serial bit stream. There is no return channel on the same bus."
+      },
+      "multipleChoice": {
+        "question": "Which statement correctly describes ARINC 429 data flow?",
+        "choices": [
+          "Data flows bidirectionally between two LRUs using alternating half-duplex protocol",
+          "Data transfer is initiated by the receiving LRU which polls the transmitter when needed",
+          "Data is exchanged simultaneously in both directions using separate transmit and receive wires",
+          "Data flows unidirectionally from one source LRU to one or more receiving LRUs in a serial bit stream"
+        ],
+        "correctIndex": 3,
+        "explanation": "ARINC 429 unidirectional: the transmitter continuously sends data serially; receivers listen passively. There is no acknowledgment or return path on an ARINC 429 bus."
+      },
+      "practice": {
+        "question": "A wiring specification sheet shows an ARINC 429 link labeled 'GPS \u2192 FMS.' A trainee asks if the FMS can also send data back to the GPS on the same bus. What is the correct answer?",
+        "choices": [
+          "No \u2014 ARINC 429 is unidirectional; data only flows from the GPS to the FMS on this bus. A separate ARINC 429 bus would be needed for FMS-to-GPS communication",
+          "Yes \u2014 ARINC 429 supports bidirectional communication as long as both units are ARINC 429 compliant",
+          "Yes \u2014 the ARINC 429 bus controller can route traffic in both directions",
+          "No \u2014 ARINC 429 only supports communication between the two units shown on the label"
+        ],
+        "correctIndex": 0,
+        "explanation": "ARINC 429 is unidirectional \u2014 one transmitter, one or more receivers, one direction. For FMS-to-GPS communication, a separate bus would be needed with the FMS as the transmitter."
+      },
+      "preassessment": {
+        "question": "How does data flow on an ARINC 429 bus?",
+        "choices": [
+          "Bidirectionally between any two units",
+          "Unidirectionally from one source to one or more receivers",
+          "In both directions managed by a bus controller",
+          "Via token passing between units"
+        ],
+        "correctIndex": 1
+      }
+    },
+    {
+      "id": "cat5-q032",
+      "category": "cat-5-digital-databus",
+      "difficulty": "easy",
+      "tags": [
+        "ARINC 429",
+        "common standard",
+        "avionics systems"
+      ],
+      "learningObjective": "ARINC 429 is a commonly used digital databus standard",
+      "fullObjective": "State that ARINC 429 is a common aircraft digital databus standard used in general aviation and commercial avionics.",
+      "flashcard": {
+        "term": "ARINC 429 \u2014 Industry Standard",
+        "definition": "ARINC 429 is the industry-standard aircraft digital data bus for general aviation and commercial avionics, defined by Aeronautical Radio Incorporated (ARINC), and used by the majority of avionics manufacturers.",
+        "analogy": "ARINC 429 is the 'common language' of aviation electronics \u2014 just as English is widely used in international aviation communication, ARINC 429 is the common digital language for avionics.",
+        "unit": "Digital Databus Fundamentals (ARINC 429)"
+      },
+      "jeopardy": {
+        "question": "Aeronautical Radio Incorporated defined this common digital databus standard that is used in general aviation and commercial avionics for LRU data exchange.",
+        "choices": [
+          "MIL-STD-1553",
+          "ARINC 664",
+          "RS-485",
+          "ARINC 429"
+        ],
+        "correctIndex": 3,
+        "explanation": "ARINC 429, defined by Aeronautical Radio Incorporated, is the common industry standard for digital data exchange between avionics LRUs in GA and commercial aviation."
+      },
+      "multipleChoice": {
+        "question": "Which organization defines the ARINC 429 standard, and in what aviation sector is it most widely used?",
+        "choices": [
+          "Aeronautical Radio Incorporated (ARINC) defines it; used across general aviation and commercial avionics",
+          "MIL-SPEC defines it; primarily used in military avionics",
+          "FAA defines it; required only for IFR certified avionics",
+          "RTCA defines it; used only in transport category aircraft"
+        ],
+        "correctIndex": 0,
+        "explanation": "ARINC (Aeronautical Radio Incorporated) defines ARINC 429. It is used across general aviation glass-cockpit systems and commercial transport avionics \u2014 the de facto standard."
+      },
+      "practice": {
+        "question": "A technician encounters an avionics wiring diagram labeled 'ARINC 429 Data Bus.' Which knowledge about this label is most important for maintenance?",
+        "choices": [
+          "The ARINC label tells the technician the wire is military spec and requires special tools",
+          "ARINC 429 is the industry-standard avionics databus \u2014 expect unidirectional serial data on shielded twisted pair, and use ARINC 429-compatible test equipment for troubleshooting",
+          "ARINC 429 is only found in transport category aircraft \u2014 unexpected in GA aircraft",
+          "The ARINC label indicates the wire is part of the aircraft's power distribution system"
+        ],
+        "correctIndex": 1,
+        "explanation": "Knowing ARINC 429 is the standard avionics databus means the technician knows to expect unidirectional serial data on STP, apply correct test equipment, and follow ARINC 429 troubleshooting procedures."
+      },
+      "preassessment": {
+        "question": "Which organization defines the ARINC 429 standard?",
+        "choices": [
+          "FAA",
+          "MIL-SPEC",
+          "ARINC (Aeronautical Radio Incorporated)",
+          "RTCA"
+        ],
+        "correctIndex": 2
+      }
+    }
+  ]
+}

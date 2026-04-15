@@ -1,0 +1,264 @@
+/* ═══════════════════════════════════════════════════════════════════
+   ACE POPUP OVERLAY — ace-popup.css  v1.0
+
+   Per-question feedback modal. ACE appears center-screen after each
+   answer with a comment, the correct answer (if wrong), and an
+   explanation. Dismisses on button click, backdrop click, or ESC.
+
+   Requires: ace-theme.css loaded first (uses design tokens)
+═══════════════════════════════════════════════════════════════════ */
+
+/* ── Backdrop ──────────────────────────────────────────────────── */
+.ace-popup-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(8, 12, 26, 0.75);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  animation: aceBackdropIn 200ms ease forwards;
+}
+
+.ace-popup-backdrop.open {
+  display: flex;
+}
+
+@keyframes aceBackdropIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ── Modal container ───────────────────────────────────────────── */
+.ace-popup {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  width: 100%;
+  max-width: 480px;
+  box-shadow: var(--shadow-modal);
+  overflow: hidden;
+  animation: acePopupIn 250ms cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  position: relative;
+}
+
+@keyframes acePopupIn {
+  from { opacity: 0; transform: translateY(12px) scale(0.96); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Correct/wrong color accent strip at top */
+.ace-popup-strip {
+  height: 4px;
+  transition: background 200ms ease;
+}
+.ace-popup-strip.correct { background: var(--success); }
+.ace-popup-strip.wrong   { background: var(--danger); }
+
+/* ── ACE character section ─────────────────────────────────────── */
+.ace-popup-character {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 20px 20px 16px;
+}
+
+.ace-popup-sprite-wrap {
+  flex-shrink: 0;
+  width: 80px;
+  height: 80px;
+  border-radius: var(--radius-md);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ace-popup-sprite {
+  width: 80px;
+  height: 80px;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  display: block;
+}
+
+.ace-popup-speech {
+  flex: 1;
+  min-width: 0;
+  padding-top: 4px;
+}
+
+.ace-popup-name {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--gold);
+  margin-bottom: 6px;
+}
+
+.ace-popup-comment {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+/* ── Result badge ──────────────────────────────────────────────── */
+.ace-popup-result {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 8px;
+}
+.ace-popup-result.correct {
+  background: var(--success-soft);
+  color: var(--success);
+}
+.ace-popup-result.wrong {
+  background: var(--danger-soft);
+  color: var(--danger);
+}
+.ace-popup-result svg {
+  width: 12px;
+  height: 12px;
+}
+
+/* ── Correct answer reveal (only shown on wrong) ───────────────── */
+.ace-popup-correct-answer {
+  margin: 0 20px 16px;
+  padding: 12px 14px;
+  background: var(--success-soft);
+  border: 1px solid rgba(52, 211, 153, 0.2);
+  border-radius: var(--radius-md);
+  display: none;
+}
+.ace-popup-correct-answer.visible { display: block; }
+
+.ace-popup-correct-label {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--success);
+  margin-bottom: 4px;
+}
+.ace-popup-correct-text {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-primary);
+  line-height: 1.4;
+}
+
+/* ── Explanation ───────────────────────────────────────────────── */
+.ace-popup-explanation {
+  margin: 0 20px 20px;
+  padding: 12px 14px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  display: none;
+}
+.ace-popup-explanation.visible { display: block; }
+
+.ace-popup-explanation-label {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+.ace-popup-explanation-text {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* ── Footer: Next button ───────────────────────────────────────── */
+.ace-popup-footer {
+  display: flex;
+  padding: 0 20px 20px;
+}
+
+.ace-popup-next {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 24px;
+  border: none;
+  border-radius: var(--radius-md);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 200ms ease;
+}
+.ace-popup-next.correct {
+  background: linear-gradient(135deg, var(--success), #2DBD89);
+  color: #fff;
+}
+.ace-popup-next.wrong {
+  background: linear-gradient(135deg, var(--gold), #C49540);
+  color: #080C1A;
+}
+.ace-popup-next:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+}
+.ace-popup-next:active { transform: scale(0.98); }
+.ace-popup-next svg { width: 16px; height: 16px; }
+
+/* ── Keyboard hint ─────────────────────────────────────────────── */
+.ace-popup-hint {
+  text-align: center;
+  padding-bottom: 12px;
+  font-size: 11px;
+  color: var(--text-muted);
+}
+.ace-popup-hint kbd {
+  display: inline-block;
+  padding: 1px 6px;
+  background: var(--surface-3);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+}
+
+/* ── Dismiss animation ─────────────────────────────────────────── */
+.ace-popup-backdrop.closing {
+  animation: aceBackdropOut 180ms ease forwards;
+}
+.ace-popup-backdrop.closing .ace-popup {
+  animation: acePopupOut 180ms ease forwards;
+}
+
+@keyframes aceBackdropOut {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+@keyframes acePopupOut {
+  from { opacity: 1; transform: translateY(0) scale(1); }
+  to   { opacity: 0; transform: translateY(8px) scale(0.97); }
+}
+
+/* ── Reduced motion ────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .ace-popup, .ace-popup-backdrop {
+    animation: none !important;
+  }
+}

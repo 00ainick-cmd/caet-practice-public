@@ -1,0 +1,710 @@
+{
+  "metadata": {
+    "moduleId": "cat-3-cns-systems",
+    "title": "CNS: Navigation, Comm & Audio",
+    "version": "1.0.0",
+    "generatedFrom": "mod3-cns-systems/data/questions.json",
+    "questionCount": 32,
+    "categoryCount": 6
+  },
+  "categories": {
+    "VOR & ILS Navigation": [
+      {
+        "id": "CAT3-NAV-002",
+        "clue": "These V-shaped or bent-dipole antennas tuned to 108–117.95 MHz receive signals from VOR ground stations.",
+        "choices": [
+          "GPS patch antennas",
+          "VOR antennas",
+          "DME blade antennas",
+          "Glideslope antennas"
+        ],
+        "correctIndex": 1,
+        "explanation": "VOR antennas are V-shaped or bent-dipole designs, mounted on the vertical stabilizer or fuselage, tuned to the VOR frequency range of 108.0–117.95 MHz (shared with ILS localizer on 108.1–111.95 MHz odd decimals).",
+        "difficulty": 100,
+        "learningObjective": "VOR antenna type and frequency range",
+        "source": "VOR"
+      },
+      {
+        "id": "CAT3-NAV-010",
+        "clue": "This precision approach system combines a localizer for horizontal guidance and a glideslope for vertical guidance during an instrument approach to landing.",
+        "choices": [
+          "VOR/DME approach",
+          "Instrument Landing System (ILS)",
+          "GPS LNAV approach",
+          "NDB approach"
+        ],
+        "correctIndex": 1,
+        "explanation": "ILS is a precision approach system providing two axes of guidance: the localizer (lateral — aligns aircraft with runway centerline) and glideslope (vertical — provides the standard 3° descent path to the touchdown zone).",
+        "difficulty": 100,
+        "learningObjective": "ILS provides both vertical and horizontal approach guidance",
+        "source": "ILS"
+      },
+      {
+        "id": "CAT3-NAV-004",
+        "clue": "Coded audio tones and blue, amber, or white cockpit lights at fixed distance points on an ILS approach are provided by this system.",
+        "choices": [
+          "DME arc alerts",
+          "GPWS terrain warnings",
+          "TCAS proximity alerts",
+          "Marker beacon system"
+        ],
+        "correctIndex": 3,
+        "explanation": "Marker beacons transmit at 75 MHz vertically. The outer marker (blue light, slow dashes) is ~4–7 NM from threshold; middle marker (amber, alternating dot-dash) is ~3,500 ft; inner marker (white, fast dots) is at the decision altitude point.",
+        "difficulty": 200,
+        "learningObjective": "Marker beacon provides tones and lights at ILS fixed points",
+        "source": "ILS"
+      },
+      {
+        "id": "CAT3-NAV-005",
+        "clue": "On a VOR indicator, this control allows the pilot to select a desired radial for course tracking.",
+        "choices": [
+          "The Omnibearing Selector (OBS)",
+          "The autopilot heading bug",
+          "The Course Deviation Indicator needle",
+          "The HSI bearing pointer"
+        ],
+        "correctIndex": 0,
+        "explanation": "The OBS (Omnibearing Selector) rotates the course card to select a desired VOR radial. When the CDI needle centers with the OBS set to a given radial, the aircraft is on that radial — TO or FROM the station as shown by the flag.",
+        "difficulty": 300,
+        "learningObjective": "OBS selects desired VOR radial",
+        "source": "VOR"
+      },
+      {
+        "id": "CAT3-NAV-008",
+        "clue": "Compared to VOR, this navigation system is less accurate, more susceptible to electrical interference, and only provides bearing TO the station without course deviation data.",
+        "choices": [
+          "GPS",
+          "ILS",
+          "DME",
+          "ADF/NDB"
+        ],
+        "correctIndex": 3,
+        "explanation": "ADF/NDB navigation has two key limitations vs. VOR: (1) greater susceptibility to interference (especially thunderstorms, which cause the ADF needle to deflect toward lightning), and (2) it only gives a bearing pointer TO the station — no course deviation bar for precise tracking.",
+        "difficulty": 300,
+        "learningObjective": "Compare ADF/NDB to VOR — NDB less accurate, more interference",
+        "source": "ADF"
+      },
+      {
+        "id": "CAT3-NAV-009",
+        "clue": "Before returning a VOR system to service, a technician uses this type of test equipment to verify receiver accuracy on multiple radials on the ground.",
+        "choices": [
+          "VOR ramp tester",
+          "ILS localizer test set",
+          "ARINC 429 bus analyzer",
+          "GPS signal simulator"
+        ],
+        "correctIndex": 0,
+        "explanation": "A VOR ramp tester generates a simulated VOR signal that the aircraft receiver processes. The tech selects various radials on the tester and verifies the CDI accurately reflects each selected radial before approving the system for return to service.",
+        "difficulty": 400,
+        "learningObjective": "VOR ground test with ramp tester procedure",
+        "source": "VOR"
+      },
+      {
+        "id": "CAT3-NAV-011",
+        "clue": "VOR ground stations transmit signals that allow pilots to determine this type of information for course tracking along specific radials.",
+        "choices": [
+          "Distance to the station in nautical miles",
+          "Pressure altitude above the station",
+          "Magnetic bearing to and from the station",
+          "Groundspeed along the selected course"
+        ],
+        "correctIndex": 2,
+        "explanation": "VOR provides magnetic bearing information — specifically, radials that are magnetic bearings FROM the station. A pilot can use VOR to track a specific course to or from a station by selecting the desired radial with the OBS.",
+        "difficulty": 500,
+        "learningObjective": "VOR provides magnetic bearing to/from station via radials",
+        "source": "VOR"
+      }
+    ],
+    "GPS & WAAS": [
+      {
+        "id": "CAT3-NAV-001",
+        "clue": "A GPS receiver must track at least this many satellites to compute 3D navigation with WAAS precision.",
+        "choices": [
+          "4 satellites",
+          "3 satellites",
+          "2 satellites",
+          "6 satellites"
+        ],
+        "correctIndex": 0,
+        "explanation": "Three satellites provide 2D position; a fourth satellite allows the receiver to solve for altitude as well, enabling 3D navigation. WAAS uses ground correction stations to improve accuracy for both axes.",
+        "difficulty": 100,
+        "learningObjective": "GPS requires 4 satellites for 3D nav with WAAS",
+        "source": "GPS"
+      },
+      {
+        "id": "CAT3-NAV-006",
+        "clue": "This FAA ground-based correction system improves GPS accuracy to enable precision approach guidance (LPV) in the United States.",
+        "choices": [
+          "RAIM",
+          "WAAS",
+          "TCAS",
+          "FMS"
+        ],
+        "correctIndex": 1,
+        "explanation": "WAAS (Wide Area Augmentation System) uses a network of ground reference stations to measure GPS errors and broadcast corrections via geostationary satellites. This improves accuracy to ~1m, enabling LPV (Localizer Performance with Vertical guidance) approaches.",
+        "difficulty": 300,
+        "learningObjective": "WAAS is FAA ground-based correction for GPS precision approaches",
+        "source": "WAAS"
+      },
+      {
+        "id": "CAT3-NAV-012",
+        "clue": "WAAS corrects GPS errors caused by ionospheric delays, satellite clock drift, and orbital position inaccuracies — enabling this type of precision approach that replaces traditional ILS at many airports.",
+        "choices": [
+          "RNAV (GPS) LNAV-only approach",
+          "LPV approach with vertical guidance to 200-foot minimums",
+          "Standard VOR/DME overlay approach",
+          "CAT III autoland approach with zero-visibility minimums"
+        ],
+        "correctIndex": 1,
+        "explanation": "WAAS enables LPV (Localizer Performance with Vertical guidance) approaches — providing both lateral and vertical guidance to minimums as low as 200 feet, comparable to ILS CAT I. LNAV is non-precision (lateral only). VOR/DME overlays don't use WAAS. CAT III requires ILS ground equipment and certified autopilot systems.",
+        "difficulty": 200,
+        "category": "GPS & WAAS",
+        "source": "WAAS LPV approach capability"
+      },
+      {
+        "id": "CAT3-NAV-013",
+        "clue": "Before a GPS receiver can compute a navigation solution, it must determine each satellite's precise orbital position using this data, which is broadcast by each satellite and updated approximately every two hours.",
+        "choices": [
+          "NOTAM schedule data",
+          "WAAS ionospheric correction model",
+          "Ephemeris data",
+          "FMS waypoint database"
+        ],
+        "correctIndex": 2,
+        "explanation": "Ephemeris data describes each satellite's precise orbital position and is essential for the GPS receiver's triangulation calculations.",
+        "difficulty": 300,
+        "category": "GPS & WAAS",
+        "source": "GPS ephemeris data"
+      },
+      {
+        "id": "CAT3-NAV-014",
+        "clue": "A GPS-equipped aircraft is cleared for an LPV approach, but the WAAS annunciation shows \"LNAV only\" during the approach. This indicates the system has lost this critical capability.",
+        "choices": [
+          "DME distance measurement to the runway threshold",
+          "Radar altimeter input for decision height verification",
+          "ILS glideslope frequency auto-tuning",
+          "Vertical guidance from WAAS geostationary satellite corrections"
+        ],
+        "correctIndex": 3,
+        "explanation": "\"LNAV only\" means the system has lateral guidance but has lost WAAS vertical guidance — likely due to loss of the WAAS geostationary satellite signal or integrity alert.",
+        "difficulty": 400,
+        "category": "GPS & WAAS",
+        "source": "WAAS vertical guidance loss"
+      },
+      {
+        "id": "CAT3-NAV-015",
+        "clue": "This autonomous integrity monitoring function within the GPS receiver predicts whether satellite geometry will be adequate to support the planned approach — and must be checked during preflight for RNAV (GPS) approaches without WAAS.",
+        "choices": [
+          "RAIM (Receiver Autonomous Integrity Monitoring)",
+          "FDE (Fault Detection and Exclusion)",
+          "SBAS (Satellite Based Augmentation System)",
+          "ABAS (Aircraft Based Augmentation System)"
+        ],
+        "correctIndex": 0,
+        "explanation": "RAIM uses redundant satellites to detect a faulty satellite signal. Non-WAAS GPS approaches require RAIM prediction during preflight.",
+        "difficulty": 500,
+        "category": "GPS & WAAS",
+        "source": "RAIM prediction requirement"
+      }
+    ],
+    "DME, ADF & Weather": [
+      {
+        "id": "CAT3-NAV-003",
+        "clue": "This navigation system provides slant-range distance to a ground station in nautical miles by measuring pulse round-trip time.",
+        "choices": [
+          "VOR",
+          "ILS",
+          "DME",
+          "ADF"
+        ],
+        "correctIndex": 2,
+        "explanation": "DME (Distance Measuring Equipment) interrogates a ground station; the station replies; the receiver measures round-trip time and converts to nautical miles. The result is slant range — the diagonal distance, not horizontal ground distance.",
+        "difficulty": 100,
+        "learningObjective": "DME measures slant-range distance in nautical miles",
+        "source": "DME"
+      },
+      {
+        "id": "CAT3-NAV-007",
+        "clue": "These airborne systems detect electromagnetic discharges from storm cells and display bearing and relative intensity on a cockpit display for weather avoidance.",
+        "choices": [
+          "Traffic collision avoidance systems",
+          "Radio altimeters",
+          "Lightning detection systems",
+          "GPWS terrain warning systems"
+        ],
+        "correctIndex": 2,
+        "explanation": "Lightning detection systems (e.g., Stormscope, Strike Finder) detect the electromagnetic signature of lightning discharges and map storm cell bearing and activity level on a cockpit display, enabling crews to identify and avoid convective weather.",
+        "difficulty": 300,
+        "learningObjective": "Lightning detection systems detect and display storm bearing and intensity",
+        "source": "lightning-detection"
+      },
+      {
+        "id": "CAT3-NAV-016",
+        "clue": "Unlike VOR which provides bearing, DME measures this — calculated by timing the round-trip of paired radio pulses between the aircraft and a ground station.",
+        "choices": [
+          "Magnetic heading to the station",
+          "Slant-range distance in nautical miles",
+          "Groundspeed corrected for wind",
+          "Station frequency identification"
+        ],
+        "correctIndex": 1,
+        "explanation": "DME measures slant-range distance by timing paired pulse round-trips.",
+        "difficulty": 200,
+        "category": "DME, ADF & Weather",
+        "source": "DME slant-range measurement"
+      },
+      {
+        "id": "CAT3-NAV-017",
+        "clue": "An ADF needle points directly at a ground station transmitting on this frequency band, but the system is susceptible to shoreline refraction, night effect, and electrical storm interference.",
+        "choices": [
+          "VHF band (108–117.95 MHz)",
+          "UHF band (960–1215 MHz)",
+          "Low/medium frequency band (190–535 kHz)",
+          "L-band (1575.42 MHz)"
+        ],
+        "correctIndex": 2,
+        "explanation": "ADF receives NDB stations on low and medium frequencies (190–535 kHz). These frequencies are susceptible to atmospheric and terrain effects.",
+        "difficulty": 300,
+        "category": "DME, ADF & Weather",
+        "source": "ADF frequency band and limitations"
+      },
+      {
+        "id": "CAT3-NAV-018",
+        "clue": "This airborne weather detection system transmits its own X-band radar energy forward of the aircraft and paints precipitation returns on a cockpit display — but cannot detect clear air turbulence.",
+        "choices": [
+          "Airborne weather radar (AWR)",
+          "Stormscope lightning detection system",
+          "NEXRAD datalink weather overlay",
+          "Satellite weather uplink (SXM/FIS-B)"
+        ],
+        "correctIndex": 0,
+        "explanation": "Airborne weather radar (AWR) actively transmits X-band energy and detects precipitation returns. It cannot detect CAT because clear air turbulence involves no moisture.",
+        "difficulty": 400,
+        "category": "DME, ADF & Weather",
+        "source": "Airborne weather radar capability"
+      },
+      {
+        "id": "CAT3-NAV-019",
+        "clue": "A DME interrogator sends pulse pairs on one frequency and listens for replies on a different frequency — this frequency offset between transmit and receive prevents this self-interference problem.",
+        "choices": [
+          "Co-channel ATC radar interrogation conflicts",
+          "Adjacent-channel VOR bearing errors",
+          "GPS multipath reflection contamination",
+          "The receiver triggering on its own transmitted pulses"
+        ],
+        "correctIndex": 3,
+        "explanation": "DME uses a frequency offset (63 MHz) between interrogation and reply channels so the airborne receiver does not mistake its own transmitted pulses for ground station replies.",
+        "difficulty": 500,
+        "category": "DME, ADF & Weather",
+        "source": "DME frequency offset purpose"
+      }
+    ],
+    "VHF Communications": [
+      {
+        "id": "CAT3-VHF-001",
+        "clue": "For best VHF communication coverage, antennas should be mounted here, away from other antennas and metal structures that cause signal shadowing.",
+        "choices": [
+          "Inside the avionics bay for protection from weather",
+          "On the wingtip to maximize separation from the fuselage",
+          "On the horizontal stabilizer for tail-away transmission",
+          "Low on the belly or on top of the fuselage, clear of obstructions"
+        ],
+        "correctIndex": 3,
+        "explanation": "VHF antennas mounted on the belly provide line-of-sight to ground stations; top-mounted antennas communicate with aircraft overhead. Both locations must be away from metal structures that would shadow (block) portions of the radiation pattern.",
+        "difficulty": 100,
+        "learningObjective": "Optimal VHF antenna mounting location",
+        "source": "VHF-antenna"
+      },
+      {
+        "id": "CAT3-VHF-005",
+        "clue": "When working on or near a VHF antenna or any RF-transmitting system on an aircraft, this safety measure is required.",
+        "choices": [
+          "Wear rubber gloves only — RF is an electrical hazard",
+          "Ground the antenna with a static wick",
+          "Keep transmitter in standby mode at reduced power",
+          "De-energize (turn off) the transmitting system"
+        ],
+        "correctIndex": 3,
+        "explanation": "RF radiation from aircraft transmitters can cause thermal injury to body tissues at close range (especially eyes). The system must be completely OFF — not in standby — during any work on or near the antenna or transmission line.",
+        "difficulty": 100,
+        "learningObjective": "RF radiation safety — system off during antenna work",
+        "source": "RF-safety"
+      },
+      {
+        "id": "CAT3-VHF-006",
+        "clue": "General aviation VHF communications use this frequency range, beginning at 118.0 MHz.",
+        "choices": [
+          "118.0–136.975 MHz",
+          "108.0–117.95 MHz",
+          "329–335 MHz",
+          "960–1215 MHz"
+        ],
+        "correctIndex": 0,
+        "explanation": "Aviation VHF comm is 118.0–136.975 MHz. The range 108.0–117.95 MHz is shared by VOR and ILS (nav frequencies). 329–335 MHz is glideslope. 960–1215 MHz is DME and transponder.",
+        "difficulty": 200,
+        "learningObjective": "VHF comm frequency range 118.0–136.975 MHz",
+        "source": "VHF"
+      },
+      {
+        "id": "CAT3-VHF-002",
+        "clue": "This VHF radio control sets the minimum signal threshold, muting background noise when no transmission is present.",
+        "choices": [
+          "Squelch control",
+          "Volume control",
+          "SIDETONE adjustment",
+          "PTT sensitivity setting"
+        ],
+        "correctIndex": 0,
+        "explanation": "The squelch control sets the carrier or signal threshold that must be exceeded before audio is passed to the headset. When no one is transmitting, weak RF noise stays below the threshold and the headset remains quiet — no continuous static.",
+        "difficulty": 200,
+        "learningObjective": "Squelch mutes noise below signal threshold",
+        "source": "squelch"
+      },
+      {
+        "id": "CAT3-VHF-004",
+        "clue": "Physical condition, secure mounting, connector tightness, coaxial cable integrity, and absence of corrosion are all checked during this routine task.",
+        "choices": [
+          "ILS glideslope alignment check",
+          "Transponder ground test",
+          "VHF antenna preflight inspection",
+          "GPS RAIM prediction check"
+        ],
+        "correctIndex": 2,
+        "explanation": "VHF antenna inspections cover all five items: physical element condition (no cracks), mounting security (no play), coax connector torque, cable inspection for damage, and corrosion check at the base and connector — all of which affect antenna performance and longevity.",
+        "difficulty": 300,
+        "learningObjective": "VHF antenna inspection checklist",
+        "source": "antenna"
+      },
+      {
+        "id": "CAT3-VHF-007",
+        "clue": "When replacing coaxial cable for a VHF antenna, correct impedance, proper connector installation and torque, and verifying this measurement are all required.",
+        "choices": [
+          "Antenna radiation pattern",
+          "VSWR (Voltage Standing Wave Ratio)",
+          "Signal-to-noise ratio at the receiver",
+          "Transmitter power output"
+        ],
+        "correctIndex": 1,
+        "explanation": "After coax replacement, SWR (Standing Wave Ratio, also called VSWR) must be measured to verify the antenna-cable system is properly matched. An SWR above 1.5:1 indicates a mismatch — caused by wrong impedance cable, damaged connector, or antenna fault.",
+        "difficulty": 300,
+        "learningObjective": "Coaxial cable replacement — impedance, connectors, SWR",
+        "source": "coaxial-cable"
+      },
+      {
+        "id": "CAT3-VHF-009",
+        "clue": "This radio frequency band is used for long-range aviation communications over oceans and remote areas where VHF line-of-sight coverage doesn't reach.",
+        "choices": [
+          "UHF (300–3000 MHz)",
+          "VHF (118–136.975 MHz)",
+          "ELT (406 MHz)",
+          "HF (2–30 MHz)"
+        ],
+        "correctIndex": 3,
+        "explanation": "HF uses ionospheric skip to propagate signals thousands of miles — far beyond VHF's line-of-sight range limit. Oceanic tracks, polar routes, and remote continental operations use HF (or satellite communications) because ATC VHF coverage doesn't exist over open oceans.",
+        "difficulty": 400,
+        "learningObjective": "HF used for long-range oceanic communications",
+        "source": "HF"
+      },
+      {
+        "id": "CAT3-VHF-003",
+        "clue": "Loose corroded connectors, damaged coaxial cable, and failing microphone jacks are the most common causes of this aircraft comm system symptom.",
+        "choices": [
+          "Stuck microphone transmitting continuously",
+          "Intermittent or noisy received audio",
+          "Total loss of both transmit and receive capability",
+          "Radio tuning to incorrect frequency"
+        ],
+        "correctIndex": 1,
+        "explanation": "Intermittent or noisy audio points to physical connection problems. Corroded connectors and damaged coax create resistance that introduces noise. A failing mic jack causes noise that varies with microphone movement — all three are physical/mechanical rather than electronic failures.",
+        "difficulty": 400,
+        "learningObjective": "Diagnose intermittent/noisy comm audio — connector, coax, mic jack",
+        "source": "comm-audio"
+      },
+      {
+        "id": "CAT3-VHF-008",
+        "clue": "When a pilot hears a constant tone but cannot hear ATC responses, this failure — keeping the transmitter continuously keyed — is the most likely diagnosis.",
+        "choices": [
+          "Failed receiver squelch circuit",
+          "Frequency selector stuck between channels",
+          "Stuck microphone PTT keeping the transmitter keyed",
+          "Audio panel failure routing TX audio to headset"
+        ],
+        "correctIndex": 2,
+        "explanation": "A stuck PTT keeps the transmitter on continuously, which blocks the receiver on the same frequency (you can't transmit and receive simultaneously on one radio). The constant sidetone in the headset is the transmitter sending back the mic signal. Other aircraft on the frequency also cannot transmit.",
+        "difficulty": 500,
+        "learningObjective": "Diagnose stuck mic — constant tone blocks reception",
+        "source": "stuck-mic"
+      }
+    ],
+    "Transponders & Surveillance": [
+      {
+        "id": "CAT3-XP-002",
+        "clue": "This airborne collision avoidance system monitors nearby transponder-equipped aircraft and issues resolution advisories to prevent mid-air collisions.",
+        "choices": [
+          "ADS-B In traffic display",
+          "TCAS (Traffic Collision Avoidance System)",
+          "GPWS terrain warning system",
+          "ATC radar separation service"
+        ],
+        "correctIndex": 1,
+        "explanation": "TCAS actively interrogates nearby transponders, computes collision risk, and issues TAs (awareness) and RAs (climb/descend instructions) to the crew. TCAS RA instructions override ATC instructions — crews must follow TCAS RAs immediately.",
+        "difficulty": 100,
+        "learningObjective": "TCAS monitors traffic and provides collision avoidance RAs",
+        "source": "TCAS"
+      },
+      {
+        "id": "CAT3-XP-003",
+        "clue": "Replying to ATC secondary surveillance radar interrogations to allow positive aircraft identification and tracking is the primary purpose of this cockpit device.",
+        "choices": [
+          "ELT (Emergency Locator Transmitter)",
+          "ADS-B Out unit",
+          "Transponder",
+          "DME interrogator"
+        ],
+        "correctIndex": 2,
+        "explanation": "The transponder responds to ATC SSR interrogations at 1030 MHz with replies at 1090 MHz containing squawk code and altitude. This active response allows ATC to positively identify each aircraft rather than relying on passive primary radar returns alone.",
+        "difficulty": 100,
+        "learningObjective": "Primary transponder purpose — reply to ATC SSR interrogations",
+        "source": "transponder"
+      },
+      {
+        "id": "CAT3-XP-006",
+        "clue": "GPS position, altitude, velocity, identification, and state data are all included in the continuous broadcast of this avionics system.",
+        "choices": [
+          "TCAS surveillance interrogation",
+          "ADS-B Out broadcast",
+          "Mode C altitude reply",
+          "VHF comm position report"
+        ],
+        "correctIndex": 1,
+        "explanation": "ADS-B Out broadcasts all of this state data automatically at approximately 1 Hz on 1090 MHz (Mode S Extended Squitter) or 978 MHz (UAT). It doesn't wait to be interrogated — it broadcasts continuously to both ATC ground stations and other ADS-B In equipped aircraft.",
+        "difficulty": 200,
+        "learningObjective": "ADS-B Out broadcasts position, altitude, velocity, ID",
+        "source": "ADS-B"
+      },
+      {
+        "id": "CAT3-XP-008",
+        "clue": "Transponder antennas are typically low-profile blade or stub antennas tuned to operate at these two frequencies.",
+        "choices": [
+          "118 and 136.975 MHz",
+          "108 and 117.95 MHz",
+          "329 and 335 MHz",
+          "1030 and 1090 MHz"
+        ],
+        "correctIndex": 3,
+        "explanation": "ATC interrogates at 1030 MHz; transponders reply at 1090 MHz. The antenna must cover both frequencies. Low-profile blades or stubs are used to minimize aerodynamic drag while maintaining adequate ground plane for the omnidirectional radiation pattern needed.",
+        "difficulty": 200,
+        "learningObjective": "Transponder antenna type and frequency range",
+        "source": "transponder"
+      },
+      {
+        "id": "CAT3-XP-009",
+        "clue": "This transponder mode simultaneously provides both aircraft identification (squawk code) and pressure altitude reporting in a single reply to ATC radar.",
+        "choices": [
+          "Mode C",
+          "Mode S",
+          "Mode A",
+          "Mode 4"
+        ],
+        "correctIndex": 0,
+        "explanation": "Mode C combines Mode A (squawk code) with pressure altitude reporting. Mode A alone gives identity; Mode C gives identity + altitude. Mode S adds data link and unique 24-bit addressing. Mode C is the standard requirement for most controlled US airspace.",
+        "difficulty": 300,
+        "learningObjective": "Mode C provides both squawk code and altitude simultaneously",
+        "source": "Mode-C"
+      },
+      {
+        "id": "CAT3-XP-001",
+        "clue": "This 4-digit code set by the pilot allows ATC radar to identify a specific aircraft and distinguish it from other traffic on the display.",
+        "choices": [
+          "Transponder squawk code",
+          "ADS-B ICAO address",
+          "IFF challenge code",
+          "ELT registration number"
+        ],
+        "correctIndex": 0,
+        "explanation": "The squawk code (Mode A) is a 4-digit octal identifier set on the transponder at ATC request. When the radar interrogates, the transponder replies with this code, allowing controllers to label and track the specific aircraft's radar return among many.",
+        "difficulty": 300,
+        "learningObjective": "Squawk code identifies aircraft to ATC radar",
+        "source": "transponder"
+      },
+      {
+        "id": "CAT3-XP-004",
+        "clue": "When installing a transponder antenna, verifying impedance match, using the correct coaxial cable, and torquing connectors to spec are all part of this procedure.",
+        "choices": [
+          "VOR ramp test pre-check",
+          "ADS-B link budget calculation",
+          "ILS glideslope antenna alignment",
+          "Transponder antenna installation"
+        ],
+        "correctIndex": 3,
+        "explanation": "Transponder antenna installation at 1030/1090 MHz requires: 50Ω impedance match (antenna and cable), correct low-loss coax for ~1 GHz operation, and properly installed/torqued connectors to ensure RF integrity and prevent water ingress.",
+        "difficulty": 400,
+        "learningObjective": "Transponder antenna installation — impedance, coax, torque",
+        "source": "transponder"
+      },
+      {
+        "id": "CAT3-XP-005",
+        "clue": "This unique 24-bit identifier assigned to a Mode S transponder allows ATC systems to selectively interrogate a specific aircraft rather than broadcast to all transponders.",
+        "choices": [
+          "ICAO 24-bit address",
+          "SSID (squawk signal ID)",
+          "ADS-B Out position report",
+          "Flight ID callsign"
+        ],
+        "correctIndex": 0,
+        "explanation": "The 24-bit ICAO address is unique to each aircraft globally — assigned by the country of registration. Mode S ground stations use it to address specific aircraft individually (selective interrogation), reducing frequency congestion compared to Mode A/C all-call interrogations.",
+        "difficulty": 400,
+        "learningObjective": "Mode S 24-bit address enables selective interrogation",
+        "source": "Mode-S"
+      },
+      {
+        "id": "CAT3-XP-007",
+        "clue": "In addition to the Mode A squawk code, this transponder mode automatically transmits pressure altitude encoded by an encoding altimeter.",
+        "choices": [
+          "Mode 1 (military)",
+          "Mode 3 (IFF)",
+          "Mode C",
+          "Mode S Extended Squitter"
+        ],
+        "correctIndex": 2,
+        "explanation": "Mode C adds automatic altitude reporting to the Mode A squawk code reply. The encoding altimeter (or ADC) provides pressure altitude in Gillham code; the transponder includes this in its reply. ATC sees both identity and altitude, enabling 3D tracking.",
+        "difficulty": 500,
+        "learningObjective": "Mode C transmits squawk plus pressure altitude",
+        "source": "Mode-C"
+      }
+    ],
+    "Audio & Intercom": [
+      {
+        "id": "CAT3-AUD-001",
+        "clue": "When integrating an audio panel with other avionics, this factor between audio panel output and connected equipment is the most important for achieving clear audio.",
+        "choices": [
+          "RF shielding of audio cables",
+          "Impedance matching",
+          "Physical separation from the radio stack",
+          "Total cable length to each avionics unit"
+        ],
+        "correctIndex": 1,
+        "explanation": "Impedance matching is the primary factor for audio quality in avionics integration. Mismatched impedances cause signal reflections, level loss, and distortion. All audio interfaces in the chain must have compatible impedances for clean signal transfer.",
+        "difficulty": 100,
+        "learningObjective": "Impedance matching is most important factor for clear audio",
+        "source": "audio-panel"
+      },
+      {
+        "id": "CAT3-AUD-003",
+        "clue": "A single centralized interface enabling crews to select, monitor, and transmit on multiple communication and navigation radios describes the primary purpose of this cockpit panel.",
+        "choices": [
+          "Avionics master switch panel",
+          "Mode S transponder control head",
+          "Integrated avionics control unit",
+          "Audio control panel"
+        ],
+        "correctIndex": 3,
+        "explanation": "The audio control panel centralizes all audio management: transmit selection (which COM to send on), receive selection (which COM/NAV/ADF to monitor), intercom control, and speaker selection — all from one panel accessible to both crew positions.",
+        "difficulty": 200,
+        "learningObjective": "Audio control panel enables crew to select and transmit on multiple radios",
+        "source": "audio-panel"
+      },
+      {
+        "id": "CAT3-AUD-002",
+        "clue": "Routing and selecting communication and navigation audio from multiple radios to pilot and copilot headsets and cockpit speakers is the primary purpose of this panel.",
+        "choices": [
+          "The avionics master switch panel",
+          "The communication and navigation management unit",
+          "The audio panel",
+          "The interphone control unit"
+        ],
+        "correctIndex": 2,
+        "explanation": "The audio panel is the audio routing hub: it takes inputs from all communication and navigation receivers and allows each crewmember to select what they want to monitor. It also routes PTT signals to the selected COM radio for transmission.",
+        "difficulty": 400,
+        "learningObjective": "Audio panel routes comm/nav audio to pilot and copilot",
+        "source": "audio-panel"
+      },
+      {
+        "id": "CAT3-AUD-004",
+        "clue": "When a newly installed audio panel produces a loud 400 Hz hum in all headsets, the most likely cause is this wiring fault in the audio ground reference.",
+        "choices": [
+          "A ground loop between the audio panel chassis and the airframe ground bus",
+          "A reversed hot and neutral on the aircraft's AC essential bus",
+          "Excessive cable length exceeding the audio panel's rated output impedance",
+          "An incorrect squelch threshold setting on the installed comm radio"
+        ],
+        "correctIndex": 0,
+        "explanation": "A 400 Hz hum in aircraft audio is the classic ground loop symptom — the aircraft AC system operates at 400 Hz.",
+        "difficulty": 300,
+        "category": "Audio & Intercom",
+        "source": "Audio ground loop diagnosis"
+      },
+      {
+        "id": "CAT3-AUD-005",
+        "clue": "During an audio panel installation, this measurement between the panel's audio output and the headset jack must match the specified value to prevent distortion or excessively low volume.",
+        "choices": [
+          "DC voltage bias on the microphone input",
+          "RF noise floor measured at the antenna port",
+          "Impedance match between audio output and the connected load",
+          "Current draw from the audio amplifier circuit breaker"
+        ],
+        "correctIndex": 2,
+        "explanation": "Impedance matching between the audio panel output and connected headsets/speakers prevents signal reflection, distortion, and volume issues.",
+        "difficulty": 400,
+        "category": "Audio & Intercom",
+        "source": "Audio impedance matching"
+      },
+      {
+        "id": "CAT3-AUD-006",
+        "clue": "In a dual-comm installation, the pilot's headset receives audio from Comm 1 but not Comm 2, even though Comm 2 transmits normally. The audio panel is set to receive both. The most likely fault is here.",
+        "choices": [
+          "Comm 2's squelch circuit has failed open, blocking all received audio",
+          "The Comm 2 antenna has an open coaxial shield causing receive failure",
+          "The audio panel's Comm 2 volume potentiometer is set to minimum",
+          "The audio panel's Comm 2 receive wire or connection at the panel's input pin"
+        ],
+        "correctIndex": 3,
+        "explanation": "Comm 2 transmits normally (proving the radio and antenna function). The fault is the audio receive path between Comm 2's audio output and the audio panel's Comm 2 input pin.",
+        "difficulty": 500,
+        "category": "Audio & Intercom",
+        "source": "Comm 2 audio troubleshooting"
+      }
+    ]
+  },
+  "final": [
+    {
+      "category": "Final Challenge: Surveillance & Transponders",
+      "clue": "A Mode S transponder differs from Mode A/C by featuring unique selective addressing. How many bits are in a discrete Mode S ICAO aircraft address?",
+      "choices": [
+        "12-Bit",
+        "24-Bit",
+        "32-Bit",
+        "64-Bit"
+      ],
+      "correctIndex": 1,
+      "explanation": "Every Mode S equipped aircraft is assigned a unique 24-bit ICAO address, hardcoded or strapped into the transponder, allowing over 16 million distinct addresses.",
+      "difficulty": 500
+    },
+    {
+      "category": "Final Challenge: Navigation Arrays",
+      "clue": "A VOR receiver determines bearing to a station by measuring the phase difference between a reference phase signal and this type of signal.",
+      "choices": [
+        "A variable directional phase signal",
+        "A paired DME pulse pair",
+        "A 1090 MHz reply",
+        "An ILS localizer tone"
+      ],
+      "correctIndex": 0,
+      "explanation": "VORs transmit a 30Hz reference signal (omnidirectional) and a 30Hz variable signal (sweeping directional). The receiver compares their phase difference to determine the specific radial.",
+      "difficulty": 500
+    },
+    {
+      "category": "Final Challenge: WAAS Precision",
+      "clue": "The Wide Area Augmentation System (WAAS) provides GPS corrections to the aircraft via this specific method.",
+      "choices": [
+        "VHF datalink from ground stations",
+        "Geostationary satellites transmitting on the L1 frequency",
+        "Cellular LTE networks",
+        "Mode S Extended Squitter"
+      ],
+      "correctIndex": 1,
+      "explanation": "WAAS ground stations calculate GPS error corrections, uplink them to geostationary (GEO) satellites, which broadcast the corrections back to aircraft using the standard GPS L1 frequency.",
+      "difficulty": 500
+    }
+  ]
+}

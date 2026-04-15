@@ -1,0 +1,4089 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ACE Drill — Training Bay</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="./ace-theme.css">
+  <link rel="stylesheet" href="./ace-popup.css">
+  <script src="./ace-popup.js" defer></script>
+  <style>
+    /* ===================== PRACTICE.HTML SKIN OVERRIDES =====================
+   ace-theme.css provides all tokens. These extend/override for drill-specific UI.
+   NO Orbitron. NO neon glows. NO CRT effects.
+======================================================================= */
+
+    /* Local token aliases mapping old names → new token names */
+    :root {
+      --accent: var(--blue);
+      --accent-dim: var(--blue-soft);
+      --success-dim: var(--success-soft);
+      --warning-dim: var(--warning-soft);
+      --danger-dim: var(--danger-soft);
+      --text: var(--text-primary);
+      --text-dim: var(--text-secondary);
+      --orb: var(--font-sans);
+      --radius: var(--radius-lg);
+      --surface2: var(--surface-2);
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: #080C1A;
+      color: var(--text-primary);
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* HD Cinematic Background */
+    .cyber-bg {
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(circle at 15% 50%, rgba(212, 168, 83, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 85% 30%, rgba(34, 211, 238, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 50% 100%, rgba(45, 189, 137, 0.05) 0%, transparent 50%),
+        linear-gradient(180deg, rgba(8, 12, 26, 0) 0%, rgba(8, 12, 26, 0.9) 100%),
+        url('data:image/svg+xml;utf8,<svg width="40" height="40" xmlns="http://www.w3.org/2000/svg"><path d="M0 40 L40 0" stroke="rgba(255,255,255,0.02)" stroke-width="1"/></svg>');
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .cyber-grid {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      background-size: 50px 50px;
+      transform: perspective(500px) rotateX(60deg) translateY(-100px) translateZ(-200px);
+      transform-origin: center top;
+      opacity: 0.3;
+      z-index: -2;
+      pointer-events: none;
+      animation: gridMove 20s linear infinite;
+    }
+
+    @keyframes gridMove {
+      0% {
+        background-position: 0 0;
+      }
+
+      100% {
+        background-position: 0 50px;
+      }
+    }
+
+    /* ===================== HANGAR DOORS ===================== */
+    .hangar-doors-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .door-left,
+    .door-right {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 50%;
+      background: #0d1117;
+      transition: transform 1.1s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .door-left {
+      left: 0;
+      transform: translateX(-100%);
+    }
+
+    .door-right {
+      right: 0;
+      transform: translateX(100%);
+    }
+
+    .door-left::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: -3px;
+      bottom: 0;
+      width: 3px;
+      background: var(--accent);
+      box-shadow: 0 0 24px 4px var(--accent);
+    }
+
+    /* Closed state */
+    .hangar-doors-overlay.doors-closed .door-left {
+      transform: translateX(0);
+    }
+
+    .hangar-doors-overlay.doors-closed .door-right {
+      transform: translateX(0);
+    }
+
+    /* Seam highlight when closed */
+    .door-right::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -3px;
+      bottom: 0;
+      width: 3px;
+      background: var(--accent);
+      box-shadow: 0 0 24px 4px var(--accent);
+    }
+
+    /* Seam highlight when closed */
+    .hangar-doors-overlay.doors-closed .door-left::after,
+    .hangar-doors-overlay.doors-closed .door-right::before {
+      box-shadow: 0 0 40px 8px var(--accent);
+    }
+
+    /* ===================== TOPBAR ===================== */
+    .topbar {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 0 1.5rem;
+      height: 54px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-shrink: 0;
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: transparent;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 7px 14px;
+      font-family: var(--font-sans);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .back-btn:hover {
+      border-color: var(--border-hover);
+      color: var(--text-primary);
+      transform: translateX(-2px);
+    }
+
+    .brand-name {
+      font-family: var(--font-sans);
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-primary);
+      letter-spacing: 0.02em;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .brand-name span {
+      color: var(--gold);
+    }
+
+    .topbar-center {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .session-timer {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 6px 12px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+    }
+
+    .timer-icon {
+      width: 14px;
+      height: 14px;
+      stroke: var(--text-muted);
+      flex-shrink: 0;
+    }
+
+    .timer-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .timer-label {
+      font-size: 9px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      line-height: 1;
+    }
+
+    .timer-value {
+      font-size: 13px;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1.4;
+    }
+
+    .topbar-end-btn {
+      background: transparent;
+      border: 1px solid var(--danger);
+      color: var(--danger);
+      padding: 6px 14px;
+      border-radius: var(--radius-md);
+      font-family: var(--font-sans);
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: none;
+    }
+
+    .topbar-end-btn.visible {
+      display: block;
+    }
+
+    .topbar-end-btn:hover {
+      background: var(--danger-soft);
+    }
+
+    .mode-badge {
+      background: var(--gold-soft);
+      border: 1px solid rgba(212, 168, 83, 0.3);
+      color: var(--gold);
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    /* ===================== ACHIEVEMENT POPUP ===================== */
+    .achievement-popup {
+      position: fixed;
+      top: -80px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--surface);
+      border: 1px solid var(--gold);
+      border-radius: var(--radius-md);
+      color: var(--text-primary);
+      padding: 8px 20px;
+      font-family: var(--font-sans);
+      font-weight: 700;
+      font-size: 13px;
+      z-index: 3500;
+      transition: top 0.45s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      box-shadow: 0 4px 20px rgba(212, 168, 83, 0.3);
+      white-space: nowrap;
+    }
+
+    .achievement-popup.show {
+      top: 66px;
+    }
+
+    /* ===================== LAYOUT ===================== */
+    .main-layout {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      padding: 1.5rem;
+      max-width: 960px;
+      margin: 0 auto;
+      align-items: start;
+    }
+
+    .main-layout.drill-active {
+      grid-template-columns: 1fr 340px;
+      max-width: 1360px;
+    }
+
+    @media (max-width: 1024px) {
+      .main-layout.drill-active {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Stats sidebar hidden until a drill is active */
+    #statsSidebar {
+      display: none;
+    }
+
+    .main-layout.drill-active #statsSidebar {
+      display: block;
+    }
+
+    /* ===================== PANELS ===================== */
+    .panel {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+    }
+
+    /* Launch panel is transparent on the launch page */
+    #launchPanel {
+      background: transparent;
+      border: none;
+      padding: 0;
+    }
+
+    .panel-header {
+      display: none;
+      /* Hide the old Training Bay / Select Category header */
+    }
+
+    .panel-title {
+      font-family: var(--font-sans);
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-primary);
+      letter-spacing: 0.02em;
+    }
+
+    .panel-badge {
+      background: var(--gold-soft);
+      color: var(--gold);
+      border: 1px solid rgba(212, 168, 83, 0.25);
+      padding: 3px 10px;
+      border-radius: var(--radius-full);
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .launch-screen {
+      display: block;
+      position: relative;
+    }
+
+    /* SIMULATION DECK HERO */
+    .deck-hero {
+      text-align: left;
+      margin-bottom: 24px;
+      position: relative;
+      animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(212, 168, 83, 0.1);
+      border: 1px solid rgba(212, 168, 83, 0.3);
+      color: var(--gold);
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 20px;
+      box-shadow: 0 0 20px rgba(212, 168, 83, 0.15) inset;
+    }
+
+    .hero-title {
+      font-size: 42px;
+      font-weight: 800;
+      letter-spacing: -1px;
+      margin-bottom: 16px;
+      background: linear-gradient(180deg, #FFFFFF 0%, #A0AEC0 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .hero-desc {
+      font-size: 16px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      max-width: 600px;
+    }
+
+    /* Feature pills row */
+    .feature-pills {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .feature-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      font-size: 12px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .feature-pill svg {
+      flex-shrink: 0;
+    }
+
+    /* Section label for category grid */
+    .grid-label {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+
+    .grid-label-text {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--text-muted);
+    }
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Category grid (Holographic Cards) */
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 12px;
+      margin-bottom: 1.25rem;
+      perspective: 1000px;
+    }
+
+    .category-card {
+      align-items: center;
+      text-align: center;
+      gap: 0.4rem;
+      min-height: 105px;
+      justify-content: center;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      background: rgba(20, 24, 38, 0.4);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 1.1rem 0.875rem;
+      cursor: pointer;
+      transition: transform 0.1s ease, box-shadow 0.3s ease;
+      transform-style: preserve-3d;
+      box-shadow:
+        0 10px 30px -10px rgba(0, 0, 0, 0.5),
+        inset 0 1px 1px rgba(255, 255, 255, 0.1);
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    /* Scanline Overlay */
+    .category-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(0deg,
+          transparent,
+          transparent 2px,
+          rgba(255, 255, 255, 0.03) 2px,
+          rgba(255, 255, 255, 0.03) 4px);
+      pointer-events: none;
+      mix-blend-mode: overlay;
+      z-index: 2;
+      opacity: 0.5;
+    }
+
+    /* Ambient Glow Behind Card */
+    .category-card::after {
+      content: '';
+      position: absolute;
+      inset: -2px;
+      background: linear-gradient(45deg, transparent, transparent, transparent);
+      border-radius: 18px;
+      z-index: -1;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .category-card:hover {
+      box-shadow: 0 16px 40px rgba(212, 168, 83, 0.15), inset 0 0 20px rgba(212, 168, 83, 0.05);
+      z-index: 10;
+    }
+
+    .category-card:hover::after {
+      opacity: 1;
+    }
+
+    .category-card.selected {
+      border-color: var(--gold);
+      background: rgba(212, 168, 83, 0.15);
+      box-shadow: 0 0 20px rgba(212, 168, 83, 0.2) inset, 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+    }
+
+    .category-card.selected::after {
+      background: linear-gradient(135deg, rgba(212, 168, 83, 0.4), transparent, rgba(212, 168, 83, 0.1));
+      opacity: 1;
+    }
+
+    .category-card-check {
+      position: absolute;
+      top: 8px;
+      right: 10px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--gold);
+      color: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transform: scale(0.5);
+      transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      z-index: 10;
+    }
+
+    .category-card.selected .category-card-check {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .category-icon {
+      font-size: 1.75rem;
+      line-height: 1;
+      transition: transform 0.2s;
+    }
+
+    .category-card:hover .category-icon {
+      transform: scale(1.15);
+    }
+
+    .category-name {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-primary);
+      line-height: 1.3;
+    }
+
+    .category-count {
+      font-size: 10px;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      background: rgba(255, 255, 255, 0.05);
+      padding: 2px 8px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    /* Start controls */
+    .start-controls {
+      display: flex;
+      gap: 0.75rem;
+      align-items: center;
+      margin-top: 8px;
+    }
+
+    .btn-primary {
+      flex: 1;
+      background: linear-gradient(135deg, var(--gold), #C49540);
+      border: none;
+      color: #080C1A;
+      padding: 15px 24px;
+      border-radius: 12px;
+      font-family: var(--font-sans);
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.25s;
+      min-height: 48px;
+      letter-spacing: 0.02em;
+      box-shadow: 0 4px 15px rgba(212, 168, 83, 0.2);
+    }
+
+    .btn-primary:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(212, 168, 83, 0.4);
+    }
+
+    .btn-primary:disabled {
+      opacity: 0.25;
+      cursor: not-allowed;
+      box-shadow: none;
+    }
+
+    .selected-summary {
+      font-family: var(--font-sans);
+      font-size: 12px;
+      color: var(--text-muted);
+      text-align: center;
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.02em;
+    }
+
+    .selected-summary strong {
+      color: var(--gold);
+      font-weight: 700;
+    }
+
+    /* ===================== STATS SIDEBAR ===================== */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.625rem;
+      margin-bottom: 1rem;
+    }
+
+    .stat-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 0.75rem 0.4rem;
+      text-align: center;
+    }
+
+    .stat-label {
+      font-family: var(--font-sans);
+      font-size: 0.55rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      margin-bottom: 0.3rem;
+    }
+
+    .stat-value {
+      font-family: var(--font-mono);
+      font-size: 1.75rem;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .stat-card.seen .stat-value {
+      color: var(--accent);
+    }
+
+    .stat-card.correct .stat-value {
+      color: var(--success);
+    }
+
+    .stat-card.missed .stat-value {
+      color: var(--danger);
+    }
+
+    /* Accuracy bar */
+    .accuracy-row {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .accuracy-label {
+      font-family: var(--font-sans);
+      font-size: 0.6rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      flex-shrink: 0;
+    }
+
+    .accuracy-bar {
+      flex: 1;
+      height: 6px;
+      background: var(--border);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+
+    .accuracy-fill {
+      height: 100%;
+      background: var(--success);
+      border-radius: 3px;
+      transition: width 0.4s ease;
+      width: 0%;
+    }
+
+    .accuracy-pct {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--text-dim);
+      flex-shrink: 0;
+      min-width: 36px;
+      text-align: right;
+    }
+
+    .sidebar-btns {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+      padding: 0.5rem 0.75rem;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-sans);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-align: center;
+    }
+
+    .btn-outline:hover {
+      background: var(--surface-2);
+      color: var(--text-primary);
+      border-color: var(--gold);
+    }
+
+    .btn-outline.danger {
+      border-color: rgba(248, 81, 73, 0.4);
+      color: var(--danger);
+    }
+
+    .btn-outline.danger:hover {
+      background: var(--danger-dim);
+      border-color: var(--danger);
+    }
+
+    /* Weak list */
+    .section-label {
+      font-family: var(--font-sans);
+      font-size: 0.65rem;
+      font-weight: 700;
+      color: var(--warning);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.625rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: rgba(227, 179, 65, 0.2);
+    }
+
+    .weak-list {
+      max-height: 340px;
+      overflow-y: auto;
+    }
+
+    .weak-empty {
+      color: var(--text-muted);
+      font-size: 0.78rem;
+      font-style: italic;
+      text-align: center;
+      padding: 1.25rem 0;
+    }
+
+    .weak-item {
+      background: var(--danger-dim);
+      border: 1px solid rgba(248, 81, 73, 0.2);
+      border-radius: var(--radius-sm);
+      padding: 0.75rem;
+      margin-bottom: 0.625rem;
+    }
+
+    .weak-item-q {
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+      color: var(--text);
+      line-height: 1.4;
+    }
+
+    .weak-item-a {
+      color: var(--success);
+      font-size: 0.75rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .weak-item-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+      margin-top: 0.4rem;
+    }
+
+    .weak-item-tag {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 0.1rem 0.4rem;
+      border-radius: 8px;
+      font-size: 0.6rem;
+      color: var(--text-muted);
+    }
+
+    /* ===================== DRILL OVERLAY ===================== */
+    .drill-overlay {
+      position: fixed;
+      inset: 0;
+      background: var(--bg);
+      z-index: 900;
+      display: none;
+      flex-direction: column;
+      overflow-y: auto;
+    }
+
+    .drill-overlay.active {
+      display: flex;
+    }
+
+    .drill-inner {
+      width: 100%;
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Progress header */
+    .drill-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.5rem;
+      gap: 1rem;
+    }
+
+    .drill-category-tag {
+      font-family: var(--font-sans);
+      font-size: 0.65rem;
+      color: var(--gold);
+      background: var(--gold-soft);
+      border: 1px solid rgba(212, 168, 83, 0.3);
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .drill-progress-wrap {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .drill-progress-bar {
+      height: 4px;
+      background: var(--border);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .drill-progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--gold), #e8c87a);
+      border-radius: 2px;
+      transition: width 0.5s ease;
+    }
+
+    .drill-progress-text {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      color: var(--text-muted);
+      text-align: right;
+      letter-spacing: 0.04em;
+    }
+
+    .drill-exit-btn {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      padding: 0.35rem 0.75rem;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-sans);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      cursor: pointer;
+      transition: all 0.2s;
+      flex-shrink: 0;
+    }
+
+    .drill-exit-btn:hover {
+      border-color: var(--danger);
+      color: var(--danger);
+    }
+
+    /* Question card */
+    .q-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem;
+      margin-bottom: 1.25rem;
+      position: relative;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .q-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--gold);
+      border-radius: var(--radius) var(--radius) 0 0;
+    }
+
+    .q-card.answered-correct::before {
+      background: var(--success);
+    }
+
+    .q-card.answered-wrong::before {
+      background: var(--danger);
+    }
+
+    .q-number {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+
+    .q-text {
+      font-size: 1.1rem;
+      line-height: 1.65;
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .q-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-top: 1rem;
+      padding-top: 0.875rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .q-tag {
+      background: var(--gold-soft);
+      border: 1px solid rgba(212, 168, 83, 0.2);
+      padding: 0.15rem 0.5rem;
+      border-radius: 10px;
+      font-size: 0.62rem;
+      color: var(--gold);
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+
+    /* Answer options */
+    .options-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 0.625rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .option-btn {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 0.9rem 1.1rem;
+      cursor: pointer;
+      transition: all 0.18s;
+      text-align: left;
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .option-btn::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 0.18s;
+    }
+
+    .option-btn:hover:not(:disabled) {
+      border-color: var(--gold);
+      background: var(--gold-soft);
+      transform: translateX(3px);
+    }
+
+    .option-btn:disabled {
+      cursor: not-allowed;
+    }
+
+    /* Letter circle */
+    .option-letter {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 2px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--text-secondary);
+      flex-shrink: 0;
+      transition: all 0.18s;
+      background: var(--bg);
+    }
+
+    .option-text {
+      font-size: 0.9rem;
+      color: var(--text);
+      line-height: 1.5;
+      padding-top: 0.2rem;
+    }
+
+    /* Hover state - letter lights up gold */
+    .option-btn:hover:not(:disabled) .option-letter {
+      border-color: var(--gold);
+      color: var(--gold);
+      background: var(--gold-soft);
+    }
+
+    /* Correct answer */
+    .option-btn.correct {
+      border-color: var(--success);
+      background: var(--success-dim);
+      transform: none;
+    }
+
+    .option-btn.correct .option-letter {
+      border-color: var(--success);
+      background: var(--success);
+      color: #0d1117;
+    }
+
+    .option-btn.correct .option-text {
+      color: var(--success);
+      font-weight: 600;
+    }
+
+    /* Wrong selection */
+    .option-btn.wrong {
+      border-color: var(--danger);
+      background: var(--danger-dim);
+      transform: none;
+    }
+
+    .option-btn.wrong .option-letter {
+      border-color: var(--danger);
+      background: var(--danger);
+      color: #fff;
+    }
+
+    .option-btn.wrong .option-text {
+      color: var(--danger);
+    }
+
+    /* Dimmed (other options after answering) */
+    .option-btn.dimmed {
+      opacity: 0.35;
+    }
+
+    /* Shake animation for wrong */
+    @keyframes shake-x {
+
+      0%,
+      100% {
+        transform: translateX(0);
+      }
+
+      20%,
+      60% {
+        transform: translateX(-6px);
+      }
+
+      40%,
+      80% {
+        transform: translateX(6px);
+      }
+    }
+
+    .option-btn.shake {
+      animation: shake-x 0.35s ease;
+    }
+
+    /* Correct pulse */
+    @keyframes pulse-correct {
+      0% {
+        box-shadow: 0 0 0 0 rgba(63, 185, 80, 0.4);
+      }
+
+      100% {
+        box-shadow: 0 0 0 10px rgba(63, 185, 80, 0);
+      }
+    }
+
+    .option-btn.pulse {
+      animation: pulse-correct 0.4s ease-out;
+    }
+
+    /* Feedback panel, ace-mentor, btn-next removed — replaced by ace-popup.js */
+
+    /* ===================== RESULTS SCREEN ===================== */
+    .results-overlay {
+      position: fixed;
+      inset: 0;
+      background: var(--bg);
+      z-index: 950;
+      display: none;
+      flex-direction: column;
+      overflow-y: auto;
+    }
+
+    .results-overlay.active {
+      display: flex;
+    }
+
+    .results-inner {
+      width: 100%;
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 3rem;
+    }
+
+    /* --- Section wrapper for staggered fade-in --- */
+    .res-section {
+      opacity: 0;
+      transform: translateY(18px);
+      animation: resSectionIn 0.45s ease forwards;
+    }
+
+    @keyframes resSectionIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* --- 1. HEADER with ACE sprite + score ring --- */
+    .results-header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.75rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .results-header-left {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .results-ace-sprite {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      border: 2px solid var(--gold);
+      overflow: hidden;
+      background: var(--bg);
+      box-shadow: 0 0 16px rgba(212, 168, 83, 0.25);
+    }
+
+    .results-ace-sprite img {
+      width: 100%;
+      height: 100%;
+      image-rendering: pixelated;
+    }
+
+    .results-title {
+      font-family: var(--font-sans);
+      font-size: 1.6rem;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      color: var(--gold);
+      text-align: center;
+    }
+
+    .results-subtitle {
+      font-family: var(--font-sans);
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    /* Score ring */
+    .score-ring-wrap {
+      display: flex;
+      justify-content: center;
+    }
+
+    .score-ring {
+      position: relative;
+      width: 150px;
+      height: 150px;
+    }
+
+    .score-ring svg {
+      transform: rotate(-90deg);
+    }
+
+    .score-ring-bg {
+      fill: none;
+      stroke: var(--border);
+      stroke-width: 10;
+    }
+
+    .score-ring-fill {
+      fill: none;
+      stroke-width: 10;
+      stroke-linecap: round;
+      transition: stroke-dashoffset 1s ease;
+    }
+
+    .score-ring-text {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .score-pct {
+      font-family: var(--font-mono);
+      font-size: 2rem;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .score-label {
+      font-family: var(--font-sans);
+      font-size: 0.5rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-top: 0.2rem;
+    }
+
+    /* --- 2. STATS ROW (4 cards) --- */
+    .results-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.75rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .res-stat {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 0.875rem 0.5rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .res-stat-val {
+      font-family: var(--font-mono);
+      font-size: 1.75rem;
+      font-weight: 700;
+      line-height: 1;
+      margin-bottom: 0.25rem;
+    }
+
+    .res-stat-lbl {
+      font-family: var(--font-sans);
+      font-size: 0.5rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .res-stat-delta {
+      font-family: var(--font-sans);
+      font-size: 0.55rem;
+      font-weight: 600;
+      margin-top: 0.3rem;
+      letter-spacing: 0.02em;
+    }
+
+    .res-stat-delta.up {
+      color: var(--success);
+    }
+
+    .res-stat-delta.down {
+      color: var(--danger);
+    }
+
+    .res-stat-delta.same {
+      color: var(--text-muted);
+    }
+
+    .res-stat.answered .res-stat-val {
+      color: var(--accent);
+    }
+
+    .res-stat.correct .res-stat-val {
+      color: var(--success);
+    }
+
+    .res-stat.wrong .res-stat-val {
+      color: var(--danger);
+    }
+
+    .res-stat.time .res-stat-val {
+      color: var(--warning);
+    }
+
+    /* --- 3. ACE MENTOR FEEDBACK CARD --- */
+    .res-mentor-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      background: linear-gradient(135deg, var(--surface2), var(--surface));
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      margin-bottom: 1.75rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .res-mentor-card::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: var(--gold);
+      border-radius: var(--radius) 0 0 var(--radius);
+    }
+
+    .res-mentor-sprite {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      border: 2px solid var(--gold);
+      overflow: hidden;
+      flex-shrink: 0;
+      background: var(--bg);
+      box-shadow: 0 0 12px rgba(212, 168, 83, 0.2);
+    }
+
+    .res-mentor-sprite img {
+      width: 100%;
+      height: 100%;
+      image-rendering: pixelated;
+    }
+
+    .res-mentor-body {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .res-mentor-name {
+      font-family: var(--font-sans);
+      font-size: 0.6rem;
+      color: var(--gold);
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.4rem;
+    }
+
+    .res-mentor-speech {
+      font-size: 0.85rem;
+      color: var(--text-dim);
+      line-height: 1.6;
+      margin-bottom: 0.75rem;
+    }
+
+    .res-mentor-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .res-focus-tag {
+      padding: 0.2rem 0.6rem;
+      border-radius: 12px;
+      font-family: var(--font-sans);
+      font-size: 0.58rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      border: 1px solid;
+    }
+
+    .res-focus-tag.red {
+      color: var(--danger);
+      border-color: rgba(248, 81, 73, 0.4);
+      background: var(--danger-dim);
+    }
+
+    .res-focus-tag.yellow {
+      color: var(--warning);
+      border-color: rgba(227, 179, 65, 0.4);
+      background: var(--warning-dim);
+    }
+
+    .res-focus-tag.blue {
+      color: var(--gold);
+      border-color: rgba(212, 168, 83, 0.3);
+      background: var(--gold-soft);
+    }
+
+    /* --- 4. LEARNING OBJECTIVE MASTERY --- */
+    .lo-mastery-section {
+      margin-bottom: 1.75rem;
+    }
+
+    .results-section-title {
+      font-family: var(--font-sans);
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.875rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .results-section-title .section-icon {
+      font-size: 0.85rem;
+      opacity: 0.8;
+    }
+
+    /* -- Focus Areas (Top 5 weakest) -- */
+    .lo-focus-card {
+      background: linear-gradient(135deg, rgba(255, 85, 85, 0.06) 0%, rgba(255, 85, 85, 0.02) 100%);
+      border: 1px solid rgba(255, 85, 85, 0.2);
+      border-radius: var(--radius);
+      padding: 1rem 1.1rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .lo-focus-title {
+      font-family: var(--font-sans);
+      font-size: 0.6rem;
+      font-weight: 700;
+      color: var(--danger);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .lo-focus-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding: 0.6rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    .lo-focus-item:last-child {
+      border-bottom: none;
+    }
+
+    .lo-focus-rank {
+      flex-shrink: 0;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: rgba(255, 85, 85, 0.15);
+      border: 1px solid rgba(255, 85, 85, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-size: 0.55rem;
+      font-weight: 700;
+      color: var(--danger);
+    }
+
+    .lo-focus-body {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .lo-focus-obj {
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      line-height: 1.45;
+      margin-bottom: 0.35rem;
+    }
+
+    .lo-focus-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .lo-focus-pct {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      font-weight: 700;
+    }
+
+    .lo-focus-cat {
+      font-size: 0.6rem;
+      color: var(--text-muted);
+      font-style: italic;
+    }
+
+    .lo-focus-bar {
+      flex: 1;
+      max-width: 100px;
+      height: 4px;
+      background: var(--border);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .lo-focus-bar-fill {
+      height: 100%;
+      border-radius: 2px;
+      transition: width 0.6s ease;
+    }
+
+    /* -- Category LO Cards (collapsible) -- */
+    .lo-cat-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      margin-bottom: 0.6rem;
+      overflow: hidden;
+      transition: border-color 0.2s;
+    }
+
+    .lo-cat-card:hover {
+      border-color: rgba(212, 168, 83, 0.25);
+    }
+
+    .lo-cat-summary {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.75rem 1rem;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .lo-cat-summary:hover {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .lo-cat-chevron {
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      transition: transform 0.25s ease;
+      flex-shrink: 0;
+    }
+
+    .lo-cat-card.open .lo-cat-chevron {
+      transform: rotate(90deg);
+    }
+
+    .lo-cat-ring {
+      position: relative;
+      width: 36px;
+      height: 36px;
+      flex-shrink: 0;
+    }
+
+    .lo-cat-ring canvas {
+      width: 36px;
+      height: 36px;
+    }
+
+    .lo-cat-ring-pct {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-size: 0.5rem;
+      font-weight: 700;
+    }
+
+    .lo-cat-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .lo-cat-name {
+      font-family: var(--font-sans);
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--text-primary);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .lo-cat-subtitle {
+      font-size: 0.6rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .lo-cat-mastered {
+      font-family: var(--font-sans);
+      font-size: 0.55rem;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 4px;
+      flex-shrink: 0;
+      background: rgba(63, 185, 80, 0.1);
+      border: 1px solid rgba(63, 185, 80, 0.25);
+      color: var(--success);
+    }
+
+    .lo-cat-detail {
+      display: none;
+      padding: 0 1rem 0.75rem 1rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    .lo-cat-card.open .lo-cat-detail {
+      display: block;
+    }
+
+    .lo-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    }
+
+    .lo-item:last-child {
+      border-bottom: none;
+    }
+
+    .lo-item-icon {
+      flex-shrink: 0;
+      font-size: 0.7rem;
+      margin-top: 2px;
+    }
+
+    .lo-item-body {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .lo-item-text {
+      font-size: 0.72rem;
+      color: var(--text-dim);
+      line-height: 1.45;
+    }
+
+    .lo-item-row {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 0.3rem;
+    }
+
+    .lo-bar-wrap {
+      flex: 1;
+      height: 5px;
+      background: var(--border);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+
+    .lo-bar-fill {
+      height: 100%;
+      border-radius: 3px;
+      transition: width 0.6s ease;
+    }
+
+    .lo-pct {
+      font-family: var(--font-mono);
+      font-size: 0.55rem;
+      font-weight: 700;
+      min-width: 32px;
+      text-align: right;
+    }
+
+    .lo-trend {
+      font-size: 0.65rem;
+      font-weight: 700;
+      min-width: 14px;
+      text-align: center;
+    }
+
+    .lo-trend.up {
+      color: var(--success);
+    }
+
+    .lo-trend.down {
+      color: var(--danger);
+    }
+
+    .lo-trend.flat {
+      color: var(--text-muted);
+    }
+
+    .lo-trend.new {
+      color: var(--text-muted);
+    }
+
+    /* --- 5. RADAR CHART --- */
+    .radar-section {
+      margin-bottom: 1.75rem;
+      text-align: center;
+    }
+
+    .radar-canvas-wrap {
+      display: flex;
+      justify-content: center;
+      padding: 0.5rem 0;
+    }
+
+    #resRadarChart {
+      max-width: 100%;
+    }
+
+    /* --- 6. TOPIC BREAKDOWN (enhanced) --- */
+    .topic-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .topic-row {
+      display: grid;
+      grid-template-columns: 1fr 90px 52px 40px;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.4rem 0;
+    }
+
+    .topic-name {
+      font-size: 0.82rem;
+      color: var(--text);
+    }
+
+    .topic-bar-wrap {
+      height: 6px;
+      background: var(--border);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+
+    .topic-bar-fill {
+      height: 100%;
+      border-radius: 3px;
+      transition: width 0.6s ease;
+    }
+
+    .topic-pct {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-align: right;
+    }
+
+    .topic-count {
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      text-align: right;
+      font-family: var(--font-mono);
+    }
+
+    /* --- 7. WEAK AREAS (enhanced) --- */
+    .weak-areas {
+      margin-bottom: 1.75rem;
+    }
+
+    .weak-area-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.625rem;
+      padding: 0.75rem;
+      background: var(--danger-dim);
+      border: 1px solid rgba(248, 81, 73, 0.2);
+      border-radius: var(--radius-sm);
+      margin-bottom: 0.5rem;
+      font-size: 0.82rem;
+      color: var(--text-dim);
+      transition: border-color 0.2s;
+    }
+
+    .weak-area-item:hover {
+      border-color: rgba(248, 81, 73, 0.5);
+    }
+
+    .weak-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--danger);
+      flex-shrink: 0;
+      margin-top: 0.35rem;
+    }
+
+    /* --- 8. SESSION HISTORY SPARKLINE --- */
+    .sparkline-section {
+      margin-bottom: 1.75rem;
+      text-align: center;
+    }
+
+    .sparkline-wrap {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+    }
+
+    .sparkline-wrap canvas {
+      max-width: 100%;
+    }
+
+    .sparkline-trend {
+      font-family: var(--font-sans);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .sparkline-trend.up {
+      color: var(--success);
+    }
+
+    .sparkline-trend.down {
+      color: var(--danger);
+    }
+
+    .sparkline-trend.flat {
+      color: var(--text-muted);
+    }
+
+    /* --- 9. ACTION BUTTONS --- */
+    .results-actions {
+      display: flex;
+      gap: 0.75rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 0.5rem;
+    }
+
+    .btn-try-again {
+      background: linear-gradient(135deg, var(--gold), #C49540);
+      border: none;
+      color: #080C1A;
+      padding: 0.875rem 2rem;
+      border-radius: var(--radius-md);
+      font-family: var(--font-sans);
+      font-size: 0.875rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+      min-height: 44px;
+    }
+
+    .btn-try-again:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(212, 168, 83, 0.35);
+    }
+
+    .btn-review-answers {
+      background: transparent;
+      border: 1px solid var(--success);
+      color: var(--success);
+      padding: 0.875rem 1.5rem;
+      border-radius: var(--radius-md);
+      font-family: var(--font-sans);
+      font-size: 0.875rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      min-height: 44px;
+    }
+
+    .btn-review-answers:hover {
+      background: var(--success-soft);
+    }
+
+    .btn-close-results {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+      padding: 0.875rem 1.5rem;
+      border-radius: var(--radius-md);
+      font-family: var(--font-sans);
+      font-size: 0.875rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      min-height: 44px;
+    }
+
+    .btn-close-results:hover {
+      background: var(--surface-2);
+      color: var(--text-primary);
+      border-color: var(--gold);
+    }
+
+    /* --- ANSWER REVIEW PANEL --- */
+    .answer-review-overlay {
+      position: fixed;
+      inset: 0;
+      background: var(--bg);
+      z-index: 960;
+      display: none;
+      flex-direction: column;
+      overflow-y: auto;
+    }
+
+    .answer-review-overlay.active {
+      display: flex;
+    }
+
+    .answer-review-inner {
+      width: 100%;
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+    }
+
+    .answer-review-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.5rem;
+    }
+
+    .answer-review-title {
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: -0.01em;
+    }
+
+    .btn-close-review {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+      padding: 0.5rem 1rem;
+      border-radius: var(--radius-md);
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-close-review:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    .review-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 1rem 1.25rem;
+      margin-bottom: 0.75rem;
+      position: relative;
+      border-left: 4px solid var(--border);
+    }
+
+    .review-item.ri-correct {
+      border-left-color: var(--success);
+    }
+
+    .review-item.ri-wrong {
+      border-left-color: var(--danger);
+    }
+
+    .review-q-num {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      color: var(--text-muted);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 0.35rem;
+    }
+
+    .review-q-text {
+      font-size: 0.88rem;
+      color: var(--text);
+      line-height: 1.5;
+      margin-bottom: 0.5rem;
+    }
+
+    .review-answer-row {
+      font-size: 0.8rem;
+      line-height: 1.5;
+    }
+
+    .review-answer-row .correct-ans {
+      color: var(--success);
+    }
+
+    .review-answer-row .your-ans {
+      color: var(--danger);
+    }
+
+    .review-lo {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      margin-top: 0.35rem;
+      font-style: italic;
+    }
+
+    /* ===================== ANIMATIONS ===================== */
+    @keyframes slideInUp {
+      from {
+        transform: translateY(20px);
+        opacity: 0;
+      }
+
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .anim-in {
+      animation: slideInUp 0.35s ease both;
+    }
+
+    @keyframes rainbow {
+      0% {
+        filter: hue-rotate(0deg);
+      }
+
+      100% {
+        filter: hue-rotate(360deg);
+      }
+    }
+
+    .konami-active {
+      animation: rainbow 2s linear infinite;
+    }
+
+    @keyframes boss-shake {
+
+      0%,
+      100% {
+        transform: translateX(0);
+      }
+
+      20%,
+      60% {
+        transform: translateX(-8px);
+      }
+
+      40%,
+      80% {
+        transform: translateX(8px);
+      }
+    }
+
+    .boss-mode {
+      animation: boss-shake 0.4s ease;
+    }
+
+    /* ===================== RESPONSIVE ===================== */
+    @media (max-width: 900px) {
+      .main-layout {
+        padding: 1rem;
+        gap: 1rem;
+      }
+
+      .brand-name {
+        font-size: 0.85rem;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .topbar {
+        height: auto;
+        padding: 0.5rem 0.875rem;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+
+      .topbar-center {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+      }
+
+      .brand-name {
+        display: none;
+      }
+
+      .main-layout {
+        padding: 0.75rem;
+      }
+
+      .panel {
+        padding: 1.1rem;
+      }
+
+      .category-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.625rem;
+      }
+
+      .category-card {
+        min-height: 90px;
+        padding: 0.875rem 0.5rem;
+      }
+
+      .category-icon {
+        font-size: 1.5rem;
+      }
+
+      .category-name {
+        font-size: 0.7rem;
+      }
+
+      .drill-inner {
+        padding: 1rem;
+      }
+
+      .q-card {
+        padding: 1.25rem;
+      }
+
+      .q-text {
+        font-size: 1rem;
+      }
+
+      .option-btn {
+        padding: 0.75rem 0.875rem;
+        gap: 0.75rem;
+      }
+
+      .option-letter {
+        width: 28px;
+        height: 28px;
+        font-size: 0.68rem;
+      }
+
+      .option-text {
+        font-size: 0.85rem;
+      }
+
+      .results-inner {
+        padding: 1.5rem 1rem;
+      }
+
+      .results-title {
+        font-size: 1.2rem;
+      }
+
+      .results-stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .topic-row {
+        grid-template-columns: 1fr 60px 40px 32px;
+      }
+
+      .lo-focus-item {
+        flex-direction: column;
+        gap: 0.4rem;
+      }
+
+      .lo-cat-summary {
+        padding: 0.6rem 0.75rem;
+      }
+
+      .lo-cat-ring {
+        width: 30px;
+        height: 30px;
+      }
+
+      .lo-cat-ring canvas {
+        width: 30px;
+        height: 30px;
+      }
+
+      .results-actions {
+        flex-direction: column;
+      }
+
+      .btn-try-again,
+      .btn-review-answers,
+      .btn-close-results {
+        width: 100%;
+      }
+
+      .results-header {
+        flex-direction: column;
+        gap: 1rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="cyber-bg"></div>
+  <div class="cyber-grid"></div>
+
+  <!-- Achievement Popup -->
+  <div class="achievement-popup" id="achievementPopup"></div>
+
+  <!-- Hangar Doors Overlay -->
+  <div class="hangar-doors-overlay" id="hangarDoorsOverlay">
+    <div class="door-left"></div>
+    <div class="door-right"></div>
+  </div>
+
+  <!-- Topbar -->
+  <header class="topbar" id="topbar">
+    <div class="brand">
+      <a href="../index.html" style="display:block;flex-shrink:0;"><img src="./logo.png" alt="CAET Prep Course"
+          style="height:26px;width:auto;display:block;"></a>
+      <button class="back-btn" onclick="closeActivity()">&#8592; Back</button>
+    </div>
+
+    <div class="topbar-center">
+      <div class="session-timer" title="Session time">
+        <svg class="timer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10" />
+          <path d="M12 6v6l4 2" />
+        </svg>
+        <div class="timer-info">
+          <div class="timer-label">Session</div>
+          <div class="timer-value" id="sessionTimeValue">00:00</div>
+        </div>
+      </div>
+      <button class="topbar-end-btn" id="btnEndDrill">End Drill</button>
+    </div>
+
+    <div class="mode-badge">Drill Mode</div>
+  </header>
+
+  <!-- Main Layout -->
+  <main class="main-layout" id="mainLayout">
+
+    <!-- Launch screen -->
+    <section class="panel" id="launchPanel">
+      <div class="panel-header">
+        <h2 class="panel-title">Training Bay</h2>
+        <div class="panel-badge" id="categoryBadge">Select Category</div>
+      </div>
+
+      <div class="deck-hero">
+        <div class="hero-badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <circle cx="12" cy="12" r="10" />
+            <path d="M12 6v6l4 2" />
+          </svg>
+          Simulation Deck
+        </div>
+        <h1 class="hero-title">Drill Mode</h1>
+        <p class="hero-desc">Select categories below to load questions from the intelligence bank. You'll get instant
+          feedback, explanations, and ACE mentor guidance after every question.</p>
+        <div class="feature-pills">
+          <span class="feature-pill">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#3fb950" stroke-width="2">
+              <polyline points="20 6 9 17 4 12" />
+            </svg>
+            Instant Feedback
+          </span>
+          <span class="feature-pill">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#58a6ff" stroke-width="2">
+              <circle cx="12" cy="12" r="10" />
+              <path d="M12 16v-4M12 8h.01" />
+            </svg>
+            Explanations
+          </span>
+          <span class="feature-pill">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#d4a853" stroke-width="2">
+              <path d="M16 3l5 5-5 5M8 21l-5-5 5-5" />
+            </svg>
+            Shuffled
+          </span>
+          <span class="feature-pill">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#f85149" stroke-width="2">
+              <path
+                d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0zM12 9v4M12 17h.01" />
+            </svg>
+            Weak Areas
+          </span>
+        </div>
+      </div>
+
+      <!-- Category Grid -->
+      <div class="grid-label">
+        <span class="grid-label-text">Select Categories</span>
+        <button id="btnSelectAll"
+          style="background:none;border:1px solid rgba(212,168,83,0.3);color:var(--gold);font-family:var(--font-sans);font-size:11px;font-weight:600;letter-spacing:0.03em;cursor:pointer;padding:5px 14px;border-radius:20px;transition:all 0.2s;"
+          onmouseover="this.style.background='rgba(212,168,83,0.1)'" onmouseout="this.style.background='none'">Select
+          All</button>
+      </div>
+      <div class="category-grid" id="categoryGrid"></div>
+
+      <!-- Start controls -->
+      <div class="selected-summary" id="selectedSummary">Select one or more categories to begin</div>
+      <div class="start-controls">
+        <button class="btn-primary" id="btnStart" disabled>&#9889; Launch Drill</button>
+      </div>
+    </section>
+
+    <!-- Right: Stats sidebar -->
+    <aside class="panel" id="statsSidebar">
+      <div class="panel-header">
+        <h2 class="panel-title">Session Stats</h2>
+        <div class="panel-badge">Live</div>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card seen">
+          <div class="stat-label">Seen</div>
+          <div class="stat-value" id="statSeen">0</div>
+        </div>
+        <div class="stat-card correct">
+          <div class="stat-label">Correct</div>
+          <div class="stat-value" id="statCorrect">0</div>
+        </div>
+        <div class="stat-card missed">
+          <div class="stat-label">Missed</div>
+          <div class="stat-value" id="statMissed">0</div>
+        </div>
+      </div>
+
+      <div class="accuracy-row">
+        <span class="accuracy-label">Accuracy</span>
+        <div class="accuracy-bar">
+          <div class="accuracy-fill" id="accuracyFill"></div>
+        </div>
+        <span class="accuracy-pct" id="accuracyPct">—</span>
+      </div>
+
+      <div class="sidebar-btns">
+        <button class="btn-outline" id="btnViewResults" style="display:none">View Last Results</button>
+        <button class="btn-outline danger" id="btnResetStats">Reset Stats</button>
+      </div>
+
+      <div class="section-label">Weak List</div>
+      <div class="weak-list" id="weakList">
+        <p class="weak-empty">Miss a question and it shows up here.</p>
+      </div>
+    </aside>
+  </main>
+
+  <!-- ===================== DRILL OVERLAY ===================== -->
+  <div class="drill-overlay" id="drillOverlay">
+    <div class="drill-inner">
+
+      <!-- Drill header -->
+      <div class="drill-header">
+        <div class="drill-category-tag" id="drillCategoryTag">Category</div>
+        <div class="drill-progress-wrap">
+          <div class="drill-progress-bar">
+            <div class="drill-progress-fill" id="drillProgressFill" style="width:0%"></div>
+          </div>
+          <div class="drill-progress-text" id="drillProgressText">0 / 0</div>
+        </div>
+        <button class="drill-exit-btn" id="drillExitBtn">End Session</button>
+      </div>
+
+      <!-- Question card -->
+      <div class="q-card anim-in" id="qCard">
+        <div class="q-number" id="qNumber">Question 1</div>
+        <div class="q-text" id="qText">Loading question...</div>
+        <div class="q-tags" id="qTags"></div>
+      </div>
+
+      <!-- Answer options -->
+      <div class="options-grid" id="optionsGrid"></div>
+
+      <!-- AcePopup handles per-question feedback (ace-popup.js) -->
+    </div>
+  </div>
+
+  <!-- ===================== RESULTS OVERLAY ===================== -->
+  <div class="results-overlay" id="resultsOverlay">
+    <div class="results-inner">
+
+      <!-- 1. HEADER: ACE sprite + score ring + title -->
+      <div class="results-header res-section" style="animation-delay:0s">
+        <div class="results-header-left">
+          <div class="results-ace-sprite" id="resAceSprite">
+            <img src="./ace-sprites/ace-192-happy.png" alt="ACE">
+          </div>
+          <div class="results-title" id="resultsTitle">Drill Complete!</div>
+          <div class="results-subtitle" id="resultsSubtitle">TRAINING SESSION SUMMARY</div>
+        </div>
+        <div class="score-ring-wrap">
+          <div class="score-ring">
+            <svg viewBox="0 0 160 160" width="150" height="150">
+              <circle class="score-ring-bg" cx="80" cy="80" r="68" />
+              <circle class="score-ring-fill" id="scoreRingFill" cx="80" cy="80" r="68" stroke-dasharray="427"
+                stroke-dashoffset="427" />
+            </svg>
+            <div class="score-ring-text">
+              <div class="score-pct" id="scorePct">0%</div>
+              <div class="score-label">Accuracy</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. STATS ROW (4 cards) -->
+      <div class="results-stats res-section" style="animation-delay:0.1s">
+        <div class="res-stat answered">
+          <div class="res-stat-val" id="resSeen">0</div>
+          <div class="res-stat-lbl">Answered</div>
+          <div class="res-stat-delta" id="resDeltaSeen"></div>
+        </div>
+        <div class="res-stat correct">
+          <div class="res-stat-val" id="resCorrect">0</div>
+          <div class="res-stat-lbl">Correct</div>
+          <div class="res-stat-delta" id="resDeltaCorrect"></div>
+        </div>
+        <div class="res-stat wrong">
+          <div class="res-stat-val" id="resMissed">0</div>
+          <div class="res-stat-lbl">Missed</div>
+          <div class="res-stat-delta" id="resDeltaMissed"></div>
+        </div>
+        <div class="res-stat time">
+          <div class="res-stat-val" id="resAvgTime">--</div>
+          <div class="res-stat-lbl">Avg Time</div>
+          <div class="res-stat-delta" id="resDeltaTime"></div>
+        </div>
+      </div>
+
+      <!-- 3. ACE MENTOR FEEDBACK CARD -->
+      <div class="res-mentor-card res-section" id="resMentorCard" style="animation-delay:0.2s">
+        <div class="res-mentor-sprite" id="resMentorSprite">
+          <img src="./ace-sprites/ace-192-happy.png" alt="ACE">
+        </div>
+        <div class="res-mentor-body">
+          <div class="res-mentor-name">ACE — Aviation Mentor</div>
+          <div class="res-mentor-speech" id="resMentorSpeech">Great work out there, pilot.</div>
+          <div class="res-mentor-tags" id="resMentorTags"></div>
+        </div>
+      </div>
+
+      <!-- 4. LEARNING OBJECTIVE MASTERY -->
+      <div class="lo-mastery-section res-section" id="loMasterySection" style="animation-delay:0.3s">
+        <div class="results-section-title">
+          <span class="section-icon">📋</span> Learning Objective Mastery
+        </div>
+        <div id="loFocusArea"></div>
+        <div id="loCategoryCards"></div>
+      </div>
+
+      <!-- 5. RADAR CHART -->
+      <div class="radar-section res-section" id="radarSection" style="animation-delay:0.4s">
+        <div class="results-section-title">
+          <span class="section-icon">📡</span> Topic Radar
+        </div>
+        <div class="radar-canvas-wrap">
+          <canvas id="resRadarChart" width="340" height="340"></canvas>
+        </div>
+      </div>
+
+      <!-- 6. TOPIC BREAKDOWN (enhanced) -->
+      <div class="res-section" style="animation-delay:0.45s">
+        <div class="results-section-title">
+          <span class="section-icon">📊</span> Topic Breakdown
+        </div>
+        <div class="topic-list" id="topicList"></div>
+      </div>
+
+      <!-- 7. WEAK AREAS -->
+      <div id="weakAreasSection" class="res-section" style="display:none;animation-delay:0.5s">
+        <div class="results-section-title">
+          <span class="section-icon">⚠</span> Areas to Review
+        </div>
+        <div class="weak-areas" id="weakAreasList"></div>
+      </div>
+
+      <!-- 8. SESSION HISTORY SPARKLINE -->
+      <div class="sparkline-section res-section" id="sparklineSection" style="animation-delay:0.55s">
+        <div class="results-section-title">
+          <span class="section-icon">📈</span> Session History
+        </div>
+        <div class="sparkline-wrap">
+          <canvas id="sparklineCanvas" width="280" height="60"></canvas>
+          <div class="sparkline-trend" id="sparklineTrend"></div>
+        </div>
+      </div>
+
+      <!-- 9. ACTION BUTTONS -->
+      <div class="results-actions res-section" style="animation-delay:0.6s">
+        <button class="btn-try-again" id="btnTryAgain">Try Again</button>
+        <button class="btn-review-answers" id="btnReviewAnswers">Review Answers</button>
+        <button class="btn-close-results" id="btnCloseResults">Back to Practice</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== ANSWER REVIEW OVERLAY ===================== -->
+  <div class="answer-review-overlay" id="answerReviewOverlay">
+    <div class="answer-review-inner">
+      <div class="answer-review-header">
+        <div class="answer-review-title">Answer Review</div>
+        <button class="btn-close-review" id="btnCloseReview">Back to Results</button>
+      </div>
+      <div id="answerReviewList"></div>
+    </div>
+  </div>
+
+  <script>
+    // Stubs for optional modules that may not exist yet
+    window.GameEngine = window.GameEngine || { track: () => { }, emit: () => { } };
+    window.NotificationSystem = window.NotificationSystem || { show: () => { } };
+    window.ShareQuestion = window.ShareQuestion || { share: () => { } };
+  </script>
+
+  <!-- ============ SUPABASE CLOUD TRACKING ============ -->
+  <script src="./js/lo-mastery-tracker.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="./js/supabase-client.js"></script>
+  <script src="./js/progress-tracker.js"></script>
+
+  <script>
+    // ============================================================
+    // CAET PREP COURSE — DRILL MODE (practice.html)
+    // Immediate-feedback multiple-choice drill
+    // ============================================================
+    try { // MASTER TRY-CATCH — prevents silent script death
+
+      // ---- SYSTEM INTEGRATION ----
+      function closeActivity() {
+        const backUrl = new URLSearchParams(location.search).get('back') || '../index.html';
+        if (window.self !== window.top) {
+          window.parent.postMessage({ type: 'ACE_CLOSE' }, '*');
+        } else {
+          window.location.href = backUrl;
+        }
+      }
+
+      // ---- CONSTANTS ----
+      const LESSON_ID = (function () {
+        const p = new URLSearchParams(location.search);
+        return p.get('lesson') || p.get('id') || 'drill';
+      })();
+
+      const ACE_COMMENTS_CORRECT = [
+        "Nailed it. That's the kind of precision that keeps aircraft airworthy.",
+        "Exactly right. Solid knowledge of that regulation.",
+        "Correct — and knowing why is what separates good technicians from great ones.",
+        "That's the one. Keep that in your memory bank.",
+        "Spot on. You're building the right foundations.",
+        "Perfect. Keep this momentum going.",
+        "That's correct. The FAA would be pleased.",
+        "Right answer. Safety starts with knowing your regs cold.",
+        "Excellent recall. That one catches a lot of techs off-guard.",
+        "Affirmative. That's exactly what you need to know for the exam."
+      ];
+
+      const ACE_COMMENTS_WRONG = [
+        "Not quite — but now you know. Read the explanation carefully.",
+        "Common miss. The explanation breaks down exactly why the right answer works.",
+        "Easy to mix up. Spend a moment with the explanation and it'll stick.",
+        "That one trips people up. Study the logic in the explanation.",
+        "Good guess, wrong regulation. The correct answer is worth memorizing.",
+        "It happens. The key is understanding the reasoning — check the explanation.",
+        "Worth noting for your weak list. Review this concept before the exam.",
+        "No worries — this is drill mode. Mistakes here mean mastery later.",
+        "Close, but not quite. Re-read the explanation and flag this one.",
+        "These details matter in the field. Take a moment to absorb the correct answer."
+      ];
+
+      const MOTIVATIONAL_MSGS = [
+        "You're building something real.",
+        "Excellence is a habit.",
+        "Safety first, always.",
+        "Knowledge is power.",
+        "Precision matters.",
+        "Stay focused.",
+        "Keep it up.",
+        "You've got this.",
+        "One question at a time.",
+        "Every rep counts."
+      ];
+
+      // ---- STATE ----
+      let state = {
+        questions: [],
+        drillQueue: [],
+        currentIdx: 0,
+        answered: false,
+        sessionStats: { seen: 0, correct: 0, missed: 0 },
+        categoryStats: {},   // { catId: { correct, total, name } }
+        loStats: {},          // { loId: { text, correct, total, category } }
+        questionTimes: [],    // array of ms per question
+        questionStartTime: 0, // timestamp when current question was shown
+        answerLog: [],        // { qIdx, question, selected, correct, isCorrect, lo, category }
+        weakList: [],
+        lastResults: null,
+        konamiProgress: 0,
+        sessionStart: Date.now()
+      };
+
+      // ---- DATA LOADING ----
+      // We will dynamically populate this from master-bank.json
+      let DRILL_CATEGORIES = [];
+
+      async function loadMasterBank() {
+        try {
+          console.log('[ACE Drill] Loading master question bank...');
+          // Path is relative to shared/drill.html -> ../master-bank.json
+          const res = await fetch('../master-bank.json');
+          if (!res.ok) throw new Error(`HTTP ${res.status}`);
+          const data = await res.json();
+
+          // Populate Categories
+          if (data.categories) {
+            DRILL_CATEGORIES = data.categories.map(cat => ({
+              id: cat.id,
+              num: 'MOD ' + (cat.id.match(/\d+/)?.[0] || '?'),
+              name: cat.name,
+              iconColor: cat.iconColor || '#D4A853',
+              icon: cat.icon || '📋'
+            }));
+          }
+
+          let targetQuestions = data.questions || [];
+          const validQuestions = [];
+          targetQuestions.forEach(q => {
+            let entry;
+            if (q.multipleChoice) {
+              const mc = q.multipleChoice;
+              const opts = mc.choices || mc.options;
+              if (!mc.question && !mc.stem) return; // 'stem' is used in the new format
+              if (!opts || opts.length < 2) return;
+              entry = {
+                id: q.id,
+                question: mc.question || mc.stem,
+                options: opts,
+                correct: mc.correctIndex !== undefined ? mc.correctIndex : 0,
+                explanation: mc.explanation || q.explanation || '',
+                category: q.category || 'general',
+                tags: q.tags || [],
+                difficulty: q.difficulty || 'medium',
+                learningObjective: q.learningObjective || q.objective || null,
+                astmRef: q.astmRef || null
+              };
+            } else {
+              const opts = q.options || q.choices;
+              if (!q.question && !q.stem) return;
+              if (!opts || opts.length < 2) return;
+              entry = {
+                id: q.id,
+                question: q.question || q.stem,
+                options: opts,
+                correct: q.correct !== undefined ? q.correct : 0,
+                explanation: q.explanation || '',
+                category: q.category || 'general',
+                tags: q.tags || [],
+                difficulty: q.difficulty || 'medium',
+                learningObjective: q.learningObjective || q.objective || null,
+                astmRef: q.astmRef || null
+              };
+            }
+            validQuestions.push(entry);
+          });
+
+          return { categories: DRILL_CATEGORIES, questions: validQuestions };
+        } catch (e) {
+          console.error('Failed to load data from master-bank.json', e);
+          return { categories: [], questions: [] };
+        }
+      }
+
+      async function initApp() {
+        const params = new URLSearchParams(location.search);
+        const directData = params.get('data'); // Legacy, but we'll adapt if needed
+
+        const masterData = await loadMasterBank();
+        window._categories = masterData.categories;
+        // Store all valid questions globally so startDrill can filter them
+        window._allQuestions = masterData.questions;
+
+        if (directData && masterData.questions.length > 0) {
+          // Direct launch mode - filter by category if needed, or just run all
+          const qs = masterData.questions;
+          state.questions = qs;
+
+          document.getElementById('launchPanel').style.display = 'none';
+          state.drillQueue = shuffleArray([...qs]);
+
+          let titleParam = params.get('title') || 'Module Drill';
+          document.getElementById('drillCategoryTag').textContent = titleParam;
+
+          document.getElementById('drillOverlay').classList.add('active');
+          document.getElementById('btnEndDrill').classList.add('visible');
+
+          loadSessionStats();
+          bindEvents();
+          startTimer();
+          loadQuestion();
+        } else {
+          // Normal mode (show Launch Screen)
+          if (window._categories.length > 0) {
+            renderCategories();
+          } else {
+            document.getElementById('categoryGrid').innerHTML = '<p style="color:var(--danger)">No categories loaded. Check master-bank.json.<\/p>';
+          }
+          loadSessionStats();
+          bindEvents();
+          startTimer();
+        }
+      }
+
+      // Kick off initialization
+      initApp().catch(async (e) => {
+        console.error('[Drill] initApp failed, attempting recovery:', e);
+        // Attempt to render categories even if something else failed
+        try {
+          const masterData = await loadMasterBank();
+          window._categories = masterData.categories;
+          window._allQuestions = masterData.questions;
+          if (window._categories && window._categories.length > 0) {
+            renderCategories();
+          }
+          loadSessionStats();
+          bindEvents();
+          startTimer();
+        } catch (e2) {
+          console.error('[Drill] Recovery also failed:', e2);
+        }
+      });
+
+      function renderCategories() {
+        const grid = document.getElementById('categoryGrid');
+        const allQ = window._allQuestions || [];
+        grid.innerHTML = window._categories.map(cat => {
+          const qCount = allQ.filter(q => q.category === cat.id).length;
+          return '<div class="category-card holo-card-js" data-cat="' + cat.id + '">' +
+            '<div class="category-card-check">' +
+            '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">' +
+            '<polyline points="20 6 9 17 4 12"><\/polyline>' +
+            '<\/svg>' +
+            '<\/div>' +
+            '<div class="category-icon" style="color:' + cat.iconColor + '">' + cat.icon + '<\/div>' +
+            '<div class="category-name">' + cat.name + '<\/div>' +
+            '<div class="category-count">' + qCount + ' questions<\/div>' +
+            '<\/div>';
+        }).join('');
+        grid.querySelectorAll('.category-card').forEach(card => {
+          card.addEventListener('click', () => selectCategory(card.dataset.cat));
+        });
+      }
+
+      let selectedCatIds = [];
+
+      function selectCategory(catId) {
+        const idx = selectedCatIds.indexOf(catId);
+        if (idx >= 0) {
+          selectedCatIds.splice(idx, 1); // deselect
+        } else {
+          selectedCatIds.push(catId); // add to selection
+        }
+        document.querySelectorAll('.category-card').forEach(c => {
+          c.classList.toggle('selected', selectedCatIds.includes(c.dataset.cat));
+        });
+        // Update summary
+        const summaryEl = document.getElementById('selectedSummary');
+        if (selectedCatIds.length === 0) {
+          summaryEl.innerHTML = 'Select one or more categories to begin';
+          document.getElementById('categoryBadge').textContent = 'None';
+        } else {
+          const names = selectedCatIds.map(id => {
+            const cat = window._categories.find(c => c.id === id);
+            return cat ? cat.name.split(' ').slice(0, 2).join(' ') : id;
+          });
+          summaryEl.innerHTML = `<strong>${selectedCatIds.length}<\/strong> ${selectedCatIds.length === 1 ? 'category' : 'categories'} selected`;
+          document.getElementById('categoryBadge').textContent = selectedCatIds.length === 1 ? names[0] : `${selectedCatIds.length} categories`;
+        }
+        document.getElementById('btnStart').disabled = selectedCatIds.length === 0;
+        // Sync Select All / Clear All button text
+        const allIds = window._categories.map(c => c.id);
+        const saBtn = document.getElementById('btnSelectAll');
+        if (saBtn) saBtn.textContent = (allIds.length > 0 && allIds.every(id => selectedCatIds.includes(id))) ? 'Clear All' : 'Select All';
+      }
+
+      // ---- SESSION TIMER ----
+      function startTimer() {
+        function fmt(s) {
+          const h = Math.floor(s / 3600), m = Math.floor((s % 3600) / 60), ss = s % 60;
+          return h > 0
+            ? `${h}:${String(m).padStart(2, '0')}:${String(ss).padStart(2, '0')}`
+            : `${String(m).padStart(2, '0')}:${String(ss).padStart(2, '0')}`;
+        }
+        setInterval(() => {
+          const el = document.getElementById('sessionTimeValue');
+          if (el) el.textContent = fmt(Math.floor((Date.now() - state.sessionStart) / 1000));
+        }, 1000);
+      }
+
+      // ---- HANGAR DOOR TRANSITION ----
+      function doorsTransition(callback, midCallback) {
+        const overlay = document.getElementById('hangarDoorsOverlay');
+        overlay.classList.add('active');
+        setTimeout(() => overlay.classList.add('doors-closed'), 80);
+        setTimeout(() => { if (midCallback) midCallback(); }, 1100);
+        setTimeout(() => overlay.classList.remove('doors-closed'), 1200);
+        setTimeout(() => {
+          overlay.classList.remove('active');
+          if (callback) callback();
+        }, 2300);
+      }
+
+      // ---- START DRILL ----
+      async function startDrill() {
+        if (selectedCatIds.length === 0) return;
+
+        const startBtn = document.getElementById('btnStart');
+        if (startBtn) startBtn.disabled = true;
+
+        // Update drill header tag
+        const tagText = selectedCatIds.length === 1
+          ? window._categories.find(c => c.id === selectedCatIds[0])?.name || selectedCatIds[0]
+          : `${selectedCatIds.length} Categories`;
+        document.getElementById('drillCategoryTag').textContent = tagText;
+
+        // Door transition: show drill overlay
+        doorsTransition(
+          async () => {
+            // Filter questions from the globally loaded master bank
+            let pool = window._allQuestions.filter(q => selectedCatIds.includes(q.category));
+
+            if (pool.length === 0) {
+              alert('No questions loaded for the selected categories. Check master-bank.json data.');
+              if (startBtn) startBtn.disabled = false;
+              return;
+            }
+
+            // Reset per-drill stats (keep session totals)
+            state.categoryStats = {};
+            state.loStats = {};
+            state.questionTimes = [];
+            state.answerLog = [];
+            state.weakList = [];
+            state.currentIdx = 0;
+            state.answered = false;
+
+            state.drillQueue = shuffleArray(pool);
+            loadQuestion();
+          },
+          () => {
+            document.getElementById('drillOverlay').classList.add('active');
+            document.getElementById('btnEndDrill').classList.add('visible');
+            if (startBtn) startBtn.disabled = false;
+          }
+        );
+      }
+
+      // ---- LOAD QUESTION ----
+      function loadQuestion() {
+        if (state.currentIdx >= state.drillQueue.length) {
+          endDrill();
+          return;
+        }
+
+        const q = state.drillQueue[state.currentIdx];
+        state.answered = false;
+        state.questionStartTime = Date.now();
+
+        // Progress bar
+        const pct = Math.round((state.currentIdx / state.drillQueue.length) * 100);
+        document.getElementById('drillProgressFill').style.width = pct + '%';
+        document.getElementById('drillProgressText').textContent = `${state.currentIdx + 1} / ${state.drillQueue.length}`;
+        document.getElementById('qNumber').textContent = `Question ${state.currentIdx + 1} of ${state.drillQueue.length}`;
+
+        // Question text
+        document.getElementById('qText').textContent = q.question;
+
+        // Tags
+        const tagsEl = document.getElementById('qTags');
+        tagsEl.innerHTML = q.tags.map(t => `<span class="q-tag">${t}<\/span>`).join('');
+
+        // Reset card state
+        const qCard = document.getElementById('qCard');
+        qCard.className = 'q-card anim-in';
+
+        // Reset: AcePopup self-closes on next; no inline elements to reset
+
+        // Render options
+        const LETTERS = ['A', 'B', 'C', 'D', 'E'];
+        const optGrid = document.getElementById('optionsGrid');
+        optGrid.innerHTML = q.options.map((opt, i) => {
+          // Strip leading "A. " style prefix if present
+          const cleanOpt = opt.replace(/^[A-D]\.\s*/, '');
+          return `
+      <button class="option-btn" data-idx="${i}" onclick="selectAnswer(${i})">
+        <div class="option-letter">${LETTERS[i] || i}<\/div>
+        <div class="option-text">${cleanOpt}<\/div>
+      <\/button>`;
+        }).join('');
+      }
+
+      // ---- SELECT ANSWER ----
+      function selectAnswer(selectedIdx) {
+        if (state.answered) return;
+        state.answered = true;
+
+        const q = state.drillQueue[state.currentIdx];
+        const isCorrect = selectedIdx === q.correct;
+        const LETTERS = ['A', 'B', 'C', 'D', 'E'];
+
+        // Update stats
+        state.sessionStats.seen++;
+        if (isCorrect) {
+          state.sessionStats.correct++;
+        } else {
+          state.sessionStats.missed++;
+          if (!state.weakList.find(w => w.id === q.id)) {
+            state.weakList.push(q);
+          }
+        }
+        updateStatsDisplay();
+
+        // Track category stats
+        const catId = q.category;
+        if (!state.categoryStats[catId]) {
+          const cat = window._categories.find(c => c.id === catId);
+          state.categoryStats[catId] = { correct: 0, total: 0, name: cat ? cat.name : catId };
+        }
+        state.categoryStats[catId].total++;
+        if (isCorrect) state.categoryStats[catId].correct++;
+
+        // Track LO stats — use question id as key, fullObjective for display
+        const loId = q.id || q.learningObjective || 'unknown';
+        if (!state.loStats[loId]) {
+          state.loStats[loId] = {
+            text: q.fullObjective || q.learningObjective || q.question || q.id,
+            shortText: q.learningObjective || q.id,
+            correct: 0, total: 0, category: q.category
+          };
+        }
+        state.loStats[loId].total++;
+        if (isCorrect) state.loStats[loId].correct++;
+
+        // Track question timing
+        const elapsed = Date.now() - (state.questionStartTime || Date.now());
+        state.questionTimes.push(elapsed);
+
+        // Log answer for review
+        state.answerLog.push({
+          qIdx: state.currentIdx,
+          question: q.question,
+          options: q.options,
+          selected: selectedIdx,
+          correct: q.correct,
+          isCorrect: isCorrect,
+          lo: q.learningObjective || '',
+          category: q.category,
+          elapsed: elapsed
+        });
+
+        // Style option buttons
+        const btns = document.querySelectorAll('.option-btn');
+        btns.forEach((btn, i) => {
+          btn.disabled = true;
+          if (i === q.correct) {
+            btn.classList.add('correct');
+            if (i === selectedIdx) {
+              btn.classList.add('pulse');
+            }
+          } else if (i === selectedIdx && !isCorrect) {
+            btn.classList.add('wrong', 'shake');
+          } else {
+            btn.classList.add('dimmed');
+          }
+        });
+
+        // Update question card state
+        const qCard = document.getElementById('qCard');
+        qCard.className = isCorrect ? 'q-card answered-correct' : 'q-card answered-wrong';
+
+        // Show ACE popup with per-question feedback
+        const aceComments = isCorrect ? ACE_COMMENTS_CORRECT : ACE_COMMENTS_WRONG;
+        const aceComment = aceComments[Math.floor(Math.random() * aceComments.length)];
+        const isLast = (state.currentIdx + 1 >= state.drillQueue.length);
+        AcePopup.show({
+          correct: isCorrect,
+          explanation: q.explanation || '',
+          correctAnswer: isCorrect ? null : `${LETTERS[q.correct]}. ${q.options[q.correct]}`,
+          aceComment: aceComment,
+          sprite: isCorrect ? 'happy' : 'concerned',
+          nextLabel: isLast ? 'See Results →' : 'Next Question →',
+          onNext: () => nextQuestion()
+        });
+
+        // Analytics
+        sendAnalyticsEvent('question_answered', {
+          correct: isCorrect,
+          category: q.category,
+          learningObjective: q.learningObjective,
+          module: 'drill'
+        });
+
+        // ── Supabase Cloud Tracking ──
+        try {
+          if (window.AceSupabase && typeof window.AceSupabase.trackQuestionEvent === 'function') {
+            window.AceSupabase.trackQuestionEvent({
+              lessonId: LESSON_ID || q.category || 'drill',
+              questionId: q.id || `drill-q${state.currentIdx}`,
+              format: 'drill',
+              loId: q.learningObjective || null,
+              category: q.category || null,
+              selectedIndex: selectedIdx,
+              correctIndex: q.correct,
+              isCorrect: isCorrect,
+              points: 0
+            });
+          }
+        } catch (e) { console.warn('[ACE Drill] Supabase tracking error:', e); }
+
+        // Achievement milestones
+        if (state.sessionStats.correct > 0 && state.sessionStats.correct % 10 === 0) {
+          showAchievement(`${state.sessionStats.correct} correct answers!`);
+        }
+
+        // ProgressTracker
+        try {
+          if (typeof ProgressTracker !== 'undefined' && q.id) {
+            ProgressTracker.recordAnswer(LESSON_ID, 'drill', q.id, isCorrect, q.learningObjective, q.category);
+            ProgressTracker.save();
+          }
+        } catch (e) { }
+
+        // LO Mastery Tracker
+        if (q.learningObjective && window.LOMasteryTracker) {
+          window.LOMasteryTracker.record(LESSON_ID, q.learningObjective, isCorrect, 'drill');
+        }
+
+        updateWeakList();
+        saveSessionStats();
+      }
+
+      // ---- NEXT QUESTION ----
+      function nextQuestion() {
+        state.currentIdx++;
+        if (state.currentIdx >= state.drillQueue.length) {
+          endDrill();
+        } else {
+          loadQuestion();
+          // Scroll back to top of drill
+          document.getElementById('drillOverlay').scrollTo({ top: 0, behavior: 'smooth' });
+        }
+      }
+
+      // ---- END DRILL ----
+      function endDrill() {
+        state.lastResults = {
+          seen: state.sessionStats.seen,
+          correct: state.sessionStats.correct,
+          missed: state.sessionStats.missed,
+          categoryStats: { ...state.categoryStats },
+          loStats: { ...state.loStats },
+          questionTimes: [...state.questionTimes],
+          answerLog: [...state.answerLog],
+          weakList: [...state.weakList]
+        };
+
+        // ── Supabase Session Summary ──
+        try {
+          if (window.AceSupabase && typeof window.AceSupabase.trackSessionSummary === 'function') {
+            const durationSec = Math.round((Date.now() - state.sessionStart) / 1000);
+            window.AceSupabase.trackSessionSummary({
+              lessonId: LESSON_ID || 'drill',
+              format: 'drill',
+              questionsSeen: state.sessionStats.seen,
+              questionsCorrect: state.sessionStats.correct,
+              durationSec: durationSec
+            });
+          }
+        } catch (e) { console.warn('[ACE Drill] Session summary tracking error:', e); }
+
+        doorsTransition(
+          () => {
+            document.getElementById('drillOverlay').classList.remove('active');
+            document.getElementById('btnEndDrill').classList.remove('visible');
+            showResults();
+          },
+          () => {
+            // nothing mid-transition
+          }
+        );
+      }
+
+      // ---- SHOW RESULTS ----
+      function showResults() {
+        const r = state.lastResults;
+        const pct = r.seen > 0 ? Math.round((r.correct / r.seen) * 100) : 0;
+
+        // Load previous session data for comparison
+        const prevSession = loadPreviousSession();
+
+        // --- 1. HEADER: ACE sprite + title + score ring ---
+        let mood = 'idle';
+        let title = 'Drill Complete!';
+        if (pct >= 90) { mood = 'proud'; title = 'Outstanding!'; }
+        else if (pct >= 75) { mood = 'happy'; title = 'Well Done!'; }
+        else if (pct >= 60) { mood = 'idle'; title = 'Getting There!'; }
+        else if (pct >= 45) { mood = 'concerned'; title = 'Keep Drilling!'; }
+        else { mood = 'disgust'; title = 'Time to Study!'; }
+
+        document.getElementById('resAceSprite').innerHTML =
+          `<img src="./ace-sprites/ace-192-${mood}.png" alt="ACE">`;
+        document.getElementById('resultsTitle').textContent = title;
+        document.getElementById('resultsSubtitle').textContent = 'TRAINING SESSION SUMMARY';
+
+        // Score ring
+        document.getElementById('scorePct').textContent = pct + '%';
+        const ringFill = document.getElementById('scoreRingFill');
+        const circumference = 427;
+        const offset = circumference - (pct / 100) * circumference;
+        ringFill.style.stroke = pct >= 75 ? 'var(--success)' : pct >= 50 ? 'var(--warning)' : 'var(--danger)';
+        ringFill.style.strokeDashoffset = circumference;
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => { ringFill.style.strokeDashoffset = offset; });
+        });
+
+        // --- 2. STATS ROW (4 cards) ---
+        document.getElementById('resSeen').textContent = r.seen;
+        document.getElementById('resCorrect').textContent = r.correct;
+        document.getElementById('resMissed').textContent = r.missed;
+
+        // Avg time per question
+        const avgMs = r.questionTimes && r.questionTimes.length > 0
+          ? r.questionTimes.reduce((a, b) => a + b, 0) / r.questionTimes.length : 0;
+        const avgSec = Math.round(avgMs / 1000);
+        document.getElementById('resAvgTime').textContent = avgMs > 0 ? avgSec + 's' : '--';
+
+        // Delta indicators vs previous session
+        renderDelta('resDeltaSeen', r.seen, prevSession ? prevSession.seen : null);
+        renderDelta('resDeltaCorrect', r.correct, prevSession ? prevSession.correct : null);
+        renderDelta('resDeltaMissed', r.missed, prevSession ? prevSession.missed : null, true);
+        renderDelta('resDeltaTime', avgSec, prevSession ? prevSession.avgTime : null, true);
+
+        // --- 3. ACE MENTOR FEEDBACK CARD ---
+        renderMentorFeedback(pct, mood, r);
+
+        // --- 4. LEARNING OBJECTIVE MASTERY ---
+        renderLOMastery(r);
+
+        // --- 5. RADAR CHART ---
+        const catEntries = Object.entries(r.categoryStats);
+        if (catEntries.length >= 3) {
+          document.getElementById('radarSection').style.display = '';
+          setTimeout(() => drawResRadarChart(r.categoryStats), 200);
+        } else {
+          document.getElementById('radarSection').style.display = 'none';
+        }
+
+        // --- 6. TOPIC BREAKDOWN (enhanced) ---
+        const topicList = document.getElementById('topicList');
+        if (catEntries.length > 0) {
+          topicList.innerHTML = catEntries.map(([catId, cs]) => {
+            const catPct = cs.total > 0 ? Math.round((cs.correct / cs.total) * 100) : 0;
+            const color = catPct >= 75 ? 'var(--success)' : catPct >= 50 ? 'var(--warning)' : 'var(--danger)';
+            return `
+        <div class="topic-row">
+          <div class="topic-name">${cs.name}<\/div>
+          <div class="topic-bar-wrap">
+            <div class="topic-bar-fill" style="width:${catPct}%;background:${color}"><\/div>
+          <\/div>
+          <div class="topic-pct" style="color:${color}">${catPct}%<\/div>
+          <div class="topic-count">${cs.correct}/${cs.total}<\/div>
+        <\/div>`;
+          }).join('');
+        } else {
+          topicList.innerHTML = '<p style="font-size:0.8rem;color:var(--text-muted);font-style:italic;">No category data available.<\/p>';
+        }
+
+        // --- 7. WEAK AREAS ---
+        const weakSection = document.getElementById('weakAreasSection');
+        const weakList2 = document.getElementById('weakAreasList');
+        const weakCats = catEntries.filter(([, cs]) => cs.total > 0 && (cs.correct / cs.total) < 0.6);
+        if (weakCats.length > 0) {
+          weakSection.style.display = 'block';
+          weakList2.innerHTML = weakCats.map(([, cs]) => `
+      <div class="weak-area-item">
+        <div class="weak-dot"><\/div>
+        <span><strong>${cs.name}<\/strong> — ${Math.round((cs.correct / cs.total) * 100)}% (${cs.correct}/${cs.total} correct). Review this topic.<\/span>
+      <\/div>`).join('');
+        } else {
+          weakSection.style.display = 'none';
+        }
+
+        // --- 8. SESSION HISTORY SPARKLINE ---
+        saveAndRenderSessionHistory(pct, r.seen);
+
+        // Show view results button in sidebar
+        document.getElementById('btnViewResults').style.display = 'block';
+
+        // Open results
+        document.getElementById('resultsOverlay').classList.add('active');
+
+        // Report completion
+        reportDrillCompletion(pct, r);
+      }
+
+      // ---- DELTA INDICATOR ----
+      function renderDelta(elId, current, previous, invertBetter) {
+        const el = document.getElementById(elId);
+        if (!el) return;
+        if (previous === null || previous === undefined) {
+          el.textContent = '';
+          return;
+        }
+        const diff = current - previous;
+        if (diff === 0) {
+          el.textContent = '= same';
+          el.className = 'res-stat-delta same';
+        } else {
+          const isGood = invertBetter ? diff < 0 : diff > 0;
+          el.textContent = (diff > 0 ? '+' : '') + diff + ' vs last';
+          el.className = 'res-stat-delta ' + (isGood ? 'up' : 'down');
+        }
+      }
+
+      // ---- PREVIOUS SESSION (from localStorage) ----
+      function loadPreviousSession() {
+        try {
+          const key = `ace_drill_history_${LESSON_ID}`;
+          const raw = localStorage.getItem(key);
+          if (!raw) return null;
+          const arr = JSON.parse(raw);
+          if (!arr || arr.length === 0) return null;
+          return arr[arr.length - 1]; // most recent completed session
+        } catch (e) { return null; }
+      }
+
+      // ---- ACE MENTOR FEEDBACK ----
+      function renderMentorFeedback(pct, mood, r) {
+        // Sprite
+        document.getElementById('resMentorSprite').innerHTML =
+          `<img src="./ace-sprites/ace-192-${mood}.png" alt="ACE">`;
+
+        // Border color by mood
+        const card = document.getElementById('resMentorCard');
+        const accentColor = pct >= 75 ? 'var(--success)' : pct >= 50 ? 'var(--warning)' : 'var(--danger)';
+        card.style.borderColor = accentColor === 'var(--success)' ? 'rgba(63,185,80,0.4)' : accentColor === 'var(--warning)' ? 'rgba(227,179,65,0.4)' : 'rgba(248,81,73,0.4)';
+
+        // Speech text
+        const speeches = {
+          proud: [
+            "Absolutely outstanding work. You're demonstrating real mastery of this material. Keep pushing for perfection.",
+            "Top-tier performance. You clearly know your regulations. Stay sharp and keep drilling to lock it in.",
+            "That's the kind of score that gets you certified. Exceptional recall and accuracy."
+          ],
+          happy: [
+            "Solid session. You've got a good handle on the fundamentals. Focus on the weak spots and you'll be at mastery level.",
+            "Good work out there. A few areas need tightening up, but you're well on your way.",
+            "Nice performance. Review the objectives you missed and you'll push into the 90s next time."
+          ],
+          idle: [
+            "Decent effort, but there's room to grow. Focus on the red areas below and hit those objectives again.",
+            "You're building a foundation. Spend extra time on the topics that tripped you up.",
+            "Not bad, but not exam-ready yet. Target the weak learning objectives and drill again."
+          ],
+          concerned: [
+            "This material needs more review time. Go back to the study materials for the red-flagged objectives.",
+            "I can see some gaps in your knowledge. Don't rush it — review the explanations and try again.",
+            "Let's be honest — you need more study time on these topics before you're exam-ready. Focus on the fundamentals."
+          ],
+          disgust: [
+            "We've got serious work to do. Start with the study materials and come back when you've reviewed each objective.",
+            "This score tells me we need to go back to basics. Review the learning materials thoroughly before drilling again.",
+            "Don't get discouraged, but this needs attention. Study the core concepts and objectives, then come back for another round."
+          ]
+        };
+        const pool = speeches[mood] || speeches.idle;
+        document.getElementById('resMentorSpeech').textContent = pool[Math.floor(Math.random() * pool.length)];
+
+        // Focus area tags
+        const tagsEl = document.getElementById('resMentorTags');
+        const catEntries = Object.entries(r.categoryStats);
+        tagsEl.innerHTML = catEntries.map(([catId, cs]) => {
+          const catPct = cs.total > 0 ? (cs.correct / cs.total) * 100 : 100;
+          let cls = 'blue';
+          if (catPct < 40) cls = 'red';
+          else if (catPct < 65) cls = 'yellow';
+          return `<span class="res-focus-tag ${cls}">${cs.name}<\/span>`;
+        }).join('');
+      }
+
+      // ---- LEARNING OBJECTIVE MASTERY ----
+      function renderLOMastery(r) {
+        const focusEl = document.getElementById('loFocusArea');
+        const cardsEl = document.getElementById('loCategoryCards');
+        const section = document.getElementById('loMasterySection');
+        const loEntries = Object.entries(r.loStats || {});
+
+        if (loEntries.length === 0) {
+          section.style.display = 'none';
+          return;
+        }
+        section.style.display = '';
+
+        // Build enriched LO array with percentages & trend data; persist to localStorage
+        const enriched = loEntries.map(([loId, lo]) => {
+          const pct = lo.total > 0 ? Math.round((lo.correct / lo.total) * 100) : 0;
+          const loKey = `ace_lo_mastery_${LESSON_ID}_${loId}`;
+          let trend = 'new';
+          try {
+            const prevRaw = localStorage.getItem(loKey);
+            if (prevRaw) {
+              const prev = JSON.parse(prevRaw);
+              if (prev.lastPct !== undefined) {
+                trend = pct > prev.lastPct ? 'up' : pct < prev.lastPct ? 'down' : 'flat';
+              }
+            }
+          } catch (e) { }
+          // Save cumulative
+          try {
+            const prevRaw = localStorage.getItem(loKey);
+            let cc = lo.correct, ct = lo.total;
+            if (prevRaw) { const p = JSON.parse(prevRaw); cc += (p.correct || 0); ct += (p.total || 0); }
+            localStorage.setItem(loKey, JSON.stringify({ correct: cc, total: ct, lastPct: pct }));
+          } catch (e) { }
+          const catObj = window._categories.find(c => c.id === lo.category);
+          return { loId, pct, trend, text: lo.text, shortText: lo.shortText || lo.text, catId: lo.category, catName: catObj ? catObj.name : lo.category, correct: lo.correct, total: lo.total };
+        });
+
+        // ── TOP 5 FOCUS AREAS ──
+        const weakest = enriched.filter(l => l.pct < 80).sort((a, b) => a.pct - b.pct).slice(0, 5);
+        if (weakest.length > 0) {
+          let fHtml = `<div class="lo-focus-card"><div class="lo-focus-title"><span>&#9888;<\/span> Priority Review Areas<\/div>`;
+          weakest.forEach((lo, i) => {
+            const c = lo.pct < 40 ? 'var(--danger)' : lo.pct < 65 ? 'var(--warning)' : 'var(--ace-blue,#58a6ff)';
+            const trendIcon = lo.trend === 'up' ? '&#8593;' : lo.trend === 'down' ? '&#8595;' : lo.trend === 'flat' ? '=' : '--';
+            const trendClass = lo.trend;
+            // Truncate display text to ~120 chars
+            const dispText = lo.text.length > 120 ? lo.text.substring(0, 117) + '...' : lo.text;
+            fHtml += `
+        <div class="lo-focus-item">
+          <div class="lo-focus-rank">${i + 1}<\/div>
+          <div class="lo-focus-body">
+            <div class="lo-focus-obj">${dispText}<\/div>
+            <div class="lo-focus-meta">
+              <span class="lo-focus-pct" style="color:${c}">${lo.pct}%<\/span>
+              <span class="lo-trend ${trendClass}">${trendIcon}<\/span>
+              <div class="lo-focus-bar"><div class="lo-focus-bar-fill" style="width:${lo.pct}%;background:${c}"><\/div><\/div>
+              <span class="lo-focus-cat">${lo.catName}<\/span>
+            <\/div>
+          <\/div>
+        <\/div>`;
+          });
+          fHtml += '<\/div>';
+          focusEl.innerHTML = fHtml;
+        } else {
+          focusEl.innerHTML = `<div class="lo-focus-card" style="border-color:rgba(63,185,80,0.25);background:linear-gradient(135deg,rgba(63,185,80,0.06) 0%,rgba(63,185,80,0.02) 100%)"><div class="lo-focus-title" style="color:var(--success)"><span>&#10003;<\/span> All objectives at or above 80% — great work!<\/div><\/div>`;
+        }
+
+        // ── COLLAPSIBLE CATEGORY CARDS ──
+        const groups = {};
+        enriched.forEach(lo => {
+          if (!groups[lo.catId]) groups[lo.catId] = { name: lo.catName, items: [] };
+          groups[lo.catId].items.push(lo);
+        });
+
+        let cHtml = '';
+        Object.entries(groups).forEach(([catId, group]) => {
+          const catTotal = group.items.length;
+          const mastered = group.items.filter(l => l.pct >= 80).length;
+          const avgPct = catTotal > 0 ? Math.round(group.items.reduce((s, l) => s + l.pct, 0) / catTotal) : 0;
+          const ringColor = avgPct >= 80 ? '#3fb950' : avgPct >= 50 ? '#f59e0b' : '#ff5555';
+          const uid = 'locard_' + catId.replace(/[^a-z0-9]/gi, '_');
+
+          cHtml += `<div class="lo-cat-card" id="${uid}">
+      <div class="lo-cat-summary" onclick="document.getElementById('${uid}').classList.toggle('open')">
+        <span class="lo-cat-chevron">&#9654;<\/span>
+        <div class="lo-cat-ring"><canvas width="72" height="72" data-pct="${avgPct}" data-color="${ringColor}"><\/canvas><div class="lo-cat-ring-pct" style="color:${ringColor}">${avgPct}%<\/div><\/div>
+        <div class="lo-cat-info">
+          <div class="lo-cat-name">${group.name}<\/div>
+          <div class="lo-cat-subtitle">${catTotal} objective${catTotal !== 1 ? 's' : ''} assessed<\/div>
+        <\/div>
+        <div class="lo-cat-mastered">${mastered}/${catTotal}<\/div>
+      <\/div>
+      <div class="lo-cat-detail">`;
+
+          group.items.sort((a, b) => a.pct - b.pct).forEach(lo => {
+            const c = lo.pct >= 80 ? 'var(--success)' : lo.pct >= 50 ? 'var(--warning)' : 'var(--danger)';
+            const icon = lo.pct >= 80 ? '<span class="lo-item-icon" style="color:var(--success)">&#10003;<\/span>' : '<span class="lo-item-icon" style="color:var(--danger)">&#10007;<\/span>';
+            const trendIcon = lo.trend === 'up' ? '&#8593;' : lo.trend === 'down' ? '&#8595;' : lo.trend === 'flat' ? '=' : '--';
+            cHtml += `
+        <div class="lo-item">
+          ${icon}
+          <div class="lo-item-body">
+            <div class="lo-item-text">${lo.text}<\/div>
+            <div class="lo-item-row">
+              <div class="lo-bar-wrap"><div class="lo-bar-fill" style="width:${lo.pct}%;background:${c}"><\/div><\/div>
+              <div class="lo-pct" style="color:${c}">${lo.pct}%<\/div>
+              <span class="lo-trend ${lo.trend}">${trendIcon}<\/span>
+            <\/div>
+          <\/div>
+        <\/div>`;
+          });
+
+          cHtml += '<\/div><\/div>';
+        });
+
+        cardsEl.innerHTML = cHtml;
+
+        // Draw mini ring canvases
+        cardsEl.querySelectorAll('.lo-cat-ring canvas').forEach(cv => {
+          const pct = parseInt(cv.dataset.pct) || 0;
+          const color = cv.dataset.color || '#58a6ff';
+          const ctx = cv.getContext('2d');
+          const cx = 36, cy = 36, r = 28, lw = 5;
+          ctx.clearRect(0, 0, 72, 72);
+          // BG ring
+          ctx.beginPath(); ctx.arc(cx, cy, r, 0, 2 * Math.PI);
+          ctx.strokeStyle = 'rgba(255,255,255,0.08)'; ctx.lineWidth = lw; ctx.stroke();
+          // Value arc
+          if (pct > 0) {
+            ctx.beginPath(); ctx.arc(cx, cy, r, -Math.PI / 2, -Math.PI / 2 + (pct / 100) * 2 * Math.PI);
+            ctx.strokeStyle = color; ctx.lineWidth = lw; ctx.lineCap = 'round'; ctx.stroke();
+          }
+        });
+      }
+
+      // ---- RADAR CHART ----
+      function drawResRadarChart(categoryStats) {
+        const canvas = document.getElementById('resRadarChart');
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        const cx = canvas.width / 2;
+        const cy = canvas.height / 2;
+        const radius = 120;
+        const topics = Object.keys(categoryStats);
+        const n = topics.length;
+        if (n < 3) return;
+        const step = (2 * Math.PI) / n;
+
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        // Background rings
+        ctx.strokeStyle = 'rgba(255,255,255,0.08)';
+        ctx.lineWidth = 1;
+        [20, 40, 60, 80, 100].forEach(lvl => {
+          const r = (lvl / 100) * radius;
+          ctx.beginPath();
+          ctx.arc(cx, cy, r, 0, 2 * Math.PI);
+          ctx.stroke();
+        });
+
+        // Axis lines + labels
+        ctx.strokeStyle = 'rgba(255,255,255,0.12)';
+        ctx.font = '10px Inter, system-ui, sans-serif';
+        ctx.fillStyle = '#8b949e';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        topics.forEach((t, i) => {
+          const angle = i * step - Math.PI / 2;
+          ctx.beginPath();
+          ctx.moveTo(cx, cy);
+          ctx.lineTo(cx + Math.cos(angle) * radius, cy + Math.sin(angle) * radius);
+          ctx.stroke();
+          // Label
+          const labelR = radius + 22;
+          const lx = cx + Math.cos(angle) * labelR;
+          const ly = cy + Math.sin(angle) * labelR;
+          const name = categoryStats[t].name || t;
+          const short = name.length > 14 ? name.substring(0, 12) + '..' : name;
+          ctx.fillText(short, lx, ly);
+        });
+
+        const scores = topics.map(t => {
+          const d = categoryStats[t];
+          return d.total > 0 ? (d.correct / d.total) * 100 : 0;
+        });
+
+        // Filled polygon
+        ctx.beginPath();
+        scores.forEach((score, i) => {
+          const angle = i * step - Math.PI / 2;
+          const r = (score / 100) * radius;
+          const x = cx + Math.cos(angle) * r;
+          const y = cy + Math.sin(angle) * r;
+          i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+        });
+        ctx.closePath();
+        ctx.fillStyle = 'rgba(88,166,255,0.25)';
+        ctx.fill();
+
+        // Stroke polygon
+        ctx.beginPath();
+        scores.forEach((score, i) => {
+          const angle = i * step - Math.PI / 2;
+          const r = (score / 100) * radius;
+          const x = cx + Math.cos(angle) * r;
+          const y = cy + Math.sin(angle) * r;
+          i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+        });
+        ctx.closePath();
+        ctx.strokeStyle = '#58a6ff';
+        ctx.lineWidth = 2;
+        ctx.stroke();
+
+        // Data points
+        scores.forEach((score, i) => {
+          const angle = i * step - Math.PI / 2;
+          const r = (score / 100) * radius;
+          const x = cx + Math.cos(angle) * r;
+          const y = cy + Math.sin(angle) * r;
+          ctx.beginPath();
+          ctx.arc(x, y, 5, 0, 2 * Math.PI);
+          ctx.fillStyle = score >= 80 ? '#3fb950' : score >= 60 ? '#e3b341' : '#f85149';
+          ctx.fill();
+          ctx.strokeStyle = '#fff';
+          ctx.lineWidth = 1;
+          ctx.stroke();
+        });
+      }
+
+      // ---- SESSION HISTORY SPARKLINE ----
+      function saveAndRenderSessionHistory(pct, seen) {
+        const key = `ace_drill_history_${LESSON_ID}`;
+        let history = [];
+        try {
+          const raw = localStorage.getItem(key);
+          if (raw) history = JSON.parse(raw);
+          if (!Array.isArray(history)) history = [];
+        } catch (e) { history = []; }
+
+        // Compute avg time for this session
+        const avgMs = state.questionTimes && state.questionTimes.length > 0
+          ? state.questionTimes.reduce((a, b) => a + b, 0) / state.questionTimes.length : 0;
+        const avgSec = Math.round(avgMs / 1000);
+
+        // Add current session
+        history.push({ date: new Date().toISOString(), pct, seen, correct: state.lastResults.correct, missed: state.lastResults.missed, avgTime: avgSec });
+        // Keep only last 10
+        if (history.length > 10) history = history.slice(-10);
+        try { localStorage.setItem(key, JSON.stringify(history)); } catch (e) { }
+
+        // Render sparkline (last 5 sessions)
+        const recent = history.slice(-5);
+        const sparkSection = document.getElementById('sparklineSection');
+        if (recent.length < 2) {
+          sparkSection.style.display = 'none';
+          return;
+        }
+        sparkSection.style.display = '';
+
+        const canvas = document.getElementById('sparklineCanvas');
+        const ctx = canvas.getContext('2d');
+        const w = canvas.width, h = canvas.height;
+        ctx.clearRect(0, 0, w, h);
+
+        const padX = 20, padY = 10;
+        const plotW = w - padX * 2, plotH = h - padY * 2;
+
+        // Draw line
+        ctx.beginPath();
+        ctx.strokeStyle = '#58a6ff';
+        ctx.lineWidth = 2;
+        recent.forEach((s, i) => {
+          const x = padX + (i / (recent.length - 1)) * plotW;
+          const y = padY + plotH - (s.pct / 100) * plotH;
+          i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+        });
+        ctx.stroke();
+
+        // Draw dots + labels
+        recent.forEach((s, i) => {
+          const x = padX + (i / (recent.length - 1)) * plotW;
+          const y = padY + plotH - (s.pct / 100) * plotH;
+          ctx.beginPath();
+          ctx.arc(x, y, 4, 0, 2 * Math.PI);
+          ctx.fillStyle = s.pct >= 75 ? '#3fb950' : s.pct >= 50 ? '#e3b341' : '#f85149';
+          ctx.fill();
+          ctx.strokeStyle = '#fff';
+          ctx.lineWidth = 1;
+          ctx.stroke();
+          // Pct label
+          ctx.fillStyle = '#8b949e';
+          ctx.font = '9px Inter, system-ui, sans-serif';
+          ctx.textAlign = 'center';
+          ctx.fillText(s.pct + '%', x, y - 9);
+        });
+
+        // Trend indicator
+        const trendEl = document.getElementById('sparklineTrend');
+        const first = recent[0].pct, last = recent[recent.length - 1].pct;
+        if (last > first) {
+          trendEl.textContent = 'Trending Up';
+          trendEl.className = 'sparkline-trend up';
+        } else if (last < first) {
+          trendEl.textContent = 'Trending Down';
+          trendEl.className = 'sparkline-trend down';
+        } else {
+          trendEl.textContent = 'Holding Steady';
+          trendEl.className = 'sparkline-trend flat';
+        }
+      }
+
+      // ---- ANSWER REVIEW ----
+      function showAnswerReview() {
+        const container = document.getElementById('answerReviewList');
+        const log = state.lastResults.answerLog || [];
+        const LETTERS = ['A', 'B', 'C', 'D', 'E'];
+
+        if (log.length === 0) {
+          container.innerHTML = '<p style="color:var(--text-muted);text-align:center;padding:2rem;">No answers recorded.<\/p>';
+        } else {
+          container.innerHTML = log.map((entry, idx) => {
+            const correctText = (entry.options[entry.correct] || '').replace(/^[A-D]\.\s*/, '');
+            const selectedText = (entry.options[entry.selected] || '').replace(/^[A-D]\.\s*/, '');
+            return `
+        <div class="review-item ${entry.isCorrect ? 'ri-correct' : 'ri-wrong'}">
+          <div class="review-q-num">Question ${idx + 1} ${entry.isCorrect ? '— Correct' : '— Wrong'}<\/div>
+          <div class="review-q-text">${entry.question}<\/div>
+          <div class="review-answer-row">
+            <span class="correct-ans">Correct: ${LETTERS[entry.correct]}. ${correctText}<\/span>
+            ${!entry.isCorrect ? `<br><span class="your-ans">Your answer: ${LETTERS[entry.selected]}. ${selectedText}<\/span>` : ''}
+          <\/div>
+          ${entry.lo ? `<div class="review-lo">LO: ${entry.lo}<\/div>` : ''}
+        <\/div>`;
+          }).join('');
+        }
+
+        document.getElementById('answerReviewOverlay').classList.add('active');
+      }
+
+      function closeAnswerReview() {
+        document.getElementById('answerReviewOverlay').classList.remove('active');
+      }
+
+      // ---- REPORT COMPLETION (no localStorage score for drill) ----
+      function reportDrillCompletion(pct, stats) {
+        // Send analytics to parent
+        try {
+          window.parent.postMessage({
+            type: 'ACE_MODULE_COMPLETE',
+            module: 'drill',
+            score: pct,
+            stats: {
+              questionsAnswered: stats.seen,
+              questionsCorrect: stats.correct,
+              studyTimeSeconds: Math.floor((Date.now() - state.sessionStart) / 1000)
+            }
+          }, '*');
+        } catch (e) { }
+
+        // GameEngine XP (5 per question answered)
+        try {
+          if (typeof GameEngine !== 'undefined') {
+            const xp = (stats.seen || 0) * 5;
+            if (xp > 0) GameEngine.awardXP(xp, 'Drill Session', { lessonId: LESSON_ID });
+            GameEngine.unlockBadge('first-steps');
+          }
+        } catch (e) { }
+      }
+
+      // ---- TRY AGAIN ----
+      function tryAgain() {
+        document.getElementById('resultsOverlay').classList.remove('active');
+        document.getElementById('answerReviewOverlay').classList.remove('active');
+        // Keep category selection, relaunch
+        if (selectedCatIds.length > 0) startDrill();
+      }
+
+      // ---- STATS DISPLAY ----
+      function updateStatsDisplay() {
+        document.getElementById('statSeen').textContent = state.sessionStats.seen;
+        document.getElementById('statCorrect').textContent = state.sessionStats.correct;
+        document.getElementById('statMissed').textContent = state.sessionStats.missed;
+        const pct = state.sessionStats.seen > 0
+          ? Math.round((state.sessionStats.correct / state.sessionStats.seen) * 100) : 0;
+        document.getElementById('accuracyFill').style.width = pct + '%';
+        document.getElementById('accuracyPct').textContent = state.sessionStats.seen > 0 ? pct + '%' : '—';
+        document.getElementById('accuracyFill').style.background =
+          pct >= 75 ? 'var(--success)' : pct >= 50 ? 'var(--warning)' : 'var(--danger)';
+      }
+
+      function updateWeakList() {
+        const el = document.getElementById('weakList');
+        if (state.weakList.length === 0) {
+          el.innerHTML = '<p class="weak-empty">Miss a question and it shows up here.<\/p>';
+        } else {
+          el.innerHTML = state.weakList.map(q => {
+            const correctText = q.options[q.correct] || '';
+            const clean = correctText.replace(/^[A-D]\.\s*/, '');
+            return `
+        <div class="weak-item">
+          <div class="weak-item-q">${q.question}<\/div>
+          <div class="weak-item-a">✓ ${clean}<\/div>
+          <div class="weak-item-tags">${(q.tags || []).map(t => `<span class="weak-item-tag">${t}<\/span>`).join('')}<\/div>
+        <\/div>`;
+          }).join('');
+        }
+      }
+
+      // ---- SESSION STATS (localStorage — session recovery only, no score saved) ----
+      const DRILL_SESSION_KEY = `ace_drill_session_${LESSON_ID}`;
+
+      function saveSessionStats() {
+        try {
+          localStorage.setItem(DRILL_SESSION_KEY, JSON.stringify({
+            sessionStats: state.sessionStats,
+            weakList: state.weakList,
+            ts: Date.now()
+          }));
+        } catch (e) { }
+      }
+
+      function loadSessionStats() {
+        try {
+          const raw = localStorage.getItem(DRILL_SESSION_KEY);
+          if (!raw) return;
+          const data = JSON.parse(raw);
+          // Only restore if within 4 hours
+          if (Date.now() - (data.ts || 0) < 4 * 3600 * 1000) {
+            state.sessionStats = data.sessionStats || state.sessionStats;
+            state.weakList = data.weakList || [];
+          } else {
+            localStorage.removeItem(DRILL_SESSION_KEY);
+          }
+          updateStatsDisplay();
+          updateWeakList();
+        } catch (e) { }
+      }
+
+      function resetStats() {
+        if (!confirm('Reset all session statistics and weak list?')) return;
+        state.sessionStats = { seen: 0, correct: 0, missed: 0 };
+        state.weakList = [];
+        state.categoryStats = {};
+        updateStatsDisplay();
+        updateWeakList();
+        try { localStorage.removeItem(DRILL_SESSION_KEY); } catch (e) { }
+        showAchievement('Stats reset. Fresh start!');
+      }
+
+      // ---- ANALYTICS ----
+      function sendAnalyticsEvent(event, data) {
+        try {
+          window.parent.postMessage({ type: 'ACE_ANALYTICS', event, ...data }, '*');
+        } catch (e) { }
+      }
+
+      // ---- ACHIEVEMENT POPUP ----
+      function showAchievement(text) {
+        const popup = document.getElementById('achievementPopup');
+        popup.textContent = text;
+        popup.classList.add('show');
+        setTimeout(() => popup.classList.remove('show'), 3000);
+      }
+
+      // ---- EASTER EGGS ----
+      const KONAMI = ['ArrowUp', 'ArrowDown', 'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'b', 'a', 'a'];
+      document.addEventListener('keydown', e => {
+        // Small helper to dynamically load canvas-confetti
+        const fireConfetti = () => {
+          if (!window.confetti) {
+            const script = document.createElement('script');
+            script.src = 'https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js';
+            script.onload = () => window.confetti({ particleCount: 200, spread: 120, origin: { y: 0.3 } });
+            document.head.appendChild(script);
+          } else {
+            window.confetti({ particleCount: 200, spread: 120, origin: { y: 0.3 } });
+          }
+        };
+
+        if (KONAMI[state.konamiProgress] === e.key.toLowerCase() || KONAMI[state.konamiProgress] === e.key) {
+          state.konamiProgress++;
+          if (state.konamiProgress === KONAMI.length) {
+            document.body.classList.add('konami-active');
+            showAchievement('KONAMI MODE ACTIVATED!');
+            fireConfetti();
+
+            let duration = 5 * 1000;
+            let animationEnd = Date.now() + duration;
+            let defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 9999 };
+
+            function randomInRange(min, max) {
+              return Math.random() * (max - min) + min;
+            }
+
+            let interval = setInterval(function () {
+              let timeLeft = animationEnd - Date.now();
+              if (timeLeft <= 0) {
+                return clearInterval(interval);
+              }
+              let particleCount = 50 * (timeLeft / duration);
+              if (window.confetti) {
+                window.confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } }));
+                window.confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } }));
+              }
+            }, 250);
+
+            setTimeout(() => document.body.classList.remove('konami-active'), 10000);
+            state.konamiProgress = 0;
+          }
+        } else {
+          state.konamiProgress = 0;
+        }
+      });
+
+      document.getElementById('brandTitle')?.addEventListener('click', () => {
+        document.body.classList.add('boss-mode');
+        showAchievement('BOSS MODE ENGAGED!');
+        setTimeout(() => document.body.classList.remove('boss-mode'), 500);
+      });
+
+      // ---- KEYBOARD SHORTCUTS ----
+      document.addEventListener('keydown', e => {
+        const drillActive = document.getElementById('drillOverlay').classList.contains('active');
+        if (!drillActive) return;
+
+        // A/B/C/D to select option
+        const map = { 'a': 0, 'b': 1, 'c': 2, 'd': 3 };
+        const key = e.key.toLowerCase();
+
+        // If the user is actively entering the B B A A sequence for the Konami code, let the Easter Egg listener handle it.
+        if (state.konamiProgress >= 8 && (key === 'a' || key === 'b')) {
+          return;
+        }
+
+        if (map[key] !== undefined && !state.answered) {
+          const btns = document.querySelectorAll('.option-btn');
+          if (btns[map[key]]) selectAnswer(map[key]);
+          return;
+        }
+
+        // Enter / Space / Right arrow → next
+        if ((e.key === 'Enter' || e.key === ' ' || e.key === 'ArrowRight') && state.answered) {
+          e.preventDefault();
+          nextQuestion();
+          return;
+        }
+
+        // Escape → exit
+        if (e.key === 'Escape') {
+          endDrill();
+        }
+      });
+
+      // ---- SHUFFLE ----
+      function shuffleArray(arr) {
+        const a = [...arr];
+        for (let i = a.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [a[i], a[j]] = [a[j], a[i]];
+        }
+        return a;
+      }
+
+      // ---- BIND EVENTS ----
+      function bindEvents() {
+        document.getElementById('btnStart').addEventListener('click', startDrill);
+        document.getElementById('btnEndDrill').addEventListener('click', endDrill);
+        document.getElementById('drillExitBtn').addEventListener('click', endDrill);
+        // btnNext removed — handled by AcePopup onNext callback
+        document.getElementById('btnResetStats').addEventListener('click', resetStats);
+        document.getElementById('btnTryAgain').addEventListener('click', tryAgain);
+        document.getElementById('btnReviewAnswers').addEventListener('click', showAnswerReview);
+        document.getElementById('btnCloseReview').addEventListener('click', closeAnswerReview);
+        document.getElementById('btnCloseResults').addEventListener('click', closeActivity);
+        document.getElementById('btnViewResults').addEventListener('click', () => {
+          if (state.lastResults) showResults();
+        });
+        document.getElementById('btnSelectAll').addEventListener('click', () => {
+          const allIds = window._categories.map(c => c.id);
+          const allSelected = allIds.length > 0 && allIds.every(id => selectedCatIds.includes(id));
+          if (allSelected) {
+            selectedCatIds = [];
+            document.querySelectorAll('.category-card').forEach(c => c.classList.remove('selected'));
+          } else {
+            selectedCatIds = [...allIds];
+            document.querySelectorAll('.category-card').forEach(c => c.classList.add('selected'));
+          }
+          const btn = document.getElementById('btnSelectAll');
+          btn.textContent = selectedCatIds.length === allIds.length ? 'Clear All' : 'Select All';
+          // Update the summary
+          const totalQ = window._allQuestions ? window._allQuestions.filter(q => selectedCatIds.includes(q.category)).length : 0;
+          const summaryEl = document.getElementById('selectedSummary');
+          if (selectedCatIds.length === 0) {
+            summaryEl.innerHTML = 'Select one or more categories to begin';
+            document.getElementById('categoryBadge').textContent = 'None';
+          } else {
+            summaryEl.innerHTML = `<strong>${selectedCatIds.length}<\/strong> ${selectedCatIds.length === 1 ? 'category' : 'categories'} · <strong>${totalQ}<\/strong> questions`;
+            document.getElementById('categoryBadge').textContent = `${selectedCatIds.length} categories`;
+          }
+          document.getElementById('btnStart').disabled = selectedCatIds.length === 0;
+        });
+      }
+
+      // ---- beforeunload recovery ----
+      window.addEventListener('beforeunload', () => {
+        if (state.sessionStats.seen > 0) {
+          saveSessionStats();
+          try {
+            if (typeof GameEngine !== 'undefined') {
+              GameEngine.awardXP(state.sessionStats.seen * 5, 'Drill Session');
+              GameEngine.addStudyTime(Math.floor((Date.now() - state.sessionStart) / 1000));
+            }
+          } catch (e) { }
+        }
+      });
+
+      // Legacy compat
+      window.reportTestScore = function (userScore, totalPossible) {
+        const pct = Math.round((userScore / totalPossible) * 100);
+        reportDrillCompletion(pct, { seen: totalPossible, correct: userScore, missed: totalPossible - userScore });
+      };
+
+    } catch (masterError) {
+      console.error('[Drill] MASTER SCRIPT ERROR:', masterError);
+      // Force load categories as fallback
+      loadMasterBank().then(function (data) {
+        window._categories = data.categories;
+        window._allQuestions = data.questions;
+        renderCategories();
+        bindEvents();
+        startTimer();
+      }).catch(function (e) { console.error('[Drill] Total failure:', e); });
+    }
+  </script>
+
+  <!-- Hide own topbar when running inside parent iframe overlay -->
+  <script>
+    (function () {
+      try {
+        if (window.self !== window.top) {
+          const tb = document.querySelector('.topbar, .hangar-header, header');
+          if (tb) tb.style.display = 'none';
+          document.body.style.paddingTop = '0';
+        }
+      } catch (e) { }
+    })();
+  </script>
+
+  <script>
+    // FALLBACK: Force-render categories after page load
+    window.addEventListener('load', function () {
+      setTimeout(function () {
+        var grid = document.getElementById('categoryGrid');
+        if (grid && grid.children.length === 0) {
+          console.log('[Drill Fallback] Main script failed to render categories, injecting now');
+          fetch('../master-bank.json').then(r => r.json()).then(function (data) {
+            var cats = data.categories || [];
+            var allQ = data.questions || [];
+            window._categories = cats.map(function (cat) {
+              return { id: cat.id, num: 'MOD ' + (cat.id.match(/\d+/) || ['?'])[0], name: cat.name, iconColor: cat.iconColor || '#D4A853', icon: cat.icon || '📋' };
+            });
+            window._allQuestions = [];
+            allQ.forEach(function (q) {
+              var mc = q.multipleChoice || q.practice || q.jeopardy;
+              if (!mc) return;
+              window._allQuestions.push({ id: q.id, question: mc.question || mc.stem || '', options: mc.choices || mc.options || [], correct: mc.correctIndex !== undefined ? mc.correctIndex : 0, explanation: mc.explanation || q.explanation || '', category: q.category || 'general', tags: q.tags || [], difficulty: q.difficulty || 'medium', learningObjective: q.learningObjective || null });
+            });
+
+            grid.innerHTML = window._categories.map(function (cat) {
+              var qCount = window._allQuestions.filter(function (q) { return q.category === cat.id; }).length;
+              return '<div class="category-card holo-card-js" data-cat="' + cat.id + '">' +
+                '<div class="category-card-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg></div>' +
+                '<div class="category-icon" style="color:' + cat.iconColor + '">' + cat.icon + '</div>' +
+                '<div class="category-name">' + cat.name + '</div>' +
+                '<div class="category-count">' + qCount + ' questions</div></div>';
+            }).join('');
+
+            // Add click handlers
+            grid.querySelectorAll('.category-card').forEach(function (card) {
+              card.addEventListener('click', function () { card.classList.toggle('selected'); });
+            });
+
+            console.log('[Drill Fallback] Rendered ' + window._categories.length + ' categories');
+          });
+        }
+      }, 1500);
+    });
+  </script>
+
+</body>
+
+</html>

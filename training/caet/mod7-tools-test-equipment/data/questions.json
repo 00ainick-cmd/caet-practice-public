@@ -1,0 +1,711 @@
+{
+  "metadata": {
+    "lessonId": "cat-7-tools-test-equipment",
+    "lessonTitle": "Tools & Test Equipment",
+    "exam": "CAET Entry",
+    "category": "Category 7",
+    "version": "2.0.0",
+    "lastUpdated": "2026-02-23",
+    "objectiveSource": "CAET-Objective-Master-Redesign-v2.xlsx",
+    "totalObjectives": 11,
+    "questionCount": 11,
+    "positionDistribution": {
+      "A": 11,
+      "B": 11,
+      "C": 11,
+      "D": 11
+    },
+    "writingStandards": "docs/question-writing-standards.md"
+  },
+  "questions": [
+    {
+      "id": "cat7-q001",
+      "category": "cat-7-tools-test-equipment",
+      "difficulty": "medium",
+      "tags": [
+        "center punch",
+        "drill guide",
+        "indentation",
+        "metal"
+      ],
+      "learningObjective": "Center punch creates guide indentation to prevent drill wandering",
+      "fullObjective": "Explain the primary purpose of a center punch in an avionics repair shop: creating a precise indentation on metal to guide a drill bit and prevent it from wandering during drilling.",
+      "flashcard": {
+        "term": "Center Punch",
+        "definition": "A center punch is a hardened steel tool struck with a hammer to create a precise conical indentation in metal; the indentation seats the drill bit tip, preventing it from skating across the work surface and ensuring accurate hole placement.",
+        "analogy": "A center punch is like making a thumbprint in clay before poking a hole \u2014 the depression gives the drill bit a starting point so it doesn't slide sideways before cutting.",
+        "unit": "Tools & Test Equipment"
+      },
+      "jeopardy": {
+        "question": "In an avionics repair shop, this hardened tool is struck with a hammer to create a guide indentation that prevents a drill bit from wandering on metal.",
+        "choices": [
+          "Center punch",
+          "Scribe",
+          "Drift punch",
+          "Prick punch"
+        ],
+        "correctIndex": 0,
+        "explanation": "The center punch creates a conical seat for the drill bit tip, preventing lateral movement (wandering) before the drill cuts through the metal surface."
+      },
+      "multipleChoice": {
+        "question": "What is the primary purpose of a center punch in an avionics repair shop?",
+        "choices": [
+          "To remove stuck fasteners by driving them from the back side",
+          "To create a precise indentation that guides the drill bit and prevents wandering during drilling",
+          "To mark scribe lines on sheet metal for cutting",
+          "To test the hardness of a metal surface before drilling"
+        ],
+        "correctIndex": 1,
+        "explanation": "A center punch creates an indentation that seats the drill tip, preventing it from sliding when drilling begins. Without this, the drill wanders and holes are misplaced."
+      },
+      "practice": {
+        "question": "A technician needs to drill a hole in an avionics rack panel at a precise location for a new indicator lamp. What is the correct first step before drilling?",
+        "choices": [
+          "Apply masking tape to the panel and drill through the tape for precision",
+          "Start the drill at slow speed and walk it to the correct location",
+          "Mark the exact location with a scribe, then use a center punch to create a guide indentation before drilling",
+          "Use the drill bit to scratch a starting mark before applying full pressure"
+        ],
+        "correctIndex": 2,
+        "explanation": "Scribe the location for accuracy, then center punch to create the drill guide indentation. This two-step process ensures the drill starts and stays at the correct position."
+      },
+      "preassessment": {
+        "question": "Why is a center punch used before drilling metal?",
+        "choices": [
+          "To test metal hardness",
+          "To remove stuck fasteners",
+          "To mark scribe lines",
+          "To prevent drill bit wandering"
+        ],
+        "correctIndex": 3
+      }
+    },
+    {
+      "id": "cat7-q002",
+      "category": "cat-7-tools-test-equipment",
+      "difficulty": "medium",
+      "tags": [
+        "oscilloscope",
+        "waveform",
+        "voltage",
+        "amplitude",
+        "frequency"
+      ],
+      "learningObjective": "Oscilloscope visualizes voltage waveforms showing amplitude, frequency, and shape",
+      "fullObjective": "Explain that an oscilloscope is used to visualize voltage waveforms over time, allowing a technician to observe signal amplitude, frequency, and waveform shape.",
+      "flashcard": {
+        "term": "Oscilloscope",
+        "definition": "An oscilloscope displays voltage as a function of time on a calibrated screen, allowing observation of signal amplitude (peak voltage), frequency (cycles per second), waveform shape (sine, square, triangle, digital), and timing relationships between signals.",
+        "analogy": "An oscilloscope is like a video camera for electricity \u2014 it shows you exactly what a voltage signal is doing over time, revealing information that a simple voltmeter can only partially capture.",
+        "unit": "Tools & Test Equipment"
+      },
+      "jeopardy": {
+        "question": "This test instrument allows a technician to visualize voltage waveforms over time, observing signal amplitude, frequency, and shape on a calibrated display.",
+        "choices": [
+          "Digital multimeter",
+          "Oscilloscope",
+          "Bus analyzer",
+          "Frequency counter"
+        ],
+        "correctIndex": 1,
+        "explanation": "An oscilloscope displays voltage vs. time, enabling measurement and visualization of amplitude, frequency, and waveform shape \u2014 information that a DMM cannot provide."
+      },
+      "multipleChoice": {
+        "question": "What information can an oscilloscope provide that a digital multimeter cannot?",
+        "choices": [
+          "Precise DC voltage measurements to six decimal places",
+          "Direct measurement of circuit resistance using a four-wire method",
+          "Visual display of signal waveform shape, amplitude over time, and frequency",
+          "Current measurement without breaking the circuit"
+        ],
+        "correctIndex": 2,
+        "explanation": "An oscilloscope shows voltage vs. time \u2014 waveform shape, amplitude changes, frequency, and timing. A DMM gives only a single steady-state value; it cannot show signal dynamics or waveform characteristics."
+      },
+      "practice": {
+        "question": "An avionics technician suspects the output of a sensor is clipping (flat-topping) at high values. Which tool should be used to confirm this?",
+        "choices": [
+          "A digital multimeter set to AC volts to measure RMS output",
+          "A frequency counter to measure the sensor's output update rate",
+          "A bus analyzer to capture the data words produced by the sensor",
+          "An oscilloscope to visualize the waveform and observe whether the peaks are clipped flat"
+        ],
+        "correctIndex": 3,
+        "explanation": "Clipping \u2014 where the waveform peaks are truncated \u2014 is a waveform shape characteristic visible only on an oscilloscope. A DMM would show an average or RMS value but would not reveal the clipping."
+      },
+      "preassessment": {
+        "question": "What does an oscilloscope display?",
+        "choices": [
+          "Voltage waveforms showing amplitude, frequency, and shape",
+          "Resistance values over time",
+          "Bus data words",
+          "Current flow direction"
+        ],
+        "correctIndex": 0
+      }
+    },
+    {
+      "id": "cat7-q003",
+      "category": "cat-7-tools-test-equipment",
+      "difficulty": "easy",
+      "tags": [
+        "multimeter",
+        "OL",
+        "open circuit",
+        "ohms",
+        "over range"
+      ],
+      "learningObjective": "OL on multimeter ohms = open circuit or out of range",
+      "fullObjective": "State that 'OL' on a multimeter set to ohms means the measured resistance exceeds the meter's range, indicating an open circuit or resistance too high to measure on the selected scale.",
+      "flashcard": {
+        "term": "Multimeter OL Indication",
+        "definition": "'OL' (over limit or overload) on a multimeter set to ohms means the resistance is greater than the meter's maximum measurable range on the selected scale \u2014 typically indicating an open circuit (broken wire, open fuse, or disconnected path) or a very high resistance.",
+        "analogy": "OL is like a bathroom scale reading 'ERR' when an elephant stands on it \u2014 the scale's range is exceeded. OL means the resistance is beyond the meter's limit, most often because the circuit is open (no path for current).",
+        "unit": "Tools & Test Equipment"
+      },
+      "jeopardy": {
+        "question": "When a multimeter set to ohms displays 'OL', this is the most likely circuit condition being indicated.",
+        "choices": [
+          "A perfectly balanced resistance equal to the meter's full-scale reading",
+          "A short circuit reading below the meter's minimum range",
+          "An open circuit or resistance exceeding the meter's selected range",
+          "A reverse-biased diode in the measurement path"
+        ],
+        "correctIndex": 2,
+        "explanation": "'OL' means the resistance exceeds the meter's range \u2014 typically an open circuit (infinite resistance) or a legitimate high-resistance reading that exceeds the selected scale."
+      },
+      "multipleChoice": {
+        "question": "A multimeter set to the 200-ohm range shows 'OL' when connected across a wire. What does this indicate?",
+        "choices": [
+          "The wire has exactly 200 ohms resistance \u2014 the display switches to OL at full scale",
+          "The measurement polarity is reversed and the leads must be swapped",
+          "The multimeter is damaged and cannot measure the circuit correctly",
+          "The resistance is greater than the 200-ohm range, most likely an open circuit (broken wire) or very high resistance"
+        ],
+        "correctIndex": 3,
+        "explanation": "'OL' on the 200-ohm range means resistance exceeds 200 ohms. For a wire, this almost certainly means an open circuit \u2014 no conductive path exists between the probe points."
+      },
+      "practice": {
+        "question": "A technician checks a suspected broken wire for continuity using a multimeter on the 200-ohm range. The display shows 'OL'. What does this tell the technician?",
+        "choices": [
+          "The wire resistance exceeds the meter's 200-ohm range, strongly indicating an open circuit \u2014 a break in the wire or an open connection",
+          "The wire has 0 ohms \u2014 OL is the code for a good continuity reading",
+          "The wire has exactly 200 ohms resistance, confirming it is within normal tolerance",
+          "The multimeter leads are shorted \u2014 the test is invalid"
+        ],
+        "correctIndex": 0,
+        "explanation": "OL on the ohms range means no measurable resistance path \u2014 the wire has an open circuit. The technician should now locate the break by checking sections of the wire individually."
+      },
+      "preassessment": {
+        "question": "What does 'OL' mean on a multimeter set to ohms?",
+        "choices": [
+          "Optimal level",
+          "Open circuit or over-range",
+          "Output load",
+          "Ohm limit reached maximum"
+        ],
+        "correctIndex": 1
+      }
+    },
+    {
+      "id": "cat7-q004",
+      "category": "cat-7-tools-test-equipment",
+      "difficulty": "medium",
+      "tags": [
+        "databus analyzer",
+        "protocol analyzer",
+        "ARINC 429",
+        "decode",
+        "diagnose"
+      ],
+      "learningObjective": "Digital databus analyzer captures, displays, and decodes bus traffic to verify and diagnose",
+      "fullObjective": "Explain the primary purpose of a digital databus analyzer in a GA avionics shop: capturing, displaying, and decoding bus traffic to verify correct data transmission and diagnose communication faults.",
+      "flashcard": {
+        "term": "Digital Databus Analyzer",
+        "definition": "A digital databus (protocol) analyzer connects non-intrusively to a databus and captures, timestamps, and decodes bus traffic in real time \u2014 displaying individual data words with their labels, values, and error conditions, enabling verification of correct operation and diagnosis of communication faults.",
+        "analogy": "A databus analyzer is like a flight data recorder for the ARINC 429 bus \u2014 it captures everything that flows by, decodes it into readable form, and helps you understand what happened when things went wrong.",
+        "unit": "Tools & Test Equipment"
+      },
+      "jeopardy": {
+        "question": "This test instrument captures, displays, and decodes ARINC 429 bus traffic in real time, enabling a technician to verify correct data transmission and identify communication faults.",
+        "choices": [
+          "Oscilloscope",
+          "Frequency counter",
+          "Digital multimeter",
+          "Digital databus analyzer"
+        ],
+        "correctIndex": 3,
+        "explanation": "A databus analyzer decodes the bus protocol layer \u2014 showing individual ARINC 429 labels, values, timing, and errors \u2014 unlike an oscilloscope which shows only the electrical waveform without decoding."
+      },
+      "multipleChoice": {
+        "question": "What is the primary function of a digital databus analyzer in avionics maintenance?",
+        "choices": [
+          "To capture, display, and decode bus traffic to verify correct data transmission and diagnose communication faults",
+          "To measure the DC power supply voltage to each avionics LRU",
+          "To program ARINC 429 LRUs with their initial configuration settings",
+          "To measure the resistance of the bus termination resistors at each end"
+        ],
+        "correctIndex": 0,
+        "explanation": "A databus analyzer provides non-intrusive, real-time decoding of bus protocol data \u2014 showing what labels are being transmitted, their values, timing, and any errors \u2014 the essential tool for ARINC 429 and MIL-STD-1553 diagnosis."
+      },
+      "practice": {
+        "question": "An autopilot is not responding to altitude data from the air data computer. Wiring continuity is confirmed. What is the next most useful diagnostic step?",
+        "choices": [
+          "Replace the ADC with a known-good unit to verify the fault by substitution",
+          "Connect a databus analyzer to the ARINC 429 bus between the ADC and autopilot to verify that the ADC is transmitting the altitude label with correct values",
+          "Check the autopilot's circuit breaker for intermittent trip",
+          "Verify the ADC's power supply voltage with a multimeter"
+        ],
+        "correctIndex": 1,
+        "explanation": "With good wiring, a databus analyzer inserted between the ADC and autopilot will confirm whether the ADC is actually transmitting the altitude label at the expected update rate and with valid data \u2014 the direct test for this type of fault."
+      },
+      "preassessment": {
+        "question": "What does a digital databus analyzer do?",
+        "choices": [
+          "Measures LRU power supply voltage",
+          "Programs LRU configurations",
+          "Captures and decodes bus traffic to diagnose communication faults",
+          "Measures termination resistance"
+        ],
+        "correctIndex": 2
+      }
+    },
+    {
+      "id": "cat7-q005",
+      "category": "cat-7-tools-test-equipment",
+      "difficulty": "easy",
+      "tags": [
+        "databus analyzer",
+        "intermittent",
+        "digital bus",
+        "capture"
+      ],
+      "learningObjective": "Databus analyzer is most useful for capturing intermittent digital bus failures",
+      "fullObjective": "State that a digital databus analyzer or protocol analyzer is the test instrument most useful for capturing and evaluating intermittent digital databus failures.",
+      "flashcard": {
+        "term": "Tool for Intermittent Bus Failures",
+        "definition": "A digital databus analyzer (protocol analyzer) is the best tool for capturing intermittent bus failures \u2014 it monitors continuously and time-stamps all bus activity, capturing the failure event when it occurs even if it is brief and transient.",
+        "analogy": "An intermittent bus failure is like a car noise that only happens sometimes. A databus analyzer is the dashcam that records everything \u2014 when the noise finally happens, you have proof of what it was.",
+        "unit": "Tools & Test Equipment"
+      },
+      "jeopardy": {
+        "question": "For capturing and evaluating an intermittent digital databus failure that occurs randomly during flight, this instrument is the most useful because it monitors continuously and records all bus events.",
+        "choices": [
+          "Protocol (databus) analyzer",
+          "Digital multimeter",
+          "Oscilloscope",
+          "Pitot-static tester"
+        ],
+        "correctIndex": 0,
+        "explanation": "A protocol/databus analyzer captures all bus traffic continuously, recording error events and their timestamps even for brief, intermittent failures \u2014 unlike an oscilloscope which requires triggering at the right moment."
+      },
+      "multipleChoice": {
+        "question": "Which instrument is most useful for diagnosing an intermittent ARINC 429 bus failure that occurs unpredictably?",
+        "choices": [
+          "A digital multimeter measuring bus voltage",
+          "A digital databus (protocol) analyzer that continuously monitors and records all bus activity",
+          "An oscilloscope triggered on bus signal transitions",
+          "A megohmmeter measuring cable insulation resistance"
+        ],
+        "correctIndex": 1,
+        "explanation": "An intermittent failure by definition doesn't occur consistently. A databus analyzer continuously monitors and logs all bus activity, capturing the failure event with timestamp and context when it finally occurs."
+      },
+      "practice": {
+        "question": "A GPS intermittently stops providing data to the EFIS, but always works on the ground. No faults are found on ground test. What instrument should be left installed to capture the next inflight failure?",
+        "choices": [
+          "A multimeter with a peak-hold function on the bus voltage circuit",
+          "An oscilloscope triggered on GPS output signal transitions",
+          "A databus analyzer set to continuous record, capturing all ARINC 429 traffic between the GPS and EFIS to log the exact failure event when it occurs in flight",
+          "A BITE interrogator connected to the GPS maintenance port"
+        ],
+        "correctIndex": 2,
+        "explanation": "A databus analyzer in continuous record mode will capture the exact state of the bus when the failure occurs in flight \u2014 showing whether the GPS stops transmitting, sends invalid data, or the bus fails \u2014 providing definitive diagnostic information."
+      },
+      "preassessment": {
+        "question": "Which tool is best for capturing an intermittent digital databus failure?",
+        "choices": [
+          "DMM",
+          "Frequency counter",
+          "Oscilloscope",
+          "Protocol/databus analyzer"
+        ],
+        "correctIndex": 3
+      }
+    },
+    {
+      "id": "cat7-q006",
+      "category": "cat-7-tools-test-equipment",
+      "difficulty": "easy",
+      "tags": [
+        "databus analyzer",
+        "real time",
+        "decode",
+        "data words",
+        "identify"
+      ],
+      "learningObjective": "Databus analyzer captures real-time bus traffic and decodes data words",
+      "fullObjective": "State the primary purpose of a digital databus analyzer in avionics troubleshooting: to capture bus traffic in real time, decode data words, and identify incorrect or missing transmissions.",
+      "flashcard": {
+        "term": "Databus Analyzer \u2014 Primary Purpose",
+        "definition": "A databus analyzer's primary troubleshooting purpose is to capture bus traffic in real time, decode individual data words (revealing label, value, and error status), and identify which transmissions are incorrect, corrupted, or missing entirely.",
+        "analogy": "Think of a databus analyzer like a network packet sniffer for avionics \u2014 it sees every data 'packet' (word) on the bus, decodes it from raw bits into readable labels and values, and flags anything that's wrong.",
+        "unit": "Tools & Test Equipment"
+      },
+      "jeopardy": {
+        "question": "In avionics troubleshooting, this instrument captures real-time bus traffic, decodes data words to reveal their labels and values, and identifies transmissions that are incorrect or missing.",
+        "choices": [
+          "BITE interrogator",
+          "Digital databus analyzer",
+          "Multimeter",
+          "Oscilloscope"
+        ],
+        "correctIndex": 1,
+        "explanation": "A databus analyzer captures and decodes bus traffic in real time \u2014 showing each data word's label, value, and any error status \u2014 enabling direct identification of bad or missing transmissions."
+      },
+      "multipleChoice": {
+        "question": "In avionics troubleshooting, what is the primary purpose of a digital databus analyzer?",
+        "choices": [
+          "To measure the AC impedance of the bus cable at various frequencies",
+          "To program replacement LRUs with the correct ARINC label configuration",
+          "To capture bus traffic in real time, decode data words, and identify incorrect or missing transmissions",
+          "To test bus cable shielding effectiveness against electromagnetic interference"
+        ],
+        "correctIndex": 2,
+        "explanation": "The databus analyzer is the window into what's actually happening on the bus: real-time capture, word-by-word decoding, and automatic flagging of errors or missing labels."
+      },
+      "practice": {
+        "question": "A flight computer shows a 'GPS invalid' flag even though the GPS appears operational. A databus analyzer is connected to the ARINC 429 output of the GPS. What information should the technician look for?",
+        "choices": [
+          "Whether the GPS is drawing the correct current from its power supply bus",
+          "Whether the flight computer's BITE code for GPS is current or historical",
+          "Whether the GPS antenna cable impedance matches the specified 50-ohm characteristic",
+          "Whether the GPS is transmitting the expected ARINC 429 labels (position, integrity, status) with valid values and at the expected update rate"
+        ],
+        "correctIndex": 3,
+        "explanation": "The databus analyzer shows exactly what the GPS is transmitting: label presence, data values, and update rates. If the GPS is missing required labels or sending invalid status words, the analyzer will reveal this directly."
+      },
+      "preassessment": {
+        "question": "What does a databus analyzer identify during troubleshooting?",
+        "choices": [
+          "Incorrect or missing data transmissions",
+          "Cable impedance mismatches",
+          "LRU power consumption",
+          "Antenna radiation patterns"
+        ],
+        "correctIndex": 0
+      }
+    },
+    {
+      "id": "cat7-q007",
+      "category": "cat-7-tools-test-equipment",
+      "difficulty": "easy",
+      "tags": [
+        "databus analyzer",
+        "protocol analyzer",
+        "avionics maintenance",
+        "digital bus"
+      ],
+      "learningObjective": "Databus/protocol analyzer is the tool for digital databus traffic analysis",
+      "fullObjective": "State that a databus analyzer (protocol analyzer) is the tool commonly used to capture and analyze digital databus traffic in avionics maintenance.",
+      "flashcard": {
+        "term": "Protocol Analyzer \u2014 Common Name",
+        "definition": "A databus analyzer (also called a protocol analyzer) is the standard tool in avionics maintenance for capturing and analyzing digital databus traffic \u2014 available for ARINC 429, MIL-STD-1553, RS-232/485, and other protocols.",
+        "analogy": "Just as a mechanic has a scan tool for car computer diagnostics, an avionics technician has a protocol analyzer for databus diagnostics \u2014 the right specialized tool for the job.",
+        "unit": "Tools & Test Equipment"
+      },
+      "jeopardy": {
+        "question": "The standard specialized test instrument used in avionics maintenance to capture and analyze ARINC 429 and other digital databus traffic is called by this name.",
+        "choices": [
+          "Pitot-static tester",
+          "VSWR meter",
+          "Protocol analyzer (databus analyzer)",
+          "Logic probe"
+        ],
+        "correctIndex": 2,
+        "explanation": "A protocol analyzer (databus analyzer) is the specialized instrument for digital bus traffic capture and analysis in avionics \u2014 connecting non-intrusively to the bus and decoding all protocol data."
+      },
+      "multipleChoice": {
+        "question": "What instrument is commonly used in avionics maintenance to capture and analyze digital databus traffic?",
+        "choices": [
+          "Digital multimeter \u2014 the most versatile test instrument for all avionics measurements",
+          "Spectrum analyzer \u2014 for analyzing the frequency content of digital signals",
+          "Oscilloscope \u2014 the standard instrument for all digital signal analysis",
+          "Databus analyzer (protocol analyzer) \u2014 specialized for capturing and decoding digital bus communication"
+        ],
+        "correctIndex": 3,
+        "explanation": "A databus analyzer (protocol analyzer) is the specialized tool for ARINC 429, MIL-STD-1553, and other avionics bus analysis. Oscilloscopes show waveforms but don't decode protocol data; DMMs show only voltage."
+      },
+      "practice": {
+        "question": "A trainee asks which test instrument they will use most often for ARINC 429 troubleshooting. What is the correct answer?",
+        "choices": [
+          "A databus (protocol) analyzer \u2014 it captures and decodes ARINC 429 traffic at the protocol level, showing labels, values, and errors",
+          "An oscilloscope \u2014 it shows the electrical signal on the bus in the most detail",
+          "A digital multimeter \u2014 it can measure bus voltage levels to diagnose most ARINC 429 problems",
+          "A time-domain reflectometer \u2014 it locates cable faults on the bus wire pair"
+        ],
+        "correctIndex": 0,
+        "explanation": "A databus analyzer is the primary tool for ARINC 429 work. While oscilloscopes and multimeters have roles, the analyzer is the only tool that decodes the protocol layer and shows what data is being communicated."
+      },
+      "preassessment": {
+        "question": "What tool captures and analyzes digital databus traffic in avionics maintenance?",
+        "choices": [
+          "Multimeter",
+          "Protocol (databus) analyzer",
+          "Oscilloscope",
+          "Spectrum analyzer"
+        ],
+        "correctIndex": 1
+      }
+    },
+    {
+      "id": "cat7-q008",
+      "category": "cat-7-tools-test-equipment",
+      "difficulty": "medium",
+      "tags": [
+        "continuity test",
+        "broken wire",
+        "multimeter",
+        "resistance"
+      ],
+      "learningObjective": "Continuity test with multimeter confirms broken wire using resistance measurement",
+      "fullObjective": "Select a continuity test with a multimeter as the correct method to confirm whether a broken wire is causing a warning light to fail, by measuring resistance between the wire ends.",
+      "flashcard": {
+        "term": "Continuity Test",
+        "definition": "A continuity test uses a multimeter (typically in the ohms or continuity beep mode) to measure resistance between two ends of a conductor; near-zero resistance confirms a complete circuit, while 'OL' or infinite resistance confirms an open/broken wire.",
+        "analogy": "A continuity test is like testing whether a garden hose leaks by blowing through it \u2014 if air comes out the other end (near-zero resistance), the path is complete. If nothing comes out (OL), there's a break.",
+        "unit": "Tools & Test Equipment"
+      },
+      "jeopardy": {
+        "question": "To confirm that a broken wire is preventing a warning light from illuminating, a technician should perform this type of test with a multimeter, measuring resistance between the wire's endpoints.",
+        "choices": [
+          "Voltage measurement with the circuit energized",
+          "Insulation resistance test with a megohmmeter",
+          "Current measurement in series with the warning light",
+          "Continuity test measuring resistance between wire ends"
+        ],
+        "correctIndex": 3,
+        "explanation": "A continuity test measures resistance between the two ends of a suspected broken wire. Near-zero ohms confirms an intact path; OL (infinite resistance) confirms the wire is broken."
+      },
+      "multipleChoice": {
+        "question": "A warning light is not illuminating. The lamp tests good. What test should the technician use to determine if a broken wire is the cause?",
+        "choices": [
+          "Perform a continuity test with a multimeter measuring resistance between the two ends of the suspect wire",
+          "Measure the voltage drop across the lamp with the circuit energized",
+          "Use an oscilloscope to check the lamp's activation signal waveform",
+          "Measure the current in the lamp circuit with an ammeter"
+        ],
+        "correctIndex": 0,
+        "explanation": "A continuity test directly tests wire integrity. With power OFF, measure resistance between wire ends: near-zero ohms = intact; OL = broken. This is the definitive test for a broken wire."
+      },
+      "practice": {
+        "question": "After replacing a gear position indicator lamp, the light still does not illuminate when gear is selected down. The circuit breaker is OK. What should the technician test next?",
+        "choices": [
+          "Replace the gear position switch \u2014 it is most likely faulty",
+          "Use a multimeter in continuity mode to test the wire from the switch to the indicator light for an open circuit",
+          "Test the power supply bus voltage at the main avionics bus bar",
+          "Check the landing gear mechanical position with a mirror and flashlight"
+        ],
+        "correctIndex": 1,
+        "explanation": "With the lamp confirmed good and the breaker OK, a broken wire is the next likely cause. A continuity test on the circuit wiring (power OFF) will confirm or eliminate this as the fault."
+      },
+      "preassessment": {
+        "question": "What test confirms whether a wire is broken or intact?",
+        "choices": [
+          "Voltage measurement",
+          "Current measurement",
+          "Continuity test with multimeter",
+          "Insulation resistance test"
+        ],
+        "correctIndex": 2
+      }
+    },
+    {
+      "id": "cat7-q009",
+      "category": "cat-7-tools-test-equipment",
+      "difficulty": "medium",
+      "tags": [
+        "micrometer",
+        "measurement",
+        "zero",
+        "clean surfaces",
+        "consistent pressure"
+      ],
+      "learningObjective": "Micrometer use: clean, zero, apply gentle consistent pressure",
+      "fullObjective": "Apply the correct procedure for accurate micrometer measurement: clean the measuring surfaces, zero the micrometer before use, and apply consistent gentle pressure when taking readings.",
+      "flashcard": {
+        "term": "Micrometer Measurement Procedure",
+        "definition": "For accurate micrometer measurements: (1) clean both measuring surfaces (spindle and anvil) to remove debris, (2) zero the micrometer (close on nothing \u2014 verify it reads zero), (3) apply gentle, consistent pressure using the thimble ratchet (if equipped) \u2014 excessive pressure deforms the workpiece.",
+        "analogy": "Using a micrometer properly is like calibrating a scale: clean the pan (clean surfaces), check it reads zero with nothing on it (zero check), then place items with the same gentle touch each time (consistent pressure).",
+        "unit": "Tools & Test Equipment"
+      },
+      "jeopardy": {
+        "question": "The three steps for accurate micrometer measurement are: clean the measuring surfaces, apply consistent gentle pressure using the ratchet thimble, and do this before taking any reading.",
+        "choices": [
+          "Zero the micrometer with the surfaces closed",
+          "Lubricate the spindle thread",
+          "Set the reference temperature to 20\u00b0C",
+          "Mark the measurement point with a scribe"
+        ],
+        "correctIndex": 0,
+        "explanation": "Zeroing the micrometer before use ensures the zero reference is correct. A micrometer that doesn't read zero when closed will have a constant offset error in every measurement."
+      },
+      "multipleChoice": {
+        "question": "What are the correct steps for taking an accurate micrometer measurement?",
+        "choices": [
+          "Lubricate the spindle, set to expected range, take three rapid readings and average",
+          "Clean the measuring surfaces, zero the micrometer before use, and apply consistent gentle pressure when taking the reading",
+          "Apply oil to the workpiece, close the micrometer firmly, and read the display",
+          "Lock the barrel before closing on the workpiece to prevent overshooting"
+        ],
+        "correctIndex": 1,
+        "explanation": "Micrometer accuracy requires: clean surfaces (no contamination affecting the gap), verified zero (no baseline offset), and consistent gentle pressure (not deforming the workpiece or getting different readings based on force)."
+      },
+      "practice": {
+        "question": "A technician is measuring a wire crimp cross-section with a micrometer. After taking the measurement, the result seems larger than expected. What should the technician verify first?",
+        "choices": [
+          "That the micrometer anvil is the correct size for the wire gauge",
+          "Whether the wire is at the correct temperature for the measurement",
+          "Whether the micrometer was zeroed before use and the measuring faces were clean \u2014 a baseline error or debris between the faces would give a falsely large reading",
+          "Whether the measurement should be taken in metric rather than imperial units"
+        ],
+        "correctIndex": 2,
+        "explanation": "A larger-than-expected reading is consistent with either a zero-offset error (micrometer not zeroed) or debris on the measuring surfaces adding to the measured dimension. Check both before repeating the measurement."
+      },
+      "preassessment": {
+        "question": "What must be done before taking a micrometer measurement?",
+        "choices": [
+          "Lubricate spindle thread",
+          "Heat-stabilize the instrument",
+          "Set to expected range",
+          "Clean faces and zero the micrometer"
+        ],
+        "correctIndex": 3
+      }
+    },
+    {
+      "id": "cat7-q010",
+      "category": "cat-7-tools-test-equipment",
+      "difficulty": "medium",
+      "tags": [
+        "screwdriver",
+        "cam-out",
+        "screw head damage",
+        "proper size",
+        "engagement"
+      ],
+      "learningObjective": "Screwdriver must fully engage the screw head to prevent cam-out",
+      "fullObjective": "Select a properly sized screwdriver that fully engages the screw head as the most important factor when using a manual screwdriver to prevent cam-out and screw head damage.",
+      "flashcard": {
+        "term": "Screwdriver Sizing and Cam-Out",
+        "definition": "Cam-out occurs when a screwdriver slips out of the screw head under torque, damaging the head and potentially the surrounding surface. Using a properly sized screwdriver that fully fills and engages the screw head recess is the primary prevention \u2014 an undersized blade has less contact area and cams out more easily.",
+        "analogy": "Using a screwdriver that's too small is like trying to turn a deadbolt with a toothpick \u2014 the toothpick will snap out under pressure because it doesn't fully engage the mechanism. A proper key fills the slot completely.",
+        "unit": "Tools & Test Equipment"
+      },
+      "jeopardy": {
+        "question": "The most important factor in preventing cam-out and screw head damage when using a manual screwdriver is using one that completely fills and does this to the screw head recess.",
+        "choices": [
+          "Exceeds the torque specification of the fastener",
+          "Fully engages (fits snugly into) the screw head",
+          "Has a rubber-grip handle for maximum torque",
+          "Matches the color code of the screw head material"
+        ],
+        "correctIndex": 1,
+        "explanation": "Full engagement means the blade or bit fills the screw head recess completely \u2014 maximizing contact area, distributing force evenly, and preventing the bit from riding up and camming out."
+      },
+      "multipleChoice": {
+        "question": "What is the most important factor when selecting a manual screwdriver to prevent cam-out?",
+        "choices": [
+          "The screwdriver should be as long as possible to provide maximum torque leverage",
+          "The screwdriver should be harder than the screw material to prevent wear",
+          "The screwdriver blade or bit should be properly sized to fully engage the screw head",
+          "The screwdriver should be rated for maximum torque exceeding the fastener specification"
+        ],
+        "correctIndex": 2,
+        "explanation": "Full engagement is the primary cam-out prevention measure. A correctly sized bit/blade fills the recess completely, maximizing the contact area that resists the tendency to cam out under torque."
+      },
+      "practice": {
+        "question": "A technician uses a Phillips screwdriver that is one size too small to remove a panel screw and notices the bit slipping out of the head. What is the correct action?",
+        "choices": [
+          "Apply more downward pressure and try again with the same bit",
+          "Add locking compound to the driver tip to prevent slipping",
+          "Use a flathead screwdriver in one of the Phillips slots for better contact",
+          "Select a correctly sized Phillips bit that fully engages the screw head recess \u2014 using the undersized bit risks damaging the screw head to the point of non-removal"
+        ],
+        "correctIndex": 3,
+        "explanation": "An undersized bit doesn't fill the Phillips recess \u2014 it contacts only the tips of the cross slots and cams out under torque. Using the correct size is the only proper fix."
+      },
+      "preassessment": {
+        "question": "What prevents screwdriver cam-out?",
+        "choices": [
+          "Proper size that fully engages the screw head",
+          "Maximum torque application",
+          "Rubber-grip handle",
+          "Hardened bit material"
+        ],
+        "correctIndex": 0
+      }
+    },
+    {
+      "id": "cat7-q011",
+      "category": "cat-7-tools-test-equipment",
+      "difficulty": "medium",
+      "tags": [
+        "multimeter",
+        "voltage",
+        "current",
+        "resistance",
+        "single instrument"
+      ],
+      "learningObjective": "Multimeter measures voltage, current, and resistance",
+      "fullObjective": "Explain the primary function of a multimeter as measuring voltage, current, and resistance in electrical circuits using a single instrument.",
+      "flashcard": {
+        "term": "Multimeter",
+        "definition": "A multimeter (digital or analog) is a single instrument that measures multiple electrical quantities: voltage (volts AC and DC), current (amps AC and DC), and resistance (ohms) \u2014 replacing separate voltmeter, ammeter, and ohmmeter instruments.",
+        "analogy": "A multimeter is the Swiss Army knife of electrical test equipment \u2014 voltage meter, current meter, and ohmmeter all in one instrument, with a selector switch to choose which function you need.",
+        "unit": "Tools & Test Equipment"
+      },
+      "jeopardy": {
+        "question": "A multimeter measures these three electrical quantities in circuits, combining what were traditionally three separate instruments into one.",
+        "choices": [
+          "Frequency, power, and impedance",
+          "Capacitance, inductance, and impedance",
+          "Voltage, current, and resistance",
+          "Temperature, humidity, and pressure"
+        ],
+        "correctIndex": 2,
+        "explanation": "A multimeter combines voltmeter (voltage), ammeter (current), and ohmmeter (resistance) functions in one instrument \u2014 hence 'multi' (multiple) meter."
+      },
+      "multipleChoice": {
+        "question": "What are the three primary electrical quantities measured by a digital multimeter?",
+        "choices": [
+          "Frequency, power factor, and efficiency",
+          "Capacitance, inductance, and RF output",
+          "Impedance, reactance, and phase angle",
+          "Voltage, current, and resistance"
+        ],
+        "correctIndex": 3,
+        "explanation": "A multimeter's three primary measurements are voltage (V), current (A), and resistance (\u03a9). Modern DMMs often add capacitance, frequency, temperature, and diode test, but the three core functions are V, A, and \u03a9."
+      },
+      "practice": {
+        "question": "A new avionics apprentice is told to use a multimeter to diagnose an inoperative circuit. Which three basic measurements should they know how to take?",
+        "choices": [
+          "Voltage across components, current in series with the circuit, and resistance of wire segments",
+          "Frequency, waveform, and phase",
+          "Capacitance, inductance, and impedance",
+          "Signal-to-noise ratio, bit error rate, and frequency response"
+        ],
+        "correctIndex": 0,
+        "explanation": "The three essential multimeter measurements for circuit diagnosis: voltage (identify where voltage is present/absent), current (confirm correct current flow), and resistance (check continuity and component values)."
+      },
+      "preassessment": {
+        "question": "What three quantities does a multimeter measure?",
+        "choices": [
+          "Frequency, power, and impedance",
+          "Voltage, current, and resistance",
+          "Capacitance, inductance, and phase",
+          "Temperature, humidity, and pressure"
+        ],
+        "correctIndex": 1
+      }
+    }
+  ]
+}
