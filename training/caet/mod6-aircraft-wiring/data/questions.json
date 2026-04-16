@@ -291,7 +291,7 @@
         "explanation": "Strain relief transfers mechanical load away from the termination point. It does not affect electrical resistance. It adds a small amount of weight. It is not a drainage feature."
       },
       "multipleChoice": {
-        "question": "What is the main reason for using strain relief in aircraft wiring?",
+        "question": "At the point where a cable enters a connector, the backshell clamps the jacket to the housing. What failure mode does this clamping primarily prevent?",
         "choices": [
           "To improve the electrical resistance of the connection",
           "To prevent tension and bending loads from damaging the termination",
@@ -352,7 +352,7 @@
         "explanation": "Approved clamps at specified intervals are the correct method. Consumer-grade zip ties can fail under vibration, temperature extremes, or fluid exposure. Duct tape leaves residue, ages poorly, and is not airworthy. Staples would damage both the harness and the structure."
       },
       "multipleChoice": {
-        "question": "Which of the following is an ACCEPTABLE method for securing wire harnesses in aircraft?",
+        "question": "A technician needs to anchor a wire bundle to the airframe structure along its routing path. Which securing method is approved for that task?",
         "choices": [
           "Consumer-grade nylon zip ties purchased at a hardware store",
           "Approved aircraft cable clamps with cushion inserts",
@@ -413,7 +413,7 @@
         "explanation": "Environmental suitability is the driving factor. Wire insulation that cannot survive its installed temperature, fluid, or abrasion environment will fail prematurely. Color, cost, and availability are all secondary."
       },
       "multipleChoice": {
-        "question": "What is the primary consideration when choosing wire insulation for an aircraft installation?",
+        "question": "Selecting wire insulation for a new avionics run involves weighing several factors. Which one should drive the decision?",
         "choices": [
           "Suitability for the installation environment",
           "The color of the insulation jacket",
@@ -657,7 +657,7 @@
         "explanation": "Backshells are primarily mechanical and EMI features: strain relief, environmental sealing, shield termination, and cable exit-angle control. They are not identification markers, do not increase contact count, and while they may provide an EMI ground they are not an electrical backup ground."
       },
       "multipleChoice": {
-        "question": "Backshells are used on aircraft connectors PRIMARILY to provide:",
+        "question": "A connector's backshell serves multiple mechanical and electrical roles. Which set of functions is its main reason for existing?",
         "choices": [
           "A backup electrical ground path in case the primary ground fails",
           "A label surface for connector identification",
@@ -779,7 +779,7 @@
         "explanation": "Automotive connectors are not approved for aircraft avionics installations under any circumstance, including 'non-critical' signals. Temporary use followed by later replacement still violates the installation requirements and creates legal, safety, and documentation problems."
       },
       "multipleChoice": {
-        "question": "A new technician suggests using common automotive wire connectors for an avionics rack. How should you respond?",
+        "question": "A coworker proposes saving cost by installing automotive-grade disconnect connectors on an avionics tray. What is the right response?",
         "choices": [
           "Explain that automotive connectors lack the qualification",
           "Agree, because automotive connectors are cheaper and readily available",
@@ -962,7 +962,7 @@
         "explanation": "Tin/lead rosin-core solder (Sn63/Pb37) is the avionics standard. Acid-core solder is strictly for plumbing and would corrode electrical connections. Silver brazing and aluminum brazing are used in metal fabrication, not avionics wiring."
       },
       "multipleChoice": {
-        "question": "Which type of solder is typically used in avionics work?",
+        "question": "When making a wire-to-terminal solder joint during an avionics installation, which solder alloy and flux type are standard?",
         "choices": [
           "Acid-core plumbing solder",
           "Tin/lead rosin-core solder (typically Sn63/Pb37)",
@@ -1084,7 +1084,7 @@
         "explanation": "Sealed heat-shrink crimp splices are the aircraft standard for environmentally sensitive areas. Twist-and-tape, wire-nuts, and open splices admit moisture, fuel, and oil, leading to corrosion and intermittent connections. Wire-nuts are not acceptable on aircraft at all."
       },
       "multipleChoice": {
-        "question": "What type of wire splice is generally preferred for environmentally sensitive areas in an aircraft, such as near the engine or in a wheel well?",
+        "question": "Repairs made in engine bays, wheel wells, and other environmentally exposed areas should use which splice technology?",
         "choices": [
           "A twist-and-tape splice covered with electrical tape",
           "An environmentally sealed crimp splice with a heat-shrink adhesive jacket",
@@ -1145,7 +1145,7 @@
         "explanation": "Shielded wire exists primarily to control EMI. It does not meaningfully change current capacity (that is determined by the conductor gauge). It adds some mechanical mass but is not used for mechanical strength. It is not a backup power ground — the shield is typically a signal-ground reference, not a power return."
       },
       "multipleChoice": {
-        "question": "Shielded wire is used in avionics systems PRIMARILY to:",
+        "question": "Many avionics interconnects specify a grounded braided shield around the signal conductors. Why is that shield included?",
         "choices": [
           "Increase the wire's current-carrying capacity",
           "Improve the mechanical tensile strength of the cable",
@@ -1206,7 +1206,7 @@
         "explanation": "360-degree shield termination to the backshell or chassis provides uniform EMI coverage. Pigtails leave gaps in the electromagnetic envelope and create a series inductance that degrades high-frequency shielding. A floating shield provides essentially no EMI benefit. Connecting shield to a signal pin would short the shield to the signal — a major error."
       },
       "multipleChoice": {
-        "question": "Which guideline is commonly followed for shield termination to reduce EMI in avionics wiring?",
+        "question": "Modern avionics installation guidance specifies a particular shield-termination practice to minimize EMI coupling. Which practice is it?",
         "choices": [
           "Leave the shield floating and unterminated at both ends",
           "Terminate the shield with a 360-degree connection to the backshell or chassis",

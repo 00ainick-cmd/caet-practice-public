@@ -997,7 +997,7 @@
         "explanation": "All digital electronics ultimately store and process binary (base-2) data — each bit is a 0 or 1. Octal and hexadecimal are convenient human shorthand (base 8 and base 16 respectively) that map to groups of bits, but the underlying processing is always binary."
       },
       "multipleChoice": {
-        "question": "Which number system is the most essential for digital avionics data processing?",
+        "question": "At the lowest level, every digital avionics calculation reduces to manipulating bits. Which number system does that reduction use?",
         "choices": [
           "Decimal (base 10)",
           "Binary (base 2)",
@@ -1057,7 +1057,7 @@
         "explanation": "Word length is the total bit count of a single word — 32 bits for ARINC 429, 20 bits for MIL-STD-1553. Cable length, transmission time, and throughput are related but distinct concepts."
       },
       "multipleChoice": {
-        "question": "In the context of avionics data buses, what does the term 'word length' refer to?",
+        "question": "A databus specification lists a 'word length' value. What does that figure describe about each transmitted message?",
         "choices": [
           "The physical length of cable required for one bit of data",
           "The time in microseconds required to transmit a single bit",
@@ -1544,7 +1544,7 @@
         "explanation": "Strain relief transfers mechanical load away from the termination point. It does not affect electrical resistance. It adds a small amount of weight. It is not a drainage feature."
       },
       "multipleChoice": {
-        "question": "What is the main reason for using strain relief in aircraft wiring?",
+        "question": "At the point where a cable enters a connector, the backshell clamps the jacket to the housing. What failure mode does this clamping primarily prevent?",
         "choices": [
           "To improve the electrical resistance of the connection",
           "To prevent tension and bending loads from damaging the termination",
@@ -1605,7 +1605,7 @@
         "explanation": "Approved clamps at specified intervals are the correct method. Consumer-grade zip ties can fail under vibration, temperature extremes, or fluid exposure. Duct tape leaves residue, ages poorly, and is not airworthy. Staples would damage both the harness and the structure."
       },
       "multipleChoice": {
-        "question": "Which of the following is an ACCEPTABLE method for securing wire harnesses in aircraft?",
+        "question": "A technician needs to anchor a wire bundle to the airframe structure along its routing path. Which securing method is approved for that task?",
         "choices": [
           "Consumer-grade nylon zip ties purchased at a hardware store",
           "Approved aircraft cable clamps with cushion inserts",
@@ -1666,7 +1666,7 @@
         "explanation": "Environmental suitability is the driving factor. Wire insulation that cannot survive its installed temperature, fluid, or abrasion environment will fail prematurely. Color, cost, and availability are all secondary."
       },
       "multipleChoice": {
-        "question": "What is the primary consideration when choosing wire insulation for an aircraft installation?",
+        "question": "Selecting wire insulation for a new avionics run involves weighing several factors. Which one should drive the decision?",
         "choices": [
           "Suitability for the installation environment",
           "The color of the insulation jacket",
@@ -1910,7 +1910,7 @@
         "explanation": "Backshells are primarily mechanical and EMI features: strain relief, environmental sealing, shield termination, and cable exit-angle control. They are not identification markers, do not increase contact count, and while they may provide an EMI ground they are not an electrical backup ground."
       },
       "multipleChoice": {
-        "question": "Backshells are used on aircraft connectors PRIMARILY to provide:",
+        "question": "A connector's backshell serves multiple mechanical and electrical roles. Which set of functions is its main reason for existing?",
         "choices": [
           "A backup electrical ground path in case the primary ground fails",
           "A label surface for connector identification",
@@ -2032,7 +2032,7 @@
         "explanation": "Automotive connectors are not approved for aircraft avionics installations under any circumstance, including 'non-critical' signals. Temporary use followed by later replacement still violates the installation requirements and creates legal, safety, and documentation problems."
       },
       "multipleChoice": {
-        "question": "A new technician suggests using common automotive wire connectors for an avionics rack. How should you respond?",
+        "question": "A coworker proposes saving cost by installing automotive-grade disconnect connectors on an avionics tray. What is the right response?",
         "choices": [
           "Explain that automotive connectors lack the qualification",
           "Agree, because automotive connectors are cheaper and readily available",
@@ -2215,7 +2215,7 @@
         "explanation": "Tin/lead rosin-core solder (Sn63/Pb37) is the avionics standard. Acid-core solder is strictly for plumbing and would corrode electrical connections. Silver brazing and aluminum brazing are used in metal fabrication, not avionics wiring."
       },
       "multipleChoice": {
-        "question": "Which type of solder is typically used in avionics work?",
+        "question": "When making a wire-to-terminal solder joint during an avionics installation, which solder alloy and flux type are standard?",
         "choices": [
           "Acid-core plumbing solder",
           "Tin/lead rosin-core solder (typically Sn63/Pb37)",
@@ -2337,7 +2337,7 @@
         "explanation": "Sealed heat-shrink crimp splices are the aircraft standard for environmentally sensitive areas. Twist-and-tape, wire-nuts, and open splices admit moisture, fuel, and oil, leading to corrosion and intermittent connections. Wire-nuts are not acceptable on aircraft at all."
       },
       "multipleChoice": {
-        "question": "What type of wire splice is generally preferred for environmentally sensitive areas in an aircraft, such as near the engine or in a wheel well?",
+        "question": "Repairs made in engine bays, wheel wells, and other environmentally exposed areas should use which splice technology?",
         "choices": [
           "A twist-and-tape splice covered with electrical tape",
           "An environmentally sealed crimp splice with a heat-shrink adhesive jacket",
@@ -2398,7 +2398,7 @@
         "explanation": "Shielded wire exists primarily to control EMI. It does not meaningfully change current capacity (that is determined by the conductor gauge). It adds some mechanical mass but is not used for mechanical strength. It is not a backup power ground — the shield is typically a signal-ground reference, not a power return."
       },
       "multipleChoice": {
-        "question": "Shielded wire is used in avionics systems PRIMARILY to:",
+        "question": "Many avionics interconnects specify a grounded braided shield around the signal conductors. Why is that shield included?",
         "choices": [
           "Increase the wire's current-carrying capacity",
           "Improve the mechanical tensile strength of the cable",
@@ -2459,7 +2459,7 @@
         "explanation": "360-degree shield termination to the backshell or chassis provides uniform EMI coverage. Pigtails leave gaps in the electromagnetic envelope and create a series inductance that degrades high-frequency shielding. A floating shield provides essentially no EMI benefit. Connecting shield to a signal pin would short the shield to the signal — a major error."
       },
       "multipleChoice": {
-        "question": "Which guideline is commonly followed for shield termination to reduce EMI in avionics wiring?",
+        "question": "Modern avionics installation guidance specifies a particular shield-termination practice to minimize EMI coupling. Which practice is it?",
         "choices": [
           "Leave the shield floating and unterminated at both ends",
           "Terminate the shield with a 360-degree connection to the backshell or chassis",
@@ -2825,7 +2825,7 @@
         "explanation": "Mode C adds altitude reporting to the identification code Mode A already provides. Mode S is a more advanced standard that includes everything Mode C does plus unique addressing and data link; however, the specific mode that FIRST added altitude reporting to the basic ID function is Mode C."
       },
       "multipleChoice": {
-        "question": "Which transponder mode provides both aircraft identification and altitude reporting?",
+        "question": "Which transponder operating mode transmits encoded pressure altitude in addition to the assigned four-digit squawk code?",
         "choices": [
           "Mode A, which provides identification only",
           "No transponder mode provides altitude reporting",
@@ -2947,7 +2947,7 @@
         "explanation": "FAR 91.413 requires transponder test and inspection at least every 24 calendar months. Annual (12-month) and 36-month intervals are not the required cadence. Flight-hour intervals do not apply to this requirement."
       },
       "multipleChoice": {
-        "question": "According to FAR 91.413, how often must an aircraft transponder be tested and inspected?",
+        "question": "14 CFR 91.413 sets the recurring test interval for an installed ATC transponder. What is that interval?",
         "choices": [
           "At least every 12 calendar months",
           "At least every 36 calendar months",
@@ -3496,7 +3496,7 @@
         "explanation": "The Instrument Landing System (ILS) combines the localizer (horizontal, centered on the runway) with the glideslope (vertical descent guidance) for precision approaches. VOR and ADF provide bearing only, not vertical guidance. DME provides distance, not guidance."
       },
       "multipleChoice": {
-        "question": "Which system provides both vertical and horizontal guidance during landing?",
+        "question": "A precision approach combines a localizer signal with a glideslope signal. Which navigation system produces both of these together?",
         "choices": [
           "VOR — Very High Frequency Omni-directional Range",
           "ADF/NDB navigation",
@@ -3618,7 +3618,7 @@
         "explanation": "Mono audio sends the same signal to both ears — standard for voice traffic that does not benefit from stereo imaging. One-ear-only is not the definition of mono. Mono is not tied to AM broadcast. It remains current practice in GA audio panels."
       },
       "multipleChoice": {
-        "question": "In general-aviation aircraft audio systems, 'mono' audio is typically used for:",
+        "question": "An audio panel routes the same signal to both earpieces of the pilot's headset. In GA aircraft, what is this distribution approach called and when is it used?",
         "choices": [
           "Sending audio only to one earpiece of the headset",
           "Audio broadcast on AM frequencies only",
@@ -3679,7 +3679,7 @@
         "explanation": "The audio panel is a source-selection and routing device. It does not amplify transmit power (that is the radio's transmitter), convert power, or regulate pressurization."
       },
       "multipleChoice": {
-        "question": "What is the PRIMARY purpose of an audio control panel in an aircraft?",
+        "question": "During flight, a pilot switches between listening to COM1 and COM2 and controlling intercom audio. Which piece of panel equipment manages these functions?",
         "choices": [
           "To boost the transmit power of the VHF radio",
           "To select transmit and receive radios and route audio sources",
@@ -3740,7 +3740,7 @@
         "explanation": "Intermittent/noisy audio is typically a physical connection problem — grounding, connectors, shields, or jack contacts. Wrong frequency would produce no received audio at all, not noise. Headset type and source selection are secondary factors."
       },
       "multipleChoice": {
-        "question": "Intermittent or noisy audio in an aircraft communication system is OFTEN caused by:",
+        "question": "A pilot complains that receiver audio is scratchy and drops out unpredictably. Which fault category most often produces that symptom?",
         "choices": [
           "Poor or broken grounding, corroded connectors, broken cable",
           "The radio being tuned to the wrong frequency",
@@ -4106,7 +4106,7 @@
         "explanation": "Antenna inspection covers physical, mounting, and bonding aspects. Only checking the far-end connector misses the antenna itself. Antennas are replaced when inspection reveals damage, not on a fixed interval. Antennas do not have tunable transmit frequencies — they are passive radiators."
       },
       "multipleChoice": {
-        "question": "Regular inspection of aircraft communication antennas should include checking for:",
+        "question": "A routine comm-antenna check is being performed on an aircraft. Which items belong on that inspection list?",
         "choices": [
           "Only the connector at the avionics rack end of the coaxial cable",
           "Antenna frequency tuning",
@@ -4288,7 +4288,7 @@
         "explanation": "Appendix A classifies alterations as major based on the potential effect on airworthiness-related qualities, not labor, cost, or any-part replacement. Major alterations require approved data and documentation on Form 337."
       },
       "multipleChoice": {
-        "question": "According to 14 CFR Part 43 Appendix A, what is a major alteration?",
+        "question": "Part 43 Appendix A classifies certain changes to type-design items as a 'major alteration.' Which description fits that classification?",
         "choices": [
           "Any maintenance task requiring more than one technician",
           "Replacement of any part, regardless of its impact",
@@ -4473,7 +4473,7 @@
         "explanation": "Proper documentation includes the test date, maximum altitude (altimeter only), and the signature/certificate data of the person approving the return to service. Stickers alone are informational but do not satisfy the record-keeping requirement. Verbal confirmation and pilot-side logs do not substitute for the maintenance record entry."
       },
       "multipleChoice": {
-        "question": "How must an altimeter or transponder test be documented in the maintenance records?",
+        "question": "What entries must appear in the maintenance records after an altimeter or transponder performance test is completed?",
         "choices": [
           "By placing a sticker on the instrument panel",
           "Verbally to the pilot at aircraft pickup",
@@ -4534,7 +4534,7 @@
         "explanation": "The presence of an STC with a flight manual supplement strongly indicates a major alteration — the installation affects operating procedures or performance enough to warrant an AFM supplement. Approved data (the STC) is used, and Form 337 is typically required."
       },
       "multipleChoice": {
-        "question": "If a TSO part has an STC for installation and the STC includes a flight manual supplement, is that installation major or minor?",
+        "question": "A TSO-approved unit is installed per an STC, and the STC issues a flight manual supplement. How is this installation classified?",
         "choices": [
           "A minor alteration — only a logbook entry is required",
           "Preventive maintenance — a pilot may perform it",
@@ -4837,7 +4837,7 @@
         "explanation": "Part 145 places the responsibility on the repair station. The station's accepted procedures manual designates specific personnel for this responsibility. The FAA oversees; it does not maintain individual stations' technical data. Part manufacturers publish the data but do not ensure it is in use at a specific station."
       },
       "multipleChoice": {
-        "question": "Under 14 CFR Part 145, who is responsible for ensuring that current technical data is available and used during avionics maintenance?",
+        "question": "For a Part 145 repair station, which party bears responsibility for keeping current technical data on hand and in use during avionics work?",
         "choices": [
           "The repair station itself, through the designated",
           "The individual aircraft owner",
@@ -4898,7 +4898,7 @@
         "explanation": "The 8130-3 is an airworthiness-approval and traceability document for aircraft parts. It is not related to pilot flight reviews, aircraft registration, or sales invoicing (though the tag often accompanies sales of new or overhauled parts)."
       },
       "multipleChoice": {
-        "question": "What is the primary purpose of FAA Form 8130-3 (Airworthiness Approval Tag)?",
+        "question": "An avionics unit arrives at the shop with an FAA Form 8130-3 attached. What does that tag primarily certify about the unit?",
         "choices": [
           "To certify that new or overhauled aircraft parts conform",
           "To record a pilot's flight review completion",
@@ -4958,7 +4958,7 @@
         "explanation": "The Part 1 definition is specific: maintenance = inspection, overhaul, repair, preservation, and parts replacement — but NOT preventive maintenance, which is defined separately. General phrases like 'any activity' or 'any work by an A&P' are not the regulatory definition."
       },
       "multipleChoice": {
-        "question": "According to FAA regulations, what is the definition of 'maintenance'?",
+        "question": "In 14 CFR Part 1, how is the term 'maintenance' defined for regulatory purposes?",
         "choices": [
           "Any activity that keeps an aircraft operating",
           "Inspection, overhaul, repair, preservation, and parts replacement",
@@ -5019,7 +5019,7 @@
         "explanation": "Housekeeping addresses both safety and quality. Part 145 does include housekeeping-related requirements, and OSHA adds workplace safety requirements — the two are complementary, not alternatives. Visual appeal during inspections is a side effect, not the primary reason."
       },
       "multipleChoice": {
-        "question": "In a Part 145 general-aviation repair station, why is it crucial to keep walkways and work areas free of clutter?",
+        "question": "Part 145 shops enforce strict housekeeping of walkways and work areas. What does that housekeeping requirement primarily protect against?",
         "choices": [
           "For visual appeal during FAA audits only",
           "Clutter is not actually a concern in Part 145 shops",
@@ -5141,7 +5141,7 @@
         "explanation": "Calibration currency and traceability are the regulatory requirements. Familiarity, model age, or recent purchase do not substitute for verified calibration. Out-of-calibration equipment cannot be used for maintenance decisions."
       },
       "multipleChoice": {
-        "question": "Before using any specialized test equipment in a Part 145 environment, a technician must confirm:",
+        "question": "A technician pulls a piece of specialized test equipment from the shop's shared tool area in a Part 145 environment. What must be verified before the equipment can be used?",
         "choices": [
           "That the technician has previously used this specific piece of equipment",
           "That the equipment is the newest model available",
@@ -5448,7 +5448,7 @@
         "explanation": "Three pitot-static instruments: altimeter, VSI, and ASI — all use static pressure. Gyro-driven instruments (attitude, heading, turn coordinator) do not use static pressure."
       },
       "multipleChoice": {
-        "question": "Which flight instruments rely on the static port for accurate readings?",
+        "question": "A blocked static port simultaneously disables which group of flight instruments?",
         "choices": [
           "Altimeter only",
           "The attitude indicator, the heading indicator, and the turn coordinator",
@@ -5509,7 +5509,7 @@
         "explanation": "The pitot tube senses ram air (total) pressure, which the ASI uses. Static pressure is measured by the separate static port. Temperature and ice detection use different sensors."
       },
       "multipleChoice": {
-        "question": "What is the primary function of the pitot tube on an aircraft?",
+        "question": "As the aircraft moves through the air, what property does the pitot probe capture for use by the airspeed indicator?",
         "choices": [
           "To measure static atmospheric pressure",
           "To sense ram air pressure created by the aircraft's",
@@ -5570,7 +5570,7 @@
         "explanation": "The static system measures undisturbed ambient atmospheric pressure. Ram pressure comes from the pitot tube. Temperature and moisture use different sensors."
       },
       "multipleChoice": {
-        "question": "What does the static pressure system in an aircraft sense?",
+        "question": "What pressure does the static system measure to drive the altimeter, VSI, and airspeed-indicator reference?",
         "choices": [
           "The aircraft's forward-motion ram air pressure",
           "The outside air temperature",
@@ -5631,7 +5631,7 @@
         "explanation": "Consistently low ASI readings typically trace to physical issues in the pitot side of the system: partial blockage, leaks, or drain problems. Instrument miscalibration is possible but less common. Altimeter settings do not affect the ASI."
       },
       "multipleChoice": {
-        "question": "A pilot reports that the airspeed indicator consistently reads too low. Which is the most likely cause?",
+        "question": "Post-maintenance flight testing shows the airspeed indicator reading about 10 knots lower than GPS-derived speed every flight. Where should troubleshooting start?",
         "choices": [
           "The airspeed indicator itself is over-calibrated from the factory",
           "The aircraft is flying faster than its rated speed",
@@ -5753,7 +5753,7 @@
         "explanation": "The altimeter measures static atmospheric pressure and displays it as altitude. Ram pressure is used by the ASI. Attitude and heading are gyroscopic/magnetic instrument measurements."
       },
       "multipleChoice": {
-        "question": "What does an altimeter measure?",
+        "question": "An altimeter displays altitude to the pilot. What physical quantity is the instrument actually sensing to produce that readout?",
         "choices": [
           "Ram air pressure for the airspeed indicator",
           "Atmospheric (static) pressure",
@@ -5935,7 +5935,7 @@
         "explanation": "The attitude indicator (and often the heading indicator) in traditional GA is vacuum-driven. The ASI and altimeter are pressure instruments. The magnetic compass is passive — no power needed."
       },
       "multipleChoice": {
-        "question": "Which flight instrument is commonly powered by the aircraft's vacuum system in a traditional general-aviation aircraft?",
+        "question": "On a traditional GA instrument panel, the engine-driven vacuum pump keeps one particular gyroscopic indicator spinning. Which indicator?",
         "choices": [
           "Airspeed indicator",
           "Altimeter",
@@ -5996,7 +5996,7 @@
         "explanation": "Rigidity in space is the correct term. Precession is a related but different phenomenon (the response of a spinning gyro to an applied force). 'Angular momentum only when accelerating' is not a valid physical concept. Brownian motion is unrelated (random thermal motion)."
       },
       "multipleChoice": {
-        "question": "Which gyroscopic principle allows gyroscopic instruments to maintain a stable reference regardless of aircraft maneuvering?",
+        "question": "A spinning gyroscope holds the orientation of its axis steady even as the aircraft rolls and pitches around it. Which physical principle is responsible?",
         "choices": [
           "Rigidity in space",
           "Precession",
@@ -6301,7 +6301,7 @@
         "explanation": "Immediate re-trip indicates a persistent fault. Leave the breaker off and investigate. Resetting repeatedly, up-sizing, or bypassing are all dangerous and can damage wiring or start a fire."
       },
       "multipleChoice": {
-        "question": "The pitot heat circuit breaker pops immediately upon reset. Which is the MOST APPROPRIATE next step?",
+        "question": "A technician resets a popped pitot-heat circuit breaker and it trips again immediately. What is the correct next action?",
         "choices": [
           "Reset the breaker repeatedly until it finally holds",
           "Replace the circuit breaker with a larger-rated one",
@@ -6669,7 +6669,7 @@
         "explanation": "0 V with current flowing means zero resistance (shorted). 0 V with no current flowing can occur when an upstream break eliminates the current, leaving no voltage drop to measure. Either way, it merits investigation."
       },
       "multipleChoice": {
-        "question": "If you measure 0 V across a component in an active circuit, a possible cause is:",
+        "question": "A technician reads zero volts across a resistor that is supposed to be dropping voltage in an active circuit. What has most likely happened?",
         "choices": [
           "The circuit must be powered off",
           "The meter is damaged",
@@ -6974,7 +6974,7 @@
         "explanation": "Milliohmmeters measure very low resistances (milliohms). Insulation resistance is for meggers. Signal generation requires a function generator. Frequency measurement uses a counter or scope."
       },
       "multipleChoice": {
-        "question": "A milliohmmeter is primarily used to:",
+        "question": "Bonding-strap checks require resistance readings in the milliohm range. Which instrument is purpose-built for that measurement?",
         "choices": [
           "Measure very low resistances in the milliohm range",
           "Measure high-voltage insulation resistance",
@@ -7035,7 +7035,7 @@
         "explanation": "A center punch creates a pilot indentation for drilling. Nail driving uses a hammer. Continuity testing uses a meter. Burr removal uses a deburring tool or countersink."
       },
       "multipleChoice": {
-        "question": "What is the primary purpose of a center punch in an avionics repair shop?",
+        "question": "Before drilling a hole in a flat aluminum panel, a technician reaches for a center punch. What does the punch accomplish?",
         "choices": [
           "To drive nails into hardwood structures",
           "To test electrical continuity in circuits",
@@ -7096,7 +7096,7 @@
         "explanation": "Correct tip-to-screw match and full engagement distribute torque evenly. Longest driver is not a factor. Max torque is dangerous. Greasing the driver tip would just make it slip."
       },
       "multipleChoice": {
-        "question": "When using a manual screwdriver, what is the MOST important factor to consider to prevent damage to the screw head?",
+        "question": "A worn-out screw head often results from operator error rather than equipment failure. Which single practice prevents head damage most reliably?",
         "choices": [
           "Using the longest available screwdriver",
           "Matching the driver tip to the screw head exactly",
@@ -7157,7 +7157,7 @@
         "explanation": "A crimper compresses a terminal onto a wire. Cutting is done by cutters. Stripping is done by a stripper. Soldering uses a soldering iron."
       },
       "multipleChoice": {
-        "question": "What is the function of a wire crimper?",
+        "question": "A crimper is used during terminal installation. What does the tool actually do to the terminal and conductor?",
         "choices": [
           "To cut a wire to a specified length",
           "To compress a terminal onto the wire",
@@ -7340,7 +7340,7 @@
         "explanation": "Reading the SDS is the required first step. Smelling is dangerous (some chemicals are toxic at low exposure). Applying without precaution invites injury. Mixing chemicals can produce violent reactions."
       },
       "multipleChoice": {
-        "question": "When handling solvents and chemicals, which of the following is the MOST important first step for a new technician?",
+        "question": "A new technician is about to open an unfamiliar solvent container for the first time. What is the required first action?",
         "choices": [
           "Smell the chemical to identify what it is",
           "Read the Safety Data Sheet (SDS) to understand the hazards",
@@ -7462,7 +7462,7 @@
         "explanation": "Class A is ordinary combustibles; Class B is flammable liquids; Class C is energized electrical; Class K is cooking oils."
       },
       "multipleChoice": {
-        "question": "Class C fires are commonly associated with:",
+        "question": "NFPA fire classification groups fuels into lettered categories. What kind of material falls into Class C?",
         "choices": [
           "Energized electrical equipment",
           "Ordinary combustibles like wood, paper, and cloth",
@@ -7523,7 +7523,7 @@
         "explanation": "A proper readiness check covers multiple items. Surface-only or presence-only checks miss common failure modes — low pressure, missing pin, physical damage, expired inspection."
       },
       "multipleChoice": {
-        "question": "When checking a fire extinguisher's readiness in a GA avionics shop, a technician should verify:",
+        "question": "During a monthly fire-extinguisher inspection in a GA shop, which items must the technician verify?",
         "choices": [
           "Only the color of the cylinder",
           "Pressure gauge in the green zone, intact safety pin with tamper seal",
@@ -7645,7 +7645,7 @@
         "explanation": "Immediate retrieval is required. Delaying or ignoring creates a FOD hazard that can cause in-flight shorts, control jams, or equipment damage. Simply replacing the screw does not remove the dropped one."
       },
       "multipleChoice": {
-        "question": "During an avionics installation, a small screw is dropped behind a panel. What should be done immediately?",
+        "question": "Mid-installation, a fastener falls behind an access panel and disappears from view. What must the technician do?",
         "choices": [
           "Continue the installation and retrieve the screw later if convenient",
           "Simply replace the dropped screw with a new one and ignore the dropped one",
@@ -7766,7 +7766,7 @@
         "explanation": "Personnel RF exposure is a real health and safety concern — eyes and reproductive organs are particularly vulnerable. Fuel, paint, and Wi-Fi concerns are not primary shop-safety issues with RF systems."
       },
       "multipleChoice": {
-        "question": "When working on aircraft systems that emit radiofrequency (RF) signals, one of the biggest concerns is:",
+        "question": "Weather radar, transponders, and radio altimeters all radiate significant RF power. What is the primary safety concern when servicing them?",
         "choices": [
           "The aircraft running out of fuel during maintenance",
           "Personnel exposure to potentially harmful RF energy",
@@ -7827,7 +7827,7 @@
         "explanation": "A near-miss is a no-consequence warning event that had the potential for bad consequences. It is distinct from actual minor injuries and unrelated to customer service or tool misplacement."
       },
       "multipleChoice": {
-        "question": "Which of the following best describes a 'near-miss' in the context of shop safety?",
+        "question": "Shop-safety programs track events called 'near-misses.' Which description fits that term?",
         "choices": [
           "An unplanned event that did NOT result in injury",
           "Any minor injury that required first aid",
@@ -7888,7 +7888,7 @@
         "explanation": "Cut power FIRST. Touching a still-energized victim can kill the rescuer. Then call 911 and provide CPR/AED as needed. Water could conduct electricity if the source is still live; ignoring is never acceptable."
       },
       "multipleChoice": {
-        "question": "A technician encounters an electrical shock victim. What is the immediate, correct first aid response?",
+        "question": "On entering the shop, a technician finds a coworker collapsed beside an energized test bench, apparently having received a shock. What is the first action?",
         "choices": [
           "Immediately grab the victim to pull them away from the source",
           "Pour water on the victim to cool them down",
@@ -8072,7 +8072,7 @@
         "explanation": "Eye contact, safe zones, correct approach direction, staying low, and avoiding the tail rotor are all established safe-approach practices. Walking under, approaching from behind, or running through the disc area are all dangerous."
       },
       "multipleChoice": {
-        "question": "Which of the following best describes a safe practice around moving rotorcraft?",
+        "question": "A technician needs to approach an idling helicopter to speak with the pilot. Which approach practice keeps the technician safe?",
         "choices": [
           "Walk under the rotor disc regardless of rotor speed to save time",
           "Approach the helicopter from directly behind the tail",
@@ -9344,7 +9344,7 @@
         "explanation": "Ni-Cad batteries contain cadmium, a toxic heavy metal, so disposal must go through a hazardous-waste recycler per EPA and local regulations. Dumping, flushing, or crushing the battery are all environmentally illegal and physically dangerous."
       },
       "multipleChoice": {
-        "question": "Which of the following is the SAFE and legal procedure for disposing of a Ni-Cad battery?",
+        "question": "A shop needs to dispose of several spent Ni-Cad aircraft batteries. What is the correct and legal disposal pathway?",
         "choices": [
           "Deliver it to a certified hazardous-waste recycler",
           "Crush the battery and discard it as solid waste",
