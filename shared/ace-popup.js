@@ -25,16 +25,26 @@
 const AcePopup = (() => {
 
   /* ─── Comment pools ───────────────────────────────────────── */
+  // Topic-neutral comments — safe to fire on any module without referencing
+  // content the student isn't currently studying. Keep them short and Ace-flavored
+  // (crusty, no-nonsense 28-year avionics veteran).
   const COMMENTS_CORRECT = [
     "Nailed it.",
     "Exactly right.",
+    "Correct.",
+    "That's the one.",
+    "Spot on.",
+    "Yep. Keep going.",
+    "Good recall.",
+    "Right answer.",
+    "Affirmative.",
+    "Clean answer.",
+    "Locked in. Next.",
+    "You've got it.",
+    "Well-reasoned.",
     "Correct — keep that in your memory bank.",
-    "Spot on. You're building the right foundations.",
     "Perfect. Keep this momentum going.",
-    "Solid recall. The FAA would be pleased.",
-    "Right answer. Safety starts with knowing your regs cold.",
     "Excellent. That one catches a lot of techs off-guard.",
-    "Affirmative. That's exactly what you need for the exam.",
     "That's the one. Building good instincts."
   ];
 
@@ -44,11 +54,16 @@ const AcePopup = (() => {
     "Easy to mix up. Read the reasoning carefully.",
     "That one trips people up.",
     "Worth adding to your weak list.",
-    "These details matter in the field.",
-    "No worries — mistakes in drill mean mastery later.",
+    "Mistakes here mean mastery later.",
     "Close, but not quite. Review the explanation.",
     "Flag this one for extra review.",
-    "Good guess, wrong answer. Learn the logic."
+    "Good guess, wrong answer. Learn the logic.",
+    "Wrong. Now we know where you're weak. Useful.",
+    "Missed it. That's why we practice here and not on the exam.",
+    "Read the explanation — then come back stronger.",
+    "Not this time. The reasoning matters more than the answer.",
+    "Off the mark. Study the distractors — they tell you what you almost confused it with.",
+    "Wrong, but don't dwell. Next one."
   ];
 
   /* ─── Sprite → filename mapping ───────────────────────────── */
@@ -131,22 +146,20 @@ const AcePopup = (() => {
   /* ─── Resolve sprite path ──────────────────────────────────── */
   function getSpriteSrc(spriteName) {
     const file = SPRITE_FILES[spriteName] || SPRITE_FILES.happy;
-    // Walk up from the page to find shared/ace-sprites/ dynamically
-    // Check if there's a data-root attribute on <html>, else use common relative paths
+
+    // Explicit override via <html data-ace-root="...">
     const root = document.documentElement.dataset.aceRoot || '';
     if (root) return root + 'shared/ace-sprites/' + file;
 
-    // Auto-detect based on common path depths
-    const paths = [
-      'shared/ace-sprites/' + file,           // from root
-      '../shared/ace-sprites/' + file,        // 1 deep
-      '../../shared/ace-sprites/' + file,     // 2 deep
-      '../../../shared/ace-sprites/' + file,  // 3 deep
-      '../../../../shared/ace-sprites/' + file, // 4 deep
-    ];
-    // Return first path that "looks right" based on current URL depth
-    const depth = (window.location.pathname.match(/\//g) || []).length - 1;
-    return paths[Math.min(depth, paths.length - 1)];
+    // If the current page lives inside /shared/, sprites are a sibling dir.
+    // This is the case for drill.html, flashcards.html, jeopardy.html, etc.
+    const pathname = window.location.pathname || '';
+    if (pathname.indexOf('/shared/') !== -1) {
+      return './ace-sprites/' + file;
+    }
+
+    // Otherwise assume the page is at the site root (e.g. index.html).
+    return 'shared/ace-sprites/' + file;
   }
 
   /* ─── Show ─────────────────────────────────────────────────── */
