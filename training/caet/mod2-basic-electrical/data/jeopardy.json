@@ -34,42 +34,6 @@
         "explanation": "Applying the power formula, P = V × I = 28 volts × 25 amperes = 700 watts. The 53 W option incorrectly adds voltage and current; 1,400 W doubles one of the inputs."
       },
       {
-        "id": "CAT2-NEW-006",
-        "clue": "This is the electrical potential difference that drives current through a conductor.",
-        "choices": [
-          "Current",
-          "Voltage",
-          "Resistance",
-          "Power"
-        ],
-        "correctIndex": 1,
-        "explanation": "Voltage is the 'pressure' in an electrical system. Current describes the flow, resistance describes the opposition to flow, and power describes the rate at which energy is delivered."
-      },
-      {
-        "id": "CAT2-NEW-007",
-        "clue": "This electrical quantity describes the rate of charge flow and is measured in amperes.",
-        "choices": [
-          "Voltage",
-          "Current",
-          "Resistance",
-          "Capacitance"
-        ],
-        "correctIndex": 1,
-        "explanation": "Current is measured in amperes. Voltage is measured in volts, resistance in ohms, and capacitance in farads."
-      },
-      {
-        "id": "CAT2-NEW-008",
-        "clue": "Measured in ohms, this is a conductor's opposition to current flow.",
-        "choices": [
-          "Conductance",
-          "Voltage",
-          "Resistance",
-          "Reactance"
-        ],
-        "correctIndex": 2,
-        "explanation": "Resistance is the DC opposition to current flow. Reactance is the AC-specific opposition produced by capacitors or inductors. Conductance is the mathematical inverse of resistance."
-      },
-      {
         "id": "CAT2-NEW-009",
         "clue": "These are the SI units, in order, for voltage, current, and resistance.",
         "choices": [
@@ -128,78 +92,6 @@
         ],
         "correctIndex": 1,
         "explanation": "Applying R = V / I gives 28 V divided by 4 A = 7 Ω. The 0.14 Ω option inverts the fraction; 24 subtracts; 112 multiplies."
-      },
-      {
-        "id": "CAT2-NEW-014",
-        "clue": "A component with 20 V measured across it and 2 A measured through it dissipates this much power.",
-        "choices": [
-          "10 W",
-          "22 W",
-          "40 W",
-          "400 W"
-        ],
-        "correctIndex": 2,
-        "explanation": "Applying P = V × I gives 20 V × 2 A = 40 W. The 10 W option divides; 22 W adds; 400 W misplaces the decimal after multiplying."
-      },
-      {
-        "id": "CAT2-NEW-015",
-        "clue": "A 14 V bus supplying an avionics unit that draws 2 A delivers this much power to the unit.",
-        "choices": [
-          "7 W",
-          "16 W",
-          "28 W",
-          "98 W"
-        ],
-        "correctIndex": 2,
-        "explanation": "Applying P = V × I gives 14 V × 2 A = 28 W. The 7 W option divides; 16 W adds; 98 W results from confusing this with a product of voltage and an unrelated value."
-      },
-      {
-        "id": "CAT2-NEW-016",
-        "clue": "As a copper conductor heats up under heavy load, its resistance does this.",
-        "choices": [
-          "Decreases",
-          "Stays exactly the same",
-          "Increases",
-          "Becomes negative"
-        ],
-        "correctIndex": 2,
-        "explanation": "Copper and other metals have positive temperature coefficients, so resistance rises as temperature rises. Semiconductors behave oppositely, with resistance decreasing at higher temperatures."
-      },
-      {
-        "id": "CAT2-NEW-017",
-        "clue": "Compared to a 20-foot 20 AWG wire, a 20-foot 10 AWG wire has this property.",
-        "choices": [
-          "Higher resistance because it is thinner",
-          "Lower resistance because it is thicker",
-          "Identical resistance",
-          "Zero resistance"
-        ],
-        "correctIndex": 1,
-        "explanation": "The AWG numbering is inverted: a lower AWG number indicates a thicker wire with a larger cross-section and therefore less resistance. A 10 AWG wire has roughly one-tenth the resistance per foot of a 20 AWG wire."
-      },
-      {
-        "id": "CAT2-NEW-018",
-        "clue": "Of the common conductor metals, this one has the highest electrical conductivity.",
-        "choices": [
-          "Silver",
-          "Copper",
-          "Aluminum",
-          "Gold"
-        ],
-        "correctIndex": 0,
-        "explanation": "Silver has the highest conductivity of common metals, but its cost is too high for general wiring. Copper is a close second and dominates practical use. Gold has lower conductivity than copper and is used on contact surfaces for corrosion resistance rather than bulk conduction."
-      },
-      {
-        "id": "CAT2-NEW-020",
-        "clue": "This SI unit equals one volt multiplied by one ampere.",
-        "choices": [
-          "Joule",
-          "Watt",
-          "Ohm",
-          "Coulomb"
-        ],
-        "correctIndex": 1,
-        "explanation": "The watt is equivalent to one volt times one ampere. The joule is the SI unit of energy (watts times time). The ohm is the unit of resistance, and the coulomb is the unit of electrical charge."
       },
       {
         "id": "CAT2-NEW-021",
@@ -276,30 +168,6 @@
         "explanation": "Ideal single-phase AC appears as a sine wave. Square and triangle waves appear in digital and pulse circuits, and sawtooth waves are seen in sweep generators and CRT deflection circuits."
       },
       {
-        "id": "CAT2-NEW-039",
-        "clue": "For a sine-wave AC signal, the RMS voltage equals the peak voltage multiplied by this factor.",
-        "choices": [
-          "1.0 — they are equal",
-          "0.707 — the peak times the square root of 2 divided by 2",
-          "2.0 — RMS is double peak",
-          "1.414 — the peak times the square root of 2"
-        ],
-        "correctIndex": 1,
-        "explanation": "V_RMS = V_peak × 0.707. A signal with 115 V RMS has a peak of approximately 163 V. The 1.414 factor converts the other direction: V_peak = V_RMS × √2."
-      },
-      {
-        "id": "CAT2-NEW-040",
-        "clue": "This is the PRIMARY reason aircraft AC systems use 400 Hz rather than 50 or 60 Hz.",
-        "choices": [
-          "Reduced electrocution hazard",
-          "Smaller, lighter transformers and motors for the same power rating",
-          "Better propagation on VHF radios",
-          "Lower manufacturing cost of AC components"
-        ],
-        "correctIndex": 1,
-        "explanation": "The key reason is weight savings. At higher frequencies, magnetic cores can be much smaller for a given power. Over an entire aircraft's worth of AC-driven equipment, this represents a significant weight reduction. Note that electrocution risk actually increases slightly at higher frequencies."
-      },
-      {
         "id": "CAT2-NEW-041",
         "clue": "To verify a bench-tested AC alternator's output frequency, you would use this instrument.",
         "choices": [
@@ -326,18 +194,6 @@
         "explanation": "Applying the reciprocal formula: 1/Rt = 1/1000 + 1/2000 + 1/2000 = 4/2000, so Rt = 500 Ω. A sanity check confirms that any parallel total must be less than the smallest branch (1 kΩ). The 5 kΩ option applies the series formula, which is incorrect for parallel networks."
       },
       {
-        "id": "CAT2-NEW-023",
-        "clue": "In a series circuit, this quantity is identical everywhere in the loop.",
-        "choices": [
-          "Voltage across each component",
-          "Current at every point",
-          "Power dissipated by each component",
-          "Resistance of each component"
-        ],
-        "correctIndex": 1,
-        "explanation": "A series circuit has a single current path, so current is the same everywhere in the loop. Voltage divides across each component according to V = I × R. Powers differ per component based on each component's resistance. Resistances naturally differ from component to component."
-      },
-      {
         "id": "CAT2-NEW-024",
         "clue": "Three resistors (100 Ω, 200 Ω, and 300 Ω) connected in series produce this total resistance.",
         "choices": [
@@ -348,18 +204,6 @@
         ],
         "correctIndex": 2,
         "explanation": "Applying the series formula: Rt = 100 + 200 + 300 = 600 Ω. The 100 Ω option gives only the smallest branch; 300 Ω gives only the largest; 18,000 Ω would result from multiplying the three values together."
-      },
-      {
-        "id": "CAT2-NEW-025",
-        "clue": "In a parallel circuit, this quantity is identical across every branch.",
-        "choices": [
-          "Current through each branch",
-          "Voltage across each branch",
-          "Resistance of each branch",
-          "Power dissipated by each branch"
-        ],
-        "correctIndex": 1,
-        "explanation": "Parallel branches share their endpoints, so voltage is common to all branches. Current divides based on each branch's resistance, and resistance and dissipated power naturally vary by branch."
       },
       {
         "id": "CAT2-NEW-026",
@@ -374,18 +218,6 @@
         "explanation": "Kirchhoff's Current Law states that the current into a node equals the current leaving it. The source supplies the sum of the branch currents: 1 + 2 + 3 = 6 A."
       },
       {
-        "id": "CAT2-NEW-027",
-        "clue": "If one bulb burns out in a string of three bulbs wired in series, this is what happens to the other two bulbs.",
-        "choices": [
-          "They become brighter than before",
-          "They become dimmer but continue to work",
-          "They go out completely",
-          "They are unaffected and remain at normal brightness"
-        ],
-        "correctIndex": 2,
-        "explanation": "A series circuit has a single current path, so one open breaks the path for every component in the loop. This is the classic failure pattern seen in older Christmas lights wired in series."
-      },
-      {
         "id": "CAT2-NEW-028",
         "clue": "When an additional resistor is added in parallel to an existing parallel network, the total resistance does this.",
         "choices": [
@@ -396,18 +228,6 @@
         ],
         "correctIndex": 2,
         "explanation": "Adding a parallel branch always decreases total resistance. An added current path can never raise total opposition — it can only lower it or leave it effectively unchanged if the added branch is extremely high."
-      },
-      {
-        "id": "CAT2-NEW-029",
-        "clue": "A 12 V source feeds two series resistors (1 kΩ and 2 kΩ). Across the 2 kΩ resistor, this is the voltage that appears.",
-        "choices": [
-          "4 V",
-          "6 V",
-          "8 V",
-          "12 V"
-        ],
-        "correctIndex": 2,
-        "explanation": "Applying the voltage divider rule: V = 12 × (2 kΩ / 3 kΩ) = 12 × 2/3 = 8 V. The larger resistor drops the larger share of the source voltage."
       }
     ],
     "Components & Devices": [
@@ -422,30 +242,6 @@
         ],
         "correctIndex": 0,
         "explanation": "Capacitance is measured in farads. Inductance is measured in henries. Resistance is measured in ohms. Frequency is measured in hertz."
-      },
-      {
-        "id": "CAT2-NEW-045",
-        "clue": "In a DC power supply, this component smooths pulsating output from the rectifier into steadier DC.",
-        "choices": [
-          "Resistor",
-          "Capacitor",
-          "Diode",
-          "Transformer"
-        ],
-        "correctIndex": 1,
-        "explanation": "A filter capacitor placed across the rectifier output stores charge during the voltage peaks and releases it during the valleys, smoothing pulsating DC into steadier output. Resistors dissipate energy, diodes rectify AC, and transformers change AC voltage levels."
-      },
-      {
-        "id": "CAT2-NEW-046",
-        "clue": "This semiconductor component allows current to flow in one direction only.",
-        "choices": [
-          "Resistor",
-          "Capacitor",
-          "Diode",
-          "Transformer"
-        ],
-        "correctIndex": 2,
-        "explanation": "A diode is a one-way current device. Resistors conduct in both directions with loss. Capacitors pass AC but block DC. Transformers change AC voltage levels."
       }
     ],
     "Aircraft Power Systems": [
@@ -484,18 +280,6 @@
         ],
         "correctIndex": 1,
         "explanation": "The battery's main jobs are engine starting and emergency backup. Continuous in-flight power comes from the alternator or generator; the battery supplements only during starting or if the charging system fails."
-      },
-      {
-        "id": "CAT2-NEW-031",
-        "clue": "Compared to DC generators, modern aircraft alternators offer this key advantage.",
-        "choices": [
-          "Heavier construction that absorbs vibration better",
-          "Better DC output at low RPM, because diodes rectify the internally generated AC",
-          "Higher voltage ripple that improves charging",
-          "Daily carbon-brush inspection requirements"
-        ],
-        "correctIndex": 1,
-        "explanation": "Alternators produce usable output at low RPM, even at taxi or low-power cruise, because diode rectification does not depend on mechanical commutation. DC generators require higher RPM before they can maintain output."
       },
       {
         "id": "CAT2-NEW-032",
@@ -558,18 +342,6 @@
         "explanation": "Fuses and circuit breakers provide overcurrent protection, primarily for the wiring. Overheated wiring is a common cause of in-flight fires. Voltage regulation is the job of the regulator; energy storage is for batteries and capacitors; AC-to-DC conversion is done by rectifiers."
       },
       {
-        "id": "CAT2-NEW-043",
-        "clue": "This is the key operational difference between a fuse and a circuit breaker.",
-        "choices": [
-          "Fuses respond faster to overcurrent than circuit breakers",
-          "Fuses are one-time sacrificial elements, while circuit breakers mechanically trip and can be reset",
-          "Circuit breakers work only on AC circuits",
-          "Fuses are always more expensive than circuit breakers"
-        ],
-        "correctIndex": 1,
-        "explanation": "The one-time-use versus resettable distinction is the defining operational difference. Both provide overcurrent protection — the choice between them is about maintenance convenience, cost, and accessibility."
-      },
-      {
         "id": "CAT2-NEW-047",
         "clue": "An aircraft electrical bus is best described as this.",
         "choices": [
@@ -592,18 +364,6 @@
         ],
         "correctIndex": 1,
         "explanation": "'Parasitic' refers to current that should not be flowing. It is usually a clue to a stuck relay, a wiring mistake, or a leaky electronic module drawing from always-hot battery wiring."
-      },
-      {
-        "id": "CAT2-NEW-049",
-        "clue": "In a typical DC aircraft electrical system, this is the initial power source for engine starting.",
-        "choices": [
-          "The alternator",
-          "The battery",
-          "The voltage regulator",
-          "The AC bus"
-        ],
-        "correctIndex": 1,
-        "explanation": "The battery supplies the cranking current to the starter motor. The alternator is driven by the engine and cannot produce power until the engine is running."
       },
       {
         "id": "CAT2-NEW-050",
