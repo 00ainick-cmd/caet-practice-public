@@ -105,7 +105,13 @@
       top: 0;
       bottom: 0;
       width: 50%;
-      background: #0d1117;
+      background:
+        /* subtle hexagonal pattern overlay */
+        radial-gradient(circle at 25% 25%, rgba(34, 211, 238, 0.04) 2px, transparent 3px) 0 0 / 40px 40px,
+        radial-gradient(circle at 75% 75%, rgba(34, 211, 238, 0.03) 2px, transparent 3px) 0 0 / 40px 40px,
+        /* base slate-navy with vertical depth gradient */
+        linear-gradient(180deg, #1a2332 0%, #14202e 50%, #101a26 100%);
+      overflow: hidden;
       transition: transform 1.1s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
@@ -119,42 +125,211 @@
       transform: translateX(100%);
     }
 
-    .door-left::after {
+    /* Scan-line overlay on each door face (inside ::before of each door) */
+    .door-left::before,
+    .door-right::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent 0,
+        transparent 3px,
+        rgba(34, 211, 238, 0.045) 3px,
+        rgba(34, 211, 238, 0.045) 4px
+      );
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .hangar-doors-overlay.active .door-left::before,
+    .hangar-doors-overlay.active .door-right::after {
+      opacity: 1;
+      animation: scanlineSlide 4s linear infinite;
+    }
+
+    @keyframes scanlineSlide {
+      0%   { background-position: 0 0; }
+      100% { background-position: 0 40px; }
+    }
+
+    /* The rising-glow seam on the inside edge of each door */
+    .door-left > .seam-glow,
+    .door-right > .seam-glow {
       content: '';
       position: absolute;
       top: 0;
-      right: -3px;
       bottom: 0;
       width: 3px;
-      background: var(--accent);
-      box-shadow: 0 0 24px 4px var(--accent);
+      background: linear-gradient(180deg, #22d3ee 0%, #3b82f6 50%, #a78bfa 100%);
+      box-shadow:
+        0 0 24px 4px rgba(59, 130, 246, 0.85),
+        0 0 48px 12px rgba(167, 139, 250, 0.35);
+      transition: box-shadow 0.4s ease;
+      pointer-events: none;
     }
+    .door-left > .seam-glow { right: -3px; }
+    .door-right > .seam-glow { left: -3px; }
 
-    /* Closed state */
-    .hangar-doors-overlay.doors-closed .door-left {
-      transform: translateX(0);
-    }
-
+    /* Closed state — doors slide to center */
+    .hangar-doors-overlay.doors-closed .door-left,
     .hangar-doors-overlay.doors-closed .door-right {
       transform: translateX(0);
     }
 
-    /* Seam highlight when closed */
-    .door-right::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -3px;
-      bottom: 0;
-      width: 3px;
-      background: var(--accent);
-      box-shadow: 0 0 24px 4px var(--accent);
+    /* Seam highlight intensifies when closed */
+    .hangar-doors-overlay.doors-closed .door-left > .seam-glow,
+    .hangar-doors-overlay.doors-closed .door-right > .seam-glow {
+      box-shadow:
+        0 0 60px 8px rgba(59, 130, 246, 1),
+        0 0 120px 24px rgba(167, 139, 250, 0.6);
     }
 
-    /* Seam highlight when closed */
-    .hangar-doors-overlay.doors-closed .door-left::after,
-    .hangar-doors-overlay.doors-closed .door-right::before {
-      box-shadow: 0 0 40px 8px var(--accent);
+    /* CAET logo halves — anchored to inside edges of doors, clipped to each side */
+    .door-logo {
+      position: absolute;
+      top: 50%;
+      width: 280px;
+      height: 240px;
+      background: url('./logo.png') center/contain no-repeat;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.35s ease 0.35s, transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .door-logo-left {
+      right: 0;
+      transform: translate(50%, -50%) scale(0.94);
+      clip-path: inset(0 50% 0 0);
+    }
+
+    .door-logo-right {
+      left: 0;
+      transform: translate(-50%, -50%) scale(0.94);
+      clip-path: inset(0 0 0 50%);
+    }
+
+    /* When doors are closed, logo halves are visible + at full scale */
+    .hangar-doors-overlay.doors-closed .door-logo-left {
+      opacity: 1;
+      transform: translate(50%, -50%) scale(1);
+    }
+    .hangar-doors-overlay.doors-closed .door-logo-right {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    /* Scale-pulse at the moment of slam (via .slam-pulse class toggled in JS) */
+    .hangar-doors-overlay.slam-pulse .door-logo-left {
+      animation: logoSlamL 250ms ease-out;
+    }
+    .hangar-doors-overlay.slam-pulse .door-logo-right {
+      animation: logoSlamR 250ms ease-out;
+    }
+    @keyframes logoSlamL {
+      0%   { transform: translate(50%, -50%) scale(1); }
+      40%  { transform: translate(50%, -50%) scale(1.10); }
+      100% { transform: translate(50%, -50%) scale(1); }
+    }
+    @keyframes logoSlamR {
+      0%   { transform: translate(-50%, -50%) scale(1); }
+      40%  { transform: translate(-50%, -50%) scale(1.10); }
+      100% { transform: translate(-50%, -50%) scale(1); }
+    }
+
+    /* HUD corner brackets — L-shaped targeting reticle, one per viewport corner */
+    .hangar-corners {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+    .hangar-corner {
+      position: absolute;
+      width: 48px;
+      height: 48px;
+      opacity: 0;
+      transition: opacity 0.3s ease, transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .hangar-corner::before,
+    .hangar-corner::after {
+      content: '';
+      position: absolute;
+      background: #22d3ee;
+      box-shadow: 0 0 8px #22d3ee;
+    }
+    /* Horizontal bar of the L */
+    .hangar-corner::before { height: 2px; width: 100%; }
+    /* Vertical bar of the L */
+    .hangar-corner::after  { width: 2px; height: 100%; }
+
+    .hangar-corner.tl { top: 24px;    left: 24px;    transform: translate(-40px, -40px); }
+    .hangar-corner.tl::before { top: 0; left: 0; }
+    .hangar-corner.tl::after  { top: 0; left: 0; }
+
+    .hangar-corner.tr { top: 24px;    right: 24px;   transform: translate(40px, -40px); }
+    .hangar-corner.tr::before { top: 0; right: 0; }
+    .hangar-corner.tr::after  { top: 0; right: 0; }
+
+    .hangar-corner.bl { bottom: 24px; left: 24px;    transform: translate(-40px, 40px); }
+    .hangar-corner.bl::before { bottom: 0; left: 0; }
+    .hangar-corner.bl::after  { bottom: 0; left: 0; }
+
+    .hangar-corner.br { bottom: 24px; right: 24px;   transform: translate(40px, 40px); }
+    .hangar-corner.br::before { bottom: 0; right: 0; }
+    .hangar-corner.br::after  { bottom: 0; right: 0; }
+
+    /* Slide in with 80-120ms stagger when doors close */
+    .hangar-doors-overlay.doors-closed .hangar-corner { opacity: 1; transform: translate(0, 0); }
+    .hangar-doors-overlay.doors-closed .hangar-corner.tl { transition-delay: 0.08s; }
+    .hangar-doors-overlay.doors-closed .hangar-corner.tr { transition-delay: 0.16s; }
+    .hangar-doors-overlay.doors-closed .hangar-corner.bl { transition-delay: 0.24s; }
+    .hangar-doors-overlay.doors-closed .hangar-corner.br { transition-delay: 0.32s; }
+
+    /* Glitch-burst overlay — 150ms flash activated at slam moment */
+    .hangar-glitch {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0;
+      mix-blend-mode: screen;
+      background:
+        linear-gradient(90deg, rgba(239, 68, 68, 0.0) 0%, rgba(239, 68, 68, 0.18) 50%, rgba(239, 68, 68, 0.0) 100%),
+        linear-gradient(-90deg, rgba(34, 211, 238, 0.0) 0%, rgba(34, 211, 238, 0.18) 50%, rgba(34, 211, 238, 0.0) 100%);
+    }
+    .hangar-doors-overlay.glitch-active .hangar-glitch {
+      animation: glitchBurst 150ms ease-out;
+    }
+    @keyframes glitchBurst {
+      0%   { opacity: 0; transform: translateX(0); filter: hue-rotate(0deg); }
+      30%  { opacity: 1; transform: translateX(-4px); filter: hue-rotate(80deg); }
+      60%  { opacity: 0.7; transform: translateX(4px); filter: hue-rotate(-60deg); }
+      100% { opacity: 0; transform: translateX(0); filter: hue-rotate(0deg); }
+    }
+
+    /* Boot-up scan — thin gradient line sweeps down after doors retract */
+    .hangar-bootscan {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      height: 2px;
+      pointer-events: none;
+      opacity: 0;
+      background: linear-gradient(90deg,
+        rgba(34, 211, 238, 0.0) 0%,
+        rgba(34, 211, 238, 0.9) 50%,
+        rgba(34, 211, 238, 0.0) 100%);
+      box-shadow: 0 0 12px 2px rgba(34, 211, 238, 0.6);
+    }
+    .hangar-doors-overlay.scan-active .hangar-bootscan {
+      animation: bootScan 600ms ease-out forwards;
+    }
+    @keyframes bootScan {
+      0%   { top: 0; opacity: 0; }
+      15%  { opacity: 1; }
+      85%  { opacity: 1; }
+      100% { top: 100%; opacity: 0; }
     }
 
     /* ===================== TOPBAR ===================== */
@@ -2313,9 +2488,23 @@
   <div class="achievement-popup" id="achievementPopup"></div>
 
   <!-- Hangar Doors Overlay -->
-  <div class="hangar-doors-overlay" id="hangarDoorsOverlay">
-    <div class="door-left"></div>
-    <div class="door-right"></div>
+  <div class="hangar-doors-overlay" id="hangarDoorsOverlay" aria-hidden="true">
+    <div class="door-left">
+      <span class="seam-glow"></span>
+      <div class="door-logo door-logo-left"></div>
+    </div>
+    <div class="door-right">
+      <span class="seam-glow"></span>
+      <div class="door-logo door-logo-right"></div>
+    </div>
+    <div class="hangar-corners">
+      <div class="hangar-corner tl"></div>
+      <div class="hangar-corner tr"></div>
+      <div class="hangar-corner bl"></div>
+      <div class="hangar-corner br"></div>
+    </div>
+    <div class="hangar-glitch"></div>
+    <div class="hangar-bootscan"></div>
   </div>
 
   <!-- Topbar -->
