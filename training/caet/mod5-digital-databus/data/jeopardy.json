@@ -58,32 +58,6 @@
         "explanation": "ARINC 429 is the dominant digital databus in civilian aviation. MIL-STD-1553 is widely used in military applications. CAN bus is common in automotive and some UAV systems. IEEE 1394 (FireWire) is seldom used in aviation."
       }
     ],
-    "ARINC 429 Protocol": [
-      {
-        "id": "CAT5-NEW-004",
-        "clue": "This is the total bit length of a single ARINC 429 data word.",
-        "choices": [
-          "8 bits",
-          "16 bits",
-          "20 bits",
-          "32 bits"
-        ],
-        "correctIndex": 3,
-        "explanation": "Each ARINC 429 word is exactly 32 bits long. 8 bits is the size of the label field within the word. 16 bits is a common microprocessor word size but not the ARINC 429 word length. 20 bits is the word length of MIL-STD-1553."
-      },
-      {
-        "id": "CAT5-NEW-005",
-        "clue": "In an ARINC 429 word, this 8-bit field identifies the type of data carried and is typically expressed in octal.",
-        "choices": [
-          "Parity",
-          "Sign/status matrix (SSM)",
-          "Label",
-          "Source/destination identifier (SDI)"
-        ],
-        "correctIndex": 2,
-        "explanation": "The 8-bit label field identifies the data type (e.g., 203 octal for altitude). Parity is 1 bit and verifies word integrity. The SSM is a 2-bit sign/status code. The SDI is a 2-bit identifier indicating which of up to four sources sent the data."
-      }
-    ],
     "MIL-STD-1553": [
       {
         "id": "CAT5-NEW-011",
@@ -108,30 +82,6 @@
         ],
         "correctIndex": 0,
         "explanation": "The bus controller initiates every transaction on the bus — issuing commands, scheduling messages, and routing data. Passive monitoring describes a bus monitor (BM), a separate role. The BC does not supply power or perform A/D conversion."
-      },
-      {
-        "id": "CAT5-NEW-013",
-        "clue": "This is the standard data rate of the MIL-STD-1553B databus.",
-        "choices": [
-          "12 kbps",
-          "100 kbps",
-          "1 Mbps",
-          "10 Mbps"
-        ],
-        "correctIndex": 2,
-        "explanation": "MIL-STD-1553B runs at 1 megabit per second. 12 kbps and 100 kbps are the ARINC 429 low- and high-speed rates. 10 Mbps is beyond any 1553 specification."
-      },
-      {
-        "id": "CAT5-NEW-014",
-        "clue": "This is the line encoding scheme used by MIL-STD-1553.",
-        "choices": [
-          "Manchester II biphase",
-          "Non-return-to-zero (NRZ)",
-          "Bipolar return-to-zero (BPRZ)",
-          "Pulse-width modulation (PWM)"
-        ],
-        "correctIndex": 0,
-        "explanation": "MIL-STD-1553 uses Manchester II biphase encoding — each bit has a mid-bit transition that makes the signal self-clocking. NRZ is used by RS-232. BPRZ (with a zero-volt null) is used by ARINC 429. PWM is not a standard databus encoding."
       },
       {
         "id": "CAT5-NEW-015",
@@ -256,18 +206,6 @@
         ],
         "correctIndex": 2,
         "explanation": "BITE stands for Built-In Test Equipment. BITS is not a standard avionics acronym. BIST (Built-In Self-Test) is a related semiconductor-design term. BIT (Built-In Test) is the test itself; BITE is the equipment that performs the test."
-      },
-      {
-        "id": "CAT5-NEW-023",
-        "clue": "This is the appropriate way to use BITE messages during avionics troubleshooting.",
-        "choices": [
-          "Automatically replace any component that reports a BITE fault",
-          "Ignore BITE messages entirely — they are always false positives",
-          "Treat BITE messages as a diagnostic starting point and confirm with additional testing before replacing parts",
-          "Delete the BITE log so maintenance personnel see only the current state"
-        ],
-        "correctIndex": 2,
-        "explanation": "BITE is most useful as a starting point for investigation, not as an automatic replacement trigger. Always confirm through inspection, test equipment, or cross-checks before replacing components. Deleting BITE logs destroys diagnostic history and violates maintenance recordkeeping practices."
       }
     ],
     "Bus Troubleshooting": [
