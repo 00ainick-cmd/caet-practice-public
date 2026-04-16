@@ -38,45 +38,45 @@
       "jeopardy": {
         "question": "This is the most important consideration when routing aircraft wiring.",
         "choices": [
-          "Using the shortest possible cable length",
           "Protecting the harness from chafing, abrasion, heat, fluids, and moving parts",
+          "Using the shortest possible cable length",
           "Making the harness visible for easy inspection",
           "Color-coordinating the harness with nearby structures"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanation": "Physical protection is the driving consideration. Short length, visibility, and appearance are secondary to keeping the harness safe from mechanical and environmental damage. Chafing on a metal edge can destroy insulation in a few flight hours."
       },
       "multipleChoice": {
         "question": "What is the MOST important consideration when routing aircraft wiring?",
         "choices": [
-          "Using the shortest possible cable length to save weight",
           "Protecting the harness from chafing, abrasion, heat, fluids, and moving parts",
+          "Using the shortest possible cable length to save weight",
           "Making the harness visible at all points for easy inspection",
           "Matching the harness color to the nearby airframe structure"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanation": "The primary consideration is protection against physical and environmental damage. Routing decisions should first ensure the harness is safe from chafing against edges, abrasion from moving parts, heat from engines or exhausts, and contact with fluids. Length, visibility, and cosmetics are secondary."
       },
       "practice": {
         "question": "A technician is planning the route for a new avionics harness. Two paths are available: a shorter path that runs along a sharp airframe edge behind the panel, and a longer path that follows an existing protected conduit. Which path is preferred, and why?",
         "choices": [
-          "The shorter path, because shorter cables always perform better electrically",
           "The longer path through the protected conduit, because protecting the harness from physical damage takes priority over minimizing length",
+          "The shorter path, because shorter cables always perform better electrically",
           "Either path is acceptable, provided both ends land correctly",
           "The shorter path, provided the sharp edge is covered with tape"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanation": "Protection takes priority over length. Tape is not an acceptable long-term solution for a sharp edge; even edge guards can wear through. The protected conduit route is the proper choice despite being longer. Cable length differences of a few feet rarely affect electrical performance in aircraft wiring."
       },
       "preassessment": {
         "question": "What is the most important consideration for aircraft wire routing?",
         "choices": [
+          "Protection from chafing",
           "Shortest cable length",
-          "Protection from chafing, abrasion, heat, fluids, and moving parts",
           "Visibility for inspection",
           "Color coordination"
         ],
-        "correctIndex": 1
+        "correctIndex": 0
       }
     },
     {
@@ -111,7 +111,7 @@
         "question": "During an aircraft inspection, a technician finds a wire bundle damaged from rubbing against a metal edge. What is the correct corrective action?",
         "choices": [
           "Wrap electrical tape around the damaged area and return the aircraft to service",
-          "Inspect each wire for damage, repair or replace damaged conductors, and correct the routing or protect the edge to prevent recurrence",
+          "Inspect and repair damaged wires, then correct the routing or protect the edge",
           "Ignore the damage if the circuit still operates normally",
           "Cut out the damaged section and splice in a new piece of wire without addressing the routing"
         ],
@@ -133,7 +133,7 @@
         "question": "What should be done when a wire bundle is found chafed against a metal edge?",
         "choices": [
           "Wrap with tape and continue",
-          "Inspect/repair damaged wires AND correct the routing or protect the edge",
+          "Inspect/repair damaged wires AND correct",
           "Ignore if the circuit still works",
           "Splice without rerouting"
         ],
@@ -172,7 +172,7 @@
         "question": "A wire bundle is being routed near moving flight controls. Which is the best practice to prevent chafing?",
         "choices": [
           "Allow the bundle to hang loosely so it can move out of the way",
-          "Provide adequate clearance through the full range of control motion, secure the bundle at approved intervals, and add protective sleeving where clearance is tight",
+          "Provide adequate clearance through the full range of control motion",
           "Tape the bundle directly to the moving flight control surface",
           "Coil excess wire length near the control for flexibility"
         ],
@@ -194,7 +194,7 @@
         "question": "What is the best practice for routing wire bundles near moving flight controls?",
         "choices": [
           "Let the bundle hang loose",
-          "Provide full-travel clearance, secure properly, add protective sleeving where needed",
+          "Provide full-travel clearance",
           "Tape the bundle to the moving surface",
           "Coil excess wire nearby"
         ],
@@ -221,45 +221,45 @@
       "jeopardy": {
         "question": "This is the primary purpose of a service loop in an aircraft wire harness.",
         "choices": [
-          "To reduce the total weight of the harness",
           "To provide extra wire length at terminations so future repairs can be made without rebuilding the entire harness",
+          "To reduce the total weight of the harness",
           "To improve signal strength through a longer conductor",
           "To serve as an antenna for RF signals"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanation": "A service loop provides reusable length for future terminations. It does not reduce weight (it adds a little), does not improve signal strength, and is not designed as an antenna."
       },
       "multipleChoice": {
         "question": "What is the purpose of a service loop in an aircraft wire harness?",
         "choices": [
+          "To provide extra wire length at terminations so future pin",
           "To reduce the total weight of the harness",
-          "To provide extra wire length at terminations so future pin replacements or re-terminations can be made without rebuilding the entire harness",
           "To increase the harness's electrical conductivity",
           "To act as a radio-frequency antenna for the aircraft"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanation": "Service loops allow future re-termination without a full harness rebuild. If a pin is damaged, a crimp fails, or a connector is replaced, the extra length in the service loop provides material for a new termination. It does not reduce weight (it slightly adds) and does not function as an antenna."
       },
       "practice": {
         "question": "A technician is fabricating a new harness from an approved wiring diagram. The diagram shows a 6-inch 'service loop' at each connector end. Why is this specified, and how should it be installed?",
         "choices": [
-          "The 6-inch extra length is a mistake in the diagram and should be trimmed off",
           "The service loop is intentional extra length for future re-termination; the harness should be fabricated with that loop present and neatly secured, not trimmed to the minimum needed length",
+          "The 6-inch extra length is a mistake in the diagram and should be trimmed off",
           "The service loop is only used during testing and should be removed before installation",
           "The service loop should be doubled to 12 inches to provide more safety margin"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanation": "Service loops are specified deliberately. Trimming them defeats the purpose and makes future repairs far more expensive. Doubling them beyond the specified length adds weight and bulk without benefit. The proper practice is to fabricate to the specification, with the service loop neatly secured near the connector."
       },
       "preassessment": {
         "question": "What is the purpose of a service loop in an aircraft wire harness?",
         "choices": [
+          "Extra length at",
           "Weight reduction",
-          "Extra length at terminations for future re-terminations",
           "Better conductivity",
           "To serve as an antenna"
         ],
-        "correctIndex": 1
+        "correctIndex": 0
       }
     },
     {
@@ -294,7 +294,7 @@
         "question": "What is the main reason for using strain relief in aircraft wiring?",
         "choices": [
           "To improve the electrical resistance of the connection",
-          "To prevent tension, vibration, and bending loads from damaging the termination or fatiguing the conductor at the connector",
+          "To prevent tension and bending loads from damaging the termination",
           "To reduce the overall weight of the harness",
           "To provide a path for moisture drainage"
         ],
@@ -316,7 +316,7 @@
         "question": "What is the purpose of strain relief in aircraft wiring?",
         "choices": [
           "Improve resistance",
-          "Prevent tension and bending loads from damaging terminations",
+          "Prevent tension from damaging terminations",
           "Reduce weight",
           "Drain moisture"
         ],
@@ -355,7 +355,7 @@
         "question": "Which of the following is an ACCEPTABLE method for securing wire harnesses in aircraft?",
         "choices": [
           "Consumer-grade nylon zip ties purchased at a hardware store",
-          "Approved aircraft cable clamps with cushion inserts, installed at intervals specified in the applicable maintenance manual",
+          "Approved aircraft cable clamps with cushion inserts",
           "Duct tape wrapped around each support point",
           "Steel staples driven into the airframe structure"
         ],
@@ -377,7 +377,7 @@
         "question": "Which is an ACCEPTABLE method for securing aircraft wire harnesses?",
         "choices": [
           "Consumer-grade zip ties",
-          "Approved aircraft cable clamps at manual-specified intervals",
+          "Approved aircraft cable",
           "Duct tape",
           "Steel staples"
         ],
@@ -404,45 +404,45 @@
       "jeopardy": {
         "question": "This is the primary consideration when choosing wire insulation for an aircraft installation.",
         "choices": [
-          "The color of the insulation",
           "Suitability for the installation environment — temperature range, fluid exposure, flame resistance, and abrasion resistance",
+          "The color of the insulation",
           "The cost per foot",
           "Availability from a local supplier"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanation": "Environmental suitability is the driving factor. Wire insulation that cannot survive its installed temperature, fluid, or abrasion environment will fail prematurely. Color, cost, and availability are all secondary."
       },
       "multipleChoice": {
         "question": "What is the primary consideration when choosing wire insulation for an aircraft installation?",
         "choices": [
+          "Suitability for the installation environment",
           "The color of the insulation jacket",
-          "Suitability for the installation environment: temperature range, fluid exposure, flame resistance, and abrasion resistance",
           "The cost per foot of the wire",
           "Local supplier availability"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanation": "Environmental suitability drives insulation selection. A wire installed near the engine needs high-temperature insulation; a wire installed in a fluid-prone area needs chemical-resistant insulation. Color, cost, and availability are all secondary factors that cannot compensate for an environmentally inappropriate choice."
       },
       "practice": {
         "question": "A technician is specifying wire for a new sensor that will be installed in an engine compartment where temperatures routinely reach 150°C. Which consideration drives the wire insulation selection?",
         "choices": [
-          "Matching the existing harness color",
           "Selecting insulation rated for continuous operation at or above 150°C, with suitable fluid and flame resistance",
+          "Matching the existing harness color",
           "Choosing the cheapest wire available",
           "Choosing whatever the technician's local supplier has in stock"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanation": "The environment dictates the material. A sensor wire in an engine compartment at 150°C needs insulation rated for that temperature (commonly Teflon-based insulations like TFE/PTFE for this range), along with suitable fluid and flame resistance. Color matching, cost, and local availability are irrelevant if the wire cannot survive the environment."
       },
       "preassessment": {
         "question": "What is the primary consideration when selecting aircraft wire insulation?",
         "choices": [
+          "Suitability for",
           "Color",
-          "Suitability for environment (temp, fluids, flame, abrasion)",
           "Cost per foot",
           "Local availability"
         ],
-        "correctIndex": 1
+        "correctIndex": 0
       }
     },
     {
@@ -477,7 +477,7 @@
         "question": "Which type of wire is typically used in high-temperature areas of an aircraft, such as near the engine?",
         "choices": [
           "PVC-insulated consumer-grade wire",
-          "Teflon-based insulation such as PTFE, FEP, or ETFE (Tefzel)",
+          "Teflon-based insulation such as PTFE",
           "Standard rubber-insulated household wire",
           "Bare uninsulated copper conductor"
         ],
@@ -499,7 +499,7 @@
         "question": "What wire insulation is used in high-temperature aircraft areas?",
         "choices": [
           "PVC",
-          "Teflon-based (PTFE, FEP, ETFE/Tefzel)",
+          "Teflon-based",
           "Rubber",
           "None needed"
         ],
@@ -527,44 +527,44 @@
         "question": "In aircraft wiring, this is what the term 'gauge' refers to.",
         "choices": [
           "The wire's operating temperature rating",
-          "The physical size of the wire's conductor, as defined by the American Wire Gauge (AWG) system",
           "The voltage rating of the insulation",
-          "The flame-resistance category of the insulation"
+          "The flame-resistance category of the insulation",
+          "The physical size of the wire's conductor, as defined by the American Wire Gauge (AWG) system"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanation": "Wire gauge describes conductor physical size (and by extension, resistance per foot and current-carrying capacity). Temperature rating, voltage rating, and flame resistance are separate properties — also important, but not what 'gauge' refers to."
       },
       "multipleChoice": {
         "question": "In aircraft wiring, what does the term 'gauge' refer to?",
         "choices": [
           "The wire's operating temperature rating",
-          "The physical size of the conductor, defined by the American Wire Gauge (AWG) numbering system",
           "The voltage rating of the insulation",
-          "The flame-resistance category of the insulation"
+          "The flame-resistance category of the insulation",
+          "The physical size of the conductor, defined by the American"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanation": "Gauge refers to conductor physical size under the AWG system, where a smaller number means a thicker wire. Temperature, voltage, and flame resistance are separate properties of the wire specification that must be considered alongside gauge but are not synonymous with it."
       },
       "practice": {
         "question": "A technician sees two wires in a harness marked '10 AWG' and '20 AWG' respectively. Which statement accurately compares them?",
         "choices": [
           "The 20 AWG wire is physically larger and has higher current capacity",
-          "The 10 AWG wire is physically larger, has lower resistance per foot, and has higher current-carrying capacity than the 20 AWG wire",
           "The two gauges indicate identical physical sizes, only different insulation types",
-          "The 20 AWG wire is always used for high-current applications"
+          "The 20 AWG wire is always used for high-current applications",
+          "The 10 AWG wire is physically larger, has lower resistance per foot, and has higher current-carrying capacity than the 20 AWG wire"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanation": "Smaller AWG number means thicker wire. A 10 AWG conductor is roughly ten times the cross-sectional area of 20 AWG, has about one-tenth the resistance per foot, and can safely carry much more current. This inverse relationship is a core property of the AWG system and a frequent source of confusion for new technicians."
       },
       "preassessment": {
         "question": "In aircraft wiring, what does 'gauge' refer to?",
         "choices": [
           "Temperature rating",
-          "Conductor physical size (AWG)",
           "Insulation voltage rating",
-          "Flame resistance class"
+          "Flame resistance class",
+          "Conductor physical size (AWG)"
         ],
-        "correctIndex": 1
+        "correctIndex": 3
       }
     },
     {
@@ -587,45 +587,45 @@
       "jeopardy": {
         "question": "This is the primary function of a connector in an aircraft wiring system.",
         "choices": [
-          "To increase the voltage traveling through the harness",
           "To provide a mating interface allowing the harness to be disconnected from and reconnected to equipment without cutting or splicing the wiring",
+          "To increase the voltage traveling through the harness",
           "To convert AC to DC",
           "To act as a circuit breaker during faults"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanation": "Connectors provide a maintainable mating interface. They do not change voltage, convert AC to DC, or act as circuit protection — those are separate components."
       },
       "multipleChoice": {
         "question": "What is the primary function of a connector in an aircraft wiring system?",
         "choices": [
+          "To provide a mating electrical and mechanical interface that allows the harness",
           "To increase the voltage delivered through the harness",
-          "To provide a mating electrical and mechanical interface that allows the harness to be disconnected and reconnected without cutting or splicing wires",
           "To convert AC signals to DC",
           "To function as a circuit breaker during overcurrent conditions"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanation": "Connectors enable maintainable equipment installation by providing a clean mating interface. This allows LRU swaps, maintenance disconnects, and modular harness assembly without altering the wiring itself. They do not change voltage, perform signal conversion, or provide circuit protection."
       },
       "practice": {
         "question": "An avionics LRU (line-replaceable unit) is being removed for overhaul. A technician disconnects the unit from its harness at the connector on the unit's back, pulls the unit out, and sets it aside for shipment. What role did the connector play?",
         "choices": [
-          "It powered the LRU during disconnection",
           "It provided the mating interface that let the LRU be removed without cutting any wires, preserving the harness for reinstallation of a replacement unit",
+          "It powered the LRU during disconnection",
           "It converted the LRU's internal voltage for shipment",
           "It acted as a master circuit breaker during the disconnect"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanation": "The connector is what makes LRU replacement practical. Without connectors, every LRU change would require cutting the harness and splicing new wires — a much more expensive and failure-prone process. Connectors do not perform power conversion, voltage change, or circuit protection."
       },
       "preassessment": {
         "question": "What is the function of an aircraft connector?",
         "choices": [
+          "Provide a mating interface for maintainable connections",
           "Increase voltage",
-          "Provide a mating interface for disconnection and reconnection without splicing",
           "Convert AC to DC",
           "Act as a circuit breaker"
         ],
-        "correctIndex": 1
+        "correctIndex": 0
       }
     },
     {
@@ -649,44 +649,44 @@
         "question": "This is the primary purpose of a backshell on an aircraft connector.",
         "choices": [
           "To serve as a backup electrical ground path",
-          "To provide cable strain relief, environmental sealing, shield termination, and controlled cable exit angle",
           "To display the connector's part number for identification",
-          "To increase the connector's contact density"
+          "To increase the connector's contact density",
+          "To provide cable strain relief, environmental sealing, shield termination, and controlled cable exit angle"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanation": "Backshells are primarily mechanical and EMI features: strain relief, environmental sealing, shield termination, and cable exit-angle control. They are not identification markers, do not increase contact count, and while they may provide an EMI ground they are not an electrical backup ground."
       },
       "multipleChoice": {
         "question": "Backshells are used on aircraft connectors PRIMARILY to provide:",
         "choices": [
           "A backup electrical ground path in case the primary ground fails",
-          "Strain relief for the cable, environmental sealing, shield termination, and controlled cable exit angle",
           "A label surface for connector identification",
-          "Additional contact density within the connector"
+          "Additional contact density within the connector",
+          "Strain relief, environmental sealing, and 360-degree shield termination"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanation": "Backshells serve four main functions: strain relief (clamping the cable jacket to prevent pulling on the contacts), environmental sealing, 360-degree shield termination for EMI performance, and controlled cable exit angle. They are an integral mechanical and EMI feature of an aircraft connector."
       },
       "practice": {
         "question": "During inspection, a technician finds an aircraft connector installed without its backshell — the cable exits the connector directly without any strain relief or shield termination hardware. What risks does this introduce?",
         "choices": [
           "No real risks; the backshell is purely cosmetic",
-          "Loss of strain relief (pulling on the cable stresses the contacts), degraded EMI shielding (shield is not properly terminated), and loss of environmental sealing against moisture and contaminants",
           "Only an aesthetic issue that can be addressed at the next scheduled inspection",
-          "Slight reduction in signal voltage but no mechanical concerns"
+          "Slight reduction in signal voltage but no mechanical concerns",
+          "Loss of strain relief (pulling on the cable stresses the contacts), degraded EMI shielding (shield is not properly terminated), and loss of environmental sealing against moisture and contaminants"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanation": "Without a backshell: (1) cable tension applies directly to the contacts, fatiguing crimps and pins; (2) the cable shield has no proper 360-degree termination, severely degrading EMI performance; (3) environmental seal is lost, allowing moisture and contaminants in. All three issues must be addressed — the connector must be reassembled with its correct backshell per the installation procedure."
       },
       "preassessment": {
         "question": "What is the primary purpose of a connector backshell?",
         "choices": [
           "Backup electrical ground",
-          "Strain relief, environmental sealing, shield termination, and cable exit angle control",
           "Label surface",
-          "Additional contact density"
+          "Additional contact density",
+          "Strain relief, environmental"
         ],
-        "correctIndex": 1
+        "correctIndex": 3
       }
     },
     {
@@ -710,44 +710,44 @@
         "question": "This tool is commonly used to install connector pins on aircraft wiring.",
         "choices": [
           "A consumer-grade adjustable crimper from a hardware store",
-          "An approved aircraft crimp tool with a positioner matched to the pin type and wire gauge",
           "Ordinary pliers, squeezed firmly",
-          "A soldering iron and solder"
+          "A soldering iron and solder",
+          "An approved aircraft crimp tool with a positioner matched to the pin type and wire gauge"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanation": "An approved aircraft crimp tool with the correct positioner for each pin type is the standard. Consumer crimpers produce inconsistent crimps. Pliers crush rather than form the barrel correctly. Soldering is used for some connectors but the majority of modern aircraft pins are crimp-terminated."
       },
       "multipleChoice": {
         "question": "Which tool is commonly used to install connector pins on aircraft wiring?",
         "choices": [
           "A consumer-grade adjustable crimper from a hardware store",
-          "An approved aircraft crimp tool with the correct positioner (die) matched to the pin type and wire gauge",
           "Ordinary slip-joint pliers, squeezed firmly to form the crimp",
-          "A pocket knife to flare the conductor into the pin"
+          "A pocket knife to flare the conductor into the pin",
+          "Approved aircraft crimp tool with correct positioner die"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanation": "Approved aircraft crimp tools with proper positioners produce consistent, repeatable crimps at the specified compression. Consumer tools lack the geometry and the gauge-specific positioners. Pliers and pocket knives are never acceptable for aircraft connector installation — improper crimps cause high-resistance joints and in-flight failures."
       },
       "practice": {
         "question": "A technician is assigned to replace a failed pin in an avionics connector. Which tool combination is appropriate?",
         "choices": [
           "Any ordinary crimper plus needle-nose pliers",
-          "An approved aircraft crimp tool with the positioner for that specific pin and wire gauge, plus an insertion/extraction tool matched to the connector family",
           "A soldering iron and rosin flux",
-          "A heat gun and shrink tubing"
+          "A heat gun and shrink tubing",
+          "An approved aircraft crimp tool with the positioner for that specific pin and wire gauge, plus an insertion/extraction tool matched to the connector family"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanation": "Pin replacement requires: (1) the approved crimp tool with the positioner for the pin type and wire gauge, to form the new crimp to specification; and (2) the matched insertion/extraction tool for that connector family, to remove the old pin and seat the new one without damaging the contact or the shell. Soldering irons and heat guns are used for different termination types, not for standard aircraft crimp pins."
       },
       "preassessment": {
         "question": "Which tool is used to install aircraft connector pins?",
         "choices": [
           "Consumer crimper",
-          "Approved aircraft crimp tool with correct positioner",
           "Ordinary pliers",
-          "Pocket knife"
+          "Pocket knife",
+          "Approved aircraft"
         ],
-        "correctIndex": 1
+        "correctIndex": 3
       }
     },
     {
@@ -770,45 +770,45 @@
       "jeopardy": {
         "question": "This is the correct response to a coworker who suggests using automotive wire connectors on an avionics rack.",
         "choices": [
-          "Agree, because automotive connectors are cheaper and readily available",
           "Explain that automotive connectors lack the qualification and traceability required for aircraft avionics and are not an approved substitute for aircraft-rated connectors",
+          "Agree, because automotive connectors are cheaper and readily available",
           "Suggest using them only for non-critical signals",
           "Use them temporarily and replace them at the next inspection"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanation": "Automotive connectors are not approved for aircraft avionics installations under any circumstance, including 'non-critical' signals. Temporary use followed by later replacement still violates the installation requirements and creates legal, safety, and documentation problems."
       },
       "multipleChoice": {
         "question": "A new technician suggests using common automotive wire connectors for an avionics rack. How should you respond?",
         "choices": [
+          "Explain that automotive connectors lack the qualification",
           "Agree, because automotive connectors are cheaper and readily available",
-          "Explain that automotive connectors lack the qualification, materials, sealing, vibration rating, and traceability required for aircraft avionics, and that substituting them is not permitted",
           "Agree, but only for non-critical signals such as indicator lights",
           "Allow their temporary use and plan to replace them later"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanation": "Automotive connectors are not an approved substitute for aircraft-rated connectors in avionics installations. The required qualification, materials, environmental sealing, vibration rating, and documented traceability are not present in automotive parts. This restriction applies to all signals, including low-priority ones. Temporary installations that 'will be replaced later' still violate the installation requirements."
       },
       "practice": {
         "question": "A coworker suggests using a handful of bulk automotive disconnect connectors purchased at an auto parts store to speed up an avionics rack installation. What is the correct course of action?",
         "choices": [
-          "Use the automotive connectors to save time, since they are electrically similar",
           "Decline to use them, explain the qualification and traceability requirements for avionics parts, and source the correct aircraft-rated connectors from the approved parts list before proceeding",
+          "Use the automotive connectors to save time, since they are electrically similar",
           "Use them only on power circuits, not on signal circuits",
           "Use them temporarily, document the deviation, and swap them out at the next annual inspection"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanation": "Avionics parts must come from the approved parts list with proper traceability. The correct response is to stop, source the proper parts, and continue when they are available. 'Temporary' substitutions with planned later replacement are not a valid approach — they create airworthiness, documentation, and safety-of-flight problems in the meantime, and the replacement rarely happens as planned."
       },
       "preassessment": {
         "question": "Can automotive connectors be used in an avionics rack installation?",
         "choices": [
+          "No, they lack the required qualification",
           "Yes, they are electrically equivalent",
-          "No, they lack the required qualification, materials, sealing, and traceability for aircraft avionics use",
           "Yes, but only for non-critical signals",
           "Yes, for temporary use only"
         ],
-        "correctIndex": 1
+        "correctIndex": 0
       }
     },
     {
@@ -892,45 +892,45 @@
       "jeopardy": {
         "question": "This is the approximate maximum continuous current for most AWG 22 aircraft wire in free-air chassis routing.",
         "choices": [
-          "0.5 A",
           "5 A",
+          "0.5 A",
           "25 A",
           "50 A"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanation": "AWG 22 aircraft wire in free-air chassis routing carries approximately 5 A continuous. 0.5 A is far too conservative. 25 A would require AWG 10 or larger. 50 A would require AWG 8 or larger."
       },
       "multipleChoice": {
         "question": "What is the approximate maximum continuous current for most aircraft wiring systems using AWG 22 wire in free-air chassis routing?",
         "choices": [
-          "About 0.5 A",
           "About 5 A",
+          "About 0.5 A",
           "About 25 A",
           "About 50 A"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanation": "AWG 22 aircraft wire carries approximately 5 A continuous in free-air routing. This is suitable for signal and low-power instrument circuits. Bundling, elevated ambient temperature, and long runs all reduce the allowable current and must be considered during circuit design per the applicable advisory circular."
       },
       "practice": {
         "question": "A technician is selecting wire for a new circuit that will carry 8 A continuously. A coworker suggests using AWG 22 because it is on hand. Is this an acceptable choice?",
         "choices": [
-          "Yes, because AWG 22 can carry any aircraft current safely",
           "No, because AWG 22 has a continuous rating of about 5 A — 8 A exceeds this and would cause overheating, insulation damage, and potential fire. A larger gauge (smaller AWG number) must be selected",
+          "Yes, because AWG 22 can carry any aircraft current safely",
           "Yes, provided the wire is only used for short runs",
           "Yes, if the circuit is protected by a 10 A breaker"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanation": "AWG 22 cannot safely carry 8 A continuous. Using it in this application would overheat the wire, damage insulation, and risk fire. A larger gauge (such as AWG 18 or AWG 16, depending on run length and bundling) must be specified. A larger breaker does not solve the problem — it protects against short circuits but not against continuous overload at rated current."
       },
       "preassessment": {
         "question": "What is the approximate maximum continuous current for AWG 22 aircraft wire?",
         "choices": [
-          "0.5 A",
           "5 A",
+          "0.5 A",
           "25 A",
           "50 A"
         ],
-        "correctIndex": 1
+        "correctIndex": 0
       }
     },
     {
@@ -1015,44 +1015,44 @@
         "question": "This is a critical step for making a good solder joint.",
         "choices": [
           "Applying solder to the iron tip first, then touching the iron to a cold joint",
-          "Heating the parent metal (wire and terminal) to the proper temperature, then feeding solder into the joint so it wicks in by capillary action",
           "Using as much solder as possible to ensure complete coverage",
-          "Avoiding flux, because it contaminates the joint"
+          "Avoiding flux, because it contaminates the joint",
+          "Heating the parent metal (wire and terminal) to the proper temperature, then feeding solder into the joint so it wicks in by capillary action"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanation": "The critical step is heating the parent metal first so the solder flows into the joint. Touching the iron to a cold joint produces a cold solder joint with poor electrical and mechanical properties. Excess solder does not improve the joint. Rosin flux is required — it cleans the metal so solder can wet the surface."
       },
       "multipleChoice": {
         "question": "Which of the following is a critical step for producing a reliable solder joint in aircraft wiring?",
         "choices": [
           "Applying solder to the iron tip first, then touching it to a cold wire and terminal",
-          "Heating the parent metal (wire and terminal) to the proper temperature and then feeding the solder into the joint so it wicks in by capillary action",
           "Using the largest amount of solder possible for maximum coverage",
-          "Avoiding flux because it contaminates the connection"
+          "Avoiding flux because it contaminates the connection",
+          "Heating the parent metal (wire and terminal) to the proper temperature and then feeding the solder into"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanation": "Heating the parent metal first is the critical discipline. Solder drawn into a properly heated joint by capillary action produces a clean, low-resistance, mechanically sound connection. Applying solder to the iron and then to a cold joint produces a 'cold joint' that is both electrically and mechanically unreliable. Excess solder adds weight and can mask bad joints. Rosin flux is required — it enables wetting."
       },
       "practice": {
         "question": "A new technician examining a bench solder joint sees that the solder sits as a rounded bead on top of the wire and terminal, rather than having flowed smoothly into the joint. What happened, and what should the technician do?",
         "choices": [
           "The joint is fine; all solder joints look this way",
-          "The joint is a cold solder joint — the parent metal was not heated enough for the solder to wick in. The technician should remove the solder, reheat the parent metal properly, and re-solder until the solder flows smoothly into the joint",
           "The joint should be coated with more solder to fill the gap",
-          "The joint needs acid-core solder to bond properly"
+          "The joint needs acid-core solder to bond properly",
+          "The joint is a cold solder joint — the parent metal was not heated enough for the solder to wick in. The technician should remove the solder, reheat the parent metal properly, and re-solder until the solder flows smoothly into the joint"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanation": "A rounded bead sitting on top of the joint is a textbook cold solder joint. The fix is to remove the poor solder, reheat the parent metal to the correct temperature, and re-solder so the solder flows in. Adding more solder on top does not fix the cold joint — the electrical path remains high-resistance. Acid-core solder is never acceptable on electrical work."
       },
       "preassessment": {
         "question": "What is a critical step in making a good solder joint?",
         "choices": [
           "Apply solder to the iron tip first",
-          "Heat the parent metal first so solder wicks in by capillary action",
           "Use maximum solder for full coverage",
-          "Avoid flux to prevent contamination"
+          "Avoid flux to prevent contamination",
+          "Heat the parent metal first so solder wicks"
         ],
-        "correctIndex": 1
+        "correctIndex": 3
       }
     },
     {
@@ -1109,7 +1109,7 @@
         "question": "What splice type is preferred for environmentally sensitive areas?",
         "choices": [
           "Twist-and-tape",
-          "Environmentally sealed heat-shrink crimp splice",
+          "Environmentally",
           "Wire-nut",
           "Open butt splice"
         ],
@@ -1137,44 +1137,44 @@
         "question": "This is the primary reason shielded wire is used in avionics systems.",
         "choices": [
           "To increase the wire's current-carrying capacity",
-          "To reduce electromagnetic interference (EMI) — both ingress into sensitive signals and emission from noisy conductors",
           "To improve mechanical strength of the cable",
-          "To provide a backup ground path for power circuits"
+          "To provide a backup ground path for power circuits",
+          "To reduce electromagnetic interference (EMI) — both ingress into sensitive signals and emission from noisy conductors"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanation": "Shielded wire exists primarily to control EMI. It does not meaningfully change current capacity (that is determined by the conductor gauge). It adds some mechanical mass but is not used for mechanical strength. It is not a backup power ground — the shield is typically a signal-ground reference, not a power return."
       },
       "multipleChoice": {
         "question": "Shielded wire is used in avionics systems PRIMARILY to:",
         "choices": [
           "Increase the wire's current-carrying capacity",
-          "Reduce electromagnetic interference by intercepting external noise and preventing internal noise from radiating outward",
           "Improve the mechanical tensile strength of the cable",
-          "Provide a backup power-ground path"
+          "Provide a backup power-ground path",
+          "Reduce electromagnetic interference by intercepting external noise"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanation": "The dominant purpose of shielding is EMI control. The shield acts as a conductive barrier: properly grounded, it drains induced currents away from the inner conductors and prevents internal signals from coupling out. Current capacity, mechanical strength, and power grounding are separate, unrelated functions."
       },
       "practice": {
         "question": "A technician is installing an ARINC 429 run near a heavy power feeder. The installation manual specifies 'shielded, twisted pair, shield grounded at both ends.' Why is this specification important?",
         "choices": [
           "The shield carries the signal and must be grounded to complete the circuit",
-          "The shield reduces EMI coupling between the noisy power feeder and the sensitive ARINC 429 signal, keeping the data bus reliable",
           "The shield increases the ampacity of the inner conductors",
-          "The shield is for mechanical abrasion protection only"
+          "The shield is for mechanical abrasion protection only",
+          "The shield reduces EMI coupling between the noisy power feeder and the sensitive ARINC 429 signal, keeping the data bus reliable"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanation": "Power feeders radiate EMI — especially under heavy load or switching events — that can induce voltage on nearby signal wires. The twisted-pair geometry cancels common-mode coupling; the shield intercepts residual radiated noise and drains it to ground. Together they preserve signal integrity. The shield does not carry the signal, does not change ampacity, and provides only incidental mechanical protection."
       },
       "preassessment": {
         "question": "What is the primary purpose of shielded wire in avionics?",
         "choices": [
           "Increase current capacity",
-          "Reduce electromagnetic interference",
           "Improve mechanical strength",
-          "Provide a backup ground path"
+          "Provide a backup ground path",
+          "Reduce electromagnetic interference"
         ],
-        "correctIndex": 1
+        "correctIndex": 3
       }
     },
     {
@@ -1209,7 +1209,7 @@
         "question": "Which guideline is commonly followed for shield termination to reduce EMI in avionics wiring?",
         "choices": [
           "Leave the shield floating and unterminated at both ends",
-          "Terminate the shield with a 360-degree connection to the backshell or chassis, minimize unshielded length at the termination, and ground per the installation specification",
+          "Terminate the shield with a 360-degree connection to the backshell or chassis",
           "Connect the shield only through a long pigtail wire to the nearest grounding screw",
           "Twist the shield together with a signal conductor and land both on the same pin"
         ],
@@ -1231,7 +1231,7 @@
         "question": "What is the correct shield termination method for EMI control?",
         "choices": [
           "Leave floating at both ends",
-          "360-degree termination to backshell with minimal unshielded length",
+          "360-degree termination to backshell with minimal unshielded",
           "Long pigtail to a nearby screw",
           "Twist with a signal conductor into the same pin"
         ],
@@ -1258,45 +1258,45 @@
       "jeopardy": {
         "question": "This instrument is best suited to measuring very low resistance in an aircraft bonding system.",
         "choices": [
-          "A standard handheld DMM on the ohms setting",
           "A milliohmmeter (bonding meter) using four-wire Kelvin measurement",
+          "A standard handheld DMM on the ohms setting",
           "A megohmmeter (megger) at 500 V",
           "A clamp ammeter measuring AC current"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanation": "A milliohmmeter is purpose-built for low-resistance measurement using four-wire Kelvin technique. A standard DMM lacks the resolution and is dominated by lead resistance. A megohmmeter is for insulation resistance at the opposite end of the range. A clamp ammeter measures current, not resistance."
       },
       "multipleChoice": {
         "question": "A technician must measure the very low resistance of an aircraft bonding strap. Which instrument is best suited to this task?",
         "choices": [
+          "A milliohmmeter (bonding meter)",
           "A standard handheld digital multimeter on its ohms setting",
-          "A milliohmmeter (bonding meter), which uses a four-wire Kelvin measurement to accurately read milliohm-scale resistances",
           "A megohmmeter at 500 V for insulation testing",
           "A clamp ammeter for AC current measurement"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanation": "A milliohmmeter is designed for this exact task. Its four-wire Kelvin measurement technique eliminates the resistance of the test leads and contact points, which dominates any two-wire DMM reading at milliohm values. A megohmmeter measures insulation resistance (megohms), at the opposite end of the range. A clamp ammeter does not measure resistance."
       },
       "practice": {
         "question": "A technician tries to measure a bonding strap with a standard handheld DMM and gets readings that bounce between 0.2 and 0.5 ohms. A coworker suggests using a different tool. What should be used, and why?",
         "choices": [
-          "A different DMM, because this one is broken",
           "A milliohmmeter (bonding meter), because milliohm-scale measurements require four-wire Kelvin technique to eliminate the lead and contact resistance that dominates ordinary two-wire DMM readings",
+          "A different DMM, because this one is broken",
           "A megohmmeter, because it reads any resistance",
           "A clamp ammeter, because it measures continuity"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanation": "The DMM's bouncing 0.2-0.5 ohm reading is actually measuring lead and contact resistance, not the bond itself (which is likely well below 10 milliohms when good). A milliohmmeter's four-wire technique separates the current path from the voltage-sense path, eliminating that error and giving a true bond resistance value. A megohmmeter cannot read at this low range. A clamp ammeter measures current only."
       },
       "preassessment": {
         "question": "What instrument is used to measure aircraft bonding resistance?",
         "choices": [
+          "Milliohmmeter (bonding",
           "Standard DMM",
-          "Milliohmmeter (bonding meter) with four-wire Kelvin measurement",
           "Megohmmeter at 500 V",
           "Clamp ammeter"
         ],
-        "correctIndex": 1
+        "correctIndex": 0
       }
     },
     {
@@ -1319,45 +1319,45 @@
       "jeopardy": {
         "question": "This is the BEST next step when a milliohmmeter reading fluctuates significantly while testing a bonding strap.",
         "choices": [
-          "Accept the reading and sign off the bond as good",
           "Remove the bond hardware, clean the mating surfaces to bare metal, reinstall with proper torque, and retest",
+          "Accept the reading and sign off the bond as good",
           "Ignore the fluctuation and use the lowest observed reading",
           "Replace the milliohmmeter because its calibration is drifting"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanation": "Fluctuating readings indicate an intermittent physical connection, almost always at one of the terminations. Remove, clean, retorque, retest. Accepting or averaging the reading leaves a bad bond in service. Replacing the meter without evidence of its failure is premature."
       },
       "multipleChoice": {
         "question": "A technician's milliohmmeter reading fluctuates significantly while testing an aircraft bonding strap. Which is the BEST next step?",
         "choices": [
+          "Remove the bond hardware, clean the mating surfaces to bare metal, reinstall with proper",
           "Accept the reading and sign off the bond as serviceable",
-          "Remove the bond hardware, clean the mating surfaces to bare metal, reinstall with proper torque, and retest",
           "Record the lowest value observed during fluctuation as the bond resistance",
           "Immediately replace the milliohmmeter, assuming it is out of calibration"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanation": "A fluctuating reading indicates an intermittent contact at one or both ends of the bond — usually oxidation, contamination, or a loose fastener. The correct procedure is to disassemble, clean the mating surfaces to bright bare metal, reinstall with specified torque, and retest. Accepting fluctuating readings or using the lowest value leaves an unreliable bond in service."
       },
       "practice": {
         "question": "A technician tests a bonding strap and the milliohmmeter shows values bouncing between 5 and 200 milliohms. Is the bond good? What is the proper response?",
         "choices": [
-          "The bond is acceptable because the readings include some values below the limit",
           "The fluctuation itself is a failure indication — it points to an intermittent connection at the bond terminations. Remove the bond, clean the mating surfaces, reinstall with proper torque, and retest until the reading is stable and within specification",
+          "The bond is acceptable because the readings include some values below the limit",
           "Ignore the high readings and record the lowest value on the maintenance record",
           "Move the milliohmmeter probes closer together and retest"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanation": "A good bond produces a stable, low reading. Fluctuation is itself a failure mode — it indicates intermittent contact that can cause EMI problems, ground loops, and unreliable operation even when the 'best' reading is within limits. Proper corrective action is disassemble, clean, retorque, retest."
       },
       "preassessment": {
         "question": "What should you do if a milliohmmeter reading on a bonding strap fluctuates significantly?",
         "choices": [
-          "Accept and sign off",
           "Remove, clean, retorque, retest",
+          "Accept and sign off",
           "Record the lowest observed value",
           "Replace the meter"
         ],
-        "correctIndex": 1
+        "correctIndex": 0
       }
     },
     {
@@ -1392,7 +1392,7 @@
         "question": "If a coax cable's center conductor is found to be nicked, what is the correct action?",
         "choices": [
           "Solder over the nicked area to rebuild the conductor",
-          "Remove the damaged section and replace it with a new cable length or properly connectorized repair, per the applicable maintenance procedure",
+          "Remove the damaged section and replace it with a new cable length",
           "Wrap electrical tape around the nick",
           "Leave the nick in place if the signal still passes"
         ],
@@ -1414,7 +1414,7 @@
         "question": "What should you do if a coax cable's center conductor is nicked?",
         "choices": [
           "Solder over the nick",
-          "Remove the damaged section and replace or properly repair",
+          "Remove the damaged section and replace",
           "Wrap in tape",
           "Leave in place if signal passes"
         ],
@@ -1442,44 +1442,44 @@
         "question": "This is the typical acceptable twist rate for aircraft safety wire installed with the double-twist method using 0.032-inch wire.",
         "choices": [
           "1 to 2 twists per inch",
-          "6 to 8 twists per inch",
           "15 to 20 twists per inch",
-          "30 to 40 twists per inch"
+          "30 to 40 twists per inch",
+          "6 to 8 twists per inch"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanation": "The typical specification is 6 to 8 twists per inch for 0.032-inch safety wire, double-twist method. Values of 1-2 would be too loose to secure against vibration; 15-20 or higher would overwork the wire and cause breakage."
       },
       "multipleChoice": {
         "question": "What is the typical acceptable twist rate for aircraft safety wire installed with the double-twist method using 0.032-inch wire?",
         "choices": [
           "1 to 2 twists per inch",
-          "6 to 8 twists per inch",
           "15 to 20 twists per inch",
-          "30 to 40 twists per inch"
+          "30 to 40 twists per inch",
+          "6 to 8 twists per inch"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanation": "For standard 0.032-inch safety wire installed with the double-twist method, 6 to 8 twists per inch is the typical specification. Looser twists fail to grip against vibration; tighter twists overwork the wire. The exact value for any installation should be confirmed in the applicable maintenance manual."
       },
       "practice": {
         "question": "A technician is safety-wiring a bolt pair using 0.032-inch stainless steel safety wire per the aircraft maintenance manual. The installation manual specifies 'double-twist method.' About how many twists per inch should the wire show after installation?",
         "choices": [
           "Approximately 1 to 2 twists per inch — just enough to join the wires loosely",
-          "Approximately 6 to 8 twists per inch — the typical specification for 0.032-inch safety wire with the double-twist method",
           "Approximately 20 twists per inch — the tightest achievable by hand",
-          "Any twist rate is acceptable as long as the wire does not break"
+          "Any twist rate is acceptable as long as the wire does not break",
+          "Approximately 6 to 8 twists per inch — the typical specification for 0.032-inch safety wire with the double-twist method"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanation": "Six to eight twists per inch is the industry-standard target for 0.032-inch wire, double-twist method. The exact figure must be confirmed in the maintenance manual for the specific installation. Looser twists do not secure against vibration; tighter twists fatigue the wire and can snap it."
       },
       "preassessment": {
         "question": "What is the typical twist rate for 0.032-inch safety wire (double-twist method)?",
         "choices": [
           "1 to 2 per inch",
-          "6 to 8 per inch",
           "15 to 20 per inch",
-          "30 to 40 per inch"
+          "30 to 40 per inch",
+          "6 to 8 per inch"
         ],
-        "correctIndex": 1
+        "correctIndex": 3
       }
     },
     {
@@ -1502,45 +1502,45 @@
       "jeopardy": {
         "question": "This is what shear wire is designed to do.",
         "choices": [
-          "Carry electrical current as a primary conductor",
           "Break deliberately at a defined force to indicate that a component has been actuated or disturbed",
+          "Carry electrical current as a primary conductor",
           "Support the weight of engine mounts",
           "Provide a bonding path between airframe structures"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanation": "Shear wire's purpose is deliberate mechanical failure at a calibrated force, to indicate actuation. It is not an electrical conductor, not a structural support, and not a bonding component."
       },
       "multipleChoice": {
         "question": "Shear wire in aircraft applications is designed to:",
         "choices": [
+          "Break at a specified force to indicate that a component (such as a fire bottle",
           "Carry primary electrical current between avionics units",
-          "Break at a specified force to indicate that a component (such as a fire bottle or emergency handle) has been actuated or disturbed",
           "Structurally support engine mounts and critical fittings",
           "Provide an electrical bonding path between airframe structures"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanation": "Shear wire is installed specifically to break at a defined force, providing a visible indication that a component has been operated — commonly used on fire-bottle handles, emergency pulls, and tamper-evident closures. It is not an electrical conductor, structural support, or bonding wire."
       },
       "practice": {
         "question": "During pre-flight inspection, a pilot notices that the shear wire across the cockpit fire-bottle handle is broken. What does this indicate, and what is the appropriate action?",
         "choices": [
-          "The shear wire was broken by normal vibration, no action needed",
           "The broken shear wire indicates the fire bottle handle has been actuated (pulled) — the bottle may be discharged, and it must be inspected and the system returned to a serviceable condition before flight",
+          "The shear wire was broken by normal vibration, no action needed",
           "The shear wire is not an indicator of actuation and can be ignored",
           "The shear wire is a spare electrical conductor and its breakage does not affect any system"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanation": "A broken shear wire across an emergency handle indicates the handle was pulled. The fire bottle may be discharged (empty), the associated system may be in a post-discharge state, and the aircraft cannot be released until the bottle is inspected, serviced or replaced, and the shear wire reinstalled. Shear wires are specifically designed for this tamper-evident purpose and must never be ignored."
       },
       "preassessment": {
         "question": "What is the purpose of shear wire in aircraft applications?",
         "choices": [
+          "Break at a specified force to indicate",
           "Primary electrical conductor",
-          "Break at a specified force to indicate actuation or disturbance",
           "Structural support for engine mounts",
           "Bonding path between structures"
         ],
-        "correctIndex": 1
+        "correctIndex": 0
       }
     }
   ]

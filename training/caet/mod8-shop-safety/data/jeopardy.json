@@ -26,7 +26,7 @@
         "clue": "When handling solvents and chemicals, this is the most important first step for a new technician.",
         "choices": [
           "Smell the chemical to identify it",
-          "Read the Safety Data Sheet (SDS) to understand hazards, required PPE, handling precautions, and first-aid measures",
+          "Read the Safety Data Sheet (SDS) to understand hazards",
           "Apply the chemical quickly to see how it works",
           "Mix chemicals to see which is stronger"
         ],
@@ -38,7 +38,7 @@
         "clue": "This is the most correct response when a technician feels dizzy from a strong solvent smell while cleaning boards.",
         "choices": [
           "Continue working and ignore the symptoms",
-          "Leave the area immediately for fresh air, seek medical attention if symptoms persist, notify the supervisor, and improve ventilation before returning to work",
+          "Leave the area immediately for fresh air",
           "Open the chemical container wider for better access",
           "Sit down next to the chemical and rest"
         ],
@@ -50,11 +50,11 @@
         "clue": "In a GA repair environment, proper disposal of hazardous materials typically involves this.",
         "choices": [
           "Pouring them down the shop drain",
-          "Collecting them in designated labeled containers by category and delivering them to a certified hazardous-waste recycler or disposal service",
           "Placing them in the regular trash",
-          "Burning them in a fire barrel"
+          "Burning them in a fire barrel",
+          "Collecting them in designated labeled containers by category and delivering them to a certified hazardous-waste recycler or disposal service"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanation": "Proper hazmat disposal uses designated containers and certified disposal services. Drain, trash, and burning are all environmentally illegal and hazardous to personnel."
       }
     ],
@@ -64,7 +64,7 @@
         "clue": "When working on aircraft systems that emit RF signals, this is one of the biggest safety concerns.",
         "choices": [
           "The aircraft might run out of fuel",
-          "Personnel exposure to potentially harmful RF energy, especially to the eyes and reproductive organs",
+          "Personnel exposure to potentially harmful RF energy",
           "The aircraft paint might fade",
           "The RF signals disturbing nearby Wi-Fi networks"
         ],
@@ -76,11 +76,11 @@
         "clue": "This describes a safe practice around moving rotorcraft.",
         "choices": [
           "Walk under the rotor disc regardless of rotor speed",
-          "Maintain eye contact with the pilot, stay in designated safe zones clear of the rotor disc, approach only when signaled, stay low when entering the rotor area, and avoid the tail rotor region entirely",
           "Approach from directly behind",
-          "Run quickly through the rotor disc area"
+          "Run quickly through the rotor disc area",
+          "Maintain eye contact with the pilot, stay in designated safe zones clear of the rotor disc, approach only when signaled, stay low when entering the rotor area, and avoid the tail rotor region entirely"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanation": "Eye contact, safe zones, correct approach direction, staying low, and avoiding the tail rotor are all established safe-approach practices. Walking under, approaching from behind, or running through the disc area are all dangerous."
       }
     ],
@@ -89,12 +89,12 @@
         "id": "CAT8-NEW-004",
         "clue": "Class C fires are commonly associated with this.",
         "choices": [
-          "Ordinary combustibles like wood and paper",
           "Energized electrical equipment such as motors, wiring, and avionics",
+          "Ordinary combustibles like wood and paper",
           "Flammable liquids like gasoline and solvents",
           "Cooking oils and greases"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanation": "Class A is ordinary combustibles; Class B is flammable liquids; Class C is energized electrical; Class K is cooking oils."
       },
       {
@@ -114,11 +114,11 @@
         "clue": "When a small screw is dropped behind a panel during avionics installation, this is what should be done immediately.",
         "choices": [
           "Continue the installation and retrieve the screw later if convenient",
-          "Stop work, locate and retrieve the screw before continuing; loose hardware left in the aircraft is a FOD hazard that can cause shorts, jam controls, or damage equipment",
           "Replace the screw with a new one without retrieving the old one",
+          "Stop work, locate and retrieve the screw before continuing",
           "Assume the screw will remain harmless and ignore it"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "explanation": "Immediate retrieval is required. Delaying or ignoring creates a FOD hazard that can cause in-flight shorts, control jams, or equipment damage. Simply replacing the screw does not remove the dropped one."
       },
       {
@@ -126,11 +126,11 @@
         "clue": "This is the immediate, correct first aid response when encountering an electrical shock victim.",
         "choices": [
           "Immediately grab the victim to pull them away",
-          "FIRST ensure the power is off (never touch the victim while in contact with a live source), then call 911, assess breathing and responsiveness, begin CPR if needed, and use an AED if available",
           "Pour water on the victim to cool them",
+          "FIRST ensure the power is off (never touch the victim while in contact with a live source)",
           "Ignore the situation and continue working"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "explanation": "Cut power FIRST. Touching a still-energized victim can kill the rescuer. Then call 911 and provide CPR/AED as needed. Water could conduct electricity if the source is still live; ignoring is never acceptable."
       },
       {
@@ -151,12 +151,12 @@
         "id": "CAT8-NEW-010",
         "clue": "This best describes a 'near-miss' in the context of shop safety.",
         "choices": [
+          "An unplanned event that did not result in injury",
           "Any minor injury that required first aid",
-          "An unplanned event that did not result in injury, illness, or damage but had the potential to do so",
           "A customer complaint about service",
           "A tool that was temporarily misplaced"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanation": "A near-miss is a no-consequence warning event that had the potential for bad consequences. It is distinct from actual minor injuries and unrelated to customer service or tool misplacement."
       }
     ],
@@ -166,23 +166,23 @@
         "clue": "This practice best prevents ESD damage to sensitive avionics.",
         "choices": [
           "Wearing wool clothing for static comfort",
-          "Using a grounded wrist strap, a grounded ESD mat, and keeping components in antistatic packaging until installation",
           "Walking on carpet before touching components",
-          "Handling components with bare hands only"
+          "Handling components with bare hands only",
+          "Using a grounded wrist strap, a grounded ESD mat, and keeping components in antistatic packaging until installation"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanation": "Grounded wrist strap, grounded ESD mat, and antistatic packaging together protect against ESD. Wool and carpet generate static. Bare hands alone without grounding offer no protection."
       },
       {
         "id": "CAT8-NEW-008",
         "clue": "This is the most effective way to prevent FOD in an avionics shop.",
         "choices": [
-          "A once-a-year deep clean",
           "A layered approach: tool accountability, workspace discipline, hardware tracking, and shop-wide FOD awareness with regular walkdowns",
+          "A once-a-year deep clean",
           "Relying on individual technicians' diligence alone",
           "Installing more trash cans"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanation": "FOD prevention is systemic, not individual. Layered defenses (accountability, discipline, tracking, awareness) catch FOD incidents before they reach the aircraft. Once-a-year cleaning is too infrequent. Individual diligence alone misses some incidents."
       }
     ]

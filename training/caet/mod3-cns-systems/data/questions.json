@@ -39,44 +39,44 @@
         "question": "This transponder mode transmits both the four-digit identification code and the aircraft's pressure altitude.",
         "choices": [
           "Mode A",
-          "Mode C",
           "Mode S only",
+          "Mode C",
           "No mode transmits altitude"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "explanation": "Mode C adds altitude reporting to the identification code Mode A already provides. Mode S is a more advanced standard that includes everything Mode C does plus unique addressing and data link; however, the specific mode that FIRST added altitude reporting to the basic ID function is Mode C."
       },
       "multipleChoice": {
         "question": "Which transponder mode provides both aircraft identification and altitude reporting?",
         "choices": [
           "Mode A, which provides identification only",
-          "Mode C, which adds altitude reporting to the identification code",
           "No transponder mode provides altitude reporting",
+          "Mode C, which adds altitude reporting to the identification",
           "Mode 4, a civilian-only standard"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "explanation": "Mode C provides altitude reporting on top of Mode A's identification function. Mode S is a further development that adds a unique 24-bit address and data-link capability. 'Mode 4' is a military IFF mode, not a civilian transponder mode."
       },
       "practice": {
         "question": "An ATC controller can see both the squawk code and the pressure altitude for an aircraft on radar. Which transponder mode must the aircraft be operating in, at minimum?",
         "choices": [
           "Mode A only, which handles both functions",
-          "Mode C or higher, because Mode C is the mode that adds altitude reporting to identification",
           "No mode, because altitude is measured by ATC radar itself",
+          "Mode C or higher, because Mode C is the mode that adds altitude reporting to identification",
           "Mode 4, a civilian mode for altitude"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "explanation": "Mode C is the minimum mode that reports altitude. Mode S would also satisfy the requirement since it includes Mode C capabilities. ATC radar cannot measure altitude directly — it relies on the transponder's encoded altitude."
       },
       "preassessment": {
         "question": "Which transponder mode reports both identification and altitude?",
         "choices": [
           "Mode A",
-          "Mode C",
           "Mode 4",
+          "Mode C",
           "None"
         ],
-        "correctIndex": 1
+        "correctIndex": 2
       }
     },
     {
@@ -99,45 +99,45 @@
       "jeopardy": {
         "question": "This is the function of the 24-bit address in a Mode S transponder.",
         "choices": [
-          "It encodes the current squawk code",
           "It uniquely identifies the airframe and enables selective interrogation and ADS-B identification",
+          "It encodes the current squawk code",
           "It indicates the transponder's data rate",
           "It stores the aircraft's GPS position"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanation": "The 24-bit ICAO address is a unique airframe identifier. The squawk code is a separate four-digit pilot-settable code. Transponder data rate is fixed by the standard. GPS position comes from the GPS receiver, not the transponder address."
       },
       "multipleChoice": {
         "question": "In a Mode S transponder, what is the 24-bit address used for?",
         "choices": [
+          "To uniquely identify the airframe for selective interrogation",
           "To encode the current squawk code the pilot has selected",
-          "To uniquely identify the airframe for selective interrogation and for ADS-B Out identification",
           "To indicate the transponder's maximum data rate",
           "To store the aircraft's current GPS position"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanation": "The 24-bit ICAO address is permanently tied to the airframe. It allows ATC or TCAS to interrogate one specific aircraft rather than every transponder in range. It is also included in every ADS-B Out broadcast to identify the transmitting aircraft. Squawk code, data rate, and GPS position are unrelated functions."
       },
       "practice": {
         "question": "A technician installs a new Mode S transponder in an aircraft. The installation manual requires programming the 'ICAO 24-bit address' before returning the unit to service. Why is this step critical?",
         "choices": [
-          "It sets the squawk code the transponder will display",
           "It assigns the unique airframe identifier that ATC and TCAS use for selective interrogation, and that appears in every ADS-B Out broadcast — an incorrect address would misidentify the aircraft to ATC and other traffic",
+          "It sets the squawk code the transponder will display",
           "It programs the transponder's operating frequency",
           "It calibrates the encoded altitude reporting"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanation": "Without the correct 24-bit address, the transponder will reply to interrogations but will identify itself as the wrong airframe. This creates safety and airspace-management problems: TCAS targeting data, ATC correlation with flight plans, and ADS-B identification all become wrong. The address is unique to each airframe and must be programmed correctly per the registry."
       },
       "preassessment": {
         "question": "What is the purpose of the 24-bit address in a Mode S transponder?",
         "choices": [
+          "Uniquely identify the airframe",
           "Encode the squawk code",
-          "Uniquely identify the airframe for selective interrogation and ADS-B",
           "Set the data rate",
           "Store GPS position"
         ],
-        "correctIndex": 1
+        "correctIndex": 0
       }
     },
     {
@@ -161,44 +161,44 @@
         "question": "According to FAR 91.413, this is how often an aircraft transponder must be tested and inspected.",
         "choices": [
           "Every 12 calendar months",
-          "Every 24 calendar months",
           "Every 36 calendar months",
+          "Every 24 calendar months",
           "Every 100 flight hours"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "explanation": "FAR 91.413 requires transponder test and inspection at least every 24 calendar months. Annual (12-month) and 36-month intervals are not the required cadence. Flight-hour intervals do not apply to this requirement."
       },
       "multipleChoice": {
         "question": "According to FAR 91.413, how often must an aircraft transponder be tested and inspected?",
         "choices": [
           "At least every 12 calendar months",
-          "At least every 24 calendar months",
           "At least every 36 calendar months",
+          "At least every 24 calendar months",
           "Every 100 flight hours"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "explanation": "FAR 91.413 requires a transponder test and inspection at least every 24 calendar months. This applies to every transponder installed, whether or not Mode C or Mode S. Operation in Mode C airspace is prohibited if the required test is overdue."
       },
       "practice": {
         "question": "An aircraft's transponder was last tested 26 months ago. The pilot wants to fly into Class B airspace, which requires an operating Mode C transponder. Can the aircraft legally make this flight?",
         "choices": [
           "Yes, because the transponder still functions electrically",
-          "No, because FAR 91.413 requires transponder testing within the previous 24 calendar months, and this transponder is past that interval",
           "Yes, provided the pilot squawks VFR (1200)",
+          "No, because FAR 91.413 requires transponder testing within the previous 24 calendar months, and this transponder is past that interval",
           "Yes, provided the flight stays below 5,000 feet"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "explanation": "FAR 91.413 is explicit about the 24-month interval, and the aircraft cannot legally operate in airspace requiring a Mode C transponder until the test is completed and documented. Electrical function alone is not sufficient — the regulatory test is required. Squawk code and altitude restrictions do not exempt an aircraft from this requirement."
       },
       "preassessment": {
         "question": "How often must a transponder be tested per FAR 91.413?",
         "choices": [
           "Every 12 months",
-          "Every 24 calendar months",
           "Every 36 months",
+          "Every 24 calendar",
           "Every 100 hours"
         ],
-        "correctIndex": 1
+        "correctIndex": 2
       }
     },
     {
@@ -222,44 +222,44 @@
         "question": "The transponder squawk code is set by the pilot to do this.",
         "choices": [
           "Select the transponder's operating frequency",
-          "Identify the aircraft to ATC, often with controller-assigned codes for flight tracking or reserved codes for emergencies",
           "Determine the aircraft's altitude reporting resolution",
-          "Program the 24-bit Mode S address"
+          "Program the 24-bit Mode S address",
+          "Identify the aircraft to ATC, often with controller-assigned codes for flight tracking or reserved codes for emergencies"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanation": "The squawk code identifies the aircraft to ATC. Controllers assign unique codes to track flights individually. Reserved codes communicate specific conditions (emergency, radio failure, hijack). Transponder frequency is fixed by the standard. Altitude reporting resolution is also fixed. The 24-bit address is a separate, permanent Mode S identifier."
       },
       "multipleChoice": {
         "question": "The transponder squawk code is set by the pilot to:",
         "choices": [
           "Select the transponder's operating frequency",
-          "Identify the aircraft to ATC via assigned codes or reserved emergency codes",
           "Determine the transponder's altitude-reporting resolution",
-          "Program the 24-bit Mode S ICAO address"
+          "Program the 24-bit Mode S ICAO address",
+          "Identify the aircraft to ATC via assigned codes or reserved emergency"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanation": "The squawk code is a pilot-settable four-digit identifier. Controllers assign unique codes to individual aircraft for flight tracking. Certain codes are reserved: 7700 for emergency, 7600 for radio failure, 7500 for hijack, and 1200 as the default US VFR code. Other options describe unrelated transponder features."
       },
       "practice": {
         "question": "A controller assigns 'squawk 1234' to a pilot during IFR clearance. What does the pilot do?",
         "choices": [
           " Set the transponder to frequency 1234 kHz",
-          "Set the transponder's four-digit squawk code to 1234 so that the aircraft is uniquely identified on ATC radar",
           "Program 1234 as the aircraft's Mode S address",
-          "Ignore the request because 1234 is not a valid code"
+          "Ignore the request because 1234 is not a valid code",
+          "Set the transponder's four-digit squawk code to 1234 so that the aircraft is uniquely identified on ATC radar"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanation": "The pilot enters 1234 into the transponder's squawk display. ATC radar then correlates that code with the specific aircraft for tracking and separation. '1234' is a valid four-digit octal code. Squawk codes are not frequencies, and the Mode S 24-bit address is permanent and cannot be changed in flight."
       },
       "preassessment": {
         "question": "What does the pilot set the transponder squawk code to?",
         "choices": [
           "Operating frequency",
-          "A four-digit identification code for ATC",
           "Altitude reporting resolution",
-          "Mode S 24-bit address"
+          "Mode S 24-bit address",
+          "A four-digit identification code for ATC"
         ],
-        "correctIndex": 1
+        "correctIndex": 3
       }
     },
     {
@@ -283,44 +283,44 @@
         "question": "This is the typical mounting location for an aircraft transponder antenna.",
         "choices": [
           "On the top of the vertical stabilizer",
-          "On the underside (belly) of the aircraft",
           "On the leading edge of the wing",
-          "Inside the cockpit next to the pilot"
+          "Inside the cockpit next to the pilot",
+          "On the underside (belly) of the aircraft"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanation": "Transponder antennas go on the belly because ATC radar is below the aircraft. Vertical stabilizer and wing leading-edge locations are used for other antennas (VOR, nav/strobe) but not transponders. The antenna cannot be inside the cockpit — the airframe would block the signal."
       },
       "multipleChoice": {
         "question": "Where are transponder antennas typically mounted on an aircraft?",
         "choices": [
           "On the top of the vertical stabilizer",
-          "On the underside (belly) of the aircraft, for a clear signal path to ground-based ATC radar",
           "On the leading edge of the wing",
-          "Inside the cockpit near the pilot's feet"
+          "Inside the cockpit near the pilot's feet",
+          "On the underside (belly) of the aircraft"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanation": "Belly mounting gives the transponder antenna a clear view of the ground-based ATC radar that is interrogating from below. The airframe above does not block the reply. Wing leading edges, vertical stabilizers, and interior locations are used for other purposes but not for transponder antennas."
       },
       "practice": {
         "question": "A technician installs a new transponder antenna. The antenna is bolted to the top of the vertical stabilizer. During flight testing, ATC reports intermittent and weak transponder replies. What is the most likely cause?",
         "choices": [
           " The antenna cable is too long",
-          "The antenna is in the wrong location — transponder antennas must be belly-mounted to provide a clear path to ground-based ATC radar, which is below the aircraft",
           "The transponder needs a software update",
-          "The altitude encoder is miscalibrated"
+          "The altitude encoder is miscalibrated",
+          "The antenna is in the wrong location — transponder antennas must be belly-mounted to provide a clear path to ground-based ATC radar, which is below the aircraft"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanation": "Top-of-stabilizer mounting causes the airframe to block much of the downward signal path to ATC radar. Transponder antennas must be belly-mounted for proper coverage. Cable length, software, and altitude encoding are separate concerns and would not produce these specific symptoms."
       },
       "preassessment": {
         "question": "Where are transponder antennas typically mounted?",
         "choices": [
           "Top of vertical stabilizer",
-          "Underside (belly) of aircraft",
           "Leading edge of wing",
-          "Inside cockpit"
+          "Inside cockpit",
+          "Underside (belly) of aircraft"
         ],
-        "correctIndex": 1
+        "correctIndex": 3
       }
     },
     {
@@ -343,45 +343,45 @@
       "jeopardy": {
         "question": "This is the minimum number of satellites a GPS receiver must track for a three-dimensional position fix.",
         "choices": [
+          "4",
           "2",
           "3",
-          "4",
           "8"
         ],
-        "correctIndex": 2,
+        "correctIndex": 0,
         "explanation": "Four satellites are the minimum for a 3D fix — three for spatial triangulation and a fourth to resolve receiver clock bias. Two satellites cannot produce a position fix. Three can produce only a 2D fix (assuming known altitude). Eight is typical for modern receivers tracking more than the minimum, but it is not the minimum requirement."
       },
       "multipleChoice": {
         "question": "How many GPS satellites must a receiver track, at minimum, to compute a 3D position fix?",
         "choices": [
+          "4 satellites",
           "2 satellites",
           "3 satellites",
-          "4 satellites",
           "8 satellites"
         ],
-        "correctIndex": 2,
+        "correctIndex": 0,
         "explanation": "A three-dimensional GPS fix requires four satellites: three provide the geometric triangulation, and the fourth resolves receiver clock bias. A 2D fix (with known altitude) can be computed with three satellites. More satellites improve accuracy and allow integrity monitoring."
       },
       "practice": {
         "question": "A pilot notices that the GPS display shows '2D NAV' and reports 'altitude unavailable.' How many satellites is the receiver likely tracking?",
         "choices": [
-          "Exactly one satellite",
           "Exactly three satellites — enough for 2D position but not enough for 3D altitude resolution",
+          "Exactly one satellite",
           "At least four satellites",
           "Exactly eight satellites"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanation": "A 2D fix requires three satellites. Without a fourth, the receiver cannot compute altitude — hence the '2D NAV' indication and the missing altitude readout. As the geometry improves and a fourth satellite becomes visible, the receiver will transition to 3D NAV and altitude will become available."
       },
       "preassessment": {
         "question": "Minimum GPS satellites for a 3D position fix?",
         "choices": [
+          "4",
           "2",
           "3",
-          "4",
           "8"
         ],
-        "correctIndex": 2
+        "correctIndex": 0
       }
     },
     {
@@ -404,45 +404,45 @@
       "jeopardy": {
         "question": "This is what the acronym WAAS stands for.",
         "choices": [
-          "Wide Area Augmentation System",
           "Wireless Altitude Assurance Source",
           "Wide Angle Approach Sensor",
-          "Weather Augmentation Assistance System"
+          "Weather Augmentation Assistance System",
+          "Wide Area Augmentation System"
         ],
-        "correctIndex": 0,
+        "correctIndex": 3,
         "explanation": "WAAS is the Wide Area Augmentation System — FAA-developed GPS augmentation for improved accuracy and integrity in North America."
       },
       "multipleChoice": {
         "question": "What does the acronym WAAS stand for in GPS navigation?",
         "choices": [
-          "Wide Area Augmentation System",
           "Wireless Altitude Assurance Source",
           "Wide Angle Approach Sensor",
-          "Weather Augmentation Assistance System"
+          "Weather Augmentation Assistance System",
+          "Wide Area Augmentation System"
         ],
-        "correctIndex": 0,
+        "correctIndex": 3,
         "explanation": "WAAS stands for Wide Area Augmentation System. It is the FAA's GPS augmentation service that broadcasts correction data from geostationary satellites, enabling precision approaches down to LPV minima in the continental United States."
       },
       "practice": {
         "question": "A technician is explaining the difference between a 'WAAS GPS' and a legacy 'non-WAAS GPS' to a pilot. Which statement accurately summarizes WAAS?",
         "choices": [
           "WAAS is a backup GPS system operated only by the military",
-          "WAAS is the Wide Area Augmentation System, which broadcasts correction data from geostationary satellites to improve GPS accuracy from about 10 meters to under 3 meters and enable LPV precision approaches",
           "WAAS is an acronym for 'We Are A Satellite' used in GPS marketing",
-          "WAAS is obsolete and is no longer in use"
+          "WAAS is obsolete and is no longer in use",
+          "WAAS is the Wide Area Augmentation System, which broadcasts correction data from geostationary satellites to improve GPS accuracy from about 10 meters to under 3 meters and enable LPV precision approaches"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanation": "WAAS provides real-time correction data that WAAS-enabled receivers apply to improve accuracy and integrity. It enables LPV (Localizer Performance with Vertical guidance) precision approaches that would not be possible with basic GPS. It is operated by the FAA and is actively used in civil aviation."
       },
       "preassessment": {
         "question": "What does WAAS stand for?",
         "choices": [
-          "Wide Area Augmentation System",
           "Wireless Altitude Assurance Source",
           "Wide Angle Approach Sensor",
-          "Weather Augmentation Assistance System"
+          "Weather Augmentation Assistance System",
+          "Wide Area Augmentation System"
         ],
-        "correctIndex": 0
+        "correctIndex": 3
       }
     },
     {
@@ -477,7 +477,7 @@
         "question": "What does ADS-B Out broadcast to ATC and other aircraft?",
         "choices": [
           "Only the aircraft's ICAO 24-bit address",
-          "The aircraft's GPS-derived position, velocity, altitude, ICAO address, and flight identification, broadcast approximately once per second",
+          "The aircraft's GPS-derived position, velocity, altitude",
           "Voice communications from the pilot",
           "Weather radar imagery received on the aircraft"
         ],
@@ -499,7 +499,7 @@
         "question": "What does ADS-B Out broadcast?",
         "choices": [
           "Only ICAO address",
-          "Position, velocity, altitude, ICAO address, and flight ID",
+          "Position, velocity",
           "Voice communications",
           "Weather radar imagery"
         ],
@@ -527,44 +527,44 @@
         "question": "This is the navigation information a VOR provides to a pilot.",
         "choices": [
           "Distance to the station in nautical miles",
-          "The magnetic radial from the station (bearing information)",
           "The aircraft's altitude above the station",
+          "The magnetic radial from the station (bearing information)",
           "A voice broadcast of the station's weather"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "explanation": "VOR provides bearing — the radial from the station — not distance, altitude, or weather. Distance is provided by DME (Distance Measuring Equipment), often collocated with a VOR. Weather broadcasts are a separate service."
       },
       "multipleChoice": {
         "question": "What does VOR (Very High Frequency Omni-directional Range) navigation provide to the pilot?",
         "choices": [
           "The distance to the VOR station in nautical miles",
-          "Bearing information — the magnetic radial from the station to the aircraft",
           "The aircraft's altitude above the VOR",
+          "Bearing information",
           "A voice broadcast of station weather"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "explanation": "VOR provides bearing information: which radial from the station the aircraft is on. Distance comes from DME (often collocated with the VOR). Altitude is not a VOR function. Weather broadcasts use separate systems such as HIWAS or ATIS."
       },
       "practice": {
         "question": "A pilot is tracking along V-12, a published airway defined by successive VOR radials. What information is the VOR receiver providing to help the pilot stay on course?",
         "choices": [
           "Distance to the airway's endpoints",
-          "The magnetic radial from the tuned station, allowing the pilot to track a specific course to or from it",
           "The aircraft's current altitude above the ground",
+          "The magnetic radial from the tuned station, allowing the pilot to track a specific course to or from it",
           "Weather updates for the airway's route"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "explanation": "VOR provides bearing (radial) information. The airway V-12 is defined by a sequence of VOR radials. The pilot tracks the selected radial to or from each station by centering the CDI (Course Deviation Indicator) with the correct TO/FROM indication. Distance, altitude, and weather are separate services."
       },
       "preassessment": {
         "question": "What does a VOR provide to the pilot?",
         "choices": [
           "Distance to station",
-          "Bearing (radial) information",
           "Altitude above station",
+          "Bearing (radial) information",
           "Weather broadcast"
         ],
-        "correctIndex": 1
+        "correctIndex": 2
       }
     },
     {
@@ -588,44 +588,44 @@
         "question": "This is the function of the Omni-Bearing Selector (OBS) on a VOR indicator.",
         "choices": [
           "To tune the VOR station's frequency",
-          "To select a specific radial to or from the VOR station, which drives the CDI to show deviation from that radial",
           "To display the aircraft's current altitude",
-          "To control the VOR station's signal strength"
+          "To control the VOR station's signal strength",
+          "To select a specific radial to or from the VOR station, which drives the CDI to show deviation from that radial"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanation": "The OBS selects the desired radial. The CDI then shows deviation from that radial. Station tuning is done at the nav radio, not the OBS. The OBS does not display altitude. Pilots cannot control the station's transmitted signal strength."
       },
       "multipleChoice": {
         "question": "The Omni-Bearing Selector (OBS) on a VOR indicator is used by the pilot to:",
         "choices": [
           "Tune the VOR station's frequency",
-          "Select a specific radial to or from the VOR station, which drives the CDI to show the aircraft's deviation from that radial",
           "Display the aircraft's current altitude",
-          "Adjust the VOR station's transmitted signal strength"
+          "Adjust the VOR station's transmitted signal strength",
+          "Select a specific radial to or from the VOR station"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanation": "The OBS is the course selector. Rotating it sets the desired VOR radial. The CDI shows the aircraft's lateral position relative to that radial, and the TO/FROM flag shows whether the course leads to or from the station. Tuning, altitude, and station power are unrelated to the OBS."
       },
       "practice": {
         "question": "A pilot tunes a VOR and wants to fly the 270 radial outbound. What does the pilot do with the OBS?",
         "choices": [
-          "Rotate the OBS until '270' appears at the top of the course indicator, then fly the heading that keeps the CDI centered with a 'FROM' indication",
           "Rotate the OBS until '270' is at the bottom, so a 'TO' flag shows",
           "Leave the OBS alone — it does not affect course",
-          "Set the OBS to 000 for all outbound flight"
+          "Set the OBS to 000 for all outbound flight",
+          "Rotate the OBS until '270' appears at the top of the course indicator, then fly the heading that keeps the CDI centered with a 'FROM' indication"
         ],
-        "correctIndex": 0,
+        "correctIndex": 3,
         "explanation": "To fly outbound on the 270 radial, the pilot sets the OBS to 270 so it reads at the top (course selector pointing in the direction of flight), then maintains a heading that keeps the CDI centered. A 'FROM' flag confirms the aircraft is moving away from the station. 'TO' flag would indicate the OBS was set to the reciprocal (090) by mistake."
       },
       "preassessment": {
         "question": "What does the OBS do on a VOR indicator?",
         "choices": [
           "Tune the station's frequency",
-          "Select the desired radial; CDI then shows deviation from it",
           "Display altitude",
-          "Control station signal strength"
+          "Control station signal strength",
+          "Select the desired radial"
         ],
-        "correctIndex": 1
+        "correctIndex": 3
       }
     },
     {
@@ -648,45 +648,45 @@
       "jeopardy": {
         "question": "Compared to VOR, this describes ADF/NDB navigation in general aviation.",
         "choices": [
-          "More accurate than VOR under all conditions",
           "Generally less accurate and less reliable than VOR, due to low-frequency susceptibility to atmospheric interference, thunderstorm, night, and coastal effects",
+          "More accurate than VOR under all conditions",
           "Requires GPS augmentation to function",
           "Only used for precision approaches"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanation": "ADF/NDB's low-frequency signal is more susceptible to interference than VOR's VHF signal. VOR is the more accurate and reliable navigation aid. ADF does not need GPS and is used for non-precision approaches and en route navigation, not precision approaches."
       },
       "multipleChoice": {
         "question": "Compared to VOR, ADF/NDB navigation is generally:",
         "choices": [
+          "Less accurate and less reliable than VOR",
           "More accurate than VOR",
-          "Less accurate and less reliable due to atmospheric interference, thunderstorm effects, night effect, and coastal refraction at its low/medium operating frequencies",
           "Identical in accuracy to VOR",
           "Dependent on GPS for operation"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanation": "ADF/NDB operates in the 190-535 kHz low/medium frequency range, which is more susceptible to atmospheric effects — thunderstorms cause signal deflection, night effect changes propagation, coastlines refract the signal, and terrain affects reception. VOR's VHF signal (108-118 MHz) is line-of-sight and less affected by these factors, making it the more accurate and reliable system."
       },
       "practice": {
         "question": "A pilot flying in the evening over mountainous terrain reports that the ADF needle is swinging erratically and difficult to track. Which statement best explains this behavior?",
         "choices": [
-          "The ADF equipment is likely broken and must be replaced",
           "ADF/NDB operates at low frequencies that are susceptible to night effect, terrain, and atmospheric interference — these effects can cause needle swings, especially in the evening near mountainous terrain. The equipment is likely operating correctly; the signal environment is the problem",
+          "The ADF equipment is likely broken and must be replaced",
           "The pilot is flying too high for the ADF signal to reach",
           "The VOR signal is interfering with the ADF"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanation": "Night effect is a well-known propagation issue for ADF/NDB around sunrise and sunset, when ionospheric propagation changes. Combined with mountainous terrain, the signal can fade, shift, and cause needle swings. The equipment is fine — this is a characteristic limitation of low-frequency navigation. VOR is immune to these specific effects and is the preferred navaid under these conditions."
       },
       "preassessment": {
         "question": "Compared to VOR, ADF/NDB navigation is generally:",
         "choices": [
+          "Less accurate and less",
           "More accurate",
-          "Less accurate and less reliable due to low-frequency signal interference",
           "Identical in accuracy",
           "GPS-dependent"
         ],
-        "correctIndex": 1
+        "correctIndex": 0
       }
     },
     {
@@ -711,10 +711,10 @@
         "choices": [
           "VOR",
           "ADF/NDB",
-          "ILS (Instrument Landing System)",
-          "DME"
+          "DME",
+          "ILS (Instrument Landing System)"
         ],
-        "correctIndex": 2,
+        "correctIndex": 3,
         "explanation": "The Instrument Landing System (ILS) combines the localizer (horizontal, centered on the runway) with the glideslope (vertical descent guidance) for precision approaches. VOR and ADF provide bearing only, not vertical guidance. DME provides distance, not guidance."
       },
       "multipleChoice": {
@@ -722,10 +722,10 @@
         "choices": [
           "VOR — Very High Frequency Omni-directional Range",
           "ADF/NDB navigation",
-          "ILS — the Instrument Landing System",
-          "DME — Distance Measuring Equipment"
+          "DME — Distance Measuring Equipment",
+          "ILS — the Instrument Landing System"
         ],
-        "correctIndex": 2,
+        "correctIndex": 3,
         "explanation": "The ILS provides both components of precision approach guidance: the localizer gives horizontal (lateral) guidance aligned with the runway centerline, and the glideslope gives vertical (descent) guidance along a fixed descent angle (typically 3 degrees). VOR, ADF, and DME are not precision approach systems."
       },
       "practice": {
@@ -733,10 +733,10 @@
         "choices": [
           "VOR",
           "ADF/NDB",
-          "ILS (Instrument Landing System), which combines localizer for horizontal guidance and glideslope for vertical guidance",
-          "A GPS-only approach"
+          "A GPS-only approach",
+          "ILS (Instrument Landing System), which combines localizer for horizontal guidance and glideslope for vertical guidance"
         ],
-        "correctIndex": 2,
+        "correctIndex": 3,
         "explanation": "The presence of both a localizer and a glideslope identifies the approach as ILS. The localizer frequency aligns the aircraft with the runway extended centerline; the glideslope provides the descent path. GPS approaches (LPV, LNAV/VNAV, etc.) can also provide vertical guidance but are identified differently on the chart. VOR, ADF, and DME on their own do not provide the coupled vertical/horizontal guidance ILS does."
       },
       "preassessment": {
@@ -744,10 +744,10 @@
         "choices": [
           "VOR",
           "ADF/NDB",
-          "ILS",
-          "DME"
+          "DME",
+          "ILS"
         ],
-        "correctIndex": 2
+        "correctIndex": 3
       }
     },
     {
@@ -782,7 +782,7 @@
         "question": "What does a marker beacon provide to the pilot during an ILS approach?",
         "choices": [
           "Horizontal course guidance to the runway centerline",
-          "Position fixes at defined points along the approach (Outer, Middle, and sometimes Inner Marker)",
+          "Position fixes at defined points along the approach",
           "Vertical descent guidance along the glideslope",
           "Voice broadcasts of runway conditions"
         ],
@@ -804,7 +804,7 @@
         "question": "What does a marker beacon provide on an ILS approach?",
         "choices": [
           "Horizontal course guidance",
-          "Position fix at a defined point along the approach",
+          "Position fix at a defined point",
           "Vertical descent guidance",
           "Voice runway conditions"
         ],
@@ -832,44 +832,44 @@
         "question": "In general-aviation aircraft audio systems, this describes typical 'mono' audio use.",
         "choices": [
           "Only one earpiece of the headset receives audio; the other is silent",
-          "The same audio signal is sent to both earpieces of the headset, which is standard for voice communications and intercom",
           "Mono refers to audio broadcast on AM only",
+          "The same audio signal is sent to both earpieces of the headset, which is standard for voice communications and intercom",
           "Mono audio is obsolete and no longer used"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "explanation": "Mono audio sends the same signal to both ears — standard for voice traffic that does not benefit from stereo imaging. One-ear-only is not the definition of mono. Mono is not tied to AM broadcast. It remains current practice in GA audio panels."
       },
       "multipleChoice": {
         "question": "In general-aviation aircraft audio systems, 'mono' audio is typically used for:",
         "choices": [
           "Sending audio only to one earpiece of the headset",
-          "Sending the same audio signal to both earpieces of the headset, which is standard for voice communications and intercom audio",
           "Audio broadcast on AM frequencies only",
+          "Sending the same audio signal to both earpieces of the headset",
           "A specific emergency audio mode"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "explanation": "Mono audio distributes the same signal to both ears of a headset. This is the standard for radio communications and intercom in GA aircraft because voice traffic does not benefit from stereo imaging. Stereo is sometimes available for entertainment sources (music) on premium audio panels, but voice traffic is typically mono."
       },
       "practice": {
         "question": "A student pilot wonders why their headset delivers the same audio to both ears during a radio call instead of the left-only or right-only they hear when playing stereo music. How would you explain?",
         "choices": [
           "The headset has a defect — audio should be in one ear only",
-          "The aircraft audio panel distributes radio communications in mono — the same signal to both ears. This is intentional for voice traffic because stereo imaging provides no operational benefit for speech. Stereo separation is reserved for entertainment sources on panels that support it",
           "The aircraft uses a special 'emergency-only' audio mode",
+          "The aircraft audio panel distributes radio communications in mono — the same signal to both ears. This is intentional for voice traffic because stereo imaging provides no operational benefit for speech. Stereo separation is reserved for entertainment sources on panels that support it",
           "Mono is now obsolete and the aircraft needs an avionics upgrade"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "explanation": "Mono distribution is the standard and correct design for voice traffic. Both ears receive the same audio so the pilot can hear equally well regardless of headset orientation. Stereo audio would add no operational benefit for voice and might distract. Entertainment sources (music inputs) may be distributed in stereo on higher-end audio panels."
       },
       "preassessment": {
         "question": "Mono audio in GA aircraft means:",
         "choices": [
           "One earpiece only",
-          "Same signal to both earpieces",
           "AM broadcast only",
+          "Same signal to both",
           "Emergency mode"
         ],
-        "correctIndex": 1
+        "correctIndex": 2
       }
     },
     {
@@ -904,7 +904,7 @@
         "question": "What is the PRIMARY purpose of an audio control panel in an aircraft?",
         "choices": [
           "To boost the transmit power of the VHF radio",
-          "To let the pilot select transmit/receive radios and route audio from various sources to the headsets and cabin speaker",
+          "To select transmit and receive radios and route audio sources",
           "To convert AC power for avionics equipment",
           "To regulate cabin pressure during flight"
         ],
@@ -926,7 +926,7 @@
         "question": "What is the purpose of the audio control panel?",
         "choices": [
           "Boost radio transmit power",
-          "Select transmit/receive radios and route audio sources",
+          "Select transmit/receive radios",
           "Convert AC power",
           "Regulate cabin pressure"
         ],
@@ -953,45 +953,45 @@
       "jeopardy": {
         "question": "This is a common cause of intermittent or noisy audio in an aircraft communication system.",
         "choices": [
-          "The radio is tuned to the wrong frequency",
           "Poor or broken grounding, corroded connectors, broken cable shields, loose mic/headset jack contacts, or nearby EMI sources",
+          "The radio is tuned to the wrong frequency",
           "The pilot is wearing the wrong type of headset",
           "The audio panel has too many sources selected"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanation": "Intermittent/noisy audio is typically a physical connection problem — grounding, connectors, shields, or jack contacts. Wrong frequency would produce no received audio at all, not noise. Headset type and source selection are secondary factors."
       },
       "multipleChoice": {
         "question": "Intermittent or noisy audio in an aircraft communication system is OFTEN caused by:",
         "choices": [
+          "Poor or broken grounding, corroded connectors, broken cable",
           "The radio being tuned to the wrong frequency",
-          "Poor or broken grounding, corroded connectors, broken cable shields, or loose microphone/headset jack contacts",
           "The pilot wearing the wrong type of headset",
           "Too many audio sources selected on the audio panel"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanation": "Intermittent or noisy audio nearly always traces to a physical issue: grounding, connectors, shielding, or jack contacts. Frequency errors produce silence, not noise. Headset compatibility is relevant to polarity and impedance matching but rarely produces intermittent noise in a standard GA installation."
       },
       "practice": {
         "question": "A pilot reports 'scratchy, intermittent audio' on the COM1 radio. The audio comes and goes, and sometimes is accompanied by crackling sounds. What is the most productive first step for troubleshooting?",
         "choices": [
-          "Replace the COM1 radio immediately",
           "Inspect the physical audio path — microphone jack contacts, headset jack contacts, connector pins, cable shields, and chassis grounds — cleaning any corroded contacts and verifying integrity before assuming a radio hardware problem",
+          "Replace the COM1 radio immediately",
           "Re-tune the radio to a different frequency to confirm the problem",
           "Reprogram the audio panel"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanation": "Scratchy and intermittent audio strongly suggests a physical-path issue. Start with mic and headset jack cleanliness, then cable continuity and shield integrity, then chassis grounding. Radio hardware problems exist but are less common and more expensive to troubleshoot first — always eliminate physical path issues first. Retuning and reprogramming the audio panel do not address the underlying noise source."
       },
       "preassessment": {
         "question": "What often causes intermittent or noisy audio?",
         "choices": [
+          "Poor grounding, corroded",
           "Wrong frequency",
-          "Poor grounding, corroded connectors, or loose mic/headset contacts",
           "Wrong headset type",
           "Too many audio sources"
         ],
-        "correctIndex": 1
+        "correctIndex": 0
       }
     },
     {
@@ -1014,45 +1014,45 @@
       "jeopardy": {
         "question": "This is the information DME provides to the pilot.",
         "choices": [
-          "The magnetic bearing from the station",
           "Slant-range distance (in nautical miles) from the aircraft to the ground station",
+          "The magnetic bearing from the station",
           "The weather at the station",
           "The runway heading at the destination airport"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanation": "DME provides distance — specifically slant-range, not horizontal distance. Bearing comes from VOR. Weather is an ATIS/AWOS broadcast. Runway information is from the approach chart, not DME."
       },
       "multipleChoice": {
         "question": "DME (Distance Measuring Equipment) provides pilots with:",
         "choices": [
+          "Slant-range distance from the aircraft to the ground station",
           "The magnetic bearing from the station",
-          "Slant-range distance (in nautical miles) from the aircraft to the ground station",
           "The weather conditions at the station",
           "The active runway at the destination airport"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanation": "DME provides slant-range distance in nautical miles — note that this is the straight-line distance, not ground distance, so at high altitude directly over the station the DME reads approximately the altitude in nautical miles rather than zero. DME is often collocated with VOR or ILS and does not provide bearing, weather, or runway information."
       },
       "practice": {
         "question": "An aircraft is directly over a DME station at 10,000 feet AGL. What does the DME readout show?",
         "choices": [
-          "0.0 NM, because the aircraft is directly over the station",
           "Approximately 1.6 NM, because DME measures slant-range — the straight-line distance from the aircraft to the station, which equals the altitude above the station (10,000 ft ≈ 1.6 NM) when directly overhead",
+          "0.0 NM, because the aircraft is directly over the station",
           "The aircraft's ground speed",
           "The magnetic heading to the station"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanation": "DME measures slant range — the direct straight-line distance from the aircraft to the ground station. Directly over the station at 10,000 feet AGL, the slant range equals the altitude: about 1.65 NM. This 'slant-range cone of confusion' effect is a well-known DME characteristic that pilots must recognize to avoid mistaking it for equipment malfunction."
       },
       "preassessment": {
         "question": "What does DME provide?",
         "choices": [
-          "Bearing from station",
           "Slant-range distance to the ground station",
+          "Bearing from station",
           "Weather at station",
           "Runway heading"
         ],
-        "correctIndex": 1
+        "correctIndex": 0
       }
     },
     {
@@ -1075,45 +1075,45 @@
       "jeopardy": {
         "question": "This is the optimal mounting location for a VHF communication antenna on a GA aircraft.",
         "choices": [
-          "Inside the cockpit near the pilot",
           "On the fuselage (top or bottom) with a clear line of sight in all directions and proper airframe ground plane beneath the base",
+          "Inside the cockpit near the pilot",
           "Attached to the propeller hub",
           "On the inside surface of the windshield"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanation": "Fuselage mounting (top or bottom) with clear line of sight and proper ground plane is the correct approach. Interior mounting is shielded by the airframe. Propeller mounting is unworkable. Windshield mounting lacks a ground plane."
       },
       "multipleChoice": {
         "question": "For optimal performance of a VHF communication antenna on a general-aviation aircraft, where should it ideally be mounted?",
         "choices": [
+          "On the fuselage (top or bottom) in a location with a clear line of sight in all",
           "Inside the cockpit near the pilot, to allow easy inspection",
-          "On the fuselage (top or bottom) in a location with a clear line of sight in all directions, with proper airframe ground plane beneath the antenna base",
           "Attached to the propeller hub for best signal radiation",
           "On the inside surface of the windshield for line-of-sight propagation"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanation": "A VHF comm antenna works best mounted on the fuselage (top or bottom) with an unobstructed view in all directions and an adequate ground plane beneath it. Locations inside the cockpit, on rotating parts, or on windows lack the ground plane and clear signal path required for reliable operation."
       },
       "practice": {
         "question": "A new VHF comm antenna is added to an aircraft. The technician mounts it on the top of the cabin between the existing GPS and transponder antennas, only 8 inches from each. During flight testing, the pilot reports poor radio reception and intermittent noise. What is the most likely cause?",
         "choices": [
-          "The antenna is the wrong frequency",
           "Insufficient separation from nearby antennas — VHF comm antennas should be separated from other antennas (especially transponder at 1030/1090 MHz and GPS at 1575 MHz) to avoid mutual interference, per the installation guidance",
+          "The antenna is the wrong frequency",
           "The airframe is made of aluminum instead of composite",
           "The antenna cable is too short"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanation": "Antenna separation is a well-documented installation requirement. Antennas too close together couple to each other, causing receive desensitization and transmit interference. Installation guidance specifies minimum separations for each antenna pair. Aluminum airframes actually serve as good ground planes — they help rather than hurt. Cable length is a different concern."
       },
       "preassessment": {
         "question": "Best VHF comm antenna location on a GA aircraft?",
         "choices": [
+          "Fuselage with clear line-of-sight and proper ground plane",
           "Inside the cockpit",
-          "Fuselage with clear line of sight and proper ground plane",
           "Attached to propeller hub",
           "Inside windshield"
         ],
-        "correctIndex": 1
+        "correctIndex": 0
       }
     },
     {
@@ -1137,44 +1137,44 @@
         "question": "This is what the squelch control does in a VHF radio system.",
         "choices": [
           "Boosts the transmit power of the radio",
-          "Suppresses the receiver audio output during periods of no signal or weak signal below a threshold, eliminating continuous background noise",
           "Selects the operating frequency",
-          "Controls the audio panel's intercom volume"
+          "Controls the audio panel's intercom volume",
+          "Suppresses the receiver audio output during periods of no signal or weak signal below a threshold, eliminating continuous background noise"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanation": "Squelch mutes the receiver audio when there is no signal (or signal below threshold), preventing constant background hiss. It does not affect transmit power, frequency selection, or intercom functions."
       },
       "multipleChoice": {
         "question": "What does the squelch control do in a VHF radio system?",
         "choices": [
           "Boosts the radio's transmit output power",
-          "Suppresses the receiver audio output during periods of no signal or weak signal, eliminating continuous background noise and opening the audio only when a usable signal arrives",
           "Selects which frequency the radio operates on",
-          "Controls the intercom volume"
+          "Controls the intercom volume",
+          "Suppresses the receiver audio output during periods of no"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanation": "Squelch is a receiver-side mute function that blocks background hiss during no-signal periods. When a received signal exceeds the squelch threshold, the audio path opens and the signal is heard. Squelch does not affect transmit power, frequency selection, or intercom operation."
       },
       "practice": {
         "question": "A pilot complains that the COM1 radio hisses continuously when no one is transmitting. What should the pilot check, and why?",
         "choices": [
           " The transmit frequency, which is not affecting the hiss",
-          "The squelch setting — if squelch is set too low (too open), the receiver passes background noise continuously; adjusting it slightly higher until the hiss just stops gives the optimal setting for weak-signal reception",
           "The headset's battery charge",
-          "The encoder setting on the transponder"
+          "The encoder setting on the transponder",
+          "The squelch setting — if squelch is set too low (too open), the receiver passes background noise continuously; adjusting it slightly higher until the hiss just stops gives the optimal setting for weak-signal reception"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanation": "Continuous hiss with no transmission is a classic symptom of improperly set squelch — the threshold is below the ambient noise level, so the audio is always open. Increasing squelch until the hiss stops sets the threshold just above background noise, which is ideal for catching weak signals without constant noise. Transmit frequency, headset charge, and transponder settings are unrelated."
       },
       "preassessment": {
         "question": "What does the squelch control do on a VHF radio?",
         "choices": [
           " Boost transmit power",
-          "Suppress audio during no-signal periods",
           "Select operating frequency",
-          "Control intercom volume"
+          "Control intercom volume",
+          "Suppress audio during no-signal"
         ],
-        "correctIndex": 1
+        "correctIndex": 3
       }
     },
     {
@@ -1198,44 +1198,44 @@
         "question": "When replacing a coaxial cable for a communication antenna, this is CRUCIAL.",
         "choices": [
           "Use any coax available, regardless of type",
-          "Match the characteristic impedance (typically 50 ohms) and use the correct cable type, connectors, and installation procedure for the frequency and loss requirements",
           "Splice multiple shorter coax runs together to save cost",
-          "Ignore bend radius as long as the cable fits"
+          "Ignore bend radius as long as the cable fits",
+          "Match the characteristic impedance (typically 50 ohms) and use the correct cable type, connectors, and installation procedure for the frequency and loss requirements"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanation": "Impedance match and correct cable selection are fundamental. Using the wrong impedance (75 ohm video coax instead of 50 ohm comm coax, for example) causes reflections and power loss. Splicing and ignoring bend radius both introduce losses and potential damage that degrade antenna system performance."
       },
       "multipleChoice": {
         "question": "When replacing a coaxial cable for a communication antenna, it is CRUCIAL to:",
         "choices": [
           "Use any coaxial cable available, regardless of type",
-          "Match the characteristic impedance (typically 50 ohms for aircraft comm), use the correct cable type for the frequency and loss requirements, install approved connectors per procedure, and respect bend radius limits",
           "Splice multiple shorter coax runs together to minimize cost",
-          "Ignore cable bend radius provided the cable physically fits the route"
+          "Ignore cable bend radius provided the cable physically fits the route",
+          "Match the characteristic impedance (typically 50 ohms for aircraft comm)"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanation": "Proper coax replacement demands impedance match, correct cable type, approved connectors, and careful routing. Mismatched impedance causes standing-wave problems and radiated power loss. Splicing introduces losses and potential connector failures. Violating bend radius damages the cable structure."
       },
       "practice": {
         "question": "A technician needs to replace a corroded VHF comm antenna coaxial cable. A coworker suggests grabbing 'any 75-ohm coax' from the storage bin. What is the correct response?",
         "choices": [
           "Agree, since coax is coax and the impedance is not critical",
-          "Decline and select the correct 50-ohm coax specified by the installation manual. Using 75-ohm video-grade coax would create a severe impedance mismatch, causing signal reflection, reduced radiated power, and poor communication range",
           "Use the 75-ohm coax and add a matching resistor at each end to adjust the impedance",
-          "Splice the 75-ohm coax to a short 50-ohm section near the antenna to 'blend' the impedance"
+          "Splice the 75-ohm coax to a short 50-ohm section near the antenna to 'blend' the impedance",
+          "Decline and select the correct 50-ohm coax specified by the installation manual. Using 75-ohm video-grade coax would create a severe impedance mismatch, causing signal reflection, reduced radiated power, and poor communication range"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanation": "Aircraft VHF comm systems use 50-ohm coax. Substituting 75-ohm video coax creates a 1.5:1 impedance mismatch, causing standing waves, power loss, and poor performance. Adding series resistors or splicing mismatched sections does not fix the problem — they create additional mismatches. Always use the cable type specified in the approved installation documentation."
       },
       "preassessment": {
         "question": "What is crucial when replacing coax for a comm antenna?",
         "choices": [
           "Use any coax available",
-          "Match characteristic impedance (50 ohms) and use correct cable and connectors",
           "Splice shorter runs together",
-          "Ignore bend radius"
+          "Ignore bend radius",
+          "Match characteristic impedance (50"
         ],
-        "correctIndex": 1
+        "correctIndex": 3
       }
     },
     {
@@ -1258,23 +1258,23 @@
       "jeopardy": {
         "question": "This is what the acronym TCAS stands for.",
         "choices": [
-          "Traffic Collision Avoidance System",
           "Tactical Combat Avoidance Sensor",
+          "Traffic Collision Avoidance System",
           "Terminal Control Approach Structure",
           "Thrust Control Activation Subsystem"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "explanation": "TCAS is Traffic Collision Avoidance System (sometimes expanded as Traffic Alert and Collision Avoidance System)."
       },
       "multipleChoice": {
         "question": "What does the acronym TCAS stand for?",
         "choices": [
-          "Traffic Collision Avoidance System",
           "Tactical Combat Avoidance Sensor",
+          "Traffic Collision Avoidance System",
           "Terminal Control Approach Structure",
           "Thrust Control Activation Subsystem"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "explanation": "TCAS stands for Traffic Collision Avoidance System. It is an onboard surveillance system that interrogates nearby transponders, calculates collision risk, and issues traffic advisories (TA) and resolution advisories (RA) to pilots. TCAS II is required on certain commercial aircraft."
       },
       "practice": {
@@ -1291,12 +1291,12 @@
       "preassessment": {
         "question": "What does TCAS stand for?",
         "choices": [
-          "Traffic Collision Avoidance System",
           "Tactical Combat Avoidance Sensor",
+          "Traffic Collision Avoidance System",
           "Terminal Control Approach Structure",
           "Thrust Control Activation Subsystem"
         ],
-        "correctIndex": 0
+        "correctIndex": 1
       }
     },
     {
@@ -1320,44 +1320,44 @@
         "question": "This is what regular inspection of aircraft communication antennas should include.",
         "choices": [
           "Only the connector at the avionics rack end of the coaxial cable",
-          "Checking for physical damage, base corrosion, mounting hardware condition, sealant integrity, and bonding/grounding condition",
           "Replacing the antenna every 12 months regardless of condition",
-          "Adjusting the antenna's transmit frequency"
+          "Adjusting the antenna's transmit frequency",
+          "Checking for physical damage, base corrosion, mounting hardware condition, sealant integrity, and bonding/grounding condition"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanation": "Antenna inspection covers physical, mounting, and bonding aspects. Only checking the far-end connector misses the antenna itself. Antennas are replaced when inspection reveals damage, not on a fixed interval. Antennas do not have tunable transmit frequencies — they are passive radiators."
       },
       "multipleChoice": {
         "question": "Regular inspection of aircraft communication antennas should include checking for:",
         "choices": [
           "Only the connector at the avionics rack end of the coaxial cable",
-          "Physical damage (cracks, dents, bent elements), corrosion at the base, mounting hardware condition, base sealant integrity, and bonding/grounding to the airframe",
           "Antenna frequency tuning",
-          "Only the antenna's visual cleanliness"
+          "Only the antenna's visual cleanliness",
+          "Physical damage (cracks, dents, bent elements), corrosion at the base, mounting"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanation": "A proper antenna inspection covers multiple items: physical integrity, base corrosion, mounting hardware torque, sealant, and bonding. All are important — damaged antennas radiate poorly; loose mounting risks departure; corroded bonding causes intermittent grounding and noise. Antennas are passive and not 'tuned' after installation. A cleanliness check alone misses serious issues."
       },
       "practice": {
         "question": "During a routine inspection, a technician finds a comm antenna with intact physical structure but significant corrosion around the base where the antenna meets the airframe. Is this antenna airworthy as-is, or does corrective action apply?",
         "choices": [
           "Airworthy, because the antenna itself is intact",
-          "Corrective action required — base corrosion degrades both the mechanical mounting and the electrical bond to the airframe (which serves as the ground plane). The antenna must be removed, the corrosion cleaned down to bare metal, new sealant applied, and the antenna reinstalled with verified bonding continuity",
           "Airworthy, but the corrosion should be painted over before the next flight",
-          "Airworthy as long as the aircraft is not flown in rain"
+          "Airworthy as long as the aircraft is not flown in rain",
+          "Corrective action required — base corrosion degrades both the mechanical mounting and the electrical bond to the airframe (which serves as the ground plane). The antenna must be removed, the corrosion cleaned down to bare metal, new sealant applied, and the antenna reinstalled with verified bonding continuity"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanation": "Base corrosion degrades both the mechanical integrity (mounting strength) and the electrical bond (ground-plane connection). The proper corrective action is removal, cleaning to bare metal, new sealant, reinstallation, and verification of bonding continuity. Paint over corrosion is not a repair; it traps moisture and accelerates the damage. Environmental restrictions do not substitute for proper maintenance."
       },
       "preassessment": {
         "question": "What should regular communication antenna inspection include?",
         "choices": [
           "Only the connector at the rack end",
-          "Physical damage, base corrosion, mounting hardware, sealant, and bonding",
           "Antenna frequency tuning",
-          "Cleanliness only"
+          "Cleanliness only",
+          "Physical damage, base corrosion, mounting"
         ],
-        "correctIndex": 1
+        "correctIndex": 3
       }
     }
   ]

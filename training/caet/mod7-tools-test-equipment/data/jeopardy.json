@@ -13,11 +13,11 @@
         "clue": "When measuring voltage across a component with a multimeter, this is how the meter is connected.",
         "choices": [
           "In series with the component",
-          "In parallel with the component",
           "In diagonal with the component",
-          "The meter does not need to be connected to the circuit"
+          "The meter does not need to be connected to the circuit",
+          "In parallel with the component"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanation": "Voltage is measured in parallel. Series connection (correct for current) would not give a valid voltage reading and could disturb the circuit."
       },
       {
@@ -25,11 +25,11 @@
         "clue": "While testing a 24 V DC circuit, this could cause a multimeter to display 235 V.",
         "choices": [
           "The circuit has mysteriously multiplied its voltage",
-          "Wrong meter range, wrong AC/DC mode, a damaged probe or lead, or induced-voltage 'ghost readings' on a high-impedance meter connected to a floating point",
           "The battery has gained voltage",
+          "Wrong meter range, wrong AC/DC mode, a damaged probe or lead, or induced-voltage 'ghost readings' on a high-impedance meter connected to a floating point",
           "The meter is working correctly and the reading is accurate"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "explanation": "A 235 V reading on a 24 V DC circuit is almost always a meter-setup or ghost-voltage issue. The circuit itself cannot spontaneously produce 10× its source voltage."
       },
       {
@@ -37,11 +37,11 @@
         "clue": "Before measuring resistance with a multimeter, this must be ensured.",
         "choices": [
           "The circuit is energized and operating",
-          "The circuit is de-energized (power off), and ideally the component is isolated from parallel paths",
           "The component is hot",
-          "The component is installed in another circuit for reference"
+          "The component is installed in another circuit for reference",
+          "The circuit is de-energized (power off), and ideally the component is isolated from parallel paths"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanation": "Resistance measurement requires a de-energized circuit. Energized circuits disrupt the measurement and can damage the meter."
       },
       {
@@ -49,7 +49,7 @@
         "clue": "A multimeter set to the ohms range shows 'OL.' This is what the reading means.",
         "choices": [
           "The meter is overloaded and damaged",
-          "The resistance exceeds the meter's selected range — most commonly indicating an open circuit (infinite resistance)",
+          "The resistance exceeds the meter's selected range",
           "The circuit is hot with voltage",
           "The meter is out of calibration"
         ],
@@ -73,23 +73,23 @@
         "clue": "If you measure 0 V across a component in an active circuit, this is a possible cause.",
         "choices": [
           "The circuit must be powered off",
-          "The component is shorted internally, a parallel short bypasses it, or no current is flowing through the circuit due to an upstream break",
           "The meter must be broken",
+          "The component is shorted internally",
           "The component is functioning normally"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "explanation": "0 V with current flowing means zero resistance (shorted). 0 V with no current flowing can occur when an upstream break eliminates the current, leaving no voltage drop to measure. Either way, it merits investigation."
       },
       {
         "id": "CAT7-NEW-007",
         "clue": "This is the primary function of a multimeter.",
         "choices": [
+          "To measure multiple electrical quantities",
           "To generate electrical signals",
-          "To measure multiple electrical quantities — primarily voltage, current, and resistance",
           "To convert AC to DC",
           "To amplify weak signals"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanation": "A multimeter measures — it does not generate signals, convert power, or amplify. The three core measurements are voltage, current, and resistance."
       },
       {
@@ -97,11 +97,11 @@
         "clue": "This is what a megohmmeter (megger) is used to test.",
         "choices": [
           "Wire length",
-          "Insulation resistance between a conductor and ground (or between two conductors), in the megohm range",
           "Signal frequency",
+          "Insulation resistance between a conductor and ground (or between two conductors)",
           "Ground bonding resistance in milliohms"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "explanation": "Meggers test insulation resistance at high voltage. Wire length is measured by TDR or physical measurement. Signal frequency is measured by a frequency counter or oscilloscope. Ground bonding is measured by a milliohmmeter, not a megger."
       },
       {
@@ -109,11 +109,11 @@
         "clue": "This is the primary purpose of a center punch in an avionics repair shop.",
         "choices": [
           "To drive nails into hardwood",
-          "To create a small indentation in metal that guides a drill bit and prevents it from walking during drilling",
           "To test electrical continuity",
-          "To remove burrs from drilled holes"
+          "To remove burrs from drilled holes",
+          "To create a small indentation in metal that guides a drill bit and prevents it from walking during drilling"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanation": "A center punch creates a pilot indentation for drilling. Nail driving uses a hammer. Continuity testing uses a meter. Burr removal uses a deburring tool or countersink."
       },
       {
@@ -121,7 +121,7 @@
         "clue": "This is the function of a wire crimper.",
         "choices": [
           "To cut wire to length",
-          "To compress a terminal or connector barrel onto a wire with controlled geometry and force, creating a gas-tight electrical and mechanical connection",
+          "To compress a terminal or connector barrel onto a wire with controlled geometry and force",
           "To strip insulation from a wire",
           "To apply solder to a joint"
         ],
@@ -134,12 +134,12 @@
         "id": "CAT7-NEW-015",
         "clue": "This is why a technician performs a 'wiggle test' near connectors before finalizing an installation.",
         "choices": [
+          "To identify intermittent connections",
           "To add torque to the fastener",
-          "To identify intermittent connections — loose pins, cold solder joints, chafed wiring, or cracked bodies — that reveal themselves only when the wires or connectors are moved",
           "To increase the signal voltage",
           "To test the software load"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanation": "The wiggle test reveals intermittent physical connections. It is a diagnostic technique, not a torque application, voltage test, or software check."
       }
     ],
@@ -149,11 +149,11 @@
         "clue": "An oscilloscope is used to visualize this.",
         "choices": [
           "Electrical resistance",
-          "Electrical signal waveforms (voltage plotted as a function of time)",
           "Magnetic field strength",
-          "Pressure"
+          "Pressure",
+          "Electrical signal waveforms"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanation": "An oscilloscope displays waveforms — voltage vs time. Resistance is measured by ohmmeters; magnetic fields by gaussmeters; pressure by pressure gauges or ADCs."
       }
     ],
@@ -177,23 +177,23 @@
         "clue": "This is an important safety precaution when using a megohmmeter (megger).",
         "choices": [
           "Leave all avionics connected for a realistic test",
-          "Disconnect the circuit from its power source AND from any sensitive solid-state electronics or avionics before applying megger voltage; discharge the capacitance in the system after testing",
           "Apply continuous voltage with no cool-down",
+          "Disconnect the circuit from its power source AND from any sensitive solid-state electronics or avionics before applying megger voltage",
           "Ignore manufacturer maximum test voltages"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "explanation": "Megger voltage damages solid-state electronics and avionics. Isolate before testing. Post-test discharge is important to handle safely. Manufacturer voltage limits must be respected."
       },
       {
         "id": "CAT7-NEW-011",
         "clue": "This is the primary use of a milliohmmeter.",
         "choices": [
+          "Measuring very low resistances in the milliohm range",
           "Measuring high-voltage insulation resistance",
-          "Measuring very low resistances in the milliohm range, such as bonding resistance and contact resistance",
           "Generating test signals",
           "Measuring signal frequency"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanation": "Milliohmmeters measure very low resistances (milliohms). Insulation resistance is for meggers. Signal generation requires a function generator. Frequency measurement uses a counter or scope."
       }
     ]

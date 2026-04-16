@@ -38,45 +38,45 @@
       "jeopardy": {
         "question": "This is the current drawn by a 10 Ω heating element wired across a 28 V aircraft bus.",
         "choices": [
-          "0.36 A",
           "2.8 A",
+          "0.36 A",
           "18 A",
           "280 A"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanation": "Applying Ohm's Law, I = V / R = 28 volts divided by 10 ohms = 2.8 amperes. The 0.36 A option inverts the fraction (10 divided by 28). The 18 A option subtracts resistance from voltage. The 280 A option multiplies voltage by resistance — a common slip under time pressure."
       },
       "multipleChoice": {
         "question": "A 28 V aircraft bus supplies a 10 Ω heating element. What current flows through the element?",
         "choices": [
-          "0.36 A",
           "2.8 A",
+          "0.36 A",
           "18 A",
           "280 A"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanation": "Applying Ohm's Law, I = V / R = 28 volts divided by 10 ohms = 2.8 amperes. The 0.36 A distractor inverts the ratio; 18 A subtracts; 280 A multiplies."
       },
       "practice": {
         "question": "You are troubleshooting a pitot heat circuit supplied by a 28 V DC bus. The heating element measures 10 Ω when cold. Assuming the bus voltage remains steady, what current should an inline ammeter display at the moment the switch closes?",
         "choices": [
-          "About 0.36 A, because voltage divided by resistance produces a fractional value here",
           "About 2.8 A, because current equals voltage divided by resistance",
+          "About 0.36 A, because voltage divided by resistance produces a fractional value here",
           "About 18 A, because current equals voltage minus resistance",
           "About 280 A, because current equals voltage multiplied by resistance"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanation": "Ohm's Law gives I = V / R = 28 / 10 = 2.8 A at cold start. Element resistance rises as it heats, so steady-state current will be somewhat lower, but the cold-start value is what must inform circuit breaker sizing."
       },
       "preassessment": {
         "question": "What current flows through a 10 Ω load connected to a 28 V DC bus?",
         "choices": [
-          "0.36 A",
           "2.8 A",
+          "0.36 A",
           "18 A",
           "280 A"
         ],
-        "correctIndex": 1
+        "correctIndex": 0
       }
     },
     {
@@ -160,22 +160,22 @@
         "question": "A 28 V DC bus delivering 25 A supplies this much power to the connected loads.",
         "choices": [
           "53 W",
-          "175 W",
           "700 W",
+          "175 W",
           "1,400 W"
         ],
-        "correctIndex": 2,
+        "correctIndex": 1,
         "explanation": "Applying the power formula, P = V × I = 28 volts × 25 amperes = 700 watts. The 53 W option incorrectly adds voltage and current; 1,400 W doubles one of the inputs."
       },
       "multipleChoice": {
         "question": "A 28 V DC bus supplies 25 A to the connected loads. How much power is being consumed?",
         "choices": [
           "53 W",
-          "175 W",
           "700 W",
+          "175 W",
           "1,400 W"
         ],
-        "correctIndex": 2,
+        "correctIndex": 1,
         "explanation": "Apply P = V × I = 28 × 25 = 700 W. The formula can also be rearranged to I = P / V and V = P / I. A units check confirms that volts × amperes = watts."
       },
       "practice": {
@@ -193,11 +193,11 @@
         "question": "How much power does a 28 V DC bus deliver when it supplies 25 A of current?",
         "choices": [
           "53 W",
-          "175 W",
           "700 W",
+          "175 W",
           "1,400 W"
         ],
-        "correctIndex": 2
+        "correctIndex": 1
       }
     },
     {
@@ -283,10 +283,10 @@
         "choices": [
           "Inductor",
           "Resistor",
-          "Capacitor",
-          "Diode"
+          "Diode",
+          "Capacitor"
         ],
-        "correctIndex": 2,
+        "correctIndex": 3,
         "explanation": "A capacitor across the output passes high-frequency noise to ground while the DC continues flowing to the bus. An inductor in series could also help suppress noise but is not the standard noise-filter component specified by alternator manufacturers. A resistor would simply dissipate power without selectively blocking noise. A diode blocks reverse current and is not a noise filter."
       },
       "multipleChoice": {
@@ -294,10 +294,10 @@
         "choices": [
           "Inductor",
           "Resistor",
-          "Capacitor",
-          "Diode"
+          "Diode",
+          "Capacitor"
         ],
-        "correctIndex": 2,
+        "correctIndex": 3,
         "explanation": "A capacitor installed across the alternator output shunts high-frequency noise to ground. This is the standard noise-suppression approach specified for DC charging systems in light aircraft."
       },
       "practice": {
@@ -305,10 +305,10 @@
         "choices": [
           "An inductor installed in series with the alternator output to block the DC",
           "A resistor installed across the alternator output to dissipate the noise as heat",
-          "A capacitor installed across the alternator output to shunt high-frequency noise to ground",
-          "A reverse-biased diode installed across the alternator to clamp the ripple"
+          "A reverse-biased diode installed across the alternator to clamp the ripple",
+          "A capacitor installed across the alternator output to shunt high-frequency noise to ground"
         ],
-        "correctIndex": 2,
+        "correctIndex": 3,
         "explanation": "RPM-correlated whine is a textbook indicator of alternator ripple. A capacitor across the output provides a low-impedance path to ground for high-frequency AC content while allowing the DC to pass to the bus. A series inductor would also block the desired DC output. A resistor would simply waste power. A diode is used for clamping transients, not for primary noise filtering."
       },
       "preassessment": {
@@ -316,10 +316,10 @@
         "choices": [
           "Inductor",
           "Resistor",
-          "Capacitor",
-          "Diode"
+          "Diode",
+          "Capacitor"
         ],
-        "correctIndex": 2
+        "correctIndex": 3
       }
     },
     {
@@ -342,33 +342,33 @@
         "question": "These are the SI units, in order, for voltage, current, and resistance.",
         "choices": [
           "Watt, volt, ohm",
-          "Volt, ampere, ohm",
           "Ohm, watt, henry",
-          "Ampere, ohm, farad"
+          "Ampere, ohm, farad",
+          "Volt, ampere, ohm"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanation": "Voltage is measured in volts, current in amperes, and resistance in ohms. Watts measure power, henries measure inductance, and farads measure capacitance."
       },
       "multipleChoice": {
         "question": "Which set of units correctly matches voltage, current, and resistance, in that order?",
         "choices": [
           "Amperes, volts, and watts",
-          "Volts, amperes, and ohms",
           "Watts, ohms, and henries",
-          "Ohms, farads, and hertz"
+          "Ohms, farads, and hertz",
+          "Volts, amperes, and ohms"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanation": "The correct units are volts for voltage, amperes for current, and ohms for resistance. The other options confuse these with the units for power, inductance, capacitance, or frequency."
       },
       "practice": {
         "question": "An aircraft schematic shows the notations '28 V', '10 A', and '2.8 Ω' near a resistive load. What electrical quantities do these notations represent, in order?",
         "choices": [
           "Current, power, and resistance",
-          "Voltage, current, and resistance",
           "Voltage, resistance, and current",
-          "Power, voltage, and current"
+          "Power, voltage, and current",
+          "Voltage, current, and resistance"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanation": "The symbol 'V' indicates volts (voltage), 'A' indicates amperes (current), and 'Ω' indicates ohms (resistance). The values also satisfy Ohm's Law: 28 V divided by 10 A equals 2.8 Ω."
       },
       "preassessment": {
@@ -376,10 +376,10 @@
         "choices": [
           "Voltage",
           "Current",
-          "Resistance",
-          "Power"
+          "Power",
+          "Resistance"
         ],
-        "correctIndex": 2
+        "correctIndex": 3
       }
     },
     {
@@ -401,45 +401,45 @@
       "jeopardy": {
         "question": "If the voltage across a fixed resistor is doubled, the current does this.",
         "choices": [
+          "Doubles",
           "Halves",
           "Stays the same",
-          "Doubles",
           "Quadruples"
         ],
-        "correctIndex": 2,
+        "correctIndex": 0,
         "explanation": "Because I = V / R and resistance is constant, current is directly proportional to voltage. Doubling the voltage doubles the current."
       },
       "multipleChoice": {
         "question": "In a DC circuit with a fixed resistance, the applied voltage is doubled. What happens to the current?",
         "choices": [
+          "The current doubles",
           "The current is halved",
           "The current stays the same",
-          "The current doubles",
           "The current is quadrupled"
         ],
-        "correctIndex": 2,
+        "correctIndex": 0,
         "explanation": "Applying I = V / R with R held constant, current is directly proportional to voltage. When the voltage doubles, the current also doubles."
       },
       "practice": {
         "question": "A lamp draws 0.5 A from a 14 V DC source. A technician swaps in a 28 V source, assuming the lamp filament's cold resistance is unchanged at the instant of the swap. What initial current would an ammeter display?",
         "choices": [
+          "About 1.0 A, because current doubles with voltage at fixed resistance",
           "About 0.25 A, because current halves when voltage doubles",
           "About 0.5 A, because current is independent of voltage",
-          "About 1.0 A, because current doubles with voltage at fixed resistance",
           "About 2.0 A, because current quadruples with voltage"
         ],
-        "correctIndex": 2,
+        "correctIndex": 0,
         "explanation": "With fixed resistance, I is directly proportional to V, so doubling the voltage doubles the current. A real lamp's filament heats and its resistance rises, so steady-state current will be somewhat less than 1.0 A — but the instantaneous cold-start current follows this proportion."
       },
       "preassessment": {
         "question": "If the voltage across a fixed resistor is doubled, what happens to the current?",
         "choices": [
+          "It doubles",
           "It is halved",
           "It stays the same",
-          "It doubles",
           "It is quadrupled"
         ],
-        "correctIndex": 2
+        "correctIndex": 0
       }
     },
     {
@@ -461,45 +461,45 @@
       "jeopardy": {
         "question": "If the resistance in a circuit doubles while the voltage remains constant, the current does this.",
         "choices": [
+          "Halves",
           "Doubles",
           "Stays the same",
-          "Halves",
           "Quadruples"
         ],
-        "correctIndex": 2,
+        "correctIndex": 0,
         "explanation": "Applying I = V / R with V held constant, current is inversely proportional to resistance. Doubling the resistance halves the current."
       },
       "multipleChoice": {
         "question": "In a DC circuit with a fixed applied voltage, the resistance is doubled. What happens to the current?",
         "choices": [
+          "The current is halved",
           "The current doubles",
           "The current stays the same",
-          "The current is halved",
           "The current is quadrupled"
         ],
-        "correctIndex": 2,
+        "correctIndex": 0,
         "explanation": "Applying I = V / R with voltage held constant, doubling the resistance halves the current."
       },
       "practice": {
         "question": "A technician replaces a 4 Ω load on a 14 V DC circuit with a new component rated at 8 Ω. Assuming the bus voltage remains at 14 V, what happens to the steady-state current?",
         "choices": [
+          "It is halved from 3.5 A to 1.75 A",
           "It doubles from 3.5 A to 7 A",
           "It remains at 3.5 A because the voltage did not change",
-          "It is halved from 3.5 A to 1.75 A",
           "It falls to zero because the new component is not compatible"
         ],
-        "correctIndex": 2,
+        "correctIndex": 0,
         "explanation": "The original current was 14 V divided by 4 Ω = 3.5 A. The new current is 14 V divided by 8 Ω = 1.75 A. Doubling the resistance at fixed voltage halves the current."
       },
       "preassessment": {
         "question": "If the resistance in a circuit is doubled while the voltage remains constant, what happens to the current?",
         "choices": [
+          "It is halved",
           "It doubles",
           "It stays the same",
-          "It is halved",
           "It is quadrupled"
         ],
-        "correctIndex": 2
+        "correctIndex": 0
       }
     },
     {
@@ -584,44 +584,44 @@
         "question": "A DMM measures 28 V across a load drawing 4 A, giving this value for the load's resistance.",
         "choices": [
           "0.14 Ω",
-          "7 Ω",
           "24 Ω",
-          "112 Ω"
+          "112 Ω",
+          "7 Ω"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanation": "Applying R = V / I gives 28 V divided by 4 A = 7 Ω. The 0.14 Ω option inverts the fraction; 24 subtracts; 112 multiplies."
       },
       "multipleChoice": {
         "question": "A technician measures 28 V across a load that is drawing 4 A. What is the load's resistance?",
         "choices": [
           "0.14 Ω",
-          "7 Ω",
           "24 Ω",
-          "112 Ω"
+          "112 Ω",
+          "7 Ω"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanation": "Applying R = V / I gives 28 divided by 4 = 7 Ω. The other options result from inverting the fraction, subtracting, or multiplying."
       },
       "practice": {
         "question": "During bench testing, a technician applies 28 V to a heating element and measures 4 A of current flow. What is the element's resistance at that operating point?",
         "choices": [
           "About 0.14 Ω, from inverting the V-over-I ratio",
-          "About 7 Ω, from dividing voltage by current",
           "About 24 Ω, from subtracting current from voltage",
-          "About 112 Ω, from multiplying voltage by current"
+          "About 112 Ω, from multiplying voltage by current",
+          "About 7 Ω, from dividing voltage by current"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanation": "Applying R = V / I gives 7 Ω at this operating point. Note that heating elements have positive temperature coefficients — their cold resistance is lower than their hot resistance — so this 7 Ω value applies only at the temperature reached during the test."
       },
       "preassessment": {
         "question": "What is the resistance of a load that shows 28 V across it while drawing 4 A?",
         "choices": [
           "0.14 Ω",
-          "7 Ω",
           "24 Ω",
-          "112 Ω"
+          "112 Ω",
+          "7 Ω"
         ],
-        "correctIndex": 1
+        "correctIndex": 3
       }
     },
     {
@@ -644,44 +644,44 @@
         "question": "Dimmer-than-normal bulbs on a DC circuit most commonly indicate this underlying problem.",
         "choices": [
           "Too much source voltage",
-          "Excessive voltage drop caused by added series resistance somewhere in the circuit",
           "Replacement of the bulbs with lower-wattage units",
-          "A parallel short across the bulbs"
+          "A parallel short across the bulbs",
+          "Excessive voltage drop caused by added series resistance somewhere in the circuit"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanation": "Dim bulbs indicate that less than the rated voltage is reaching the load. The most common cause is a corroded terminal, a loose connection, or an undersized wire adding series resistance that drops voltage before it reaches the load."
       },
       "multipleChoice": {
         "question": "A set of aircraft cabin lights is noticeably dimmer than usual, especially at full throttle. Which cause is most likely?",
         "choices": [
           "The installed bulbs are too powerful for the circuit",
-          "Excessive voltage drop caused by a corroded or loose connection adding series resistance",
           "The panel ammeter is miscalibrated",
-          "The aircraft is grounded too well"
+          "The aircraft is grounded too well",
+          "Excessive voltage drop caused by a corroded or loose connection"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanation": "Dim lights mean that reduced voltage is reaching the load. The most common cause is added series resistance somewhere in the supply path — corrosion, loose terminals, or undersized wiring."
       },
       "practice": {
         "question": "A pilot reports that the landing light appears yellowish at takeoff power but returns to normal brightness at cruise. You pull the schematics and begin troubleshooting. Which finding would best explain this load-dependent dimming?",
         "choices": [
           "The landing light bulb is the wrong part number for the aircraft",
-          "A corroded battery terminal adds series resistance — voltage drop is small at low current but larger at high current, producing the dimming effect under heavy load",
           "The alternator is over-regulating and producing too much voltage",
-          "The landing light is wired to the wrong bus"
+          "The landing light is wired to the wrong bus",
+          "A corroded battery terminal adds series resistance — voltage drop is small at low current but larger at high current, producing the dimming effect under heavy load"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanation": "Voltage drop across a series resistance is proportional to current, so a corroded terminal with nearly constant resistance produces a small drop at low current and a much larger drop at high current. At takeoff many loads are active, so the total current is higher and the voltage drop is worse. At cruise with lower total current the drop is small and the light appears normal. This is a textbook load-dependent voltage drop symptom."
       },
       "preassessment": {
         "question": "What does dim, below-rated output from DC-powered bulbs most often indicate?",
         "choices": [
           "Too much source voltage",
-          "Excessive voltage drop from added series resistance",
           "A broken ammeter",
-          "A parallel short across the bulbs"
+          "A parallel short across the bulbs",
+          "Excessive voltage drop from added series"
         ],
-        "correctIndex": 1
+        "correctIndex": 3
       }
     },
     {
@@ -705,10 +705,10 @@
         "choices": [
           "Doubles",
           "Stays the same",
-          "Quadruples",
-          "Is cut in half"
+          "Is cut in half",
+          "Quadruples"
         ],
-        "correctIndex": 2,
+        "correctIndex": 3,
         "explanation": "Because P = V × I, doubling both V and I scales power by a factor of 2 × 2 = 4. The result is quadrupled power."
       },
       "multipleChoice": {
@@ -716,10 +716,10 @@
         "choices": [
           "The power doubles",
           "The power stays the same",
-          "The power quadruples",
-          "The power is cut in half"
+          "The power is cut in half",
+          "The power quadruples"
         ],
-        "correctIndex": 2,
+        "correctIndex": 3,
         "explanation": "Because P = V × I, doubling both factors scales power by 2 × 2 = 4. The result is quadrupled power."
       },
       "practice": {
@@ -727,10 +727,10 @@
         "choices": [
           "It doubled, from 49 W to 98 W",
           "It is unchanged because the unit has the same function",
-          "It quadrupled, from 49 W to 196 W",
-          "It was halved, from 49 W to 24.5 W"
+          "It was halved, from 49 W to 24.5 W",
+          "It quadrupled, from 49 W to 196 W"
         ],
-        "correctIndex": 2,
+        "correctIndex": 3,
         "explanation": "The original power is 14 × 3.5 = 49 W. The upgraded power is 28 × 7 = 196 W. The ratio 196 / 49 = 4, confirming that doubling both V and I quadruples power. Any upgrade with a 4× power jump should trigger a review of wire and breaker sizing."
       },
       "preassessment": {
@@ -738,10 +738,10 @@
         "choices": [
           "It doubles",
           "It stays the same",
-          "It quadruples",
-          "It is cut in half"
+          "It is cut in half",
+          "It quadruples"
         ],
-        "correctIndex": 2
+        "correctIndex": 3
       }
     },
     {
@@ -763,45 +763,45 @@
       "jeopardy": {
         "question": "To measure current with a traditional ammeter, the meter must be connected to the circuit this way.",
         "choices": [
-          "In parallel with the load",
           "In series with the load",
+          "In parallel with the load",
           "Across the source only",
           "Between the load and ground only"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanation": "Ammeters must be placed in series so the circuit's current flows through the meter. Connecting an ammeter in parallel creates a near-short because the meter's internal resistance is very low — this will blow the meter's fuse or damage the meter."
       },
       "multipleChoice": {
         "question": "How should a traditional (non-clamp) ammeter be connected in order to measure current in a circuit?",
         "choices": [
-          "In parallel with the load",
           "In series with the load",
+          "In parallel with the load",
           "Across the supply voltage only",
           "Between the load and ground only"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanation": "An ammeter must be placed in series so the circuit's current passes through it. Connecting an ammeter in parallel creates a near-short circuit and will blow the meter's internal fuse or damage the meter."
       },
       "practice": {
         "question": "A new technician attempts to measure current with a DMM by touching the probes across a battery, as if reading voltage. What will most likely happen?",
         "choices": [
-          "The DMM will read the current correctly, because ammeter and voltmeter connections are the same",
           "The DMM will read zero because ammeters must be in series — the probes shorted across the battery will blow the meter's internal fuse or damage the meter",
+          "The DMM will read the current correctly, because ammeter and voltmeter connections are the same",
           "The DMM will read half of the correct current value because of the parallel connection",
           "The DMM will read double the correct current value"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanation": "A DMM in ammeter mode has near-zero internal resistance. Connecting it across a voltage source is a short circuit — the internal fuse will blow immediately (or the meter will be damaged if the fuse is oversized). Ammeters must always be in series. Using a clamp meter avoids the need to break the circuit at all."
       },
       "preassessment": {
         "question": "How should an ammeter be connected to measure current in a circuit?",
         "choices": [
-          "In parallel with the load",
           "In series with the load",
+          "In parallel with the load",
           "Across the source only",
           "From load to ground only"
         ],
-        "correctIndex": 1
+        "correctIndex": 0
       }
     },
     {
@@ -884,45 +884,45 @@
       "jeopardy": {
         "question": "In a parallel circuit with branch currents of 1 A, 2 A, and 3 A, the source supplies this total current.",
         "choices": [
+          "6 A",
           "1 A",
           "3 A",
-          "6 A",
           "0.55 A"
         ],
-        "correctIndex": 2,
+        "correctIndex": 0,
         "explanation": "Kirchhoff's Current Law states that the current into a node equals the current leaving it. The source supplies the sum of the branch currents: 1 + 2 + 3 = 6 A."
       },
       "multipleChoice": {
         "question": "Three parallel branches draw 1 A, 2 A, and 3 A from a common source. How much current does the source supply?",
         "choices": [
+          "About 6 A, the sum of all three branch currents",
           "About 1 A, the smallest branch current",
           "About 3 A, the largest branch current",
-          "About 6 A, the sum of all three branch currents",
           "About 0.55 A, the reciprocal of the branch sum"
         ],
-        "correctIndex": 2,
+        "correctIndex": 0,
         "explanation": "Applying Kirchhoff's Current Law, the current entering a node equals the current leaving. The source must supply the sum of the branch currents: 1 + 2 + 3 = 6 A."
       },
       "practice": {
         "question": "You are sizing a main bus feeder for a panel with three parallel loads drawing 10 A, 15 A, and 20 A. What is the minimum continuous current rating the feeder must handle?",
         "choices": [
+          "45 A, the sum of all three branch currents",
           "20 A, because only the largest load matters for feeder sizing",
           "15 A, the average of the three loads",
-          "45 A, the sum of all three branch currents",
           "10 A, the smallest load current"
         ],
-        "correctIndex": 2,
+        "correctIndex": 0,
         "explanation": "Parallel loads all draw from the same feeder, so the total is 10 + 15 + 20 = 45 A. Proper sizing also requires a derating margin, typically 25% above continuous, so a feeder rated for roughly 60 A would be specified."
       },
       "preassessment": {
         "question": "If parallel branches draw 1 A, 2 A, and 3 A, how much total current does the source supply?",
         "choices": [
+          "6 A",
           "1 A",
           "3 A",
-          "6 A",
           "0.55 A"
         ],
-        "correctIndex": 2
+        "correctIndex": 0
       }
     },
     {
@@ -1007,44 +1007,44 @@
         "question": "This is the PRIMARY function of an aircraft battery.",
         "choices": [
           "To provide continuous power for all avionics during flight",
-          "To supply engine-cranking current and serve as emergency backup",
           "To power the navigation lights",
+          "To supply engine-cranking current and serve as emergency backup",
           "To regulate the alternator's output voltage"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "explanation": "The battery's main jobs are engine starting and emergency backup. Continuous in-flight power comes from the alternator or generator; the battery supplements only during starting or if the charging system fails."
       },
       "multipleChoice": {
         "question": "In a typical general aviation aircraft, what is the PRIMARY purpose of the battery?",
         "choices": [
           "To provide continuous power to all avionics during flight",
-          "To start the engine and serve as emergency backup power",
           "To illuminate the instrument panel",
+          "To start the engine and serve as emergency backup power",
           "To regulate the alternator's output voltage"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "explanation": "The battery starts the engine and serves as emergency backup power. In normal flight the alternator carries the load and also recharges the battery."
       },
       "practice": {
         "question": "A pilot asks how long the avionics will continue to work if the alternator fails in flight. What determines that duration?",
         "choices": [
           "The alternator's rated output in watts",
-          "The battery's capacity in amp-hours and the current load the avionics draw",
           "The setting of the voltage regulator",
+          "The battery's capacity in amp-hours and the current load the avionics draw",
           "The engine's cruise RPM"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "explanation": "With the alternator offline, the battery alone powers the aircraft. Run time equals battery capacity in amp-hours divided by the load current in amperes. Load shedding (turning off non-essential loads) extends the available time, which is why pilots are trained to shed loads immediately after a charging-system failure."
       },
       "preassessment": {
         "question": "What is the primary role of the aircraft battery?",
         "choices": [
           "Continuous avionics power",
-          "Engine starting and emergency backup",
           "Lighting only",
+          "Engine starting and emergency backup",
           "Alternator voltage regulation"
         ],
-        "correctIndex": 1
+        "correctIndex": 2
       }
     },
     {
@@ -1078,7 +1078,7 @@
         "question": "What is the primary function of the voltage regulator in an aircraft DC electrical system?",
         "choices": [
           "To step the voltage up or down between different busses",
-          "To maintain a constant bus voltage by controlling alternator field current",
+          "To maintain a constant bus voltage by controlling alternator field",
           "To convert AC from the alternator into DC",
           "To measure the battery's state of charge"
         ],
@@ -1128,44 +1128,44 @@
         "question": "This component steps AC voltage up or down and cannot be used directly with steady DC.",
         "choices": [
           "Capacitor",
-          "Transformer",
           "Diode",
+          "Transformer",
           "Resistor"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "explanation": "Transformers rely on a continuously changing magnetic flux, which steady DC cannot produce (only the brief moment DC is switched on or off produces any change). AC continuously alternates, producing the required flux change for induction to work."
       },
       "multipleChoice": {
         "question": "What is the primary function of a transformer in an AC electrical system?",
         "choices": [
           "To convert AC into DC",
-          "To step AC voltage up or down using electromagnetic induction",
           "To store electrical charge for later use",
+          "To step AC voltage up or down using electromagnetic induction",
           "To regulate voltage fluctuations like a voltage regulator"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "explanation": "Transformers change voltage levels using electromagnetic induction. Rectifiers convert AC to DC. Capacitors store charge. Voltage regulators actively control output voltage through a feedback loop, using a different mechanism."
       },
       "practice": {
         "question": "A technician installs a transformer in a 28 V DC circuit hoping to obtain 5 V DC at the secondary. Will this approach work?",
         "choices": [
           "Yes, because transformers convert voltage regardless of whether the input is AC or DC",
-          "No, because transformers require a continuously changing magnetic flux, which steady DC does not produce — only AC creates the needed flux changes",
           "Yes, but only if the transformer is specifically labeled 'DC-compatible'",
+          "No, because transformers require a continuously changing magnetic flux, which steady DC does not produce — only AC creates the needed flux changes",
           "No, because transformers only operate at 60 Hz"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "explanation": "Transformers cannot step steady DC voltages. DC produces a magnetic field but not a changing one, so no voltage is induced in the secondary winding. A DC-to-DC converter is the correct device for this task."
       },
       "preassessment": {
         "question": "With what type of input voltage do transformers operate?",
         "choices": [
           "DC only",
-          "AC only",
           "Both AC and DC at all frequencies",
+          "AC only",
           "Neither AC nor DC"
         ],
-        "correctIndex": 1
+        "correctIndex": 2
       }
     },
     {
@@ -1189,44 +1189,44 @@
         "question": "When disconnecting an aircraft battery, this terminal is always removed first.",
         "choices": [
           "The positive terminal",
-          "The negative (ground) terminal",
           "Either terminal, because the order does not matter",
+          "The negative (ground) terminal",
           "Both terminals must be disconnected simultaneously"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "explanation": "The negative (ground) terminal is removed first. If a wrench slips while loosening the positive cable, it could touch the airframe and weld to the terminal — pulling the negative terminal first removes that ground path and prevents the short from completing."
       },
       "multipleChoice": {
         "question": "What is the correct first step when disconnecting an aircraft battery?",
         "choices": [
           "Remove the positive terminal first",
-          "Remove the negative (ground) terminal first",
           "Remove both terminals at exactly the same time",
+          "Remove the negative (ground) terminal first",
           "Disconnect the ammeter shunt first"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "explanation": "The negative terminal is always removed first. With the ground path broken, a slip on the positive terminal cannot short to the airframe. When reconnecting, the positive terminal is connected first and the negative terminal last."
       },
       "practice": {
         "question": "Why does the disconnect procedure specifically require removing the NEGATIVE terminal FIRST?",
         "choices": [
           "Because negative terminals corrode faster than positive ones",
-          "To prevent a wrench that accidentally touches grounded airframe from creating a short circuit across a live positive cable",
           "To discharge static electricity from the battery housing",
+          "To prevent a wrench that accidentally touches grounded airframe from creating a short circuit across a live positive cable",
           "Because FAA regulations mandate the order by part number"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "explanation": "The safety rationale is short-circuit prevention. With the ground path already disconnected, even a dead short from the positive terminal to the airframe cannot complete a circuit. This sequence is a universal automotive and aviation safety procedure."
       },
       "preassessment": {
         "question": "Which terminal is removed first when disconnecting an aircraft battery?",
         "choices": [
           "The positive terminal",
-          "The negative terminal",
           "Either terminal",
+          "The negative terminal",
           "Both at the same time"
         ],
-        "correctIndex": 1
+        "correctIndex": 2
       }
     },
     {
@@ -1249,45 +1249,45 @@
       "jeopardy": {
         "question": "This is the correct way to dispose of an expired Ni-Cad aircraft battery.",
         "choices": [
-          "Crush it and throw it in the shop dumpster",
           "Deliver it to a certified hazardous-materials recycler",
+          "Crush it and throw it in the shop dumpster",
           "Flush the electrolyte and dispose of the empty case",
           "Store it indefinitely because no disposal is legally required"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanation": "Ni-Cad batteries contain cadmium, a toxic heavy metal, so disposal must go through a hazardous-waste recycler per EPA and local regulations. Dumping, flushing, or crushing the battery are all environmentally illegal and physically dangerous."
       },
       "multipleChoice": {
         "question": "Which of the following is the SAFE and legal procedure for disposing of a Ni-Cad battery?",
         "choices": [
-          "Crush the battery and discard it as solid waste",
           "Deliver it to a certified hazardous-waste recycler",
+          "Crush the battery and discard it as solid waste",
           "Pour out the electrolyte before disposal",
           "Incinerate the battery to reduce its volume"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanation": "Certified hazardous-waste recycling is required. Ni-Cad batteries contain cadmium, which is toxic to humans and the environment. Crushing, pouring out the electrolyte, or burning the battery are all illegal and hazardous practices."
       },
       "practice": {
         "question": "Your shop has a box of five expired Ni-Cad batteries. A new technician asks whether they can be thrown in the regular dumpster because they 'look like normal batteries.' What is your response?",
         "choices": [
-          "Yes, because after a few weeks the cadmium becomes inert",
           "No — Ni-Cad batteries contain cadmium, a toxic heavy metal, so they must go to a certified hazardous-waste recycler",
+          "Yes, because after a few weeks the cadmium becomes inert",
           "Yes, but only if the case is cracked first to let the cells dry out",
           "It depends on the state; some states allow Ni-Cad batteries in regular trash"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanation": "Ni-Cad batteries are universal hazardous waste due to their cadmium content. No state allows them in regular trash. The shop should have a relationship with a hazmat recycler — many battery-supply vendors will accept spent batteries back for recycling."
       },
       "preassessment": {
         "question": "What is the correct disposal method for an expired Ni-Cad battery?",
         "choices": [
-          "Regular shop trash",
           "A certified hazardous-waste recycler",
+          "Regular shop trash",
           "Pour out the electrolyte, then discard",
           "Burn the battery"
         ],
-        "correctIndex": 1
+        "correctIndex": 0
       }
     },
     {
@@ -1311,44 +1311,44 @@
         "question": "Before transporting a spillable lead-acid aircraft battery, this is the critical precaution.",
         "choices": [
           "Fully discharge the battery before moving it",
-          "Secure the cell caps and transport the battery upright",
           "Flush the electrolyte beforehand",
-          "Cover the battery in conductive foam"
+          "Cover the battery in conductive foam",
+          "Secure the cell caps and transport the battery upright"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanation": "The cell caps must be tight and the battery kept upright. This prevents sulfuric acid from leaking during handling. Discharge is not required, and flushing the electrolyte would destroy the battery."
       },
       "multipleChoice": {
         "question": "Before transporting a spillable lead-acid battery, what should be ensured?",
         "choices": [
           "The battery is fully discharged",
-          "The cell caps are secure and the battery remains upright throughout transport",
           "The terminals are wrapped in aluminum foil",
-          "The electrolyte has been drained"
+          "The electrolyte has been drained",
+          "The cell caps are secure and the battery remains"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanation": "The caps must be secured and the battery must remain upright. These two steps prevent sulfuric-acid spills, which can cause chemical burns and represent an environmental hazard."
       },
       "practice": {
         "question": "A technician places a lead-acid battery on its side in the back of a shop cart in order to save space. What is the risk?",
         "choices": [
           "Laying the battery on its side drains the battery",
-          "Even with caps on, a lead-acid battery on its side can leak sulfuric acid through cap vents, producing a chemical-burn and environmental hazard",
           "Placing the battery on its side will weld its terminals together",
-          "There is no real risk, because modern batteries do not leak"
+          "There is no real risk, because modern batteries do not leak",
+          "Even with caps on, a lead-acid battery on its side can leak sulfuric acid through cap vents, producing a chemical-burn and environmental hazard"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanation": "Even 'sealed' vented caps can allow electrolyte to seep when the battery is tipped. Sulfuric acid produces painful chemical burns and damages surfaces. Batteries must always be transported upright, using a proper battery carrier."
       },
       "preassessment": {
         "question": "What precaution is required when transporting a spillable lead-acid battery?",
         "choices": [
           "Discharge it first",
-          "Keep it upright with caps secured",
           "Wrap it in aluminum foil",
-          "Drain the electrolyte"
+          "Drain the electrolyte",
+          "Keep it upright with caps"
         ],
-        "correctIndex": 1
+        "correctIndex": 3
       }
     },
     {
@@ -1372,22 +1372,22 @@
         "question": "This is the SI unit used to measure AC electrical frequency.",
         "choices": [
           "Watts",
-          "Ohms",
           "Hertz",
+          "Ohms",
           "Volts"
         ],
-        "correctIndex": 2,
+        "correctIndex": 1,
         "explanation": "Hertz (Hz) is the unit of frequency, equal to cycles per second. Watts measure power, ohms measure resistance, and volts measure electrical potential."
       },
       "multipleChoice": {
         "question": "In what unit is AC electrical frequency measured?",
         "choices": [
           "Watts (W)",
-          "Ohms (Ω)",
           "Hertz (Hz)",
+          "Ohms (Ω)",
           "Volts (V)"
         ],
-        "correctIndex": 2,
+        "correctIndex": 1,
         "explanation": "Frequency is measured in hertz. United States commercial AC runs at 60 Hz; European commercial AC runs at 50 Hz; aircraft AC systems commonly use 400 Hz to allow smaller, lighter transformers and motors."
       },
       "practice": {
@@ -1405,11 +1405,11 @@
         "question": "In what unit is AC frequency measured?",
         "choices": [
           "Watts",
-          "Ohms",
           "Hertz",
+          "Ohms",
           "Volts"
         ],
-        "correctIndex": 2
+        "correctIndex": 1
       }
     },
     {
@@ -1434,10 +1434,10 @@
         "choices": [
           "Square wave",
           "Triangle wave",
-          "Sine wave",
-          "Sawtooth wave"
+          "Sawtooth wave",
+          "Sine wave"
         ],
-        "correctIndex": 2,
+        "correctIndex": 3,
         "explanation": "Ideal single-phase AC appears as a sine wave. Square and triangle waves appear in digital and pulse circuits, and sawtooth waves are seen in sweep generators and CRT deflection circuits."
       },
       "multipleChoice": {
@@ -1445,10 +1445,10 @@
         "choices": [
           "Square wave",
           "Triangle wave",
-          "Sine wave",
-          "Sawtooth wave"
+          "Sawtooth wave",
+          "Sine wave"
         ],
-        "correctIndex": 2,
+        "correctIndex": 3,
         "explanation": "Single-phase AC is a sine wave. The other listed shapes are common in electronics but are not produced by rotating AC generators or alternators."
       },
       "practice": {
@@ -1456,10 +1456,10 @@
         "choices": [
           "A flat horizontal line, because AC resembles DC on a scope",
           "A perfect square wave",
-          "A smooth sine wave repeating 400 times per second",
-          "A staircase pattern"
+          "A staircase pattern",
+          "A smooth sine wave repeating 400 times per second"
         ],
-        "correctIndex": 2,
+        "correctIndex": 3,
         "explanation": "AC produced by rotating machines is sinusoidal. At 400 Hz, the scope will display one full sine cycle every 2.5 ms. The amplitude depends on bus voltage — typically 115 V RMS, which corresponds to a peak of approximately 163 V."
       },
       "preassessment": {
@@ -1467,10 +1467,10 @@
         "choices": [
           "Square",
           "Triangle",
-          "Sine",
-          "Sawtooth"
+          "Sawtooth",
+          "Sine"
         ],
-        "correctIndex": 2
+        "correctIndex": 3
       }
     },
     {
@@ -1493,45 +1493,45 @@
       "jeopardy": {
         "question": "To verify a bench-tested AC alternator's output frequency, you would use this instrument.",
         "choices": [
-          "A thermometer",
           "A frequency meter or oscilloscope",
+          "A thermometer",
           "A multimeter set to DC volts",
           "A voltmeter only"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanation": "A frequency meter or oscilloscope directly measures Hz. A standard DMM in voltage mode reports magnitude only, not frequency, unless it has a dedicated Hz function."
       },
       "multipleChoice": {
         "question": "Which instrument is used to verify the output frequency of an aircraft AC alternator on the bench?",
         "choices": [
+          "Frequency meter or oscilloscope",
           "A thermometer",
-          "A frequency meter or oscilloscope",
           "A DMM set to DC volts",
           "An ammeter"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanation": "A frequency meter (analog or digital) directly reads hertz. An oscilloscope can display the waveform period from which frequency is calculated. Some DMMs include a dedicated Hz function, but the standard V, A, and Ω modes do not measure frequency."
       },
       "practice": {
         "question": "After a teardown and rewind, you want to verify that an aircraft alternator produces exactly 400 Hz at its rated drive RPM. What is the simplest rigorous bench verification?",
         "choices": [
-          "Use a voltmeter, because higher voltage indicates correct frequency",
           "Connect an oscilloscope or frequency counter to the output and measure Hz directly",
+          "Use a voltmeter, because higher voltage indicates correct frequency",
           "Listen to the output, because 400 Hz has a characteristic pitch",
           "Use a DC ammeter to measure the output current"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanation": "Direct frequency measurement with an oscilloscope or counter is the rigorous approach. Voltmeters do not measure frequency. While 400 Hz is within the audible range, verifying a critical specification by ear is not acceptable shop practice. An ammeter measures current, not frequency."
       },
       "preassessment": {
         "question": "Which instrument is used to measure AC frequency?",
         "choices": [
+          "Frequency meter or oscilloscope",
           "A thermometer",
-          "A frequency meter or oscilloscope",
           "A DMM set to DC volts",
           "An ammeter"
         ],
-        "correctIndex": 1
+        "correctIndex": 0
       }
     },
     {
@@ -1566,7 +1566,7 @@
         "question": "What is the primary function of a fuse or circuit breaker in an aircraft electrical system?",
         "choices": [
           "To step voltage up or down",
-          "To protect the wiring by interrupting the circuit when current exceeds a safe limit",
+          "To protect the wiring by interrupting the circuit",
           "To store electrical energy for later use",
           "To filter noise from the alternator output"
         ],
@@ -1615,45 +1615,45 @@
       "jeopardy": {
         "question": "Capacitance is measured in this SI unit.",
         "choices": [
-          "Farads",
           "Henries",
           "Ohms",
+          "Farads",
           "Hertz"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "explanation": "Capacitance is measured in farads. Inductance is measured in henries. Resistance is measured in ohms. Frequency is measured in hertz."
       },
       "multipleChoice": {
         "question": "Which of the following is the SI unit of electrical capacitance?",
         "choices": [
-          "Farad",
           "Henry",
           "Ohm",
+          "Farad",
           "Volt"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "explanation": "The farad (F) is the SI unit of capacitance. One farad is a very large value; practical capacitors are usually expressed in microfarads (µF), nanofarads (nF), or picofarads (pF). The henry is for inductance, the ohm is for resistance, and the volt is for potential difference."
       },
       "practice": {
         "question": "A schematic shows a capacitor labeled '10 µF.' What does the '10 µF' notation indicate about the component?",
         "choices": [
           "Its capacitance is 10 millifarads (10 × 10⁻³ F)",
-          "Its capacitance is 10 microfarads (10 × 10⁻⁶ F)",
           "Its capacitance is 10 megafarads (10 × 10⁶ F)",
+          "Its capacitance is 10 microfarads (10 × 10⁻⁶ F)",
           "Its operating voltage is 10 volts; capacitance is unspecified"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "explanation": "The prefix 'µ' (mu) denotes 'micro,' meaning one millionth. A 10 µF capacitor has a capacitance of 10 × 10⁻⁶ farads. Other common prefixes include milli (m, 10⁻³), nano (n, 10⁻⁹), and pico (p, 10⁻¹²). Capacitor values on schematics always specify capacitance, not voltage — voltage ratings are listed separately."
       },
       "preassessment": {
         "question": "What is the SI unit of electrical capacitance?",
         "choices": [
-          "Farad",
           "Henry",
           "Ohm",
+          "Farad",
           "Volt"
         ],
-        "correctIndex": 0
+        "correctIndex": 2
       }
     },
     {
@@ -1676,44 +1676,44 @@
         "question": "An aircraft electrical bus is best described as this.",
         "choices": [
           "A single large battery",
-          "A common conductor that multiple loads share, with each load tapping off in parallel",
           "The engine-driven alternator",
-          "A protection panel containing only fuses"
+          "A protection panel containing only fuses",
+          "A common conductor that multiple loads share, with each load tapping off in parallel"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanation": "A bus is a shared conductor (literally a 'bar' in the term 'busbar') from which loads branch in parallel. This architecture centralizes power distribution, simplifies wiring, and isolates faults through dedicated circuit breakers on each branch."
       },
       "multipleChoice": {
         "question": "Which description best matches an aircraft electrical bus?",
         "choices": [
           "A single large battery",
-          "A common conductor from which multiple loads are supplied in parallel",
           "The alternator's armature winding",
-          "Only the protection panel"
+          "Only the protection panel",
+          "A common conductor from which multiple"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanation": "An electrical bus is a shared distribution conductor. Loads connect in parallel off the bus, each typically through its own circuit breaker. Aircraft often have multiple busses — main, essential, avionics, battery — with switchable cross-feeds between them."
       },
       "practice": {
         "question": "An aircraft has a 'main bus' and a separate 'essential bus.' What does the essential-bus concept allow the pilot to do during an electrical emergency?",
         "choices": [
           "Disconnect the alternator to save battery capacity",
-          "Isolate the essential bus and shed all non-essential loads so that critical avionics and instruments continue to receive battery power for as long as possible",
           "Recharge the battery in flight",
-          "Route power around a failed alternator"
+          "Route power around a failed alternator",
+          "Isolate the essential bus and shed all non-essential loads so that critical avionics and instruments continue to receive battery power for as long as possible"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanation": "The essential-bus architecture isolates critical loads (communication, navigation, pitot heat, critical instruments) so they can continue operating on battery power after load shedding. This is specifically designed for post-alternator-failure endurance, which is why emergency checklists include 'shed non-essential loads' as an early step."
       },
       "preassessment": {
         "question": "What is an aircraft electrical bus?",
         "choices": [
           "A battery",
-          "A common shared conductor",
           "An alternator winding",
-          "A fuse panel only"
+          "A fuse panel only",
+          "A common shared conductor"
         ],
-        "correctIndex": 1
+        "correctIndex": 3
       }
     },
     {
@@ -1737,44 +1737,44 @@
         "question": "This is the best description of a parasitic current draw in an aircraft electrical system.",
         "choices": [
           "Normal current draw during engine start",
-          "Unintended current drain with the master switch OFF — often caused by stuck relays or connections on the always-hot side of the battery",
           "Current flowing from the alternator while the engine is running",
+          "Unintended current drain with the master switch OFF — often caused by stuck relays or connections on the always-hot side of the battery",
           "Current drawn by the navigation lights at night"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "explanation": "'Parasitic' refers to current that should not be flowing. It is usually a clue to a stuck relay, a wiring mistake, or a leaky electronic module drawing from always-hot battery wiring."
       },
       "multipleChoice": {
         "question": "How is a parasitic current draw BEST described in an aircraft electrical system?",
         "choices": [
           "Normal current during engine start",
-          "Unintended current drain when the master switch is OFF",
           "Alternator output current during cruise",
+          "Unintended current drain when the master switch is",
           "Current required to recharge the battery"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "explanation": "A parasitic draw is an unintended drain. The standard shop test is to switch everything off, place an ammeter in series with the battery's negative cable, and read the residual current. Anything above a few milliamps indicates a problem."
       },
       "practice": {
         "question": "A pilot complains that the battery is always dead after the aircraft sits for a week. You suspect a parasitic draw. Which is the MOST common cause in general aviation aircraft?",
         "choices": [
           "The battery naturally self-discharges fully every week",
-          "A stuck relay, a leaky avionics module, or a wire inadvertently landed on the 'always-hot' side of the battery contactor",
           "Static electricity buildup on the airframe",
+          "A stuck relay, a leaky avionics module, or a wire inadvertently landed on the 'always-hot' side of the battery contactor",
           "The battery cap is vented, allowing charge to escape"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "explanation": "Common culprits include a relay coil that failed to drop out after master-off, an avionics unit whose 'off' state still draws several milliamps, or — most often — a wire landed on the battery side of the master contactor instead of on the bus side, which bypasses the master switch entirely. A parasitic draw hunt typically starts at the battery with an ammeter in series and the master switch OFF."
       },
       "preassessment": {
         "question": "What is parasitic current draw in an aircraft?",
         "choices": [
           "Normal engine-start current",
-          "Unintended drain with the master switch OFF",
           "Alternator charging current",
+          "Unintended drain with the master",
           "Battery charging current"
         ],
-        "correctIndex": 1
+        "correctIndex": 2
       }
     },
     {
@@ -1797,44 +1797,44 @@
         "question": "This is the PRIMARY purpose of the DC electrical system in a typical general aviation aircraft.",
         "choices": [
           "To produce high-voltage AC for large motors",
-          "To start the engine and power the avionics, instruments, and lighting during flight",
           "To provide hydraulic pressure for flight controls",
+          "To start the engine and power the avionics, instruments, and lighting during flight",
           "To serve as a backup only, while AC performs most of the work"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "explanation": "Starting, avionics, instruments, and lighting are the day-to-day jobs of the DC system. Most GA aircraft do not have an AC system. Larger aircraft add AC for certain motors and instruments, but DC still handles engine starting and critical avionics in both classes."
       },
       "multipleChoice": {
         "question": "What is the PRIMARY purpose of the DC electrical system in a typical general aviation aircraft?",
         "choices": [
           "To generate high-voltage AC for large motors",
-          "To start the engine and power DC avionics, instruments, and lighting",
           "To provide hydraulic pressure for flight controls",
+          "To start the engine and power DC avionics",
           "To serve only as emergency backup power"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "explanation": "The DC system performs the primary electrical functions in a GA aircraft: engine starting plus continuous in-flight power for radios, instruments, and lights. During flight, the alternator both supplies current to active loads and recharges the battery at the same time."
       },
       "practice": {
         "question": "A new aircraft owner asks, 'What does the aircraft's DC electrical system actually do while I'm flying?' Which response is the best one-sentence answer?",
         "choices": [
           "It only powers the radio — everything else is mechanical",
-          "It starts the engine, and in flight it powers all avionics and instruments while the alternator simultaneously recharges the battery",
           "It provides the main thrust by driving an electric motor",
+          "It starts the engine, and in flight it powers all avionics and instruments while the alternator simultaneously recharges the battery",
           "It operates only during emergencies"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "explanation": "The DC system has two primary roles: engine starting (a one-time event at each flight) and continuous in-flight power distribution to avionics, instruments, and lighting, while the alternator simultaneously supplies loads and recharges the battery."
       },
       "preassessment": {
         "question": "What is the primary role of the DC electrical system in a typical GA aircraft?",
         "choices": [
           "Producing high-voltage AC",
-          "Starting the engine and powering avionics",
           "Providing hydraulic pressure",
+          "Starting the engine and powering",
           "Serving only as a backup"
         ],
-        "correctIndex": 1
+        "correctIndex": 2
       }
     }
   ]

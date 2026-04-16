@@ -12,12 +12,12 @@
         "id": "CAT1-NEW-001",
         "clue": "This is the 14 CFR part that outlines the performance rules for aircraft maintenance.",
         "choices": [
-          "Part 21",
           "Part 43",
+          "Part 21",
           "Part 91",
           "Part 147"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanation": "Part 43 contains the performance rules for maintenance, preventive maintenance, rebuilding, and alteration. Part 21 covers certification procedures for products and articles. Part 91 covers general operating rules. Part 147 covers aviation maintenance technician schools."
       },
       {
@@ -25,11 +25,11 @@
         "clue": "According to 14 CFR Part 43, this statement about preventive maintenance is correct.",
         "choices": [
           "Preventive maintenance includes any repair as long as the technician deems it minor",
-          "Preventive maintenance consists of simple or minor preservation operations listed in Part 43 Appendix A, and certain certificated pilots may perform it on their own aircraft",
           "Only A&P mechanics may perform preventive maintenance",
+          "Preventive maintenance consists of simple or minor preservation operations listed in Part 43 Appendix A",
           "Preventive maintenance requires a Designated Engineering Representative's signature"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "explanation": "Preventive maintenance is specifically defined by the list in Part 43 Appendix A. A certificated pilot (at least Private) may perform preventive maintenance on their own aircraft under the conditions stated in Part 43. It is not 'anything minor' by technician judgment, and it does not require DER involvement."
       },
       {
@@ -37,11 +37,11 @@
         "clue": "According to 14 CFR Part 43 Appendix A, this describes a major alteration.",
         "choices": [
           "Any task that takes more than one technician to complete",
-          "A change to type-design items that might appreciably affect weight, balance, structural strength, performance, flight characteristics, or other airworthiness qualities, and that is not covered by approved data in the maintenance manual",
           "Replacement of any part, regardless of impact",
+          "A change to type-design items that might appreciably affect weight",
           "An alteration that costs more than a specified dollar threshold"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "explanation": "Appendix A classifies alterations as major based on the potential effect on airworthiness-related qualities, not labor, cost, or any-part replacement. Major alterations require approved data and documentation on Form 337."
       },
       {
@@ -61,7 +61,7 @@
         "clue": "This is who is authorized to perform pitot-static and transponder inspections under 14 CFR 91.411 and 91.413.",
         "choices": [
           "Any certificated pilot who owns the aircraft",
-          "A certificated repair station with the appropriate ratings, or (under specified conditions) the manufacturer of the aircraft or equipment",
+          "A certificated repair station with the appropriate ratings",
           "Any A&P mechanic with general maintenance privileges",
           "No one — only the FAA performs these inspections"
         ],
@@ -73,11 +73,11 @@
         "clue": "This is how an altimeter or transponder test must be documented in the maintenance records.",
         "choices": [
           "With just a sticker on the instrument",
-          "With the date of the test, the maximum altitude tested (for altimeters), and the signature, certificate number, and kind of certificate of the person approving the return to service",
           "Verbally confirmed with the pilot",
-          "Only by the flight crew in the aircraft discrepancy log"
+          "Only by the flight crew in the aircraft discrepancy log",
+          "With the date of the test, the maximum altitude tested (for altimeters), and the signature, certificate number, and kind of certificate of the person approving the return to service"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanation": "Proper documentation includes the test date, maximum altitude (altimeter only), and the signature/certificate data of the person approving the return to service. Stickers alone are informational but do not satisfy the record-keeping requirement. Verbal confirmation and pilot-side logs do not substitute for the maintenance record entry."
       },
       {
@@ -99,23 +99,23 @@
         "clue": "If a TSO part has an STC for installation AND the STC includes a flight manual supplement, this describes the installation.",
         "choices": [
           "A minor alteration that requires only a logbook entry",
-          "A major alteration requiring approved data (the STC) and typically FAA Form 337 documentation",
           "Preventive maintenance that a pilot may perform",
-          "An operation requiring a DER field approval with no Form 337"
+          "An operation requiring a DER field approval with no Form 337",
+          "A major alteration requiring approved data (the STC) and typically FAA Form 337 documentation"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanation": "The presence of an STC with a flight manual supplement strongly indicates a major alteration — the installation affects operating procedures or performance enough to warrant an AFM supplement. Approved data (the STC) is used, and Form 337 is typically required."
       },
       {
         "id": "CAT1-NEW-008",
         "clue": "If a TSO part is replaced with another TSO part of equivalent form, fit, and function, this is how the installation is generally classified.",
         "choices": [
+          "Generally NOT a major alteration — treated as maintenance with a logbook entry per §43.9",
           "A major alteration requiring Form 337",
-          "Generally NOT a major alteration — treated as maintenance with a logbook entry per §43.9, provided the manufacturer's maintenance manual procedures are followed",
           "An alteration requiring an STC",
           "Preventive maintenance that a pilot-owner may perform"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanation": "Like-for-like TSO replacement is maintenance, not a major alteration. A logbook entry suffices. An STC is not needed for an equivalent TSO part. Pilot-owner preventive maintenance is a separate narrow category not including general avionics replacement."
       },
       {
@@ -123,11 +123,11 @@
         "clue": "This is what the acronym STC stands for.",
         "choices": [
           "Standard Technical Certificate",
-          "Supplemental Type Certificate",
           "Specialized Tool Certification",
-          "Standard Testing Code"
+          "Standard Testing Code",
+          "Supplemental Type Certificate"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanation": "STC is Supplemental Type Certificate — the FAA's approval for a major design change to a type-certificated product."
       },
       {
@@ -146,12 +146,12 @@
         "id": "CAT1-NEW-013",
         "clue": "This is the primary purpose of FAA Form 8130-3 (Authorized Release Certificate / Airworthiness Approval Tag).",
         "choices": [
-          "To record a pilot's flight review",
           "To approve new or overhauled aircraft parts for return to service and provide traceability that the part meets approved design data",
+          "To record a pilot's flight review",
           "To document an aircraft's registration status",
           "To serve as a sales invoice for aircraft parts"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanation": "The 8130-3 is an airworthiness-approval and traceability document for aircraft parts. It is not related to pilot flight reviews, aircraft registration, or sales invoicing (though the tag often accompanies sales of new or overhauled parts)."
       }
     ],
@@ -161,23 +161,23 @@
         "clue": "According to most Part 145 training programs, this is the typical interval for recurrent training of repair station personnel.",
         "choices": [
           "Not exceeding every 6 months",
-          "Not exceeding every 24 months",
           "Not exceeding every 60 months",
-          "Only upon hire — no recurrent training required"
+          "Only upon hire — no recurrent training required",
+          "Not exceeding every 24 months"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanation": "A 24-month cycle is typical for Part 145 recurrent training. Shorter (6-month) intervals are uncommon. 60 months is too long to keep personnel current. Recurrent training is required — initial training alone does not satisfy Part 145 requirements."
       },
       {
         "id": "CAT1-NEW-012",
         "clue": "Under Part 145, this party is responsible for ensuring that current technical data is available and used during avionics maintenance.",
         "choices": [
+          "The repair station itself",
           "The individual aircraft owner",
-          "The repair station itself (through its designated personnel, as defined in the station's accepted procedures manual)",
           "The FAA",
           "The part manufacturer alone"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanation": "Part 145 places the responsibility on the repair station. The station's accepted procedures manual designates specific personnel for this responsibility. The FAA oversees; it does not maintain individual stations' technical data. Part manufacturers publish the data but do not ensure it is in use at a specific station."
       },
       {
@@ -185,23 +185,23 @@
         "clue": "This is why a Part 145 repair station must keep walkways and work areas free of clutter.",
         "choices": [
           "For visual appeal during FAA inspections only",
-          "To reduce safety hazards (trip, fall, fire) and quality risks (FOD, lost tools, damaged parts)",
           "Because Part 145 has no such requirement",
-          "To comply with OSHA but not Part 145"
+          "To comply with OSHA but not Part 145",
+          "To reduce safety hazards (trip, fall, fire) and quality risks (FOD, lost tools, damaged parts)"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanation": "Housekeeping addresses both safety and quality. Part 145 does include housekeeping-related requirements, and OSHA adds workplace safety requirements — the two are complementary, not alternatives. Visual appeal during inspections is a side effect, not the primary reason."
       },
       {
         "id": "CAT1-NEW-016",
         "clue": "If a Part 145 station's FAA-approved antidrug program includes pre-employment drug testing, this is required of a new technician.",
         "choices": [
-          "Ignore the test if they feel confident they would pass",
           "Complete and pass the pre-employment drug test before starting work in a safety-sensitive position",
+          "Ignore the test if they feel confident they would pass",
           "Complete the test at any time during the first year of employment",
           "Self-certify on an honor system"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanation": "Pre-employment testing must be completed and passed BEFORE starting work in a safety-sensitive position. It cannot be deferred, ignored, or self-certified. Part 120 sets the federal requirements; Part 145 stations incorporate them into their programs."
       },
       {
@@ -209,11 +209,11 @@
         "clue": "Before using any specialized test equipment in a Part 145 environment, this must be confirmed.",
         "choices": [
           "The technician has used the equipment before",
-          "The equipment's calibration is current and traceable per the station's procedures and the manufacturer's interval",
           "The equipment is the latest model",
-          "The equipment was purchased within the last year"
+          "The equipment was purchased within the last year",
+          "The equipment's calibration is current and traceable per the station's procedures and the manufacturer's interval"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanation": "Calibration currency and traceability are the regulatory requirements. Familiarity, model age, or recent purchase do not substitute for verified calibration. Out-of-calibration equipment cannot be used for maintenance decisions."
       }
     ],
@@ -223,11 +223,11 @@
         "clue": "For intermittent VOR NAV flag indications, this is a useful first step a Part 145 technician can take.",
         "choices": [
           "Immediately replace the VOR receiver",
-          "Verify physical-layer items first: antenna condition and mounting, coax integrity and connector tightness, and adequate power to the receiver",
           "Only write up the squawk and return the aircraft to service",
-          "Rewrite the aircraft logbook"
+          "Rewrite the aircraft logbook",
+          "Verify physical-layer items first: antenna condition and mounting"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanation": "Physical-layer checks are the first step for intermittent symptoms. Receiver replacement is expensive and often unnecessary. A write-up with no action is not a resolution. Logbook rewriting is not appropriate."
       }
     ]

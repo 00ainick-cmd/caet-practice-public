@@ -14,11 +14,11 @@
         "clue": "This is the navigation information a VOR provides to a pilot.",
         "choices": [
           "Distance to the station in nautical miles",
-          "The magnetic radial from the station (bearing information)",
           "The aircraft's altitude above the station",
+          "The magnetic radial from the station (bearing information)",
           "A voice broadcast of the station's weather"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "explanation": "VOR provides bearing — the radial from the station — not distance, altitude, or weather. Distance is provided by DME (Distance Measuring Equipment), often collocated with a VOR. Weather broadcasts are a separate service."
       },
       {
@@ -26,23 +26,23 @@
         "clue": "This is the function of the Omni-Bearing Selector (OBS) on a VOR indicator.",
         "choices": [
           "To tune the VOR station's frequency",
-          "To select a specific radial to or from the VOR station, which drives the CDI to show deviation from that radial",
           "To display the aircraft's current altitude",
-          "To control the VOR station's signal strength"
+          "To control the VOR station's signal strength",
+          "To select a specific radial to or from the VOR station"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanation": "The OBS selects the desired radial. The CDI then shows deviation from that radial. Station tuning is done at the nav radio, not the OBS. The OBS does not display altitude. Pilots cannot control the station's transmitted signal strength."
       },
       {
         "id": "CAT3-NEW-011",
         "clue": "Compared to VOR, this describes ADF/NDB navigation in general aviation.",
         "choices": [
+          "Generally less accurate and less reliable than VOR",
           "More accurate than VOR under all conditions",
-          "Generally less accurate and less reliable than VOR, due to low-frequency susceptibility to atmospheric interference, thunderstorm, night, and coastal effects",
           "Requires GPS augmentation to function",
           "Only used for precision approaches"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanation": "ADF/NDB's low-frequency signal is more susceptible to interference than VOR's VHF signal. VOR is the more accurate and reliable navigation aid. ADF does not need GPS and is used for non-precision approaches and en route navigation, not precision approaches."
       },
       {
@@ -51,10 +51,10 @@
         "choices": [
           "VOR",
           "ADF/NDB",
-          "ILS (Instrument Landing System)",
-          "DME"
+          "DME",
+          "ILS (Instrument Landing System)"
         ],
-        "correctIndex": 2,
+        "correctIndex": 3,
         "explanation": "The Instrument Landing System (ILS) combines the localizer (horizontal, centered on the runway) with the glideslope (vertical descent guidance) for precision approaches. VOR and ADF provide bearing only, not vertical guidance. DME provides distance, not guidance."
       },
       {
@@ -74,7 +74,7 @@
         "clue": "This is the primary purpose of an audio control panel in an aircraft.",
         "choices": [
           "To boost the transmit power of the VHF radio",
-          "To allow the pilot to select which radios to transmit and monitor, and to route audio from various sources to the headsets and speaker",
+          "To allow the pilot to select which radios to transmit and monitor",
           "To convert AC power for avionics use",
           "To regulate cabin pressure"
         ],
@@ -85,12 +85,12 @@
         "id": "CAT3-NEW-017",
         "clue": "This is the information DME provides to the pilot.",
         "choices": [
-          "The magnetic bearing from the station",
           "Slant-range distance (in nautical miles) from the aircraft to the ground station",
+          "The magnetic bearing from the station",
           "The weather at the station",
           "The runway heading at the destination airport"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanation": "DME provides distance — specifically slant-range, not horizontal distance. Bearing comes from VOR. Weather is an ATIS/AWOS broadcast. Runway information is from the approach chart, not DME."
       }
     ],
@@ -99,24 +99,24 @@
         "id": "CAT3-NEW-006",
         "clue": "This is the minimum number of satellites a GPS receiver must track for a three-dimensional position fix.",
         "choices": [
+          "4",
           "2",
           "3",
-          "4",
           "8"
         ],
-        "correctIndex": 2,
+        "correctIndex": 0,
         "explanation": "Four satellites are the minimum for a 3D fix — three for spatial triangulation and a fourth to resolve receiver clock bias. Two satellites cannot produce a position fix. Three can produce only a 2D fix (assuming known altitude). Eight is typical for modern receivers tracking more than the minimum, but it is not the minimum requirement."
       },
       {
         "id": "CAT3-NEW-007",
         "clue": "This is what the acronym WAAS stands for.",
         "choices": [
-          "Wide Area Augmentation System",
           "Wireless Altitude Assurance Source",
           "Wide Angle Approach Sensor",
-          "Weather Augmentation Assistance System"
+          "Weather Augmentation Assistance System",
+          "Wide Area Augmentation System"
         ],
-        "correctIndex": 0,
+        "correctIndex": 3,
         "explanation": "WAAS is the Wide Area Augmentation System — FAA-developed GPS augmentation for improved accuracy and integrity in North America."
       }
     ],
@@ -125,12 +125,12 @@
         "id": "CAT3-NEW-018",
         "clue": "This is the optimal mounting location for a VHF communication antenna on a GA aircraft.",
         "choices": [
-          "Inside the cockpit near the pilot",
           "On the fuselage (top or bottom) with a clear line of sight in all directions and proper airframe ground plane beneath the base",
+          "Inside the cockpit near the pilot",
           "Attached to the propeller hub",
           "On the inside surface of the windshield"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanation": "Fuselage mounting (top or bottom) with clear line of sight and proper ground plane is the correct approach. Interior mounting is shielded by the airframe. Propeller mounting is unworkable. Windshield mounting lacks a ground plane."
       },
       {
@@ -138,11 +138,11 @@
         "clue": "This is what the squelch control does in a VHF radio system.",
         "choices": [
           "Boosts the transmit power of the radio",
-          "Suppresses the receiver audio output during periods of no signal or weak signal below a threshold, eliminating continuous background noise",
           "Selects the operating frequency",
-          "Controls the audio panel's intercom volume"
+          "Controls the audio panel's intercom volume",
+          "Suppresses the receiver audio output during periods of no signal or weak signal below a threshold"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanation": "Squelch mutes the receiver audio when there is no signal (or signal below threshold), preventing constant background hiss. It does not affect transmit power, frequency selection, or intercom functions."
       },
       {
@@ -150,11 +150,11 @@
         "clue": "When replacing a coaxial cable for a communication antenna, this is CRUCIAL.",
         "choices": [
           "Use any coax available, regardless of type",
-          "Match the characteristic impedance (typically 50 ohms) and use the correct cable type, connectors, and installation procedure for the frequency and loss requirements",
           "Splice multiple shorter coax runs together to save cost",
-          "Ignore bend radius as long as the cable fits"
+          "Ignore bend radius as long as the cable fits",
+          "Match the characteristic impedance (typically 50 ohms) and use the correct cable type"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanation": "Impedance match and correct cable selection are fundamental. Using the wrong impedance (75 ohm video coax instead of 50 ohm comm coax, for example) causes reflections and power loss. Splicing and ignoring bend radius both introduce losses and potential damage that degrade antenna system performance."
       },
       {
@@ -162,11 +162,11 @@
         "clue": "This is what regular inspection of aircraft communication antennas should include.",
         "choices": [
           "Only the connector at the avionics rack end of the coaxial cable",
-          "Checking for physical damage, base corrosion, mounting hardware condition, sealant integrity, and bonding/grounding condition",
           "Replacing the antenna every 12 months regardless of condition",
-          "Adjusting the antenna's transmit frequency"
+          "Adjusting the antenna's transmit frequency",
+          "Checking for physical damage, base corrosion, mounting hardware condition, sealant integrity, and bonding/grounding condition"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanation": "Antenna inspection covers physical, mounting, and bonding aspects. Only checking the far-end connector misses the antenna itself. Antennas are replaced when inspection reveals damage, not on a fixed interval. Antennas do not have tunable transmit frequencies — they are passive radiators."
       }
     ],
@@ -176,23 +176,23 @@
         "clue": "This transponder mode transmits both the four-digit identification code and the aircraft's pressure altitude.",
         "choices": [
           "Mode A",
-          "Mode C",
           "Mode S only",
+          "Mode C",
           "No mode transmits altitude"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "explanation": "Mode C adds altitude reporting to the identification code Mode A already provides. Mode S is a more advanced standard that includes everything Mode C does plus unique addressing and data link; however, the specific mode that FIRST added altitude reporting to the basic ID function is Mode C."
       },
       {
         "id": "CAT3-NEW-002",
         "clue": "This is the function of the 24-bit address in a Mode S transponder.",
         "choices": [
-          "It encodes the current squawk code",
           "It uniquely identifies the airframe and enables selective interrogation and ADS-B identification",
+          "It encodes the current squawk code",
           "It indicates the transponder's data rate",
           "It stores the aircraft's GPS position"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanation": "The 24-bit ICAO address is a unique airframe identifier. The squawk code is a separate four-digit pilot-settable code. Transponder data rate is fixed by the standard. GPS position comes from the GPS receiver, not the transponder address."
       },
       {
@@ -200,11 +200,11 @@
         "clue": "According to FAR 91.413, this is how often an aircraft transponder must be tested and inspected.",
         "choices": [
           "Every 12 calendar months",
-          "Every 24 calendar months",
           "Every 36 calendar months",
+          "Every 24 calendar months",
           "Every 100 flight hours"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "explanation": "FAR 91.413 requires transponder test and inspection at least every 24 calendar months. Annual (12-month) and 36-month intervals are not the required cadence. Flight-hour intervals do not apply to this requirement."
       },
       {
@@ -212,11 +212,11 @@
         "clue": "The transponder squawk code is set by the pilot to do this.",
         "choices": [
           "Select the transponder's operating frequency",
-          "Identify the aircraft to ATC, often with controller-assigned codes for flight tracking or reserved codes for emergencies",
           "Determine the aircraft's altitude reporting resolution",
-          "Program the 24-bit Mode S address"
+          "Program the 24-bit Mode S address",
+          "Identify the aircraft to ATC, often with controller-assigned codes for flight tracking or reserved codes for emergencies"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanation": "The squawk code identifies the aircraft to ATC. Controllers assign unique codes to track flights individually. Reserved codes communicate specific conditions (emergency, radio failure, hijack). Transponder frequency is fixed by the standard. Altitude reporting resolution is also fixed. The 24-bit address is a separate, permanent Mode S identifier."
       },
       {
@@ -224,11 +224,11 @@
         "clue": "This is the typical mounting location for an aircraft transponder antenna.",
         "choices": [
           "On the top of the vertical stabilizer",
-          "On the underside (belly) of the aircraft",
           "On the leading edge of the wing",
-          "Inside the cockpit next to the pilot"
+          "Inside the cockpit next to the pilot",
+          "On the underside (belly) of the aircraft"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanation": "Transponder antennas go on the belly because ATC radar is below the aircraft. Vertical stabilizer and wing leading-edge locations are used for other antennas (VOR, nav/strobe) but not transponders. The antenna cannot be inside the cockpit — the airframe would block the signal."
       },
       {
@@ -236,7 +236,7 @@
         "clue": "This is what ADS-B Out broadcasts to ATC and other aircraft.",
         "choices": [
           "Only the aircraft's ICAO address",
-          "GPS-derived position, velocity, altitude, ICAO address, and identification — roughly once per second",
+          "GPS-derived position, velocity, altitude, ICAO address, and identification",
           "The pilot's voice transmissions",
           "Weather radar imagery"
         ],
@@ -247,12 +247,12 @@
         "id": "CAT3-NEW-021",
         "clue": "This is what the acronym TCAS stands for.",
         "choices": [
-          "Traffic Collision Avoidance System",
           "Tactical Combat Avoidance Sensor",
+          "Traffic Collision Avoidance System",
           "Terminal Control Approach Structure",
           "Thrust Control Activation Subsystem"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "explanation": "TCAS is Traffic Collision Avoidance System (sometimes expanded as Traffic Alert and Collision Avoidance System)."
       }
     ],
@@ -262,23 +262,23 @@
         "clue": "In general-aviation aircraft audio systems, this describes typical 'mono' audio use.",
         "choices": [
           "Only one earpiece of the headset receives audio; the other is silent",
-          "The same audio signal is sent to both earpieces of the headset, which is standard for voice communications and intercom",
           "Mono refers to audio broadcast on AM only",
+          "The same audio signal is sent to both earpieces of the headset, which is standard for voice communications and intercom",
           "Mono audio is obsolete and no longer used"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "explanation": "Mono audio sends the same signal to both ears — standard for voice traffic that does not benefit from stereo imaging. One-ear-only is not the definition of mono. Mono is not tied to AM broadcast. It remains current practice in GA audio panels."
       },
       {
         "id": "CAT3-NEW-016",
         "clue": "This is a common cause of intermittent or noisy audio in an aircraft communication system.",
         "choices": [
-          "The radio is tuned to the wrong frequency",
           "Poor or broken grounding, corroded connectors, broken cable shields, loose mic/headset jack contacts, or nearby EMI sources",
+          "The radio is tuned to the wrong frequency",
           "The pilot is wearing the wrong type of headset",
           "The audio panel has too many sources selected"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanation": "Intermittent/noisy audio is typically a physical connection problem — grounding, connectors, shields, or jack contacts. Wrong frequency would produce no received audio at all, not noise. Headset type and source selection are secondary factors."
       }
     ]
