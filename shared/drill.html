@@ -3096,11 +3096,31 @@
       function doorsTransition(callback, midCallback) {
         const overlay = document.getElementById('hangarDoorsOverlay');
         overlay.classList.add('active');
+
+        // 80ms: doors start closing
         setTimeout(() => overlay.classList.add('doors-closed'), 80);
+
+        // 1080ms: doors about to meet — trigger slam-pulse + glitch-burst
+        setTimeout(() => {
+          overlay.classList.add('slam-pulse');
+          overlay.classList.add('glitch-active');
+        }, 1080);
+
+        // 1100ms: content swap happens under the closed doors (existing behavior)
         setTimeout(() => { if (midCallback) midCallback(); }, 1100);
-        setTimeout(() => overlay.classList.remove('doors-closed'), 1200);
+
+        // 1200ms: doors retract; boot-scan sweeps down over the revealed content
+        setTimeout(() => {
+          overlay.classList.remove('doors-closed');
+          overlay.classList.remove('slam-pulse');
+          overlay.classList.remove('glitch-active');
+          overlay.classList.add('scan-active');
+        }, 1200);
+
+        // 2300ms: teardown
         setTimeout(() => {
           overlay.classList.remove('active');
+          overlay.classList.remove('scan-active');
           if (callback) callback();
         }, 2300);
       }
