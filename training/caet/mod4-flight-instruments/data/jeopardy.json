@@ -13,7 +13,7 @@
         "clue": "If the static port is blocked, this is how it affects the altimeter and VSI.",
         "choices": [
           "Altimeter reads erratically; VSI shows maximum climb rate",
-          "Altimeter freezes at the blockage altitude; VSI reads zero regardless of actual altitude changes",
+          "Altimeter freezes at the blockage altitude",
           "Both instruments read the correct altitude and rate",
           "Altimeter reads zero; VSI reads full scale climb"
         ],
@@ -75,7 +75,7 @@
         "clue": "This is the primary function of the pitot tube.",
         "choices": [
           "To measure static atmospheric pressure",
-          "To sense ram air pressure for the airspeed indicator",
+          "To sense ram air pressure for the airspeed",
           "To measure ambient temperature",
           "To detect icing conditions"
         ],
@@ -89,7 +89,7 @@
           "The airspeed indicator itself is over-calibrated",
           "The aircraft is flying faster than rated",
           "The altimeter is set incorrectly",
-          "A partial pitot blockage, a leak in the pitot-to-ASI plumbing, or a clogged pitot drain"
+          "A partial pitot blockage, a leak in the pitot-to-ASI"
         ],
         "correctIndex": 3,
         "explanation": "Consistently low ASI readings typically trace to physical issues in the pitot side of the system: partial blockage, leaks, or drain problems. Instrument miscalibration is possible but less common. Altimeter settings do not affect the ASI."
@@ -101,7 +101,7 @@
           "The aircraft is actually descending without the pilot noticing",
           "The altimeter is set incorrectly",
           "The pitot tube is heated",
-          "A slow leak in the VSI's static line, a clogged VSI calibration orifice, or a miscalibrated instrument"
+          "A slow leak in the VSI's static line, a clogged orifice, or miscalibration"
         ],
         "correctIndex": 3,
         "explanation": "Constant descent in level flight is almost always a VSI system problem. Slow static-line leak is the most common in the field. Altimeter setting does not affect the VSI. Pitot heat is unrelated."
@@ -127,7 +127,7 @@
           "To display the aircraft's current altitude",
           "To display the aircraft's airspeed",
           "To display the aircraft's heading",
-          "To display the aircraft's rate of climb or descent in feet per minute"
+          "To display the aircraft's rate of climb or descent"
         ],
         "correctIndex": 3,
         "explanation": "The VSI shows rate of altitude change, not absolute altitude (that's the altimeter), airspeed (ASI), or heading (heading indicator)."
@@ -200,7 +200,7 @@
         "id": "CAT4-NEW-017",
         "clue": "In an EFIS, this is the source of the airspeed and altitude shown on the Primary Flight Display (PFD).",
         "choices": [
-          "The Air Data Computer (ADC)",
+          "The Air Data Computer",
           "GPS receiver",
           "The magnetic compass",
           "The transponder"
@@ -228,7 +228,7 @@
         "choices": [
           "The aircraft's forward-motion ram air pressure",
           "The temperature of the air",
-          "The ambient (undisturbed) atmospheric pressure around the aircraft",
+          "The ambient atmospheric pressure around the aircraft",
           "The moisture content of the air"
         ],
         "correctIndex": 2,
@@ -254,7 +254,7 @@
       "category": "Final Challenge: AHRS Alignment",
       "clue": "A modern AHRS unit uses this specific sensor combination to align to magnetic north without requiring a physical spinning flux valve.",
       "choices": [
-        "A 3-axis solid-state magnetometer",
+        "A 3-axis solid-state",
         "A ring laser gyro",
         "Dual GPS receivers",
         "A tuned resonant cavity"

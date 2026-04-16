@@ -15,7 +15,7 @@
         "choices": [
           "Distance to the station in nautical miles",
           "The aircraft's altitude above the station",
-          "The magnetic radial from the station (bearing information)",
+          "The magnetic radial from the station",
           "A voice broadcast of the station's weather"
         ],
         "correctIndex": 2,
@@ -52,7 +52,7 @@
           "VOR",
           "ADF/NDB",
           "DME",
-          "ILS (Instrument Landing System)"
+          "ILS (Inst"
         ],
         "correctIndex": 3,
         "explanation": "The Instrument Landing System (ILS) combines the localizer (horizontal, centered on the runway) with the glideslope (vertical descent guidance) for precision approaches. VOR and ADF provide bearing only, not vertical guidance. DME provides distance, not guidance."
@@ -74,7 +74,7 @@
         "clue": "This is the primary purpose of an audio control panel in an aircraft.",
         "choices": [
           "To boost the transmit power of the VHF radio",
-          "To allow the pilot to select which radios to transmit and monitor",
+          "To allow the pilot to select which radios to transmit",
           "To convert AC power for avionics use",
           "To regulate cabin pressure"
         ],
@@ -85,7 +85,7 @@
         "id": "CAT3-NEW-017",
         "clue": "This is the information DME provides to the pilot.",
         "choices": [
-          "Slant-range distance (in nautical miles) from the aircraft to the ground station",
+          "Slant-range distance from the aircraft to the ground station",
           "The magnetic bearing from the station",
           "The weather at the station",
           "The runway heading at the destination airport"
@@ -125,7 +125,7 @@
         "id": "CAT3-NEW-018",
         "clue": "This is the optimal mounting location for a VHF communication antenna on a GA aircraft.",
         "choices": [
-          "On the fuselage (top or bottom) with a clear line of sight in all directions and proper airframe ground plane beneath the base",
+          "On the fuselage (top or bottom) with a clear line",
           "Inside the cockpit near the pilot",
           "Attached to the propeller hub",
           "On the inside surface of the windshield"
@@ -140,7 +140,7 @@
           "Boosts the transmit power of the radio",
           "Selects the operating frequency",
           "Controls the audio panel's intercom volume",
-          "Suppresses the receiver audio output during periods of no signal or weak signal below a threshold"
+          "Suppresses the receiver audio output during periods"
         ],
         "correctIndex": 3,
         "explanation": "Squelch mutes the receiver audio when there is no signal (or signal below threshold), preventing constant background hiss. It does not affect transmit power, frequency selection, or intercom functions."
@@ -152,7 +152,7 @@
           "Use any coax available, regardless of type",
           "Splice multiple shorter coax runs together to save cost",
           "Ignore bend radius as long as the cable fits",
-          "Match the characteristic impedance (typically 50 ohms) and use the correct cable type"
+          "Match the characteristic impedance (typically 50 ohms) and use correct cable and connectors"
         ],
         "correctIndex": 3,
         "explanation": "Impedance match and correct cable selection are fundamental. Using the wrong impedance (75 ohm video coax instead of 50 ohm comm coax, for example) causes reflections and power loss. Splicing and ignoring bend radius both introduce losses and potential damage that degrade antenna system performance."
@@ -164,7 +164,7 @@
           "Only the connector at the avionics rack end of the coaxial cable",
           "Replacing the antenna every 12 months regardless of condition",
           "Adjusting the antenna's transmit frequency",
-          "Checking for physical damage, base corrosion, mounting hardware condition, sealant integrity, and bonding/grounding condition"
+          "Checking for physical damage, base corrosion, mounting hardware condition, sealant"
         ],
         "correctIndex": 3,
         "explanation": "Antenna inspection covers physical, mounting, and bonding aspects. Only checking the far-end connector misses the antenna itself. Antennas are replaced when inspection reveals damage, not on a fixed interval. Antennas do not have tunable transmit frequencies — they are passive radiators."
@@ -187,7 +187,7 @@
         "id": "CAT3-NEW-002",
         "clue": "This is the function of the 24-bit address in a Mode S transponder.",
         "choices": [
-          "It uniquely identifies the airframe and enables selective interrogation and ADS-B identification",
+          "It uniquely identifies the airframe and enables",
           "It encodes the current squawk code",
           "It indicates the transponder's data rate",
           "It stores the aircraft's GPS position"
@@ -214,7 +214,7 @@
           "Select the transponder's operating frequency",
           "Determine the aircraft's altitude reporting resolution",
           "Program the 24-bit Mode S address",
-          "Identify the aircraft to ATC, often with controller-assigned codes for flight tracking or reserved codes for emergencies"
+          "Identify the aircraft to ATC, often with controller-assigned codes"
         ],
         "correctIndex": 3,
         "explanation": "The squawk code identifies the aircraft to ATC. Controllers assign unique codes to track flights individually. Reserved codes communicate specific conditions (emergency, radio failure, hijack). Transponder frequency is fixed by the standard. Altitude reporting resolution is also fixed. The 24-bit address is a separate, permanent Mode S identifier."
@@ -236,7 +236,7 @@
         "clue": "This is what ADS-B Out broadcasts to ATC and other aircraft.",
         "choices": [
           "Only the aircraft's ICAO address",
-          "GPS-derived position, velocity, altitude, ICAO address, and identification",
+          "GPS-derived position, velocity",
           "The pilot's voice transmissions",
           "Weather radar imagery"
         ],
@@ -263,7 +263,7 @@
         "choices": [
           "Only one earpiece of the headset receives audio; the other is silent",
           "Mono refers to audio broadcast on AM only",
-          "The same audio signal is sent to both earpieces of the headset, which is standard for voice communications and intercom",
+          "The same audio signal is sent to both earpieces of the headset",
           "Mono audio is obsolete and no longer used"
         ],
         "correctIndex": 2,
@@ -273,7 +273,7 @@
         "id": "CAT3-NEW-016",
         "clue": "This is a common cause of intermittent or noisy audio in an aircraft communication system.",
         "choices": [
-          "Poor or broken grounding, corroded connectors, broken cable shields, loose mic/headset jack contacts, or nearby EMI sources",
+          "Poor or broken grounding, corroded connectors, broken",
           "The radio is tuned to the wrong frequency",
           "The pilot is wearing the wrong type of headset",
           "The audio panel has too many sources selected"
@@ -301,7 +301,7 @@
       "category": "Final Challenge: Navigation Arrays",
       "clue": "A VOR receiver determines bearing to a station by measuring the phase difference between a reference phase signal and this type of signal.",
       "choices": [
-        "A variable directional phase signal",
+        "A variable directional phase",
         "A paired DME pulse pair",
         "A 1090 MHz reply",
         "An ILS localizer tone"
@@ -315,7 +315,7 @@
       "clue": "The Wide Area Augmentation System (WAAS) provides GPS corrections to the aircraft via this specific method.",
       "choices": [
         "VHF datalink from ground stations",
-        "Geostationary satellites transmitting on the L1 frequency",
+        "Geostationary satellites transmitting on",
         "Cellular LTE networks",
         "Mode S Extended Squitter"
       ],

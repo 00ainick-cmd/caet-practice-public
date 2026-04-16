@@ -15,7 +15,7 @@
         "choices": [
           "Multi-drop bidirectional",
           "Token-passing ring",
-          "Point-to-multipoint unidirectional broadcast",
+          "Point-to-multipoint",
           "Peer-to-peer full-duplex"
         ],
         "correctIndex": 2,
@@ -37,7 +37,7 @@
         "id": "CAT5-NEW-006",
         "clue": "This is the primary purpose of the ARINC 429 databus in modern avionics.",
         "choices": [
-          "To transfer standardized digital data between avionics units such as air data computers, GPS, and displays",
+          "To transfer standardized digital data between avionics units such as air data",
           "To provide primary flight control inputs to the autopilot servos",
           "To supply electrical power to remote sensors",
           "To connect the engine FADEC to fuel metering valves"
@@ -75,7 +75,7 @@
         "id": "CAT5-NEW-012",
         "clue": "This is the function of the bus controller in a MIL-STD-1553 system.",
         "choices": [
-          "To initiate all bus transactions, schedule messages, and direct data transfers between remote terminals",
+          "To initiate all bus transactions, schedule messages, and direct data",
           "To passively monitor bus traffic without issuing commands",
           "To provide power to the remote terminals",
           "To convert analog signals from sensors into digital words"
@@ -100,7 +100,7 @@
         "clue": "This is the main architectural difference between ARINC 429 and MIL-STD-1553.",
         "choices": [
           "ARINC 429 is faster than MIL-STD-1553",
-          "ARINC 429 is unidirectional broadcast with no controller; MIL-STD-1553 is bidirectional multi-drop with a bus controller",
+          "ARINC 429 is unidirectional broadcast with no controller",
           "ARINC 429 is used only in helicopters; MIL-STD-1553 is used only in jets",
           "ARINC 429 uses optical fiber; MIL-STD-1553 uses copper"
         ],
@@ -126,7 +126,7 @@
         "clue": "This is a key characteristic of RS-232 signals.",
         "choices": [
           "Differential signaling at ±10 V",
-          "Single-ended signaling referenced to ground at typically ±3 V to ±15 V",
+          "Single-ended signaling referenced to ground at",
           "Current-loop signaling at 20 mA",
           "Optical pulses at infrared wavelengths"
         ],
@@ -163,7 +163,7 @@
         "id": "CAT5-NEW-007",
         "clue": "This is a key advantage of digital databuses like ARINC 429 over traditional analog signal wiring.",
         "choices": [
-          "Ability to multiplex many data values on one wire pair with built-in error checking",
+          "Ability to multiplex many data values on one wire pair with built-in error",
           "Higher voltages that are less susceptible to lightning strikes",
           "Elimination of the need for receivers in avionics units",
           "Reduced need for any shielding on cable runs"
@@ -190,7 +190,7 @@
           "The physical length of the cable required for one bit",
           "The time in milliseconds that one word takes to transmit",
           "The number of words a bus can carry per second",
-          "The total number of bits that make up a single transmitted word, including all fields"
+          "The total number of bits that make up a single transmitted word"
         ],
         "correctIndex": 3,
         "explanation": "Word length is the total bit count of a single word — 32 bits for ARINC 429, 20 bits for MIL-STD-1553. Cable length, transmission time, and throughput are related but distinct concepts."
@@ -225,7 +225,7 @@
         "id": "CAT5-NEW-010",
         "clue": "This is the appropriate first step when ARINC 429 data errors are observed in a system test.",
         "choices": [
-          "Verify physical-layer integrity: cable continuity, connector security, and shield grounding",
+          "Verify physical-layer integrity",
           "Replace the transmitting unit",
           "Reconfigure all receivers to a different data rate",
           "Update the aircraft flight manual"
@@ -240,7 +240,7 @@
           "To supply electrical power to the bus during testing",
           "To physically repair damaged wiring",
           "To calibrate the aircraft's altimeter",
-          "To capture and decode bus traffic so technicians can verify data content and identify errors"
+          "To capture and decode bus traffic so technicians can verify data"
         ],
         "correctIndex": 3,
         "explanation": "A databus analyzer captures traffic and decodes it into readable words (labels, data fields, parity status, etc.). It does not supply power, perform physical repairs, or calibrate analog instruments — those are different tools."
@@ -251,7 +251,7 @@
         "choices": [
           "To clean oxidation from connector pins",
           "To physically re-terminate cables",
-          "To verify and troubleshoot data exchange between integrated avionics units",
+          "To verify and troubleshoot data exchange between integrated",
           "To perform altimeter static-pressure leak checks"
         ],
         "correctIndex": 2,
@@ -278,7 +278,7 @@
       "clue": "MIL-STD-1553 uses a bi-directional, half-duplex architecture controlled by a Bus Controller. The devices responding to the controller are known as what?",
       "choices": [
         "Slaves",
-        "Remote Terminals (RT)",
+        "Remote Terminal",
         "Transceivers",
         "Sub-systems"
       ],

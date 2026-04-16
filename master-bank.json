@@ -75,7 +75,7 @@
         "choices": [
           "Multi-drop bidirectional",
           "Token-passing ring",
-          "Point-to-multipoint unidirectional broadcast",
+          "Point-to-multipoint",
           "Peer-to-peer full-duplex"
         ],
         "correctIndex": 2,
@@ -256,7 +256,7 @@
       "jeopardy": {
         "question": "This is the primary purpose of the ARINC 429 databus in modern avionics.",
         "choices": [
-          "To transfer standardized digital data between avionics units such as air data computers, GPS, and displays",
+          "To transfer standardized digital data between avionics units such as air data",
           "To provide primary flight control inputs to the autopilot servos",
           "To supply electrical power to remote sensors",
           "To connect the engine FADEC to fuel metering valves"
@@ -317,7 +317,7 @@
       "jeopardy": {
         "question": "This is a key advantage of digital databuses like ARINC 429 over traditional analog signal wiring.",
         "choices": [
-          "Ability to multiplex many data values on one wire pair with built-in error checking",
+          "Ability to multiplex many data values on one wire pair with built-in error",
           "Higher voltages that are less susceptible to lightning strikes",
           "Elimination of the need for receivers in avionics units",
           "Reduced need for any shielding on cable runs"
@@ -500,7 +500,7 @@
       "jeopardy": {
         "question": "This is the appropriate first step when ARINC 429 data errors are observed in a system test.",
         "choices": [
-          "Verify physical-layer integrity: cable continuity, connector security, and shield grounding",
+          "Verify physical-layer integrity",
           "Replace the transmitting unit",
           "Reconfigure all receivers to a different data rate",
           "Update the aircraft flight manual"
@@ -622,7 +622,7 @@
       "jeopardy": {
         "question": "This is the function of the bus controller in a MIL-STD-1553 system.",
         "choices": [
-          "To initiate all bus transactions, schedule messages, and direct data transfers between remote terminals",
+          "To initiate all bus transactions, schedule messages, and direct data",
           "To passively monitor bus traffic without issuing commands",
           "To provide power to the remote terminals",
           "To convert analog signals from sensors into digital words"
@@ -745,7 +745,7 @@
         "question": "This is the main architectural difference between ARINC 429 and MIL-STD-1553.",
         "choices": [
           "ARINC 429 is faster than MIL-STD-1553",
-          "ARINC 429 is unidirectional broadcast with no controller; MIL-STD-1553 is bidirectional multi-drop with a bus controller",
+          "ARINC 429 is unidirectional broadcast with no controller",
           "ARINC 429 is used only in helicopters; MIL-STD-1553 is used only in jets",
           "ARINC 429 uses optical fiber; MIL-STD-1553 uses copper"
         ],
@@ -806,7 +806,7 @@
         "question": "This is a key characteristic of RS-232 signals.",
         "choices": [
           "Differential signaling at ±10 V",
-          "Single-ended signaling referenced to ground at typically ±3 V to ±15 V",
+          "Single-ended signaling referenced to ground at",
           "Current-loop signaling at 20 mA",
           "Optical pulses at infrared wavelengths"
         ],
@@ -928,7 +928,7 @@
         "question": "This is the key difference between RS-422 and RS-485.",
         "choices": [
           "RS-422 uses optical fiber while RS-485 uses copper",
-          "RS-422 supports one driver and up to 10 receivers; RS-485 supports up to 32 drivers and 32 receivers in a multi-master multi-drop configuration",
+          "RS-422 supports one driver and up to 10 receivers",
           "RS-422 is single-ended while RS-485 is differential",
           "RS-422 runs at 10 Mbps while RS-485 is limited to 100 bps"
         ],
@@ -1051,7 +1051,7 @@
           "The physical length of the cable required for one bit",
           "The time in milliseconds that one word takes to transmit",
           "The number of words a bus can carry per second",
-          "The total number of bits that make up a single transmitted word, including all fields"
+          "The total number of bits that make up a single transmitted word"
         ],
         "correctIndex": 3,
         "explanation": "Word length is the total bit count of a single word — 32 bits for ARINC 429, 20 bits for MIL-STD-1553. Cable length, transmission time, and throughput are related but distinct concepts."
@@ -1172,7 +1172,7 @@
           "To supply electrical power to the bus during testing",
           "To physically repair damaged wiring",
           "To calibrate the aircraft's altimeter",
-          "To capture and decode bus traffic so technicians can verify data content and identify errors"
+          "To capture and decode bus traffic so technicians can verify data"
         ],
         "correctIndex": 3,
         "explanation": "A databus analyzer captures traffic and decodes it into readable words (labels, data fields, parity status, etc.). It does not supply power, perform physical repairs, or calibrate analog instruments — those are different tools."
@@ -1232,7 +1232,7 @@
         "choices": [
           "To clean oxidation from connector pins",
           "To physically re-terminate cables",
-          "To verify and troubleshoot data exchange between integrated avionics units, especially intermittent or anomalous behavior",
+          "To verify and troubleshoot data exchange between integrated",
           "To perform altimeter static-pressure leak checks"
         ],
         "correctIndex": 2,
@@ -1291,7 +1291,7 @@
       "jeopardy": {
         "question": "This is the most important consideration when routing aircraft wiring.",
         "choices": [
-          "Protecting the harness from chafing, abrasion, heat, fluids, and moving parts",
+          "Protecting the harness from chafing, abrasion, heat, and moving parts",
           "Using the shortest possible cable length",
           "Making the harness visible for easy inspection",
           "Color-coordinating the harness with nearby structures"
@@ -1353,7 +1353,7 @@
         "question": "This is the correct corrective action when a wire bundle is found chafed against a metal edge.",
         "choices": [
           "Wrap the chafed area with electrical tape and continue flying",
-          "Inspect and repair or replace damaged wires, then correct the routing or protect the edge to prevent recurrence",
+          "Inspect damaged wires, repair or replace, and correct the routing",
           "Cut out the chafed section and splice in shorter wires",
           "Ignore the damage if the circuit still functions"
         ],
@@ -1414,7 +1414,7 @@
         "question": "This is the best practice for routing a wire bundle near moving flight controls to prevent chafing.",
         "choices": [
           "Let the bundle hang loosely so it can move out of the way",
-          "Provide adequate clearance through the full range of control motion, secure the bundle properly, and use protective sleeving where clearance is tight",
+          "Provide adequate clearance through the full range of control motion",
           "Tape the bundle directly to the moving control surface",
           "Coil excess length near the control for flexibility"
         ],
@@ -1474,7 +1474,7 @@
       "jeopardy": {
         "question": "This is the primary purpose of a service loop in an aircraft wire harness.",
         "choices": [
-          "To provide extra wire length at terminations so future repairs can be made without rebuilding the entire harness",
+          "To provide extra wire length at terminations so future repairs can",
           "To reduce the total weight of the harness",
           "To improve signal strength through a longer conductor",
           "To serve as an antenna for RF signals"
@@ -1536,7 +1536,7 @@
         "question": "This is the primary reason for using strain relief in aircraft wiring.",
         "choices": [
           "To improve the electrical resistance of the connection",
-          "To prevent tension and bending loads from damaging the termination or fatiguing the conductor",
+          "To prevent tension and bending loads from damaging the termination",
           "To reduce the overall weight of the harness",
           "To provide a path for draining moisture"
         ],
@@ -1597,7 +1597,7 @@
         "question": "This is an acceptable method for securing wire harnesses in aircraft.",
         "choices": [
           "Consumer-grade nylon zip ties from a hardware store",
-          "Approved aircraft cable clamps with cushion inserts, installed at intervals specified by the maintenance manual",
+          "Approved aircraft cable clamps with cushion inserts",
           "Duct tape wrapped around the harness at each support point",
           "Steel staples driven into the airframe structure"
         ],
@@ -1657,7 +1657,7 @@
       "jeopardy": {
         "question": "This is the primary consideration when choosing wire insulation for an aircraft installation.",
         "choices": [
-          "Suitability for the installation environment — temperature range, fluid exposure, flame resistance, and abrasion resistance",
+          "Suitability for the installation environment",
           "The color of the insulation",
           "The cost per foot",
           "Availability from a local supplier"
@@ -1719,7 +1719,7 @@
         "question": "This type of wire is commonly used in high-temperature areas of an aircraft, such as near the engine.",
         "choices": [
           "PVC-insulated consumer wire",
-          "Teflon-based insulation (PTFE, FEP, or ETFE/Tefzel)",
+          "Teflon-based insulation",
           "Rubber-insulated household wire",
           "Bare uninsulated copper"
         ],
@@ -1782,7 +1782,7 @@
           "The wire's operating temperature rating",
           "The voltage rating of the insulation",
           "The flame-resistance category of the insulation",
-          "The physical size of the wire's conductor, as defined by the American Wire Gauge (AWG) system"
+          "The physical size of the wire's conductor"
         ],
         "correctIndex": 3,
         "explanation": "Wire gauge describes conductor physical size (and by extension, resistance per foot and current-carrying capacity). Temperature rating, voltage rating, and flame resistance are separate properties — also important, but not what 'gauge' refers to."
@@ -1840,7 +1840,7 @@
       "jeopardy": {
         "question": "This is the primary function of a connector in an aircraft wiring system.",
         "choices": [
-          "To provide a mating interface allowing the harness to be disconnected from and reconnected to equipment without cutting or splicing the wiring",
+          "To provide a mating interface for disconnection and reconnection",
           "To increase the voltage traveling through the harness",
           "To convert AC to DC",
           "To act as a circuit breaker during faults"
@@ -1904,7 +1904,7 @@
           "To serve as a backup electrical ground path",
           "To display the connector's part number for identification",
           "To increase the connector's contact density",
-          "To provide cable strain relief, environmental sealing, shield termination, and controlled cable exit angle"
+          "To provide cable strain relief, environmental sealing, shield"
         ],
         "correctIndex": 3,
         "explanation": "Backshells are primarily mechanical and EMI features: strain relief, environmental sealing, shield termination, and cable exit-angle control. They are not identification markers, do not increase contact count, and while they may provide an EMI ground they are not an electrical backup ground."
@@ -1965,7 +1965,7 @@
           "A consumer-grade adjustable crimper from a hardware store",
           "Ordinary pliers, squeezed firmly",
           "A soldering iron and solder",
-          "An approved aircraft crimp tool with a positioner matched to the pin type and wire gauge"
+          "An approved aircraft crimp tool with a positioner matched to the pin type"
         ],
         "correctIndex": 3,
         "explanation": "An approved aircraft crimp tool with the correct positioner for each pin type is the standard. Consumer crimpers produce inconsistent crimps. Pliers crush rather than form the barrel correctly. Soldering is used for some connectors but the majority of modern aircraft pins are crimp-terminated."
@@ -2023,7 +2023,7 @@
       "jeopardy": {
         "question": "This is the correct response to a coworker who suggests using automotive wire connectors on an avionics rack.",
         "choices": [
-          "Explain that automotive connectors lack the qualification and traceability required for aircraft avionics and are not an approved substitute for aircraft-rated connectors",
+          "Automotive connectors lack the qualification and traceability required for aircraft avionics",
           "Agree, because automotive connectors are cheaper and readily available",
           "Suggest using them only for non-critical signals",
           "Use them temporarily and replace them at the next inspection"
@@ -2085,7 +2085,7 @@
         "question": "This is the most common type of wire insulation used for general-purpose wiring in modern general-aviation aircraft.",
         "choices": [
           "PVC (polyvinyl chloride)",
-          "ETFE (ethylene tetrafluoroethylene, Tefzel)",
+          "ETFE (ethylene tetrafluoroethyl",
           "Cotton braid",
           "Uninsulated bare copper"
         ],
@@ -2207,7 +2207,7 @@
         "question": "This is the type of solder typically used in avionics work.",
         "choices": [
           "Acid-core plumbing solder",
-          "Tin/lead rosin-core solder, commonly Sn63/Pb37",
+          "Tin/lead rosin-core solder",
           "Silver-bearing brazing rod",
           "Aluminum-brazing flux paste"
         ],
@@ -2270,7 +2270,7 @@
           "Applying solder to the iron tip first, then touching the iron to a cold joint",
           "Using as much solder as possible to ensure complete coverage",
           "Avoiding flux, because it contaminates the joint",
-          "Heating the parent metal (wire and terminal) to the proper temperature, then feeding solder into the joint so it wicks in by capillary action"
+          "Heating the parent metal (wire and terminal) to the proper temperature"
         ],
         "correctIndex": 3,
         "explanation": "The critical step is heating the parent metal first so the solder flows into the joint. Touching the iron to a cold joint produces a cold solder joint with poor electrical and mechanical properties. Excess solder does not improve the joint. Rosin flux is required — it cleans the metal so solder can wet the surface."
@@ -2329,7 +2329,7 @@
         "question": "This type of splice is generally preferred for environmentally sensitive areas of an aircraft such as near the engine or in a wheel well.",
         "choices": [
           "Twist-and-tape splice",
-          "Environmentally sealed crimp splice with heat-shrink adhesive jacket",
+          "Environmentally sealed crimp splice with heat-shrink adhesive",
           "Wire-nut connector",
           "Open butt splice with no covering"
         ],
@@ -2392,7 +2392,7 @@
           "To increase the wire's current-carrying capacity",
           "To improve mechanical strength of the cable",
           "To provide a backup ground path for power circuits",
-          "To reduce electromagnetic interference (EMI) — both ingress into sensitive signals and emission from noisy conductors"
+          "To reduce electromagnetic interference (EMI)"
         ],
         "correctIndex": 3,
         "explanation": "Shielded wire exists primarily to control EMI. It does not meaningfully change current capacity (that is determined by the conductor gauge). It adds some mechanical mass but is not used for mechanical strength. It is not a backup power ground — the shield is typically a signal-ground reference, not a power return."
@@ -2451,7 +2451,7 @@
         "question": "This is a commonly followed guideline for shield termination to reduce EMI in avionics wiring.",
         "choices": [
           "Leave the shield unterminated and floating at both ends",
-          "Terminate the shield with a 360-degree connection to the backshell or chassis, minimize the unshielded length at the termination, and ground per the installation specification",
+          "Terminate the shield with a 360-degree connection to the backshell or chassis",
           "Connect the shield only through a long pigtail wire to the nearest screw",
           "Twist the shield together with a signal conductor and route both to the same pin"
         ],
@@ -2511,7 +2511,7 @@
       "jeopardy": {
         "question": "This instrument is best suited to measuring very low resistance in an aircraft bonding system.",
         "choices": [
-          "A milliohmmeter (bonding meter) using four-wire Kelvin measurement",
+          "A milliohmmeter (bonding meter) using four-wire Kelvin",
           "A standard handheld DMM on the ohms setting",
           "A megohmmeter (megger) at 500 V",
           "A clamp ammeter measuring AC current"
@@ -2572,7 +2572,7 @@
       "jeopardy": {
         "question": "This is the BEST next step when a milliohmmeter reading fluctuates significantly while testing a bonding strap.",
         "choices": [
-          "Remove the bond hardware, clean the mating surfaces to bare metal, reinstall with proper torque, and retest",
+          "Remove the bond hardware, clean the mating surfaces to bare metal, reinstall",
           "Accept the reading and sign off the bond as good",
           "Ignore the fluctuation and use the lowest observed reading",
           "Replace the milliohmmeter because its calibration is drifting"
@@ -2634,7 +2634,7 @@
         "question": "This is the correct action when a coax cable's center conductor is found nicked.",
         "choices": [
           "Apply a dab of solder to rebuild the nicked area and continue",
-          "Remove the damaged section and replace it with a new cable length or properly connectorized repair",
+          "Remove the damaged section and replace it with a new cable length or properly",
           "Tape over the nick with electrical tape",
           "Ignore the nick if the signal still passes"
         ],
@@ -2755,7 +2755,7 @@
       "jeopardy": {
         "question": "This is what shear wire is designed to do.",
         "choices": [
-          "Break deliberately at a defined force to indicate that a component has been actuated or disturbed",
+          "Break deliberately at a defined force to indicate that a component has been actuated",
           "Carry electrical current as a primary conductor",
           "Support the weight of engine mounts",
           "Provide a bonding path between airframe structures"
@@ -2877,7 +2877,7 @@
       "jeopardy": {
         "question": "This is the function of the 24-bit address in a Mode S transponder.",
         "choices": [
-          "It uniquely identifies the airframe and enables selective interrogation and ADS-B identification",
+          "It uniquely identifies the airframe and enables",
           "It encodes the current squawk code",
           "It indicates the transponder's data rate",
           "It stores the aircraft's GPS position"
@@ -3002,7 +3002,7 @@
           "Select the transponder's operating frequency",
           "Determine the aircraft's altitude reporting resolution",
           "Program the 24-bit Mode S address",
-          "Identify the aircraft to ATC, often with controller-assigned codes for flight tracking or reserved codes for emergencies"
+          "Identify the aircraft to ATC, often with controller-assigned codes"
         ],
         "correctIndex": 3,
         "explanation": "The squawk code identifies the aircraft to ATC. Controllers assign unique codes to track flights individually. Reserved codes communicate specific conditions (emergency, radio failure, hijack). Transponder frequency is fixed by the standard. Altitude reporting resolution is also fixed. The 24-bit address is a separate, permanent Mode S identifier."
@@ -3244,7 +3244,7 @@
         "question": "This is what ADS-B Out broadcasts to ATC and other aircraft.",
         "choices": [
           "Only the aircraft's ICAO address",
-          "GPS-derived position, velocity, altitude, ICAO address, and identification — roughly once per second",
+          "GPS-derived position, velocity",
           "The pilot's voice transmissions",
           "Weather radar imagery"
         ],
@@ -3306,7 +3306,7 @@
         "choices": [
           "Distance to the station in nautical miles",
           "The aircraft's altitude above the station",
-          "The magnetic radial from the station (bearing information)",
+          "The magnetic radial from the station",
           "A voice broadcast of the station's weather"
         ],
         "correctIndex": 2,
@@ -3368,7 +3368,7 @@
           "To tune the VOR station's frequency",
           "To display the aircraft's current altitude",
           "To control the VOR station's signal strength",
-          "To select a specific radial to or from the VOR station, which drives the CDI to show deviation from that radial"
+          "To select a specific radial to or from the VOR station"
         ],
         "correctIndex": 3,
         "explanation": "The OBS selects the desired radial. The CDI then shows deviation from that radial. Station tuning is done at the nav radio, not the OBS. The OBS does not display altitude. Pilots cannot control the station's transmitted signal strength."
@@ -3426,7 +3426,7 @@
       "jeopardy": {
         "question": "Compared to VOR, this describes ADF/NDB navigation in general aviation.",
         "choices": [
-          "Generally less accurate and less reliable than VOR, due to low-frequency susceptibility to atmospheric interference, thunderstorm, night, and coastal effects",
+          "Generally less accurate and less reliable than VOR",
           "More accurate than VOR under all conditions",
           "Requires GPS augmentation to function",
           "Only used for precision approaches"
@@ -3490,7 +3490,7 @@
           "VOR",
           "ADF/NDB",
           "DME",
-          "ILS (Instrument Landing System)"
+          "ILS (Inst"
         ],
         "correctIndex": 3,
         "explanation": "The Instrument Landing System (ILS) combines the localizer (horizontal, centered on the runway) with the glideslope (vertical descent guidance) for precision approaches. VOR and ADF provide bearing only, not vertical guidance. DME provides distance, not guidance."
@@ -3611,7 +3611,7 @@
         "choices": [
           "Only one earpiece of the headset receives audio; the other is silent",
           "Mono refers to audio broadcast on AM only",
-          "The same audio signal is sent to both earpieces of the headset, which is standard for voice communications and intercom",
+          "The same audio signal is sent to both earpieces of the headset",
           "Mono audio is obsolete and no longer used"
         ],
         "correctIndex": 2,
@@ -3671,7 +3671,7 @@
         "question": "This is the primary purpose of an audio control panel in an aircraft.",
         "choices": [
           "To boost the transmit power of the VHF radio",
-          "To allow the pilot to select which radios to transmit and monitor, and to route audio from various sources to the headsets and speaker",
+          "To allow the pilot to select which radios to transmit",
           "To convert AC power for avionics use",
           "To regulate cabin pressure"
         ],
@@ -3731,7 +3731,7 @@
       "jeopardy": {
         "question": "This is a common cause of intermittent or noisy audio in an aircraft communication system.",
         "choices": [
-          "Poor or broken grounding, corroded connectors, broken cable shields, loose mic/headset jack contacts, or nearby EMI sources",
+          "Poor or broken grounding, corroded connectors, broken",
           "The radio is tuned to the wrong frequency",
           "The pilot is wearing the wrong type of headset",
           "The audio panel has too many sources selected"
@@ -3792,7 +3792,7 @@
       "jeopardy": {
         "question": "This is the information DME provides to the pilot.",
         "choices": [
-          "Slant-range distance (in nautical miles) from the aircraft to the ground station",
+          "Slant-range distance from the aircraft to the ground station",
           "The magnetic bearing from the station",
           "The weather at the station",
           "The runway heading at the destination airport"
@@ -3853,7 +3853,7 @@
       "jeopardy": {
         "question": "This is the optimal mounting location for a VHF communication antenna on a GA aircraft.",
         "choices": [
-          "On the fuselage (top or bottom) with a clear line of sight in all directions and proper airframe ground plane beneath the base",
+          "On the fuselage (top or bottom) with a clear line",
           "Inside the cockpit near the pilot",
           "Attached to the propeller hub",
           "On the inside surface of the windshield"
@@ -3917,7 +3917,7 @@
           "Boosts the transmit power of the radio",
           "Selects the operating frequency",
           "Controls the audio panel's intercom volume",
-          "Suppresses the receiver audio output during periods of no signal or weak signal below a threshold, eliminating continuous background noise"
+          "Suppresses the receiver audio output during periods"
         ],
         "correctIndex": 3,
         "explanation": "Squelch mutes the receiver audio when there is no signal (or signal below threshold), preventing constant background hiss. It does not affect transmit power, frequency selection, or intercom functions."
@@ -3978,7 +3978,7 @@
           "Use any coax available, regardless of type",
           "Splice multiple shorter coax runs together to save cost",
           "Ignore bend radius as long as the cable fits",
-          "Match the characteristic impedance (typically 50 ohms) and use the correct cable type, connectors, and installation procedure for the frequency and loss requirements"
+          "Match the characteristic impedance (typically 50 ohms) and use correct cable and connectors"
         ],
         "correctIndex": 3,
         "explanation": "Impedance match and correct cable selection are fundamental. Using the wrong impedance (75 ohm video coax instead of 50 ohm comm coax, for example) causes reflections and power loss. Splicing and ignoring bend radius both introduce losses and potential damage that degrade antenna system performance."
@@ -4100,7 +4100,7 @@
           "Only the connector at the avionics rack end of the coaxial cable",
           "Replacing the antenna every 12 months regardless of condition",
           "Adjusting the antenna's transmit frequency",
-          "Checking for physical damage, base corrosion, mounting hardware condition, sealant integrity, and bonding/grounding condition"
+          "Checking for physical damage, base corrosion, mounting hardware condition, sealant"
         ],
         "correctIndex": 3,
         "explanation": "Antenna inspection covers physical, mounting, and bonding aspects. Only checking the far-end connector misses the antenna itself. Antennas are replaced when inspection reveals damage, not on a fixed interval. Antennas do not have tunable transmit frequencies — they are passive radiators."
@@ -4220,7 +4220,7 @@
         "choices": [
           "Preventive maintenance includes any repair as long as the technician deems it minor",
           "Only A&P mechanics may perform preventive maintenance",
-          "Preventive maintenance consists of simple or minor preservation operations listed in Part 43 Appendix A, and certain certificated pilots may perform it on their own aircraft",
+          "Preventive maintenance consists of simple or minor preservation operations listed in Part 43 Appendix A",
           "Preventive maintenance requires a Designated Engineering Representative's signature"
         ],
         "correctIndex": 2,
@@ -4281,7 +4281,7 @@
         "choices": [
           "Any task that takes more than one technician to complete",
           "Replacement of any part, regardless of impact",
-          "A change to type-design items that might appreciably affect weight, balance, structural strength, performance, flight characteristics, or other airworthiness qualities, and that is not covered by approved data in the maintenance manual",
+          "A change to type-design items that might appreciably affect weight",
           "An alteration that costs more than a specified dollar threshold"
         ],
         "correctIndex": 2,
@@ -4341,7 +4341,7 @@
         "question": "Per 14 CFR §43.9, these four elements must be in every maintenance record entry.",
         "choices": [
           "Only the date and the technician's initials",
-          "A description of the work, the date of completion, the name of the person performing the work, and the signature, certificate number, and kind of certificate of the person approving the return to service",
+          "Description of work, date of completion, name of person, and approving signature",
           "The number of hours spent on the work",
           "The customer's name and address"
         ],
@@ -4404,7 +4404,7 @@
         "question": "This is who is authorized to perform pitot-static and transponder inspections under 14 CFR 91.411 and 91.413.",
         "choices": [
           "Any certificated pilot who owns the aircraft",
-          "A certificated repair station with the appropriate ratings, or (under specified conditions) the manufacturer of the aircraft or equipment",
+          "A certificated repair station with the appropriate ratings",
           "Any A&P mechanic with general maintenance privileges",
           "No one — only the FAA performs these inspections"
         ],
@@ -4467,7 +4467,7 @@
           "With just a sticker on the instrument",
           "Verbally confirmed with the pilot",
           "Only by the flight crew in the aircraft discrepancy log",
-          "With the date of the test, the maximum altitude tested (for altimeters), and the signature, certificate number, and kind of certificate of the person approving the return to service"
+          "With the date of the test, the maximum altitude tested, and the approving signature"
         ],
         "correctIndex": 3,
         "explanation": "Proper documentation includes the test date, maximum altitude (altimeter only), and the signature/certificate data of the person approving the return to service. Stickers alone are informational but do not satisfy the record-keeping requirement. Verbal confirmation and pilot-side logs do not substitute for the maintenance record entry."
@@ -4528,7 +4528,7 @@
           "A minor alteration that requires only a logbook entry",
           "Preventive maintenance that a pilot may perform",
           "An operation requiring a DER field approval with no Form 337",
-          "A major alteration requiring approved data (the STC) and typically FAA Form 337 documentation"
+          "A major alteration requiring approved data (the STC) and typically FAA Form"
         ],
         "correctIndex": 3,
         "explanation": "The presence of an STC with a flight manual supplement strongly indicates a major alteration — the installation affects operating procedures or performance enough to warrant an AFM supplement. Approved data (the STC) is used, and Form 337 is typically required."
@@ -4586,7 +4586,7 @@
       "jeopardy": {
         "question": "If a TSO part is replaced with another TSO part of equivalent form, fit, and function, this is how the installation is generally classified.",
         "choices": [
-          "Generally NOT a major alteration — treated as maintenance with a logbook entry per §43.9, provided the manufacturer's maintenance manual procedures are followed",
+          "Generally NOT a major alteration",
           "A major alteration requiring Form 337",
           "An alteration requiring an STC",
           "Preventive maintenance that a pilot-owner may perform"
@@ -4768,7 +4768,7 @@
         "question": "This is the primary purpose of a Part 145 repair station's capability list.",
         "choices": [
           "To identify the station's employee roster",
-          "To identify the specific articles (by make, model, or description) the station is authorized to perform maintenance on under its ratings",
+          "To identify the specific articles (by make, model, or description) the station",
           "To list the station's pricing for each job",
           "To record the aircraft the station has worked on historically"
         ],
@@ -4828,7 +4828,7 @@
       "jeopardy": {
         "question": "Under Part 145, this party is responsible for ensuring that current technical data is available and used during avionics maintenance.",
         "choices": [
-          "The repair station itself (through its designated personnel, as defined in the station's accepted procedures manual)",
+          "The repair station itself",
           "The individual aircraft owner",
           "The FAA",
           "The part manufacturer alone"
@@ -4889,7 +4889,7 @@
       "jeopardy": {
         "question": "This is the primary purpose of FAA Form 8130-3 (Authorized Release Certificate / Airworthiness Approval Tag).",
         "choices": [
-          "To approve new or overhauled aircraft parts for return to service and provide traceability that the part meets approved design data",
+          "To approve new or overhauled aircraft parts for return to service",
           "To record a pilot's flight review",
           "To document an aircraft's registration status",
           "To serve as a sales invoice for aircraft parts"
@@ -4950,7 +4950,7 @@
         "question": "According to FAA regulations, this is the definition of 'maintenance.'",
         "choices": [
           "Any activity that keeps an aircraft operating",
-          "Inspection, overhaul, repair, preservation, and the replacement of parts, but excluding preventive maintenance",
+          "Inspection, overhaul, repair, preservation, and parts replacement",
           "Only replacing failed parts",
           "Any work performed by an A&P mechanic"
         ],
@@ -5013,7 +5013,7 @@
           "For visual appeal during FAA inspections only",
           "Because Part 145 has no such requirement",
           "To comply with OSHA but not Part 145",
-          "To reduce safety hazards (trip, fall, fire) and quality risks (FOD, lost tools, damaged parts)"
+          "To reduce safety hazards"
         ],
         "correctIndex": 3,
         "explanation": "Housekeeping addresses both safety and quality. Part 145 does include housekeeping-related requirements, and OSHA adds workplace safety requirements — the two are complementary, not alternatives. Visual appeal during inspections is a side effect, not the primary reason."
@@ -5071,7 +5071,7 @@
       "jeopardy": {
         "question": "If a Part 145 station's FAA-approved antidrug program includes pre-employment drug testing, this is required of a new technician.",
         "choices": [
-          "Complete and pass the pre-employment drug test before starting work in a safety-sensitive position",
+          "Complete and pass the pre-employment drug test before starting work",
           "Ignore the test if they feel confident they would pass",
           "Complete the test at any time during the first year of employment",
           "Self-certify on an honor system"
@@ -5135,7 +5135,7 @@
           "The technician has used the equipment before",
           "The equipment is the latest model",
           "The equipment was purchased within the last year",
-          "The equipment's calibration is current and traceable per the station's procedures and the manufacturer's interval"
+          "The equipment's calibration is current and traceable"
         ],
         "correctIndex": 3,
         "explanation": "Calibration currency and traceability are the regulatory requirements. Familiarity, model age, or recent purchase do not substitute for verified calibration. Out-of-calibration equipment cannot be used for maintenance decisions."
@@ -5196,7 +5196,7 @@
           "Immediately replace the VOR receiver",
           "Only write up the squawk and return the aircraft to service",
           "Rewrite the aircraft logbook",
-          "Verify physical-layer items first: antenna condition and mounting, coax integrity and connector tightness, and adequate power to the receiver"
+          "Verify physical-layer items first (antenna, coax, connectors, power)"
         ],
         "correctIndex": 3,
         "explanation": "Physical-layer checks are the first step for intermittent symptoms. Receiver replacement is expensive and often unnecessary. A write-up with no action is not a resolution. Logbook rewriting is not appropriate."
@@ -5319,7 +5319,7 @@
         "choices": [
           "It reads higher than actual airspeed",
           "It oscillates wildly",
-          "It reads lower than actual airspeed, because trapped ram pressure stays constant while static pressure increases during descent",
+          "It reads lower than actual airspeed",
           "It remains unchanged"
         ],
         "correctIndex": 2,
@@ -5380,7 +5380,7 @@
         "question": "If the static port is blocked, this is how it affects the altimeter and VSI.",
         "choices": [
           "Altimeter reads erratically; VSI shows maximum climb rate",
-          "Altimeter freezes at the blockage altitude; VSI reads zero regardless of actual altitude changes",
+          "Altimeter freezes at the blockage altitude",
           "Both instruments read the correct altitude and rate",
           "Altimeter reads zero; VSI reads full scale climb"
         ],
@@ -5501,7 +5501,7 @@
         "question": "This is the primary function of the pitot tube.",
         "choices": [
           "To measure static atmospheric pressure",
-          "To sense ram air pressure for the airspeed indicator",
+          "To sense ram air pressure for the airspeed",
           "To measure ambient temperature",
           "To detect icing conditions"
         ],
@@ -5563,7 +5563,7 @@
         "choices": [
           "The aircraft's forward-motion ram air pressure",
           "The temperature of the air",
-          "The ambient (undisturbed) atmospheric pressure around the aircraft, which decreases with altitude",
+          "The ambient atmospheric pressure around the aircraft",
           "The moisture content of the air"
         ],
         "correctIndex": 2,
@@ -5625,7 +5625,7 @@
           "The airspeed indicator itself is over-calibrated",
           "The aircraft is flying faster than rated",
           "The altimeter is set incorrectly",
-          "A partial pitot blockage, a leak in the pitot-to-ASI plumbing, or a clogged pitot drain"
+          "A partial pitot blockage, a leak in the pitot-to-ASI"
         ],
         "correctIndex": 3,
         "explanation": "Consistently low ASI readings typically trace to physical issues in the pitot side of the system: partial blockage, leaks, or drain problems. Instrument miscalibration is possible but less common. Altimeter settings do not affect the ASI."
@@ -5686,7 +5686,7 @@
           "The aircraft is actually descending without the pilot noticing",
           "The altimeter is set incorrectly",
           "The pitot tube is heated",
-          "A slow leak in the VSI's static line, a clogged VSI calibration orifice, or a miscalibrated instrument"
+          "A slow leak in the VSI's static line, a clogged orifice, or miscalibration"
         ],
         "correctIndex": 3,
         "explanation": "Constant descent in level flight is almost always a VSI system problem. Slow static-line leak is the most common in the field. Altimeter setting does not affect the VSI. Pitot heat is unrelated."
@@ -5745,7 +5745,7 @@
         "question": "This is what an altimeter measures.",
         "choices": [
           "Ram air pressure for airspeed",
-          "Atmospheric (static) pressure, which the instrument converts to altitude",
+          "Atmospheric (static) pressure",
           "Aircraft attitude",
           "Aircraft heading"
         ],
@@ -5805,7 +5805,7 @@
       "jeopardy": {
         "question": "Before flight, this is how the altimeter is set.",
         "choices": [
-          "To the current local altimeter setting (from ATIS, AWOS, or ATC) so the altimeter reads field elevation on the ground",
+          "To the current local altimeter setting (from ATIS",
           "To zero, regardless of altitude",
           "To standard atmosphere (29.92 inHg) for all flights",
           "To whatever reading the previous pilot left it at"
@@ -5868,7 +5868,7 @@
           "To display the aircraft's current altitude",
           "To display the aircraft's airspeed",
           "To display the aircraft's heading",
-          "To display the aircraft's rate of climb or descent in feet per minute"
+          "To display the aircraft's rate of climb or descent"
         ],
         "correctIndex": 3,
         "explanation": "The VSI shows rate of altitude change, not absolute altitude (that's the altimeter), airspeed (ASI), or heading (heading indicator)."
@@ -6231,7 +6231,7 @@
       "jeopardy": {
         "question": "In an EFIS, this is the source of the airspeed and altitude shown on the Primary Flight Display (PFD).",
         "choices": [
-          "The Air Data Computer (ADC), which senses pitot and static pressures with solid-state sensors and computes airspeed and altitude",
+          "The Air Data Computer",
           "GPS receiver",
           "The magnetic compass",
           "The transponder"
@@ -6294,7 +6294,7 @@
         "choices": [
           "Reset the breaker repeatedly until it holds",
           "Replace the breaker with a larger-rated one",
-          "Leave it OFF and investigate for a short circuit, damaged heating element, or moisture intrusion before attempting further reset",
+          "Leave it OFF and investigate for a short circuit",
           "Bypass the breaker temporarily to use the pitot heat"
         ],
         "correctIndex": 2,
@@ -6416,7 +6416,7 @@
         "choices": [
           "The circuit has mysteriously multiplied its voltage",
           "The battery has gained voltage",
-          "Wrong meter range, wrong AC/DC mode, a damaged probe or lead, or induced-voltage 'ghost readings' on a high-impedance meter connected to a floating point",
+          "Wrong meter range, wrong AC/DC mode, damaged probes, or induced ghost readings",
           "The meter is working correctly and the reading is accurate"
         ],
         "correctIndex": 2,
@@ -6478,7 +6478,7 @@
           "The circuit is energized and operating",
           "The component is hot",
           "The component is installed in another circuit for reference",
-          "The circuit is de-energized (power off), and ideally the component is isolated from parallel paths"
+          "The circuit is de-energized and the component is isolated from parallel paths"
         ],
         "correctIndex": 3,
         "explanation": "Resistance measurement requires a de-energized circuit. Energized circuits disrupt the measurement and can damage the meter."
@@ -6538,7 +6538,7 @@
         "question": "A multimeter set to the ohms range shows 'OL.' This is what the reading means.",
         "choices": [
           "The meter is overloaded and damaged",
-          "The resistance exceeds the meter's selected range — most commonly indicating an open circuit (infinite resistance)",
+          "The resistance exceeds the meter's selected",
           "The circuit is hot with voltage",
           "The meter is out of calibration"
         ],
@@ -6599,7 +6599,7 @@
         "question": "This multimeter test is the MOST effective way to confirm a suspected broken wire.",
         "choices": [
           "AC voltage test",
-          "Continuity (or ohms) test with the circuit de-energized",
+          "Continuity (or ohms) test with the circuit",
           "Oscilloscope waveform analysis",
           "Visual inspection only, with no meter"
         ],
@@ -6662,7 +6662,7 @@
         "choices": [
           "The circuit must be powered off",
           "The meter must be broken",
-          "The component is shorted internally, a parallel short bypasses it, or no current is flowing through the circuit due to an upstream break",
+          "The component is shorted internally",
           "The component is functioning normally"
         ],
         "correctIndex": 2,
@@ -6721,7 +6721,7 @@
       "jeopardy": {
         "question": "This is the primary function of a multimeter.",
         "choices": [
-          "To measure multiple electrical quantities — primarily voltage, current, and resistance",
+          "To measure multiple electrical",
           "To generate electrical signals",
           "To convert AC to DC",
           "To amplify weak signals"
@@ -6785,7 +6785,7 @@
           "Electrical resistance",
           "Magnetic field strength",
           "Pressure",
-          "Electrical signal waveforms (voltage plotted as a function of time)"
+          "Electrical signal waveforms"
         ],
         "correctIndex": 3,
         "explanation": "An oscilloscope displays waveforms — voltage vs time. Resistance is measured by ohmmeters; magnetic fields by gaussmeters; pressure by pressure gauges or ADCs."
@@ -6845,7 +6845,7 @@
         "choices": [
           "Wire length",
           "Signal frequency",
-          "Insulation resistance between a conductor and ground (or between two conductors), in the megohm range",
+          "Insulation resistance between a conductor and ground",
           "Ground bonding resistance in milliohms"
         ],
         "correctIndex": 2,
@@ -6906,7 +6906,7 @@
         "choices": [
           "Leave all avionics connected for a realistic test",
           "Apply continuous voltage with no cool-down",
-          "Disconnect the circuit from its power source AND from any sensitive solid-state electronics or avionics before applying megger voltage; discharge the capacitance in the system after testing",
+          "Disconnect the circuit from its power source AND from any",
           "Ignore manufacturer maximum test voltages"
         ],
         "correctIndex": 2,
@@ -6965,7 +6965,7 @@
       "jeopardy": {
         "question": "This is the primary use of a milliohmmeter.",
         "choices": [
-          "Measuring very low resistances in the milliohm range, such as bonding resistance and contact resistance",
+          "Measuring very low resistances in the milliohm range",
           "Measuring high-voltage insulation resistance",
           "Generating test signals",
           "Measuring signal frequency"
@@ -7029,7 +7029,7 @@
           "To drive nails into hardwood",
           "To test electrical continuity",
           "To remove burrs from drilled holes",
-          "To create a small indentation in metal that guides a drill bit and prevents it from walking during drilling"
+          "To create a small indentation that guides a drill bit"
         ],
         "correctIndex": 3,
         "explanation": "A center punch creates a pilot indentation for drilling. Nail driving uses a hammer. Continuity testing uses a meter. Burr removal uses a deburring tool or countersink."
@@ -7088,7 +7088,7 @@
         "question": "When using a manual screwdriver, this is the MOST important factor for preventing damage to the screw head.",
         "choices": [
           "Using the longest available screwdriver",
-          "Matching the driver tip exactly to the screw head type and size and ensuring full engagement",
+          "Matching the driver tip exactly to the screw head type",
           "Using maximum torque regardless of the screw",
           "Lubricating the driver tip with grease"
         ],
@@ -7149,7 +7149,7 @@
         "question": "This is the function of a wire crimper.",
         "choices": [
           "To cut wire to length",
-          "To compress a terminal or connector barrel onto a wire with controlled geometry and force, creating a gas-tight electrical and mechanical connection",
+          "To compress a terminal or connector",
           "To strip insulation from a wire",
           "To apply solder to a joint"
         ],
@@ -7209,7 +7209,7 @@
       "jeopardy": {
         "question": "This is why a technician performs a 'wiggle test' near connectors before finalizing an installation.",
         "choices": [
-          "To identify intermittent connections — loose pins, cold solder joints, chafed wiring, or cracked bodies — that reveal themselves only when the wires or connectors are moved",
+          "To identify intermittent connections",
           "To add torque to the fastener",
           "To increase the signal voltage",
           "To test the software load"
@@ -7271,7 +7271,7 @@
         "question": "This is where Safety Data Sheets (SDS) should be kept for shop chemicals.",
         "choices": [
           "Locked in the supervisor's office",
-          "In a location accessible to all shop personnel during all work shifts work shifts",
+          "In a location accessible to all shop",
           "Filed with the manufacturer only",
           "Discarded after opening the chemical"
         ],
@@ -7332,7 +7332,7 @@
         "question": "When handling solvents and chemicals, this is the most important first step for a new technician.",
         "choices": [
           "Smell the chemical to identify it",
-          "Read the Safety Data Sheet (SDS) to understand hazards, required PPE, handling precautions, and first-aid measures",
+          "Read the Safety Data Sheet (SDS) to understand hazards",
           "Apply the chemical quickly to see how it works",
           "Mix chemicals to see which is stronger"
         ],
@@ -7393,7 +7393,7 @@
         "question": "This is the most correct response when a technician feels dizzy from a strong solvent smell while cleaning boards.",
         "choices": [
           "Continue working and ignore the symptoms",
-          "Leave the area immediately for fresh air, seek medical attention if symptoms persist, notify the supervisor, and improve ventilation before returning to work",
+          "Leave the area immediately for fresh air, seek medical attention",
           "Open the chemical container wider for better access",
           "Sit down next to the chemical and rest"
         ],
@@ -7453,7 +7453,7 @@
       "jeopardy": {
         "question": "Class C fires are commonly associated with this.",
         "choices": [
-          "Energized electrical equipment such as motors, wiring, and avionics",
+          "Energized electrical equipment such as motors",
           "Ordinary combustibles like wood and paper",
           "Flammable liquids like gasoline and solvents",
           "Cooking oils and greases"
@@ -7515,7 +7515,7 @@
         "question": "When checking a fire extinguisher's readiness in a GA avionics shop, a technician should verify these items.",
         "choices": [
           "Only the color of the extinguisher body",
-          "Pressure gauge in the green zone, intact safety pin with tamper seal, no visible damage, current inspection tag, and correct mounting location",
+          "Pressure gauge in the green zone, intact safety pin, and current inspection tag",
           "Only the tag date",
           "Only that the extinguisher exists in the shop"
         ],
@@ -7578,7 +7578,7 @@
           "Wearing wool clothing for static comfort",
           "Walking on carpet before touching components",
           "Handling components with bare hands only",
-          "Using a grounded wrist strap, a grounded ESD mat, and keeping components in antistatic packaging until installation"
+          "Using a grounded wrist strap, ESD mat, and antistatic packaging"
         ],
         "correctIndex": 3,
         "explanation": "Grounded wrist strap, grounded ESD mat, and antistatic packaging together protect against ESD. Wool and carpet generate static. Bare hands alone without grounding offer no protection."
@@ -7638,7 +7638,7 @@
         "choices": [
           "Continue the installation and retrieve the screw later if convenient",
           "Replace the screw with a new one without retrieving the old one",
-          "Stop work, locate and retrieve the screw before continuing; loose hardware left in the aircraft is a FOD hazard that can cause shorts, jam controls, or damage equipment",
+          "Stop work, locate and retrieve the screw before continuing",
           "Assume the screw will remain harmless and ignore it"
         ],
         "correctIndex": 2,
@@ -7696,7 +7696,7 @@
       "jeopardy": {
         "question": "This is the most effective way to prevent FOD in an avionics shop.",
         "choices": [
-          "A layered approach: tool accountability, workspace discipline, hardware tracking, and shop-wide FOD awareness with regular walkdowns",
+          "A layered approach",
           "A once-a-year deep clean",
           "Relying on individual technicians' diligence alone",
           "Installing more trash cans"
@@ -7758,7 +7758,7 @@
         "question": "When working on aircraft systems that emit RF signals, this is one of the biggest safety concerns.",
         "choices": [
           "The aircraft might run out of fuel",
-          "Personnel exposure to potentially harmful RF energy, especially to the eyes and reproductive organs",
+          "Personnel exposure to potentially harmful RF energy",
           "The aircraft paint might fade",
           "The RF signals disturbing nearby Wi-Fi networks"
         ],
@@ -7818,7 +7818,7 @@
       "jeopardy": {
         "question": "This best describes a 'near-miss' in the context of shop safety.",
         "choices": [
-          "An unplanned event that did not result in injury, illness, or damage but had the potential to do so",
+          "An unplanned event that did not result in injury",
           "Any minor injury that required first aid",
           "A customer complaint about service",
           "A tool that was temporarily misplaced"
@@ -7881,7 +7881,7 @@
         "choices": [
           "Immediately grab the victim to pull them away",
           "Pour water on the victim to cool them",
-          "FIRST ensure the power is off (never touch the victim while in contact with a live source), then call 911, assess breathing and responsiveness, begin CPR if needed, and use an AED if available",
+          "FIRST ensure the power is off (never touch the victim",
           "Ignore the situation and continue working"
         ],
         "correctIndex": 2,
@@ -7941,7 +7941,7 @@
         "question": "You detect a burning insulation odor in an avionics rack. This is your first action.",
         "choices": [
           "Continue working and see if the odor goes away",
-          "De-energize the affected circuit(s) — pull the appropriate circuit breakers or turn off the master switch — before investigating the source",
+          "De-energize the affected circuit(s)",
           "Spray water on the avionics rack",
           "Leave the aircraft and hope the problem resolves"
         ],
@@ -8004,7 +8004,7 @@
           "Pouring them down the shop drain",
           "Placing them in the regular trash",
           "Burning them in a fire barrel",
-          "Collecting them in designated labeled containers by category and delivering them to a certified hazardous-waste recycler or disposal service"
+          "Collecting them in designated labeled"
         ],
         "correctIndex": 3,
         "explanation": "Proper hazmat disposal uses designated containers and certified disposal services. Drain, trash, and burning are all environmentally illegal and hazardous to personnel."
@@ -8066,7 +8066,7 @@
           "Walk under the rotor disc regardless of rotor speed",
           "Approach from directly behind",
           "Run quickly through the rotor disc area",
-          "Maintain eye contact with the pilot, stay in designated safe zones clear of the rotor disc, approach only when signaled, stay low when entering the rotor area, and avoid the tail rotor region entirely"
+          "Maintain eye contact with the pilot, stay in designated safe"
         ],
         "correctIndex": 3,
         "explanation": "Eye contact, safe zones, correct approach direction, staying low, and avoiding the tail rotor are all established safe-approach practices. Walking under, approaching from behind, or running through the disc area are all dangerous."
@@ -8732,7 +8732,7 @@
           "Too much source voltage",
           "Replacement of the bulbs with lower-wattage units",
           "A parallel short across the bulbs",
-          "Excessive voltage drop caused by added series resistance somewhere in the circuit"
+          "Excessive voltage drop caused by added series resistance"
         ],
         "correctIndex": 3,
         "explanation": "Dim bulbs indicate that less than the rated voltage is reaching the load. The most common cause is a corroded terminal, a loose connection, or an undersized wire adding series resistance that drops voltage before it reaches the load."
@@ -9641,7 +9641,7 @@
         "question": "This is the PRIMARY purpose of a fuse or circuit breaker in an aircraft electrical system.",
         "choices": [
           "Regulate system voltage",
-          "Protect wiring from excessive current by interrupting the circuit during overcurrent conditions",
+          "Protect wiring from excessive current by interrupting the circuit",
           "Store electrical energy for peak-load use",
           "Convert AC to DC"
         ],
@@ -9764,7 +9764,7 @@
           "A single large battery",
           "The engine-driven alternator",
           "A protection panel containing only fuses",
-          "A common conductor that multiple loads share, with each load tapping off in parallel"
+          "A common conductor that multiple loads share"
         ],
         "correctIndex": 3,
         "explanation": "A bus is a shared conductor (literally a 'bar' in the term 'busbar') from which loads branch in parallel. This architecture centralizes power distribution, simplifies wiring, and isolates faults through dedicated circuit breakers on each branch."
@@ -9824,7 +9824,7 @@
         "choices": [
           "Normal current draw during engine start",
           "Current flowing from the alternator while the engine is running",
-          "Unintended current drain with the master switch OFF — often caused by stuck relays or connections on the always-hot side of the battery",
+          "Unintended current drain with the master switch OFF",
           "Current drawn by the navigation lights at night"
         ],
         "correctIndex": 2,
@@ -9884,7 +9884,7 @@
         "choices": [
           "To produce high-voltage AC for large motors",
           "To provide hydraulic pressure for flight controls",
-          "To start the engine and power the avionics, instruments, and lighting during flight",
+          "To start the engine and power avionics, instruments, and lighting during flight",
           "To serve as a backup only, while AC performs most of the work"
         ],
         "correctIndex": 2,

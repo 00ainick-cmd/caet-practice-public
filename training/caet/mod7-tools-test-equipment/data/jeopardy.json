@@ -26,7 +26,7 @@
         "choices": [
           "The circuit has mysteriously multiplied its voltage",
           "The battery has gained voltage",
-          "Wrong meter range, wrong AC/DC mode, a damaged probe or lead, or induced-voltage 'ghost readings' on a high-impedance meter connected to a floating point",
+          "Wrong meter range, wrong AC/DC mode, damaged probes, or induced ghost readings",
           "The meter is working correctly and the reading is accurate"
         ],
         "correctIndex": 2,
@@ -39,7 +39,7 @@
           "The circuit is energized and operating",
           "The component is hot",
           "The component is installed in another circuit for reference",
-          "The circuit is de-energized (power off), and ideally the component is isolated from parallel paths"
+          "The circuit is de-energized and the component is isolated from parallel paths"
         ],
         "correctIndex": 3,
         "explanation": "Resistance measurement requires a de-energized circuit. Energized circuits disrupt the measurement and can damage the meter."
@@ -49,7 +49,7 @@
         "clue": "A multimeter set to the ohms range shows 'OL.' This is what the reading means.",
         "choices": [
           "The meter is overloaded and damaged",
-          "The resistance exceeds the meter's selected range",
+          "The resistance exceeds the meter's selected",
           "The circuit is hot with voltage",
           "The meter is out of calibration"
         ],
@@ -61,7 +61,7 @@
         "clue": "This multimeter test is the MOST effective way to confirm a suspected broken wire.",
         "choices": [
           "AC voltage test",
-          "Continuity (or ohms) test with the circuit de-energized",
+          "Continuity (or ohms) test with the circuit",
           "Oscilloscope waveform analysis",
           "Visual inspection only, with no meter"
         ],
@@ -84,7 +84,7 @@
         "id": "CAT7-NEW-007",
         "clue": "This is the primary function of a multimeter.",
         "choices": [
-          "To measure multiple electrical quantities",
+          "To measure multiple electrical",
           "To generate electrical signals",
           "To convert AC to DC",
           "To amplify weak signals"
@@ -98,7 +98,7 @@
         "choices": [
           "Wire length",
           "Signal frequency",
-          "Insulation resistance between a conductor and ground (or between two conductors)",
+          "Insulation resistance between a conductor and ground",
           "Ground bonding resistance in milliohms"
         ],
         "correctIndex": 2,
@@ -111,7 +111,7 @@
           "To drive nails into hardwood",
           "To test electrical continuity",
           "To remove burrs from drilled holes",
-          "To create a small indentation in metal that guides a drill bit and prevents it from walking during drilling"
+          "To create a small indentation that guides a drill bit"
         ],
         "correctIndex": 3,
         "explanation": "A center punch creates a pilot indentation for drilling. Nail driving uses a hammer. Continuity testing uses a meter. Burr removal uses a deburring tool or countersink."
@@ -121,7 +121,7 @@
         "clue": "This is the function of a wire crimper.",
         "choices": [
           "To cut wire to length",
-          "To compress a terminal or connector barrel onto a wire with controlled geometry and force",
+          "To compress a terminal or connector",
           "To strip insulation from a wire",
           "To apply solder to a joint"
         ],
@@ -163,7 +163,7 @@
         "clue": "When using a manual screwdriver, this is the MOST important factor for preventing damage to the screw head.",
         "choices": [
           "Using the longest available screwdriver",
-          "Matching the driver tip exactly to the screw head type and size and ensuring full engagement",
+          "Matching the driver tip exactly to the screw head type",
           "Using maximum torque regardless of the screw",
           "Lubricating the driver tip with grease"
         ],
@@ -178,7 +178,7 @@
         "choices": [
           "Leave all avionics connected for a realistic test",
           "Apply continuous voltage with no cool-down",
-          "Disconnect the circuit from its power source AND from any sensitive solid-state electronics or avionics before applying megger voltage",
+          "Disconnect the circuit from its power source AND from any",
           "Ignore manufacturer maximum test voltages"
         ],
         "correctIndex": 2,
@@ -217,7 +217,7 @@
       "clue": "On an oscilloscope capturing an ARINC 429 signal, you observe a square wave that fails to cross the 0V baseline, instead fluctuating between +10V and +5V. What does this indicate?",
       "choices": [
         "Normal bipolar return-to-zero operation",
-        "A loss of the HI or LO wire, preventing differential measurement",
+        "A loss of the HI or LO wire, preventing",
         "The baud rate is too fast",
         "The termination resistor is missing"
       ],
