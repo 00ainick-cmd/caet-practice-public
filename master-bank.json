@@ -705,7 +705,7 @@
       "practice": {
         "question": "A technician observes bus traffic on a MIL-STD-1553 system and notices that no remote terminal ever transmits data unless immediately preceded by a message from the bus controller. Is this the expected behavior?",
         "choices": [
-          "Yes — MIL-STD-1553 is command/response, so remote terminals only transmit when the bus controller commands them to",
+          "Yes — MIL-STD-1553 is command/response, so remote terminals transmit only when directed by the bus controller",
           "No — remote terminals should broadcast data independently",
           "No — the bus controller should only be a passive monitor",
           "Yes, but only because the bus is malfunctioning and holding the RTs silent"
@@ -1995,7 +1995,7 @@
       "preassessment": {
         "question": "What is the primary consideration when selecting aircraft wire insulation?",
         "choices": [
-          "Suitability for",
+          "Suitability for the installation environment",
           "Color",
           "Cost per foot",
           "Local availability"
@@ -6206,7 +6206,7 @@
           "Current altitude",
           "Airspeed",
           "Heading",
-          "Rate of climb or"
+          "Rate of climb or descent"
         ],
         "correctIndex": 3
       }
@@ -6488,7 +6488,7 @@
         "choices": [
           "Airspeed only",
           "Aircraft position relative to airport runways",
-          "Aircraft pitch, roll (attitude), and heading, using",
+          "Aircraft pitch, roll (attitude), and heading",
           "Aircraft weight and balance"
         ],
         "correctIndex": 2,
@@ -6510,7 +6510,7 @@
         "choices": [
           "Airspeed only",
           "Runway position",
-          "Pitch, roll, and",
+          "Pitch, roll, and heading",
           "Weight and balance"
         ],
         "correctIndex": 2
@@ -6854,12 +6854,12 @@
         "question": "A multimeter set to ohms (Ω) shows 'OL.' What does this reading mean?",
         "choices": [
           "The meter has been damaged by overload",
-          "The resistance being measured is greater than the meter's",
+          "The circuit path is open (resistance exceeds the meter's range)",
           "The circuit is energized with dangerous voltage",
           "The meter's internal calibration has drifted"
         ],
         "correctIndex": 1,
-        "explanation": "'OL' is 'over-limit' or 'over-range.' The meter is working correctly but the resistance exceeds its scale. In field troubleshooting, 'OL' almost always means an open circuit — the resistance path is broken. This is a valuable diagnostic indication."
+        "explanation": "'OL' means over-limit or over-range — the measured resistance exceeds the meter's scale. In practical shop troubleshooting, this almost always indicates an open circuit: a broken conductor, open switch, blown fuse, or disconnected load. A good wire reads near zero ohms; an open reads OL."
       },
       "practice": {
         "question": "A technician is looking for a broken wire in a circuit. The multimeter is set to ohms, and when probed across the suspect wire it reads 'OL.' What does this tell the technician?",
@@ -6876,7 +6876,7 @@
         "question": "What does 'OL' mean on a multimeter set to ohms?",
         "choices": [
           "Meter is overloaded/damaged",
-          "Resistance exceeds the range",
+          "The circuit path is open (no continuity)",
           "Circuit is hot with voltage",
           "Meter is out of calibration"
         ],
@@ -6978,11 +6978,11 @@
         "choices": [
           "The circuit must be powered off",
           "The meter is damaged",
-          "The component is shorted internally",
+          "No current is flowing through the component (upstream open or parallel bypass)",
           "The component is functioning normally"
         ],
         "correctIndex": 2,
-        "explanation": "0 V across a component can indicate a short in that component (V = IR = 0 if R = 0), a parallel path shorting it, or the absence of current (an upstream break) so there is no voltage drop to measure. A healthy component with current flowing would show a non-zero voltage drop determined by its resistance and the circuit current."
+        "explanation": "0 V across a component in an active circuit most commonly means no current is flowing through it. The root cause is usually an upstream open (blown fuse, broken wire, open switch) or a parallel short that bypasses the component. An internally shorted component can theoretically produce 0 V, but that failure mode typically draws excessive current and trips the breaker rather than producing a quiet 0 V reading."
       },
       "practice": {
         "question": "A technician reads 0 V across a resistor that is supposed to be dropping voltage in an active circuit. What hypotheses should the technician investigate?",
@@ -7000,7 +7000,7 @@
         "choices": [
           "Circuit must be off",
           "Meter is broken",
-          "Component is shorted",
+          "No current flows through the component",
           "Component is normal"
         ],
         "correctIndex": 2
@@ -7222,7 +7222,7 @@
         "choices": [
           "Leave all avionics and sensitive electronics connected to the circuit for a realistic test",
           "Apply the test voltage continuously for as long as possible without cool-down",
-          "Disconnect the circuit from its power source AND from any sensitive solid-state electronics or avionics before",
+          "Disconnect power and any sensitive solid-state electronics before applying megger voltage",
           "Ignore the manufacturer's maximum test voltage ratings for circuits being tested"
         ],
         "correctIndex": 2,
@@ -7525,7 +7525,7 @@
       "multipleChoice": {
         "question": "Before finalizing an installation, why does a technician perform a 'wiggle test' near connectors?",
         "choices": [
-          "To identify intermittent connections — loose pins",
+          "To reveal intermittent connections (loose pins, cold solder, chafed wiring) under motion",
           "To add torque to the connector fasteners",
           "To raise the signal voltage through the connection",
           "To verify the software load on an avionics unit"
@@ -7576,7 +7576,7 @@
         "question": "This is where Safety Data Sheets (SDS) should be kept for shop chemicals.",
         "choices": [
           "Locked in the supervisor's office",
-          "In a location accessible to all shop personnel during all work shifts",
+          "In a location accessible to all shop personnel during all work shifts work shifts",
           "Filed with the manufacturer only",
           "Discarded after opening the chemical"
         ],
@@ -7587,7 +7587,7 @@
         "question": "Where should Safety Data Sheets (SDS) be kept for shop chemicals?",
         "choices": [
           "Locked in the supervisor's office for security",
-          "In a location accessible to all shop personnel during all",
+          "In a location accessible to all shop personnel during all work shifts",
           "Filed only with the chemical manufacturer",
           "Discarded once the chemical container is opened"
         ],
@@ -7609,7 +7609,7 @@
         "question": "Where should SDS be kept for shop chemicals?",
         "choices": [
           "Locked in supervisor's office",
-          "Accessible to all personnel during",
+          "Accessible to all personnel during all shifts",
           "Filed with manufacturer only",
           "Discarded after opening"
         ],
@@ -7976,7 +7976,7 @@
         "choices": [
           "Continue and retrieve later",
           "Replace with new screw",
-          "Stop, locate, and retrieve before",
+          "Stop, locate, and retrieve before continuing",
           "Ignore it"
         ],
         "correctIndex": 2
@@ -9957,7 +9957,7 @@
         "question": "What is the primary function of a fuse or circuit breaker in an aircraft electrical system?",
         "choices": [
           "To step voltage up or down",
-          "To protect the wiring by interrupting the circuit",
+          "To protect wiring by interrupting overcurrent",
           "To store electrical energy for later use",
           "To filter noise from the alternator output"
         ],
@@ -10140,7 +10140,7 @@
         "choices": [
           "Normal current during engine start",
           "Alternator output current during cruise",
-          "Unintended current drain when the master switch is",
+          "Unintended current drain with the master switch OFF",
           "Current required to recharge the battery"
         ],
         "correctIndex": 2,
@@ -10162,7 +10162,7 @@
         "choices": [
           "Normal engine-start current",
           "Alternator charging current",
-          "Unintended drain with the master",
+          "Unintended drain with the master switch OFF",
           "Battery charging current"
         ],
         "correctIndex": 2
