@@ -332,6 +332,34 @@
       100% { top: 100%; opacity: 0; }
     }
 
+    /* ===== Reduced-motion fallback for hangar-doors effects ===== */
+    @media (prefers-reduced-motion: reduce) {
+      /* Scan lines: no sweep animation */
+      .hangar-doors-overlay.active .door-left::before,
+      .hangar-doors-overlay.active .door-right::after {
+        animation: none;
+      }
+      /* Corner brackets: appear instantly without slide */
+      .hangar-doors-overlay.doors-closed .hangar-corner {
+        transition: opacity 0.2s ease;
+        transform: translate(0, 0) !important;
+      }
+      .hangar-doors-overlay.doors-closed .hangar-corner.tl,
+      .hangar-doors-overlay.doors-closed .hangar-corner.tr,
+      .hangar-doors-overlay.doors-closed .hangar-corner.bl,
+      .hangar-doors-overlay.doors-closed .hangar-corner.br {
+        transition-delay: 0s;
+      }
+      /* Glitch burst and boot-scan disabled */
+      .hangar-doors-overlay.glitch-active .hangar-glitch { animation: none; opacity: 0; }
+      .hangar-doors-overlay.scan-active .hangar-bootscan { animation: none; opacity: 0; }
+      /* Logo scale-pulse disabled */
+      .hangar-doors-overlay.slam-pulse .door-logo-left,
+      .hangar-doors-overlay.slam-pulse .door-logo-right {
+        animation: none;
+      }
+    }
+
     /* ===================== TOPBAR ===================== */
     .topbar {
       background: var(--surface);
