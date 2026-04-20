@@ -2613,7 +2613,7 @@
             <div class="bar">
               <div id="tFill"></div>
             </div>
-            <span class="kpi" id="tLeft">10</span>s
+            <span class="kpi" id="tLeft">15</span>s
           </div>
           <span class="badge" id="ddBadge"
             style="display:none;background:var(--warn);border-color:var(--warn);color:#111;">DAILY DOUBLE</span>
@@ -2927,9 +2927,12 @@
           );
 
           // Gather all categories from successful loads
+          // Only include categories with enough items to fill a 5-tile board
+          // without repeats (pool.length >= 5). Thin categories get skipped.
           const allCats = []; // { catName, pool, moduleId, moduleTitle }
           const allFinals = [];
           let loadedCount = 0;
+          const skippedCats = [];
 
           results.forEach((result, i) => {
             if (result.status === 'fulfilled') {
@@ -2937,12 +2940,17 @@
               loadedCount++;
               const catNames = Object.keys(data.categories || {});
               catNames.forEach(catName => {
-                allCats.push({
-                  catName,
-                  pool: data.categories[catName],
-                  moduleId: mod.id,
-                  moduleTitle: mod.title
-                });
+                const pool = data.categories[catName];
+                if (pool.length >= 5) {
+                  allCats.push({
+                    catName,
+                    pool,
+                    moduleId: mod.id,
+                    moduleTitle: mod.title
+                  });
+                } else {
+                  skippedCats.push(`${mod.abbr}/${catName} (${pool.length})`);
+                }
               });
               if (data.final) {
                 const finals = Array.isArray(data.final) ? data.final : [data.final];
@@ -2954,8 +2962,12 @@
             }
           });
 
+          if (skippedCats.length > 0) {
+            console.log(`[Battle Ace] Skipped ${skippedCats.length} thin categories (<5 items):`, skippedCats);
+          }
+
           if (allCats.length < 6) {
-            throw new Error(`Not enough categories loaded (found ${allCats.length}, need at least 6).`);
+            throw new Error(`Not enough categories loaded (found ${allCats.length} with >=5 items, need at least 6).`);
           }
 
           updateLoadingStatus('Randomizing your arena...', 85);
@@ -3048,6 +3060,7 @@
         };
         const tiers = [100, 200, 300, 400, 500];
         tiers.forEach(targetDiff => {
+          if (available.length === 0) return; // pool exhausted — never repeat
           const tierQs = available.filter(q => getNumDiff(q) === targetDiff);
           if (tierQs.length > 0) {
             const randIdx = Math.floor(Math.random() * tierQs.length);
@@ -3055,7 +3068,6 @@
             picked.push(selected);
             available.splice(available.indexOf(selected), 1);
           } else {
-            if (available.length === 0) available = [...pool];
             const randIdx = Math.floor(Math.random() * available.length);
             const selected = available[randIdx];
             picked.push(selected);
@@ -3067,7 +3079,7 @@
           id: q.id || `q-${i + 1}`,
           difficulty: i + 1,
           pointValue: values[i],
-          timeLimit: 30 + (i * 5),
+          timeLimit: 15,
           question: q.clue || q.question || 'Question not available',
           answers: q.choices || ['A', 'B', 'C', 'D'],
           correctIndex: q.correctIndex != null ? q.correctIndex : 0,
@@ -3285,6 +3297,7 @@
         const tiers = [100, 200, 300, 400, 500];
 
         tiers.forEach(targetDiff => {
+          if (available.length === 0) return; // pool exhausted — never repeat within a round
           // Find all available questions in this tier
           const tierQs = available.filter(q => getNumDiff(q) === targetDiff);
           if (tierQs.length > 0) {
@@ -3296,7 +3309,6 @@
             available.splice(available.indexOf(selected), 1);
           } else {
             // If tier is missing (thin category), pick any random available question
-            if (available.length === 0) available = [...pool]; // Reset if pool is < 5
             const randIdx = Math.floor(Math.random() * available.length);
             const selected = available[randIdx];
             picked.push(selected);
@@ -3312,7 +3324,7 @@
           id: q.id || `q-${i + 1}`,
           difficulty: i + 1,
           pointValue: values[i], // e.g. Round 1: 100-500, Round 2: 200-1000
-          timeLimit: 30 + (i * 5),
+          timeLimit: 15,
           question: q.clue || q.question || 'Question not available',
           answers: q.choices || ['A', 'B', 'C', 'D'],
           correctIndex: q.correctIndex != null ? q.correctIndex : 0,
