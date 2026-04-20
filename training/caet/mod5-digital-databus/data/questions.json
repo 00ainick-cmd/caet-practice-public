@@ -1235,6 +1235,312 @@
         ],
         "correctIndex": 2
       }
+    },
+    {
+      "id": "CAT5-NEW-026",
+      "category": "mod5-digital-databus",
+      "difficulty": "medium",
+      "tags": [
+        "arinc-429",
+        "word-format",
+        "label"
+      ],
+      "learningObjective": "Identify the Label field in an ARINC 429 data word",
+      "fullObjective": "Recognize that every 32-bit ARINC 429 data word begins with an 8-bit Label field that encodes the parameter type (altitude, airspeed, heading, etc.) in octal, allowing receivers to filter inbound traffic by parameter.",
+      "flashcard": {
+        "term": "ARINC 429 Label",
+        "definition": "The first 8 bits of every 32-bit ARINC 429 word. The Label is an octal-coded identifier of WHAT parameter the word contains — for example, label 203 (octal) = barometric altitude, label 206 = computed airspeed. Receivers use the Label to filter the transmitter's stream and pluck out only the parameters they care about.",
+        "analogy": "Think of the Label as the subject line of an email. The transmitter broadcasts every parameter it knows about. Each receiver reads only the subject lines that matter to it and ignores the rest.",
+        "unit": "Digital Databuses"
+      },
+      "jeopardy": {
+        "question": "This 8-bit field at the start of every ARINC 429 word tells a receiver which parameter — altitude, airspeed, heading, etc. — the word contains.",
+        "choices": [
+          "Label",
+          "Preamble",
+          "Destination tag",
+          "Parity block"
+        ],
+        "correctIndex": 0,
+        "explanation": "The Label is the first 8 bits of every 32-bit ARINC 429 word. It is octal-coded (for example, label 203 = altitude, 206 = computed airspeed). Receivers filter the transmitter's stream by Label and accept only the parameters they need. ARINC 429 does not use a separate preamble or destination tag, and parity is a single bit at the end of the word, not a block."
+      },
+      "multipleChoice": {
+        "question": "Every ARINC 429 data word begins with an 8-bit field that identifies what parameter the word represents (altitude, airspeed, heading, etc.). What is the name of that field?",
+        "choices": [
+          "Label",
+          "Preamble header",
+          "Destination tag",
+          "Parity block"
+        ],
+        "correctIndex": 0,
+        "explanation": "ARINC 429 words are 32 bits long; the first 8 bits are the Label, octal-coded to identify the parameter (e.g., 203 = altitude, 206 = computed airspeed). Receivers filter incoming words by Label and ignore anything they do not need. ARINC 429 does not use a separate preamble or destination tag, and parity is a single trailing bit."
+      },
+      "practice": {
+        "question": "An MFD is wired to receive ARINC 429 data from an air data computer that broadcasts 18 different parameters on the same pair. The MFD only needs altitude and airspeed. How does the MFD select just the two parameters it wants?",
+        "choices": [
+          "It reads the 8-bit Label at the start of each word and accepts only the Labels it cares about",
+          "The air data computer sends only altitude and airspeed to that specific MFD over a dedicated wire",
+          "It uses the destination address field in the word to match its own address",
+          "It requests specific parameters from the air data computer using a reverse-channel command"
+        ],
+        "correctIndex": 0,
+        "explanation": "ARINC 429 is one-way broadcast — the transmitter continuously sends every parameter it has, and each receiver filters the stream by Label. There is no destination addressing and no reverse channel from the MFD back to the air data computer. The MFD simply reads the 8-bit Label at the start of each word and keeps the ones it wants."
+      },
+      "preassessment": {
+        "question": "What is the first 8 bits of an ARINC 429 word called?",
+        "choices": [
+          "Label",
+          "Preamble",
+          "Destination tag",
+          "Sync word"
+        ],
+        "correctIndex": 0
+      }
+    },
+    {
+      "id": "CAT5-NEW-027",
+      "category": "mod5-digital-databus",
+      "difficulty": "medium",
+      "tags": [
+        "mil-std-1553",
+        "redundancy",
+        "reliability"
+      ],
+      "learningObjective": "Explain the purpose of the MIL-STD-1553 dual-redundant bus architecture",
+      "fullObjective": "Understand that MIL-STD-1553 runs two parallel cables (Bus A and Bus B) so traffic can continue if one cable is physically damaged or electrically faulted, providing single-fault tolerance for flight-critical applications.",
+      "flashcard": {
+        "term": "MIL-STD-1553 dual-redundant bus",
+        "definition": "MIL-STD-1553 runs TWO physically separate cables (labeled Bus A and Bus B) that carry the same traffic. The Bus Controller normally uses Bus A; if it detects errors, it retries the same command on Bus B. Both cables run in parallel through the aircraft, typically in different bundles, so a single wire bundle getting damaged does not take down the whole system.",
+        "analogy": "It is like having two identical phone lines to the same house. If one line is cut, calls still get through on the other. For flight-critical systems, this redundancy is what makes 1553 acceptable where ARINC 429 and RS-232 are not.",
+        "unit": "Digital Databuses"
+      },
+      "jeopardy": {
+        "question": "This is the primary reason MIL-STD-1553 wires every Remote Terminal to two parallel cables (Bus A and Bus B).",
+        "choices": [
+          "To double the data rate for high-bandwidth applications",
+          "Redundancy — traffic continues on the other bus if one fails",
+          "To separate command traffic from response traffic",
+          "To let two Bus Controllers share the bus workload"
+        ],
+        "correctIndex": 1,
+        "explanation": "MIL-STD-1553 was designed for flight-critical military applications where a single wire fault must not disable the system. The two buses carry identical traffic; the Bus Controller normally uses Bus A, and if it sees errors it retries on Bus B. The data rate is 1 Mbps on either bus — using both does NOT double it. And 1553 allows only one active Bus Controller at a time."
+      },
+      "multipleChoice": {
+        "question": "A MIL-STD-1553 Remote Terminal is wired to two separate bus cables, commonly labeled A and B. What is the primary reason for this dual-bus architecture?",
+        "choices": [
+          "To double the data rate for high-bandwidth parameters",
+          "To provide redundancy so traffic continues if one bus fails",
+          "To separate command traffic from response traffic on different wires",
+          "To allow two Bus Controllers to share the workload"
+        ],
+        "correctIndex": 1,
+        "explanation": "MIL-STD-1553 is dual-redundant: two physically separate cables (Bus A and Bus B) carry identical traffic. The Bus Controller normally uses Bus A and retries on Bus B if it detects errors. Data rate stays at 1 Mbps on either cable — dual-bus does NOT increase throughput. Commands and responses share the same cable. Only one active Bus Controller is allowed at a time."
+      },
+      "practice": {
+        "question": "During a routine flight, a 1553-equipped aircraft experiences chafed wiring that damages one of the two bus cables between the flight computer and an actuator controller. The crew reports no loss of system function. What enabled the system to keep operating?",
+        "choices": [
+          "The Bus Controller automatically doubled the data rate on the surviving cable",
+          "The Bus Controller detected errors on the damaged bus and continued traffic on the redundant bus",
+          "The Remote Terminal routed commands through an alternate protocol on a different wire",
+          "The actuator controller reverted to analog control over its discrete signal lines"
+        ],
+        "correctIndex": 1,
+        "explanation": "MIL-STD-1553 runs two parallel cables (Bus A and Bus B). When the Bus Controller detects errors on one, it transparently retries on the other — the crew sees no loss of function. Data rate does not change. Remote Terminals do not switch protocols; they simply respond on whichever bus the BC uses. Many 1553-equipped actuators do not have analog fallback wiring."
+      },
+      "preassessment": {
+        "question": "Why does MIL-STD-1553 use two parallel bus cables?",
+        "choices": [
+          "To double the data rate",
+          "For redundancy if one cable fails",
+          "To isolate commands from responses",
+          "To support two Bus Controllers"
+        ],
+        "correctIndex": 1
+      }
+    },
+    {
+      "id": "CAT5-NEW-028",
+      "category": "mod5-digital-databus",
+      "difficulty": "medium",
+      "tags": [
+        "rs-232",
+        "topology",
+        "point-to-point"
+      ],
+      "learningObjective": "Identify RS-232 as a point-to-point standard limited to two devices per link",
+      "fullObjective": "Recognize that RS-232 connects exactly two devices per physical link, and that connecting three or more devices requires either multiple RS-232 links, a multi-drop standard such as RS-485, or a gateway / multiplexer.",
+      "flashcard": {
+        "term": "RS-232 topology",
+        "definition": "RS-232 is strictly POINT-TO-POINT: one physical link carries a conversation between exactly TWO devices — typically a DTE (Data Terminal Equipment) and a DCE (Data Communication Equipment). It cannot be multi-dropped. To connect three or more devices you need separate RS-232 links for each pair, OR a multi-drop standard like RS-485 or RS-422, OR a gateway/multiplexer that fans out to several RS-232 ports.",
+        "analogy": "RS-232 is a private phone line between two people. If you want to add a third person, you need a three-way calling service (gateway) or each pair needs its own separate line. You cannot just tap the third person onto the existing wires.",
+        "unit": "Digital Databuses"
+      },
+      "jeopardy": {
+        "question": "This limitation of RS-232 makes it impossible to simply tap a third device onto an existing GPS-to-FMS serial link.",
+        "choices": [
+          "The need for a bus controller that RS-232 does not include",
+          "A required 120-ohm terminator that most RS-232 devices lack",
+          "RS-232 is point-to-point, supporting only two devices per link",
+          "Insufficient data rate to carry GPS data at the aircraft's update rate"
+        ],
+        "correctIndex": 2,
+        "explanation": "RS-232 is strictly point-to-point — one link connects exactly two devices. Tapping a third device on the same pair does not work. To add a third you need a second RS-232 link, a multi-drop standard like RS-485, or a gateway that fans out. RS-232 has no bus controller, no 120-ohm terminator, and more than enough speed for GPS data."
+      },
+      "multipleChoice": {
+        "question": "A technician wants to connect three devices — a GPS receiver, a flight management system, and a maintenance laptop — on one RS-232 link so they can all share data. Why will this plan not work as drawn?",
+        "choices": [
+          "RS-232 requires a dedicated bus controller that none of the three devices provides",
+          "RS-232 needs 120-ohm termination resistors that these devices do not supply",
+          "RS-232 is a point-to-point standard that supports only two devices per link",
+          "RS-232 is too slow to carry GPS data at the aircraft's update rate"
+        ],
+        "correctIndex": 2,
+        "explanation": "RS-232 is strictly point-to-point — one physical link connects exactly two devices. To connect three you need either a second RS-232 link, a multi-drop standard like RS-485 or RS-422, or a gateway device that fans out to separate RS-232 ports. RS-232 has no bus controller concept, does not require 120-ohm termination (that is CAN bus), and is fast enough for GPS NMEA data."
+      },
+      "practice": {
+        "question": "A shop needs to simultaneously feed GPS position data to both the primary FMS and a backup MFD. The GPS receiver has a single RS-232 output. What is the correct approach?",
+        "choices": [
+          "Tap the backup MFD onto the existing RS-232 pair between GPS and FMS using a Y-splitter",
+          "Install a 120-ohm terminator on the MFD end to prevent signal reflections on the shared link",
+          "Use an RS-232 data splitter or a standard RS-422/485 conversion to drive both receivers",
+          "Reconfigure the GPS to transmit ARINC 429 so two devices can receive in parallel"
+        ],
+        "correctIndex": 2,
+        "explanation": "RS-232 is point-to-point and cannot be tap-spliced to multiple receivers without signal degradation. The correct solutions are: (a) an RS-232 data splitter (a buffered fan-out box that regenerates the signal to multiple outputs), or (b) converting to RS-422/485 which natively supports multi-drop. A 120-ohm terminator is a CAN bus concept, not RS-232. Reconfiguring a GPS to transmit ARINC 429 requires STC-level hardware changes most GPS receivers cannot do."
+      },
+      "preassessment": {
+        "question": "How many devices can be connected on a single RS-232 link?",
+        "choices": [
+          "Up to 20, like ARINC 429",
+          "Up to 31 plus a Bus Controller, like MIL-STD-1553",
+          "Exactly 2 — RS-232 is point-to-point",
+          "Unlimited, with proper termination"
+        ],
+        "correctIndex": 2
+      }
+    },
+    {
+      "id": "CAT5-NEW-029",
+      "category": "mod5-digital-databus",
+      "difficulty": "medium",
+      "tags": [
+        "digital-fundamentals",
+        "parity",
+        "error-detection"
+      ],
+      "learningObjective": "Explain the purpose of the parity bit in digital databus words",
+      "fullObjective": "Understand that ARINC 429 and MIL-STD-1553 append a parity bit to each word so the receiver can detect single-bit errors introduced by noise or EMI during transmission; parity detects errors but does not correct them.",
+      "flashcard": {
+        "term": "Parity bit",
+        "definition": "A single extra bit appended to a digital word so that the total count of '1' bits (including the parity bit) matches a chosen rule — ODD parity for ARINC 429, ODD parity for MIL-STD-1553. The receiver recounts the 1's; if the count does not match the rule, at least one bit flipped during transmission and the word is discarded. Parity DETECTS single-bit errors; it does NOT correct them.",
+        "analogy": "Parity is like counting the chairs before and after a meeting. If the count changes, you know something happened — but the count alone does not tell you WHICH chair was moved. To correct the error, the sender has to resend.",
+        "unit": "Digital Databuses"
+      },
+      "jeopardy": {
+        "question": "This is what the parity bit in an ARINC 429 or MIL-STD-1553 word lets the receiver do.",
+        "choices": [
+          "Synchronize the receiver's clock to the transmitter's bit rate",
+          "Identify which transmitter on the bus originated the word",
+          "Measure the data rate the transmitter is currently using",
+          "Detect whether a bit was corrupted during transmission"
+        ],
+        "correctIndex": 3,
+        "explanation": "Parity is a single-bit error-detection technique. ARINC 429 uses ODD parity — the parity bit is set so the total number of '1' bits in the 32-bit word is odd. If the receiver counts an EVEN number of 1's, at least one bit flipped and the word is dropped. Parity does NOT synchronize clocks (Manchester encoding does that for 1553), does NOT identify sources (the Label/RT address does), and does NOT measure rates."
+      },
+      "multipleChoice": {
+        "question": "An ARINC 429 word includes a parity bit at the end. The receiver counts the '1' bits in the incoming word and compares the total against the parity bit rule. What is the purpose of this check?",
+        "choices": [
+          "To synchronize the receiver's clock to the transmitter",
+          "To identify which transmitter originated the word",
+          "To measure the current data rate of the transmitter",
+          "To detect whether a bit was corrupted during transmission"
+        ],
+        "correctIndex": 3,
+        "explanation": "Parity is a simple error-DETECTION technique. ARINC 429 uses ODD parity — the total number of '1' bits in the 32-bit word (including the parity bit) must be odd. If the receiver counts an even number, a bit flipped during transmission (noise, EMI, damaged shield, etc.) and the word is dropped. Parity detects but does NOT correct errors — repeated parity failures typically mean wiring or EMI trouble."
+      },
+      "practice": {
+        "question": "An MFD reports occasional stale altitude readings. A databus analyzer on the ARINC 429 line shows a steady flow of valid words, but about 2 percent of them fail the parity check and are dropped by the MFD. What is the most likely root cause?",
+        "choices": [
+          "The transmitter is running at the wrong data rate for that parameter",
+          "The MFD software has a bug in its Label filter",
+          "The transmitter is broadcasting the wrong Label for altitude",
+          "Electrical noise or EMI is corrupting individual bits during transmission"
+        ],
+        "correctIndex": 3,
+        "explanation": "Parity failures on a small percentage of words point squarely at single-bit corruption during transmission — classic symptoms of EMI pickup, damaged shield, loose shield ground, or noise coupling from nearby high-current wiring. A wrong data rate would cause ALL words to fail, not 2%. A Label-filter bug would affect software behavior without creating parity errors. A wrong Label would deliver data at the wrong time but without parity failures."
+      },
+      "preassessment": {
+        "question": "What does a parity bit do in a digital databus word?",
+        "choices": [
+          "Synchronizes the receiver's clock",
+          "Identifies the transmitter",
+          "Sets the data rate",
+          "Detects single-bit transmission errors"
+        ],
+        "correctIndex": 3
+      }
+    },
+    {
+      "id": "CAT5-NEW-030",
+      "category": "mod5-digital-databus",
+      "difficulty": "hard",
+      "tags": [
+        "mil-std-1553",
+        "termination",
+        "troubleshooting",
+        "reflections"
+      ],
+      "learningObjective": "Troubleshoot intermittent MIL-STD-1553 bit errors caused by missing or damaged termination",
+      "fullObjective": "Recognize that MIL-STD-1553 requires 78-ohm terminators at each end of the main bus cable; missing or damaged terminators cause signal reflections that show up as 'ringing' on a bus analyzer and produce intermittent bit errors, often appearing after maintenance in the avionics bay.",
+      "flashcard": {
+        "term": "MIL-STD-1553 termination",
+        "definition": "MIL-STD-1553 requires a 78-ohm resistor at EACH END of the main bus cable. The terminator absorbs the signal when it reaches the end of the cable; without it, the signal REFLECTS back down the cable like a wave hitting a wall. The reflection collides with newly-transmitted waveforms, producing 'ringing' on a scope and bit errors at receivers. Intermittent 1553 errors that appear right after avionics-bay maintenance are the classic symptom of a loose, damaged, or forgotten terminator.",
+        "analogy": "Think of the bus as a long pool. Drop a ball in and it creates a wave. Put a soft sponge at the end (terminator) and the wave is absorbed. Put a hard wall at the end (no terminator) and the wave bounces back, colliding with new waves and turning the pool into chaos.",
+        "unit": "Digital Databuses"
+      },
+      "jeopardy": {
+        "question": "A 1553 bus that worked for months begins showing intermittent bit errors after an avionics-bay inspection. A bus analyzer shows 'ringing' on the waveform. This is the most likely cause.",
+        "choices": [
+          "A 78-ohm terminator has come loose or open-circuited",
+          "The Bus Controller software version is out of date",
+          "The Remote Terminals are drawing excessive bus current",
+          "The 1 Mbps data rate has drifted outside spec"
+        ],
+        "correctIndex": 0,
+        "explanation": "MIL-STD-1553 requires a 78-ohm terminator at each end of the main cable. A missing or damaged terminator causes the signal to reflect off the end and collide with new transmissions — exactly the 'ringing' seen on an analyzer. Onset right after maintenance points to a terminator that was disturbed. BC software, RT current draw, and data-rate drift produce different symptoms, not ringing."
+      },
+      "multipleChoice": {
+        "question": "A MIL-STD-1553 bus that ran error-free for months begins producing intermittent bit errors right after maintenance in the avionics bay. A bus analyzer shows 'ringing' on the waveform. Which fault is most likely responsible?",
+        "choices": [
+          "One of the 78-ohm terminators has come loose or open-circuited",
+          "The Bus Controller's software version is out of date",
+          "The Remote Terminals are drawing too much current from the bus",
+          "The 1 Mbps data rate has drifted outside specification"
+        ],
+        "correctIndex": 0,
+        "explanation": "MIL-STD-1553 requires a 78-ohm terminator at EACH END of the main cable. Without proper termination, the signal reflects off the end of the cable, collides with the next transmission, and produces 'ringing' on the scope plus intermittent bit errors. New errors right after avionics-bay work are the classic signature of a disturbed terminator. BC software issues produce protocol faults, excessive RT current produces voltage sag, and data-rate drift produces framing errors — none cause ringing."
+      },
+      "practice": {
+        "question": "A tech is called to investigate a MIL-STD-1553 fault that started the day after a scheduled avionics-bay inspection. The symptoms are: scattered bit errors across multiple Remote Terminals, a visible 'ringing' pattern on the bus analyzer's scope trace, and no change in data rate. Where should the tech look first?",
+        "choices": [
+          "At both 78-ohm terminators on the main bus cable for loose or damaged connections",
+          "In the Bus Controller's firmware log for a recent software update",
+          "At each Remote Terminal's input stage for high bus-current draw",
+          "At the overall bus voltage for deviation from the 1 Mbps specification"
+        ],
+        "correctIndex": 0,
+        "explanation": "Ringing on the waveform plus onset-right-after-maintenance is the textbook signature of a terminator fault. The first thing to check is the two 78-ohm terminators on the main bus cable — they are the most physically exposed component during bay work and the easiest to disturb. BC firmware, RT input stages, and bus voltage are all valid checks, but they do not cause ringing and should come later in the troubleshooting flow."
+      },
+      "preassessment": {
+        "question": "What value resistor terminates each end of a MIL-STD-1553 main bus cable?",
+        "choices": [
+          "78 ohms",
+          "50 ohms",
+          "120 ohms",
+          "600 ohms"
+        ],
+        "correctIndex": 0
+      }
     }
   ]
 }

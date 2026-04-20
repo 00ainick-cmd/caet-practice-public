@@ -56,6 +56,18 @@
         ],
         "correctIndex": 3,
         "explanation": "ARINC 429 is the dominant digital databus in civilian aviation. MIL-STD-1553 is widely used in military applications. CAN bus is common in automotive and some UAV systems. IEEE 1394 (FireWire) is seldom used in aviation."
+      },
+      {
+        "id": "CAT5-NEW-026",
+        "clue": "This 8-bit field at the start of every ARINC 429 word tells a receiver which parameter — altitude, airspeed, heading, etc. — the word contains.",
+        "choices": [
+          "Label",
+          "Preamble",
+          "Destination tag",
+          "Parity block"
+        ],
+        "correctIndex": 0,
+        "explanation": "The Label is the first 8 bits of every 32-bit ARINC 429 word. It is octal-coded (for example, label 203 = altitude, 206 = computed airspeed). Receivers filter the transmitter's stream by Label and accept only the parameters they need. ARINC 429 does not use a separate preamble or destination tag, and parity is a single bit at the end of the word, not a block."
       }
     ],
     "MIL-STD-1553": [
@@ -106,6 +118,18 @@
         ],
         "correctIndex": 1,
         "explanation": "The architectural distinction is topology and protocol: 429 is unidirectional broadcast (no controller), 1553 is bidirectional multi-drop with a dedicated bus controller. MIL-STD-1553 is faster (1 Mbps vs 100 kbps), not slower. Both standards use copper twisted-shielded pairs in normal installations."
+      },
+      {
+        "id": "CAT5-NEW-027",
+        "clue": "This is the primary reason MIL-STD-1553 wires every Remote Terminal to two parallel cables (Bus A and Bus B).",
+        "choices": [
+          "To double the data rate for high-bandwidth applications",
+          "Redundancy — traffic continues on the other bus if one fails",
+          "To separate command traffic from response traffic",
+          "To let two Bus Controllers share the bus workload"
+        ],
+        "correctIndex": 1,
+        "explanation": "MIL-STD-1553 was designed for flight-critical military applications where a single wire fault must not disable the system. The two buses carry identical traffic; the Bus Controller normally uses Bus A, and if it sees errors it retries on Bus B. The data rate is 1 Mbps on either bus — using both does NOT double it. And 1553 allows only one active Bus Controller at a time."
       }
     ],
     "RS-232 & Serial": [
@@ -156,6 +180,18 @@
         ],
         "correctIndex": 1,
         "explanation": "RS-422 is one-talker / many-listener; RS-485 allows many talkers and listeners to share the same bus. Both are differential (neither is single-ended). Both use copper. Both support a range of data rates — the distinction is in driver count, not peak rate."
+      },
+      {
+        "id": "CAT5-NEW-028",
+        "clue": "This limitation of RS-232 makes it impossible to simply tap a third device onto an existing GPS-to-FMS serial link.",
+        "choices": [
+          "The need for a bus controller that RS-232 does not include",
+          "A required 120-ohm terminator that most RS-232 devices lack",
+          "RS-232 is point-to-point, supporting only two devices per link",
+          "Insufficient data rate to carry GPS data at the aircraft's update rate"
+        ],
+        "correctIndex": 2,
+        "explanation": "RS-232 is strictly point-to-point — one link connects exactly two devices. Tapping a third device on the same pair does not work. To add a third you need a second RS-232 link, a multi-drop standard like RS-485, or a gateway that fans out. RS-232 has no bus controller, no 120-ohm terminator, and more than enough speed for GPS data."
       }
     ],
     "Digital Fundamentals": [
@@ -206,6 +242,18 @@
         ],
         "correctIndex": 2,
         "explanation": "BITE stands for Built-In Test Equipment. BITS is not a standard avionics acronym. BIST (Built-In Self-Test) is a related semiconductor-design term. BIT (Built-In Test) is the test itself; BITE is the equipment that performs the test."
+      },
+      {
+        "id": "CAT5-NEW-029",
+        "clue": "This is what the parity bit in an ARINC 429 or MIL-STD-1553 word lets the receiver do.",
+        "choices": [
+          "Synchronize the receiver's clock to the transmitter's bit rate",
+          "Identify which transmitter on the bus originated the word",
+          "Measure the data rate the transmitter is currently using",
+          "Detect whether a bit was corrupted during transmission"
+        ],
+        "correctIndex": 3,
+        "explanation": "Parity is a single-bit error-detection technique. ARINC 429 uses ODD parity — the parity bit is set so the total number of '1' bits in the 32-bit word is odd. If the receiver counts an EVEN number of 1's, at least one bit flipped and the word is dropped. Parity does NOT synchronize clocks (Manchester encoding does that for 1553), does NOT identify sources (the Label/RT address does), and does NOT measure rates."
       }
     ],
     "Bus Troubleshooting": [
@@ -256,6 +304,18 @@
         ],
         "correctIndex": 2,
         "explanation": "A GA shop uses the databus analyzer to verify correct data exchange between integrated avionics and to isolate intermittent problems that cannot be resolved with a multimeter or oscilloscope alone. The other options describe unrelated maintenance tasks."
+      },
+      {
+        "id": "CAT5-NEW-030",
+        "clue": "A 1553 bus that worked for months begins showing intermittent bit errors after an avionics-bay inspection. A bus analyzer shows 'ringing' on the waveform. This is the most likely cause.",
+        "choices": [
+          "A 78-ohm terminator has come loose or open-circuited",
+          "The Bus Controller software version is out of date",
+          "The Remote Terminals are drawing excessive bus current",
+          "The 1 Mbps data rate has drifted outside spec"
+        ],
+        "correctIndex": 0,
+        "explanation": "MIL-STD-1553 requires a 78-ohm terminator at each end of the main cable. A missing or damaged terminator causes the signal to reflect off the end and collide with new transmissions — exactly the 'ringing' seen on an analyzer. Onset right after maintenance points to a terminator that was disturbed. BC software, RT current draw, and data-rate drift produce different symptoms, not ringing."
       }
     ]
   },
