@@ -7,7 +7,7 @@
     "categoryCount": 6
   },
   "categories": {
-    "Wire Types & Selection": [
+    "Wire Selection": [
       {
         "id": "CAT6-NEW-007",
         "clue": "This is the primary consideration when choosing wire insulation for an aircraft installation.",
@@ -69,7 +69,81 @@
         "explanation": "AWG 22 aircraft wire in free-air chassis routing carries approximately 5 A continuous. 0.5 A is far too conservative. 25 A would require AWG 10 or larger. 50 A would require AWG 8 or larger."
       }
     ],
+    "Harness & Routing": [
+      {
+        "id": "CAT6-NEW-001",
+        "clue": "This is the most important consideration when routing aircraft wiring.",
+        "choices": [
+          "Protecting the harness from chafing, abrasion, heat, and moving parts",
+          "Using the shortest possible cable length",
+          "Making the harness visible for easy inspection",
+          "Color-coordinating the harness with nearby structures"
+        ],
+        "correctIndex": 0,
+        "explanation": "Physical protection is the driving consideration. Short length, visibility, and appearance are secondary to keeping the harness safe from mechanical and environmental damage. Chafing on a metal edge can destroy insulation in a few flight hours."
+      },
+      {
+        "id": "CAT6-NEW-002",
+        "clue": "This is the correct corrective action when a wire bundle is found chafed against a metal edge.",
+        "choices": [
+          "Wrap the chafed area with electrical tape and continue flying",
+          "Inspect damaged wires, repair or replace, and correct the routing",
+          "Cut out the chafed section and splice in shorter wires",
+          "Ignore the damage if the circuit still functions"
+        ],
+        "correctIndex": 1,
+        "explanation": "The correct action is both repair AND root-cause correction. Taping alone is temporary and will fail again. Splicing without rerouting leaves the same edge in place. Ignoring damage, even if the circuit currently works, risks progressive failure and in-flight fire."
+      },
+      {
+        "id": "CAT6-NEW-003",
+        "clue": "This is the best practice for routing a wire bundle near moving flight controls to prevent chafing.",
+        "choices": [
+          "Let the bundle hang loosely so it can move out of the way",
+          "Provide adequate clearance through the full range of control motion",
+          "Tape the bundle directly to the moving control surface",
+          "Coil excess length near the control for flexibility"
+        ],
+        "correctIndex": 1,
+        "explanation": "Clearance through full control travel plus proper securing and protective sleeving is the accepted practice. Loose bundles are not acceptable — they will move into contact with the control. Taping the bundle to a moving surface would cause immediate damage. Coiled excess creates its own chafing and weight-distribution problems."
+      },
+      {
+        "id": "CAT6-NEW-004",
+        "clue": "This is the primary purpose of a service loop in an aircraft wire harness.",
+        "choices": [
+          "To provide extra wire length at terminations so future repairs can",
+          "To reduce the total weight of the harness",
+          "To improve signal strength through a longer conductor",
+          "To serve as an antenna for RF signals"
+        ],
+        "correctIndex": 0,
+        "explanation": "A service loop provides reusable length for future terminations. It does not reduce weight (it adds a little), does not improve signal strength, and is not designed as an antenna."
+      },
+      {
+        "id": "CAT6-NEW-006",
+        "clue": "This is an acceptable method for securing wire harnesses in aircraft.",
+        "choices": [
+          "Consumer-grade nylon zip ties from a hardware store",
+          "Approved aircraft cable clamps with cushion inserts",
+          "Duct tape wrapped around the harness at each support point",
+          "Steel staples driven into the airframe structure"
+        ],
+        "correctIndex": 1,
+        "explanation": "Approved clamps at specified intervals are the correct method. Consumer-grade zip ties can fail under vibration, temperature extremes, or fluid exposure. Duct tape leaves residue, ages poorly, and is not airworthy. Staples would damage both the harness and the structure."
+      }
+    ],
     "Connectors & Backshells": [
+      {
+        "id": "CAT6-NEW-005",
+        "clue": "This is the primary reason for using strain relief in aircraft wiring.",
+        "choices": [
+          "To improve the electrical resistance of the connection",
+          "To prevent tension and bending loads from damaging the termination",
+          "To reduce the overall weight of the harness",
+          "To provide a path for draining moisture"
+        ],
+        "correctIndex": 1,
+        "explanation": "Strain relief transfers mechanical load away from the termination point. It does not affect electrical resistance. It adds a small amount of weight. It is not a drainage feature."
+      },
       {
         "id": "CAT6-NEW-010",
         "clue": "This is the primary function of a connector in an aircraft wiring system.",
@@ -81,6 +155,18 @@
         ],
         "correctIndex": 0,
         "explanation": "Connectors provide a maintainable mating interface. They do not change voltage, convert AC to DC, or act as circuit protection — those are separate components."
+      },
+      {
+        "id": "CAT6-NEW-011",
+        "clue": "This is the primary purpose of a backshell on an aircraft connector.",
+        "choices": [
+          "To serve as a backup electrical ground path",
+          "To display the connector's part number for identification",
+          "To increase the connector's contact density",
+          "To provide cable strain relief, environmental sealing, shield"
+        ],
+        "correctIndex": 3,
+        "explanation": "Backshells are primarily mechanical and EMI features: strain relief, environmental sealing, shield termination, and cable exit-angle control. They are not identification markers, do not increase contact count, and while they may provide an EMI ground they are not an electrical backup ground."
       },
       {
         "id": "CAT6-NEW-012",
@@ -143,92 +229,18 @@
         ],
         "correctIndex": 1,
         "explanation": "Sealed heat-shrink crimp splices are the aircraft standard for environmentally sensitive areas. Twist-and-tape, wire-nuts, and open splices admit moisture, fuel, and oil, leading to corrosion and intermittent connections. Wire-nuts are not acceptable on aircraft at all."
-      }
-    ],
-    "Harness & Routing": [
-      {
-        "id": "CAT6-NEW-001",
-        "clue": "This is the most important consideration when routing aircraft wiring.",
-        "choices": [
-          "Protecting the harness from chafing, abrasion, heat, and moving parts",
-          "Using the shortest possible cable length",
-          "Making the harness visible for easy inspection",
-          "Color-coordinating the harness with nearby structures"
-        ],
-        "correctIndex": 0,
-        "explanation": "Physical protection is the driving consideration. Short length, visibility, and appearance are secondary to keeping the harness safe from mechanical and environmental damage. Chafing on a metal edge can destroy insulation in a few flight hours."
       },
       {
-        "id": "CAT6-NEW-002",
-        "clue": "This is the correct corrective action when a wire bundle is found chafed against a metal edge.",
+        "id": "CAT6-NEW-023",
+        "clue": "This is the correct action when a coax cable's center conductor is found nicked.",
         "choices": [
-          "Wrap the chafed area with electrical tape and continue flying",
-          "Inspect damaged wires, repair or replace, and correct the routing",
-          "Cut out the chafed section and splice in shorter wires",
-          "Ignore the damage if the circuit still functions"
+          "Apply a dab of solder to rebuild the nicked area and continue",
+          "Remove the damaged section and replace it with a new cable length or properly",
+          "Tape over the nick with electrical tape",
+          "Ignore the nick if the signal still passes"
         ],
         "correctIndex": 1,
-        "explanation": "The correct action is both repair AND root-cause correction. Taping alone is temporary and will fail again. Splicing without rerouting leaves the same edge in place. Ignoring damage, even if the circuit currently works, risks progressive failure and in-flight fire."
-      },
-      {
-        "id": "CAT6-NEW-003",
-        "clue": "This is the best practice for routing a wire bundle near moving flight controls to prevent chafing.",
-        "choices": [
-          "Let the bundle hang loosely so it can move out of the way",
-          "Provide adequate clearance through the full range of control motion",
-          "Tape the bundle directly to the moving control surface",
-          "Coil excess length near the control for flexibility"
-        ],
-        "correctIndex": 1,
-        "explanation": "Clearance through full control travel plus proper securing and protective sleeving is the accepted practice. Loose bundles are not acceptable — they will move into contact with the control. Taping the bundle to a moving surface would cause immediate damage. Coiled excess creates its own chafing and weight-distribution problems."
-      },
-      {
-        "id": "CAT6-NEW-004",
-        "clue": "This is the primary purpose of a service loop in an aircraft wire harness.",
-        "choices": [
-          "To provide extra wire length at terminations so future repairs can",
-          "To reduce the total weight of the harness",
-          "To improve signal strength through a longer conductor",
-          "To serve as an antenna for RF signals"
-        ],
-        "correctIndex": 0,
-        "explanation": "A service loop provides reusable length for future terminations. It does not reduce weight (it adds a little), does not improve signal strength, and is not designed as an antenna."
-      },
-      {
-        "id": "CAT6-NEW-005",
-        "clue": "This is the primary reason for using strain relief in aircraft wiring.",
-        "choices": [
-          "To improve the electrical resistance of the connection",
-          "To prevent tension and bending loads from damaging the termination",
-          "To reduce the overall weight of the harness",
-          "To provide a path for draining moisture"
-        ],
-        "correctIndex": 1,
-        "explanation": "Strain relief transfers mechanical load away from the termination point. It does not affect electrical resistance. It adds a small amount of weight. It is not a drainage feature."
-      },
-      {
-        "id": "CAT6-NEW-006",
-        "clue": "This is an acceptable method for securing wire harnesses in aircraft.",
-        "choices": [
-          "Consumer-grade nylon zip ties from a hardware store",
-          "Approved aircraft cable clamps with cushion inserts",
-          "Duct tape wrapped around the harness at each support point",
-          "Steel staples driven into the airframe structure"
-        ],
-        "correctIndex": 1,
-        "explanation": "Approved clamps at specified intervals are the correct method. Consumer-grade zip ties can fail under vibration, temperature extremes, or fluid exposure. Duct tape leaves residue, ages poorly, and is not airworthy. Staples would damage both the harness and the structure."
-      },
-      {
-        "id": "CAT6-NEW-011",
-        "clue": "This is the primary purpose of a backshell on an aircraft connector.",
-        "choices": [
-          "To serve as a backup electrical ground path",
-          "To display the connector's part number for identification",
-          "To increase the connector's contact density",
-          "To provide cable strain relief, environmental sealing, shield"
-        ],
-        "correctIndex": 3,
-        "explanation": "Backshells are primarily mechanical and EMI features: strain relief, environmental sealing, shield termination, and cable exit-angle control. They are not identification markers, do not increase contact count, and while they may provide an EMI ground they are not an electrical backup ground."
+        "explanation": "A nicked center conductor alters coax impedance and causes signal reflections. The proper fix is replacement of the affected section. Soldering over a nick does not restore uniform impedance. Tape does not repair the conductor itself. Ignoring a known defect is unacceptable."
       },
       {
         "id": "CAT6-NEW-024",
@@ -303,20 +315,6 @@
         ],
         "correctIndex": 0,
         "explanation": "Shear wire's purpose is deliberate mechanical failure at a calibrated force, to indicate actuation. It is not an electrical conductor, not a structural support, and not a bonding component."
-      }
-    ],
-    "Damage, Repair & Inspection": [
-      {
-        "id": "CAT6-NEW-023",
-        "clue": "This is the correct action when a coax cable's center conductor is found nicked.",
-        "choices": [
-          "Apply a dab of solder to rebuild the nicked area and continue",
-          "Remove the damaged section and replace it with a new cable length or properly",
-          "Tape over the nick with electrical tape",
-          "Ignore the nick if the signal still passes"
-        ],
-        "correctIndex": 1,
-        "explanation": "A nicked center conductor alters coax impedance and causes signal reflections. The proper fix is replacement of the affected section. Soldering over a nick does not restore uniform impedance. Tape does not repair the conductor itself. Ignoring a known defect is unacceptable."
       }
     ]
   },

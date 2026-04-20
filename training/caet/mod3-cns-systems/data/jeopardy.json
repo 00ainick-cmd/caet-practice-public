@@ -8,7 +8,7 @@
     "categoryCount": 6
   },
   "categories": {
-    "VOR & ILS Navigation": [
+    "VOR & ILS": [
       {
         "id": "CAT3-NEW-009",
         "clue": "This is the navigation information a VOR provides to a pilot.",
@@ -32,18 +32,6 @@
         ],
         "correctIndex": 3,
         "explanation": "The OBS selects the desired radial. The CDI then shows deviation from that radial. Station tuning is done at the nav radio, not the OBS. The OBS does not display altitude. Pilots cannot control the station's transmitted signal strength."
-      },
-      {
-        "id": "CAT3-NEW-011",
-        "clue": "Compared to VOR, this describes ADF/NDB navigation in general aviation.",
-        "choices": [
-          "Generally less accurate and less reliable than VOR",
-          "More accurate than VOR under all conditions",
-          "Requires GPS augmentation to function",
-          "Only used for precision approaches"
-        ],
-        "correctIndex": 0,
-        "explanation": "ADF/NDB's low-frequency signal is more susceptible to interference than VOR's VHF signal. VOR is the more accurate and reliable navigation aid. ADF does not need GPS and is used for non-precision approaches and en route navigation, not precision approaches."
       },
       {
         "id": "CAT3-NEW-012",
@@ -70,18 +58,6 @@
         "explanation": "Marker beacons provide position fixes — the aircraft overflies them at known points and the pilot knows precisely where they are along the approach. Horizontal guidance comes from the localizer. Vertical guidance comes from the glideslope. Voice broadcasts are a separate ATIS/AWOS service."
       },
       {
-        "id": "CAT3-NEW-015",
-        "clue": "This is the primary purpose of an audio control panel in an aircraft.",
-        "choices": [
-          "To boost the transmit power of the VHF radio",
-          "To allow the pilot to select which radios to transmit",
-          "To convert AC power for avionics use",
-          "To regulate cabin pressure"
-        ],
-        "correctIndex": 1,
-        "explanation": "The audio panel is a source-selection and routing device. It does not amplify transmit power (that is the radio's transmitter), convert power, or regulate pressurization."
-      },
-      {
         "id": "CAT3-NEW-017",
         "clue": "This is the information DME provides to the pilot.",
         "choices": [
@@ -94,83 +70,7 @@
         "explanation": "DME provides distance — specifically slant-range, not horizontal distance. Bearing comes from VOR. Weather is an ATIS/AWOS broadcast. Runway information is from the approach chart, not DME."
       }
     ],
-    "GPS & WAAS": [
-      {
-        "id": "CAT3-NEW-006",
-        "clue": "This is the minimum number of satellites a GPS receiver must track for a three-dimensional position fix.",
-        "choices": [
-          "4",
-          "2",
-          "3",
-          "8"
-        ],
-        "correctIndex": 0,
-        "explanation": "Four satellites are the minimum for a 3D fix — three for spatial triangulation and a fourth to resolve receiver clock bias. Two satellites cannot produce a position fix. Three can produce only a 2D fix (assuming known altitude). Eight is typical for modern receivers tracking more than the minimum, but it is not the minimum requirement."
-      },
-      {
-        "id": "CAT3-NEW-007",
-        "clue": "This is what the acronym WAAS stands for.",
-        "choices": [
-          "Wireless Altitude Assurance Source",
-          "Wide Angle Approach Sensor",
-          "Weather Augmentation Assistance System",
-          "Wide Area Augmentation System"
-        ],
-        "correctIndex": 3,
-        "explanation": "WAAS is the Wide Area Augmentation System — FAA-developed GPS augmentation for improved accuracy and integrity in North America."
-      }
-    ],
-    "VHF Communications": [
-      {
-        "id": "CAT3-NEW-018",
-        "clue": "This is the optimal mounting location for a VHF communication antenna on a GA aircraft.",
-        "choices": [
-          "On the fuselage (top or bottom) with a clear line",
-          "Inside the cockpit near the pilot",
-          "Attached to the propeller hub",
-          "On the inside surface of the windshield"
-        ],
-        "correctIndex": 0,
-        "explanation": "Fuselage mounting (top or bottom) with clear line of sight and proper ground plane is the correct approach. Interior mounting is shielded by the airframe. Propeller mounting is unworkable. Windshield mounting lacks a ground plane."
-      },
-      {
-        "id": "CAT3-NEW-019",
-        "clue": "This is what the squelch control does in a VHF radio system.",
-        "choices": [
-          "Boosts the transmit power of the radio",
-          "Selects the operating frequency",
-          "Controls the audio panel's intercom volume",
-          "Suppresses the receiver audio output during periods"
-        ],
-        "correctIndex": 3,
-        "explanation": "Squelch mutes the receiver audio when there is no signal (or signal below threshold), preventing constant background hiss. It does not affect transmit power, frequency selection, or intercom functions."
-      },
-      {
-        "id": "CAT3-NEW-020",
-        "clue": "When replacing a coaxial cable for a communication antenna, this is CRUCIAL.",
-        "choices": [
-          "Use any coax available, regardless of type",
-          "Splice multiple shorter coax runs together to save cost",
-          "Ignore bend radius as long as the cable fits",
-          "Match the characteristic impedance (typically 50 ohms) and use correct cable and connectors"
-        ],
-        "correctIndex": 3,
-        "explanation": "Impedance match and correct cable selection are fundamental. Using the wrong impedance (75 ohm video coax instead of 50 ohm comm coax, for example) causes reflections and power loss. Splicing and ignoring bend radius both introduce losses and potential damage that degrade antenna system performance."
-      },
-      {
-        "id": "CAT3-NEW-022",
-        "clue": "This is what regular inspection of aircraft communication antennas should include.",
-        "choices": [
-          "Only the connector at the avionics rack end of the coaxial cable",
-          "Replacing the antenna every 12 months regardless of condition",
-          "Adjusting the antenna's transmit frequency",
-          "Checking for physical damage, base corrosion, mounting hardware condition, sealant"
-        ],
-        "correctIndex": 3,
-        "explanation": "Antenna inspection covers physical, mounting, and bonding aspects. Only checking the far-end connector misses the antenna itself. Antennas are replaced when inspection reveals damage, not on a fixed interval. Antennas do not have tunable transmit frequencies — they are passive radiators."
-      }
-    ],
-    "Transponders & Surveillance": [
+    "Transponders & ADS-B": [
       {
         "id": "CAT3-NEW-001",
         "clue": "This transponder mode transmits both the four-digit identification code and the aircraft's pressure altitude.",
@@ -220,6 +120,20 @@
         "explanation": "The squawk code identifies the aircraft to ATC. Controllers assign unique codes to track flights individually. Reserved codes communicate specific conditions (emergency, radio failure, hijack). Transponder frequency is fixed by the standard. Altitude reporting resolution is also fixed. The 24-bit address is a separate, permanent Mode S identifier."
       },
       {
+        "id": "CAT3-NEW-008",
+        "clue": "This is what ADS-B Out broadcasts to ATC and other aircraft.",
+        "choices": [
+          "Only the aircraft's ICAO address",
+          "GPS-derived position, velocity",
+          "The pilot's voice transmissions",
+          "Weather radar imagery"
+        ],
+        "correctIndex": 1,
+        "explanation": "ADS-B Out is a continuous broadcast of position, velocity, altitude, and identification data. It is not voice communication and does not carry weather radar imagery — those are separate systems."
+      }
+    ],
+    "Antennas & Installation": [
+      {
         "id": "CAT3-NEW-005",
         "clue": "This is the typical mounting location for an aircraft transponder antenna.",
         "choices": [
@@ -232,31 +146,55 @@
         "explanation": "Transponder antennas go on the belly because ATC radar is below the aircraft. Vertical stabilizer and wing leading-edge locations are used for other antennas (VOR, nav/strobe) but not transponders. The antenna cannot be inside the cockpit — the airframe would block the signal."
       },
       {
-        "id": "CAT3-NEW-008",
-        "clue": "This is what ADS-B Out broadcasts to ATC and other aircraft.",
+        "id": "CAT3-NEW-018",
+        "clue": "This is the optimal mounting location for a VHF communication antenna on a GA aircraft.",
         "choices": [
-          "Only the aircraft's ICAO address",
-          "GPS-derived position, velocity",
-          "The pilot's voice transmissions",
-          "Weather radar imagery"
+          "On the fuselage (top or bottom) with a clear line",
+          "Inside the cockpit near the pilot",
+          "Attached to the propeller hub",
+          "On the inside surface of the windshield"
         ],
-        "correctIndex": 1,
-        "explanation": "ADS-B Out is a continuous broadcast of position, velocity, altitude, and identification data. It is not voice communication and does not carry weather radar imagery — those are separate systems."
+        "correctIndex": 0,
+        "explanation": "Fuselage mounting (top or bottom) with clear line of sight and proper ground plane is the correct approach. Interior mounting is shielded by the airframe. Propeller mounting is unworkable. Windshield mounting lacks a ground plane."
       },
       {
-        "id": "CAT3-NEW-021",
-        "clue": "This is what the acronym TCAS stands for.",
+        "id": "CAT3-NEW-020",
+        "clue": "When replacing a coaxial cable for a communication antenna, this is CRUCIAL.",
         "choices": [
-          "Tactical Combat Avoidance Sensor",
-          "Traffic Collision Avoidance System",
-          "Terminal Control Approach Structure",
-          "Thrust Control Activation Subsystem"
+          "Use any coax available, regardless of type",
+          "Splice multiple shorter coax runs together to save cost",
+          "Ignore bend radius as long as the cable fits",
+          "Match the characteristic impedance (typically 50 ohms) and use correct cable and connectors"
         ],
-        "correctIndex": 1,
-        "explanation": "TCAS is Traffic Collision Avoidance System (sometimes expanded as Traffic Alert and Collision Avoidance System)."
+        "correctIndex": 3,
+        "explanation": "Impedance match and correct cable selection are fundamental. Using the wrong impedance (75 ohm video coax instead of 50 ohm comm coax, for example) causes reflections and power loss. Splicing and ignoring bend radius both introduce losses and potential damage that degrade antenna system performance."
+      },
+      {
+        "id": "CAT3-NEW-022",
+        "clue": "This is what regular inspection of aircraft communication antennas should include.",
+        "choices": [
+          "Only the connector at the avionics rack end of the coaxial cable",
+          "Replacing the antenna every 12 months regardless of condition",
+          "Adjusting the antenna's transmit frequency",
+          "Checking for physical damage, base corrosion, mounting hardware condition, sealant"
+        ],
+        "correctIndex": 3,
+        "explanation": "Antenna inspection covers physical, mounting, and bonding aspects. Only checking the far-end connector misses the antenna itself. Antennas are replaced when inspection reveals damage, not on a fixed interval. Antennas do not have tunable transmit frequencies — they are passive radiators."
+      },
+      {
+        "id": "CAT3-NEW-J01",
+        "clue": "This is the typical mounting location of an ILS glideslope antenna on a general aviation aircraft.",
+        "choices": [
+          "Belly under the main gear",
+          "Top of the vertical stabilizer",
+          "Underside of a wingtip",
+          "Forward fuselage near the nose"
+        ],
+        "correctIndex": 3,
+        "explanation": "The glideslope antenna mounts on the forward nose of the aircraft for unobstructed forward and downward line-of-sight to the airport's glideslope transmitter during approach. Belly mounting is blocked by landing gear, tail mounting blocks forward signal."
       }
     ],
-    "Audio & Intercom": [
+    "VHF & Audio": [
       {
         "id": "CAT3-NEW-014",
         "clue": "In general-aviation aircraft audio systems, this describes typical 'mono' audio use.",
@@ -270,6 +208,18 @@
         "explanation": "Mono audio sends the same signal to both ears — standard for voice traffic that does not benefit from stereo imaging. One-ear-only is not the definition of mono. Mono is not tied to AM broadcast. It remains current practice in GA audio panels."
       },
       {
+        "id": "CAT3-NEW-015",
+        "clue": "This is the primary purpose of an audio control panel in an aircraft.",
+        "choices": [
+          "To boost the transmit power of the VHF radio",
+          "To allow the pilot to select which radios to transmit",
+          "To convert AC power for avionics use",
+          "To regulate cabin pressure"
+        ],
+        "correctIndex": 1,
+        "explanation": "The audio panel is a source-selection and routing device. It does not amplify transmit power (that is the radio's transmitter), convert power, or regulate pressurization."
+      },
+      {
         "id": "CAT3-NEW-016",
         "clue": "This is a common cause of intermittent or noisy audio in an aircraft communication system.",
         "choices": [
@@ -280,6 +230,92 @@
         ],
         "correctIndex": 0,
         "explanation": "Intermittent/noisy audio is typically a physical connection problem — grounding, connectors, shields, or jack contacts. Wrong frequency would produce no received audio at all, not noise. Headset type and source selection are secondary factors."
+      },
+      {
+        "id": "CAT3-NEW-019",
+        "clue": "This is what the squelch control does in a VHF radio system.",
+        "choices": [
+          "Boosts the transmit power of the radio",
+          "Selects the operating frequency",
+          "Controls the audio panel's intercom volume",
+          "Suppresses the receiver audio output during periods"
+        ],
+        "correctIndex": 3,
+        "explanation": "Squelch mutes the receiver audio when there is no signal (or signal below threshold), preventing constant background hiss. It does not affect transmit power, frequency selection, or intercom functions."
+      },
+      {
+        "id": "CAT3-NEW-J02",
+        "clue": "This is the frequency range used by aviation VHF voice communications.",
+        "choices": [
+          "108.000 to 117.975 MHz",
+          "118.000 to 136.975 MHz",
+          "190 to 1750 kHz",
+          "960 to 1215 MHz"
+        ],
+        "correctIndex": 1,
+        "explanation": "Aviation VHF voice comms operate 118.000 to 136.975 MHz with 25 kHz (or 8.33 kHz in Europe) channel spacing. 108-117.975 MHz is the VOR and ILS band. 190-1750 kHz is NDB. 960-1215 MHz is DME."
+      }
+    ],
+    "GPS & Advanced Surveillance": [
+      {
+        "id": "CAT3-NEW-006",
+        "clue": "This is the minimum number of satellites a GPS receiver must track for a three-dimensional position fix.",
+        "choices": [
+          "4",
+          "2",
+          "3",
+          "8"
+        ],
+        "correctIndex": 0,
+        "explanation": "Four satellites are the minimum for a 3D fix — three for spatial triangulation and a fourth to resolve receiver clock bias. Two satellites cannot produce a position fix. Three can produce only a 2D fix (assuming known altitude). Eight is typical for modern receivers tracking more than the minimum, but it is not the minimum requirement."
+      },
+      {
+        "id": "CAT3-NEW-007",
+        "clue": "This is what the acronym WAAS stands for.",
+        "choices": [
+          "Wireless Altitude Assurance Source",
+          "Wide Angle Approach Sensor",
+          "Weather Augmentation Assistance System",
+          "Wide Area Augmentation System"
+        ],
+        "correctIndex": 3,
+        "explanation": "WAAS is the Wide Area Augmentation System — FAA-developed GPS augmentation for improved accuracy and integrity in North America."
+      },
+      {
+        "id": "CAT3-NEW-011",
+        "clue": "Compared to VOR, this describes ADF/NDB navigation in general aviation.",
+        "choices": [
+          "Generally less accurate and less reliable than VOR",
+          "More accurate than VOR under all conditions",
+          "Requires GPS augmentation to function",
+          "Only used for precision approaches"
+        ],
+        "correctIndex": 0,
+        "explanation": "ADF/NDB's low-frequency signal is more susceptible to interference than VOR's VHF signal. VOR is the more accurate and reliable navigation aid. ADF does not need GPS and is used for non-precision approaches and en route navigation, not precision approaches."
+      },
+      {
+        "id": "CAT3-NEW-021",
+        "clue": "This is what the acronym TCAS stands for.",
+        "choices": [
+          "Tactical Combat Avoidance Sensor",
+          "Traffic Collision Avoidance System",
+          "Terminal Control Approach Structure",
+          "Thrust Control Activation Subsystem"
+        ],
+        "correctIndex": 1,
+        "explanation": "TCAS is Traffic Collision Avoidance System (sometimes expanded as Traffic Alert and Collision Avoidance System)."
+      },
+      {
+        "id": "CAT3-NEW-J03",
+        "clue": "This is the primary function of ADS-B In on a general aviation aircraft.",
+        "choices": [
+          "Receives traffic and weather data",
+          "Broadcasts own position to ATC",
+          "Interrogates other transponders",
+          "Generates pressure altitude for the transponder"
+        ],
+        "correctIndex": 0,
+        "explanation": "ADS-B In receives Traffic Information Service-Broadcast (TIS-B) and Flight Information Service-Broadcast (FIS-B) data from ground stations and other aircraft. ADS-B Out handles the transmit side. Mode S transponders perform interrogations; the blind encoder generates pressure altitude."
       }
     ]
   },

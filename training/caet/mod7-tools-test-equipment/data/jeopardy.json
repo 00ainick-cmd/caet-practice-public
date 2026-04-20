@@ -7,7 +7,7 @@
     "categoryCount": 6
   },
   "categories": {
-    "Multimeter Mastery": [
+    "Multimeter Basics": [
       {
         "id": "CAT7-NEW-001",
         "clue": "When measuring voltage across a component with a multimeter, this is how the meter is connected.",
@@ -19,18 +19,6 @@
         ],
         "correctIndex": 3,
         "explanation": "Voltage is measured in parallel. Series connection (correct for current) would not give a valid voltage reading and could disturb the circuit."
-      },
-      {
-        "id": "CAT7-NEW-002",
-        "clue": "While testing a 24 V DC circuit, this could cause a multimeter to display 235 V.",
-        "choices": [
-          "The circuit has mysteriously multiplied its voltage",
-          "The battery has gained voltage",
-          "Wrong meter range, wrong AC/DC mode, damaged probes, or induced ghost readings",
-          "The meter is working correctly and the reading is accurate"
-        ],
-        "correctIndex": 2,
-        "explanation": "A 235 V reading on a 24 V DC circuit is almost always a meter-setup or ghost-voltage issue. The circuit itself cannot spontaneously produce 10× its source voltage."
       },
       {
         "id": "CAT7-NEW-003",
@@ -69,18 +57,6 @@
         "explanation": "Continuity/resistance testing directly confirms whether the wire is connected. AC voltage tests are for energized circuits. Oscilloscopes are overkill for a simple continuity question. Visual inspection alone cannot identify internal conductor breaks with intact insulation."
       },
       {
-        "id": "CAT7-NEW-006",
-        "clue": "If you measure 0 V across a component in an active circuit, this is a possible cause.",
-        "choices": [
-          "The circuit must be powered off",
-          "The meter must be broken",
-          "The component is shorted internally",
-          "The component is functioning normally"
-        ],
-        "correctIndex": 2,
-        "explanation": "0 V with current flowing means zero resistance (shorted). 0 V with no current flowing can occur when an upstream break eliminates the current, leaving no voltage drop to measure. Either way, it merits investigation."
-      },
-      {
         "id": "CAT7-NEW-007",
         "clue": "This is the primary function of a multimeter.",
         "choices": [
@@ -91,6 +67,32 @@
         ],
         "correctIndex": 0,
         "explanation": "A multimeter measures — it does not generate signals, convert power, or amplify. The three core measurements are voltage, current, and resistance."
+      }
+    ],
+    "Multimeter Advanced": [
+      {
+        "id": "CAT7-NEW-002",
+        "clue": "While testing a 24 V DC circuit, this could cause a multimeter to display 235 V.",
+        "choices": [
+          "The circuit has mysteriously multiplied its voltage",
+          "The battery has gained voltage",
+          "Wrong meter range, wrong AC/DC mode, damaged probes, or induced ghost readings",
+          "The meter is working correctly and the reading is accurate"
+        ],
+        "correctIndex": 2,
+        "explanation": "A 235 V reading on a 24 V DC circuit is almost always a meter-setup or ghost-voltage issue. The circuit itself cannot spontaneously produce 10× its source voltage."
+      },
+      {
+        "id": "CAT7-NEW-006",
+        "clue": "If you measure 0 V across a component in an active circuit, this is a possible cause.",
+        "choices": [
+          "The circuit must be powered off",
+          "The meter must be broken",
+          "The component is shorted internally",
+          "The component is functioning normally"
+        ],
+        "correctIndex": 2,
+        "explanation": "0 V with current flowing means zero resistance (shorted). 0 V with no current flowing can occur when an upstream break eliminates the current, leaving no voltage drop to measure. Either way, it merits investigation."
       },
       {
         "id": "CAT7-NEW-009",
@@ -104,74 +106,6 @@
         "correctIndex": 2,
         "explanation": "Meggers test insulation resistance at high voltage. Wire length is measured by TDR or physical measurement. Signal frequency is measured by a frequency counter or oscilloscope. Ground bonding is measured by a milliohmmeter, not a megger."
       },
-      {
-        "id": "CAT7-NEW-012",
-        "clue": "This is the primary purpose of a center punch in an avionics repair shop.",
-        "choices": [
-          "To drive nails into hardwood",
-          "To test electrical continuity",
-          "To remove burrs from drilled holes",
-          "To create a small indentation that guides a drill bit"
-        ],
-        "correctIndex": 3,
-        "explanation": "A center punch creates a pilot indentation for drilling. Nail driving uses a hammer. Continuity testing uses a meter. Burr removal uses a deburring tool or countersink."
-      },
-      {
-        "id": "CAT7-NEW-014",
-        "clue": "This is the function of a wire crimper.",
-        "choices": [
-          "To cut wire to length",
-          "To compress a terminal or connector",
-          "To strip insulation from a wire",
-          "To apply solder to a joint"
-        ],
-        "correctIndex": 1,
-        "explanation": "A crimper compresses a terminal onto a wire. Cutting is done by cutters. Stripping is done by a stripper. Soldering uses a soldering iron."
-      }
-    ],
-    "Opens, Shorts & Faults": [
-      {
-        "id": "CAT7-NEW-015",
-        "clue": "This is why a technician performs a 'wiggle test' near connectors before finalizing an installation.",
-        "choices": [
-          "To identify intermittent connections",
-          "To add torque to the fastener",
-          "To increase the signal voltage",
-          "To test the software load"
-        ],
-        "correctIndex": 0,
-        "explanation": "The wiggle test reveals intermittent physical connections. It is a diagnostic technique, not a torque application, voltage test, or software check."
-      }
-    ],
-    "Oscilloscope & Waveforms": [
-      {
-        "id": "CAT7-NEW-008",
-        "clue": "An oscilloscope is used to visualize this.",
-        "choices": [
-          "Electrical resistance",
-          "Magnetic field strength",
-          "Pressure",
-          "Electrical signal waveforms"
-        ],
-        "correctIndex": 3,
-        "explanation": "An oscilloscope displays waveforms — voltage vs time. Resistance is measured by ohmmeters; magnetic fields by gaussmeters; pressure by pressure gauges or ADCs."
-      }
-    ],
-    "Precision Hand Tools": [
-      {
-        "id": "CAT7-NEW-013",
-        "clue": "When using a manual screwdriver, this is the MOST important factor for preventing damage to the screw head.",
-        "choices": [
-          "Using the longest available screwdriver",
-          "Matching the driver tip exactly to the screw head type",
-          "Using maximum torque regardless of the screw",
-          "Lubricating the driver tip with grease"
-        ],
-        "correctIndex": 1,
-        "explanation": "Correct tip-to-screw match and full engagement distribute torque evenly. Longest driver is not a factor. Max torque is dangerous. Greasing the driver tip would just make it slip."
-      }
-    ],
-    "Troubleshooting Methodology": [
       {
         "id": "CAT7-NEW-010",
         "clue": "This is an important safety precaution when using a megohmmeter (megger).",
@@ -195,6 +129,68 @@
         ],
         "correctIndex": 0,
         "explanation": "Milliohmmeters measure very low resistances (milliohms). Insulation resistance is for meggers. Signal generation requires a function generator. Frequency measurement uses a counter or scope."
+      }
+    ],
+    "Other Test Equipment": [
+      {
+        "id": "CAT7-NEW-008",
+        "clue": "An oscilloscope is used to visualize this.",
+        "choices": [
+          "Electrical resistance",
+          "Magnetic field strength",
+          "Pressure",
+          "Electrical signal waveforms"
+        ],
+        "correctIndex": 3,
+        "explanation": "An oscilloscope displays waveforms — voltage vs time. Resistance is measured by ohmmeters; magnetic fields by gaussmeters; pressure by pressure gauges or ADCs."
+      },
+      {
+        "id": "CAT7-NEW-012",
+        "clue": "This is the primary purpose of a center punch in an avionics repair shop.",
+        "choices": [
+          "To drive nails into hardwood",
+          "To test electrical continuity",
+          "To remove burrs from drilled holes",
+          "To create a small indentation that guides a drill bit"
+        ],
+        "correctIndex": 3,
+        "explanation": "A center punch creates a pilot indentation for drilling. Nail driving uses a hammer. Continuity testing uses a meter. Burr removal uses a deburring tool or countersink."
+      },
+      {
+        "id": "CAT7-NEW-013",
+        "clue": "When using a manual screwdriver, this is the MOST important factor for preventing damage to the screw head.",
+        "choices": [
+          "Using the longest available screwdriver",
+          "Matching the driver tip exactly to the screw head type",
+          "Using maximum torque regardless of the screw",
+          "Lubricating the driver tip with grease"
+        ],
+        "correctIndex": 1,
+        "explanation": "Correct tip-to-screw match and full engagement distribute torque evenly. Longest driver is not a factor. Max torque is dangerous. Greasing the driver tip would just make it slip."
+      },
+      {
+        "id": "CAT7-NEW-014",
+        "clue": "This is the function of a wire crimper.",
+        "choices": [
+          "To cut wire to length",
+          "To compress a terminal or connector",
+          "To strip insulation from a wire",
+          "To apply solder to a joint"
+        ],
+        "correctIndex": 1,
+        "explanation": "A crimper compresses a terminal onto a wire. Cutting is done by cutters. Stripping is done by a stripper. Soldering uses a soldering iron."
+      },
+      {
+        "id": "CAT7-NEW-015",
+        "clue": "This is why a technician performs a 'wiggle test' near connectors before finalizing an installation.",
+        "choices": [
+          "To identify intermittent connections",
+          "To add torque to the fastener",
+          "To increase the signal voltage",
+          "To test the software load"
+        ],
+        "correctIndex": 0,
+        "explanation": "The wiggle test reveals intermittent physical connections. It is a diagnostic technique, not a torque application, voltage test, or software check."
       }
     ]
   },

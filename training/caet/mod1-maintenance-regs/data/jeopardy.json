@@ -45,18 +45,6 @@
         "explanation": "Appendix A classifies alterations as major based on the potential effect on airworthiness-related qualities, not labor, cost, or any-part replacement. Major alterations require approved data and documentation on Form 337."
       },
       {
-        "id": "CAT1-NEW-004",
-        "clue": "Per 14 CFR §43.9, these four elements must be in every maintenance record entry.",
-        "choices": [
-          "Only the date and the technician's initials",
-          "Description of work, date of completion, name of person, and approving signature",
-          "The number of hours spent on the work",
-          "The customer's name and address"
-        ],
-        "correctIndex": 1,
-        "explanation": "Section 43.9 specifies the four required elements. Time spent and customer contact information are not required by §43.9 (though they may be recorded for business purposes)."
-      },
-      {
         "id": "CAT1-NEW-005",
         "clue": "This is who is authorized to perform pitot-static and transponder inspections under 14 CFR 91.411 and 91.413.",
         "choices": [
@@ -67,18 +55,6 @@
         ],
         "correctIndex": 1,
         "explanation": "91.411 and 91.413 require appropriately-rated repair stations or the manufacturer. General pilot or A&P privileges do not extend to the 24-month certifications for altimeter/pitot-static and transponder systems. The FAA does not perform maintenance inspections."
-      },
-      {
-        "id": "CAT1-NEW-006",
-        "clue": "This is how an altimeter or transponder test must be documented in the maintenance records.",
-        "choices": [
-          "With just a sticker on the instrument",
-          "Verbally confirmed with the pilot",
-          "Only by the flight crew in the aircraft discrepancy log",
-          "With the date of the test, the maximum altitude tested, and the approving signature"
-        ],
-        "correctIndex": 3,
-        "explanation": "Proper documentation includes the test date, maximum altitude (altimeter only), and the signature/certificate data of the person approving the return to service. Stickers alone are informational but do not satisfy the record-keeping requirement. Verbal confirmation and pilot-side logs do not substitute for the maintenance record entry."
       },
       {
         "id": "CAT1-NEW-014",
@@ -93,30 +69,30 @@
         "explanation": "The Part 1 definition is specific: maintenance = inspection, overhaul, repair, preservation, and parts replacement — but NOT preventive maintenance, which is defined separately. General phrases like 'any activity' or 'any work by an A&P' are not the regulatory definition."
       }
     ],
-    "Forms & Approvals": [
+    "Records & Forms": [
       {
-        "id": "CAT1-NEW-007",
-        "clue": "If a TSO part has an STC for installation AND the STC includes a flight manual supplement, this describes the installation.",
+        "id": "CAT1-NEW-004",
+        "clue": "Per 14 CFR §43.9, these four elements must be in every maintenance record entry.",
         "choices": [
-          "A minor alteration that requires only a logbook entry",
-          "Preventive maintenance that a pilot may perform",
-          "An operation requiring a DER field approval with no Form 337",
-          "A major alteration requiring approved data (the STC) and typically FAA Form"
+          "Only the date and the technician's initials",
+          "Description of work, date of completion, name of person, and approving signature",
+          "The number of hours spent on the work",
+          "The customer's name and address"
         ],
-        "correctIndex": 3,
-        "explanation": "The presence of an STC with a flight manual supplement strongly indicates a major alteration — the installation affects operating procedures or performance enough to warrant an AFM supplement. Approved data (the STC) is used, and Form 337 is typically required."
+        "correctIndex": 1,
+        "explanation": "Section 43.9 specifies the four required elements. Time spent and customer contact information are not required by §43.9 (though they may be recorded for business purposes)."
       },
       {
-        "id": "CAT1-NEW-008",
-        "clue": "If a TSO part is replaced with another TSO part of equivalent form, fit, and function, this is how the installation is generally classified.",
+        "id": "CAT1-NEW-006",
+        "clue": "This is how an altimeter or transponder test must be documented in the maintenance records.",
         "choices": [
-          "Generally NOT a major alteration",
-          "A major alteration requiring Form 337",
-          "An alteration requiring an STC",
-          "Preventive maintenance that a pilot-owner may perform"
+          "With just a sticker on the instrument",
+          "Verbally confirmed with the pilot",
+          "Only by the flight crew in the aircraft discrepancy log",
+          "With the date of the test, the maximum altitude tested, and the approving signature"
         ],
-        "correctIndex": 0,
-        "explanation": "Like-for-like TSO replacement is maintenance, not a major alteration. A logbook entry suffices. An STC is not needed for an equivalent TSO part. Pilot-owner preventive maintenance is a separate narrow category not including general avionics replacement."
+        "correctIndex": 3,
+        "explanation": "Proper documentation includes the test date, maximum altitude (altimeter only), and the signature/certificate data of the person approving the return to service. Stickers alone are informational but do not satisfy the record-keeping requirement. Verbal confirmation and pilot-side logs do not substitute for the maintenance record entry."
       },
       {
         "id": "CAT1-NEW-009",
@@ -217,7 +193,31 @@
         "explanation": "Calibration currency and traceability are the regulatory requirements. Familiarity, model age, or recent purchase do not substitute for verified calibration. Out-of-calibration equipment cannot be used for maintenance decisions."
       }
     ],
-    "Inspections & Testing": [
+    "Approvals & Alterations": [
+      {
+        "id": "CAT1-NEW-007",
+        "clue": "If a TSO part has an STC for installation AND the STC includes a flight manual supplement, this describes the installation.",
+        "choices": [
+          "A minor alteration that requires only a logbook entry",
+          "Preventive maintenance that a pilot may perform",
+          "An operation requiring a DER field approval with no Form 337",
+          "A major alteration requiring approved data (the STC) and typically FAA Form"
+        ],
+        "correctIndex": 3,
+        "explanation": "The presence of an STC with a flight manual supplement strongly indicates a major alteration — the installation affects operating procedures or performance enough to warrant an AFM supplement. Approved data (the STC) is used, and Form 337 is typically required."
+      },
+      {
+        "id": "CAT1-NEW-008",
+        "clue": "If a TSO part is replaced with another TSO part of equivalent form, fit, and function, this is how the installation is generally classified.",
+        "choices": [
+          "Generally NOT a major alteration",
+          "A major alteration requiring Form 337",
+          "An alteration requiring an STC",
+          "Preventive maintenance that a pilot-owner may perform"
+        ],
+        "correctIndex": 0,
+        "explanation": "Like-for-like TSO replacement is maintenance, not a major alteration. A logbook entry suffices. An STC is not needed for an equivalent TSO part. Pilot-owner preventive maintenance is a separate narrow category not including general avionics replacement."
+      },
       {
         "id": "CAT1-NEW-018",
         "clue": "For intermittent VOR NAV flag indications, this is a useful first step a Part 145 technician can take.",
@@ -229,6 +229,30 @@
         ],
         "correctIndex": 3,
         "explanation": "Physical-layer checks are the first step for intermittent symptoms. Receiver replacement is expensive and often unnecessary. A write-up with no action is not a resolution. Logbook rewriting is not appropriate."
+      },
+      {
+        "id": "CAT1-NEW-J01",
+        "clue": "This is the FAA-issued one-time approval for a major alteration or repair that has no existing approved data.",
+        "choices": [
+          "Field Approval",
+          "Supplemental Type Certificate",
+          "Technical Standard Order",
+          "Parts Manufacturer Approval"
+        ],
+        "correctIndex": 0,
+        "explanation": "A Field Approval is an FAA Inspector's one-time authorization of a major alteration or repair, documented on Form 337. STC is a pre-engineered design approval for production use. TSO certifies a part meets a performance standard. PMA allows production of replacement parts."
+      },
+      {
+        "id": "CAT1-NEW-J02",
+        "clue": "This FAA document legally mandates corrective action on an unsafe condition and is enforceable on aircraft operators.",
+        "choices": [
+          "Service Bulletin",
+          "Service Letter",
+          "Maintenance Alert",
+          "Airworthiness Directive"
+        ],
+        "correctIndex": 3,
+        "explanation": "An Airworthiness Directive (AD) is a legally binding FAA order issued when an unsafe condition exists. Manufacturer Service Bulletins are advisory unless an AD references them. Service Letters and Maintenance Alerts are informational only."
       }
     ]
   },

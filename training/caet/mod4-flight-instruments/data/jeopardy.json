@@ -7,45 +7,7 @@
     "categoryCount": 6
   },
   "categories": {
-    "Altimeter & Barometric": [
-      {
-        "id": "CAT4-NEW-003",
-        "clue": "If the static port is blocked, this is how it affects the altimeter and VSI.",
-        "choices": [
-          "Altimeter reads erratically; VSI shows maximum climb rate",
-          "Altimeter freezes at the blockage altitude",
-          "Both instruments read the correct altitude and rate",
-          "Altimeter reads zero; VSI reads full scale climb"
-        ],
-        "correctIndex": 1,
-        "explanation": "Blocked static: altimeter freezes (no changing static pressure to respond to), VSI reads zero (no rate of change detectable). Both instruments appear to indicate that the aircraft is in perfectly level flight at a fixed altitude, regardless of actual behavior."
-      },
-      {
-        "id": "CAT4-NEW-009",
-        "clue": "This is what an altimeter measures.",
-        "choices": [
-          "Ram air pressure for airspeed",
-          "Atmospheric (static) pressure",
-          "Aircraft attitude",
-          "Aircraft heading"
-        ],
-        "correctIndex": 1,
-        "explanation": "The altimeter measures static atmospheric pressure and displays it as altitude. Ram pressure is used by the ASI. Attitude and heading are gyroscopic/magnetic instrument measurements."
-      },
-      {
-        "id": "CAT4-NEW-010",
-        "clue": "Before flight, this is how the altimeter is set.",
-        "choices": [
-          "To the current local altimeter setting (from ATIS",
-          "To zero, regardless of altitude",
-          "To standard atmosphere (29.92 inHg) for all flights",
-          "To whatever reading the previous pilot left it at"
-        ],
-        "correctIndex": 0,
-        "explanation": "The altimeter is set to the current local altimeter setting before flight. This produces a reading of field elevation on the ground. Standard (29.92) is used only at and above FL180 in US airspace (transition altitude). Zeroing or using a previous setting are both incorrect."
-      }
-    ],
-    "Airspeed Indicator": [
+    "Pitot-Static System": [
       {
         "id": "CAT4-NEW-001",
         "clue": "If the pitot tube becomes blocked while the aircraft climbs, this is what happens to the indicated airspeed.",
@@ -71,6 +33,18 @@
         "explanation": "A blocked pitot during descent: trapped ram pressure is constant, static pressure rises, differential shrinks, ASI reads lower. This is the opposite behavior from the climb case."
       },
       {
+        "id": "CAT4-NEW-003",
+        "clue": "If the static port is blocked, this is how it affects the altimeter and VSI.",
+        "choices": [
+          "Altimeter reads erratically; VSI shows maximum climb rate",
+          "Altimeter freezes at the blockage altitude",
+          "Both instruments read the correct altitude and rate",
+          "Altimeter reads zero; VSI reads full scale climb"
+        ],
+        "correctIndex": 1,
+        "explanation": "Blocked static: altimeter freezes (no changing static pressure to respond to), VSI reads zero (no rate of change detectable). Both instruments appear to indicate that the aircraft is in perfectly level flight at a fixed altitude, regardless of actual behavior."
+      },
+      {
         "id": "CAT4-NEW-005",
         "clue": "This is the primary function of the pitot tube.",
         "choices": [
@@ -81,6 +55,32 @@
         ],
         "correctIndex": 1,
         "explanation": "The pitot tube senses ram air (total) pressure, which the ASI uses. Static pressure is measured by the separate static port. Temperature and ice detection use different sensors."
+      },
+      {
+        "id": "CAT4-NEW-006",
+        "clue": "The static pressure system in an aircraft senses this.",
+        "choices": [
+          "The aircraft's forward-motion ram air pressure",
+          "The temperature of the air",
+          "The ambient atmospheric pressure around the aircraft",
+          "The moisture content of the air"
+        ],
+        "correctIndex": 2,
+        "explanation": "The static system measures undisturbed ambient atmospheric pressure. Ram pressure comes from the pitot tube. Temperature and moisture use different sensors."
+      }
+    ],
+    "Altimeter, ASI & VSI": [
+      {
+        "id": "CAT4-NEW-004",
+        "clue": "These are the flight instruments that rely on the static port for accurate readings.",
+        "choices": [
+          "Altimeter only",
+          "Attitude indicator, heading indicator, and turn coordinator",
+          "Altimeter, vertical speed indicator, and airspeed indicator",
+          "Only the vertical speed indicator"
+        ],
+        "correctIndex": 2,
+        "explanation": "Three pitot-static instruments: altimeter, VSI, and ASI — all use static pressure. Gyro-driven instruments (attitude, heading, turn coordinator) do not use static pressure."
       },
       {
         "id": "CAT4-NEW-007",
@@ -95,31 +95,29 @@
         "explanation": "Consistently low ASI readings typically trace to physical issues in the pitot side of the system: partial blockage, leaks, or drain problems. Instrument miscalibration is possible but less common. Altimeter settings do not affect the ASI."
       },
       {
-        "id": "CAT4-NEW-008",
-        "clue": "This is the most likely cause of a VSI showing a constant rate of descent even in level flight.",
+        "id": "CAT4-NEW-009",
+        "clue": "This is what an altimeter measures.",
         "choices": [
-          "The aircraft is actually descending without the pilot noticing",
-          "The altimeter is set incorrectly",
-          "The pitot tube is heated",
-          "A slow leak in the VSI's static line, a clogged orifice, or miscalibration"
+          "Ram air pressure for airspeed",
+          "Atmospheric (static) pressure",
+          "Aircraft attitude",
+          "Aircraft heading"
         ],
-        "correctIndex": 3,
-        "explanation": "Constant descent in level flight is almost always a VSI system problem. Slow static-line leak is the most common in the field. Altimeter setting does not affect the VSI. Pitot heat is unrelated."
+        "correctIndex": 1,
+        "explanation": "The altimeter measures static atmospheric pressure and displays it as altitude. Ram pressure is used by the ASI. Attitude and heading are gyroscopic/magnetic instrument measurements."
       },
       {
-        "id": "CAT4-NEW-018",
-        "clue": "When a pitot heat circuit breaker pops immediately upon reset, this is the most appropriate next step.",
+        "id": "CAT4-NEW-010",
+        "clue": "Before flight, this is how the altimeter is set.",
         "choices": [
-          "Reset the breaker repeatedly until it holds",
-          "Replace the breaker with a larger-rated one",
-          "Leave it OFF and investigate for a short circuit",
-          "Bypass the breaker temporarily to use the pitot heat"
+          "To the current local altimeter setting (from ATIS",
+          "To zero, regardless of altitude",
+          "To standard atmosphere (29.92 inHg) for all flights",
+          "To whatever reading the previous pilot left it at"
         ],
-        "correctIndex": 2,
-        "explanation": "Immediate re-trip indicates a persistent fault. Leave the breaker off and investigate. Resetting repeatedly, up-sizing, or bypassing are all dangerous and can damage wiring or start a fire."
-      }
-    ],
-    "VSI & Rate of Climb": [
+        "correctIndex": 0,
+        "explanation": "The altimeter is set to the current local altimeter setting before flight. This produces a reading of field elevation on the ground. Standard (29.92) is used only at and above FL180 in US airspace (transition altitude). Zeroing or using a previous setting are both incorrect."
+      },
       {
         "id": "CAT4-NEW-011",
         "clue": "This is the primary purpose of the vertical speed indicator (VSI).",
@@ -133,7 +131,19 @@
         "explanation": "The VSI shows rate of altitude change, not absolute altitude (that's the altimeter), airspeed (ASI), or heading (heading indicator)."
       }
     ],
-    "Gyros & Vacuum System": [
+    "Gyroscopic Instruments": [
+      {
+        "id": "CAT4-NEW-008",
+        "clue": "This is the most likely cause of a VSI showing a constant rate of descent even in level flight.",
+        "choices": [
+          "The aircraft is actually descending without the pilot noticing",
+          "The altimeter is set incorrectly",
+          "The pitot tube is heated",
+          "A slow leak in the VSI's static line, a clogged orifice, or miscalibration"
+        ],
+        "correctIndex": 3,
+        "explanation": "Constant descent in level flight is almost always a VSI system problem. Slow static-line leak is the most common in the field. Altimeter setting does not affect the VSI. Pitot heat is unrelated."
+      },
       {
         "id": "CAT4-NEW-012",
         "clue": "This flight instrument is commonly powered by the aircraft's vacuum system in traditional GA aircraft.",
@@ -183,7 +193,7 @@
         "explanation": "The magnetic compass aligns to Earth's magnetic field — no gyroscope required. The attitude indicator, heading indicator, and turn coordinator are the three gyroscopic instruments."
       }
     ],
-    "AHRS & Glass Cockpit": [
+    "Glass Cockpit & Troubleshooting": [
       {
         "id": "CAT4-NEW-016",
         "clue": "The Attitude and Heading Reference System (AHRS) in an EFIS uses solid-state sensors to determine this.",
@@ -207,32 +217,42 @@
         ],
         "correctIndex": 0,
         "explanation": "The ADC is the source of airspeed and altitude in an EFIS. GPS provides position and ground speed but not indicated airspeed or pressure altitude. The magnetic compass provides heading reference. The transponder reports altitude to ATC but does not generate it."
-      }
-    ],
-    "Static System & Troubleshooting": [
-      {
-        "id": "CAT4-NEW-004",
-        "clue": "These are the flight instruments that rely on the static port for accurate readings.",
-        "choices": [
-          "Altimeter only",
-          "Attitude indicator, heading indicator, and turn coordinator",
-          "Altimeter, vertical speed indicator, and airspeed indicator",
-          "Only the vertical speed indicator"
-        ],
-        "correctIndex": 2,
-        "explanation": "Three pitot-static instruments: altimeter, VSI, and ASI — all use static pressure. Gyro-driven instruments (attitude, heading, turn coordinator) do not use static pressure."
       },
       {
-        "id": "CAT4-NEW-006",
-        "clue": "The static pressure system in an aircraft senses this.",
+        "id": "CAT4-NEW-018",
+        "clue": "When a pitot heat circuit breaker pops immediately upon reset, this is the most appropriate next step.",
         "choices": [
-          "The aircraft's forward-motion ram air pressure",
-          "The temperature of the air",
-          "The ambient atmospheric pressure around the aircraft",
-          "The moisture content of the air"
+          "Reset the breaker repeatedly until it holds",
+          "Replace the breaker with a larger-rated one",
+          "Leave it OFF and investigate for a short circuit",
+          "Bypass the breaker temporarily to use the pitot heat"
         ],
         "correctIndex": 2,
-        "explanation": "The static system measures undisturbed ambient atmospheric pressure. Ram pressure comes from the pitot tube. Temperature and moisture use different sensors."
+        "explanation": "Immediate re-trip indicates a persistent fault. Leave the breaker off and investigate. Resetting repeatedly, up-sizing, or bypassing are all dangerous and can damage wiring or start a fire."
+      },
+      {
+        "id": "CAT4-NEW-J01",
+        "clue": "This AHRS component supplies the heading reference to the flight display.",
+        "choices": [
+          "Pitot probe",
+          "Magnetometer",
+          "Rate gyroscope",
+          "Pressure accelerometer"
+        ],
+        "correctIndex": 1,
+        "explanation": "The magnetometer senses the earth's magnetic field, like a compass. The AHRS fuses magnetometer data with rate gyros (for rate of turn) and accelerometers (for attitude) to produce stable heading, pitch, and roll on the PFD."
+      },
+      {
+        "id": "CAT4-NEW-J02",
+        "clue": "This single unit replaces the mechanical altimeter, airspeed indicator, and vertical speed indicator in a glass cockpit.",
+        "choices": [
+          "Attitude Heading Reference System",
+          "Flight Management System",
+          "Air Data Computer",
+          "Autopilot Flight Director"
+        ],
+        "correctIndex": 2,
+        "explanation": "The Air Data Computer (ADC) reads pitot and static pressure and computes altitude, airspeed, and vertical speed digitally, then feeds the PFD. AHRS handles attitude and heading. FMS handles flight planning. AFD handles flight control."
       }
     ]
   },

@@ -8,7 +8,7 @@
     "categoryCount": 6
   },
   "categories": {
-    "DC Fundamentals": [
+    "Ohm's Law": [
       {
         "id": "CAT2-NEW-001",
         "clue": "This is the current drawn by a 10 Ω heating element wired across a 28 V aircraft bus.",
@@ -20,30 +20,6 @@
         ],
         "correctIndex": 0,
         "explanation": "Applying Ohm's Law, I = V / R = 28 volts divided by 10 ohms = 2.8 amperes. The 0.36 A option inverts the fraction (10 divided by 28). The 18 A option subtracts resistance from voltage. The 280 A option multiplies voltage by resistance — a common slip under time pressure."
-      },
-      {
-        "id": "CAT2-NEW-003",
-        "clue": "A 28 V DC bus delivering 25 A supplies this much power to the connected loads.",
-        "choices": [
-          "53 W",
-          "700 W",
-          "175 W",
-          "1,400 W"
-        ],
-        "correctIndex": 1,
-        "explanation": "Applying the power formula, P = V × I = 28 volts × 25 amperes = 700 watts. The 53 W option incorrectly adds voltage and current; 1,400 W doubles one of the inputs."
-      },
-      {
-        "id": "CAT2-NEW-009",
-        "clue": "These are the SI units, in order, for voltage, current, and resistance.",
-        "choices": [
-          "Watt, volt, ohm",
-          "Ohm, watt, henry",
-          "Ampere, ohm, farad",
-          "Volt, ampere, ohm"
-        ],
-        "correctIndex": 3,
-        "explanation": "Voltage is measured in volts, current in amperes, and resistance in ohms. Watts measure power, henries measure inductance, and farads measure capacitance."
       },
       {
         "id": "CAT2-NEW-010",
@@ -92,6 +68,32 @@
         ],
         "correctIndex": 3,
         "explanation": "Applying R = V / I gives 28 V divided by 4 A = 7 Ω. The 0.14 Ω option inverts the fraction; 24 subtracts; 112 multiplies."
+      }
+    ],
+    "Power & Units": [
+      {
+        "id": "CAT2-NEW-003",
+        "clue": "A 28 V DC bus delivering 25 A supplies this much power to the connected loads.",
+        "choices": [
+          "53 W",
+          "700 W",
+          "175 W",
+          "1,400 W"
+        ],
+        "correctIndex": 1,
+        "explanation": "Applying the power formula, P = V × I = 28 volts × 25 amperes = 700 watts. The 53 W option incorrectly adds voltage and current; 1,400 W doubles one of the inputs."
+      },
+      {
+        "id": "CAT2-NEW-009",
+        "clue": "These are the SI units, in order, for voltage, current, and resistance.",
+        "choices": [
+          "Watt, volt, ohm",
+          "Ohm, watt, henry",
+          "Ampere, ohm, farad",
+          "Volt, ampere, ohm"
+        ],
+        "correctIndex": 3,
+        "explanation": "Voltage is measured in volts, current in amperes, and resistance in ohms. Watts measure power, henries measure inductance, and farads measure capacitance."
       },
       {
         "id": "CAT2-NEW-021",
@@ -106,44 +108,6 @@
         "explanation": "Because P = V × I, doubling both V and I scales power by a factor of 2 × 2 = 4. The result is quadrupled power."
       },
       {
-        "id": "CAT2-NEW-022",
-        "clue": "To measure current with a traditional ammeter, the meter must be connected to the circuit this way.",
-        "choices": [
-          "In series with the load",
-          "In parallel with the load",
-          "Across the source only",
-          "Between the load and ground only"
-        ],
-        "correctIndex": 0,
-        "explanation": "Ammeters must be placed in series so the circuit's current flows through the meter. Connecting an ammeter in parallel creates a near-short because the meter's internal resistance is very low — this will blow the meter's fuse or damage the meter."
-      }
-    ],
-    "AC Theory": [
-      {
-        "id": "CAT2-NEW-004",
-        "clue": "Measured in ohms, this quantity describes an inductor's opposition to AC current and increases as frequency rises.",
-        "choices": [
-          "Resistance",
-          "Inductive reactance",
-          "Capacitive reactance",
-          "Impedance"
-        ],
-        "correctIndex": 1,
-        "explanation": "Inductive reactance (XL) is the frequency-dependent opposition of an inductor to AC. Resistance is frequency-independent. Capacitive reactance applies to capacitors and decreases with frequency. Impedance is the combined total of resistance and all reactances."
-      },
-      {
-        "id": "CAT2-NEW-033",
-        "clue": "This component steps AC voltage up or down and cannot be used directly with steady DC.",
-        "choices": [
-          "Capacitor",
-          "Diode",
-          "Transformer",
-          "Resistor"
-        ],
-        "correctIndex": 2,
-        "explanation": "Transformers rely on a continuously changing magnetic flux, which steady DC cannot produce (only the brief moment DC is switched on or off produces any change). AC continuously alternates, producing the required flux change for induction to work."
-      },
-      {
         "id": "CAT2-NEW-037",
         "clue": "This is the SI unit used to measure AC electrical frequency.",
         "choices": [
@@ -156,31 +120,19 @@
         "explanation": "Hertz (Hz) is the unit of frequency, equal to cycles per second. Watts measure power, ohms measure resistance, and volts measure electrical potential."
       },
       {
-        "id": "CAT2-NEW-038",
-        "clue": "This is the shape of a simple single-phase AC waveform as displayed on an oscilloscope.",
+        "id": "CAT2-NEW-044",
+        "clue": "Capacitance is measured in this SI unit.",
         "choices": [
-          "Square wave",
-          "Triangle wave",
-          "Sawtooth wave",
-          "Sine wave"
+          "Henries",
+          "Ohms",
+          "Farads",
+          "Hertz"
         ],
-        "correctIndex": 3,
-        "explanation": "Ideal single-phase AC appears as a sine wave. Square and triangle waves appear in digital and pulse circuits, and sawtooth waves are seen in sweep generators and CRT deflection circuits."
-      },
-      {
-        "id": "CAT2-NEW-041",
-        "clue": "To verify a bench-tested AC alternator's output frequency, you would use this instrument.",
-        "choices": [
-          "A frequency meter or oscilloscope",
-          "A thermometer",
-          "A multimeter set to DC volts",
-          "A voltmeter only"
-        ],
-        "correctIndex": 0,
-        "explanation": "A frequency meter or oscilloscope directly measures Hz. A standard DMM in voltage mode reports magnitude only, not frequency, unless it has a dedicated Hz function."
+        "correctIndex": 2,
+        "explanation": "Capacitance is measured in farads. Inductance is measured in henries. Resistance is measured in ohms. Frequency is measured in hertz."
       }
     ],
-    "Circuit Analysis": [
+    "Series & Parallel": [
       {
         "id": "CAT2-NEW-002",
         "clue": "Three resistors (1 kΩ, 2 kΩ, and 2 kΩ) wired in parallel produce this approximate total resistance.",
@@ -192,6 +144,18 @@
         ],
         "correctIndex": 0,
         "explanation": "Applying the reciprocal formula: 1/Rt = 1/1000 + 1/2000 + 1/2000 = 4/2000, so Rt = 500 Ω. A sanity check confirms that any parallel total must be less than the smallest branch (1 kΩ). The 5 kΩ option applies the series formula, which is incorrect for parallel networks."
+      },
+      {
+        "id": "CAT2-NEW-022",
+        "clue": "To measure current with a traditional ammeter, the meter must be connected to the circuit this way.",
+        "choices": [
+          "In series with the load",
+          "In parallel with the load",
+          "Across the source only",
+          "Between the load and ground only"
+        ],
+        "correctIndex": 0,
+        "explanation": "Ammeters must be placed in series so the circuit's current flows through the meter. Connecting an ammeter in parallel creates a near-short because the meter's internal resistance is very low — this will blow the meter's fuse or damage the meter."
       },
       {
         "id": "CAT2-NEW-024",
@@ -230,21 +194,19 @@
         "explanation": "Adding a parallel branch always decreases total resistance. An added current path can never raise total opposition — it can only lower it or leave it effectively unchanged if the added branch is extremely high."
       }
     ],
-    "Components & Devices": [
+    "AC Theory": [
       {
-        "id": "CAT2-NEW-044",
-        "clue": "Capacitance is measured in this SI unit.",
+        "id": "CAT2-NEW-004",
+        "clue": "Measured in ohms, this quantity describes an inductor's opposition to AC current and increases as frequency rises.",
         "choices": [
-          "Henries",
-          "Ohms",
-          "Farads",
-          "Hertz"
+          "Resistance",
+          "Inductive reactance",
+          "Capacitive reactance",
+          "Impedance"
         ],
-        "correctIndex": 2,
-        "explanation": "Capacitance is measured in farads. Inductance is measured in henries. Resistance is measured in ohms. Frequency is measured in hertz."
-      }
-    ],
-    "Aircraft Power Systems": [
+        "correctIndex": 1,
+        "explanation": "Inductive reactance (XL) is the frequency-dependent opposition of an inductor to AC. Resistance is frequency-independent. Capacitive reactance applies to capacitors and decreases with frequency. Impedance is the combined total of resistance and all reactances."
+      },
       {
         "id": "CAT2-NEW-005",
         "clue": "Installed across an alternator output, this component shunts high-frequency ripple and brush-arc noise away from the avionics bus.",
@@ -257,6 +219,44 @@
         "correctIndex": 3,
         "explanation": "A capacitor across the output passes high-frequency noise to ground while the DC continues flowing to the bus. An inductor in series could also help suppress noise but is not the standard noise-filter component specified by alternator manufacturers. A resistor would simply dissipate power without selectively blocking noise. A diode blocks reverse current and is not a noise filter."
       },
+      {
+        "id": "CAT2-NEW-033",
+        "clue": "This component steps AC voltage up or down and cannot be used directly with steady DC.",
+        "choices": [
+          "Capacitor",
+          "Diode",
+          "Transformer",
+          "Resistor"
+        ],
+        "correctIndex": 2,
+        "explanation": "Transformers rely on a continuously changing magnetic flux, which steady DC cannot produce (only the brief moment DC is switched on or off produces any change). AC continuously alternates, producing the required flux change for induction to work."
+      },
+      {
+        "id": "CAT2-NEW-038",
+        "clue": "This is the shape of a simple single-phase AC waveform as displayed on an oscilloscope.",
+        "choices": [
+          "Square wave",
+          "Triangle wave",
+          "Sawtooth wave",
+          "Sine wave"
+        ],
+        "correctIndex": 3,
+        "explanation": "Ideal single-phase AC appears as a sine wave. Square and triangle waves appear in digital and pulse circuits, and sawtooth waves are seen in sweep generators and CRT deflection circuits."
+      },
+      {
+        "id": "CAT2-NEW-041",
+        "clue": "To verify a bench-tested AC alternator's output frequency, you would use this instrument.",
+        "choices": [
+          "A frequency meter or oscilloscope",
+          "A thermometer",
+          "A multimeter set to DC volts",
+          "A voltmeter only"
+        ],
+        "correctIndex": 0,
+        "explanation": "A frequency meter or oscilloscope directly measures Hz. A standard DMM in voltage mode reports magnitude only, not frequency, unless it has a dedicated Hz function."
+      }
+    ],
+    "Aircraft DC Systems": [
       {
         "id": "CAT2-NEW-019",
         "clue": "Dimmer-than-normal bulbs on a DC circuit most commonly indicate this underlying problem.",
@@ -293,6 +293,32 @@
         "correctIndex": 1,
         "explanation": "The voltage regulator controls the alternator's field current based on the sensed bus voltage. The alternator itself simply produces whatever output the regulator commands."
       },
+      {
+        "id": "CAT2-NEW-047",
+        "clue": "An aircraft electrical bus is best described as this.",
+        "choices": [
+          "A single large battery",
+          "The engine-driven alternator",
+          "A protection panel containing only fuses",
+          "A common conductor that multiple loads share"
+        ],
+        "correctIndex": 3,
+        "explanation": "A bus is a shared conductor (literally a 'bar' in the term 'busbar') from which loads branch in parallel. This architecture centralizes power distribution, simplifies wiring, and isolates faults through dedicated circuit breakers on each branch."
+      },
+      {
+        "id": "CAT2-NEW-050",
+        "clue": "This is the PRIMARY purpose of the DC electrical system in a typical general aviation aircraft.",
+        "choices": [
+          "To produce high-voltage AC for large motors",
+          "To provide hydraulic pressure for flight controls",
+          "To start the engine and power avionics, instruments, and lighting during flight",
+          "To serve as a backup only, while AC performs most of the work"
+        ],
+        "correctIndex": 2,
+        "explanation": "Starting, avionics, instruments, and lighting are the day-to-day jobs of the DC system. Most GA aircraft do not have an AC system. Larger aircraft add AC for certain motors and instruments, but DC still handles engine starting and critical avionics in both classes."
+      }
+    ],
+    "Battery & Protection": [
       {
         "id": "CAT2-NEW-034",
         "clue": "When disconnecting an aircraft battery, this terminal is always removed first.",
@@ -342,18 +368,6 @@
         "explanation": "Fuses and circuit breakers provide overcurrent protection, primarily for the wiring. Overheated wiring is a common cause of in-flight fires. Voltage regulation is the job of the regulator; energy storage is for batteries and capacitors; AC-to-DC conversion is done by rectifiers."
       },
       {
-        "id": "CAT2-NEW-047",
-        "clue": "An aircraft electrical bus is best described as this.",
-        "choices": [
-          "A single large battery",
-          "The engine-driven alternator",
-          "A protection panel containing only fuses",
-          "A common conductor that multiple loads share"
-        ],
-        "correctIndex": 3,
-        "explanation": "A bus is a shared conductor (literally a 'bar' in the term 'busbar') from which loads branch in parallel. This architecture centralizes power distribution, simplifies wiring, and isolates faults through dedicated circuit breakers on each branch."
-      },
-      {
         "id": "CAT2-NEW-048",
         "clue": "This is the best description of a parasitic current draw in an aircraft electrical system.",
         "choices": [
@@ -364,18 +378,6 @@
         ],
         "correctIndex": 2,
         "explanation": "'Parasitic' refers to current that should not be flowing. It is usually a clue to a stuck relay, a wiring mistake, or a leaky electronic module drawing from always-hot battery wiring."
-      },
-      {
-        "id": "CAT2-NEW-050",
-        "clue": "This is the PRIMARY purpose of the DC electrical system in a typical general aviation aircraft.",
-        "choices": [
-          "To produce high-voltage AC for large motors",
-          "To provide hydraulic pressure for flight controls",
-          "To start the engine and power avionics, instruments, and lighting during flight",
-          "To serve as a backup only, while AC performs most of the work"
-        ],
-        "correctIndex": 2,
-        "explanation": "Starting, avionics, instruments, and lighting are the day-to-day jobs of the DC system. Most GA aircraft do not have an AC system. Larger aircraft add AC for certain motors and instruments, but DC still handles engine starting and critical avionics in both classes."
       }
     ]
   },

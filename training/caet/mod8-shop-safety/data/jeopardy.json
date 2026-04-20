@@ -8,7 +8,7 @@
     "categoryCount": 6
   },
   "categories": {
-    "Hazmat Handling": [
+    "Hazmat & Chemicals": [
       {
         "id": "CAT8-NEW-001",
         "clue": "This is where Safety Data Sheets (SDS) should be kept for shop chemicals.",
@@ -56,35 +56,21 @@
         ],
         "correctIndex": 3,
         "explanation": "Proper hazmat disposal uses designated containers and certified disposal services. Drain, trash, and burning are all environmentally illegal and hazardous to personnel."
-      }
-    ],
-    "PPE & Protection": [
-      {
-        "id": "CAT8-NEW-009",
-        "clue": "When working on aircraft systems that emit RF signals, this is one of the biggest safety concerns.",
-        "choices": [
-          "The aircraft might run out of fuel",
-          "Personnel exposure to potentially harmful RF energy",
-          "The aircraft paint might fade",
-          "The RF signals disturbing nearby Wi-Fi networks"
-        ],
-        "correctIndex": 1,
-        "explanation": "Personnel RF exposure is a real health and safety concern — eyes and reproductive organs are particularly vulnerable. Fuel, paint, and Wi-Fi concerns are not primary shop-safety issues with RF systems."
       },
       {
-        "id": "CAT8-NEW-014",
-        "clue": "This describes a safe practice around moving rotorcraft.",
+        "id": "CAT8-NEW-J01",
+        "clue": "On an NFPA 704 hazard diamond, this color-coded quadrant indicates a flammability hazard.",
         "choices": [
-          "Walk under the rotor disc regardless of rotor speed",
-          "Approach from directly behind",
-          "Run quickly through the rotor disc area",
-          "Maintain eye contact with the pilot, stay in designated safe"
+          "Blue",
+          "Yellow",
+          "Red",
+          "White"
         ],
-        "correctIndex": 3,
-        "explanation": "Eye contact, safe zones, correct approach direction, staying low, and avoiding the tail rotor are all established safe-approach practices. Walking under, approaching from behind, or running through the disc area are all dangerous."
+        "correctIndex": 2,
+        "explanation": "NFPA 704 diamond color code: Blue = health hazard, Red = flammability, Yellow = reactivity, White = special hazards (oxidizer, water-reactive, etc.). The number in each quadrant (0-4) indicates severity, with 4 being the most severe."
       }
     ],
-    "Fire & Emergency": [
+    "Fire & Electrical Emergency": [
       {
         "id": "CAT8-NEW-004",
         "clue": "Class C fires are commonly associated with this.",
@@ -146,21 +132,7 @@
         "explanation": "De-energize first. Continuing, ignoring, or spraying water on live electronics are all unsafe. Once de-energized, the source can be investigated safely."
       }
     ],
-    "Shop Procedures": [
-      {
-        "id": "CAT8-NEW-010",
-        "clue": "This best describes a 'near-miss' in the context of shop safety.",
-        "choices": [
-          "An unplanned event that did not result in injury",
-          "Any minor injury that required first aid",
-          "A customer complaint about service",
-          "A tool that was temporarily misplaced"
-        ],
-        "correctIndex": 0,
-        "explanation": "A near-miss is a no-consequence warning event that had the potential for bad consequences. It is distinct from actual minor injuries and unrelated to customer service or tool misplacement."
-      }
-    ],
-    "ESD Prevention": [
+    "Shop Culture & Protection": [
       {
         "id": "CAT8-NEW-006",
         "clue": "This practice best prevents ESD damage to sensitive avionics.",
@@ -184,6 +156,42 @@
         ],
         "correctIndex": 0,
         "explanation": "FOD prevention is systemic, not individual. Layered defenses (accountability, discipline, tracking, awareness) catch FOD incidents before they reach the aircraft. Once-a-year cleaning is too infrequent. Individual diligence alone misses some incidents."
+      },
+      {
+        "id": "CAT8-NEW-009",
+        "clue": "When working on aircraft systems that emit RF signals, this is one of the biggest safety concerns.",
+        "choices": [
+          "The aircraft might run out of fuel",
+          "Personnel exposure to potentially harmful RF energy",
+          "The aircraft paint might fade",
+          "The RF signals disturbing nearby Wi-Fi networks"
+        ],
+        "correctIndex": 1,
+        "explanation": "Personnel RF exposure is a real health and safety concern — eyes and reproductive organs are particularly vulnerable. Fuel, paint, and Wi-Fi concerns are not primary shop-safety issues with RF systems."
+      },
+      {
+        "id": "CAT8-NEW-010",
+        "clue": "This best describes a 'near-miss' in the context of shop safety.",
+        "choices": [
+          "An unplanned event that did not result in injury",
+          "Any minor injury that required first aid",
+          "A customer complaint about service",
+          "A tool that was temporarily misplaced"
+        ],
+        "correctIndex": 0,
+        "explanation": "A near-miss is a no-consequence warning event that had the potential for bad consequences. It is distinct from actual minor injuries and unrelated to customer service or tool misplacement."
+      },
+      {
+        "id": "CAT8-NEW-014",
+        "clue": "This describes a safe practice around moving rotorcraft.",
+        "choices": [
+          "Walk under the rotor disc regardless of rotor speed",
+          "Approach from directly behind",
+          "Run quickly through the rotor disc area",
+          "Maintain eye contact with the pilot, stay in designated safe"
+        ],
+        "correctIndex": 3,
+        "explanation": "Eye contact, safe zones, correct approach direction, staying low, and avoiding the tail rotor are all established safe-approach practices. Walking under, approaching from behind, or running through the disc area are all dangerous."
       }
     ]
   },
