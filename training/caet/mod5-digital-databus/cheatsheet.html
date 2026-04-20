@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Digital Databuses — CAET Module 5 Cheat Sheet</title>
+<style>
+  /* ───────────── Print-first design ───────────── */
+  @page {
+    size: letter;
+    margin: 0.4in;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    font-size: 8.5pt;
+    line-height: 1.25;
+    color: #111;
+    background: #fff;
+  }
+
+  body {
+    max-width: 7.7in;
+    margin: 0 auto;
+    padding: 0.1in;
+  }
+
+  h1 {
+    font-size: 14pt;
+    letter-spacing: 0.3px;
+    color: #0a2540;
+    border-bottom: 2px solid #0a2540;
+    padding-bottom: 2px;
+    margin-bottom: 4px;
+  }
+  h1 .sub {
+    font-size: 9pt;
+    color: #666;
+    font-weight: 400;
+    letter-spacing: 0;
+  }
+
+  h2 {
+    font-size: 9.5pt;
+    color: #0a2540;
+    background: #e8eef5;
+    padding: 2px 6px;
+    margin-top: 6px;
+    margin-bottom: 3px;
+    border-left: 3px solid #0a2540;
+    letter-spacing: 0.2px;
+  }
+
+  h3 {
+    font-size: 9pt;
+    color: #0a2540;
+    margin-top: 4px;
+    margin-bottom: 2px;
+  }
+
+  p { margin: 2px 0; }
+
+  strong { color: #0a2540; }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2px 0;
+    font-size: 8pt;
+  }
+  th, td {
+    border: 1px solid #999;
+    padding: 3px 4px;
+    text-align: left;
+    vertical-align: top;
+  }
+  th {
+    background: #0a2540;
+    color: #fff;
+    font-weight: 600;
+    font-size: 8pt;
+  }
+  td.lbl {
+    background: #f0f3f8;
+    font-weight: 600;
+    white-space: nowrap;
+    width: 90px;
+  }
+
+  ul {
+    margin: 2px 0 2px 16px;
+    padding: 0;
+  }
+  li { margin: 0.5px 0; }
+
+  /* Two-column container */
+  .cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .cols-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 6px;
+  }
+
+  .card {
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding: 4px 6px;
+    background: #fafbfd;
+  }
+
+  .card h3 {
+    margin: 0 0 2px 0;
+    font-size: 9pt;
+  }
+
+  .analogy {
+    font-style: italic;
+    color: #555;
+    font-size: 7.5pt;
+    margin-top: 2px;
+  }
+
+  .key {
+    background: #fff7d1;
+    border-left: 3px solid #e0b400;
+    padding: 3px 6px;
+    margin: 3px 0;
+    font-size: 8pt;
+  }
+
+  .word-format {
+    font-family: 'Courier New', monospace;
+    font-size: 8pt;
+    background: #1a1a2e;
+    color: #7fe7dc;
+    padding: 4px 6px;
+    border-radius: 3px;
+    text-align: center;
+    margin: 3px 0;
+    letter-spacing: 0.5px;
+  }
+
+  .footer {
+    margin-top: 4px;
+    padding-top: 3px;
+    border-top: 1px dashed #999;
+    font-size: 7pt;
+    color: #666;
+    text-align: center;
+  }
+
+  /* Compact list pairs for key facts */
+  .kv {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 2px 6px;
+    font-size: 8pt;
+    margin: 2px 0;
+  }
+  .kv .k { font-weight: 600; color: #0a2540; }
+
+  .bus-diagram {
+    text-align: center;
+    font-family: 'Courier New', monospace;
+    font-size: 7.5pt;
+    color: #0a2540;
+    background: #f7f9fc;
+    padding: 4px 2px;
+    border: 1px dashed #aab;
+    border-radius: 3px;
+    margin: 2px 0;
+    line-height: 1.1;
+  }
+
+  /* Print overrides */
+  @media print {
+    body { max-width: 100%; }
+    h1 { page-break-after: avoid; }
+    h2, h3 { page-break-after: avoid; }
+    .card, table { page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<h1>DIGITAL DATABUSES &mdash; CAET MODULE 5 CHEAT SHEET
+  <span class="sub">&nbsp;|&nbsp; Quick-reference for the three buses you need to know</span></h1>
+
+<!-- ═══════════════════════════════ BIG COMPARISON TABLE ═══════════════════════════════ -->
+<h2>The Big Three at a Glance</h2>
+<table>
+  <thead>
+    <tr>
+      <th style="width:14%;">Attribute</th>
+      <th style="width:29%;">ARINC 429</th>
+      <th style="width:29%;">MIL-STD-1553</th>
+      <th style="width:28%;">RS-232</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="lbl">Topology</td>
+      <td>1 transmitter &rarr; up to <strong>20 receivers</strong>, one-way only</td>
+      <td>1 Bus Controller + up to <strong>31 Remote Terminals</strong>, two-way</td>
+      <td><strong>Point-to-point</strong> &mdash; exactly 2 devices</td>
+    </tr>
+    <tr>
+      <td class="lbl">Direction</td>
+      <td>Unidirectional</td>
+      <td>Bidirectional (command / response)</td>
+      <td>Bidirectional (full duplex)</td>
+    </tr>
+    <tr>
+      <td class="lbl">Speed</td>
+      <td>12.5 kbps (low) &middot; 100 kbps (high)</td>
+      <td>1 Mbps</td>
+      <td>~9.6 kbps (GPS NMEA) to 115 kbps</td>
+    </tr>
+    <tr>
+      <td class="lbl">Encoding</td>
+      <td>Bipolar RZ (+10V / 0V / &minus;10V)</td>
+      <td>Manchester II (self-clocking)</td>
+      <td>Asymmetric &plusmn;5V to &plusmn;15V, no clock</td>
+    </tr>
+    <tr>
+      <td class="lbl">Word length</td>
+      <td>32 bits (label 8 + SDI 2 + data 19 + SSM 2 + parity 1)</td>
+      <td>20 bits (sync 3 + data 16 + parity 1)</td>
+      <td>Variable byte-oriented (start + 8 data + stop)</td>
+    </tr>
+    <tr>
+      <td class="lbl">Cabling</td>
+      <td>Twisted shielded pair (T/SP)</td>
+      <td>Twisted shielded pair, 78&Omega; terminated each end</td>
+      <td>Multi-conductor cable, DB-9 or DB-25</td>
+    </tr>
+    <tr>
+      <td class="lbl">Redundancy</td>
+      <td>None &mdash; per bus</td>
+      <td><strong>Dual-redundant</strong> (Bus A &amp; Bus B)</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td class="lbl">Parity</td>
+      <td>Odd parity</td>
+      <td>Odd parity</td>
+      <td>Configurable (even / odd / none)</td>
+    </tr>
+    <tr>
+      <td class="lbl">Typical use</td>
+      <td>Air data, FMS, EFIS, autopilot &mdash; commercial/GA</td>
+      <td>Flight-critical military, high-end civil (777, helos)</td>
+      <td>GPS NMEA output, config / maintenance ports</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- ═══════════════════════════════ MENTAL MODELS ═══════════════════════════════ -->
+<h2>Mental Models (for teaching)</h2>
+<div class="cols-3">
+  <div class="card">
+    <h3>ARINC 429 &mdash; Pirate Radio</h3>
+    <p>One station broadcasts; many listeners tune in. Nobody asks permission; everyone just tunes to the frequency they want.</p>
+    <div class="bus-diagram">
+      [TX]<br>
+      &nbsp;|<br>
+      &nbsp;+-&rarr; RX1 &nbsp; RX2 &nbsp; RX3...
+    </div>
+  </div>
+  <div class="card">
+    <h3>MIL-STD-1553 &mdash; Military Net</h3>
+    <p>A Bus Controller (commander) gives orders. Remote Terminals (soldiers) only speak when called. Redundant channel if the first is cut.</p>
+    <div class="bus-diagram">
+      [BC]<br>
+      &nbsp;|<br>
+      BUS-A &nbsp; BUS-B (dual)<br>
+      &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp;|<br>
+      RT1&nbsp;RT2&nbsp;RT3...
+    </div>
+  </div>
+  <div class="card">
+    <h3>RS-232 &mdash; Tin Cans &amp; String</h3>
+    <p>Private line between exactly two people. Want a third? Run a second string. Cannot be daisy-chained or multi-dropped.</p>
+    <div class="bus-diagram">
+      [A]&nbsp;&harr;&nbsp;[B]<br>
+      &nbsp;<br>
+      That's it.
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ ARINC 429 WORD FORMAT ═══════════════════════════════ -->
+<h2>ARINC 429 Word Format (32 bits, little-endian) &mdash; memorize this</h2>
+<div class="word-format">
+| PARITY 1 | SSM 2 | DATA 19 | SDI 2 | LABEL 8 |<br>
+&nbsp; bit 32 &nbsp; 31-30 &nbsp; 29-11 &nbsp; 10-9 &nbsp;&nbsp; 8-1
+</div>
+<div class="cols">
+  <div>
+    <p><strong>LABEL (8 bits, octal-coded)</strong> &mdash; WHAT this word is. E.g., 203 = barometric altitude, 206 = computed airspeed. Receivers filter by label.</p>
+    <p><strong>SDI (2 bits)</strong> &mdash; Source/Destination Identifier. Lets one transmitter address specific receivers when needed.</p>
+  </div>
+  <div>
+    <p><strong>DATA (19 bits)</strong> &mdash; the actual value (BCD or binary).</p>
+    <p><strong>SSM (2 bits)</strong> &mdash; Sign/Status Matrix. NORMAL / NO COMPUTED DATA / FAILURE WARNING / FUNCTIONAL TEST.</p>
+    <p><strong>PARITY (1 bit)</strong> &mdash; odd parity. Detects single-bit errors.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ TROUBLESHOOTING GOLD ═══════════════════════════════ -->
+<h2>Troubleshooting Gold</h2>
+<div class="cols">
+  <div class="card">
+    <h3>Termination &amp; Reflections</h3>
+    <p>Signals bounce off unterminated cable ends like waves off a wall. The reflection collides with the next transmission &rarr; bit errors + "ringing" on scope.</p>
+    <div class="kv">
+      <span class="k">1553:</span><span><strong>78&Omega; at EACH END</strong> of main cable</span>
+      <span class="k">ARINC 429:</span><span>No terminator needed (RZ encoding)</span>
+      <span class="k">CAN bus:</span><span>120&Omega; at each end</span>
+    </div>
+    <p class="analogy">If intermittent errors appear right after avionics-bay maintenance &rarr; suspect a disturbed terminator first.</p>
+  </div>
+  <div class="card">
+    <h3>Parity &amp; Error Detection</h3>
+    <p>Parity bit is set so total "1" bits in the word match the rule (odd for 429/1553). Receiver recounts; mismatch = bit flipped in transit = word dropped.</p>
+    <p><strong>Parity detects &mdash; does NOT correct.</strong></p>
+    <p class="analogy">A small percentage (~1-5%) of words failing parity = noise/EMI/bad shield. ALL words failing = wrong data rate or wiring fault.</p>
+  </div>
+</div>
+
+<div class="cols">
+  <div class="card">
+    <h3>Common Faults by Bus</h3>
+    <div class="kv">
+      <span class="k">ARINC 429:</span><span>Open/shorted pair, swapped polarity, missing/floating shield ground</span>
+      <span class="k">1553:</span><span>Missing terminator, coupling transformer fault, bad BC, shorted stub</span>
+      <span class="k">RS-232:</span><span>Wrong pinout (TX/RX swap), ground loop, cable too long (&gt;50 ft)</span>
+    </div>
+  </div>
+  <div class="card">
+    <h3>Test Equipment Ladder</h3>
+    <div class="kv">
+      <span class="k">Step 1:</span><span>DMM &mdash; continuity, shield ground, basic voltages</span>
+      <span class="k">Step 2:</span><span>Scope &mdash; waveform shape, ringing, levels</span>
+      <span class="k">Step 3:</span><span>Bus analyzer &mdash; protocol decode, parity, label traffic</span>
+    </div>
+    <p class="analogy">Escalate from simplest to most complex. Don't skip to the analyzer when a DMM would find the fault.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ WHAT CAET TESTS ═══════════════════════════════ -->
+<h2>What the CAET Loves to Test</h2>
+<div class="cols">
+  <ul>
+    <li>Which bus is <strong>unidirectional</strong>? &rarr; ARINC 429</li>
+    <li>Which bus uses <strong>command/response</strong>? &rarr; 1553</li>
+    <li>Which bus is <strong>point-to-point only</strong>? &rarr; RS-232</li>
+    <li>What is the data rate of 1553? &rarr; <strong>1 Mbps</strong></li>
+    <li>What terminates a 1553 bus? &rarr; <strong>78&Omega; each end</strong></li>
+  </ul>
+  <ul>
+    <li>How many receivers on one ARINC 429 transmitter? &rarr; <strong>20 max</strong></li>
+    <li>First 8 bits of an ARINC 429 word? &rarr; <strong>Label</strong> (octal)</li>
+    <li>Which bus uses Manchester II encoding? &rarr; <strong>1553</strong></li>
+    <li>What does the parity bit do? &rarr; <strong>Detect</strong> (not correct) single-bit errors</li>
+    <li>Ringing on 1553 scope + recent maintenance = <strong>terminator fault</strong></li>
+  </ul>
+</div>
+
+<div class="key">
+  <strong>Teaching shortcut:</strong>
+  If a student can recite the three mental models (pirate radio / military net / tin cans &amp; string) AND the termination rule (78&Omega; / each end / 1553 only), they will get 70% of CAET Module 5 questions right.
+</div>
+
+<div class="footer">
+  CAET Practice &mdash; Module 5: Digital Databuses &nbsp;|&nbsp; Print to PDF (Ctrl+P &rarr; Save as PDF) &nbsp;|&nbsp; Hand out to students as a study aid
+</div>
+
+</body>
+</html>
