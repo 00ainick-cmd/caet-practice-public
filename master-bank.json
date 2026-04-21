@@ -2533,13 +2533,13 @@
       "practice": {
         "question": "A technician tries to measure a bonding strap with a standard handheld DMM and gets readings that bounce between 0.2 and 0.5 ohms. A coworker suggests using a different tool. What should be used, and why?",
         "choices": [
-          "A milliohmmeter (bonding meter), because milliohm-scale measurements require four-wire Kelvin technique to eliminate the lead and contact resistance that dominates ordinary two-wire DMM readings",
-          "A different DMM, because this one is broken",
-          "A megohmmeter, because it reads any resistance",
-          "A clamp ammeter, because it measures continuity"
+          "A milliohmmeter, because four-wire Kelvin eliminates the lead resistance error",
+          "A different DMM, because this particular DMM is broken and reading incorrectly",
+          "A megohmmeter, because it reads any resistance at any scale range",
+          "A clamp ammeter, because it measures continuity through the bond conductor"
         ],
         "correctIndex": 0,
-        "explanation": "The DMM's bouncing 0.2-0.5 ohm reading is actually measuring lead and contact resistance, not the bond itself (which is likely well below 10 milliohms when good). A milliohmmeter's four-wire technique separates the current path from the voltage-sense path, eliminating that error and giving a true bond resistance value. A megohmmeter cannot read at this low range. A clamp ammeter measures current only."
+        "explanation": "The DMM's bouncing 0.2-0.5 ohm reading is actually measuring lead and contact resistance, not the bond itself (which is likely well below 10 milliohms when good). A milliohmmeter (bonding meter) uses a four-wire Kelvin technique that separates the current path from the voltage-sense path, eliminating that error and giving a true bond resistance value. A megohmmeter cannot read at this low range. A clamp ammeter measures current only."
       },
       "preassessment": {
         "question": "What instrument is used to measure aircraft bonding resistance?",
@@ -2899,13 +2899,13 @@
       "practice": {
         "question": "A technician installs a new Mode S transponder in an aircraft. The installation manual requires programming the 'ICAO 24-bit address' before returning the unit to service. Why is this step critical?",
         "choices": [
-          "It assigns the unique airframe identifier that ATC and TCAS use for selective interrogation, and that appears in every ADS-B Out broadcast — an incorrect address would misidentify the aircraft to ATC and other traffic",
-          "It sets the squawk code the transponder will display",
-          "It programs the transponder's operating frequency",
-          "It calibrates the encoded altitude reporting"
+          "It assigns the unique airframe identifier used by ATC and TCAS interrogation",
+          "It sets the squawk code the transponder will display to controllers",
+          "It programs the transponder's transmit and receive operating frequency",
+          "It calibrates the encoded altitude reporting against the static system"
         ],
         "correctIndex": 0,
-        "explanation": "Without the correct 24-bit address, the transponder will reply to interrogations but will identify itself as the wrong airframe. This creates safety and airspace-management problems: TCAS targeting data, ATC correlation with flight plans, and ADS-B identification all become wrong. The address is unique to each airframe and must be programmed correctly per the registry."
+        "explanation": "The ICAO 24-bit address is the unique airframe identifier that ATC and TCAS use for selective interrogation, and that appears in every ADS-B Out broadcast. An incorrect address would misidentify the aircraft to ATC and other traffic — TCAS targeting, ATC correlation with flight plans, and ADS-B identification all become wrong. The address is unique to each airframe and must be programmed correctly per the registry."
       },
       "preassessment": {
         "question": "What is the purpose of the 24-bit address in a Mode S transponder?",
@@ -3082,13 +3082,13 @@
       "practice": {
         "question": "A technician installs a new transponder antenna. The antenna is bolted to the top of the vertical stabilizer. During flight testing, ATC reports intermittent and weak transponder replies. What is the most likely cause?",
         "choices": [
-          " The antenna cable is too long",
-          "The transponder needs a software update",
-          "The altitude encoder is miscalibrated",
-          "The antenna is in the wrong location — transponder antennas must be belly-mounted to provide a clear path to ground-based ATC radar, which is below the aircraft"
+          "The antenna coaxial cable run is too long for the transponder",
+          "The transponder firmware needs a current software update",
+          "The altitude encoder is miscalibrated against the static system",
+          "Wrong mounting location — transponder antennas must be belly-mounted"
         ],
         "correctIndex": 3,
-        "explanation": "Top-of-stabilizer mounting causes the airframe to block much of the downward signal path to ATC radar. Transponder antennas must be belly-mounted for proper coverage. Cable length, software, and altitude encoding are separate concerns and would not produce these specific symptoms."
+        "explanation": "Top-of-stabilizer mounting causes the airframe to block much of the downward signal path to ATC radar, which is below the aircraft. Transponder antennas must be belly-mounted for proper coverage. Cable length, software, and altitude encoding are separate concerns and would not produce these specific symptoms."
       },
       "preassessment": {
         "question": "Where are transponder antennas typically mounted?",
@@ -3265,13 +3265,13 @@
       "practice": {
         "question": "A new technician asks what advantages ADS-B Out provides over a traditional Mode C transponder. Which accurately describes the key difference?",
         "choices": [
-          "ADS-B Out is just a rebranded transponder with no real difference",
-          "ADS-B Out broadcasts GPS-derived position and velocity continuously (about once per second), allowing ATC and other ADS-B In-equipped aircraft to see the aircraft directly without relying on ground radar interrogations — Mode C only replies when interrogated and does not include position or velocity",
-          "ADS-B Out transmits the pilot's voice to ATC",
-          "ADS-B Out replaces the altimeter and air data computer"
+          "ADS-B Out is just a rebranded transponder with no real functional difference",
+          "ADS-B Out broadcasts GPS position and velocity continuously, roughly once per second",
+          "ADS-B Out transmits the pilot's voice directly to ATC on the data link",
+          "ADS-B Out replaces the aircraft's altimeter and air data computer systems"
         ],
         "correctIndex": 1,
-        "explanation": "The fundamental difference is that ADS-B Out broadcasts position and velocity continuously, while Mode C only responds to radar interrogations and does not include position data. This enables ground-radar-free surveillance coverage and direct traffic awareness for ADS-B In-equipped aircraft (via TIS-B and ADS-R services). Mode C and ADS-B Out complement each other; they are not interchangeable."
+        "explanation": "The fundamental difference is that ADS-B Out broadcasts GPS-derived position and velocity continuously, while Mode C only replies when interrogated and does not include position or velocity. This enables ground-radar-free surveillance coverage for ATC and direct traffic awareness for ADS-B In-equipped aircraft (via TIS-B and ADS-R services). Mode C and ADS-B Out complement each other; they are not interchangeable."
       },
       "preassessment": {
         "question": "What does ADS-B Out broadcast?",
@@ -3448,13 +3448,13 @@
       "practice": {
         "question": "A pilot flying in the evening over mountainous terrain reports that the ADF needle is swinging erratically and difficult to track. Which statement best explains this behavior?",
         "choices": [
-          "ADF/NDB operates at low frequencies that are susceptible to night effect, terrain, and atmospheric interference — these effects can cause needle swings, especially in the evening near mountainous terrain. The equipment is likely operating correctly; the signal environment is the problem",
-          "The ADF equipment is likely broken and must be replaced",
-          "The pilot is flying too high for the ADF signal to reach",
-          "The VOR signal is interfering with the ADF"
+          "ADF operates at low frequencies and is prone to night effect and terrain",
+          "The ADF equipment is likely broken and must be replaced immediately",
+          "The pilot is flying too high for the ADF signal to reach the aircraft",
+          "The VOR signal on board is interfering with the ADF receiver"
         ],
         "correctIndex": 0,
-        "explanation": "Night effect is a well-known propagation issue for ADF/NDB around sunrise and sunset, when ionospheric propagation changes. Combined with mountainous terrain, the signal can fade, shift, and cause needle swings. The equipment is fine — this is a characteristic limitation of low-frequency navigation. VOR is immune to these specific effects and is the preferred navaid under these conditions."
+        "explanation": "Night effect is a well-known propagation issue for ADF/NDB around sunrise and sunset, when ionospheric propagation changes. Combined with mountainous terrain, the signal can fade, shift, and cause needle swings. The equipment is operating correctly; the signal environment is the problem. VOR is immune to these specific effects and is the preferred navaid under these conditions."
       },
       "preassessment": {
         "question": "Compared to VOR, ADF/NDB navigation is generally:",
@@ -3509,13 +3509,13 @@
       "practice": {
         "question": "A pilot is briefing a precision approach in low visibility. The approach procedure calls out both a 'localizer' frequency and a 'glideslope' component. Which navigation system is the pilot using?",
         "choices": [
-          "VOR",
-          "ADF/NDB",
-          "A GPS-only approach",
-          "ILS (Instrument Landing System), which combines localizer for horizontal guidance and glideslope for vertical guidance"
+          "VOR with DME for distance",
+          "ADF/NDB low-frequency navigation",
+          "A GPS-only LPV approach",
+          "ILS providing localizer and glideslope"
         ],
         "correctIndex": 3,
-        "explanation": "The presence of both a localizer and a glideslope identifies the approach as ILS. The localizer frequency aligns the aircraft with the runway extended centerline; the glideslope provides the descent path. GPS approaches (LPV, LNAV/VNAV, etc.) can also provide vertical guidance but are identified differently on the chart. VOR, ADF, and DME on their own do not provide the coupled vertical/horizontal guidance ILS does."
+        "explanation": "The presence of both a localizer and a glideslope identifies the approach as ILS (Instrument Landing System). The localizer provides horizontal guidance (aligning with the runway extended centerline); the glideslope provides vertical guidance (descent path). GPS approaches (LPV, LNAV/VNAV) can also provide vertical guidance but are identified differently on the chart. VOR, ADF, and DME on their own do not provide the coupled vertical/horizontal guidance ILS does."
       },
       "preassessment": {
         "question": "Which system provides both vertical and horizontal landing guidance?",
@@ -3631,13 +3631,13 @@
       "practice": {
         "question": "A student pilot wonders why their headset delivers the same audio to both ears during a radio call instead of the left-only or right-only they hear when playing stereo music. How would you explain?",
         "choices": [
-          "The headset has a defect — audio should be in one ear only",
-          "The aircraft uses a special 'emergency-only' audio mode",
-          "The aircraft audio panel distributes radio communications in mono — the same signal to both ears. This is intentional for voice traffic because stereo imaging provides no operational benefit for speech. Stereo separation is reserved for entertainment sources on panels that support it",
-          "Mono is now obsolete and the aircraft needs an avionics upgrade"
+          "The headset has a defect — radio audio should come in one ear only",
+          "The aircraft is operating in a special 'emergency-only' audio routing mode",
+          "Aircraft audio panels distribute radio comms in mono to both ears by design",
+          "Mono audio is now obsolete and the aircraft requires an avionics upgrade"
         ],
         "correctIndex": 2,
-        "explanation": "Mono distribution is the standard and correct design for voice traffic. Both ears receive the same audio so the pilot can hear equally well regardless of headset orientation. Stereo audio would add no operational benefit for voice and might distract. Entertainment sources (music inputs) may be distributed in stereo on higher-end audio panels."
+        "explanation": "Mono distribution is the standard and correct design for voice traffic. Both ears receive the same audio so the pilot can hear equally well regardless of headset orientation. Stereo imaging provides no operational benefit for speech and might even distract. Stereo separation is reserved for entertainment sources (music inputs) on audio panels that support it."
       },
       "preassessment": {
         "question": "Mono audio in GA aircraft means:",
@@ -3875,13 +3875,13 @@
       "practice": {
         "question": "A new VHF comm antenna is added to an aircraft. The technician mounts it on the top of the cabin between the existing GPS and transponder antennas, only 8 inches from each. During flight testing, the pilot reports poor radio reception and intermittent noise. What is the most likely cause?",
         "choices": [
-          "Insufficient separation from nearby antennas — VHF comm antennas should be separated from other antennas (especially transponder at 1030/1090 MHz and GPS at 1575 MHz) to avoid mutual interference, per the installation guidance",
-          "The antenna is the wrong frequency",
-          "The airframe is made of aluminum instead of composite",
-          "The antenna cable is too short"
+          "Insufficient antenna separation is causing mutual RF interference",
+          "The new antenna is tuned to the wrong frequency band for comm use",
+          "The airframe is made of aluminum rather than composite material",
+          "The antenna feedline cable is too short for the mounting location"
         ],
         "correctIndex": 0,
-        "explanation": "Antenna separation is a well-documented installation requirement. Antennas too close together couple to each other, causing receive desensitization and transmit interference. Installation guidance specifies minimum separations for each antenna pair. Aluminum airframes actually serve as good ground planes — they help rather than hurt. Cable length is a different concern."
+        "explanation": "Antenna separation is a well-documented installation requirement. VHF comm antennas should be separated from other antennas — especially transponder (1030/1090 MHz) and GPS (1575 MHz) — to avoid mutual interference, per the installation guidance. Antennas too close together couple to each other, causing receive desensitization and transmit interference. Installation guidance specifies minimum separations for each antenna pair. Aluminum airframes actually serve as good ground planes. Cable length is a different concern."
       },
       "preassessment": {
         "question": "Best VHF comm antenna location on a GA aircraft?",
@@ -4058,13 +4058,13 @@
       "practice": {
         "question": "A pilot reports that the 'TCAS' on the aircraft provided a resolution advisory during a close-proximity encounter with another aircraft. A technician explaining this to a new hire should characterize TCAS as which of the following?",
         "choices": [
-          "A system that controls engine thrust during conflicts",
-          "The Traffic Collision Avoidance System — an onboard surveillance system that interrogates nearby transponders and, when collision risk is detected, issues traffic and resolution advisories instructing the pilot to climb or descend to resolve the conflict",
-          "A ground-based ATC radar service",
-          "An optional cabin-entertainment system"
+          "A system that controls engine thrust during airborne conflicts",
+          "The Traffic Collision Avoidance System — onboard transponder surveillance",
+          "A ground-based ATC radar service covering the airspace",
+          "An optional cabin-entertainment system offered on airliners"
         ],
         "correctIndex": 1,
-        "explanation": "TCAS is airborne surveillance — the aircraft's own system interrogates nearby transponders and calculates closure rates. When a collision risk is imminent, TCAS II issues a resolution advisory: 'CLIMB, CLIMB' or 'DESCEND, DESCEND' with a specific vertical rate. TCAS operates independently of ATC — pilots must follow TCAS RAs even if they conflict with ATC instructions."
+        "explanation": "TCAS is airborne surveillance — the aircraft's own system interrogates nearby transponders and calculates closure rates. When collision risk is detected, TCAS II issues a traffic advisory and, if needed, a resolution advisory ('CLIMB, CLIMB' or 'DESCEND, DESCEND') with a specific vertical rate. TCAS operates independently of ATC — pilots must follow TCAS RAs even if they conflict with ATC instructions."
       },
       "preassessment": {
         "question": "What does TCAS stand for?",
@@ -4119,13 +4119,13 @@
       "practice": {
         "question": "During a routine inspection, a technician finds a comm antenna with intact physical structure but significant corrosion around the base where the antenna meets the airframe. Is this antenna airworthy as-is, or does corrective action apply?",
         "choices": [
-          "Airworthy, because the antenna itself is intact",
-          "Airworthy, but the corrosion should be painted over before the next flight",
-          "Airworthy as long as the aircraft is not flown in rain",
-          "Corrective action required — base corrosion degrades both the mechanical mounting and the electrical bond to the airframe (which serves as the ground plane). The antenna must be removed, the corrosion cleaned down to bare metal, new sealant applied, and the antenna reinstalled with verified bonding continuity"
+          "Airworthy as-is, because the antenna body itself is still intact and aligned",
+          "Airworthy, but the corroded area should be painted over before the next flight",
+          "Airworthy as long as the aircraft is not flown in rain or visible moisture",
+          "Corrective action required — remove, clean to bare metal, reseal, verify bond"
         ],
         "correctIndex": 3,
-        "explanation": "Base corrosion degrades both the mechanical integrity (mounting strength) and the electrical bond (ground-plane connection). The proper corrective action is removal, cleaning to bare metal, new sealant, reinstallation, and verification of bonding continuity. Paint over corrosion is not a repair; it traps moisture and accelerates the damage. Environmental restrictions do not substitute for proper maintenance."
+        "explanation": "Base corrosion degrades both the mechanical integrity (mounting strength) and the electrical bond to the airframe (which serves as the ground plane). The antenna must be removed, the corrosion cleaned down to bare metal, new sealant applied, and the antenna reinstalled with verified bonding continuity. Paint over corrosion is not a repair — it traps moisture and accelerates the damage. Environmental restrictions do not substitute for proper maintenance."
       },
       "preassessment": {
         "question": "What should regular communication antenna inspection include?",
@@ -4362,13 +4362,13 @@
       "practice": {
         "question": "A technician repairs a VOR receiver and writes in the logbook: 'VOR repaired. 3 hours.' Is this entry compliant with 14 CFR §43.9?",
         "choices": [
-          "Yes, any entry mentioning the work is sufficient",
-          "No — the entry is missing at least a description of the work performed (what was done to the VOR), the date of completion, the name of the person performing the work, and the approving signature with certificate number and kind of certificate",
-          "Yes, because listing the hours satisfies the regulation",
-          "No, but only because the labor hours are not specified"
+          "Yes, because any entry mentioning the work performed is sufficient",
+          "No — missing description of work, date, name, and approving signature",
+          "Yes, because listing the labor hours satisfies the §43.9 requirement",
+          "No, but only because the labor hours are not broken out by task"
         ],
         "correctIndex": 1,
-        "explanation": "The entry fails §43.9 on multiple counts: no description of what was done, no date, no person name, and no approving signature with certificate info. A compliant entry would be something like 'Replaced failed U14 driver IC, functional check satisfactory per AMM section 5-3. Signed, [name], [cert type], [cert number], [date].'"
+        "explanation": "The entry fails §43.9 on multiple counts: no description of what was done to the VOR, no date of completion, no name of the person performing the work, and no approving signature with certificate number and kind of certificate. A compliant entry would read: 'Replaced failed U14 driver IC, functional check satisfactory per AMM section 5-3. Signed, [name], [cert type], [cert number], [date].'"
       },
       "preassessment": {
         "question": "What must a maintenance record entry include per §43.9?",
@@ -4669,12 +4669,12 @@
         "question": "A technician plans to install a new avionics package that the vendor describes as 'STC-approved for Cessna 172 variants.' What does the STC designation tell the technician?",
         "choices": [
           "That any standard tools will work for the installation",
-          "That the avionics are cheaper than alternatives",
+          "That the avionics are cheaper than the OEM alternatives",
           "That the avionics are certified only for experimental aircraft",
-          "That the FAA has issued a Supplemental Type Certificate for the installation — the STC provides the approved data needed to install the package on the listed aircraft, and the technician must use the STC's installation manual and required documentation"
+          "That the FAA has issued approved data for installation on the listed aircraft"
         ],
         "correctIndex": 3,
-        "explanation": "An STC-approved installation means the FAA has issued an STC authorizing the modification for the listed aircraft. The STC's approved data (installation manual, drawings, limitations) must be followed exactly. Pricing and experimental classification are unrelated to STC approval."
+        "explanation": "STC-approved means the FAA has issued a Supplemental Type Certificate for the installation. The STC provides the approved data — installation manual, drawings, limitations — that must be followed exactly. The technician must use the STC's installation manual and required documentation. Pricing and experimental classification are unrelated to STC approval."
       },
       "preassessment": {
         "question": "What does STC stand for?",
@@ -4728,13 +4728,13 @@
       "practice": {
         "question": "A technician at a Part 145 repair station notes that their last formal training was 26 months ago. What does most Part 145 guidance say about this?",
         "choices": [
-          "No concern — training is a one-time initial event",
-          "The technician must be immediately terminated",
-          "Training is only required for pilots, not technicians",
-          "The technician is likely overdue for recurrent training, which most Part 145 programs specify at intervals not exceeding 24 months. The station's training program manual is the authoritative source for the exact requirement; the technician should consult the manager and complete the required training"
+          "No concern — training is a one-time initial event only",
+          "The technician must be immediately terminated for the lapse",
+          "Training is only required for pilots, not avionics technicians",
+          "Likely overdue — Part 145 programs typically require recurrent every 24 months"
         ],
         "correctIndex": 3,
-        "explanation": "Most Part 145 programs specify recurrent training at intervals not exceeding 24 months. The technician should consult the station's training program manual to confirm and complete the required training. Termination is not the remedy for a training lapse — completing the training is. Training is explicitly required for repair-station technical personnel, not only for pilots."
+        "explanation": "Most Part 145 programs specify recurrent training at intervals not exceeding 24 months. The station's training program manual is the authoritative source for the exact requirement — the technician should consult the manager and complete the required training. Termination is not the remedy for a training lapse; completing the training is. Training is explicitly required for repair-station technical personnel, not only pilots."
       },
       "preassessment": {
         "question": "How often must Part 145 personnel typically undergo recurrent training?",
@@ -4850,13 +4850,13 @@
       "practice": {
         "question": "A technician at a Part 145 station finds that the current service bulletin for a GPS model is missing from the shop's technical data library. What is the correct course of action?",
         "choices": [
-          "Stop work until the current service bulletin is obtained. Per Part 145, the repair station is responsible for ensuring current data is available; the technician should notify the designated personnel (Accountable Manager, Chief Inspector, or as specified in the procedures manual) so the missing data can be obtained before work continues",
+          "Stop work until the current service bulletin is obtained and reviewed",
           "Proceed with the work and note the missing data in the logbook",
-          "Search online forums for the missing information",
-          "Improvise based on experience"
+          "Search online aviation forums for the missing information content",
+          "Improvise the procedure based on the technician's past experience"
         ],
         "correctIndex": 0,
-        "explanation": "Part 145 requires current data to be in use. The correct action is to stop work, notify the designated personnel responsible for data currency, obtain the current service bulletin, and resume work. Proceeding without current data, improvising, or using unofficial sources all violate Part 145 and risk improper work."
+        "explanation": "Part 145 requires current data to be in use. The repair station is responsible for ensuring current data is available. Notify the designated personnel (Accountable Manager, Chief Inspector, or as specified in the procedures manual) so the missing data can be obtained before work continues. Proceeding without current data, improvising, or using unofficial sources all violate Part 145 and risk improper work."
       },
       "preassessment": {
         "question": "Who ensures current technical data is available in a Part 145 shop?",
@@ -5032,13 +5032,13 @@
       "practice": {
         "question": "A technician notices that the shop's main walkway has accumulated old parts boxes, cable offcuts, and a few spilled fluid-absorbent rags. Is this a Part 145 issue, and what is the appropriate response?",
         "choices": [
-          "No — as long as the boxes are not on the work benches",
+          "No — as long as the boxes are not on the work benches themselves",
           "No — repair stations are not subject to housekeeping requirements",
-          "Yes — but only if the FAA inspector is scheduled to visit",
-          "Yes — it creates safety hazards (trip, fall, fire), quality risks (FOD, part loss), and is a Part 145 housekeeping issue. The immediate response is to clear the walkway, properly dispose of the rags (fluid-soaked rags can self-heat), and follow up with the responsible personnel to prevent recurrence"
+          "Yes — but only if the FAA inspector is scheduled to visit that day",
+          "Yes — clutter creates safety, FOD, and fire hazards requiring cleanup"
         ],
         "correctIndex": 3,
-        "explanation": "Cluttered walkways are a Part 145 issue plus a safety concern (fluid-soaked rags are a fire risk). Proper response is immediate cleanup, proper disposal of fluid-contaminated materials, and follow-up to address the root cause. The rule applies continuously — not only when FAA inspectors are present."
+        "explanation": "Cluttered walkways are a Part 145 issue plus a safety concern. They create trip and fall hazards, quality risks (FOD, part loss), and fire danger — fluid-soaked rags can self-heat. Immediate response: clear the walkway, properly dispose of the rags, and follow up with responsible personnel to prevent recurrence. The rule applies continuously — not only when FAA inspectors are present."
       },
       "preassessment": {
         "question": "Why must Part 145 shops keep walkways clear?",
@@ -5401,13 +5401,13 @@
       "practice": {
         "question": "During flight, a pilot notices the altimeter is stuck at 5,500 feet and the VSI reads 0 feet per minute, even though the aircraft is clearly climbing (engine at climb power, attitude indicator showing nose-up). The airspeed indicator also reads lower than expected. What is the most likely cause?",
         "choices": [
-          "The altimeter and VSI have failed simultaneously — replace both",
-          "The static port is blocked — altimeter freezes at the blockage altitude, VSI reads zero, and the airspeed indicator also reads incorrectly (lower than actual in a climb) because ASI depends on the static reference. The immediate remedy is to open the alternate static source if equipped",
-          "The aircraft's altimeter setting is wrong",
-          "The pitot tube has iced up"
+          "The altimeter and VSI have both failed simultaneously — replace both",
+          "The static port is blocked — open the alternate static source as remedy",
+          "The aircraft's altimeter setting (Kollsman) is incorrect for the area",
+          "The pitot tube has iced up during the climb through clouds"
         ],
         "correctIndex": 1,
-        "explanation": "The combination of frozen altimeter + zero VSI + lower-than-expected ASI is the classic blocked-static signature. All three instruments share the static reference; blocking the port affects all three. The alternate static source (typically inside the cabin, lower pressure than outside) is the immediate remedy until the static port can be cleared on the ground."
+        "explanation": "The combination of frozen altimeter + zero VSI + lower-than-expected ASI is the classic blocked-static signature. All three instruments share the static reference; blocking the port affects all three. The altimeter freezes at the blockage altitude, the VSI reads zero, and the ASI reads incorrectly (lower than actual in a climb). The alternate static source — typically inside the cabin with lower pressure than outside — is the immediate remedy until the static port can be cleared on the ground."
       },
       "preassessment": {
         "question": "Blocked static port — altimeter and VSI behavior:",
@@ -5522,13 +5522,13 @@
       "practice": {
         "question": "A technician is explaining the pitot tube to a student. Which is the simplest correct description?",
         "choices": [
-          "The pitot tube measures static atmospheric pressure",
-          "The pitot tube is a forward-facing probe that senses the ram air pressure created by the aircraft's forward motion; the airspeed indicator compares this ram pressure to static pressure to compute indicated airspeed",
-          "The pitot tube is a temperature probe",
-          "The pitot tube detects icing conditions"
+          "The pitot tube measures static atmospheric pressure at altitude",
+          "A forward-facing probe sensing ram air pressure for airspeed calculation",
+          "The pitot tube acts as a temperature probe for the air data computer",
+          "The pitot tube detects icing conditions and signals the ice protection"
         ],
         "correctIndex": 1,
-        "explanation": "The pitot tube senses ram pressure; the ASI takes the pitot-static differential and displays airspeed. The probe is typically heated to prevent ice, but ice detection itself is a separate system. Static pressure comes from the static port, not the pitot tube."
+        "explanation": "The pitot tube is a forward-facing probe that senses the ram air pressure created by the aircraft's forward motion. The airspeed indicator compares this ram pressure to static pressure to compute indicated airspeed. The probe is typically heated to prevent ice, but ice detection itself is a separate system. Static pressure comes from the static port, not the pitot tube."
       },
       "preassessment": {
         "question": "What does the pitot tube do?",
@@ -5644,13 +5644,13 @@
       "practice": {
         "question": "During a test flight after pitot-static maintenance, the pilot reports the ASI now reads consistently about 10 knots slower than GPS ground speed suggests. What is the most productive first check?",
         "choices": [
-          "Replace the airspeed indicator",
-          "Adjust the altimeter setting",
-          "Check the VSI calibration",
-          "Inspect the pitot tube for partial obstruction (dirt, insects, residue), check the pitot-to-ASI plumbing for leaks, and verify the pitot drain is clear — these are the most common causes of consistently-low ASI readings, and can be introduced by recent maintenance"
+          "Replace the airspeed indicator on the bench test stand",
+          "Adjust the altimeter Kollsman setting in flight",
+          "Check the VSI calibration orifice for wear",
+          "Inspect the pitot tube and plumbing for blockage or leaks"
         ],
         "correctIndex": 3,
-        "explanation": "After maintenance work, newly low ASI readings are often traceable to something done during the work — a loose fitting, a missed O-ring, or trapped moisture. Inspect the physical pitot path first. Instrument replacement and altimeter/VSI adjustments are premature without evidence they are needed."
+        "explanation": "After recent maintenance, a consistently low ASI is usually traceable to the pitot side — partial obstruction (dirt, insects, residue), a loose fitting, a missed O-ring, or a blocked pitot drain. Inspect the physical pitot path first. Instrument replacement and altimeter/VSI adjustments are premature without evidence they are needed."
       },
       "preassessment": {
         "question": "ASI reads too low — likely cause?",
@@ -5705,13 +5705,13 @@
       "practice": {
         "question": "A technician is verifying a VSI that reads a constant 100 fpm descent even when the aircraft is level and the altimeter is stable. What is the most productive first check?",
         "choices": [
-          "Replace the VSI immediately",
-          "Adjust the aircraft's weight and balance",
-          "Reset the transponder",
-          "Perform a static-system leak check — a small leak in the VSI's static line is the most common cause of a false constant descent reading. If the static system is tight, investigate the calibration orifice"
+          "Replace the VSI indicator immediately on the bench",
+          "Adjust the aircraft's weight and balance before the next flight",
+          "Reset the transponder to clear any stored faults",
+          "Perform a static-system leak check to find the most common cause"
         ],
         "correctIndex": 3,
-        "explanation": "A static-system leak check is the standard first step. A small leak allows pressure to slowly equalize through the leak path instead of through the calibration orifice, producing a false rate reading. If the static system checks tight, the next step is bench checking the VSI's calibration orifice. Weight/balance and transponder resets are unrelated."
+        "explanation": "A static-system leak check is the standard first step. A small leak in the VSI's static line allows pressure to slowly equalize through the leak path instead of through the calibration orifice, producing a false constant-rate reading. If the static system checks tight, the next step is bench checking the VSI's calibration orifice. Weight/balance and transponder resets are unrelated."
       },
       "preassessment": {
         "question": "VSI shows constant descent in level flight — likely cause?",
@@ -5766,13 +5766,13 @@
       "practice": {
         "question": "A student asks how an altimeter 'knows' how high the aircraft is. What is the best explanation?",
         "choices": [
-          "GPS tells the altimeter the altitude",
-          "The altimeter measures static atmospheric pressure, which decreases predictably with altitude at a known rate (about 1 inch Hg per 1,000 feet near sea level). The instrument converts that pressure to altitude using a standard scale, with the local altimeter setting adjusting the reference to account for current weather",
-          "The altimeter measures radar altitude above terrain",
-          "The altimeter uses an inertial navigation system"
+          "The onboard GPS receiver tells the altimeter the current altitude",
+          "It measures static atmospheric pressure, which decreases with altitude",
+          "It measures radar altitude above the terrain directly below the aircraft",
+          "It uses the aircraft's inertial navigation system for vertical reference"
         ],
         "correctIndex": 1,
-        "explanation": "The classic altimeter is a pressure instrument. Radar altimeters are separate devices that measure height above terrain directly. GPS altitude is independent. Inertial systems integrate acceleration to compute position but are not part of a pressure altimeter's operation."
+        "explanation": "The classic altimeter is a pressure instrument. Static atmospheric pressure decreases predictably with altitude at a known rate (about 1 inch Hg per 1,000 feet near sea level). The instrument converts that pressure to altitude using a standard scale, with the local altimeter setting adjusting the reference for current weather. Radar altimeters are separate devices measuring height above terrain directly. GPS altitude is independent. Inertial systems integrate acceleration but are not part of a pressure altimeter."
       },
       "preassessment": {
         "question": "What does an altimeter measure?",
@@ -5827,13 +5827,13 @@
       "practice": {
         "question": "A pilot tunes the local ATIS and hears 'altimeter 30.07.' Before flight, how should the pilot set the altimeter?",
         "choices": [
-          "Set the Kollsman window to 30.07 inHg; when correctly set, the altimeter should indicate field elevation while the aircraft is on the ground. Verify this against the published field elevation as a cross-check",
-          "Set it to 29.92 for standard atmosphere",
-          "Leave it at whatever the previous pilot set",
-          "Set it to zero"
+          "Set the Kollsman window to 30.07 and cross-check with field elevation",
+          "Set it to 29.92 inHg for the standard atmosphere reference",
+          "Leave it at whatever setting the previous pilot last used",
+          "Set the indicator to zero before starting the takeoff roll"
         ],
         "correctIndex": 0,
-        "explanation": "The pilot sets the Kollsman window to the reported value (30.07 inHg) and cross-checks against the published field elevation. A large discrepancy between indicated altitude and field elevation points to an altimeter problem that must be investigated before flight. Standard setting (29.92) is used above the transition altitude, not on the ground."
+        "explanation": "The pilot sets the Kollsman window to the reported value (30.07 inHg). When correctly set, the altimeter should indicate field elevation while the aircraft is on the ground. Verify this against the published field elevation as a cross-check. A large discrepancy points to an altimeter problem that must be investigated before flight. Standard setting (29.92) is used above the transition altitude, not on the ground."
       },
       "preassessment": {
         "question": "Before flight, the altimeter is set to:",
@@ -5948,13 +5948,13 @@
       "practice": {
         "question": "A pilot reports that the attitude indicator is slowly becoming unreliable while the altimeter and airspeed indicator continue working correctly. Which component is most likely to be the problem?",
         "choices": [
-          " The pitot-static system",
-          "The magnetic compass",
-          "The GPS receiver",
-          "The engine-driven vacuum pump (or associated plumbing and vacuum regulator) — the attitude indicator is vacuum-driven, while the altimeter and ASI are independent pitot-static instruments"
+          "The pitot-static system feeding the ASI and altimeter",
+          "The magnetic compass mounted on the glareshield",
+          "The panel-mounted GPS navigator",
+          "The engine-driven vacuum pump or its regulator"
         ],
         "correctIndex": 3,
-        "explanation": "An attitude indicator problem with healthy pitot-static instruments points to the vacuum system. The vacuum pump is a wear item and commonly fails; a failing pump leads to gradual gyro degradation. Pitot-static, compass, and GPS are independent systems."
+        "explanation": "A degrading attitude indicator with healthy pitot-static instruments points to the vacuum system. The attitude indicator is vacuum-driven, while the altimeter and ASI are independent pitot-static instruments. Vacuum pumps are wear items; a failing pump causes gradual gyro degradation. Compass and GPS are independent systems."
       },
       "preassessment": {
         "question": "Which instrument uses the aircraft vacuum system?",
@@ -6009,13 +6009,13 @@
       "practice": {
         "question": "A student pilot asks how an attitude indicator 'knows' which way is up, even during aggressive maneuvering. What is the correct explanation?",
         "choices": [
-          "The instrument uses a spinning gyroscope whose axis of rotation maintains a stable spatial reference (rigidity in space). The aircraft structure pitches and rolls around the gyro while the gyro itself remains oriented to its original axis, giving the pilot a visual reference for attitude",
-          "The instrument uses an internal accelerometer array",
-          "The instrument uses GPS directly",
+          "A spinning gyroscope maintains rigidity in space as a stable reference",
+          "The instrument uses an internal accelerometer array to sense gravity",
+          "The instrument uses GPS signals to calculate the aircraft's attitude",
           "The instrument measures atmospheric pressure in multiple directions"
         ],
         "correctIndex": 0,
-        "explanation": "The traditional attitude indicator uses a gyroscope exhibiting rigidity in space. The gyro is initially aligned with Earth's local vertical, and its own inertia keeps it there while the aircraft maneuvers around it. Modern AHRS replaces the mechanical gyro with solid-state sensors but operates on analogous principles."
+        "explanation": "The traditional attitude indicator uses a gyroscope exhibiting rigidity in space. The gyro's axis of rotation maintains a stable spatial reference — the aircraft structure pitches and rolls around the gyro while the gyro itself remains oriented to its original axis, giving the pilot a visual reference for attitude. The gyro is initially aligned with Earth's local vertical, and its own inertia keeps it there while the aircraft maneuvers. Modern AHRS replaces the mechanical gyro with solid-state sensors but operates on analogous principles."
       },
       "preassessment": {
         "question": "What principle makes gyroscopes maintain a stable reference?",
@@ -6192,13 +6192,13 @@
       "practice": {
         "question": "A technician explains the AHRS to a student by comparing it to a traditional attitude indicator. Which statement is most accurate?",
         "choices": [
-          "AHRS is a mechanical gyro just like the traditional unit",
-          "AHRS only works with GPS",
-          "AHRS replaces the mechanical vacuum-driven gyros of traditional attitude and heading indicators with solid-state MEMS sensors (gyros, accelerometers, magnetometers). It provides the same pitch, roll, and heading information but without wear parts, warm-up time, or a vacuum pump",
-          "AHRS measures airspeed instead of attitude"
+          "AHRS is a mechanical gyro just like the traditional vacuum unit",
+          "AHRS only works when GPS signals are continuously available",
+          "AHRS uses solid-state MEMS sensors instead of mechanical gyros",
+          "AHRS measures airspeed instead of aircraft attitude and heading"
         ],
         "correctIndex": 2,
-        "explanation": "AHRS uses MEMS solid-state sensors to perform the same function as mechanical gyros — providing pitch, roll, and heading — without the wear and warm-up of mechanical spinning rotors. It does not require a vacuum pump. GPS is a separate input to the system but is not required for AHRS operation (AHRS provides attitude and heading on its own)."
+        "explanation": "AHRS replaces the mechanical vacuum-driven gyros of traditional attitude and heading indicators with solid-state MEMS sensors (gyros, accelerometers, magnetometers). It provides the same pitch, roll, and heading information but without wear parts, warm-up time, or a vacuum pump. GPS is a separate input but is not required for AHRS operation — AHRS provides attitude and heading on its own."
       },
       "preassessment": {
         "question": "AHRS uses solid-state sensors to determine:",
@@ -6253,13 +6253,13 @@
       "practice": {
         "question": "A technician troubleshooting a glass-cockpit PFD sees that airspeed and altitude displays are frozen while the heading tape and GPS position are updating normally. Which component is the most likely source of the problem?",
         "choices": [
-          "The Air Data Computer (ADC), or the pitot-static plumbing feeding it — airspeed and altitude both come from the ADC, so a single ADC or pitot-static problem can explain both symptoms while heading (from AHRS) and position (from GPS) remain healthy",
-          "The AHRS",
-          "The magnetic compass",
-          "The transponder"
+          "The Air Data Computer or its pitot-static input",
+          "The AHRS driving the heading display tape",
+          "The magnetic compass correction card",
+          "The transponder altitude encoder"
         ],
         "correctIndex": 0,
-        "explanation": "When airspeed and altitude fail together while heading and position remain normal, the common factor is the ADC or its pitot-static input. Check the ADC power and data output, and verify pitot-static plumbing. The AHRS drives heading (which is working), and GPS drives position (working), so they are not the cause."
+        "explanation": "Airspeed and altitude both come from the ADC, so a single ADC or pitot-static problem can freeze both while leaving heading (from AHRS) and GPS position unaffected. Check ADC power, data output, and pitot-static plumbing. The AHRS drives the working heading tape, and GPS drives the working position, so neither is the cause."
       },
       "preassessment": {
         "question": "Where does the EFIS PFD get its airspeed and altitude data?",
@@ -6314,13 +6314,13 @@
       "practice": {
         "question": "During pre-flight, a pilot resets a tripped pitot heat circuit breaker and it immediately pops again. What should the technician or pilot do?",
         "choices": [
-          " Reset it a third time — if it still pops, reset a fourth time",
-          "Install a larger-rated circuit breaker",
-          "Leave the breaker OFF and investigate the cause before further reset or flight. Likely causes include a short in the pitot heat wiring (often from chafing), a failed or water-intruded heating element, or a damaged connector. The aircraft should not be flown into conditions requiring pitot heat until the fault is corrected",
-          "Jumper the breaker closed for the flight"
+          "Reset it a third time — if it still pops, reset a fourth time",
+          "Install a higher-rated circuit breaker in that position",
+          "Leave the breaker OFF and investigate the cause before resetting",
+          "Jumper the breaker closed for the remainder of the flight"
         ],
         "correctIndex": 2,
-        "explanation": "Immediate re-trip is the circuit protection doing its job. Leave it OFF and investigate. Flight into known icing without working pitot heat is unsafe; flight into possibly-icing conditions demands that pitot heat is available. The correct process is to find and fix the root cause before further reset."
+        "explanation": "Immediate re-trip is the circuit protection doing its job. Leave it OFF and investigate. Likely causes include a short in the pitot heat wiring (often from chafing), a failed or water-intruded heating element, or a damaged connector. The aircraft should not be flown into conditions requiring pitot heat until the fault is corrected. Flight into known icing without working pitot heat is unsafe. Find and fix the root cause before further reset."
       },
       "preassessment": {
         "question": "Pitot heat CB pops immediately on reset — next step?",
@@ -6436,13 +6436,13 @@
       "practice": {
         "question": "During voltage testing on a 24 V DC bus, a technician reads 235 V on the meter. What is the most productive first action?",
         "choices": [
-          "Declare the bus has a major fault and disconnect the battery",
-          "Replace the 24 V battery",
-          "Verify the meter setup: check that the meter is set to DC (not AC), check the voltage range, inspect the probes and leads for damage, and confirm the probes are properly seated in the meter jacks. Then remeasure. If the reading remains abnormal, investigate the circuit",
-          "Log the 235 V reading as evidence of a manufacturing defect"
+          "Declare the bus has a major fault and disconnect the aircraft battery immediately",
+          "Replace the 24 V aircraft battery because the reading indicates failure",
+          "Verify meter setup — DC mode, correct range, probes seated — then remeasure",
+          "Log the 235 V reading as clear evidence of a manufacturing defect in the bus"
         ],
         "correctIndex": 2,
-        "explanation": "The meter setup is the most likely cause of a wildly wrong reading. Check DC/AC mode, range, probe integrity, and jack seating before assuming a circuit fault. Only after these checks still give an abnormal reading should circuit-level troubleshooting begin."
+        "explanation": "The meter setup is the most likely cause of a wildly wrong reading. Check that the meter is on DC (not AC), confirm the voltage range, inspect the probes and leads for damage, and verify the probes are properly seated in the meter jacks. Then remeasure. Only after these checks still give an abnormal reading should circuit-level troubleshooting begin. Disconnecting the battery or replacing components is premature."
       },
       "preassessment": {
         "question": "24 V DC circuit shows 235 V on the meter — likely cause?",
@@ -6497,13 +6497,13 @@
       "practice": {
         "question": "A technician wants to check the resistance of a resistor on an energized circuit board. What is the correct practice?",
         "choices": [
-          "Measure it while energized — modern meters can handle it",
-          "Measure it with the meter set to AC volts",
-          "Skip the measurement entirely",
-          "De-energize the circuit before measuring resistance. Measuring resistance with the circuit energized will give invalid readings because the meter's test current competes with the circuit's voltage, and can damage the meter's ohms range"
+          "Measure it while energized — modern digital meters can handle the current safely",
+          "Measure it with the multimeter set to the AC volts function for comparison",
+          "Skip the resistance measurement entirely and move to the next component",
+          "De-energize the circuit before measuring resistance to get a valid reading"
         ],
         "correctIndex": 3,
-        "explanation": "Resistance measurement requires a de-energized circuit. Modern meters have some protection, but relying on it is not good practice — de-energize the circuit, ensure isolation where possible, then measure. Measuring with the meter on the wrong function (AC volts) would not give resistance."
+        "explanation": "Resistance measurement requires a de-energized circuit. Measuring with the circuit energized gives invalid readings because the meter's test current competes with the circuit's voltage, and it can damage the meter's ohms range. Modern meters have some protection, but relying on it is not good practice — de-energize, ensure isolation where possible, then measure. AC volts is the wrong function entirely."
       },
       "preassessment": {
         "question": "Before measuring resistance, the circuit must be:",
@@ -6559,13 +6559,13 @@
       "practice": {
         "question": "A technician is looking for a broken wire in a circuit. The multimeter is set to ohms, and when probed across the suspect wire it reads 'OL.' What does this tell the technician?",
         "choices": [
-          "The wire is fine",
-          "The wire is open — the resistance is beyond the meter's measurement range, which indicates a broken conductor or open splice. The technician has identified the fault location",
-          "The circuit is energized",
-          "The meter is faulty"
+          "The wire is fine and has continuity",
+          "The wire is open — resistance is beyond the meter's range",
+          "The circuit is still energized with current",
+          "The meter itself is faulty and needs replacement"
         ],
         "correctIndex": 1,
-        "explanation": "'OL' across a wire that should read near zero ohms (a good conductor) positively identifies it as open. This is a classic continuity-troubleshooting technique: a good wire reads near zero, a broken wire reads OL. The technician has successfully located the fault."
+        "explanation": "'OL' across a wire that should read near zero ohms positively identifies it as open — the resistance is beyond the meter's measurement range, indicating a broken conductor or open splice. This is a classic continuity-troubleshooting technique: a good wire reads near zero, a broken wire reads OL. The technician has located the fault."
       },
       "preassessment": {
         "question": "What does 'OL' mean on a multimeter set to ohms?",
@@ -6620,13 +6620,13 @@
       "practice": {
         "question": "A pilot reports that a warning light does not illuminate when it should. The technician suspects a broken wire between the sensor and the warning light. What is the most effective test?",
         "choices": [
-          "Test the AC voltage on the wire",
-          "De-energize the circuit, set the multimeter to continuity (or ohms), and probe across the suspect wire from the sensor end to the warning-light end. A good wire reads near zero ohms; a broken wire reads 'OL,' confirming the break",
-          "Observe the wire visually for several hours",
-          "Replace the warning light first"
+          "Test the AC voltage present on the suspect wire",
+          "De-energize and use the continuity setting end-to-end",
+          "Observe the wire visually for several hours and watch for change",
+          "Replace the warning light first and see if that fixes the issue"
         ],
         "correctIndex": 1,
-        "explanation": "The continuity test directly answers the question. It is far more definitive than visual inspection (which misses internal breaks), faster than AC voltage testing (wrong tool), and avoids replacing innocent components (the warning light) without evidence. If the wire reads OL, the wire is broken and can be repaired."
+        "explanation": "De-energize the circuit, set the multimeter to continuity (or ohms), and probe across the suspect wire from the sensor end to the warning-light end. A good wire reads near zero ohms; a broken wire reads 'OL,' confirming the break. This is far more definitive than visual inspection (which misses internal breaks), faster than AC voltage testing (wrong tool), and avoids replacing innocent components without evidence."
       },
       "preassessment": {
         "question": "Best multimeter test for a suspected broken wire?",
@@ -6682,13 +6682,13 @@
       "practice": {
         "question": "A technician reads 0 V across a resistor that is supposed to be dropping voltage in an active circuit. What hypotheses should the technician investigate?",
         "choices": [
-          "The resistor is definitely fine",
-          "The meter is always wrong in such cases",
-          "The resistor may be shorted (zero resistance), a parallel short may be bypassing it, or there may be no current flowing due to an upstream break. The technician should verify current flow through the circuit and check for shorts",
-          "Replace the resistor immediately without testing"
+          "The resistor is definitely fine and in working condition",
+          "The multimeter is always wrong in such cases and should be replaced",
+          "The resistor may be shorted, bypassed, or have no current flowing",
+          "Replace the suspect resistor immediately without any further testing"
         ],
         "correctIndex": 2,
-        "explanation": "0 V on a component that should be dropping voltage is a symptom, not a diagnosis. Verify whether current is flowing (ammeter in the branch or a voltage drop elsewhere in the circuit). If current flows, the component is shorted. If no current flows, find the upstream break. Either way, replacement without diagnosis risks chasing the wrong problem."
+        "explanation": "A 0 V reading is a symptom, not a diagnosis. Three possibilities: (1) the resistor is internally shorted (zero resistance), (2) a parallel short is bypassing it, or (3) no current is flowing due to an upstream open. Verify whether current is flowing (ammeter in the branch or a voltage drop elsewhere). If current flows, the component is shorted. If no current flows, find the upstream break. Replacement without diagnosis risks chasing the wrong problem."
       },
       "preassessment": {
         "question": "0 V across a component in an active circuit — possible cause?",
@@ -6804,13 +6804,13 @@
       "practice": {
         "question": "A technician needs to verify the shape of a digital clock signal to ensure clean transitions with no ringing or overshoot. Which test instrument is appropriate?",
         "choices": [
-          "A multimeter set to AC volts",
-          "A megohmmeter",
-          "A milliohmmeter",
-          "An oscilloscope, which displays voltage as a function of time and reveals waveform shape, rise and fall times, ringing, and any anomalies that would not be visible in a simple magnitude measurement"
+          "A multimeter set to AC volts for the bench",
+          "A megohmmeter set to 500 V DC for insulation",
+          "A milliohmmeter using four-wire Kelvin leads",
+          "An oscilloscope showing voltage versus time"
         ],
         "correctIndex": 3,
-        "explanation": "Waveform analysis — clean transitions, ringing, overshoot — is exactly what an oscilloscope is designed for. A multimeter can only report a magnitude (RMS or average) and cannot show the time-domain shape. Meggers and milliohmmeters are specialty meters for different purposes entirely."
+        "explanation": "Waveform shape, rise and fall times, ringing, and overshoot are exactly what an oscilloscope is designed to reveal — it displays voltage as a function of time. A multimeter can only report a magnitude (RMS or average) and cannot show the time-domain shape. Meggers and milliohmmeters are specialty meters for entirely different purposes."
       },
       "preassessment": {
         "question": "What does an oscilloscope visualize?",
@@ -6865,13 +6865,13 @@
       "practice": {
         "question": "A technician is verifying the integrity of a newly installed wire harness before energizing the circuit. The test procedure calls for 'megger testing at 500 V between each conductor and ground.' What is the purpose of this test?",
         "choices": [
-          "To measure the wire's resistance per foot",
-          "To check the wire's current-carrying capacity",
-          "To measure insulation resistance — high DC voltage is applied between each conductor and ground, and the resulting very high resistance (typically hundreds of megohms or more) confirms the insulation is intact and free of defects. Lower readings would indicate compromised insulation",
-          "To measure the frequency response of the cable"
+          "To measure the wire's DC resistance per foot of length",
+          "To check the wire's maximum current-carrying capacity",
+          "To measure insulation resistance between conductor and ground",
+          "To measure the frequency response of the wire harness"
         ],
         "correctIndex": 2,
-        "explanation": "Megger testing is an insulation-integrity test. Good insulation shows very high resistance (hundreds of MΩ or higher). Compromised insulation — from damage, moisture, or contamination — shows lower resistance, identifying the problem before the circuit is energized and potentially damages the aircraft. Conductor resistance, current capacity, and frequency response are measured by other means."
+        "explanation": "Megger testing is an insulation-integrity test. High DC voltage is applied between each conductor and ground, and the resulting very high resistance (typically hundreds of megohms or more) confirms the insulation is intact and free of defects. Lower readings indicate compromised insulation from damage, moisture, or contamination — identifying the problem before the circuit is energized and potentially damages the aircraft. Conductor resistance, current capacity, and frequency response are measured by other means."
       },
       "preassessment": {
         "question": "What does a megohmmeter test?",
@@ -6987,13 +6987,13 @@
       "practice": {
         "question": "A technician needs to verify an aircraft bonding strap is within specification (typically well under 10 milliohms). Which instrument is appropriate?",
         "choices": [
-          "A milliohmmeter with four-wire Kelvin measurement, because the target value is in milliohms and a standard DMM's lead and contact resistance would dominate the reading",
-          "A standard DMM on the ohms setting",
-          "A megger at 500 V",
-          "A frequency counter"
+          "A milliohmmeter with four-wire Kelvin measurement",
+          "A standard DMM on the ohms setting with lead probes",
+          "A megohmmeter set to 500 V DC for insulation testing",
+          "A frequency counter measuring waveform period"
         ],
         "correctIndex": 0,
-        "explanation": "The target measurement is in milliohms, which is beyond the usable resolution of a standard DMM. A milliohmmeter's four-wire Kelvin technique cancels out lead and contact resistance, giving a true bond resistance reading. Megger and frequency counter are entirely different instruments for different tasks."
+        "explanation": "The target measurement is in milliohms, beyond the usable resolution of a standard DMM. A standard DMM's lead and contact resistance alone would dominate the reading. A milliohmmeter's four-wire Kelvin technique separates the current-injection leads from the voltage-sense leads, cancelling lead and contact resistance and giving a true bond resistance reading. Megger and frequency counter are entirely different instruments for different tasks."
       },
       "preassessment": {
         "question": "What is the milliohmmeter primarily used for?",
@@ -7048,13 +7048,13 @@
       "practice": {
         "question": "A technician has marked a hole location on an aluminum panel and is about to drill. Why should the technician use a center punch before starting the drill?",
         "choices": [
-          "To clean debris from the panel surface",
-          "To test the drill bit's sharpness",
-          "To cool the drill bit before use",
-          "To create an indentation at the marked location that captures the drill bit and prevents it from walking, ensuring the hole is drilled exactly where intended"
+          "To clean debris and oxidation from the panel surface",
+          "To test the drill bit's sharpness before starting",
+          "To cool the drill bit before beginning the cut",
+          "To create a dimple that captures the bit and prevents walking"
         ],
         "correctIndex": 3,
-        "explanation": "Without a center-punched starting point, a drill bit can slide across a flat metal surface before it begins cutting, producing a misplaced hole. The center-punched dimple captures the bit tip and holds it on the intended location. Cleaning, sharpness testing, and cooling are unrelated to the center punch function."
+        "explanation": "Without a center-punched starting point, a drill bit can slide across a flat metal surface before it begins cutting, producing a misplaced hole. The center-punched indentation captures the bit tip and holds it on the intended location, ensuring the hole is drilled exactly where marked. Cleaning, sharpness testing, and cooling are unrelated to the center punch function."
       },
       "preassessment": {
         "question": "What is the primary purpose of a center punch?",
@@ -7109,13 +7109,13 @@
       "practice": {
         "question": "A technician is removing a Phillips-head screw but the screwdriver keeps slipping out and the screw head is showing wear. What is the most likely fix?",
         "choices": [
-          "Use more torque",
-          "Stop, examine the screw head, and match the correct Phillips size (typically #0, #1, #2, or #3) fully engaged in the screw. If the screw head is already damaged, switch to a tool designed for removing damaged screws (screw extractor, oversize bit, or locking pliers)",
-          "Lubricate the driver tip",
-          "Use a longer screwdriver"
+          "Apply more torque through the driver",
+          "Match the correct Phillips size and re-engage fully",
+          "Lubricate the screwdriver tip and try again",
+          "Switch to a longer-handled screwdriver"
         ],
         "correctIndex": 1,
-        "explanation": "The slipping suggests a mismatched driver size or already-damaged screw head. Correct action: stop before further damage, verify correct driver size, re-engage fully, and proceed. If the head is too damaged to re-engage, use a screw extractor or other damaged-screw tool. More torque on a slipping bit only worsens the damage. Lubrication and longer drivers do not address the root cause."
+        "explanation": "Slipping usually means a mismatched driver size or an already-damaged head. Stop before further damage, verify the correct Phillips size (typically #0, #1, #2, or #3), re-seat fully, and apply firm axial pressure. If the head is already stripped, switch to a screw extractor, oversize bit, or locking pliers. More torque on a slipping bit only worsens the damage; lubrication and longer handles do not fix the engagement problem."
       },
       "preassessment": {
         "question": "What prevents screwdriver damage to a screw head?",
@@ -7231,13 +7231,13 @@
       "practice": {
         "question": "A technician has just completed wiring a new avionics unit. Before releasing the aircraft to service, the technician applies power and lightly wiggles each wire and connector at its entry point, watching the unit's indicator lights. What is the purpose of this procedure?",
         "choices": [
-          "The wiggle test identifies intermittent connections before they manifest in service. If moving a wire causes the indicator to blink or a signal to drop, the technician has found a loose pin, cold solder joint, or damaged connector that can be corrected before the aircraft leaves the shop",
-          "Nothing — it's just habit and does not identify real problems",
-          "To warm up the connectors",
-          "To check the unit's internal temperature"
+          "It identifies intermittent connections before they manifest in service",
+          "Nothing — it is just habit and does not reveal any real problems",
+          "To warm up the connectors before the system is fully powered",
+          "To check the unit's internal operating temperature during a power-up"
         ],
         "correctIndex": 0,
-        "explanation": "The wiggle test is a deliberate intermittent-hunt technique. It is especially valuable for new installations because small mistakes (partial pin seating, missed crimp, cracked connector) often reveal themselves under light mechanical stress but would pass static testing. Finding these problems before release saves both the customer and the shop from chasing intermittents later."
+        "explanation": "The wiggle test is a deliberate intermittent-hunt technique. If moving a wire causes the indicator to blink or a signal to drop, the technician has found a loose pin, cold solder joint, or damaged connector that can be corrected before the aircraft leaves the shop. Especially valuable for new installations because small mistakes (partial pin seating, missed crimp, cracked connector) often reveal themselves under light mechanical stress but would pass static testing."
       },
       "preassessment": {
         "question": "What is the purpose of a 'wiggle test'?",
@@ -7293,12 +7293,12 @@
         "question": "A new technician asks where to find the SDS for a cleaning solvent used in the shop. What is the correct answer?",
         "choices": [
           "Ask the supervisor to retrieve it from a locked office",
-          "The SDS binder (or electronic SDS system) is kept in a designated accessible location known to all shop personnel — per OSHA's Hazard Communication Standard, SDS must be readily accessible to every technician during every work shift. The technician should be shown the location as part of orientation",
-          "Search the internet for a generic SDS",
-          "Ignore the request since solvents do not require SDS"
+          "In the shop's SDS binder or electronic system, accessible to all",
+          "Search the internet for a generic SDS of the same type",
+          "Ignore the request since solvents do not require SDS records"
         ],
         "correctIndex": 1,
-        "explanation": "SDS must be accessible to all personnel. Part of new-hire orientation should include showing every technician where the SDS are kept and how to use them. Generic internet SDS are not acceptable substitutes — the SDS must match the specific chemical product used in the shop."
+        "explanation": "Per OSHA's Hazard Communication Standard, the SDS binder (or electronic SDS system) must be in a designated accessible location known to all shop personnel. SDS must be readily accessible to every technician during every work shift. The technician should be shown the location as part of orientation. Generic internet SDSs are not acceptable — the SDS must match the specific chemical product used in the shop."
       },
       "preassessment": {
         "question": "Where should SDS be kept for shop chemicals?",
@@ -7353,13 +7353,13 @@
       "practice": {
         "question": "A new technician is preparing to clean circuit boards with a solvent they have not used before. What is the most important first step?",
         "choices": [
-          "Start cleaning immediately to save time",
-          "Read the SDS for the specific solvent to learn its hazards (flammable? toxic? skin irritant?), required PPE (gloves? goggles? respirator?), ventilation requirements, and first-aid measures. Only then should the technician gather the required PPE and begin work",
-          "Sniff the container to judge its safety",
-          "Ask another technician to do it instead"
+          "Start cleaning immediately to save time on the job",
+          "Read the SDS to identify hazards, PPE, and ventilation needs",
+          "Sniff the open container to judge whether it smells safe",
+          "Ask another technician to handle the cleaning task instead"
         ],
         "correctIndex": 1,
-        "explanation": "Every unfamiliar chemical requires an SDS review first. The SDS tells the technician what PPE is needed, whether a respirator is required, what ventilation is necessary, and what to do if something goes wrong. Skipping this step is dangerous. Sniffing to judge safety is also dangerous — some chemicals harm before you can smell them."
+        "explanation": "Every unfamiliar chemical requires an SDS review first. The SDS lists hazards (flammable, toxic, skin irritant), required PPE (gloves, goggles, respirator), ventilation requirements, and first-aid measures. Only after reviewing it should the technician gather the required PPE and begin work. Sniffing is itself dangerous — some chemicals harm before you can smell them."
       },
       "preassessment": {
         "question": "What is the first step before handling an unfamiliar solvent?",
@@ -7414,13 +7414,13 @@
       "practice": {
         "question": "A technician cleaning circuit boards with isopropyl alcohol in a poorly ventilated area begins to feel lightheaded and develops a headache. What should they do?",
         "choices": [
-          "Power through the symptoms to finish the job",
-          "Leave the area for fresh air, seek medical attention if symptoms persist, notify the supervisor of the exposure, and address the root cause — improve ventilation (open windows, use a fume extractor) or move the work to a properly ventilated area before continuing",
-          "Drink water and continue working",
-          "Switch to a stronger chemical"
+          "Power through the symptoms to finish the cleaning job on time",
+          "Leave the area for fresh air, notify the supervisor, and fix ventilation",
+          "Drink water and continue working at the same bench and pace",
+          "Switch to a stronger chemical that cuts the film faster on the board"
         ],
         "correctIndex": 1,
-        "explanation": "The correct response is immediate evacuation from exposure, medical evaluation if symptoms persist, supervisor notification, and root-cause fix (ventilation) before resuming. Continuing in the same environment risks unconsciousness or long-term injury. Stronger chemicals would make the exposure worse, not better."
+        "explanation": "Leave the area immediately for fresh air. Seek medical attention if symptoms persist. Notify the supervisor of the exposure. Address the root cause — improve ventilation (open windows, use a fume extractor) or move the work to a properly ventilated area before continuing. Continuing in the same environment risks unconsciousness or long-term injury. Stronger chemicals make the exposure worse, not better."
       },
       "preassessment": {
         "question": "What should a technician do if dizzy from solvent fumes?",
@@ -7475,13 +7475,13 @@
       "practice": {
         "question": "A small fire starts in an energized avionics rack during installation testing. Which extinguisher is appropriate?",
         "choices": [
-          "A CO2 or dry-chemical extinguisher rated for Class C (electrical) fires — water is prohibited on energized electrical equipment because it conducts electricity and creates shock hazard. Also, if possible, de-energize the equipment at the breaker while dealing with the fire",
-          "Water, because it cools the fire effectively",
-          "Sand, because it smothers the fire",
-          "Leave the fire alone — it will burn out"
+          "A CO2 or dry-chemical extinguisher rated for Class C electrical fires",
+          "Water, because it cools the fire effectively and is readily available",
+          "Sand, because it smothers the fire by cutting off oxygen supply",
+          "Leave the fire alone — it will burn itself out safely"
         ],
         "correctIndex": 0,
-        "explanation": "Energized electrical fires are Class C. Use a CO2 or dry-chemical extinguisher. De-energize at the breaker as quickly and safely as possible. Water is prohibited due to shock hazard. Sand is generally not used on electrical fires. Leaving a fire unattended is never acceptable — it spreads rapidly and fills spaces with toxic smoke."
+        "explanation": "Energized electrical fires are Class C. Use a CO2 or dry-chemical extinguisher — the agent is non-conductive, so the operator is not exposed to shock hazard. De-energize the equipment at the breaker as quickly and safely as possible while dealing with the fire. Water is prohibited on energized electrical equipment because it conducts electricity and creates a shock hazard. Sand is generally not used on electrical fires. Leaving a fire unattended is never acceptable — it spreads rapidly and fills spaces with toxic smoke."
       },
       "preassessment": {
         "question": "Class C fires involve:",
@@ -7536,13 +7536,13 @@
       "practice": {
         "question": "A technician performs the shop's monthly fire extinguisher check. Which of the following is part of a proper readiness inspection?",
         "choices": [
-          "Checking only that the extinguisher is heavy (feels full)",
-          "Verifying the pressure gauge is in the green zone, the safety pin is in place with an intact tamper seal, the cylinder and nozzle show no damage, the inspection tag is current, and the extinguisher is mounted in its designated location",
-          "Checking only the inspection tag",
-          "Checking nothing — monthly checks are not needed"
+          "Checking only that the extinguisher feels heavy, indicating it is full",
+          "Verifying gauge, pin/seal, condition, tag currency, and mounting location",
+          "Checking only the inspection tag for the most recent date stamp",
+          "Checking nothing — monthly extinguisher checks are not actually needed"
         ],
         "correctIndex": 1,
-        "explanation": "Proper monthly checks cover pressure, pin/seal, physical integrity, tag currency, and location. Weighing or tag-only checks miss common issues. Monthly visual checks are standard practice for aviation shop fire extinguishers; annual professional inspections verify internal integrity."
+        "explanation": "Proper monthly checks cover: pressure gauge in the green zone, safety pin in place with intact tamper seal, no damage to the cylinder or nozzle, current inspection tag, and extinguisher mounted in its designated location. Each item catches a distinct failure mode. Weighing or tag-only checks miss common issues. Monthly visual checks are standard practice; annual professional inspections verify internal integrity."
       },
       "preassessment": {
         "question": "A fire extinguisher readiness check should verify:",
@@ -7658,13 +7658,13 @@
       "practice": {
         "question": "A technician drops a small screw behind the avionics panel during installation. The screw fell somewhere into the equipment bay and may be lodged against wiring or structure. What is the correct action?",
         "choices": [
-          "Keep working; the screw is too small to cause a problem",
-          "Shake the aircraft to dislodge the screw",
-          "Stop work immediately, illuminate the equipment bay, use a magnet-on-a-stick or mirror-and-flashlight to locate the screw, and retrieve it before continuing. If the screw cannot be retrieved without further disassembly, document the missing FOD and take the necessary steps to recover it — the aircraft cannot be released with known loose hardware inside",
-          "Ignore it and sign off the work"
+          "Keep working — the screw is too small to cause a real problem",
+          "Shake the aircraft to try to dislodge and find the dropped screw",
+          "Stop, locate the screw with light and a magnet, and retrieve it",
+          "Ignore the dropped screw and sign off the completed work order"
         ],
         "correctIndex": 2,
-        "explanation": "A lost screw is a serious FOD issue. Stop, locate, retrieve. If retrieval requires further disassembly, do it — the aircraft cannot be released with known loose hardware. Shaking and ignoring are both unacceptable. FOD-related accidents have caused in-flight control jams and shorts."
+        "explanation": "A lost screw is a serious FOD issue. Stop work immediately, illuminate the equipment bay, use a magnet-on-a-stick or mirror-and-flashlight to locate it, and retrieve it before continuing. If retrieval requires further disassembly, do it — the aircraft cannot be released with known loose hardware inside. Document the FOD event. Shaking and ignoring are both unacceptable. FOD has caused in-flight control jams and electrical shorts."
       },
       "preassessment": {
         "question": "A small screw is dropped behind a panel — immediate action?",
@@ -7718,13 +7718,13 @@
       "practice": {
         "question": "A shop is developing its FOD prevention program. Which set of measures should it include?",
         "choices": [
-          "Shadow boards for tool accountability, checkout/check-in procedures, 'clean as you go' work habits, fastener counts before and after each task, regular shop walkdowns, and technician FOD-awareness training as an onboarding and recurrent item",
-          "A single annual FOD walkdown",
-          "A suggestion to technicians to 'be careful'",
-          "Only installing more trash receptacles"
+          "Shadow boards, tool checkout, clean-as-you-go, and FOD training",
+          "A single annual FOD walkdown of the whole shop",
+          "A general suggestion to technicians to 'just be careful'",
+          "Installing only additional trash receptacles on the floor"
         ],
         "correctIndex": 0,
-        "explanation": "A mature FOD prevention program combines multiple layers: tool accountability systems, workspace discipline, hardware tracking, regular inspections, and ongoing awareness training. No single measure is sufficient. This is why aviation maintenance organizations invest in formal FOD programs rather than relying on individual behavior."
+        "explanation": "A mature FOD prevention program combines multiple layers: shadow boards for tool accountability, checkout/check-in procedures, 'clean as you go' work habits, fastener counts before and after each task, regular shop walkdowns, and technician FOD-awareness training as both onboarding and recurrent items. No single measure is sufficient. This is why aviation maintenance organizations invest in formal FOD programs rather than relying on individual behavior."
       },
       "preassessment": {
         "question": "Most effective FOD prevention?",
@@ -7779,13 +7779,13 @@
       "practice": {
         "question": "A technician needs to work near the weather radar antenna in the nose of an aircraft. What precaution must be taken regarding the radar?",
         "choices": [
-          "No precaution needed; weather radar is low-power",
-          "Verify the radar is de-energized (ideally with the circuit breaker pulled and tagged) before working within the manufacturer's published keep-out zone, and follow any additional RF-safety procedures in the maintenance manual. Unintended radar transmission at close range can injure personnel, especially the eyes",
-          "Wear dark sunglasses as the only precaution",
-          "Only work on the radar during daytime"
+          "No precaution is needed since weather radar is low-power RF",
+          "Pull and tag the radar breaker before entering the keep-out zone",
+          "Wear dark sunglasses as the only eye-protection precaution",
+          "Work on the radar only during daytime for better visibility"
         ],
         "correctIndex": 1,
-        "explanation": "Aircraft weather radars are high-power transmitters that can cause serious injury at close range if accidentally energized. Required precautions include de-energizing (breaker out and tagged), observing keep-out zones, and following manufacturer procedures. Sunglasses alone are not adequate protection, and time of day is irrelevant to RF exposure."
+        "explanation": "Aircraft weather radars are high-power transmitters that can cause serious injury at close range — especially eye damage — if accidentally energized. Verify the radar is de-energized (circuit breaker pulled and tagged) before working within the manufacturer's published keep-out zone. Follow any additional RF-safety procedures in the maintenance manual. Sunglasses alone are not adequate; time of day is irrelevant to RF exposure."
       },
       "preassessment": {
         "question": "What is the main RF safety concern when working on transmitting systems?",
@@ -7840,13 +7840,13 @@
       "practice": {
         "question": "A technician almost steps off a stepladder that was improperly positioned, catching themselves before falling. No injury occurred. Should this event be reported, and why?",
         "choices": [
-          "Yes — this is a classic near-miss. Reporting it allows the shop to investigate and correct the underlying hazard (improperly positioned stepladder, lack of training, lack of inspection) before a real fall injures someone. Strong safety cultures actively encourage near-miss reporting",
-          "No, because no injury occurred",
-          "No, because only the technician was involved",
-          "No, because the technician is responsible for their own safety"
+          "Yes — near-miss reporting allows the shop to fix the hazard before someone is hurt",
+          "No, because no injury occurred from the improperly positioned stepladder",
+          "No, because only the technician was involved in the incident on the ladder",
+          "No, because the technician is responsible for their own safety at all times"
         ],
         "correctIndex": 0,
-        "explanation": "Reporting near-misses is the most effective way to prevent future accidents. Analyzing why the stepladder was improperly positioned — inadequate training, rushed work, missing inspection procedures — allows the shop to fix the root cause before someone is actually hurt. Near-miss reporting must be blame-free to encourage honest reporting."
+        "explanation": "This is a classic near-miss. Reporting it allows the shop to investigate and correct the underlying hazard — improperly positioned stepladder, lack of training, lack of inspection — before a real fall injures someone. Analyzing why the ladder was misplaced fixes root cause. Strong safety cultures actively encourage near-miss reporting, which must be blame-free to encourage honest reporting."
       },
       "preassessment": {
         "question": "What is a 'near-miss' in shop safety?",
@@ -7901,13 +7901,13 @@
       "practice": {
         "question": "A technician finds a coworker collapsed next to an energized test bench, apparently having received an electrical shock. What should the technician do?",
         "choices": [
-          "Immediately grab the coworker and pull them away",
-          "Splash water on the coworker to wake them up",
-          "First turn off the power at the bench breaker (or use a non-conductive object to separate the coworker from the source if the breaker is far away), then call 911, assess the coworker's breathing and responsiveness, begin CPR if they are unresponsive and not breathing, and use an AED if available. Stay with them until emergency responders arrive",
-          "Leave to find a supervisor before taking any action"
+          "Grab the coworker and pull them away from the bench",
+          "Splash water on the coworker to try to wake them",
+          "Cut bench power, then call 911 and begin CPR if needed",
+          "Leave to find the supervisor before taking any action"
         ],
         "correctIndex": 2,
-        "explanation": "The first-aid priority is rescuer safety — you cannot help if you are also electrocuted. Cut power first, then help. Call 911 as soon as the scene is safe. Begin CPR if needed. Water near live electrical equipment is dangerous. Leaving the victim delays critical care; call for help remotely (phone) rather than physically leaving."
+        "explanation": "Rescuer safety is first — you cannot help if you are also electrocuted. Priority: (1) shut off the bench at its breaker, or use a non-conductive object (dry wood, plastic) to separate the coworker from the source if the breaker is far away. (2) Call 911. (3) Assess responsiveness and breathing. (4) Begin CPR if unresponsive and not breathing; use an AED if available and trained. Stay with the victim until EMS arrives. Water near live equipment is dangerous. Leaving delays critical care — call remotely, do not leave physically."
       },
       "preassessment": {
         "question": "Immediate first aid for an electrical shock victim?",
@@ -8024,13 +8024,13 @@
         "function": "A GA repair shop is reviewing its hazmat disposal program. Which approach is compliant?",
         "question": "A GA repair shop is reviewing its hazmat disposal program. Which approach is compliant?",
         "choices": [
-          "Pour used solvents into the floor drain at end-of-shift",
+          "Pour used solvents into the floor drain at the end of the shift",
           "Mix all hazmat into a single trash bag and place in the dumpster",
-          "Burn excess chemicals in a metal barrel behind the shop",
-          "Collect solvents in a labeled, sealed drum for used solvent; collect waste oil in a separate labeled drum; collect batteries in a third labeled container; keep contaminated rags in a metal self-closing can; schedule regular pickup by a certified hazardous-waste disposal service; maintain records of quantities shipped for disposal"
+          "Burn excess chemicals in a metal barrel behind the shop building",
+          "Use separate labeled drums and a certified hazmat disposal service"
         ],
         "correctIndex": 3,
-        "explanation": "Compliant hazmat disposal uses separate labeled containers by category, secure storage, and certified disposal services. Record-keeping is typically required for certain hazmat quantities. Drain disposal, trash disposal, and open burning are all illegal and environmentally damaging."
+        "explanation": "Compliant hazmat disposal uses separate labeled containers by category: used solvents in a sealed drum, waste oil in a separate drum, batteries in a third container, contaminated rags in a metal self-closing can. Schedule regular pickup by a certified hazardous-waste disposal service and maintain records of quantities shipped. Drain disposal, trash disposal, and open burning are all illegal and environmentally damaging."
       },
       "preassessment": {
         "question": "How should hazmat be disposed of in a GA shop?",
@@ -8085,13 +8085,13 @@
       "practice": {
         "question": "A technician must approach a helicopter with its engine running to speak with the pilot. What approach technique is correct?",
         "choices": [
-          "Walk quickly from the tail to the cockpit",
-          "Enter from the rear to stay out of the pilot's view",
-          "Duck under the rotor disc and run across",
-          "Make eye contact with the pilot first and wait for a signal to approach. Then approach from the designated safe zone (typically the front or front-side), stay low enough that the rotor disc remains well above, stay well clear of the tail rotor at all times, and communicate clearly with the pilot. If in doubt, stop and wait"
+          "Walk quickly from the tail to the cockpit side window",
+          "Enter from the rear to stay out of the pilot's view area",
+          "Duck under the rotor disc and run straight across to the door",
+          "Make eye contact, await the pilot's signal, then approach from the front"
         ],
         "correctIndex": 3,
-        "explanation": "Eye-contact-and-signal approach is the correct procedure. Front approach, staying low, and staying clear of the tail rotor are critical safety elements. Approaching from the rear puts the technician in the tail-rotor strike zone. Ducking under a running rotor is dangerous — sloping ground or cyclic inputs can bring the blades down unexpectedly."
+        "explanation": "Eye-contact-and-signal approach is the correct procedure. Approach from the designated safe zone (typically the front or front-side), stay low enough that the rotor disc remains well above, stay well clear of the tail rotor at all times, and communicate clearly with the pilot. If in doubt, stop and wait. Approaching from the rear puts the technician in the tail-rotor strike zone. Ducking under a running rotor is dangerous — sloping ground or cyclic inputs can bring blades down unexpectedly."
       },
       "preassessment": {
         "question": "Safe practice around moving rotorcraft?",
@@ -9068,67 +9068,6 @@
           "It stays the same",
           "It decreases",
           "It depends on the resistor values"
-        ],
-        "correctIndex": 2
-      }
-    },
-    {
-      "id": "CAT2-NEW-030",
-      "category": "mod2-basic-electrical",
-      "difficulty": "easy",
-      "tags": [
-        "power-sources",
-        "battery",
-        "starting"
-      ],
-      "learningObjective": "Identify the primary functions of an aircraft battery",
-      "fullObjective": "Describe the aircraft battery's dual role of supplying engine-cranking current at start and serving as emergency backup power if the alternator or generator fails in flight.",
-      "flashcard": {
-        "term": "Aircraft battery — primary functions",
-        "definition": "The aircraft battery serves two primary functions: supplying cranking current to start the engine, and providing emergency backup power to critical loads if the charging system fails in flight.",
-        "analogy": "The aircraft battery combines the functions of a car battery and an emergency generator in one component.",
-        "unit": "Aircraft Power Systems"
-      },
-      "jeopardy": {
-        "question": "This is the PRIMARY function of an aircraft battery.",
-        "choices": [
-          "To provide continuous power for all avionics during flight",
-          "To power the navigation lights",
-          "To supply engine-cranking current and serve as emergency backup",
-          "To regulate the alternator's output voltage"
-        ],
-        "correctIndex": 2,
-        "explanation": "The battery's main jobs are engine starting and emergency backup. Continuous in-flight power comes from the alternator or generator; the battery supplements only during starting or if the charging system fails."
-      },
-      "multipleChoice": {
-        "question": "In a typical general aviation aircraft, what is the PRIMARY purpose of the battery?",
-        "choices": [
-          "To provide continuous power to all avionics during flight",
-          "To illuminate the instrument panel",
-          "To start the engine and serve as emergency backup power",
-          "To regulate the alternator's output voltage"
-        ],
-        "correctIndex": 2,
-        "explanation": "The battery starts the engine and serves as emergency backup power. In normal flight the alternator carries the load and also recharges the battery."
-      },
-      "practice": {
-        "question": "A pilot asks how long the avionics will continue to work if the alternator fails in flight. What determines that duration?",
-        "choices": [
-          "The alternator's rated output in watts",
-          "The setting of the voltage regulator",
-          "The battery's capacity in amp-hours and the current load the avionics draw",
-          "The engine's cruise RPM"
-        ],
-        "correctIndex": 2,
-        "explanation": "With the alternator offline, the battery alone powers the aircraft. Run time equals battery capacity in amp-hours divided by the load current in amperes. Load shedding (turning off non-essential loads) extends the available time, which is why pilots are trained to shed loads immediately after a charging-system failure."
-      },
-      "preassessment": {
-        "question": "What is the primary role of the aircraft battery?",
-        "choices": [
-          "Continuous avionics power",
-          "Lighting only",
-          "Engine starting and emergency backup",
-          "Alternator voltage regulation"
         ],
         "correctIndex": 2
       }
@@ -13224,13 +13163,13 @@
       "practice": {
         "question": "During a 100-hour inspection, a technician notices the COM1 whip antenna on the belly has visible corrosion around its mounting flange; which items must still be checked before returning the aircraft to service?",
         "choices": [
-          "Physical damage to the element, corrosion at the base (already found — requires removal, cleaning, resealing, and bond verification), mounting hardware security, sealant condition, and continuity of the bond to the airframe",
-          "Only the radio's transmit frequency stability",
-          "Only the cosmetic paint finish needs to be addressed",
-          "Only the antenna's serial tag needs photographing"
+          "Element damage, base corrosion, hardware, sealant, and bond continuity",
+          "Only the radio's transmit frequency stability at the antenna port",
+          "Only the cosmetic paint finish on the antenna and fairing",
+          "Only the antenna's serial number tag needs to be photographed"
         ],
         "correctIndex": 0,
-        "explanation": "Base corrosion compromises both the mechanical mounting and the electrical bond to the airframe ground plane. Proper corrective action includes removing the antenna, cleaning the bonding surface to bare metal, applying fresh sealant, reinstalling with proper torque, and verifying bond continuity. The inspection also covers damage to the element, hardware security, and sealant integrity overall."
+        "explanation": "Base corrosion compromises both mechanical mounting and the electrical bond to the airframe ground plane. Proper corrective action: remove the antenna, clean the bonding surface to bare metal, apply fresh sealant, reinstall with proper torque, and verify bond continuity. The inspection also covers damage to the element, mounting hardware security, and overall sealant integrity. Frequency stability, paint, and serial tags do not address the corrosion finding."
       },
       "preassessment": {
         "question": "Regular comm antenna inspection should include what?",
@@ -13553,13 +13492,13 @@
       "practice": {
         "question": "A student asks how an attitude indicator can keep showing level flight even while the aircraft pitches and rolls. What is the correct explanation?",
         "choices": [
-          "The instrument senses gravity with a small accelerometer",
-          "The instrument uses GPS to determine attitude",
-          "The instrument senses the aircraft structure bending",
-          "A spinning gyroscope inside the instrument resists changes to the orientation of its spin axis (rigidity in space), so the gyro stays fixed relative to its original direction while the aircraft moves around it; the instrument face displays that fixed reference as an artificial horizon"
+          "The instrument senses gravity with a small accelerometer package",
+          "The instrument uses GPS signals to determine aircraft attitude",
+          "The instrument senses aircraft structural bending during maneuvers",
+          "A spinning gyroscope inside maintains rigidity in space as a reference"
         ],
         "correctIndex": 3,
-        "explanation": "The classical attitude indicator depends on rigidity in space. The gyro is initially aligned with local vertical, and its own inertia keeps it there while the aircraft pitches and rolls around it. Modern AHRS replaces the mechanical gyro with solid-state sensors that compute an equivalent reference."
+        "explanation": "The gyroscope resists changes to the orientation of its spin axis (rigidity in space), so it stays fixed relative to its original direction while the aircraft moves around it. The instrument face displays that fixed reference as an artificial horizon. The gyro is initially aligned with local vertical, and its own inertia keeps it there while the aircraft pitches and rolls around it. Modern AHRS replaces the mechanical gyro with solid-state sensors computing an equivalent reference."
       },
       "preassessment": {
         "question": "Which principle gives gyros a stable reference?",
@@ -13884,13 +13823,13 @@
       "practice": {
         "question": "During a post-maintenance test flight a pilot reports the airspeed indicator consistently reads about 8 knots lower than GPS ground speed suggests. Which is the most productive first check?",
         "choices": [
-          "Replace the airspeed indicator on the bench",
-          "Inspect the pitot tube and pitot line for partial blockage, a loose fitting, or a missed O-ring from recent maintenance — reduced ram pressure is the most likely cause of a consistently low ASI",
-          "Reset the transponder and altimeter",
-          "Replace the magnetic compass card"
+          "Replace the airspeed indicator on the bench without further checks",
+          "Inspect the pitot tube and line for blockage or a loose fitting",
+          "Reset the transponder and altimeter to clear any stored faults",
+          "Replace the magnetic compass card with a newly calibrated one"
         ],
         "correctIndex": 1,
-        "explanation": "After maintenance, newly low ASI readings are often traceable to work done on the pitot side — a loose fitting, missed O-ring, or pinched line. Inspect the physical pitot path first. Instrument replacement, transponder/altimeter resets, and compass changes are premature without evidence they are needed."
+        "explanation": "After maintenance, newly low ASI readings are often traceable to work done on the pitot side — a loose fitting, missed O-ring, partial blockage, or pinched line. Reduced ram pressure is the most likely cause of a consistently low ASI. Inspect the physical pitot path first. Instrument replacement, transponder/altimeter resets, and compass changes are premature without evidence they are needed."
       },
       "preassessment": {
         "question": "ASI consistently reads too low — most likely cause?",
@@ -14083,13 +14022,13 @@
       "practice": {
         "question": "A technician verifying a static system calibration notes that the port pressure changes with altitude but not with airspeed. Is this the expected behavior for a well-designed static system?",
         "choices": [
-          "No — static pressure should increase with airspeed",
-          "Yes, but only below 10,000 feet",
-          "No — static pressure should decrease with airspeed",
-          "Yes — the static system is designed to sense ambient atmospheric pressure, which depends on altitude but not on the aircraft's speed; ideal static ports are placed where local airflow does not disturb the reading"
+          "No — static pressure should increase with increasing airspeed",
+          "Yes, but only below 10,000 feet density altitude",
+          "No — static pressure should decrease with increasing airspeed",
+          "Yes — static pressure depends on altitude, not on airspeed"
         ],
         "correctIndex": 3,
-        "explanation": "Static pressure is altitude-dependent and ideally airspeed-independent. Well-designed static ports are located where airflow around the fuselage does not disturb the pressure measurement. This is exactly what distinguishes the static system from the pitot tube, which does depend on airspeed (because it senses ram pressure)."
+        "explanation": "Static pressure is altitude-dependent and ideally airspeed-independent. The static system is designed to sense ambient atmospheric pressure, which depends on altitude but not on the aircraft's speed. Well-designed static ports are placed where local airflow does not disturb the reading. This is exactly what distinguishes the static system from the pitot tube, which does depend on airspeed (because it senses ram pressure)."
       },
       "preassessment": {
         "question": "The static pressure system senses:",
@@ -14150,13 +14089,13 @@
       "practice": {
         "question": "A technician is explaining the standard altimeter setting used above the transition altitude. Which value is correct?",
         "choices": [
-          "28.00 inHg, which represents low-pressure weather systems",
-          "29.92 inHg (equivalent to 1013.25 hPa or about 14.7 psi) — the international standard sea-level pressure used by all aircraft at and above the transition altitude, so that all aircraft on flight levels share the same altimetry reference",
-          "30.12 inHg, which represents high-pressure weather systems",
-          "32.50 inHg, used only at very high altitudes"
+          "28.00 inHg, which represents typical low-pressure weather systems",
+          "29.92 inHg (1013.25 hPa) — international standard pressure reference",
+          "30.12 inHg, which represents typical high-pressure weather systems",
+          "32.50 inHg, which is used only at very high altitudes worldwide"
         ],
         "correctIndex": 1,
-        "explanation": "Standard sea-level pressure (29.92 inHg / 1013.25 hPa) is the reference used at and above the transition altitude so that every aircraft on flight levels shares the same altitude reference. Below the transition altitude, aircraft use the local altimeter setting. The other values represent actual weather highs and lows but are not the standard."
+        "explanation": "Standard sea-level pressure — 29.92 inHg, equivalent to 1013.25 hPa or about 14.7 psi — is the international reference used by all aircraft at and above the transition altitude, so every aircraft on flight levels shares the same altimetry reference. Below the transition altitude, aircraft use the local altimeter setting. The other values represent actual weather highs and lows but are not the standard."
       },
       "preassessment": {
         "question": "ISA sea level pressure value?",
@@ -15397,12 +15336,13 @@
       "preassessment": {
         "question": "What is the primary factor when choosing aircraft wire insulation?",
         "choices": [
-          "Reel size",
-          "Jacket color",
+          "Spool reel size",
+          "Jacket color code",
           "Cost per foot",
-          "Operating environment (temperature, abrasion, fluid exposure)"
+          "Operating environment"
         ],
-        "correctIndex": 3
+        "correctIndex": 3,
+        "explanation": "Aircraft wire insulation is chosen first by operating environment — temperature range, abrasion resistance, and fluid exposure (fuel, hydraulic fluid, skydrol). These drive the insulation family (PTFE, ETFE, polyimide, etc.). Reel size is a purchasing detail. Jacket color is for identification after selection. Cost matters but never overrides environmental suitability."
       },
       "targetCaetId": "464301",
       "targetCaetStem": "What is the primary consideration when choosing wire insulation for an aircraft?",
@@ -16804,13 +16744,13 @@
       "practice": {
         "question": "During a post-installation inspection, the technician notes a braided metal strap between the radio shelf and the surrounding aircraft structure. A trainee asks why it is there. What should the technician explain?",
         "choices": [
-          "It is a spare wire kept for future use",
-          "It is a bonding jumper that maintains the radio shelf at the same electrical potential as the surrounding structure, providing a low-resistance path so fault currents, static charge, and any lightning-induced current flow safely to structure rather than developing a voltage difference that could cause arcing or interfere with the radio",
-          "It carries primary power to the radio",
-          "It is purely decorative"
+          "A spare wire kept for future use on the shelf",
+          "A bonding jumper equalizing shelf and structure potential",
+          "The primary power feed to the radio chassis",
+          "A decorative trim strap required by the kit"
         ],
         "correctIndex": 1,
-        "explanation": "Bonding jumpers are everywhere in aircraft electrical systems because equipotential matters. The strap provides a low-resistance path between the shelf and structure. If a fault or static charge accumulates on the shelf, current flows through the bond rather than building up a voltage. Without the bond, the shelf could float to a different potential than the surrounding structure, causing arcing and RF interference, and creating a shock hazard during maintenance."
+        "explanation": "Bonding jumpers keep the shelf at the same electrical potential as the surrounding structure. They provide a low-resistance path so fault currents, static charge, and lightning-induced current flow safely to structure rather than developing a voltage difference. Without the bond, the shelf can float to a different potential, causing arcing, RF interference, and a shock hazard during maintenance."
       },
       "preassessment": {
         "question": "Primary purpose of a bonding jumper?",
@@ -16869,13 +16809,13 @@
       "practice": {
         "question": "A technician reads 0 V across a series resistor that should be dropping 5 V in an active 28 V circuit. What should the technician investigate?",
         "choices": [
-          "Conclude the resistor is fine and continue",
-          "Replace the meter because 0 V is impossible",
-          "Check whether current is actually flowing through the branch. If current is flowing, the resistor is internally shorted or has a parallel short across it. If no current is flowing, there is an upstream open circuit preventing current from reaching the resistor. Both conditions can produce a 0 V reading and each requires a different repair",
-          "Increase the bus voltage and remeasure"
+          "Conclude the resistor is fine and continue with testing",
+          "Replace the meter because a 0 V reading is impossible here",
+          "Verify whether current is flowing through the branch",
+          "Increase the bus voltage above 28 V and remeasure the drop"
         ],
         "correctIndex": 2,
-        "explanation": "The 0 V reading is diagnostic but ambiguous. Confirming whether current is present in the branch (via an ammeter or by measuring a voltage drop elsewhere) separates the two possibilities. A shorted resistor and an upstream open look the same at the component — confirming current flow resolves the ambiguity and guides the correct repair."
+        "explanation": "A 0 V reading across a resistor that should drop 5 V is ambiguous. If current is flowing, the resistor is internally shorted or has a parallel short across it. If no current is flowing, an upstream open is preventing current from reaching the resistor. Both conditions produce 0 V, but each requires a different repair. Confirming current with an ammeter (or a voltage drop elsewhere) resolves the ambiguity."
       },
       "preassessment": {
         "question": "The DMM shows 0 V across a powered component — explain a condition that could cause this.",
@@ -16934,13 +16874,13 @@
       "practice": {
         "question": "A new technician is learning to measure a small fitting with a 0-1 inch micrometer. What habits should the technician develop from the start?",
         "choices": [
-          "Grip the thimble firmly and twist hard",
-          "Before measuring: close the anvil and spindle to confirm zero reads 0.000 inches, wipe the measuring faces clean, and use the ratchet or friction thimble to apply consistent light pressure. Position the part squarely between the faces and take two or three readings at slightly different positions to verify consistency. Learn the feel, not the force",
-          "Warm the part with your hand first",
-          "Rely on the first reading without checking"
+          "Grip the thimble firmly and twist hard to close",
+          "Zero the micrometer, clean the faces, and use the ratchet",
+          "Warm the part in your hand before measuring it",
+          "Trust the first reading without repeating the measurement"
         ],
         "correctIndex": 1,
-        "explanation": "Micrometer accuracy depends on zero verification, clean measuring faces, consistent contact force (provided by the ratchet or friction thimble), and square seating. Overtightening deforms both soft parts and the micrometer itself. Hand-warming expands the part and introduces error. Single readings miss positioning mistakes. Building good technique from the start avoids rework."
+        "explanation": "Micrometer accuracy depends on zero verification (close the anvil and spindle, confirm 0.000 in.), clean measuring faces, consistent light contact force from the ratchet or friction thimble, and square seating of the part. Take two or three readings at slightly different positions to verify consistency. Learn the feel, not the force — overtightening deforms both soft parts and the micrometer. Hand-warming expands the part and introduces error."
       },
       "preassessment": {
         "question": "Accurate micrometer measurement requires:",
@@ -17064,13 +17004,13 @@
       "practice": {
         "question": "A technician is removing a series of small Phillips screws from an avionics faceplate. Two of the screws have started showing wear at the head. What should the technician do to prevent further damage?",
         "choices": [
-          "Apply more torque and force the screws out",
-          "Lubricate the driver tip and continue",
-          "Stop, confirm the correct Phillips size is being used (typically #0, #1, or #2 for small screws), ensure the tip is fully seated, and apply firm straight-down pressure in line with the screw axis while turning. If a head is already too damaged to engage, switch to a screw extractor or damaged-screw tool before continuing",
-          "Use a longer-handled screwdriver for more leverage"
+          "Apply more torque and force the worn screws out",
+          "Lubricate the driver tip and continue working",
+          "Match the correct tip size, seat fully, and apply axial pressure",
+          "Use a longer-handled screwdriver to gain more leverage"
         ],
         "correctIndex": 2,
-        "explanation": "Continuing with a mismatched or poorly seated driver on a damaged head guarantees further damage. Correct response: verify the right tip size for the screw, seat it fully, apply straight axial pressure to keep the driver engaged, and reduce torque if the screw is stuck. If the head is past rescue, a damaged-screw extractor is the correct tool. Lubrication and longer handles do not address the engagement problem."
+        "explanation": "Continuing with a mismatched or poorly seated driver on a damaged head guarantees further damage. Verify the correct Phillips size for the screw (typically #0, #1, or #2 for small screws), ensure the tip is fully seated, and apply firm straight-down pressure in line with the screw axis while turning. If a head is already too damaged to engage, switch to a screw extractor or damaged-screw tool. Lubrication and longer handles do not address the engagement problem."
       },
       "preassessment": {
         "question": "MOST important factor to prevent screw-head damage?",
@@ -17129,13 +17069,13 @@
       "practice": {
         "question": "A technician needs to verify that a newly installed bonding strap reads less than 5 milliohms per the installation procedure. Which instrument is appropriate, and why?",
         "choices": [
-          "A milliohmmeter, because the target value is in milliohms. A standard DMM's lead and contact resistance alone would be several hundred milliohms, completely masking the real bond resistance. The milliohmmeter uses a four-wire Kelvin connection that eliminates lead resistance from the reading",
-          "A standard DMM on the ohms range, because it can read resistance",
-          "A megohmmeter at 500 V",
-          "An oscilloscope"
+          "A milliohmmeter, because Kelvin leads eliminate lead resistance error",
+          "A standard DMM on the ohms range, because it reads resistance directly",
+          "A megohmmeter set to 500 V DC for insulation testing",
+          "An oscilloscope to observe any ripple on the measurement"
         ],
         "correctIndex": 0,
-        "explanation": "The target measurement is in milliohms, which is beyond the usable resolution of a standard DMM. DMM lead resistance alone (typically 200-500 milliohms) is orders of magnitude larger than the bond being measured and would completely dominate the reading. A milliohmmeter's four-wire Kelvin technique separates the current-injection leads from the voltage-sense leads, eliminating lead resistance from the measurement. Meggers measure insulation, not bonding. Oscilloscopes show waveforms."
+        "explanation": "The target value is in milliohms. A standard DMM's lead and contact resistance alone (typically 200-500 milliohms) is orders of magnitude larger than the bond being measured and would completely dominate the reading. A milliohmmeter uses a four-wire Kelvin connection that separates current-injection leads from voltage-sense leads, eliminating lead resistance from the reading. Meggers measure insulation, not bonding. Oscilloscopes show waveforms."
       },
       "preassessment": {
         "question": "On the shop bench, a milliohmmeter measures:",
@@ -17195,12 +17135,12 @@
         "question": "A technician sees the letter C on the faceplate of a fire extinguisher mounted next to an avionics test bench. What category of fire is that extinguisher rated to fight?",
         "choices": [
           "Fires in paper, wood, or shop rags",
-          "Fires involving energized electrical equipment — the C rating tells the technician the extinguisher is safe to use on live wiring, motors, avionics, and powered bench equipment. The agent is non-conductive (CO2 or dry chemical), so the operator is not exposed to a shock hazard while discharging it",
+          "Fires involving energized electrical equipment",
           "Fires in gasoline, solvent, or hydraulic fluid spills",
           "Fires in magnesium or sodium metal chips"
         ],
         "correctIndex": 1,
-        "explanation": "The C rating means the extinguisher is approved for energized electrical equipment. That is exactly why it is mounted by the test bench — the most likely fire in that area is a short or overheat on a live circuit. A Class A would be for the rag bin, a Class B for a solvent cabinet, and a Class D for a metals-machining area. Using a water extinguisher on a Class C fire risks electrocution."
+        "explanation": "The C rating means the extinguisher is approved for energized electrical equipment — live wiring, motors, avionics, and powered bench equipment. The agent is non-conductive (CO2 or dry chemical), so the operator is not exposed to a shock hazard while discharging it. That is exactly why it is mounted by the test bench. A Class A is for the rag bin, Class B for a solvent cabinet, and Class D for metals machining. Using a water extinguisher on a Class C fire risks electrocution."
       },
       "preassessment": {
         "question": "Class C fires involve what?",
@@ -17261,12 +17201,12 @@
         "question": "A shop is about to bench-install a new GPS navigator whose installation manual calls for a chassis bond to airframe structure. The unit is out of the box and the mounting tray is in place. Which action must be completed before any power-on testing?",
         "choices": [
           "Route power to the unit and look at the display to confirm it is working",
-          "Create an equipotential reference first: follow the installation manual's bonding diagram to tie the chassis, the bonding jumpers, the mounting tray, nearby airframe structure, and any bench test equipment to one low-impedance point. Verify bond resistance with a milliohm meter where the manual specifies. Only after bonding is verified does the technician route power and begin functional tests",
-          "Confirm that the pilot's seat rails are bonded to the airframe before anything else",
-          "Clip the antenna coax shield to the nearest headset jack as a ground"
+          "Bond chassis, tray, and structure first, then verify with a milliohm meter",
+          "Confirm that the pilot's seat rails are bonded to the airframe first",
+          "Clip the antenna coax shield to the nearest headset jack as a ground path"
         ],
         "correctIndex": 1,
-        "explanation": "The correct first action is equipotential bonding in accordance with the installation manual. Bond resistance is typically required to be in the low-milliohm range. Skipping this step and applying power risks damaging the unit, creating a shock hazard to the technician, and producing intermittent operation once the aircraft returns to service. AC 43.13-1B Chapter 11 covers bonding and grounding practices."
+        "explanation": "Create an equipotential reference first: follow the installation manual's bonding diagram to tie the chassis, bonding jumpers, mounting tray, nearby airframe structure, and any bench test equipment to one low-impedance point. Verify bond resistance with a milliohm meter where the manual specifies (typically in the low-milliohm range). Only after bonding is verified does the technician route power and begin functional tests. Skipping this step risks damaging the unit, creating a shock hazard, and producing intermittent operation. AC 43.13-1B Chapter 11 covers bonding and grounding."
       },
       "preassessment": {
         "question": "Before energizing a newly installed avionics unit, what must be done?",
@@ -17327,12 +17267,12 @@
         "question": "During a routine avionics installation, a pressurized hydraulic line leaks onto the floor next to the avionics bench, creating a pool about three feet across. Bystanders are walking through the shop. What is the correct immediate response?",
         "choices": [
           "Finish the current task first, then mop up the fluid at the end of the shift",
-          "Pour mineral spirits on the spill to thin it out and then move on",
-          "Stop work and warn personnel out of the area; eliminate nearby ignition sources (unplug heaters, post 'no smoking'); place an absorbent pad or boom around the perimeter and lay absorbent granules over the pool; open ventilation; follow the fluid's SDS for cleanup; and place the contaminated absorbent into a properly labeled hazmat drum for certified disposal",
-          "Push the pooled fluid toward the floor drain with a shop broom"
+          "Pour mineral spirits on the spill to thin it out and then move on to other work",
+          "Stop work, warn people out, eliminate ignition, and contain with absorbent",
+          "Push the pooled fluid toward the floor drain with a shop broom to clear it"
         ],
         "correctIndex": 2,
-        "explanation": "Hydraulic fluids are typically combustible and always a slip risk. The correct sequence is stop-warn-contain-clean-dispose. Approved absorbents are used; contaminated absorbent is hazmat (not regular trash). Floor-drain disposal violates federal and local environmental rules and can contaminate waterways. Thinning the spill with a solvent only makes cleanup harder and increases fire risk."
+        "explanation": "Hydraulic fluids are typically combustible and always a slip risk. Sequence: stop-warn-contain-clean-dispose. (1) Stop work and warn personnel out of the area. (2) Eliminate nearby ignition sources (unplug heaters, post 'no smoking'). (3) Place an absorbent pad or boom around the perimeter and lay absorbent granules over the pool. (4) Open ventilation. (5) Follow the fluid's SDS for cleanup. (6) Place contaminated absorbent into a properly labeled hazmat drum for certified disposal. Floor-drain disposal violates environmental rules; solvent thinning increases fire risk."
       },
       "preassessment": {
         "question": "Hydraulic fluid spilled near the bench — recommended action?",
@@ -17392,13 +17332,13 @@
       "practice": {
         "question": "A shop manager is setting up a flammable-liquid storage area for IPA, contact cleaner, and a small quantity of naphtha used on the avionics bench. Which storage method is compliant?",
         "choices": [
-          "Leave the bottles open on a shelf above the soldering station so technicians can reach them quickly",
-          "Install a UL-listed (or FM-approved) flammable-liquid storage cabinet: grounded via a bonding strap, vented per local fire code (or sealed with vent caps if code permits), self-closing doors kept latched when not in use, outside labeling 'Flammable — Keep Fire Away,' and placement at least several feet from soldering stations, heaters, and exits. Keep inventory inside the cabinet limited to daily-use quantities",
-          "Convert a household refrigerator to chemical storage because it seals the fumes inside",
-          "Stack the shipping cartons near the main exit so nothing blocks the benches"
+          "Leave the bottles open on a shelf above the soldering station so technicians can reach them",
+          "Install a UL-listed flammable cabinet, bonded and vented, away from ignition sources",
+          "Convert a household refrigerator to chemical storage because it seals the fumes inside a cold space",
+          "Stack the shipping cartons near the main exit so nothing blocks the work benches and aisles"
         ],
         "correctIndex": 1,
-        "explanation": "The NFPA/OSHA approach is a listed flammable-liquid cabinet with grounding, venting, self-closing latched doors, and outside labeling. Distance from ignition sources and exits is also required. Open-shelf storage above a soldering station is dangerous — a tipped bottle plus a hot iron is an ignition event. Household refrigerators arc internally and have caused fatal lab fires. Storage near an exit blocks egress during a fire."
+        "explanation": "The NFPA/OSHA approach is a listed flammable-liquid cabinet: UL-listed or FM-approved, grounded via a bonding strap, vented per local fire code (or sealed with vent caps if code permits), self-closing doors kept latched when not in use, outside labeled 'Flammable — Keep Fire Away,' and placed at least several feet from soldering stations, heaters, and exits. Keep inventory inside limited to daily-use quantities. Open shelves above a soldering iron are an ignition event waiting to happen. Household refrigerators arc internally and have caused fatal lab fires. Storage near exits blocks egress."
       },
       "preassessment": {
         "question": "What is the correct storage practice for flammable liquids in an avionics shop?",
@@ -17459,12 +17399,12 @@
         "question": "A technician is sent out to a customer's helicopter that has just landed with its rotor still turning. The pilot is still in the cockpit and needs to speak with the technician. How should the technician approach?",
         "choices": [
           "Walk briskly to the tail of the helicopter to stay out of the rotor disc",
-          "Approach from the uphill side because the disc is higher overhead",
-          "Move into the pilot's view on the 3 or 9 o'clock side, stop outside the disc, establish eye contact, and wait for the pilot's thumbs-up signal. Then approach in a crouched posture, keep the main rotor blades above head level, never cross to the tail-rotor side of the cabin, and if the helicopter is on sloping ground, approach from the downhill side only. If anything feels unsafe, stop and wait",
-          "Duck under the rotor and run straight to the cockpit door to save time"
+          "Approach from the uphill side because the main disc is higher overhead",
+          "Enter the pilot's sightline, wait for a thumbs-up, then crouch in from the front",
+          "Duck under the main rotor and run straight to the cockpit door to save time"
         ],
         "correctIndex": 2,
-        "explanation": "The standard procedure is pilot line-of-sight approach, pilot signal, crouched movement, and total avoidance of the tail rotor and the uphill side of a sloping disc. The tail rotor is essentially invisible at full RPM and kills anyone who contacts it. On sloping ground the main rotor tip on the uphill side can drop to head height. Running under the disc is dangerous because gusts or cyclic inputs can flex the blades downward."
+        "explanation": "Move into the pilot's view on the 3 or 9 o'clock side, stop outside the disc, establish eye contact, and wait for the pilot's thumbs-up signal. Then approach in a crouched posture, keep the main rotor blades above head level, never cross to the tail-rotor side of the cabin, and on sloping ground approach from the downhill side only. If anything feels unsafe, stop and wait. The tail rotor is essentially invisible at full RPM and kills anyone who contacts it. On sloping ground, the main rotor tip on the uphill side can drop to head height."
       },
       "preassessment": {
         "question": "Safe practice around a moving rotorcraft?",
@@ -17524,13 +17464,13 @@
       "practice": {
         "question": "A technician is about to remove and reinstall the weather radar flat-plate antenna in the nose of a turboprop. The aircraft is in the hangar. What is the single biggest RF-safety concern the technician must address before starting work?",
         "choices": [
-          "Whether the radome paint will match after reassembly",
-          "Personnel exposure to the transmitted RF beam if the radar is inadvertently energized. Before any close-in work, pull and tag the radar circuit breaker, place a warning placard in the cockpit, cap or cover the antenna face, and confirm with the maintenance manual's keep-out zones. Never work in front of an energized radar antenna",
-          "Whether the avionics bay temperature will rise during the job",
-          "Whether the radar might interfere with a Bluetooth headset in the shop"
+          "Whether the radome paint will match the fuselage after reassembly",
+          "Personnel RF exposure if the radar is inadvertently energized during work",
+          "Whether the avionics bay temperature will rise during the installation job",
+          "Whether the radar might interfere with a Bluetooth headset in the shop area"
         ],
         "correctIndex": 1,
-        "explanation": "Personnel RF exposure is the primary hazard. High-power transmitters such as weather radar can cause thermal burns to deep tissue and permanent eye injury at close range. Mandatory protections: pull the breaker, tag and placard, cap the antenna, and consult the manual's keep-out zones. Paint, bay temperature, and consumer-electronics interference are not life-safety issues."
+        "explanation": "Personnel RF exposure is the primary hazard. High-power transmitters like weather radar can cause thermal burns to deep tissue and permanent eye injury at close range. Before close-in work: pull and tag the radar circuit breaker, place a warning placard in the cockpit, cap or cover the antenna face, and confirm the maintenance manual's keep-out zones. Never work in front of an energized radar antenna. Paint, bay temperature, and consumer-electronics interference are not life-safety issues."
       },
       "preassessment": {
         "question": "Biggest concern on RF-emitting systems?",
@@ -17589,13 +17529,13 @@
       "practice": {
         "question": "A technician has been issued an unfamiliar circuit-board cleaning solvent. Before using it, the technician wants to confirm the proper PPE, ventilation requirements, and spill response for that specific product. Where is the correct place to look?",
         "choices": [
-          "Run an internet search on the brand name and trust the top result",
-          "Check the shipping invoice that came with the chemical",
-          "Pull the Safety Data Sheet (SDS) for that exact product from the shop's SDS binder (or the electronic SDS system). The SDS — prepared by the manufacturer and required by OSHA's Hazard Communication Standard — contains 16 standardized sections including hazards, required PPE, first aid, handling, storage, spill response, and disposal. If the SDS is missing, ask the supervisor to obtain it from the supplier before use",
+          "Run an internet search on the brand and trust the top result you see",
+          "Check the shipping invoice that came with the chemical container",
+          "Pull the Safety Data Sheet for that exact product from the shop's SDS system",
           "Look for a handwritten sticky note left by another technician"
         ],
         "correctIndex": 2,
-        "explanation": "The SDS is the regulatory-required, product-specific source. Sections 4 (first aid), 6 (accidental release), 7 (handling/storage), and 8 (exposure controls/PPE) give the technician everything needed to work safely with that specific product. Internet searches can return data for a different formulation or an outdated version. Invoices and sticky notes are neither authoritative nor complete."
+        "explanation": "The SDS is the regulatory-required, product-specific source. Prepared by the manufacturer and required by OSHA's Hazard Communication Standard, it contains 16 standardized sections including hazards, required PPE, first aid, handling, storage, spill response, and disposal. Sections 4, 6, 7, and 8 give the technician everything needed. If the SDS is missing, ask the supervisor to obtain it from the supplier before use. Internet searches can return a different formulation or outdated version; invoices and sticky notes are neither authoritative nor complete."
       },
       "preassessment": {
         "question": "Where do you find safety info on a specific chemical solvent?",
@@ -17654,13 +17594,13 @@
       "practice": {
         "question": "A technician is walking through the shop when a heavy avionics unit shifts on a roll-around cart. The unit tips forward but is caught by the cart rail before it falls. No one is hurt, and the equipment is undamaged. Should this be reported, and how should the shop treat it?",
         "choices": [
-          "Report it as a near-miss. A near-miss is an unplanned event that could have caused injury or damage but did not. Investigating it — why did the unit shift, was the cart appropriate, were tie-downs used, was the load too heavy — allows the shop to correct the root cause before the same sequence injures someone or breaks a $30,000 unit. A blame-free reporting culture is essential so technicians actually speak up",
+          "Report it as a near-miss so the shop can investigate root cause",
           "No report is needed because nothing was damaged and no one was hurt",
-          "No report is needed because only one technician witnessed it",
+          "No report is needed because only one technician witnessed the shift",
           "The technician should handle the fix personally without telling anyone"
         ],
         "correctIndex": 0,
-        "explanation": "A near-miss is exactly this type of event — no injury, no damage, but clear potential. Reporting and investigating is the way shops convert free warnings into corrective action. A blame-free reporting environment is critical; if technicians fear punishment, near-misses go unreported and the underlying hazards persist until someone is hurt."
+        "explanation": "A near-miss is an unplanned event that could have caused injury or damage but did not. Investigating it — why did the unit shift, was the cart appropriate, were tie-downs used, was the load too heavy — allows the shop to correct the root cause before the same sequence injures someone or breaks a $30,000 unit. A blame-free reporting culture is essential so technicians actually speak up; if they fear punishment, near-misses go unreported and hazards persist until someone is hurt."
       },
       "preassessment": {
         "question": "What is a near-miss?",
@@ -17709,23 +17649,23 @@
         "question": "A coworker has been shocked by live current and is down on the floor. What is the correct sequence of actions?",
         "choices": [
           "Pull the coworker away from the source with bare hands to save time",
-          "First make sure the coworker is no longer in contact with the energized source — cut power at the breaker or use a non-conductive object (dry wood, plastic, rubber) to separate them. Then call 911, assess responsiveness and breathing, and begin CPR or use an AED as trained",
-          "Splash water on the coworker to try to revive them",
-          "Leave the area to find a supervisor before taking any action"
+          "Separate from source with non-conductive means, then call 911 and start CPR",
+          "Splash water on the coworker to try to revive them quickly",
+          "Leave the area to find a supervisor before taking any further action"
         ],
         "correctIndex": 1,
-        "explanation": "The correct sequence is: verify the coworker is no longer energized (cut power or separate with a non-conductive object) — call 911 — assess and begin CPR/AED if needed. Grabbing a person still in contact with live current electrocutes the rescuer. Water is a shock hazard near energized equipment. Leaving to find a supervisor delays critical care; call 911 from the scene."
+        "explanation": "Correct sequence: (1) verify the coworker is no longer in contact with the energized source — cut power at the breaker or use a non-conductive object (dry wood, plastic, rubber) to separate them. (2) Call 911. (3) Assess responsiveness and breathing. (4) Begin CPR or use an AED as trained. Grabbing a person still in contact with live current electrocutes the rescuer. Water is a shock hazard near energized equipment. Leaving to find a supervisor delays critical care — call 911 from the scene."
       },
       "practice": {
         "question": "A technician turns a corner in the avionics shop and finds a coworker lying next to an energized 120 V test bench, apparently unresponsive after receiving a shock. What is the correct sequence of actions?",
         "choices": [
           "Grab the coworker and pull them clear of the bench immediately",
-          "Pour water on the coworker to try to wake them",
-          "First confirm the coworker is no longer in contact with the energized source — ideally by shutting off the bench at its breaker or disconnecting the power cord. If the breaker is not reachable, use a non-conductive object (a dry wooden tool handle, a plastic broomstick) to separate the victim from the source. Then call 911, check responsiveness and breathing, begin CPR if not breathing, and apply an AED if available and if trained",
-          "Leave the area and go find the shop supervisor before doing anything"
+          "Pour water on the coworker to try to wake them quickly",
+          "Cut bench power to separate them, then call 911 and start CPR",
+          "Leave the area to go find the shop supervisor before doing anything"
         ],
         "correctIndex": 2,
-        "explanation": "Rescuer safety is always the first priority. A victim still in contact with live current will electrocute anyone who touches them. The correct sequence is kill-or-separate-the-source, then call, then assess and treat. Water near live electrical equipment is dangerous. Leaving the victim to find a supervisor delays life-critical care — call 911 from the scene and, if possible, send someone else for help."
+        "explanation": "Rescuer safety is always the first priority. A victim still in contact with live current will electrocute anyone who touches them. Sequence: (1) confirm the coworker is separated from the energized source — shut off the bench at its breaker or disconnect the power cord. If the breaker is not reachable, use a non-conductive object (dry wooden tool handle, plastic broomstick) to separate them. (2) Call 911. (3) Check responsiveness and breathing. (4) Begin CPR if not breathing and apply an AED if trained. Water near live equipment is dangerous; leaving the victim delays life-critical care."
       },
       "preassessment": {
         "question": "Immediate first aid for an electrical-shock victim?",
@@ -17786,12 +17726,12 @@
         "question": "An FAA Part 145 repair station uses a dozen hazardous chemicals in its avionics shop — cleaners, solvents, adhesives, and potting compound. An OSHA compliance inspector asks what document is kept for each product and how it is made available. What is the correct answer?",
         "choices": [
           "The shop keeps an annual environmental compliance summary on file for auditors only",
-          "The shop maintains a current Safety Data Sheet (SDS) for every hazardous product in use. SDSs are provided by the manufacturer, follow a 16-section format, and are kept in an SDS binder in the shop plus an electronic SDS system accessible on shop computers. Every technician is shown the location during orientation, and access is available during every work shift — in compliance with OSHA's Hazard Communication Standard (29 CFR 1910.1200)",
-          "The shop keeps signed purchase orders as the safety record",
+          "The shop maintains a current Safety Data Sheet for every hazardous product, accessible to all",
+          "The shop keeps signed purchase orders as the chemical safety record of use",
           "The shop attaches a receiving tag to each container and considers that sufficient"
         ],
         "correctIndex": 1,
-        "explanation": "The SDS is the required document; access must be immediate, during every shift. The typical implementation combines a physical binder with an electronic system for redundancy. Environmental summaries, purchase orders, and receiving tags are administrative records, not hazard-communication documents, and do not satisfy 29 CFR 1910.1200 or Part 145 shop-safety requirements."
+        "explanation": "Under OSHA's Hazard Communication Standard (29 CFR 1910.1200), the shop must maintain a current SDS for every hazardous product in use. SDSs are manufacturer-provided, follow a 16-section format, and are kept in an SDS binder plus an electronic system accessible on shop computers. Every technician is shown the location during orientation, and access is available during every work shift. Environmental summaries, purchase orders, and receiving tags are administrative records, not hazard-communication documents."
       },
       "preassessment": {
         "question": "Required document for each hazmat in a Part 145 shop?",
@@ -17852,12 +17792,12 @@
         "question": "A technician is installing a new avionics radio and a small panel screw slips out of the driver and drops behind the instrument panel. The screw falls into an area with wiring bundles and control cables. What should the technician do immediately?",
         "choices": [
           "Keep driving screws and look for the dropped one at the end of the shift",
-          "Decide the screw is too small to matter and continue the installation",
-          "Pull another screw from the kit and continue, leaving the dropped one where it fell",
-          "Stop work immediately. Illuminate the area, use an inspection mirror and a magnet-on-a-stick to try to locate and recover the dropped screw. If it cannot be reached, perform whatever additional disassembly is needed to retrieve it — the aircraft cannot be released with a known loose fastener inside. Document the FOD event and the recovery. Only then resume the installation"
+          "Decide the screw is too small to matter and continue the installation work",
+          "Pull another screw from the kit and leave the dropped one where it fell behind",
+          "Stop immediately, locate the dropped screw with light and magnet, and retrieve it"
         ],
         "correctIndex": 3,
-        "explanation": "The only acceptable action is immediate recovery. A dropped screw behind a panel can short energized bus bars, jam control cables during maneuvers, or damage an LRU. Deferring, replacing-without-retrieving, and 'it's small' are all unacceptable. Formal FOD programs require that any lost fastener be tracked until recovered, with additional disassembly if needed. FOD events have caused in-flight emergencies and hull losses."
+        "explanation": "The only acceptable action is immediate recovery. Illuminate the area, use an inspection mirror and magnet-on-a-stick to locate the screw. If it cannot be reached, perform whatever additional disassembly is needed — the aircraft cannot be released with a known loose fastener inside. Document the FOD event and recovery, then resume the installation. A dropped screw can short energized bus bars, jam control cables during maneuvers, or damage an LRU. Formal FOD programs require any lost fastener be tracked until recovered. FOD events have caused in-flight emergencies and hull losses."
       },
       "preassessment": {
         "question": "Screw dropped behind a panel during installation — immediate action?",
@@ -17905,24 +17845,24 @@
       "multipleChoice": {
         "question": "A technician performs the monthly readiness inspection on a shop extinguisher. What items must be confirmed?",
         "choices": [
-          "The pressure gauge is in the green zone, the tamper seal and pull pin are intact, there is no physical damage to the cylinder or nozzle, the inspection tag is current per the station's schedule, and the class rating matches the hazards of the area it is mounted in",
-          "Only the color of the extinguisher cylinder",
-          "Only the date printed on the inspection tag",
-          "Only that an extinguisher is mounted somewhere in the shop"
+          "Pressure, seal/pin, physical condition, tag currency, and class-to-hazard match",
+          "Only the color of the extinguisher cylinder exterior finish",
+          "Only the date printed on the extinguisher's inspection tag",
+          "Only that an extinguisher is mounted somewhere in the shop area"
         ],
         "correctIndex": 0,
-        "explanation": "A readiness check is a short, fixed list: pressure, seal/pin, physical damage, tag currency, and class match. Each item catches a distinct failure mode. Any 'no' takes the extinguisher out of service until corrected. Monthly visual checks plus an annual professional service are standard at GA shops."
+        "explanation": "A readiness check is a short fixed list: (1) pressure gauge in the green zone, (2) tamper seal and pull pin intact, (3) no physical damage to the cylinder or nozzle, (4) inspection tag current per the station's schedule, (5) class rating matches the hazards in that area, and (6) mounted in the designated location with clear access. Each item catches a distinct failure mode. Any 'no' takes the extinguisher out of service until corrected."
       },
       "practice": {
         "question": "The shop manager assigns a technician to perform the monthly fire-extinguisher readiness check across the avionics shop. What should the technician verify at each extinguisher?",
         "choices": [
-          "For each extinguisher: confirm the pressure gauge needle is in the green zone, the tamper seal and pull pin are intact, the cylinder and hose show no cracks or corrosion, the inspection tag is current per the station's monthly/annual schedule, the class rating (A, B, C, K) matches the hazards in that area, and the extinguisher is in its designated mounting location with clear access. Document the check. Any 'no' answer puts that extinguisher out of service and triggers a service call",
+          "Verify gauge, seal/pin, condition, tag date, class, and location",
           "Verify only that the cylinder is not rusty",
-          "Verify only the tag date and move on",
+          "Verify only the tag date and then move on",
           "Verify only that an extinguisher is present, regardless of type"
         ],
         "correctIndex": 0,
-        "explanation": "A compliant readiness check covers pressure, seal/pin, physical condition, tag currency, class-to-hazard match, and mounting/access. Each item addresses a distinct failure mode. Monthly visual checks plus annual professional inspections are the standard pattern. A single failed item removes that extinguisher from service until corrected; an untracked readiness check has the same effect as no extinguisher at all."
+        "explanation": "A compliant readiness check covers: (1) pressure gauge needle in the green zone, (2) tamper seal and pull pin intact, (3) no cracks or corrosion on the cylinder or hose, (4) inspection tag current per the station's schedule, (5) class rating (A, B, C, K) matches the hazards in that area, and (6) extinguisher in its designated mounting location with clear access. Document the check. Any 'no' answer puts the extinguisher out of service. Monthly visual checks plus annual professional inspections are standard."
       },
       "preassessment": {
         "question": "Fire extinguisher readiness check — verify what?",
@@ -17982,13 +17922,13 @@
       "practice": {
         "question": "A technician new to a busy multi-aircraft hangar asks why the shop has a strict hearing-protection rule on the ramp and during engine runs. What is the correct answer?",
         "choices": [
-          "Because the noise is annoying and slows down productivity",
-          "Because the noise interferes with radio chatter between technicians",
-          "Because the sustained noise in that environment — engine runs, APUs, ground power units, pneumatic tools, rivet guns, and ramp operations — routinely exceeds OSHA's 85 dBA action level for an 8-hour time-weighted exposure. Exposure above that level causes permanent, cumulative, and irreversible hearing loss. Under 29 CFR 1910.95, the employer must provide hearing protection, annual audiograms, and a hearing conservation program once exposures reach that threshold. Hearing damage is painless and gradual, so the technician cannot feel it happening",
-          "Because the noise makes panel-mounted display text harder to read"
+          "Because the noise is annoying and slows productivity",
+          "Because it interferes with radio chatter between technicians",
+          "Because sustained noise above 85 dBA causes permanent hearing loss",
+          "Because it makes panel display text harder to read accurately"
         ],
         "correctIndex": 2,
-        "explanation": "The critical reason is permanent hearing-loss risk above 85 dBA sustained exposure. OSHA's hearing-conservation standard was written because technicians routinely leave long careers with significant, irreversible hearing loss. Protection is easy; the damage is not. Productivity, comm clarity, and display readability are real concerns but are not the safety hazard that drives the rule."
+        "explanation": "Noise from engine runs, APUs, GPUs, pneumatic tools, rivet guns, and ramp ops routinely exceeds OSHA's 85 dBA action level for an 8-hour time-weighted exposure. Above that threshold, damage is permanent, cumulative, and irreversible. Under 29 CFR 1910.95, the employer must provide hearing protection, annual audiograms, and a hearing conservation program. Damage is painless and gradual, so the technician cannot feel it happening. Productivity, comm clarity, and display readability are real but are not the safety hazard driving the rule."
       },
       "preassessment": {
         "question": "Why is hearing protection critical in a busy shop?",

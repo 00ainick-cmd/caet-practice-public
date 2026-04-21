@@ -20,7 +20,7 @@
   "questions": [
     {
       "id": "CAT3-NEW-001",
-      "category": "cat-3-cns-systems",
+      "category": "mod3-cns-systems",
       "difficulty": "medium",
       "tags": [
         "transponder",
@@ -81,7 +81,7 @@
     },
     {
       "id": "CAT3-NEW-002",
-      "category": "cat-3-cns-systems",
+      "category": "mod3-cns-systems",
       "difficulty": "hard",
       "tags": [
         "transponder",
@@ -121,13 +121,13 @@
       "practice": {
         "question": "A technician installs a new Mode S transponder in an aircraft. The installation manual requires programming the 'ICAO 24-bit address' before returning the unit to service. Why is this step critical?",
         "choices": [
-          "It assigns the unique airframe identifier that ATC and TCAS use for selective interrogation, and that appears in every ADS-B Out broadcast — an incorrect address would misidentify the aircraft to ATC and other traffic",
-          "It sets the squawk code the transponder will display",
-          "It programs the transponder's operating frequency",
-          "It calibrates the encoded altitude reporting"
+          "It assigns the unique airframe identifier used by ATC and TCAS interrogation",
+          "It sets the squawk code the transponder will display to controllers",
+          "It programs the transponder's transmit and receive operating frequency",
+          "It calibrates the encoded altitude reporting against the static system"
         ],
         "correctIndex": 0,
-        "explanation": "Without the correct 24-bit address, the transponder will reply to interrogations but will identify itself as the wrong airframe. This creates safety and airspace-management problems: TCAS targeting data, ATC correlation with flight plans, and ADS-B identification all become wrong. The address is unique to each airframe and must be programmed correctly per the registry."
+        "explanation": "The ICAO 24-bit address is the unique airframe identifier that ATC and TCAS use for selective interrogation, and that appears in every ADS-B Out broadcast. An incorrect address would misidentify the aircraft to ATC and other traffic — TCAS targeting, ATC correlation with flight plans, and ADS-B identification all become wrong. The address is unique to each airframe and must be programmed correctly per the registry."
       },
       "preassessment": {
         "question": "What is the purpose of the 24-bit address in a Mode S transponder?",
@@ -142,7 +142,7 @@
     },
     {
       "id": "CAT3-NEW-003",
-      "category": "cat-3-cns-systems",
+      "category": "mod3-cns-systems",
       "difficulty": "medium",
       "tags": [
         "transponder",
@@ -203,7 +203,7 @@
     },
     {
       "id": "CAT3-NEW-004",
-      "category": "cat-3-cns-systems",
+      "category": "mod3-cns-systems",
       "difficulty": "easy",
       "tags": [
         "transponder",
@@ -264,7 +264,7 @@
     },
     {
       "id": "CAT3-NEW-005",
-      "category": "cat-3-cns-systems",
+      "category": "mod3-cns-systems",
       "difficulty": "medium",
       "tags": [
         "transponder",
@@ -304,13 +304,13 @@
       "practice": {
         "question": "A technician installs a new transponder antenna. The antenna is bolted to the top of the vertical stabilizer. During flight testing, ATC reports intermittent and weak transponder replies. What is the most likely cause?",
         "choices": [
-          " The antenna cable is too long",
-          "The transponder needs a software update",
-          "The altitude encoder is miscalibrated",
-          "The antenna is in the wrong location — transponder antennas must be belly-mounted to provide a clear path to ground-based ATC radar, which is below the aircraft"
+          "The antenna coaxial cable run is too long for the transponder",
+          "The transponder firmware needs a current software update",
+          "The altitude encoder is miscalibrated against the static system",
+          "Wrong mounting location — transponder antennas must be belly-mounted"
         ],
         "correctIndex": 3,
-        "explanation": "Top-of-stabilizer mounting causes the airframe to block much of the downward signal path to ATC radar. Transponder antennas must be belly-mounted for proper coverage. Cable length, software, and altitude encoding are separate concerns and would not produce these specific symptoms."
+        "explanation": "Top-of-stabilizer mounting causes the airframe to block much of the downward signal path to ATC radar, which is below the aircraft. Transponder antennas must be belly-mounted for proper coverage. Cable length, software, and altitude encoding are separate concerns and would not produce these specific symptoms."
       },
       "preassessment": {
         "question": "Where are transponder antennas typically mounted?",
@@ -325,7 +325,7 @@
     },
     {
       "id": "CAT3-NEW-006",
-      "category": "cat-3-cns-systems",
+      "category": "mod3-cns-systems",
       "difficulty": "hard",
       "tags": [
         "gps",
@@ -386,7 +386,7 @@
     },
     {
       "id": "CAT3-NEW-007",
-      "category": "cat-3-cns-systems",
+      "category": "mod3-cns-systems",
       "difficulty": "medium",
       "tags": [
         "waas",
@@ -447,7 +447,7 @@
     },
     {
       "id": "CAT3-NEW-008",
-      "category": "cat-3-cns-systems",
+      "category": "mod3-cns-systems",
       "difficulty": "medium",
       "tags": [
         "ads-b",
@@ -487,13 +487,13 @@
       "practice": {
         "question": "A new technician asks what advantages ADS-B Out provides over a traditional Mode C transponder. Which accurately describes the key difference?",
         "choices": [
-          "ADS-B Out is just a rebranded transponder with no real difference",
-          "ADS-B Out broadcasts GPS-derived position and velocity continuously (about once per second), allowing ATC and other ADS-B In-equipped aircraft to see the aircraft directly without relying on ground radar interrogations — Mode C only replies when interrogated and does not include position or velocity",
-          "ADS-B Out transmits the pilot's voice to ATC",
-          "ADS-B Out replaces the altimeter and air data computer"
+          "ADS-B Out is just a rebranded transponder with no real functional difference",
+          "ADS-B Out broadcasts GPS position and velocity continuously, roughly once per second",
+          "ADS-B Out transmits the pilot's voice directly to ATC on the data link",
+          "ADS-B Out replaces the aircraft's altimeter and air data computer systems"
         ],
         "correctIndex": 1,
-        "explanation": "The fundamental difference is that ADS-B Out broadcasts position and velocity continuously, while Mode C only responds to radar interrogations and does not include position data. This enables ground-radar-free surveillance coverage and direct traffic awareness for ADS-B In-equipped aircraft (via TIS-B and ADS-R services). Mode C and ADS-B Out complement each other; they are not interchangeable."
+        "explanation": "The fundamental difference is that ADS-B Out broadcasts GPS-derived position and velocity continuously, while Mode C only replies when interrogated and does not include position or velocity. This enables ground-radar-free surveillance coverage for ATC and direct traffic awareness for ADS-B In-equipped aircraft (via TIS-B and ADS-R services). Mode C and ADS-B Out complement each other; they are not interchangeable."
       },
       "preassessment": {
         "question": "What does ADS-B Out broadcast?",
@@ -508,7 +508,7 @@
     },
     {
       "id": "CAT3-NEW-009",
-      "category": "cat-3-cns-systems",
+      "category": "mod3-cns-systems",
       "difficulty": "medium",
       "tags": [
         "vor",
@@ -569,7 +569,7 @@
     },
     {
       "id": "CAT3-NEW-010",
-      "category": "cat-3-cns-systems",
+      "category": "mod3-cns-systems",
       "difficulty": "medium",
       "tags": [
         "vor",
@@ -630,7 +630,7 @@
     },
     {
       "id": "CAT3-NEW-011",
-      "category": "cat-3-cns-systems",
+      "category": "mod3-cns-systems",
       "difficulty": "medium",
       "tags": [
         "vor",
@@ -670,13 +670,13 @@
       "practice": {
         "question": "A pilot flying in the evening over mountainous terrain reports that the ADF needle is swinging erratically and difficult to track. Which statement best explains this behavior?",
         "choices": [
-          "ADF/NDB operates at low frequencies that are susceptible to night effect, terrain, and atmospheric interference — these effects can cause needle swings, especially in the evening near mountainous terrain. The equipment is likely operating correctly; the signal environment is the problem",
-          "The ADF equipment is likely broken and must be replaced",
-          "The pilot is flying too high for the ADF signal to reach",
-          "The VOR signal is interfering with the ADF"
+          "ADF operates at low frequencies and is prone to night effect and terrain",
+          "The ADF equipment is likely broken and must be replaced immediately",
+          "The pilot is flying too high for the ADF signal to reach the aircraft",
+          "The VOR signal on board is interfering with the ADF receiver"
         ],
         "correctIndex": 0,
-        "explanation": "Night effect is a well-known propagation issue for ADF/NDB around sunrise and sunset, when ionospheric propagation changes. Combined with mountainous terrain, the signal can fade, shift, and cause needle swings. The equipment is fine — this is a characteristic limitation of low-frequency navigation. VOR is immune to these specific effects and is the preferred navaid under these conditions."
+        "explanation": "Night effect is a well-known propagation issue for ADF/NDB around sunrise and sunset, when ionospheric propagation changes. Combined with mountainous terrain, the signal can fade, shift, and cause needle swings. The equipment is operating correctly; the signal environment is the problem. VOR is immune to these specific effects and is the preferred navaid under these conditions."
       },
       "preassessment": {
         "question": "Compared to VOR, ADF/NDB navigation is generally:",
@@ -691,7 +691,7 @@
     },
     {
       "id": "CAT3-NEW-012",
-      "category": "cat-3-cns-systems",
+      "category": "mod3-cns-systems",
       "difficulty": "medium",
       "tags": [
         "ils",
@@ -731,13 +731,13 @@
       "practice": {
         "question": "A pilot is briefing a precision approach in low visibility. The approach procedure calls out both a 'localizer' frequency and a 'glideslope' component. Which navigation system is the pilot using?",
         "choices": [
-          "VOR",
-          "ADF/NDB",
-          "A GPS-only approach",
-          "ILS (Instrument Landing System), which combines localizer for horizontal guidance and glideslope for vertical guidance"
+          "VOR with DME for distance",
+          "ADF/NDB low-frequency navigation",
+          "A GPS-only LPV approach",
+          "ILS providing localizer and glideslope"
         ],
         "correctIndex": 3,
-        "explanation": "The presence of both a localizer and a glideslope identifies the approach as ILS. The localizer frequency aligns the aircraft with the runway extended centerline; the glideslope provides the descent path. GPS approaches (LPV, LNAV/VNAV, etc.) can also provide vertical guidance but are identified differently on the chart. VOR, ADF, and DME on their own do not provide the coupled vertical/horizontal guidance ILS does."
+        "explanation": "The presence of both a localizer and a glideslope identifies the approach as ILS (Instrument Landing System). The localizer provides horizontal guidance (aligning with the runway extended centerline); the glideslope provides vertical guidance (descent path). GPS approaches (LPV, LNAV/VNAV) can also provide vertical guidance but are identified differently on the chart. VOR, ADF, and DME on their own do not provide the coupled vertical/horizontal guidance ILS does."
       },
       "preassessment": {
         "question": "Which system provides both vertical and horizontal landing guidance?",
@@ -752,7 +752,7 @@
     },
     {
       "id": "CAT3-NEW-013",
-      "category": "cat-3-cns-systems",
+      "category": "mod3-cns-systems",
       "difficulty": "medium",
       "tags": [
         "ils",
@@ -813,7 +813,7 @@
     },
     {
       "id": "CAT3-NEW-014",
-      "category": "cat-3-cns-systems",
+      "category": "mod3-cns-systems",
       "difficulty": "hard",
       "tags": [
         "audio",
@@ -853,13 +853,13 @@
       "practice": {
         "question": "A student pilot wonders why their headset delivers the same audio to both ears during a radio call instead of the left-only or right-only they hear when playing stereo music. How would you explain?",
         "choices": [
-          "The headset has a defect — audio should be in one ear only",
-          "The aircraft uses a special 'emergency-only' audio mode",
-          "The aircraft audio panel distributes radio communications in mono — the same signal to both ears. This is intentional for voice traffic because stereo imaging provides no operational benefit for speech. Stereo separation is reserved for entertainment sources on panels that support it",
-          "Mono is now obsolete and the aircraft needs an avionics upgrade"
+          "The headset has a defect — radio audio should come in one ear only",
+          "The aircraft is operating in a special 'emergency-only' audio routing mode",
+          "Aircraft audio panels distribute radio comms in mono to both ears by design",
+          "Mono audio is now obsolete and the aircraft requires an avionics upgrade"
         ],
         "correctIndex": 2,
-        "explanation": "Mono distribution is the standard and correct design for voice traffic. Both ears receive the same audio so the pilot can hear equally well regardless of headset orientation. Stereo audio would add no operational benefit for voice and might distract. Entertainment sources (music inputs) may be distributed in stereo on higher-end audio panels."
+        "explanation": "Mono distribution is the standard and correct design for voice traffic. Both ears receive the same audio so the pilot can hear equally well regardless of headset orientation. Stereo imaging provides no operational benefit for speech and might even distract. Stereo separation is reserved for entertainment sources (music inputs) on audio panels that support it."
       },
       "preassessment": {
         "question": "Mono audio in GA aircraft means:",
@@ -874,7 +874,7 @@
     },
     {
       "id": "CAT3-NEW-015",
-      "category": "cat-3-cns-systems",
+      "category": "mod3-cns-systems",
       "difficulty": "easy",
       "tags": [
         "audio-panel",
@@ -935,7 +935,7 @@
     },
     {
       "id": "CAT3-NEW-016",
-      "category": "cat-3-cns-systems",
+      "category": "mod3-cns-systems",
       "difficulty": "medium",
       "tags": [
         "audio",
@@ -996,7 +996,7 @@
     },
     {
       "id": "CAT3-NEW-017",
-      "category": "cat-3-cns-systems",
+      "category": "mod3-cns-systems",
       "difficulty": "medium",
       "tags": [
         "dme",
@@ -1057,7 +1057,7 @@
     },
     {
       "id": "CAT3-NEW-018",
-      "category": "cat-3-cns-systems",
+      "category": "mod3-cns-systems",
       "difficulty": "medium",
       "tags": [
         "vhf-antenna",
@@ -1097,13 +1097,13 @@
       "practice": {
         "question": "A new VHF comm antenna is added to an aircraft. The technician mounts it on the top of the cabin between the existing GPS and transponder antennas, only 8 inches from each. During flight testing, the pilot reports poor radio reception and intermittent noise. What is the most likely cause?",
         "choices": [
-          "Insufficient separation from nearby antennas — VHF comm antennas should be separated from other antennas (especially transponder at 1030/1090 MHz and GPS at 1575 MHz) to avoid mutual interference, per the installation guidance",
-          "The antenna is the wrong frequency",
-          "The airframe is made of aluminum instead of composite",
-          "The antenna cable is too short"
+          "Insufficient antenna separation is causing mutual RF interference",
+          "The new antenna is tuned to the wrong frequency band for comm use",
+          "The airframe is made of aluminum rather than composite material",
+          "The antenna feedline cable is too short for the mounting location"
         ],
         "correctIndex": 0,
-        "explanation": "Antenna separation is a well-documented installation requirement. Antennas too close together couple to each other, causing receive desensitization and transmit interference. Installation guidance specifies minimum separations for each antenna pair. Aluminum airframes actually serve as good ground planes — they help rather than hurt. Cable length is a different concern."
+        "explanation": "Antenna separation is a well-documented installation requirement. VHF comm antennas should be separated from other antennas — especially transponder (1030/1090 MHz) and GPS (1575 MHz) — to avoid mutual interference, per the installation guidance. Antennas too close together couple to each other, causing receive desensitization and transmit interference. Installation guidance specifies minimum separations for each antenna pair. Aluminum airframes actually serve as good ground planes. Cable length is a different concern."
       },
       "preassessment": {
         "question": "Best VHF comm antenna location on a GA aircraft?",
@@ -1118,7 +1118,7 @@
     },
     {
       "id": "CAT3-NEW-019",
-      "category": "cat-3-cns-systems",
+      "category": "mod3-cns-systems",
       "difficulty": "medium",
       "tags": [
         "squelch",
@@ -1179,7 +1179,7 @@
     },
     {
       "id": "CAT3-NEW-020",
-      "category": "cat-3-cns-systems",
+      "category": "mod3-cns-systems",
       "difficulty": "medium",
       "tags": [
         "coaxial-cable",
@@ -1240,7 +1240,7 @@
     },
     {
       "id": "CAT3-NEW-021",
-      "category": "cat-3-cns-systems",
+      "category": "mod3-cns-systems",
       "difficulty": "medium",
       "tags": [
         "tcas",
@@ -1280,13 +1280,13 @@
       "practice": {
         "question": "A pilot reports that the 'TCAS' on the aircraft provided a resolution advisory during a close-proximity encounter with another aircraft. A technician explaining this to a new hire should characterize TCAS as which of the following?",
         "choices": [
-          "A system that controls engine thrust during conflicts",
-          "The Traffic Collision Avoidance System — an onboard surveillance system that interrogates nearby transponders and, when collision risk is detected, issues traffic and resolution advisories instructing the pilot to climb or descend to resolve the conflict",
-          "A ground-based ATC radar service",
-          "An optional cabin-entertainment system"
+          "A system that controls engine thrust during airborne conflicts",
+          "The Traffic Collision Avoidance System — onboard transponder surveillance",
+          "A ground-based ATC radar service covering the airspace",
+          "An optional cabin-entertainment system offered on airliners"
         ],
         "correctIndex": 1,
-        "explanation": "TCAS is airborne surveillance — the aircraft's own system interrogates nearby transponders and calculates closure rates. When a collision risk is imminent, TCAS II issues a resolution advisory: 'CLIMB, CLIMB' or 'DESCEND, DESCEND' with a specific vertical rate. TCAS operates independently of ATC — pilots must follow TCAS RAs even if they conflict with ATC instructions."
+        "explanation": "TCAS is airborne surveillance — the aircraft's own system interrogates nearby transponders and calculates closure rates. When collision risk is detected, TCAS II issues a traffic advisory and, if needed, a resolution advisory ('CLIMB, CLIMB' or 'DESCEND, DESCEND') with a specific vertical rate. TCAS operates independently of ATC — pilots must follow TCAS RAs even if they conflict with ATC instructions."
       },
       "preassessment": {
         "question": "What does TCAS stand for?",
@@ -1301,7 +1301,7 @@
     },
     {
       "id": "CAT3-NEW-022",
-      "category": "cat-3-cns-systems",
+      "category": "mod3-cns-systems",
       "difficulty": "medium",
       "tags": [
         "antenna",
@@ -1341,13 +1341,13 @@
       "practice": {
         "question": "During a routine inspection, a technician finds a comm antenna with intact physical structure but significant corrosion around the base where the antenna meets the airframe. Is this antenna airworthy as-is, or does corrective action apply?",
         "choices": [
-          "Airworthy, because the antenna itself is intact",
-          "Airworthy, but the corrosion should be painted over before the next flight",
-          "Airworthy as long as the aircraft is not flown in rain",
-          "Corrective action required — base corrosion degrades both the mechanical mounting and the electrical bond to the airframe (which serves as the ground plane). The antenna must be removed, the corrosion cleaned down to bare metal, new sealant applied, and the antenna reinstalled with verified bonding continuity"
+          "Airworthy as-is, because the antenna body itself is still intact and aligned",
+          "Airworthy, but the corroded area should be painted over before the next flight",
+          "Airworthy as long as the aircraft is not flown in rain or visible moisture",
+          "Corrective action required — remove, clean to bare metal, reseal, verify bond"
         ],
         "correctIndex": 3,
-        "explanation": "Base corrosion degrades both the mechanical integrity (mounting strength) and the electrical bond (ground-plane connection). The proper corrective action is removal, cleaning to bare metal, new sealant, reinstallation, and verification of bonding continuity. Paint over corrosion is not a repair; it traps moisture and accelerates the damage. Environmental restrictions do not substitute for proper maintenance."
+        "explanation": "Base corrosion degrades both the mechanical integrity (mounting strength) and the electrical bond to the airframe (which serves as the ground plane). The antenna must be removed, the corrosion cleaned down to bare metal, new sealant applied, and the antenna reinstalled with verified bonding continuity. Paint over corrosion is not a repair — it traps moisture and accelerates the damage. Environmental restrictions do not substitute for proper maintenance."
       },
       "preassessment": {
         "question": "What should regular communication antenna inspection include?",
@@ -2237,13 +2237,13 @@
       "practice": {
         "question": "During a 100-hour inspection, a technician notices the COM1 whip antenna on the belly has visible corrosion around its mounting flange; which items must still be checked before returning the aircraft to service?",
         "choices": [
-          "Physical damage to the element, corrosion at the base (already found — requires removal, cleaning, resealing, and bond verification), mounting hardware security, sealant condition, and continuity of the bond to the airframe",
-          "Only the radio's transmit frequency stability",
-          "Only the cosmetic paint finish needs to be addressed",
-          "Only the antenna's serial tag needs photographing"
+          "Element damage, base corrosion, hardware, sealant, and bond continuity",
+          "Only the radio's transmit frequency stability at the antenna port",
+          "Only the cosmetic paint finish on the antenna and fairing",
+          "Only the antenna's serial number tag needs to be photographed"
         ],
         "correctIndex": 0,
-        "explanation": "Base corrosion compromises both the mechanical mounting and the electrical bond to the airframe ground plane. Proper corrective action includes removing the antenna, cleaning the bonding surface to bare metal, applying fresh sealant, reinstalling with proper torque, and verifying bond continuity. The inspection also covers damage to the element, hardware security, and sealant integrity overall."
+        "explanation": "Base corrosion compromises both mechanical mounting and the electrical bond to the airframe ground plane. Proper corrective action: remove the antenna, clean the bonding surface to bare metal, apply fresh sealant, reinstall with proper torque, and verify bond continuity. The inspection also covers damage to the element, mounting hardware security, and overall sealant integrity. Frequency stability, paint, and serial tags do not address the corrosion finding."
       },
       "preassessment": {
         "question": "Regular comm antenna inspection should include what?",

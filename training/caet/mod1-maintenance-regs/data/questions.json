@@ -21,7 +21,7 @@
   "questions": [
     {
       "id": "CAT1-NEW-001",
-      "category": "cat-1-maintenance-regs",
+      "category": "mod1-maintenance-regs",
       "difficulty": "hard",
       "tags": [
         "part-43",
@@ -82,7 +82,7 @@
     },
     {
       "id": "CAT1-NEW-002",
-      "category": "cat-1-maintenance-regs",
+      "category": "mod1-maintenance-regs",
       "difficulty": "hard",
       "tags": [
         "part-43",
@@ -142,7 +142,7 @@
     },
     {
       "id": "CAT1-NEW-003",
-      "category": "cat-1-maintenance-regs",
+      "category": "mod1-maintenance-regs",
       "difficulty": "medium",
       "tags": [
         "part-43",
@@ -203,7 +203,7 @@
     },
     {
       "id": "CAT1-NEW-004",
-      "category": "cat-1-maintenance-regs",
+      "category": "mod1-maintenance-regs",
       "difficulty": "medium",
       "tags": [
         "part-43",
@@ -243,13 +243,13 @@
       "practice": {
         "question": "A technician repairs a VOR receiver and writes in the logbook: 'VOR repaired. 3 hours.' Is this entry compliant with 14 CFR §43.9?",
         "choices": [
-          "Yes, any entry mentioning the work is sufficient",
-          "No — the entry is missing at least a description of the work performed (what was done to the VOR), the date of completion, the name of the person performing the work, and the approving signature with certificate number and kind of certificate",
-          "Yes, because listing the hours satisfies the regulation",
-          "No, but only because the labor hours are not specified"
+          "Yes, because any entry mentioning the work performed is sufficient",
+          "No — missing description of work, date, name, and approving signature",
+          "Yes, because listing the labor hours satisfies the §43.9 requirement",
+          "No, but only because the labor hours are not broken out by task"
         ],
         "correctIndex": 1,
-        "explanation": "The entry fails §43.9 on multiple counts: no description of what was done, no date, no person name, and no approving signature with certificate info. A compliant entry would be something like 'Replaced failed U14 driver IC, functional check satisfactory per AMM section 5-3. Signed, [name], [cert type], [cert number], [date].'"
+        "explanation": "The entry fails §43.9 on multiple counts: no description of what was done to the VOR, no date of completion, no name of the person performing the work, and no approving signature with certificate number and kind of certificate. A compliant entry would read: 'Replaced failed U14 driver IC, functional check satisfactory per AMM section 5-3. Signed, [name], [cert type], [cert number], [date].'"
       },
       "preassessment": {
         "question": "What must a maintenance record entry include per §43.9?",
@@ -264,7 +264,7 @@
     },
     {
       "id": "CAT1-NEW-005",
-      "category": "cat-1-maintenance-regs",
+      "category": "mod1-maintenance-regs",
       "difficulty": "medium",
       "tags": [
         "part-91",
@@ -327,7 +327,7 @@
     },
     {
       "id": "CAT1-NEW-006",
-      "category": "cat-1-maintenance-regs",
+      "category": "mod1-maintenance-regs",
       "difficulty": "easy",
       "tags": [
         "part-43",
@@ -388,7 +388,7 @@
     },
     {
       "id": "CAT1-NEW-007",
-      "category": "cat-1-maintenance-regs",
+      "category": "mod1-maintenance-regs",
       "difficulty": "medium",
       "tags": [
         "tso",
@@ -449,7 +449,7 @@
     },
     {
       "id": "CAT1-NEW-008",
-      "category": "cat-1-maintenance-regs",
+      "category": "mod1-maintenance-regs",
       "difficulty": "medium",
       "tags": [
         "tso",
@@ -510,7 +510,7 @@
     },
     {
       "id": "CAT1-NEW-009",
-      "category": "cat-1-maintenance-regs",
+      "category": "mod1-maintenance-regs",
       "difficulty": "easy",
       "tags": [
         "stc",
@@ -550,12 +550,12 @@
         "question": "A technician plans to install a new avionics package that the vendor describes as 'STC-approved for Cessna 172 variants.' What does the STC designation tell the technician?",
         "choices": [
           "That any standard tools will work for the installation",
-          "That the avionics are cheaper than alternatives",
+          "That the avionics are cheaper than the OEM alternatives",
           "That the avionics are certified only for experimental aircraft",
-          "That the FAA has issued a Supplemental Type Certificate for the installation — the STC provides the approved data needed to install the package on the listed aircraft, and the technician must use the STC's installation manual and required documentation"
+          "That the FAA has issued approved data for installation on the listed aircraft"
         ],
         "correctIndex": 3,
-        "explanation": "An STC-approved installation means the FAA has issued an STC authorizing the modification for the listed aircraft. The STC's approved data (installation manual, drawings, limitations) must be followed exactly. Pricing and experimental classification are unrelated to STC approval."
+        "explanation": "STC-approved means the FAA has issued a Supplemental Type Certificate for the installation. The STC provides the approved data — installation manual, drawings, limitations — that must be followed exactly. The technician must use the STC's installation manual and required documentation. Pricing and experimental classification are unrelated to STC approval."
       },
       "preassessment": {
         "question": "What does STC stand for?",
@@ -570,7 +570,7 @@
     },
     {
       "id": "CAT1-NEW-010",
-      "category": "cat-1-maintenance-regs",
+      "category": "mod1-maintenance-regs",
       "difficulty": "medium",
       "tags": [
         "part-145",
@@ -609,13 +609,13 @@
       "practice": {
         "question": "A technician at a Part 145 repair station notes that their last formal training was 26 months ago. What does most Part 145 guidance say about this?",
         "choices": [
-          "No concern — training is a one-time initial event",
-          "The technician must be immediately terminated",
-          "Training is only required for pilots, not technicians",
-          "The technician is likely overdue for recurrent training, which most Part 145 programs specify at intervals not exceeding 24 months. The station's training program manual is the authoritative source for the exact requirement; the technician should consult the manager and complete the required training"
+          "No concern — training is a one-time initial event only",
+          "The technician must be immediately terminated for the lapse",
+          "Training is only required for pilots, not avionics technicians",
+          "Likely overdue — Part 145 programs typically require recurrent every 24 months"
         ],
         "correctIndex": 3,
-        "explanation": "Most Part 145 programs specify recurrent training at intervals not exceeding 24 months. The technician should consult the station's training program manual to confirm and complete the required training. Termination is not the remedy for a training lapse — completing the training is. Training is explicitly required for repair-station technical personnel, not only for pilots."
+        "explanation": "Most Part 145 programs specify recurrent training at intervals not exceeding 24 months. The station's training program manual is the authoritative source for the exact requirement — the technician should consult the manager and complete the required training. Termination is not the remedy for a training lapse; completing the training is. Training is explicitly required for repair-station technical personnel, not only pilots."
       },
       "preassessment": {
         "question": "How often must Part 145 personnel typically undergo recurrent training?",
@@ -630,7 +630,7 @@
     },
     {
       "id": "CAT1-NEW-011",
-      "category": "cat-1-maintenance-regs",
+      "category": "mod1-maintenance-regs",
       "difficulty": "medium",
       "tags": [
         "part-145",
@@ -691,7 +691,7 @@
     },
     {
       "id": "CAT1-NEW-012",
-      "category": "cat-1-maintenance-regs",
+      "category": "mod1-maintenance-regs",
       "difficulty": "medium",
       "tags": [
         "part-145",
@@ -731,13 +731,13 @@
       "practice": {
         "question": "A technician at a Part 145 station finds that the current service bulletin for a GPS model is missing from the shop's technical data library. What is the correct course of action?",
         "choices": [
-          "Stop work until the current service bulletin is obtained. Per Part 145, the repair station is responsible for ensuring current data is available; the technician should notify the designated personnel (Accountable Manager, Chief Inspector, or as specified in the procedures manual) so the missing data can be obtained before work continues",
+          "Stop work until the current service bulletin is obtained and reviewed",
           "Proceed with the work and note the missing data in the logbook",
-          "Search online forums for the missing information",
-          "Improvise based on experience"
+          "Search online aviation forums for the missing information content",
+          "Improvise the procedure based on the technician's past experience"
         ],
         "correctIndex": 0,
-        "explanation": "Part 145 requires current data to be in use. The correct action is to stop work, notify the designated personnel responsible for data currency, obtain the current service bulletin, and resume work. Proceeding without current data, improvising, or using unofficial sources all violate Part 145 and risk improper work."
+        "explanation": "Part 145 requires current data to be in use. The repair station is responsible for ensuring current data is available. Notify the designated personnel (Accountable Manager, Chief Inspector, or as specified in the procedures manual) so the missing data can be obtained before work continues. Proceeding without current data, improvising, or using unofficial sources all violate Part 145 and risk improper work."
       },
       "preassessment": {
         "question": "Who ensures current technical data is available in a Part 145 shop?",
@@ -752,7 +752,7 @@
     },
     {
       "id": "CAT1-NEW-013",
-      "category": "cat-1-maintenance-regs",
+      "category": "mod1-maintenance-regs",
       "difficulty": "medium",
       "tags": [
         "form-8130-3",
@@ -813,7 +813,7 @@
     },
     {
       "id": "CAT1-NEW-014",
-      "category": "cat-1-maintenance-regs",
+      "category": "mod1-maintenance-regs",
       "difficulty": "easy",
       "tags": [
         "definition-of-maintenance",
@@ -873,7 +873,7 @@
     },
     {
       "id": "CAT1-NEW-015",
-      "category": "cat-1-maintenance-regs",
+      "category": "mod1-maintenance-regs",
       "difficulty": "medium",
       "tags": [
         "part-145",
@@ -913,13 +913,13 @@
       "practice": {
         "question": "A technician notices that the shop's main walkway has accumulated old parts boxes, cable offcuts, and a few spilled fluid-absorbent rags. Is this a Part 145 issue, and what is the appropriate response?",
         "choices": [
-          "No — as long as the boxes are not on the work benches",
+          "No — as long as the boxes are not on the work benches themselves",
           "No — repair stations are not subject to housekeeping requirements",
-          "Yes — but only if the FAA inspector is scheduled to visit",
-          "Yes — it creates safety hazards (trip, fall, fire), quality risks (FOD, part loss), and is a Part 145 housekeeping issue. The immediate response is to clear the walkway, properly dispose of the rags (fluid-soaked rags can self-heat), and follow up with the responsible personnel to prevent recurrence"
+          "Yes — but only if the FAA inspector is scheduled to visit that day",
+          "Yes — clutter creates safety, FOD, and fire hazards requiring cleanup"
         ],
         "correctIndex": 3,
-        "explanation": "Cluttered walkways are a Part 145 issue plus a safety concern (fluid-soaked rags are a fire risk). Proper response is immediate cleanup, proper disposal of fluid-contaminated materials, and follow-up to address the root cause. The rule applies continuously — not only when FAA inspectors are present."
+        "explanation": "Cluttered walkways are a Part 145 issue plus a safety concern. They create trip and fall hazards, quality risks (FOD, part loss), and fire danger — fluid-soaked rags can self-heat. Immediate response: clear the walkway, properly dispose of the rags, and follow up with responsible personnel to prevent recurrence. The rule applies continuously — not only when FAA inspectors are present."
       },
       "preassessment": {
         "question": "Why must Part 145 shops keep walkways clear?",
@@ -934,7 +934,7 @@
     },
     {
       "id": "CAT1-NEW-016",
-      "category": "cat-1-maintenance-regs",
+      "category": "mod1-maintenance-regs",
       "difficulty": "medium",
       "tags": [
         "part-145",
@@ -995,7 +995,7 @@
     },
     {
       "id": "CAT1-NEW-017",
-      "category": "cat-1-maintenance-regs",
+      "category": "mod1-maintenance-regs",
       "difficulty": "medium",
       "tags": [
         "part-145",
@@ -1056,7 +1056,7 @@
     },
     {
       "id": "CAT1-NEW-018",
-      "category": "cat-1-maintenance-regs",
+      "category": "mod1-maintenance-regs",
       "difficulty": "medium",
       "tags": [
         "troubleshooting",

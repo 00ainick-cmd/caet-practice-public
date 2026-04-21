@@ -20,7 +20,7 @@
   "questions": [
     {
       "id": "CAT7-NEW-001",
-      "category": "cat-7-tools-test-equipment",
+      "category": "mod7-tools-test-equipment",
       "difficulty": "hard",
       "tags": [
         "multimeter",
@@ -81,7 +81,7 @@
     },
     {
       "id": "CAT7-NEW-002",
-      "category": "cat-7-tools-test-equipment",
+      "category": "mod7-tools-test-equipment",
       "difficulty": "medium",
       "tags": [
         "multimeter",
@@ -121,13 +121,13 @@
       "practice": {
         "question": "During voltage testing on a 24 V DC bus, a technician reads 235 V on the meter. What is the most productive first action?",
         "choices": [
-          "Declare the bus has a major fault and disconnect the battery",
-          "Replace the 24 V battery",
-          "Verify the meter setup: check that the meter is set to DC (not AC), check the voltage range, inspect the probes and leads for damage, and confirm the probes are properly seated in the meter jacks. Then remeasure. If the reading remains abnormal, investigate the circuit",
-          "Log the 235 V reading as evidence of a manufacturing defect"
+          "Declare the bus has a major fault and disconnect the aircraft battery immediately",
+          "Replace the 24 V aircraft battery because the reading indicates failure",
+          "Verify meter setup — DC mode, correct range, probes seated — then remeasure",
+          "Log the 235 V reading as clear evidence of a manufacturing defect in the bus"
         ],
         "correctIndex": 2,
-        "explanation": "The meter setup is the most likely cause of a wildly wrong reading. Check DC/AC mode, range, probe integrity, and jack seating before assuming a circuit fault. Only after these checks still give an abnormal reading should circuit-level troubleshooting begin."
+        "explanation": "The meter setup is the most likely cause of a wildly wrong reading. Check that the meter is on DC (not AC), confirm the voltage range, inspect the probes and leads for damage, and verify the probes are properly seated in the meter jacks. Then remeasure. Only after these checks still give an abnormal reading should circuit-level troubleshooting begin. Disconnecting the battery or replacing components is premature."
       },
       "preassessment": {
         "question": "24 V DC circuit shows 235 V on the meter — likely cause?",
@@ -142,7 +142,7 @@
     },
     {
       "id": "CAT7-NEW-003",
-      "category": "cat-7-tools-test-equipment",
+      "category": "mod7-tools-test-equipment",
       "difficulty": "medium",
       "tags": [
         "multimeter",
@@ -182,13 +182,13 @@
       "practice": {
         "question": "A technician wants to check the resistance of a resistor on an energized circuit board. What is the correct practice?",
         "choices": [
-          "Measure it while energized — modern meters can handle it",
-          "Measure it with the meter set to AC volts",
-          "Skip the measurement entirely",
-          "De-energize the circuit before measuring resistance. Measuring resistance with the circuit energized will give invalid readings because the meter's test current competes with the circuit's voltage, and can damage the meter's ohms range"
+          "Measure it while energized — modern digital meters can handle the current safely",
+          "Measure it with the multimeter set to the AC volts function for comparison",
+          "Skip the resistance measurement entirely and move to the next component",
+          "De-energize the circuit before measuring resistance to get a valid reading"
         ],
         "correctIndex": 3,
-        "explanation": "Resistance measurement requires a de-energized circuit. Modern meters have some protection, but relying on it is not good practice — de-energize the circuit, ensure isolation where possible, then measure. Measuring with the meter on the wrong function (AC volts) would not give resistance."
+        "explanation": "Resistance measurement requires a de-energized circuit. Measuring with the circuit energized gives invalid readings because the meter's test current competes with the circuit's voltage, and it can damage the meter's ohms range. Modern meters have some protection, but relying on it is not good practice — de-energize, ensure isolation where possible, then measure. AC volts is the wrong function entirely."
       },
       "preassessment": {
         "question": "Before measuring resistance, the circuit must be:",
@@ -203,7 +203,7 @@
     },
     {
       "id": "CAT7-NEW-004",
-      "category": "cat-7-tools-test-equipment",
+      "category": "mod7-tools-test-equipment",
       "difficulty": "medium",
       "tags": [
         "multimeter",
@@ -244,13 +244,13 @@
       "practice": {
         "question": "A technician is looking for a broken wire in a circuit. The multimeter is set to ohms, and when probed across the suspect wire it reads 'OL.' What does this tell the technician?",
         "choices": [
-          "The wire is fine",
-          "The wire is open — the resistance is beyond the meter's measurement range, which indicates a broken conductor or open splice. The technician has identified the fault location",
-          "The circuit is energized",
-          "The meter is faulty"
+          "The wire is fine and has continuity",
+          "The wire is open — resistance is beyond the meter's range",
+          "The circuit is still energized with current",
+          "The meter itself is faulty and needs replacement"
         ],
         "correctIndex": 1,
-        "explanation": "'OL' across a wire that should read near zero ohms (a good conductor) positively identifies it as open. This is a classic continuity-troubleshooting technique: a good wire reads near zero, a broken wire reads OL. The technician has successfully located the fault."
+        "explanation": "'OL' across a wire that should read near zero ohms positively identifies it as open — the resistance is beyond the meter's measurement range, indicating a broken conductor or open splice. This is a classic continuity-troubleshooting technique: a good wire reads near zero, a broken wire reads OL. The technician has located the fault."
       },
       "preassessment": {
         "question": "What does 'OL' mean on a multimeter set to ohms?",
@@ -265,7 +265,7 @@
     },
     {
       "id": "CAT7-NEW-005",
-      "category": "cat-7-tools-test-equipment",
+      "category": "mod7-tools-test-equipment",
       "difficulty": "medium",
       "tags": [
         "multimeter",
@@ -305,13 +305,13 @@
       "practice": {
         "question": "A pilot reports that a warning light does not illuminate when it should. The technician suspects a broken wire between the sensor and the warning light. What is the most effective test?",
         "choices": [
-          "Test the AC voltage on the wire",
-          "De-energize the circuit, set the multimeter to continuity (or ohms), and probe across the suspect wire from the sensor end to the warning-light end. A good wire reads near zero ohms; a broken wire reads 'OL,' confirming the break",
-          "Observe the wire visually for several hours",
-          "Replace the warning light first"
+          "Test the AC voltage present on the suspect wire",
+          "De-energize and use the continuity setting end-to-end",
+          "Observe the wire visually for several hours and watch for change",
+          "Replace the warning light first and see if that fixes the issue"
         ],
         "correctIndex": 1,
-        "explanation": "The continuity test directly answers the question. It is far more definitive than visual inspection (which misses internal breaks), faster than AC voltage testing (wrong tool), and avoids replacing innocent components (the warning light) without evidence. If the wire reads OL, the wire is broken and can be repaired."
+        "explanation": "De-energize the circuit, set the multimeter to continuity (or ohms), and probe across the suspect wire from the sensor end to the warning-light end. A good wire reads near zero ohms; a broken wire reads 'OL,' confirming the break. This is far more definitive than visual inspection (which misses internal breaks), faster than AC voltage testing (wrong tool), and avoids replacing innocent components without evidence."
       },
       "preassessment": {
         "question": "Best multimeter test for a suspected broken wire?",
@@ -326,7 +326,7 @@
     },
     {
       "id": "CAT7-NEW-006",
-      "category": "cat-7-tools-test-equipment",
+      "category": "mod7-tools-test-equipment",
       "difficulty": "medium",
       "tags": [
         "multimeter",
@@ -367,13 +367,13 @@
       "practice": {
         "question": "A technician reads 0 V across a resistor that is supposed to be dropping voltage in an active circuit. What hypotheses should the technician investigate?",
         "choices": [
-          "The resistor is definitely fine",
-          "The meter is always wrong in such cases",
-          "The resistor may be shorted (zero resistance), a parallel short may be bypassing it, or there may be no current flowing due to an upstream break. The technician should verify current flow through the circuit and check for shorts",
-          "Replace the resistor immediately without testing"
+          "The resistor is definitely fine and in working condition",
+          "The multimeter is always wrong in such cases and should be replaced",
+          "The resistor may be shorted, bypassed, or have no current flowing",
+          "Replace the suspect resistor immediately without any further testing"
         ],
         "correctIndex": 2,
-        "explanation": "0 V on a component that should be dropping voltage is a symptom, not a diagnosis. Verify whether current is flowing (ammeter in the branch or a voltage drop elsewhere in the circuit). If current flows, the component is shorted. If no current flows, find the upstream break. Either way, replacement without diagnosis risks chasing the wrong problem."
+        "explanation": "A 0 V reading is a symptom, not a diagnosis. Three possibilities: (1) the resistor is internally shorted (zero resistance), (2) a parallel short is bypassing it, or (3) no current is flowing due to an upstream open. Verify whether current is flowing (ammeter in the branch or a voltage drop elsewhere). If current flows, the component is shorted. If no current flows, find the upstream break. Replacement without diagnosis risks chasing the wrong problem."
       },
       "preassessment": {
         "question": "0 V across a component in an active circuit — possible cause?",
@@ -388,7 +388,7 @@
     },
     {
       "id": "CAT7-NEW-007",
-      "category": "cat-7-tools-test-equipment",
+      "category": "mod7-tools-test-equipment",
       "difficulty": "easy",
       "tags": [
         "multimeter",
@@ -449,7 +449,7 @@
     },
     {
       "id": "CAT7-NEW-008",
-      "category": "cat-7-tools-test-equipment",
+      "category": "mod7-tools-test-equipment",
       "difficulty": "hard",
       "tags": [
         "oscilloscope",
@@ -489,13 +489,13 @@
       "practice": {
         "question": "A technician needs to verify the shape of a digital clock signal to ensure clean transitions with no ringing or overshoot. Which test instrument is appropriate?",
         "choices": [
-          "A multimeter set to AC volts",
-          "A megohmmeter",
-          "A milliohmmeter",
-          "An oscilloscope, which displays voltage as a function of time and reveals waveform shape, rise and fall times, ringing, and any anomalies that would not be visible in a simple magnitude measurement"
+          "A multimeter set to AC volts for the bench",
+          "A megohmmeter set to 500 V DC for insulation",
+          "A milliohmmeter using four-wire Kelvin leads",
+          "An oscilloscope showing voltage versus time"
         ],
         "correctIndex": 3,
-        "explanation": "Waveform analysis — clean transitions, ringing, overshoot — is exactly what an oscilloscope is designed for. A multimeter can only report a magnitude (RMS or average) and cannot show the time-domain shape. Meggers and milliohmmeters are specialty meters for different purposes entirely."
+        "explanation": "Waveform shape, rise and fall times, ringing, and overshoot are exactly what an oscilloscope is designed to reveal — it displays voltage as a function of time. A multimeter can only report a magnitude (RMS or average) and cannot show the time-domain shape. Meggers and milliohmmeters are specialty meters for entirely different purposes."
       },
       "preassessment": {
         "question": "What does an oscilloscope visualize?",
@@ -510,7 +510,7 @@
     },
     {
       "id": "CAT7-NEW-009",
-      "category": "cat-7-tools-test-equipment",
+      "category": "mod7-tools-test-equipment",
       "difficulty": "easy",
       "tags": [
         "megger",
@@ -550,13 +550,13 @@
       "practice": {
         "question": "A technician is verifying the integrity of a newly installed wire harness before energizing the circuit. The test procedure calls for 'megger testing at 500 V between each conductor and ground.' What is the purpose of this test?",
         "choices": [
-          "To measure the wire's resistance per foot",
-          "To check the wire's current-carrying capacity",
-          "To measure insulation resistance — high DC voltage is applied between each conductor and ground, and the resulting very high resistance (typically hundreds of megohms or more) confirms the insulation is intact and free of defects. Lower readings would indicate compromised insulation",
-          "To measure the frequency response of the cable"
+          "To measure the wire's DC resistance per foot of length",
+          "To check the wire's maximum current-carrying capacity",
+          "To measure insulation resistance between conductor and ground",
+          "To measure the frequency response of the wire harness"
         ],
         "correctIndex": 2,
-        "explanation": "Megger testing is an insulation-integrity test. Good insulation shows very high resistance (hundreds of MΩ or higher). Compromised insulation — from damage, moisture, or contamination — shows lower resistance, identifying the problem before the circuit is energized and potentially damages the aircraft. Conductor resistance, current capacity, and frequency response are measured by other means."
+        "explanation": "Megger testing is an insulation-integrity test. High DC voltage is applied between each conductor and ground, and the resulting very high resistance (typically hundreds of megohms or more) confirms the insulation is intact and free of defects. Lower readings indicate compromised insulation from damage, moisture, or contamination — identifying the problem before the circuit is energized and potentially damages the aircraft. Conductor resistance, current capacity, and frequency response are measured by other means."
       },
       "preassessment": {
         "question": "What does a megohmmeter test?",
@@ -571,7 +571,7 @@
     },
     {
       "id": "CAT7-NEW-010",
-      "category": "cat-7-tools-test-equipment",
+      "category": "mod7-tools-test-equipment",
       "difficulty": "medium",
       "tags": [
         "megger",
@@ -632,7 +632,7 @@
     },
     {
       "id": "CAT7-NEW-011",
-      "category": "cat-7-tools-test-equipment",
+      "category": "mod7-tools-test-equipment",
       "difficulty": "medium",
       "tags": [
         "milliohmmeter",
@@ -672,13 +672,13 @@
       "practice": {
         "question": "A technician needs to verify an aircraft bonding strap is within specification (typically well under 10 milliohms). Which instrument is appropriate?",
         "choices": [
-          "A milliohmmeter with four-wire Kelvin measurement, because the target value is in milliohms and a standard DMM's lead and contact resistance would dominate the reading",
-          "A standard DMM on the ohms setting",
-          "A megger at 500 V",
-          "A frequency counter"
+          "A milliohmmeter with four-wire Kelvin measurement",
+          "A standard DMM on the ohms setting with lead probes",
+          "A megohmmeter set to 500 V DC for insulation testing",
+          "A frequency counter measuring waveform period"
         ],
         "correctIndex": 0,
-        "explanation": "The target measurement is in milliohms, which is beyond the usable resolution of a standard DMM. A milliohmmeter's four-wire Kelvin technique cancels out lead and contact resistance, giving a true bond resistance reading. Megger and frequency counter are entirely different instruments for different tasks."
+        "explanation": "The target measurement is in milliohms, beyond the usable resolution of a standard DMM. A standard DMM's lead and contact resistance alone would dominate the reading. A milliohmmeter's four-wire Kelvin technique separates the current-injection leads from the voltage-sense leads, cancelling lead and contact resistance and giving a true bond resistance reading. Megger and frequency counter are entirely different instruments for different tasks."
       },
       "preassessment": {
         "question": "What is the milliohmmeter primarily used for?",
@@ -693,7 +693,7 @@
     },
     {
       "id": "CAT7-NEW-012",
-      "category": "cat-7-tools-test-equipment",
+      "category": "mod7-tools-test-equipment",
       "difficulty": "easy",
       "tags": [
         "center-punch",
@@ -733,13 +733,13 @@
       "practice": {
         "question": "A technician has marked a hole location on an aluminum panel and is about to drill. Why should the technician use a center punch before starting the drill?",
         "choices": [
-          "To clean debris from the panel surface",
-          "To test the drill bit's sharpness",
-          "To cool the drill bit before use",
-          "To create an indentation at the marked location that captures the drill bit and prevents it from walking, ensuring the hole is drilled exactly where intended"
+          "To clean debris and oxidation from the panel surface",
+          "To test the drill bit's sharpness before starting",
+          "To cool the drill bit before beginning the cut",
+          "To create a dimple that captures the bit and prevents walking"
         ],
         "correctIndex": 3,
-        "explanation": "Without a center-punched starting point, a drill bit can slide across a flat metal surface before it begins cutting, producing a misplaced hole. The center-punched dimple captures the bit tip and holds it on the intended location. Cleaning, sharpness testing, and cooling are unrelated to the center punch function."
+        "explanation": "Without a center-punched starting point, a drill bit can slide across a flat metal surface before it begins cutting, producing a misplaced hole. The center-punched indentation captures the bit tip and holds it on the intended location, ensuring the hole is drilled exactly where marked. Cleaning, sharpness testing, and cooling are unrelated to the center punch function."
       },
       "preassessment": {
         "question": "What is the primary purpose of a center punch?",
@@ -754,7 +754,7 @@
     },
     {
       "id": "CAT7-NEW-013",
-      "category": "cat-7-tools-test-equipment",
+      "category": "mod7-tools-test-equipment",
       "difficulty": "medium",
       "tags": [
         "screwdriver",
@@ -794,13 +794,13 @@
       "practice": {
         "question": "A technician is removing a Phillips-head screw but the screwdriver keeps slipping out and the screw head is showing wear. What is the most likely fix?",
         "choices": [
-          "Use more torque",
-          "Stop, examine the screw head, and match the correct Phillips size (typically #0, #1, #2, or #3) fully engaged in the screw. If the screw head is already damaged, switch to a tool designed for removing damaged screws (screw extractor, oversize bit, or locking pliers)",
-          "Lubricate the driver tip",
-          "Use a longer screwdriver"
+          "Apply more torque through the driver",
+          "Match the correct Phillips size and re-engage fully",
+          "Lubricate the screwdriver tip and try again",
+          "Switch to a longer-handled screwdriver"
         ],
         "correctIndex": 1,
-        "explanation": "The slipping suggests a mismatched driver size or already-damaged screw head. Correct action: stop before further damage, verify correct driver size, re-engage fully, and proceed. If the head is too damaged to re-engage, use a screw extractor or other damaged-screw tool. More torque on a slipping bit only worsens the damage. Lubrication and longer drivers do not address the root cause."
+        "explanation": "Slipping usually means a mismatched driver size or an already-damaged head. Stop before further damage, verify the correct Phillips size (typically #0, #1, #2, or #3), re-seat fully, and apply firm axial pressure. If the head is already stripped, switch to a screw extractor, oversize bit, or locking pliers. More torque on a slipping bit only worsens the damage; lubrication and longer handles do not fix the engagement problem."
       },
       "preassessment": {
         "question": "What prevents screwdriver damage to a screw head?",
@@ -815,7 +815,7 @@
     },
     {
       "id": "CAT7-NEW-014",
-      "category": "cat-7-tools-test-equipment",
+      "category": "mod7-tools-test-equipment",
       "difficulty": "easy",
       "tags": [
         "wire-crimper",
@@ -876,7 +876,7 @@
     },
     {
       "id": "CAT7-NEW-015",
-      "category": "cat-7-tools-test-equipment",
+      "category": "mod7-tools-test-equipment",
       "difficulty": "medium",
       "tags": [
         "troubleshooting",
@@ -916,13 +916,13 @@
       "practice": {
         "question": "A technician has just completed wiring a new avionics unit. Before releasing the aircraft to service, the technician applies power and lightly wiggles each wire and connector at its entry point, watching the unit's indicator lights. What is the purpose of this procedure?",
         "choices": [
-          "The wiggle test identifies intermittent connections before they manifest in service. If moving a wire causes the indicator to blink or a signal to drop, the technician has found a loose pin, cold solder joint, or damaged connector that can be corrected before the aircraft leaves the shop",
-          "Nothing — it's just habit and does not identify real problems",
-          "To warm up the connectors",
-          "To check the unit's internal temperature"
+          "It identifies intermittent connections before they manifest in service",
+          "Nothing — it is just habit and does not reveal any real problems",
+          "To warm up the connectors before the system is fully powered",
+          "To check the unit's internal operating temperature during a power-up"
         ],
         "correctIndex": 0,
-        "explanation": "The wiggle test is a deliberate intermittent-hunt technique. It is especially valuable for new installations because small mistakes (partial pin seating, missed crimp, cracked connector) often reveal themselves under light mechanical stress but would pass static testing. Finding these problems before release saves both the customer and the shop from chasing intermittents later."
+        "explanation": "The wiggle test is a deliberate intermittent-hunt technique. If moving a wire causes the indicator to blink or a signal to drop, the technician has found a loose pin, cold solder joint, or damaged connector that can be corrected before the aircraft leaves the shop. Especially valuable for new installations because small mistakes (partial pin seating, missed crimp, cracked connector) often reveal themselves under light mechanical stress but would pass static testing."
       },
       "preassessment": {
         "question": "What is the purpose of a 'wiggle test'?",
@@ -1043,13 +1043,13 @@
       "practice": {
         "question": "During a post-installation inspection, the technician notes a braided metal strap between the radio shelf and the surrounding aircraft structure. A trainee asks why it is there. What should the technician explain?",
         "choices": [
-          "It is a spare wire kept for future use",
-          "It is a bonding jumper that maintains the radio shelf at the same electrical potential as the surrounding structure, providing a low-resistance path so fault currents, static charge, and any lightning-induced current flow safely to structure rather than developing a voltage difference that could cause arcing or interfere with the radio",
-          "It carries primary power to the radio",
-          "It is purely decorative"
+          "A spare wire kept for future use on the shelf",
+          "A bonding jumper equalizing shelf and structure potential",
+          "The primary power feed to the radio chassis",
+          "A decorative trim strap required by the kit"
         ],
         "correctIndex": 1,
-        "explanation": "Bonding jumpers are everywhere in aircraft electrical systems because equipotential matters. The strap provides a low-resistance path between the shelf and structure. If a fault or static charge accumulates on the shelf, current flows through the bond rather than building up a voltage. Without the bond, the shelf could float to a different potential than the surrounding structure, causing arcing and RF interference, and creating a shock hazard during maintenance."
+        "explanation": "Bonding jumpers keep the shelf at the same electrical potential as the surrounding structure. They provide a low-resistance path so fault currents, static charge, and lightning-induced current flow safely to structure rather than developing a voltage difference. Without the bond, the shelf can float to a different potential, causing arcing, RF interference, and a shock hazard during maintenance."
       },
       "preassessment": {
         "question": "Primary purpose of a bonding jumper?",
@@ -1108,13 +1108,13 @@
       "practice": {
         "question": "A technician reads 0 V across a series resistor that should be dropping 5 V in an active 28 V circuit. What should the technician investigate?",
         "choices": [
-          "Conclude the resistor is fine and continue",
-          "Replace the meter because 0 V is impossible",
-          "Check whether current is actually flowing through the branch. If current is flowing, the resistor is internally shorted or has a parallel short across it. If no current is flowing, there is an upstream open circuit preventing current from reaching the resistor. Both conditions can produce a 0 V reading and each requires a different repair",
-          "Increase the bus voltage and remeasure"
+          "Conclude the resistor is fine and continue with testing",
+          "Replace the meter because a 0 V reading is impossible here",
+          "Verify whether current is flowing through the branch",
+          "Increase the bus voltage above 28 V and remeasure the drop"
         ],
         "correctIndex": 2,
-        "explanation": "The 0 V reading is diagnostic but ambiguous. Confirming whether current is present in the branch (via an ammeter or by measuring a voltage drop elsewhere) separates the two possibilities. A shorted resistor and an upstream open look the same at the component — confirming current flow resolves the ambiguity and guides the correct repair."
+        "explanation": "A 0 V reading across a resistor that should drop 5 V is ambiguous. If current is flowing, the resistor is internally shorted or has a parallel short across it. If no current is flowing, an upstream open is preventing current from reaching the resistor. Both conditions produce 0 V, but each requires a different repair. Confirming current with an ammeter (or a voltage drop elsewhere) resolves the ambiguity."
       },
       "preassessment": {
         "question": "The DMM shows 0 V across a powered component — explain a condition that could cause this.",
@@ -1173,13 +1173,13 @@
       "practice": {
         "question": "A new technician is learning to measure a small fitting with a 0-1 inch micrometer. What habits should the technician develop from the start?",
         "choices": [
-          "Grip the thimble firmly and twist hard",
-          "Before measuring: close the anvil and spindle to confirm zero reads 0.000 inches, wipe the measuring faces clean, and use the ratchet or friction thimble to apply consistent light pressure. Position the part squarely between the faces and take two or three readings at slightly different positions to verify consistency. Learn the feel, not the force",
-          "Warm the part with your hand first",
-          "Rely on the first reading without checking"
+          "Grip the thimble firmly and twist hard to close",
+          "Zero the micrometer, clean the faces, and use the ratchet",
+          "Warm the part in your hand before measuring it",
+          "Trust the first reading without repeating the measurement"
         ],
         "correctIndex": 1,
-        "explanation": "Micrometer accuracy depends on zero verification, clean measuring faces, consistent contact force (provided by the ratchet or friction thimble), and square seating. Overtightening deforms both soft parts and the micrometer itself. Hand-warming expands the part and introduces error. Single readings miss positioning mistakes. Building good technique from the start avoids rework."
+        "explanation": "Micrometer accuracy depends on zero verification (close the anvil and spindle, confirm 0.000 in.), clean measuring faces, consistent light contact force from the ratchet or friction thimble, and square seating of the part. Take two or three readings at slightly different positions to verify consistency. Learn the feel, not the force — overtightening deforms both soft parts and the micrometer. Hand-warming expands the part and introduces error."
       },
       "preassessment": {
         "question": "Accurate micrometer measurement requires:",
@@ -1303,13 +1303,13 @@
       "practice": {
         "question": "A technician is removing a series of small Phillips screws from an avionics faceplate. Two of the screws have started showing wear at the head. What should the technician do to prevent further damage?",
         "choices": [
-          "Apply more torque and force the screws out",
-          "Lubricate the driver tip and continue",
-          "Stop, confirm the correct Phillips size is being used (typically #0, #1, or #2 for small screws), ensure the tip is fully seated, and apply firm straight-down pressure in line with the screw axis while turning. If a head is already too damaged to engage, switch to a screw extractor or damaged-screw tool before continuing",
-          "Use a longer-handled screwdriver for more leverage"
+          "Apply more torque and force the worn screws out",
+          "Lubricate the driver tip and continue working",
+          "Match the correct tip size, seat fully, and apply axial pressure",
+          "Use a longer-handled screwdriver to gain more leverage"
         ],
         "correctIndex": 2,
-        "explanation": "Continuing with a mismatched or poorly seated driver on a damaged head guarantees further damage. Correct response: verify the right tip size for the screw, seat it fully, apply straight axial pressure to keep the driver engaged, and reduce torque if the screw is stuck. If the head is past rescue, a damaged-screw extractor is the correct tool. Lubrication and longer handles do not address the engagement problem."
+        "explanation": "Continuing with a mismatched or poorly seated driver on a damaged head guarantees further damage. Verify the correct Phillips size for the screw (typically #0, #1, or #2 for small screws), ensure the tip is fully seated, and apply firm straight-down pressure in line with the screw axis while turning. If a head is already too damaged to engage, switch to a screw extractor or damaged-screw tool. Lubrication and longer handles do not address the engagement problem."
       },
       "preassessment": {
         "question": "MOST important factor to prevent screw-head damage?",
@@ -1368,13 +1368,13 @@
       "practice": {
         "question": "A technician needs to verify that a newly installed bonding strap reads less than 5 milliohms per the installation procedure. Which instrument is appropriate, and why?",
         "choices": [
-          "A milliohmmeter, because the target value is in milliohms. A standard DMM's lead and contact resistance alone would be several hundred milliohms, completely masking the real bond resistance. The milliohmmeter uses a four-wire Kelvin connection that eliminates lead resistance from the reading",
-          "A standard DMM on the ohms range, because it can read resistance",
-          "A megohmmeter at 500 V",
-          "An oscilloscope"
+          "A milliohmmeter, because Kelvin leads eliminate lead resistance error",
+          "A standard DMM on the ohms range, because it reads resistance directly",
+          "A megohmmeter set to 500 V DC for insulation testing",
+          "An oscilloscope to observe any ripple on the measurement"
         ],
         "correctIndex": 0,
-        "explanation": "The target measurement is in milliohms, which is beyond the usable resolution of a standard DMM. DMM lead resistance alone (typically 200-500 milliohms) is orders of magnitude larger than the bond being measured and would completely dominate the reading. A milliohmmeter's four-wire Kelvin technique separates the current-injection leads from the voltage-sense leads, eliminating lead resistance from the measurement. Meggers measure insulation, not bonding. Oscilloscopes show waveforms."
+        "explanation": "The target value is in milliohms. A standard DMM's lead and contact resistance alone (typically 200-500 milliohms) is orders of magnitude larger than the bond being measured and would completely dominate the reading. A milliohmmeter uses a four-wire Kelvin connection that separates current-injection leads from voltage-sense leads, eliminating lead resistance from the reading. Meggers measure insulation, not bonding. Oscilloscopes show waveforms."
       },
       "preassessment": {
         "question": "On the shop bench, a milliohmmeter measures:",
