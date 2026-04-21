@@ -934,6 +934,461 @@
         ],
         "correctIndex": 0
       }
+    },
+    {
+      "id": "CAT7-NEW-016",
+      "category": "mod7-tools-test-equipment",
+      "difficulty": "medium",
+      "tags": [
+        "parasitic-draw",
+        "troubleshooting",
+        "circuit-breaker",
+        "battery"
+      ],
+      "learningObjective": "Identify the method used to confirm that a specific switch or circuit is responsible for a parasitic battery drain",
+      "fullObjective": "Recognize that isolating a parasitic drain to a specific circuit is done by pulling circuit breakers one at a time while monitoring battery current with an ammeter; the faulty circuit is identified when pulling its breaker causes the drain current to drop to normal.",
+      "flashcard": {
+        "term": "Parasitic draw isolation — CB-by-CB method",
+        "definition": "To confirm that a faulty switch or circuit is causing a parasitic battery drain, connect an ammeter in series with the battery to monitor total draw, then pull each circuit breaker one at a time. When pulling a specific breaker causes the measured current to drop to normal, that circuit (and the switch within it) is confirmed as the source of the drain.",
+        "analogy": "Pulling breakers one at a time is like closing valves on a manifold until the leak stops — the valve that stops the leak identifies the leaking branch.",
+        "unit": "Test Equipment — DMM"
+      },
+      "jeopardy": {
+        "question": "This method BEST confirms that a specific switch is the source of a parasitic battery drain.",
+        "choices": [
+          "Measuring the switch's contact temperature with an infrared thermometer",
+          "Monitoring total battery current while pulling circuit breakers one at a time until the drain drops to normal",
+          "Weighing the battery before and after a 24-hour soak",
+          "Listening for audible arcing near each switch"
+        ],
+        "correctIndex": 1,
+        "explanation": "Pulling breakers one at a time while watching battery current isolates the drain to a specific circuit. Temperature, weight, and audio methods cannot reliably identify a milliampere-level drain."
+      },
+      "multipleChoice": {
+        "question": "Suspecting that a failed switch is behind a parasitic drain, how does the tech most reliably prove it?",
+        "choices": [
+          "Measure the switch's contact temperature with an infrared thermometer and compare it to adjacent switches",
+          "Listen for audible arcing near each switch with the master on",
+          "Weigh the battery before and after a 24-hour soak to detect energy loss",
+          "Connect an ammeter in series with the battery to monitor total current, then pull each circuit breaker one at a time; when pulling a specific breaker causes the drain to drop to normal, the circuit (and its switch) is identified"
+        ],
+        "correctIndex": 3,
+        "explanation": "The CB-by-CB isolation method is the standard parasitic-drain hunt. An ammeter shows the cumulative draw; as each breaker is pulled, the drain either drops or stays. The breaker whose removal restores normal draw identifies the offending circuit. From there, the technician can confirm the specific switch. Temperature, weight, and audio checks are not sensitive enough to isolate typical parasitic drains."
+      },
+      "practice": {
+        "question": "A customer complains that the aircraft battery discharges overnight. The technician suspects a faulty switch in the lighting circuit. What is the most productive way to confirm the suspicion?",
+        "choices": [
+          "Install an ammeter in series with the battery, record the baseline drain with all switches off, then pull circuit breakers one at a time while watching the ammeter. The breaker whose removal causes the drain to drop to normal identifies the branch containing the faulty switch",
+          "Replace the suspected switch blindly and see if the problem disappears",
+          "Disconnect the battery and replace it",
+          "Turn on all switches and measure current to see which one spikes"
+        ],
+        "correctIndex": 0,
+        "explanation": "CB-by-CB isolation with an ammeter is the standard parasitic-draw diagnostic. It positively identifies the offending branch before parts are replaced. Blind replacement wastes parts; replacing the battery does not fix the drain; turning switches on measures load currents, not the quiescent drain that is the actual complaint."
+      },
+      "preassessment": {
+        "question": "BEST confirmation for a faulty switch causing parasitic draw?",
+        "choices": [
+          "Monitor battery current while pulling breakers one at a time",
+          "Infrared temperature scan",
+          "Battery weight comparison",
+          "Audible arc detection"
+        ],
+        "correctIndex": 0
+      },
+      "targetCaetId": "464171",
+      "targetCaetStem": "If a technician suspects a faulty switch is causing a parasitic draw, how can they BEST confirm this?",
+      "targetCaetPp": 0.52
+    },
+    {
+      "id": "CAT7-NEW-017",
+      "category": "mod7-tools-test-equipment",
+      "difficulty": "medium",
+      "tags": [
+        "bonding-jumper",
+        "equipotential",
+        "lightning",
+        "static"
+      ],
+      "learningObjective": "Describe the primary purpose of a bonding jumper in aircraft electrical systems",
+      "fullObjective": "Recognize that a bonding jumper is a low-resistance conductor installed between two structures or components to maintain equipotential — allowing fault current, static charge, and lightning current to flow between the bonded parts without developing a voltage difference that could cause arcing, interference, or personnel shock.",
+      "flashcard": {
+        "term": "Bonding jumper — primary purpose",
+        "definition": "A bonding jumper is a low-resistance conductor (typically a braided strap or dedicated wire) installed between two metal structures or components to maintain them at the same electrical potential. Its purpose is to provide a low-impedance path for fault current, static discharge, and lightning current, preventing voltage differences that could cause arcing, radio interference, or shock hazards. Typical bond resistance target is well under 10 milliohms.",
+        "analogy": "A bonding jumper is like an electrical equalizer pipe between two tanks — it prevents pressure (voltage) differences from building up between parts that should be at the same level.",
+        "unit": "Bonding & Grounding"
+      },
+      "jeopardy": {
+        "question": "On an aircraft, this is the reason a bonding jumper gets installed on the electrical system.",
+        "choices": [
+          "To mechanically fasten two components together",
+          "To maintain equipotential between structures by providing a low-resistance path for fault, static, and lightning currents",
+          "To carry primary electrical power to a load",
+          "To block radio frequency signals between compartments"
+        ],
+        "correctIndex": 1,
+        "explanation": "A bonding jumper ensures two structures share the same electrical potential via a low-resistance path. It is not a fastener, not a power feeder, and not an RF block."
+      },
+      "multipleChoice": {
+        "question": "Why is a bonding jumper fitted on an aircraft electrical system?",
+        "choices": [
+          "To provide mechanical fastening between two metal components",
+          "To supply primary electrical power from the bus to a load",
+          "To maintain equipotential between two structures or components by providing a low-resistance conductor path for fault current, static charge, and lightning current",
+          "To block radio-frequency energy from passing between two compartments"
+        ],
+        "correctIndex": 2,
+        "explanation": "A bonding jumper creates a low-resistance electrical connection (target well under 10 milliohms) between two structures so they remain at the same potential. This prevents arcing, electrical interference, and personnel shock when fault, static, or lightning currents flow. Bonding jumpers are not primary fasteners, not power feeders, and not RF shields, though good bonding does support shielding effectiveness."
+      },
+      "practice": {
+        "question": "During a post-installation inspection, the technician notes a braided metal strap between the radio shelf and the surrounding aircraft structure. A trainee asks why it is there. What should the technician explain?",
+        "choices": [
+          "It is a spare wire kept for future use",
+          "It is a bonding jumper that maintains the radio shelf at the same electrical potential as the surrounding structure, providing a low-resistance path so fault currents, static charge, and any lightning-induced current flow safely to structure rather than developing a voltage difference that could cause arcing or interfere with the radio",
+          "It carries primary power to the radio",
+          "It is purely decorative"
+        ],
+        "correctIndex": 1,
+        "explanation": "Bonding jumpers are everywhere in aircraft electrical systems because equipotential matters. The strap provides a low-resistance path between the shelf and structure. If a fault or static charge accumulates on the shelf, current flows through the bond rather than building up a voltage. Without the bond, the shelf could float to a different potential than the surrounding structure, causing arcing and RF interference, and creating a shock hazard during maintenance."
+      },
+      "preassessment": {
+        "question": "Primary purpose of a bonding jumper?",
+        "choices": [
+          "Mechanical fastening",
+          "Carry primary power",
+          "Maintain equipotential via low-resistance path for fault/static/lightning current",
+          "Block RF between compartments"
+        ],
+        "correctIndex": 2
+      },
+      "targetCaetId": "464297",
+      "targetCaetStem": "What is the primary purpose of a bonding jumper in aircraft electrical systems?",
+      "targetCaetPp": 0.6
+    },
+    {
+      "id": "CAT7-NEW-018",
+      "category": "mod7-tools-test-equipment",
+      "difficulty": "medium",
+      "tags": [
+        "multimeter",
+        "zero-volts",
+        "diagnosis",
+        "short-circuit"
+      ],
+      "learningObjective": "Identify a plausible cause when a multimeter reads 0 V across a component in an energized circuit",
+      "fullObjective": "Recognize that a 0 V reading across a component in an active circuit most commonly indicates the component is internally shorted (zero resistance, no voltage drop), a parallel short bypasses the component, or no current is reaching the component because the circuit is open upstream.",
+      "flashcard": {
+        "term": "Zero volts across a component — diagnosis",
+        "definition": "When a multimeter reads 0 V across a component in an energized circuit, the likely causes are: the component is internally shorted (R=0 means V=IR=0), a parallel conductor bypasses it, or no current is flowing through the branch because of an open-circuit fault upstream. Whether current is present elsewhere in the circuit distinguishes the 'shorted' case from the 'no current' case.",
+        "analogy": "Zero volts means either the component is a dead short (water flowing freely through a broken pipe) or there is no water flowing at all — both produce no pressure drop.",
+        "unit": "Test Equipment — DMM"
+      },
+      "jeopardy": {
+        "question": "A multimeter reads 0 V across a component in a live circuit. This is a possible cause.",
+        "choices": [
+          "The component is internally shorted, a parallel path bypasses it, or an upstream break has stopped current flow through that branch",
+          "The circuit is operating perfectly as designed",
+          "The meter is set to the wrong scale and should read higher",
+          "The component is dissipating maximum power"
+        ],
+        "correctIndex": 0,
+        "explanation": "0 V across a component indicates no voltage drop — either because the component has become a short, a parallel path is shunting it, or no current is flowing at all due to an upstream open."
+      },
+      "multipleChoice": {
+        "question": "Across a powered component, the DMM reads 0 V. Identify a condition that could explain that.",
+        "choices": [
+          "The circuit is operating as designed with the component at full rated drop",
+          "The component is dissipating its maximum rated power",
+          "The multimeter is set to the wrong scale and should display a higher value",
+          "The component has shorted internally (R ≈ 0), a parallel path is bypassing it, or an upstream break is preventing current from flowing through that branch"
+        ],
+        "correctIndex": 3,
+        "explanation": "V = IR. Zero volts across a component in an operating circuit means either resistance has collapsed to zero (the component is shorted or shunted), or current has stopped flowing through that branch (upstream open). Verifying whether current is present in the branch distinguishes these two cases. A healthy, operating component would show its expected voltage drop."
+      },
+      "practice": {
+        "question": "A technician reads 0 V across a series resistor that should be dropping 5 V in an active 28 V circuit. What should the technician investigate?",
+        "choices": [
+          "Conclude the resistor is fine and continue",
+          "Replace the meter because 0 V is impossible",
+          "Check whether current is actually flowing through the branch. If current is flowing, the resistor is internally shorted or has a parallel short across it. If no current is flowing, there is an upstream open circuit preventing current from reaching the resistor. Both conditions can produce a 0 V reading and each requires a different repair",
+          "Increase the bus voltage and remeasure"
+        ],
+        "correctIndex": 2,
+        "explanation": "The 0 V reading is diagnostic but ambiguous. Confirming whether current is present in the branch (via an ammeter or by measuring a voltage drop elsewhere) separates the two possibilities. A shorted resistor and an upstream open look the same at the component — confirming current flow resolves the ambiguity and guides the correct repair."
+      },
+      "preassessment": {
+        "question": "The DMM shows 0 V across a powered component — explain a condition that could cause this.",
+        "choices": [
+          "Component shorted, parallel short, or upstream break stopping current",
+          "Normal operation",
+          "Wrong meter scale",
+          "Maximum power dissipation"
+        ],
+        "correctIndex": 0
+      },
+      "targetCaetId": "464345",
+      "targetCaetStem": "If you measure 0?V across a component in an active circuit, a possible cause is:",
+      "targetCaetPp": 0.76
+    },
+    {
+      "id": "CAT7-NEW-019",
+      "category": "mod7-tools-test-equipment",
+      "difficulty": "medium",
+      "tags": [
+        "micrometer",
+        "measurement",
+        "technique",
+        "calibration"
+      ],
+      "learningObjective": "Identify the practices that ensure accurate measurements with a micrometer",
+      "fullObjective": "Recognize that accurate micrometer measurement depends on verifying zero before use (zero check on a reference surface or block), using a consistent feel via the ratchet/friction thimble to standardize contact force, keeping the anvil and spindle clean, and positioning the part squarely between the measuring faces.",
+      "flashcard": {
+        "term": "Micrometer — accurate measurement practices",
+        "definition": "For accurate micrometer readings: (1) verify the zero reading on a clean reference before measurement (zero with anvil and spindle together, or on a gauge block), (2) use the ratchet or friction thimble for consistent contact force (avoid overtightening), (3) keep the anvil and spindle faces clean and free of debris, and (4) position the part squarely between the measuring faces. These steps eliminate the most common sources of micrometer error.",
+        "analogy": "A micrometer is only as accurate as its zero and your feel — verify zero and let the ratchet do the final squeeze.",
+        "unit": "Hand Tools — Precision Measurement"
+      },
+      "jeopardy": {
+        "question": "This practice is essential for accurate readings with a micrometer.",
+        "choices": [
+          "Tighten the thimble as hard as possible for full engagement",
+          "Verify the zero reading first and use the ratchet or friction thimble for consistent contact force",
+          "Heat the part before measuring to expand it",
+          "Take only a single reading without repositioning"
+        ],
+        "correctIndex": 1,
+        "explanation": "Zero verification and consistent feel via the ratchet are the foundation of accurate micrometer readings. Maximum thimble torque distorts the measurement; heating changes the dimension; single readings miss technique error."
+      },
+      "multipleChoice": {
+        "question": "To read accurate dimensions off a micrometer, what must the technician do?",
+        "choices": [
+          "Tighten the thimble as hard as possible to ensure full contact",
+          "Take a single reading without repositioning or repeating",
+          "Heat the part before measuring so the dimension stabilizes",
+          "Verify the zero reading on a clean reference before use, apply consistent contact force via the ratchet or friction thimble, keep the anvil and spindle clean, and seat the part squarely between the measuring faces"
+        ],
+        "correctIndex": 3,
+        "explanation": "Accurate micrometer work starts with verifying zero (anvil and spindle closed, or on a gauge block) and relies on a consistent 'feel' achieved through the ratchet or friction thimble — this standardizes the contact force and prevents the spindle from deforming soft parts or giving inconsistent readings. Cleanliness and square seating round out the technique. Overtightening, heating, and single measurements introduce error rather than eliminating it."
+      },
+      "practice": {
+        "question": "A new technician is learning to measure a small fitting with a 0-1 inch micrometer. What habits should the technician develop from the start?",
+        "choices": [
+          "Grip the thimble firmly and twist hard",
+          "Before measuring: close the anvil and spindle to confirm zero reads 0.000 inches, wipe the measuring faces clean, and use the ratchet or friction thimble to apply consistent light pressure. Position the part squarely between the faces and take two or three readings at slightly different positions to verify consistency. Learn the feel, not the force",
+          "Warm the part with your hand first",
+          "Rely on the first reading without checking"
+        ],
+        "correctIndex": 1,
+        "explanation": "Micrometer accuracy depends on zero verification, clean measuring faces, consistent contact force (provided by the ratchet or friction thimble), and square seating. Overtightening deforms both soft parts and the micrometer itself. Hand-warming expands the part and introduces error. Single readings miss positioning mistakes. Building good technique from the start avoids rework."
+      },
+      "preassessment": {
+        "question": "Accurate micrometer measurement requires:",
+        "choices": [
+          "Zero verification plus consistent force via ratchet",
+          "Maximum thimble torque",
+          "Heating the part",
+          "A single reading"
+        ],
+        "correctIndex": 0
+      },
+      "targetCaetId": "464342",
+      "targetCaetStem": "When using a micrometer, what should be done to ensure accurate measurements?",
+      "targetCaetPp": 0.87
+    },
+    {
+      "id": "CAT7-NEW-020",
+      "category": "mod7-tools-test-equipment",
+      "difficulty": "easy",
+      "tags": [
+        "center-punch",
+        "drilling",
+        "hand-tool",
+        "layout"
+      ],
+      "learningObjective": "Identify the primary purpose of a center punch in avionics fabrication",
+      "fullObjective": "Recognize that a center punch is used to create a small conical dimple at a marked location in metal, giving a drill bit a starting point so the bit does not wander or 'walk' across the surface when drilling begins.",
+      "flashcard": {
+        "term": "Center punch — drilling aid",
+        "definition": "A center punch creates a small conical indentation in sheet metal or other hard material at a marked drill-hole location. The dimple captures the tip of the drill bit during the first moments of drilling, preventing the bit from wandering across the surface and ensuring the hole is drilled accurately at the marked location. Without a center punch, drill bits tend to walk, producing misplaced holes.",
+        "analogy": "A center punch is the starting chalk mark for a drill — it holds the bit on target until cutting takes over.",
+        "unit": "Hand Tools"
+      },
+      "jeopardy": {
+        "question": "This tool creates a dimple in metal so a drill bit starts accurately without walking.",
+        "choices": [
+          "A deburring tool",
+          "A tap and die set",
+          "A center punch",
+          "A machinist's scriber"
+        ],
+        "correctIndex": 2,
+        "explanation": "The center punch creates the starting dimple for drilling. A deburring tool finishes hole edges, a tap cuts threads, and a scriber only marks lines without creating a dimple."
+      },
+      "multipleChoice": {
+        "question": "On an avionics bench, why does the technician keep a center punch in the toolbox?",
+        "choices": [
+          "To remove burrs from the edges of drilled holes",
+          "To scribe long straight layout lines on sheet metal",
+          "To cut internal threads in a drilled hole",
+          "To create a small conical dimple at a marked location so a drill bit starts accurately and does not wander across the metal surface"
+        ],
+        "correctIndex": 3,
+        "explanation": "A center punch places a conical indentation at the intended drill location. The dimple holds the drill bit's tip in place during the initial cut so the hole is drilled exactly where marked. Deburring, thread cutting, and scribing are separate operations using different tools — a deburring tool, a tap, and a scriber respectively."
+      },
+      "practice": {
+        "question": "A technician has scribed hole locations on an aluminum bracket and is about to drill. Why should the technician center-punch each location before starting the drill?",
+        "choices": [
+          "To harden the metal surface in preparation for drilling",
+          "To remove oxidation from the surface",
+          "To create a small dimple that captures the drill bit's tip and prevents it from walking across the surface, ensuring each hole is drilled exactly where it was marked",
+          "To improve the cosmetic appearance of the part"
+        ],
+        "correctIndex": 2,
+        "explanation": "A scribed line alone does not hold a drill bit. When the bit touches a flat metal surface it tends to wander before the cutting edge engages. A center-punched dimple captures the bit tip and locks it to the marked location, producing an accurately placed hole. Hardening, oxidation removal, and cosmetics are not why the center punch is used."
+      },
+      "preassessment": {
+        "question": "Primary purpose of a center punch?",
+        "choices": [
+          "Creating a drill-starting dimple in metal",
+          "Deburring",
+          "Thread cutting",
+          "Scribing layout lines"
+        ],
+        "correctIndex": 0
+      },
+      "targetCaetId": "464341",
+      "targetCaetStem": "What is the primary purpose of a center punch in an avionics repair shop?",
+      "targetCaetPp": 0.88
+    },
+    {
+      "id": "CAT7-NEW-021",
+      "category": "mod7-tools-test-equipment",
+      "difficulty": "medium",
+      "tags": [
+        "screwdriver",
+        "cam-out",
+        "fasteners",
+        "technique"
+      ],
+      "learningObjective": "Identify the most important factor for preventing screw-head damage when using a manual screwdriver",
+      "fullObjective": "Recognize that the most important factor in preventing screw-head damage with a manual screwdriver is selecting the correct driver tip type and size to fully engage the screw recess, applying straight axial pressure in line with the screw, so torque is distributed evenly around the engagement surface rather than concentrated where cam-out can begin.",
+      "flashcard": {
+        "term": "Screwdriver — damage prevention",
+        "definition": "The most important factor in preventing damage to a screw head is selecting the correct driver tip — the exact type (Phillips, slotted, Torx, Pozidriv, Robertson) and the exact size — and seating it fully in the screw recess while applying straight axial pressure along the screw axis. Correct engagement distributes torque around the full recess surface; mismatched or partially seated drivers concentrate force on a few corners and cam out, stripping the head.",
+        "analogy": "Fitting the driver to the screw is like fitting a wrench to a bolt — the right size and full engagement let you turn without rounding the corners.",
+        "unit": "Hand Tools"
+      },
+      "jeopardy": {
+        "question": "This is the MOST important factor in preventing a manual screwdriver from damaging the screw head.",
+        "choices": [
+          "Selecting the heaviest screwdriver handle",
+          "Matching the driver tip type and size to the screw recess and seating it fully with straight axial pressure",
+          "Applying the maximum possible torque",
+          "Coating the tip with anti-seize"
+        ],
+        "correctIndex": 1,
+        "explanation": "Correct tip match and full seating distribute torque evenly and prevent cam-out. A heavy handle is not the determining factor. Maximum torque accelerates damage. Anti-seize causes slippage."
+      },
+      "multipleChoice": {
+        "question": "To avoid chewing up a screw head with a hand-driven screwdriver, what is the SINGLE most important thing a technician controls?",
+        "choices": [
+          "Matching the driver tip to the screw recess exactly — correct type (Phillips, slotted, Torx, etc.) and correct size — and seating it fully with straight axial pressure along the screw axis",
+          "Selecting the heaviest screwdriver handle available for better grip",
+          "Applying the maximum possible torque to overcome stuck threads",
+          "Coating the driver tip with anti-seize compound before inserting"
+        ],
+        "correctIndex": 0,
+        "explanation": "Correct tip type, correct tip size, full engagement, and straight axial pressure are the key factors. A properly matched and fully seated driver transfers torque evenly across the recess, avoiding cam-out. Mismatched or partially seated drivers concentrate force on a few corners and strip the screw head. Handle weight, maximum torque, and lubrication do not solve (and can worsen) the underlying engagement problem."
+      },
+      "practice": {
+        "question": "A technician is removing a series of small Phillips screws from an avionics faceplate. Two of the screws have started showing wear at the head. What should the technician do to prevent further damage?",
+        "choices": [
+          "Apply more torque and force the screws out",
+          "Lubricate the driver tip and continue",
+          "Stop, confirm the correct Phillips size is being used (typically #0, #1, or #2 for small screws), ensure the tip is fully seated, and apply firm straight-down pressure in line with the screw axis while turning. If a head is already too damaged to engage, switch to a screw extractor or damaged-screw tool before continuing",
+          "Use a longer-handled screwdriver for more leverage"
+        ],
+        "correctIndex": 2,
+        "explanation": "Continuing with a mismatched or poorly seated driver on a damaged head guarantees further damage. Correct response: verify the right tip size for the screw, seat it fully, apply straight axial pressure to keep the driver engaged, and reduce torque if the screw is stuck. If the head is past rescue, a damaged-screw extractor is the correct tool. Lubrication and longer handles do not address the engagement problem."
+      },
+      "preassessment": {
+        "question": "MOST important factor to prevent screw-head damage?",
+        "choices": [
+          "Correct tip type/size with full engagement and straight pressure",
+          "Heavy handle",
+          "Maximum torque",
+          "Anti-seize on the tip"
+        ],
+        "correctIndex": 0
+      },
+      "targetCaetId": "464343",
+      "targetCaetStem": "When using a manual screwdriver, what is the MOST important factor to consider to prevent damage to the screw head?",
+      "targetCaetPp": 0.9
+    },
+    {
+      "id": "CAT7-NEW-022",
+      "category": "mod7-tools-test-equipment",
+      "difficulty": "medium",
+      "tags": [
+        "milliohmmeter",
+        "low-resistance",
+        "bonding",
+        "kelvin"
+      ],
+      "learningObjective": "Describe the primary use of a milliohmmeter in avionics maintenance",
+      "fullObjective": "Recognize that a milliohmmeter is primarily used to measure very low resistances in the milliohm range — typically on bonding straps, ground paths, relay contacts, and connector contacts — where a standard DMM's ohms range cannot resolve values of a few milliohms and its lead resistance would dominate the reading.",
+      "flashcard": {
+        "term": "Milliohmmeter — primary use",
+        "definition": "A milliohmmeter measures very low resistances in the milliohm range (thousandths of an ohm). It is used for bonding-strap verification, ground-path checks, relay and connector contact resistance, and conductor integrity. A four-wire Kelvin connection eliminates the lead and contact resistance that would otherwise dominate a standard DMM reading, giving a true measurement of the resistance under test.",
+        "analogy": "A milliohmmeter is the precision tool for measuring 'near-zero' resistance — where a standard DMM just reads 'close to zero' without the resolution to tell a good bond from a marginal one.",
+        "unit": "Test Equipment — Milliohmmeter"
+      },
+      "jeopardy": {
+        "question": "This is the primary use of a milliohmmeter.",
+        "choices": [
+          "Applying a high DC test voltage to insulation",
+          "Measuring very low resistances in the milliohm range, such as bonding straps and relay contacts, using a four-wire Kelvin connection",
+          "Displaying voltage waveforms over time",
+          "Measuring AC signal frequency"
+        ],
+        "correctIndex": 1,
+        "explanation": "A milliohmmeter reads very low resistances with four-wire Kelvin technique. Insulation resistance requires a megger. Waveform display requires an oscilloscope. Frequency requires a counter."
+      },
+      "multipleChoice": {
+        "question": "On the shop bench, a milliohmmeter is the instrument of choice for measuring:",
+        "choices": [
+          "Apply a high DC test voltage to measure insulation resistance",
+          "Display voltage waveforms as a function of time",
+          "Measure very low resistances in the milliohm range — bonding straps, ground paths, relay contacts, and connector contacts — using a four-wire Kelvin connection that eliminates lead and contact resistance",
+          "Measure the frequency of an AC signal"
+        ],
+        "correctIndex": 2,
+        "explanation": "A milliohmmeter measures resistances in the thousandths-of-an-ohm range. Its four-wire Kelvin technique forces a known current through the part under test and measures voltage with separate leads, so lead and contact resistance do not contaminate the reading. Typical uses are bonding verification (where the target is well under 10 milliohms), relay contacts, and high-current connectors. Insulation resistance requires a megger; waveforms require an oscilloscope; frequency requires a counter."
+      },
+      "practice": {
+        "question": "A technician needs to verify that a newly installed bonding strap reads less than 5 milliohms per the installation procedure. Which instrument is appropriate, and why?",
+        "choices": [
+          "A milliohmmeter, because the target value is in milliohms. A standard DMM's lead and contact resistance alone would be several hundred milliohms, completely masking the real bond resistance. The milliohmmeter uses a four-wire Kelvin connection that eliminates lead resistance from the reading",
+          "A standard DMM on the ohms range, because it can read resistance",
+          "A megohmmeter at 500 V",
+          "An oscilloscope"
+        ],
+        "correctIndex": 0,
+        "explanation": "The target measurement is in milliohms, which is beyond the usable resolution of a standard DMM. DMM lead resistance alone (typically 200-500 milliohms) is orders of magnitude larger than the bond being measured and would completely dominate the reading. A milliohmmeter's four-wire Kelvin technique separates the current-injection leads from the voltage-sense leads, eliminating lead resistance from the measurement. Meggers measure insulation, not bonding. Oscilloscopes show waveforms."
+      },
+      "preassessment": {
+        "question": "On the shop bench, a milliohmmeter measures:",
+        "choices": [
+          "Insulation resistance",
+          "Signal frequency",
+          "Voltage waveforms",
+          "Very low resistance (bonding, contacts) with Kelvin connection"
+        ],
+        "correctIndex": 3
+      },
+      "targetCaetId": "464349",
+      "targetCaetStem": "A milliohmmeter is primarily used to:",
+      "targetCaetPp": 0.94
     }
   ]
 }

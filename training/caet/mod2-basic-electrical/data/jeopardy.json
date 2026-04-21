@@ -379,6 +379,391 @@
         "correctIndex": 2,
         "explanation": "'Parasitic' refers to current that should not be flowing. It is usually a clue to a stuck relay, a wiring mistake, or a leaky electronic module drawing from always-hot battery wiring."
       }
+    ],
+    "Extended Coverage 1": [
+      {
+        "id": "CAT2-NEW-J01",
+        "clue": "This is the wattage dissipated by a 12-volt load drawing 2 amps of current.",
+        "choices": [
+          "36 W",
+          "14 W",
+          "10 W",
+          "24 W"
+        ],
+        "correctIndex": 3,
+        "explanation": "Power equals voltage times current: P = V x I. With 12 V and 2 A, P = 24 W. Techs use this basic product dozens of times a day to verify component ratings against actual draws.",
+        "targetCaetId": "464197",
+        "targetCaetStem": "Scenario: You are troubleshooting a circuit that uses a 12V power supply. You measure the current and find it to be 2. What is the total power consumption of the circuit?",
+        "targetCaetPp": 0.0
+      },
+      {
+        "id": "CAT2-NEW-J02",
+        "clue": "This is the only compliant way to get rid of a spent Ni-Cad battery.",
+        "choices": [
+          "Return it to a certified hazardous-waste recycler",
+          "Bury it at a remote field site",
+          "Incinerate it in a drum fire",
+          "Toss it in the general shop trash"
+        ],
+        "correctIndex": 0,
+        "explanation": "Cadmium is a regulated toxic metal. Federal and local rules require Ni-Cad cells to go to an authorized hazardous-waste recycler. Trash, burial, and burning are prohibited and create environmental and legal liability.",
+        "targetCaetId": "464169",
+        "targetCaetStem": "Which of the following is a SAFE procedure for disposing of a Ni-Cad battery?",
+        "targetCaetPp": 0.0
+      },
+      {
+        "id": "CAT2-NEW-J03",
+        "clue": "This component is the usual suspect when DC bus voltage wanders yet stays within operational limits.",
+        "choices": [
+          "The voltage regulator",
+          "The starter solenoid",
+          "An avionics cooling fan",
+          "A pitot-static drain"
+        ],
+        "correctIndex": 0,
+        "explanation": "A marginal voltage regulator can still keep bus voltage inside its spec band but lose the ability to hold it rock-steady, producing unstable-but-in-limits behavior. Starter solenoids, cooling fans, and drains have no effect on bus voltage.",
+        "targetCaetId": "464196",
+        "targetCaetStem": "Scenario: An aircraft's avionics system is showing power fluctuations. Upon inspecting the power supply, you find the voltage to be unstable but within operational limits. What is the most likely cause of the issue?",
+        "targetCaetPp": 0.32
+      },
+      {
+        "id": "CAT2-NEW-J04",
+        "clue": "This is approximately the total resistance of 10k, 1k, and 500 ohm resistors wired in parallel.",
+        "choices": [
+          "11,500 ohms",
+          "3,833 ohms",
+          "323 ohms",
+          "50 ohms"
+        ],
+        "correctIndex": 2,
+        "explanation": "Apply 1/Rt = 1/R1 + 1/R2 + 1/R3 = 0.0001 + 0.001 + 0.002 = 0.0031. Rt is about 323 ohms. Parallel totals are always less than the smallest branch (500 ohms), so 323 ohms is reasonable.",
+        "targetCaetId": "464199",
+        "targetCaetStem": "Scenario: In a parallel circuit with three resistors 10k ohms, 1k ohms, and 500 ohms), what is the total resistance?",
+        "targetCaetPp": 0.4
+      },
+      {
+        "id": "CAT2-NEW-J05",
+        "clue": "This device, tied from an alternator's B-lead to ground, shunts ripple and brush noise.",
+        "choices": [
+          "A bypass capacitor",
+          "A diode",
+          "A resistor",
+          "A shunt ammeter"
+        ],
+        "correctIndex": 0,
+        "explanation": "A bypass capacitor presents low impedance to AC ripple while passing DC undisturbed. That is why capacitors are the standard cure for alternator whine in audio and avionics circuits.",
+        "targetCaetId": "464201",
+        "targetCaetStem": "Which of the following components would you typically use to suppress noise in an alternator?",
+        "targetCaetPp": 0.5
+      }
+    ],
+    "Extended Coverage 2": [
+      {
+        "id": "CAT2-NEW-J06",
+        "clue": "This is the power delivered when a 28-volt DC bus supplies 25 amps.",
+        "choices": [
+          "53 W",
+          "280 W",
+          "700 W",
+          "1,400 W"
+        ],
+        "correctIndex": 2,
+        "explanation": "P = V x I = 28 V x 25 A = 700 W. Verifying the wattage ensures the load is within bus capacity and alternator rating, a routine calculation in electrical load analysis.",
+        "targetCaetId": "464187",
+        "targetCaetStem": "In a multi-engine aircraft with a 28?V DC bus drawing 25?A, how much power is consumed?",
+        "targetCaetPp": 0.56
+      },
+      {
+        "id": "CAT2-NEW-J07",
+        "clue": "This is what happens to total resistance in a parallel circuit as you add more resistors.",
+        "choices": [
+          "It increases",
+          "It decreases",
+          "It stays the same",
+          "It equals the largest branch"
+        ],
+        "correctIndex": 1,
+        "explanation": "Adding parallel branches gives the current more paths, so total resistance drops. Each additional resistor lowers Rt below the previous total, and total parallel resistance is always less than the smallest branch.",
+        "targetCaetId": "464194",
+        "targetCaetStem": "In a parallel circuit, what happens to the total resistance as more resistors are added?",
+        "targetCaetPp": 0.58
+      },
+      {
+        "id": "CAT2-NEW-J08",
+        "clue": "This equation captures Ohm's Law, linking voltage, current, and resistance.",
+        "choices": [
+          "V = I + R",
+          "V = I / R",
+          "V = I x R",
+          "V = I^2 x R"
+        ],
+        "correctIndex": 2,
+        "explanation": "Ohm's Law is V = I x R. Current is directly proportional to voltage and inversely proportional to resistance. I^2R is the power-dissipation formula, not Ohm's Law.",
+        "targetCaetId": "464193",
+        "targetCaetStem": "Ohm's Law states that the current (I) through a conductor is directly proportional to the voltage (V) and inversely proportional to the resistance (R) Which of the following formulas represents Ohm's Law?",
+        "targetCaetPp": 0.59
+      },
+      {
+        "id": "CAT2-NEW-J09",
+        "clue": "This is what current does when a resistor is swapped for a lower value while voltage stays fixed.",
+        "choices": [
+          "It drops",
+          "It stays the same",
+          "It increases",
+          "It becomes zero"
+        ],
+        "correctIndex": 2,
+        "explanation": "By I = V/R, lowering R with V constant raises I. Techs must verify wiring and protective devices can handle the higher current whenever a lower-value resistor is substituted.",
+        "targetCaetId": "464203",
+        "targetCaetStem": "Scenario: An avionics technician is replacing a resistor in a circuit with a different value. What will happen if the resistance is decreased while the voltage remains constant?",
+        "targetCaetPp": 0.67
+      },
+      {
+        "id": "CAT2-NEW-J10",
+        "clue": "This expression shows Ohm's Law for a DC circuit.",
+        "choices": [
+          "V = I + R",
+          "V = R / I",
+          "V = I x R",
+          "V = I^2 x R"
+        ],
+        "correctIndex": 2,
+        "explanation": "For steady DC, V = I x R is the governing relation. Adding I and R makes no sense dimensionally, and I^2R represents power dissipated by the resistor, not Ohm's Law itself.",
+        "targetCaetId": "464178",
+        "targetCaetStem": "Which equation correctly represents Ohm’s Law in a DC circuit?",
+        "targetCaetPp": 0.69
+      }
+    ],
+    "Extended Coverage 3": [
+      {
+        "id": "CAT2-NEW-J11",
+        "clue": "This component keeps DC bus voltage steady in spite of load and RPM changes.",
+        "choices": [
+          "The voltage regulator",
+          "The master contactor",
+          "The landing-gear relay",
+          "The ammeter shunt"
+        ],
+        "correctIndex": 0,
+        "explanation": "The voltage regulator constantly trims alternator or generator field current to hold bus voltage on its set point. Shunts measure current, and contactors switch power but do not regulate voltage.",
+        "targetCaetId": "464162",
+        "targetCaetStem": "Which component is responsible for regulating voltage in a DC electrical system?",
+        "targetCaetPp": 0.69
+      },
+      {
+        "id": "CAT2-NEW-J12",
+        "clue": "This is the correct way to connect an ammeter when reading circuit current.",
+        "choices": [
+          "In parallel with the load",
+          "Between two separate grounds",
+          "Across the battery terminals only",
+          "In series with the load"
+        ],
+        "correctIndex": 3,
+        "explanation": "An ammeter must be placed in series so all current flows through it. Ammeters have very low internal resistance, so a parallel connection would create a near-short and likely blow the meter fuse.",
+        "targetCaetId": "464351",
+        "targetCaetStem": "When measuring current in a circuit, how do you connect the meter?",
+        "targetCaetPp": 0.71
+      },
+      {
+        "id": "CAT2-NEW-J13",
+        "clue": "On the bench, a tech reaches for this instrument to confirm the operating frequency an AC alternator is producing.",
+        "choices": [
+          "A clamp-on DC current probe",
+          "An analog ammeter",
+          "A megohmmeter",
+          "A frequency meter (or frequency counter)"
+        ],
+        "correctIndex": 3,
+        "explanation": "A frequency meter or counter reads cycles per second directly. Aircraft AC alternator output is typically 400 Hz, and a frequency meter confirms that spec. Ammeters, megohmmeters, and DC clamps measure other quantities.",
+        "targetCaetId": "464355",
+        "targetCaetStem": "Which instrument verifies the output frequency of an aircraft’s AC alternator on the bench?",
+        "targetCaetPp": 0.72
+      },
+      {
+        "id": "CAT2-NEW-J14",
+        "clue": "This is the SI unit used to measure capacitance.",
+        "choices": [
+          "Henry",
+          "Farad",
+          "Ohm",
+          "Hertz"
+        ],
+        "correctIndex": 1,
+        "explanation": "Capacitance is measured in farads (F), though practical components are sized in microfarads or picofarads. Ohms measure resistance, henries measure inductance, and hertz is frequency.",
+        "targetCaetId": "464202",
+        "targetCaetStem": "What is the unit of capacitance?",
+        "targetCaetPp": 0.73
+      },
+      {
+        "id": "CAT2-NEW-J15",
+        "clue": "This is the current that flows when 24 V is applied across a 12-ohm load.",
+        "choices": [
+          "2 A",
+          "0.5 A",
+          "12 A",
+          "288 A"
+        ],
+        "correctIndex": 0,
+        "explanation": "Use Ohm's Law: I = V/R = 24 / 12 = 2 A. Multiplying V by R gives 288 (an impossibly large number for this setup), and inverting the division yields 0.5 A.",
+        "targetCaetId": "464183",
+        "targetCaetStem": "If a circuit has 24 V and a total resistance of 12 ohms, what is the current?",
+        "targetCaetPp": 0.75
+      }
+    ],
+    "Extended Coverage 4": [
+      {
+        "id": "CAT2-NEW-J16",
+        "clue": "This is the resistance of a circuit where a technician reads 14 V and 7 A.",
+        "choices": [
+          "0.5 ohm",
+          "7 ohms",
+          "98 ohms",
+          "2 ohms"
+        ],
+        "correctIndex": 3,
+        "explanation": "Apply R = V/I = 14 / 7 = 2 ohms. Multiplying V and I gives 98, which is a classic Ohm's Law rearrangement mistake; inverting produces 0.5 ohm.",
+        "targetCaetId": "464188",
+        "targetCaetStem": "A technician measures 14?V and 7?A. What is the circuit's resistance?",
+        "targetCaetPp": 0.75
+      },
+      {
+        "id": "CAT2-NEW-J17",
+        "clue": "This frequency range covers VHF voice communication used in general aviation.",
+        "choices": [
+          "3 to 30 MHz (HF)",
+          "30 to 88 MHz (low VHF)",
+          "118 to 137 MHz (aeronautical VHF)",
+          "960 to 1215 MHz (L-band)"
+        ],
+        "correctIndex": 2,
+        "explanation": "Aeronautical VHF voice spans 118.000 to 136.975 MHz, just above the commercial FM broadcast band. HF is long-range, low VHF is mostly land mobile, and L-band covers DME and transponder replies.",
+        "targetCaetId": "464209",
+        "targetCaetStem": "Which frequency range is used for VHF communication in general aviation?",
+        "targetCaetPp": 0.76
+      },
+      {
+        "id": "CAT2-NEW-J18",
+        "clue": "This DC component provides the initial current that actually cranks the engine on start.",
+        "choices": [
+          "The aircraft battery",
+          "The voltage regulator",
+          "The master warning panel",
+          "The alternator as it windmills"
+        ],
+        "correctIndex": 0,
+        "explanation": "Before the engine runs, only the battery has stored energy. It supplies the several hundred amps used by the starter. The alternator cannot produce output until the engine is rotating it.",
+        "targetCaetId": "464177",
+        "targetCaetStem": "Which component in a DC electrical system serves as the initial power source for starting the engine?",
+        "targetCaetPp": 0.76
+      },
+      {
+        "id": "CAT2-NEW-J19",
+        "clue": "This formula gives total resistance Rt in a series circuit with n resistors.",
+        "choices": [
+          "Rt = R1 + R2 + ... + Rn",
+          "Rt = 1/(1/R1 + 1/R2 + ... + 1/Rn)",
+          "Rt = (R1 x R2) / (R1 + R2)",
+          "Rt = smallest value in the set"
+        ],
+        "correctIndex": 0,
+        "explanation": "Series totals add directly. The reciprocal form applies to parallel networks, the product-over-sum applies to two resistors in parallel, and simply taking the smallest value is never correct.",
+        "targetCaetId": "464182",
+        "targetCaetStem": "How is total resistance (Rt) computed in a series circuit?  Rn represents the total number of resistors in a circuit.",
+        "targetCaetPp": 0.81
+      },
+      {
+        "id": "CAT2-NEW-J20",
+        "clue": "This is the current through a 6-ohm bulb supplied by a 12-volt battery.",
+        "choices": [
+          "0.5 A",
+          "6 A",
+          "2 A",
+          "72 A"
+        ],
+        "correctIndex": 2,
+        "explanation": "By Ohm's Law, I = V/R = 12/6 = 2 A. Multiplying V x R yields 72 A (wrong), and flipping numerator and denominator yields 0.5 A (also wrong).",
+        "targetCaetId": "464179",
+        "targetCaetStem": "A circuit has a 12-volt battery and a light bulb measuring 6 ohms of resistance. What is the current flowing through the circuit?",
+        "targetCaetPp": 0.85
+      }
+    ],
+    "Extended Coverage 5": [
+      {
+        "id": "CAT2-NEW-J21",
+        "clue": "This is the most common cause of voltage that is lower than expected across a load.",
+        "choices": [
+          "An overcharged battery",
+          "High-resistance connections or corrosion upstream of the load",
+          "A regulator set too high",
+          "Wire gauge that is larger than required"
+        ],
+        "correctIndex": 1,
+        "explanation": "Corroded terminals or loose connections add unintended series resistance, producing an IR drop that lowers the voltage at the load. Overcharging or high regulator settings would push voltage up, not down.",
+        "targetCaetId": "464185",
+        "targetCaetStem": "A circuit shows lower-than-expected voltage across a load. Which is a likely cause?",
+        "targetCaetPp": 0.85
+      },
+      {
+        "id": "CAT2-NEW-J22",
+        "clue": "This is the MOST likely reason an aircraft lighting circuit is running dimmer than usual.",
+        "choices": [
+          "A bus voltage higher than nominal",
+          "Oversized wiring in the bundle",
+          "Voltage drop from corroded grounds or a sagging bus",
+          "A newer, higher-output alternator"
+        ],
+        "correctIndex": 2,
+        "explanation": "Dim lamps usually indicate low voltage arriving at the bulb - from corrosion, loose terminals, or a weakening charging system. Higher bus voltage or higher-output alternators would brighten lights, not dim them.",
+        "targetCaetId": "464189",
+        "targetCaetStem": "An aircraft lighting circuit’s bulbs are dimmer than usual Which of the following is the MOST likely cause?",
+        "targetCaetPp": 0.88
+      },
+      {
+        "id": "CAT2-NEW-J23",
+        "clue": "This is the chief risk when ARINC data lines are bundled with high-current power wires.",
+        "choices": [
+          "Excessive bundle weight",
+          "Power wires stealing current from data wires",
+          "Permanent loss of shielding effectiveness",
+          "Electromagnetic interference coupling onto the data lines"
+        ],
+        "correctIndex": 3,
+        "explanation": "Power wires carrying high current produce changing magnetic fields that can induce noise onto adjacent data lines, corrupting ARINC signaling. Installation practice requires separation or shielding to protect data integrity.",
+        "targetCaetId": "464292",
+        "targetCaetStem": "During inspection, ARINC data lines are bundled with high-current power wires. Which of the following would be a potential issue?",
+        "targetCaetPp": 0.92
+      },
+      {
+        "id": "CAT2-NEW-J24",
+        "clue": "This is the primary mission for HF communications in aviation.",
+        "choices": [
+          "Short-range tower chatter",
+          "Satellite television reception",
+          "Very short pulse ranging",
+          "Long-range oceanic and remote voice communication"
+        ],
+        "correctIndex": 3,
+        "explanation": "HF signals (3 to 30 MHz) bounce off the ionosphere, covering thousands of miles where VHF line-of-sight is lost. That is why HF is the long-range voice link for oceanic and remote-area operations.",
+        "targetCaetId": "464217",
+        "targetCaetStem": "HF (High Frequency) communication is used in aviation primarily for:",
+        "targetCaetPp": 0.92
+      },
+      {
+        "id": "CAT2-NEW-J25",
+        "clue": "This is the main advantage that drove modern aircraft to use alternators instead of DC generators.",
+        "choices": [
+          "They eliminate voltage regulators",
+          "They require no rectification to supply DC loads",
+          "They weigh less and produce output at low engine RPM",
+          "They allow removal of the aircraft battery"
+        ],
+        "correctIndex": 2,
+        "explanation": "Alternators are lighter than equivalent generators and produce useful output even at ground idle, where generators cannot. They still need a regulator, built-in rectifying diodes, and a battery.",
+        "targetCaetId": "464175",
+        "targetCaetStem": "Why are alternators preferred over generators in modern DC electrical systems?",
+        "targetCaetPp": 1.0
+      }
     ]
   },
   "final": [

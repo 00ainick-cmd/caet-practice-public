@@ -1836,6 +1836,1541 @@
         ],
         "correctIndex": 2
       }
+    },
+    {
+      "id": "CAT2-NEW-051",
+      "category": "mod2-basic-electrical",
+      "difficulty": "easy",
+      "tags": [
+        "ohms-law",
+        "power-calculation",
+        "dc-circuits"
+      ],
+      "learningObjective": "Calculate total power consumption given voltage and current.",
+      "fullObjective": "Recognize that electrical power in a DC circuit equals the product of voltage and current (P = V x I), and apply this to compute wattage from measured values.",
+      "flashcard": {
+        "term": "Power in a 12 V / 2 A circuit",
+        "definition": "24 watts. P equals voltage multiplied by current, so 12 V x 2 A = 24 W.",
+        "analogy": "Think of voltage as water pressure and current as flow rate. Pressure times flow equals the total 'work' the water can do.",
+        "unit": "Basic Electrical Theory"
+      },
+      "jeopardy": {
+        "question": "This is the power dissipated when 12 volts pushes 2 amps through a load.",
+        "choices": [
+          "10 W",
+          "14 W",
+          "24 W",
+          "36 W"
+        ],
+        "correctIndex": 2,
+        "explanation": "Power equals voltage times current (P = V x I). Multiplying 12 V by 2 A yields 24 watts of total consumption."
+      },
+      "multipleChoice": {
+        "question": "How many watts are consumed by a 12-volt DC load drawing 2 amps?",
+        "choices": [
+          "24 W",
+          "14 W",
+          "6 W",
+          "48 W"
+        ],
+        "correctIndex": 0,
+        "explanation": "Use P = V x I. With 12 V and 2 A, the circuit dissipates 24 watts. Dividing (6 W) or adding (14 W) misapplies the formula."
+      },
+      "practice": {
+        "question": "Scenario: While troubleshooting a 12-volt aux lighting circuit, your clamp meter reads 2 amps of draw. What total wattage is the circuit consuming?",
+        "choices": [
+          "24 W",
+          "14 W",
+          "6 W",
+          "48 W"
+        ],
+        "correctIndex": 0,
+        "explanation": "Power is simply voltage x current. 12 V x 2 A = 24 W. This is the figure you would compare against the bulb or equipment rating to verify normal operation."
+      },
+      "preassessment": {
+        "question": "A DC circuit runs on 12 V and draws 2 A. How much power does it consume?",
+        "choices": [
+          "10 W",
+          "14 W",
+          "30 W",
+          "24 W"
+        ],
+        "correctIndex": 3
+      },
+      "targetCaetId": "464197",
+      "targetCaetStem": "Scenario: You are troubleshooting a circuit that uses a 12V power supply. You measure the current and find it to be 2. What is the total power consumption of the circuit?",
+      "targetCaetPp": 0.0
+    },
+    {
+      "id": "CAT2-NEW-052",
+      "category": "mod2-basic-electrical",
+      "difficulty": "medium",
+      "tags": [
+        "batteries",
+        "nicad",
+        "safety",
+        "disposal"
+      ],
+      "learningObjective": "Identify the correct safe procedure for disposing of a Ni-Cad battery.",
+      "fullObjective": "Recognize that Ni-Cad batteries contain toxic cadmium and must be handled as hazardous waste by sending them to an authorized recycling facility rather than placing them in general trash.",
+      "flashcard": {
+        "term": "Ni-Cad battery disposal",
+        "definition": "Return to a certified hazardous-waste recycler. Cadmium is toxic, so Ni-Cad cells must never go into regular trash or be incinerated.",
+        "analogy": "Like used engine oil, the battery is useful when contained but poisonous if it leaks into the environment, so it needs a licensed recycler.",
+        "unit": "Basic Electrical Theory"
+      },
+      "jeopardy": {
+        "question": "This is the correct disposal method for a spent aircraft Ni-Cad battery.",
+        "choices": [
+          "Deliver it to a certified hazardous-waste recycler",
+          "Short both terminals, then bury it offsite",
+          "Incinerate the cells to destroy the electrolyte",
+          "Drop it into the shop's general trash dumpster"
+        ],
+        "correctIndex": 0,
+        "explanation": "Cadmium inside a Ni-Cad is a regulated toxic metal. Federal and local rules require routing the battery to an approved hazardous-waste recycler; trashing, burying, or burning cells is prohibited."
+      },
+      "multipleChoice": {
+        "question": "Which method is the approved way to dispose of a used Ni-Cad battery?",
+        "choices": [
+          "Place it in ordinary shop trash",
+          "Crush the cells and discard the pieces",
+          "Throw it into a fire to destroy the chemicals",
+          "Turn it in to a certified hazardous-waste recycler"
+        ],
+        "correctIndex": 3,
+        "explanation": "Ni-Cad cells contain cadmium, a regulated toxic metal. Only a certified hazardous-waste recycler may accept them. Trash, crushing, or burning releases hazardous material and violates disposal rules."
+      },
+      "practice": {
+        "question": "Scenario: You have just removed a time-expired Ni-Cad battery from a corporate jet. What disposal action complies with hazardous-waste rules?",
+        "choices": [
+          "Toss it into the hangar's roll-off dumpster",
+          "Leave it on a hazmat shelf indefinitely",
+          "Route it to an authorized hazardous-waste recycler",
+          "Discharge it and recycle it with household alkalines"
+        ],
+        "correctIndex": 2,
+        "explanation": "Regulations require routing cadmium-bearing batteries to an authorized hazardous-waste recycler. Dumpsters, indefinite shelving, or household recycling streams are not approved pathways."
+      },
+      "preassessment": {
+        "question": "What is the SAFE way to get rid of a used Ni-Cad battery?",
+        "choices": [
+          "Toss it in general trash",
+          "Burn it in a metal drum",
+          "Bury it in the field behind the hangar",
+          "Recycle through a certified hazardous-waste facility"
+        ],
+        "correctIndex": 3
+      },
+      "targetCaetId": "464169",
+      "targetCaetStem": "Which of the following is a SAFE procedure for disposing of a Ni-Cad battery?",
+      "targetCaetPp": 0.0
+    },
+    {
+      "id": "CAT2-NEW-053",
+      "category": "mod2-basic-electrical",
+      "difficulty": "medium",
+      "tags": [
+        "parallel-circuits",
+        "kirchhoff",
+        "dc-circuits"
+      ],
+      "learningObjective": "Determine the total current in a parallel circuit.",
+      "fullObjective": "Recognize that in a parallel circuit the total current supplied by the source equals the sum of the individual branch currents (Kirchhoff's current law).",
+      "flashcard": {
+        "term": "Total current in parallel",
+        "definition": "Add every branch current together. It = I1 + I2 + I3 ..., because each path draws independently from the source.",
+        "analogy": "Picture three garden hoses fed by one faucet. Total faucet flow equals the sum of the flow out of each hose.",
+        "unit": "Basic Electrical Theory"
+      },
+      "jeopardy": {
+        "question": "This is how total current is determined when resistors are wired in parallel.",
+        "choices": [
+          "Sum each branch current (I1 + I2 + I3 ...)",
+          "Divide source voltage by the smallest resistor",
+          "Multiply all branch currents together",
+          "Subtract the smallest branch current from the largest"
+        ],
+        "correctIndex": 0,
+        "explanation": "Kirchhoff's current law states that current entering a junction equals current leaving it. In a parallel network, the source must supply the sum of the individual branch currents."
+      },
+      "multipleChoice": {
+        "question": "What method gives the total current flowing from the source in a parallel network?",
+        "choices": [
+          "Divide source voltage by the largest resistor",
+          "Average the branch currents",
+          "Use the current measured in only one branch",
+          "Add the current through each branch together"
+        ],
+        "correctIndex": 3,
+        "explanation": "By Kirchhoff's current law, total current in a parallel circuit is the algebraic sum of branch currents. Using a single branch or averaging underestimates the source load."
+      },
+      "practice": {
+        "question": "Scenario: A 28 V aircraft bus feeds three parallel loads drawing 2 A, 3 A, and 5 A. How should you determine the current the bus must supply?",
+        "choices": [
+          "Add the three branch currents for 10 A total",
+          "Divide 28 V by the total resistance of one branch",
+          "Use only the largest load (5 A)",
+          "Average the three branch currents"
+        ],
+        "correctIndex": 0,
+        "explanation": "The bus must deliver the sum of all branch currents: 2 + 3 + 5 = 10 A. Each parallel path draws independently, and the source current equals the total."
+      },
+      "preassessment": {
+        "question": "In a parallel DC circuit, total current from the source equals:",
+        "choices": [
+          "The smallest branch current",
+          "The sum of every branch current",
+          "The product of all branch currents",
+          "The difference between two branches"
+        ],
+        "correctIndex": 1
+      },
+      "targetCaetId": "464191",
+      "targetCaetStem": "In a parallel circuit, how do you find total current?",
+      "targetCaetPp": 0.32
+    },
+    {
+      "id": "CAT2-NEW-054",
+      "category": "mod2-basic-electrical",
+      "difficulty": "medium",
+      "tags": [
+        "voltage-regulation",
+        "power-supply",
+        "troubleshooting"
+      ],
+      "learningObjective": "Diagnose unstable bus voltage within operational limits as a regulator problem.",
+      "fullObjective": "Recognize that slow drift or fluctuation of DC bus voltage inside operational limits typically indicates a marginal voltage regulator rather than battery or load failure.",
+      "flashcard": {
+        "term": "Unstable but in-limits bus voltage",
+        "definition": "Most commonly points to a marginal voltage regulator. The regulator can still hold within limits but fails to deliver rock-steady output.",
+        "analogy": "Like a thermostat that keeps the room between 68 and 72 but never settles on one temperature.",
+        "unit": "Basic Electrical Theory"
+      },
+      "jeopardy": {
+        "question": "This component is the usual suspect when DC bus voltage wanders but stays within tolerance.",
+        "choices": [
+          "A marginal voltage regulator",
+          "A shorted annunciator lamp",
+          "The battery main contactor",
+          "The landing-gear squat switch"
+        ],
+        "correctIndex": 0,
+        "explanation": "A deteriorating voltage regulator often holds output inside its spec band but can no longer maintain it steady. Contactors, lamps, and squat switches do not control bus voltage."
+      },
+      "multipleChoice": {
+        "question": "Which defect best explains bus voltage that fluctuates yet stays inside operational limits?",
+        "choices": [
+          "A deteriorating voltage regulator",
+          "An open circuit breaker on the main bus",
+          "A deeply discharged battery",
+          "A corroded airframe ground"
+        ],
+        "correctIndex": 0,
+        "explanation": "A failing regulator still controls voltage loosely, producing in-band drift. A dead battery or open CB would drop the bus out of limits, and a bad ground usually shows as a voltage drop under load rather than continuous wandering."
+      },
+      "practice": {
+        "question": "Scenario: An aircraft's avionics panel shows power fluctuations. Your voltmeter on the main bus reads unstable but within operational limits. Which component most likely needs attention?",
+        "choices": [
+          "The voltage regulator",
+          "The battery relay",
+          "The pitot heat circuit breaker",
+          "The static inverter output transformer"
+        ],
+        "correctIndex": 0,
+        "explanation": "In-band wandering is classic voltage-regulator behavior. The regulator still acts on the field but no longer corrects precisely. Battery relays cause on/off symptoms, and unrelated breakers or inverters would not drive subtle bus drift."
+      },
+      "preassessment": {
+        "question": "Bus voltage drifts but stays in limits. Most likely cause?",
+        "choices": [
+          "Marginal voltage regulator",
+          "Shorted busbar",
+          "Open battery fuse",
+          "Low generator RPM only"
+        ],
+        "correctIndex": 0
+      },
+      "targetCaetId": "464196",
+      "targetCaetStem": "Scenario: An aircraft's avionics system is showing power fluctuations. Upon inspecting the power supply, you find the voltage to be unstable but within operational limits. What is the most likely cause of the issue?",
+      "targetCaetPp": 0.32
+    },
+    {
+      "id": "CAT2-NEW-055",
+      "category": "mod2-basic-electrical",
+      "difficulty": "easy",
+      "tags": [
+        "ohms-law",
+        "current",
+        "voltage"
+      ],
+      "learningObjective": "Predict how current changes when voltage doubles at constant resistance.",
+      "fullObjective": "Recognize that by Ohm's Law (I = V/R), current is directly proportional to voltage, so doubling the applied voltage doubles the current when resistance is held constant.",
+      "flashcard": {
+        "term": "Voltage doubles, resistance constant",
+        "definition": "Current doubles. I = V/R, so current rises in direct proportion to voltage when R does not change.",
+        "analogy": "Like opening the valve twice as wide at the water tank while the pipe stays the same - flow exactly doubles.",
+        "unit": "Basic Electrical Theory"
+      },
+      "jeopardy": {
+        "question": "This is what happens to current when applied voltage is doubled and resistance is unchanged.",
+        "choices": [
+          "It is cut in half",
+          "It quadruples",
+          "It stays exactly the same",
+          "It doubles"
+        ],
+        "correctIndex": 3,
+        "explanation": "Ohm's Law says I = V/R. With R fixed, doubling V doubles I. Halving or quadrupling would require resistance to change or power (I-squared) to be the variable."
+      },
+      "multipleChoice": {
+        "question": "If applied voltage is doubled while resistance remains constant, the circuit current will:",
+        "choices": [
+          "Double",
+          "Remain unchanged",
+          "Drop to one-half its former value",
+          "Increase by a factor of four"
+        ],
+        "correctIndex": 0,
+        "explanation": "Ohm's Law is linear: I = V/R. Doubling V while R is constant exactly doubles I. Quadrupling applies to power (P = V^2/R), not current."
+      },
+      "practice": {
+        "question": "Scenario: A test bench normally runs at 14 V through a fixed load. You switch the supply to 28 V without changing the load resistance. What happens to current?",
+        "choices": [
+          "It doubles",
+          "It stays the same",
+          "It is halved",
+          "It increases by four times"
+        ],
+        "correctIndex": 0,
+        "explanation": "Because resistance is unchanged and voltage doubled (14 V to 28 V), current also doubles per Ohm's Law. Overlooking this is how techs blow fuses when bench-testing 14 V equipment on a 28 V supply."
+      },
+      "preassessment": {
+        "question": "Double the voltage, hold resistance the same: current will:",
+        "choices": [
+          "Halve",
+          "Stay the same",
+          "Double",
+          "Quadruple"
+        ],
+        "correctIndex": 2
+      },
+      "targetCaetId": "464180",
+      "targetCaetStem": "What will happen to the current in a circuit if the voltage doubles while the resistance stays the same?",
+      "targetCaetPp": 0.36
+    },
+    {
+      "id": "CAT2-NEW-056",
+      "category": "mod2-basic-electrical",
+      "difficulty": "hard",
+      "tags": [
+        "parallel-circuits",
+        "total-resistance",
+        "calculation"
+      ],
+      "learningObjective": "Calculate total resistance of three resistors in parallel.",
+      "fullObjective": "Apply the parallel resistance formula 1/Rt = 1/R1 + 1/R2 + 1/R3 to compute an equivalent resistance that is always smaller than the smallest branch.",
+      "flashcard": {
+        "term": "10k, 1k, 500 in parallel",
+        "definition": "About 323 ohms. Use 1/Rt = 1/10000 + 1/1000 + 1/500; invert the sum to get Rt.",
+        "analogy": "Adding more pipes between two tanks; each new pipe lowers total resistance to flow.",
+        "unit": "Basic Electrical Theory"
+      },
+      "jeopardy": {
+        "question": "This is the total resistance of 10k, 1k, and 500 ohms placed in parallel.",
+        "choices": [
+          "About 11,500 ohms",
+          "About 3,833 ohms",
+          "About 167 ohms",
+          "About 323 ohms"
+        ],
+        "correctIndex": 3,
+        "explanation": "1/Rt = 1/10000 + 1/1000 + 1/500 = 0.0031; Rt is about 323 ohms. Total parallel resistance is always less than the smallest branch (500 ohms), so 323 ohms fits."
+      },
+      "multipleChoice": {
+        "question": "Three resistors (10,000 ohms, 1,000 ohms, and 500 ohms) are connected in parallel. What is the total resistance?",
+        "choices": [
+          "About 11,500 ohms",
+          "About 3,833 ohms",
+          "About 323 ohms",
+          "About 167 ohms"
+        ],
+        "correctIndex": 2,
+        "explanation": "Sum the reciprocals: 0.0001 + 0.001 + 0.002 = 0.0031. Invert to get Rt about 323 ohms. Option 11,500 is the series sum, and 3,833 is the mean - both misuses of parallel math."
+      },
+      "practice": {
+        "question": "Scenario: On a schematic you see three parallel resistors labeled 10k ohms, 1k ohms, and 500 ohms. What is the total resistance between the common nodes?",
+        "choices": [
+          "About 11,500 ohms (series total)",
+          "About 323 ohms (parallel total)",
+          "About 3,833 ohms (arithmetic mean)",
+          "About 167 ohms (one-third of smallest)"
+        ],
+        "correctIndex": 1,
+        "explanation": "Use 1/Rt = 1/R1 + 1/R2 + 1/R3. Solving gives Rt about 323 ohms, which is correctly less than 500 ohms (the smallest branch). Series addition or averaging does not apply to parallel networks."
+      },
+      "preassessment": {
+        "question": "Three parallel resistors of 10k, 1k, and 500 ohms yield a total resistance of about:",
+        "choices": [
+          "11,500 ohms",
+          "3,800 ohms",
+          "323 ohms",
+          "50 ohms"
+        ],
+        "correctIndex": 2
+      },
+      "targetCaetId": "464199",
+      "targetCaetStem": "Scenario: In a parallel circuit with three resistors 10k ohms, 1k ohms, and 500 ohms), what is the total resistance?",
+      "targetCaetPp": 0.4
+    },
+    {
+      "id": "CAT2-NEW-057",
+      "category": "mod2-basic-electrical",
+      "difficulty": "medium",
+      "tags": [
+        "alternator",
+        "noise-suppression",
+        "capacitor"
+      ],
+      "learningObjective": "Identify the component used to suppress electrical noise from an alternator.",
+      "fullObjective": "Recognize that a capacitor (often called an alternator noise filter) placed across the output shunts high-frequency ripple and brush noise to ground, cleaning up avionics power.",
+      "flashcard": {
+        "term": "Alternator noise filter",
+        "definition": "A capacitor tied from the alternator B-lead to ground. It shunts AC ripple and brush noise to structure while letting DC pass.",
+        "analogy": "Like a surge tank on a water line - smooths pressure spikes without blocking steady flow.",
+        "unit": "Basic Electrical Theory"
+      },
+      "jeopardy": {
+        "question": "This component, tied from an alternator's B-lead to ground, filters whine and ripple.",
+        "choices": [
+          "A bypass capacitor",
+          "A carbon resistor",
+          "A series inductor",
+          "A power diode"
+        ],
+        "correctIndex": 0,
+        "explanation": "A bypass capacitor offers low impedance to AC noise, shunting alternator ripple to ground while passing DC undisturbed. Diodes rectify, resistors waste energy, and a plain series inductor would choke DC too."
+      },
+      "multipleChoice": {
+        "question": "Which device is most commonly installed to suppress noise produced by an alternator?",
+        "choices": [
+          "A solid-state relay",
+          "A wire-wound resistor",
+          "A power rectifier diode",
+          "A bypass capacitor to ground"
+        ],
+        "correctIndex": 3,
+        "explanation": "Bypass capacitors absorb high-frequency ripple and brush hash, providing a low-impedance path to ground for AC while leaving the DC output unaffected. Other parts listed do not filter ripple."
+      },
+      "practice": {
+        "question": "Scenario: Pilots report alternator whine in the intercom. Which component should you add or verify to quiet the alternator's electrical noise?",
+        "choices": [
+          "A fuse on the field lead",
+          "A bypass capacitor at the B-terminal",
+          "A crowbar diode on the bus",
+          "A shunt resistor across the battery"
+        ],
+        "correctIndex": 1,
+        "explanation": "The classic fix for alternator whine is a bypass capacitor at the output terminal to structural ground. It shorts AC ripple to ground while passing DC. Fuses, crowbar diodes, and shunt resistors do not filter noise."
+      },
+      "preassessment": {
+        "question": "To suppress noise coming from an alternator, techs usually install a:",
+        "choices": [
+          "Capacitor",
+          "Resistor",
+          "Diode",
+          "Transformer"
+        ],
+        "correctIndex": 0
+      },
+      "targetCaetId": "464201",
+      "targetCaetStem": "Which of the following components would you typically use to suppress noise in an alternator?",
+      "targetCaetPp": 0.5
+    },
+    {
+      "id": "CAT2-NEW-058",
+      "category": "mod2-basic-electrical",
+      "difficulty": "medium",
+      "tags": [
+        "power-calculation",
+        "dc-bus",
+        "ohms-law"
+      ],
+      "learningObjective": "Compute power dissipation on a 28 V DC bus with a given current.",
+      "fullObjective": "Apply P = V x I to determine the wattage consumed on a 28 V bus drawing 25 A, recognizing standard aircraft bus arithmetic.",
+      "flashcard": {
+        "term": "28 V bus at 25 A",
+        "definition": "700 watts. P = V x I = 28 x 25.",
+        "analogy": "Like multiplying pressure (V) by flow (I) on a hydraulic system to get total work output.",
+        "unit": "Basic Electrical Theory"
+      },
+      "jeopardy": {
+        "question": "This is the power drawn when a 28 V DC bus supplies 25 amps.",
+        "choices": [
+          "280 W",
+          "700 W",
+          "53 W",
+          "1,400 W"
+        ],
+        "correctIndex": 1,
+        "explanation": "P = V x I = 28 V x 25 A = 700 W. Adding instead of multiplying gives 53 W, and dividing or doubling produces the other distractors."
+      },
+      "multipleChoice": {
+        "question": "What power is dissipated by a 28-volt DC bus carrying 25 amps of current?",
+        "choices": [
+          "53 W",
+          "700 W",
+          "280 W",
+          "1,120 W"
+        ],
+        "correctIndex": 1,
+        "explanation": "Power is voltage times current. 28 V x 25 A yields 700 watts. Other answers come from adding, misplacing a decimal, or doubling."
+      },
+      "practice": {
+        "question": "Scenario: On a twin-engine aircraft, the 28-volt DC main bus carries 25 amps during cruise. What total power is being supplied at that moment?",
+        "choices": [
+          "53 W",
+          "280 W",
+          "1,120 W",
+          "700 W"
+        ],
+        "correctIndex": 3,
+        "explanation": "Use P = V x I: 28 V x 25 A = 700 W. This is the figure technicians compare against bus capacity and alternator output rating to confirm margin."
+      },
+      "preassessment": {
+        "question": "A 28 V bus drawing 25 A consumes how much power?",
+        "choices": [
+          "53 W",
+          "700 W",
+          "250 W",
+          "1,400 W"
+        ],
+        "correctIndex": 1
+      },
+      "targetCaetId": "464187",
+      "targetCaetStem": "In a multi-engine aircraft with a 28?V DC bus drawing 25?A, how much power is consumed?",
+      "targetCaetPp": 0.56
+    },
+    {
+      "id": "CAT2-NEW-059",
+      "category": "mod2-basic-electrical",
+      "difficulty": "easy",
+      "tags": [
+        "ohms-law",
+        "formulas"
+      ],
+      "learningObjective": "Identify the algebraic expression for Ohm's Law.",
+      "fullObjective": "Recognize that Ohm's Law is written V = I x R (equivalently I = V/R or R = V/I) and select the correct algebraic form from common distractors.",
+      "flashcard": {
+        "term": "Ohm's Law formula",
+        "definition": "V = I x R. Rearranged: I = V/R and R = V/I.",
+        "analogy": "Voltage is the push, resistance is the pipe's narrowness, and current is the flow that results from dividing push by narrowness.",
+        "unit": "Basic Electrical Theory"
+      },
+      "jeopardy": {
+        "question": "This is the algebraic statement of Ohm's Law.",
+        "choices": [
+          "V = I + R",
+          "V = I x R",
+          "V = I / R",
+          "V = R / I"
+        ],
+        "correctIndex": 1,
+        "explanation": "Ohm's Law says voltage equals current multiplied by resistance. Addition, or dividing current by resistance, are common misstatements."
+      },
+      "multipleChoice": {
+        "question": "Which equation states Ohm's Law correctly?",
+        "choices": [
+          "V = I + R",
+          "V = I x R",
+          "V = I / R",
+          "V = R - I"
+        ],
+        "correctIndex": 1,
+        "explanation": "V equals I times R. Current through a conductor is proportional to voltage and inversely proportional to resistance, which gives the product form V = IR."
+      },
+      "practice": {
+        "question": "Scenario: You are reviewing a trainee's notes and see four candidate equations. Which one is the correct algebraic statement of Ohm's Law?",
+        "choices": [
+          "V = I + R",
+          "V = R / I",
+          "V = I x R",
+          "V = I^2 x R"
+        ],
+        "correctIndex": 2,
+        "explanation": "Ohm's Law is V = I x R. Adding current and resistance is nonsense dimensionally, and I^2R is the power-dissipation formula, not Ohm's Law."
+      },
+      "preassessment": {
+        "question": "Which expression is Ohm's Law?",
+        "choices": [
+          "V = I + R",
+          "V = I x R",
+          "V = R / I",
+          "V = I / R"
+        ],
+        "correctIndex": 1
+      },
+      "targetCaetId": "464193",
+      "targetCaetStem": "Ohm's Law states that the current (I) through a conductor is directly proportional to the voltage (V) and inversely proportional to the resistance (R) Which of the following formulas represents Ohm's Law?",
+      "targetCaetPp": 0.59
+    },
+    {
+      "id": "CAT2-NEW-060",
+      "category": "mod2-basic-electrical",
+      "difficulty": "medium",
+      "tags": [
+        "ac-theory",
+        "inductance",
+        "reactance"
+      ],
+      "learningObjective": "Identify the term for opposition to AC current caused by an inductor.",
+      "fullObjective": "Recognize that inductive reactance (XL, in ohms) describes an inductor's opposition to alternating current and varies directly with frequency (XL = 2 x pi x f x L).",
+      "flashcard": {
+        "term": "Inductive reactance",
+        "definition": "Opposition to AC that an inductor presents. Symbol XL, measured in ohms, equals 2 x pi x frequency x inductance.",
+        "analogy": "A spinning flywheel resists sudden changes in direction; an inductor resists sudden changes in current, opposing AC more at higher frequencies.",
+        "unit": "Basic Electrical Theory"
+      },
+      "jeopardy": {
+        "question": "This is the name given to the opposition inductors present to alternating current.",
+        "choices": [
+          "Impedance",
+          "Capacitive reactance",
+          "Conductance",
+          "Inductive reactance"
+        ],
+        "correctIndex": 3,
+        "explanation": "Inductive reactance (XL) is the specific opposition an inductor offers to AC. Impedance is the total opposition of a circuit, capacitive reactance is a capacitor's opposition, and conductance is the reciprocal of resistance."
+      },
+      "multipleChoice": {
+        "question": "What is the proper name for the opposition to AC that an inductor provides?",
+        "choices": [
+          "Inductive reactance",
+          "Capacitive reactance",
+          "Resistance",
+          "Susceptance"
+        ],
+        "correctIndex": 0,
+        "explanation": "Inductive reactance (XL, in ohms) is specifically the opposition of an inductor to AC. Resistance applies equally to AC and DC, and capacitive reactance is the opposite component - a capacitor."
+      },
+      "practice": {
+        "question": "Scenario: You are reviewing AC theory with an apprentice. How should you label the property that causes an inductor to impede alternating current?",
+        "choices": [
+          "Plain resistance",
+          "Capacitive reactance",
+          "Electromotive force",
+          "Inductive reactance"
+        ],
+        "correctIndex": 3,
+        "explanation": "Inductive reactance rises with frequency (XL = 2 x pi x f x L). It is the correct term for an inductor's opposition to AC and is measured in ohms."
+      },
+      "preassessment": {
+        "question": "Opposition to AC caused by inductors is called:",
+        "choices": [
+          "Resistance",
+          "Inductive reactance",
+          "Capacitive reactance",
+          "Admittance"
+        ],
+        "correctIndex": 1
+      },
+      "targetCaetId": "464192",
+      "targetCaetStem": "The term “Opposition to AC current due to inductors” is referred to as:",
+      "targetCaetPp": 0.6
+    },
+    {
+      "id": "CAT2-NEW-061",
+      "category": "mod2-basic-electrical",
+      "difficulty": "medium",
+      "tags": [
+        "ohms-law",
+        "resistance",
+        "current"
+      ],
+      "learningObjective": "Predict current behavior when resistance is reduced at constant voltage.",
+      "fullObjective": "Recognize that per Ohm's Law (I = V/R), lowering resistance while keeping voltage fixed increases current proportionally, which can overdrive loads and protective devices.",
+      "flashcard": {
+        "term": "Lower R at constant V",
+        "definition": "Current rises. I = V/R, so halving R doubles I when V is unchanged.",
+        "analogy": "Widen the pipe while the pump pressure stays the same - water flow goes up.",
+        "unit": "Basic Electrical Theory"
+      },
+      "jeopardy": {
+        "question": "This is what happens to current if a tech installs a smaller resistor while voltage stays the same.",
+        "choices": [
+          "Current increases",
+          "Current stays the same",
+          "Voltage instantly rises to match",
+          "Current decreases"
+        ],
+        "correctIndex": 0,
+        "explanation": "By I = V/R, dropping R while V is fixed raises I. Voltage is set by the source and does not change because a load was swapped."
+      },
+      "multipleChoice": {
+        "question": "A tech replaces a resistor with a lower-value part while the applied voltage remains unchanged. The result is:",
+        "choices": [
+          "Circuit current drops",
+          "Circuit current is unchanged",
+          "Source voltage falls proportionally",
+          "Circuit current increases"
+        ],
+        "correctIndex": 3,
+        "explanation": "Ohm's Law dictates that lower resistance at constant voltage means higher current. Source voltage is fixed by the regulator or supply and is not forced down by a smaller resistor alone."
+      },
+      "practice": {
+        "question": "Scenario: An avionics technician swaps a 100-ohm resistor for a 50-ohm part in a 28 V circuit. What change should be expected?",
+        "choices": [
+          "Current roughly doubles",
+          "Current stays at the original value",
+          "Current drops to half its previous value",
+          "Voltage doubles to compensate"
+        ],
+        "correctIndex": 0,
+        "explanation": "At fixed voltage, cutting resistance in half doubles current. The tech must verify the new current draw is still within wire, CB, and component ratings to avoid overheating."
+      },
+      "preassessment": {
+        "question": "Lower the resistance, keep voltage the same - what happens to current?",
+        "choices": [
+          "Drops",
+          "Rises",
+          "Stays the same",
+          "Becomes zero"
+        ],
+        "correctIndex": 1
+      },
+      "targetCaetId": "464203",
+      "targetCaetStem": "Scenario: An avionics technician is replacing a resistor in a circuit with a different value. What will happen if the resistance is decreased while the voltage remains constant?",
+      "targetCaetPp": 0.67
+    },
+    {
+      "id": "CAT2-NEW-062",
+      "category": "mod2-basic-electrical",
+      "difficulty": "easy",
+      "tags": [
+        "ohms-law",
+        "dc-circuits",
+        "formulas"
+      ],
+      "learningObjective": "Identify the correct Ohm's Law equation for a DC circuit.",
+      "fullObjective": "Recognize V = I x R (and the equivalent I = V/R) as the defining DC equation of Ohm's Law.",
+      "flashcard": {
+        "term": "DC Ohm's Law",
+        "definition": "V = I x R. In DC circuits, steady voltage equals current multiplied by resistance.",
+        "analogy": "Push (V) equals how fast you are pushing (I) times how stubborn the thing is (R).",
+        "unit": "Basic Electrical Theory"
+      },
+      "jeopardy": {
+        "question": "This equation is Ohm's Law as applied to a DC circuit.",
+        "choices": [
+          "P = V x I",
+          "V = I^2 x R",
+          "V = I + R",
+          "V = I x R"
+        ],
+        "correctIndex": 3,
+        "explanation": "V = I x R is Ohm's Law. P = V x I is the power formula, I^2R is the power-dissipation form, and adding I and R has no physical meaning."
+      },
+      "multipleChoice": {
+        "question": "Which formula represents Ohm's Law in a DC circuit?",
+        "choices": [
+          "V = I + R",
+          "V = P / R",
+          "V = R / I",
+          "V = I x R"
+        ],
+        "correctIndex": 3,
+        "explanation": "In DC, V = I x R. Dividing R by I rearranges incorrectly, and V = P/R mixes power and Ohm's Law equations."
+      },
+      "practice": {
+        "question": "Scenario: You are quizzing a new tech on circuit fundamentals. Which equation is Ohm's Law for a DC circuit?",
+        "choices": [
+          "V = I^2 x R",
+          "V = I x R",
+          "V = I / R",
+          "V = R - I"
+        ],
+        "correctIndex": 1,
+        "explanation": "V = I x R is Ohm's Law. I^2R gives power dissipated, and the other options are algebraic distractors rather than valid equations."
+      },
+      "preassessment": {
+        "question": "Ohm's Law for a DC circuit is:",
+        "choices": [
+          "V = I x R",
+          "V = I + R",
+          "V = R x P",
+          "V = I / R"
+        ],
+        "correctIndex": 0
+      },
+      "targetCaetId": "464178",
+      "targetCaetStem": "Which equation correctly represents Ohm’s Law in a DC circuit?",
+      "targetCaetPp": 0.69
+    },
+    {
+      "id": "CAT2-NEW-063",
+      "category": "mod2-basic-electrical",
+      "difficulty": "easy",
+      "tags": [
+        "voltage-regulation",
+        "dc-systems",
+        "components"
+      ],
+      "learningObjective": "Identify the component that regulates bus voltage in a DC system.",
+      "fullObjective": "Recognize that the voltage regulator controls generator or alternator field current to maintain a steady DC bus voltage despite changes in load and RPM.",
+      "flashcard": {
+        "term": "Voltage regulator",
+        "definition": "The DC system component that senses bus voltage and adjusts field current so output stays constant under varying load and RPM.",
+        "analogy": "A cruise-control unit for the alternator's field - more pedal (field current) when the hill gets steep.",
+        "unit": "Basic Electrical Theory"
+      },
+      "jeopardy": {
+        "question": "This component holds the DC bus at a steady voltage despite load and RPM changes.",
+        "choices": [
+          "Master switch",
+          "Voltage regulator",
+          "Shunt ammeter",
+          "Main battery relay"
+        ],
+        "correctIndex": 1,
+        "explanation": "The voltage regulator continuously varies alternator or generator field current to keep bus voltage constant. The other items switch or measure current but do not regulate voltage."
+      },
+      "multipleChoice": {
+        "question": "Which component holds DC bus voltage steady across a range of loads?",
+        "choices": [
+          "The starter solenoid",
+          "The voltage regulator",
+          "The external power receptacle",
+          "The ammeter shunt"
+        ],
+        "correctIndex": 1,
+        "explanation": "A voltage regulator modulates field current to keep bus voltage at its set point. Solenoids, shunts, and external power receptacles serve other functions entirely."
+      },
+      "practice": {
+        "question": "Scenario: On a light twin you trace a line from the alternator field terminal to a small box behind the firewall. What is this component's job in the DC system?",
+        "choices": [
+          "It switches the battery to the bus",
+          "It regulates bus voltage by controlling alternator field current",
+          "It rectifies alternator output from AC to DC",
+          "It amplifies the field current for high-load operation"
+        ],
+        "correctIndex": 1,
+        "explanation": "That box is the voltage regulator. It senses bus voltage and adjusts field current to keep output on set point. Rectification is done by alternator diodes, not the regulator."
+      },
+      "preassessment": {
+        "question": "In a DC electrical system, which device regulates voltage?",
+        "choices": [
+          "Ammeter",
+          "Voltage regulator",
+          "Battery",
+          "Circuit breaker"
+        ],
+        "correctIndex": 1
+      },
+      "targetCaetId": "464162",
+      "targetCaetStem": "Which component is responsible for regulating voltage in a DC electrical system?",
+      "targetCaetPp": 0.69
+    },
+    {
+      "id": "CAT2-NEW-064",
+      "category": "mod2-basic-electrical",
+      "difficulty": "easy",
+      "tags": [
+        "meters",
+        "current-measurement",
+        "troubleshooting"
+      ],
+      "learningObjective": "Describe how to connect an ammeter to read circuit current.",
+      "fullObjective": "Recognize that an ammeter must be connected in series with the load so all circuit current flows through it, and that its low internal resistance would cause a short if placed in parallel.",
+      "flashcard": {
+        "term": "Ammeter connection",
+        "definition": "In series with the load. The meter has very low internal resistance; placing it in parallel would short the circuit.",
+        "analogy": "Like a water flowmeter - all the flow has to pass through the meter to be counted.",
+        "unit": "Basic Electrical Theory"
+      },
+      "jeopardy": {
+        "question": "This is how an ammeter must be wired when measuring circuit current.",
+        "choices": [
+          "In parallel with the load",
+          "In series with the load",
+          "Across the battery terminals",
+          "Between two ground points"
+        ],
+        "correctIndex": 1,
+        "explanation": "An ammeter must be placed in series so all current flows through it. A parallel connection would bypass the load and likely blow the meter fuse."
+      },
+      "multipleChoice": {
+        "question": "Which connection method is correct when you are measuring current with an ammeter?",
+        "choices": [
+          "In series within the current path",
+          "From the positive terminal to ground",
+          "Between two adjacent bus bars",
+          "Across the source in parallel"
+        ],
+        "correctIndex": 0,
+        "explanation": "Ammeters go in series. A parallel hookup would present nearly zero resistance across the supply and create a short-circuit event."
+      },
+      "practice": {
+        "question": "Scenario: You need to verify current draw on a landing-light circuit with a bench ammeter. How should you connect the meter?",
+        "choices": [
+          "Clip one lead to the battery positive and one to the bulb terminal",
+          "Break the circuit and insert the meter in line with the lamp",
+          "Place the meter in parallel across the lamp",
+          "Touch the probes across the ground stud"
+        ],
+        "correctIndex": 1,
+        "explanation": "Break the circuit and insert the meter in line with the load so the same current flows through the meter. Parallel placement shorts the circuit and risks blowing the internal fuse."
+      },
+      "preassessment": {
+        "question": "How should an ammeter be connected to measure circuit current?",
+        "choices": [
+          "In parallel",
+          "Between two switches",
+          "To ground only",
+          "In series"
+        ],
+        "correctIndex": 3
+      },
+      "targetCaetId": "464351",
+      "targetCaetStem": "When measuring current in a circuit, how do you connect the meter?",
+      "targetCaetPp": 0.71
+    },
+    {
+      "id": "CAT2-NEW-065",
+      "category": "mod2-basic-electrical",
+      "difficulty": "easy",
+      "tags": [
+        "ohms-law",
+        "current-calculation"
+      ],
+      "learningObjective": "Calculate current using Ohm's Law given voltage and resistance.",
+      "fullObjective": "Apply I = V/R to compute current when voltage and total resistance are known, then verify the answer against expected magnitudes.",
+      "flashcard": {
+        "term": "24 V across 12 ohms",
+        "definition": "2 A. Use I = V/R: 24 divided by 12 equals 2 amps.",
+        "analogy": "Higher pressure through the same pipe yields proportional flow.",
+        "unit": "Basic Electrical Theory"
+      },
+      "jeopardy": {
+        "question": "This is the current through a 12-ohm load connected to a 24-volt source.",
+        "choices": [
+          "288 A",
+          "0.5 A",
+          "12 A",
+          "2 A"
+        ],
+        "correctIndex": 3,
+        "explanation": "Apply I = V/R: 24 V / 12 ohms = 2 A. Other answers come from inverting the division (0.5 A) or multiplying (288 A)."
+      },
+      "multipleChoice": {
+        "question": "A 24-volt DC source drives a 12-ohm load. What current flows?",
+        "choices": [
+          "2 A",
+          "0.5 A",
+          "12 A",
+          "288 A"
+        ],
+        "correctIndex": 0,
+        "explanation": "I = V/R = 24/12 = 2 A. Multiplying V and R (288 A) or dividing R by V (0.5 A) are typical Ohm's Law mistakes."
+      },
+      "practice": {
+        "question": "Scenario: Bench-testing a 12-ohm resistive heater on a 24 V supply, what should your ammeter read if all is normal?",
+        "choices": [
+          "2 A",
+          "0.5 A",
+          "6 A",
+          "24 A"
+        ],
+        "correctIndex": 0,
+        "explanation": "I = V/R = 24/12 = 2 A. A reading of 6 A or 24 A suggests a short or incorrect resistance, while 0.5 A indicates too much resistance or an open partial circuit."
+      },
+      "preassessment": {
+        "question": "Current through a 12-ohm load at 24 V?",
+        "choices": [
+          "0.5 A",
+          "2 A",
+          "12 A",
+          "288 A"
+        ],
+        "correctIndex": 1
+      },
+      "targetCaetId": "464183",
+      "targetCaetStem": "If a circuit has 24 V and a total resistance of 12 ohms, what is the current?",
+      "targetCaetPp": 0.75
+    },
+    {
+      "id": "CAT2-NEW-066",
+      "category": "mod2-basic-electrical",
+      "difficulty": "medium",
+      "tags": [
+        "vhf",
+        "frequency",
+        "communication"
+      ],
+      "learningObjective": "Identify the VHF aviation voice communication frequency range.",
+      "fullObjective": "Recognize that general aviation VHF voice communication uses 118.000 to 136.975 MHz in the aeronautical VHF band.",
+      "flashcard": {
+        "term": "GA VHF voice band",
+        "definition": "118.000 to 136.975 MHz. Channel spacing is 25 kHz or 8.33 kHz in Europe.",
+        "analogy": "Think of it as aviation's own FM dial, just above the commercial FM broadcast band.",
+        "unit": "Basic Electrical Theory"
+      },
+      "jeopardy": {
+        "question": "This frequency band is allocated to general-aviation VHF voice communication.",
+        "choices": [
+          "3 to 30 MHz",
+          "118 to 137 MHz",
+          "30 to 88 MHz",
+          "225 to 400 MHz"
+        ],
+        "correctIndex": 1,
+        "explanation": "Aeronautical VHF voice runs from 118.000 to 136.975 MHz. 3 to 30 MHz is HF, 30 to 88 MHz is lower VHF, and 225 to 400 MHz is military UHF."
+      },
+      "multipleChoice": {
+        "question": "Which band covers VHF voice communication used by general-aviation aircraft?",
+        "choices": [
+          "30 to 88 MHz (low VHF)",
+          "118 to 137 MHz (aeronautical VHF)",
+          "3 to 30 MHz (HF)",
+          "960 to 1215 MHz (DME/L-band)"
+        ],
+        "correctIndex": 1,
+        "explanation": "Aeronautical VHF voice is 118.000 to 136.975 MHz. HF is used for long-range, low VHF is mostly public-safety/FM, and L-band covers DME and transponders, not voice."
+      },
+      "practice": {
+        "question": "Scenario: A pilot asks which part of the radio spectrum their VHF comm radio uses. What range should you tell them?",
+        "choices": [
+          "118 to 137 MHz aeronautical VHF",
+          "30 to 88 MHz low VHF",
+          "3 to 30 MHz HF band",
+          "225 to 400 MHz military UHF"
+        ],
+        "correctIndex": 0,
+        "explanation": "General-aviation VHF voice is in the 118 to 137 MHz segment of the aeronautical VHF band. HF is reserved for long-range, and UHF 225-400 MHz is a military band."
+      },
+      "preassessment": {
+        "question": "GA VHF communication frequencies lie in which range?",
+        "choices": [
+          "3-30 MHz",
+          "118-137 MHz",
+          "30-88 MHz",
+          "225-400 MHz"
+        ],
+        "correctIndex": 1
+      },
+      "targetCaetId": "464209",
+      "targetCaetStem": "Which frequency range is used for VHF communication in general aviation?",
+      "targetCaetPp": 0.76
+    },
+    {
+      "id": "CAT2-NEW-067",
+      "category": "mod2-basic-electrical",
+      "difficulty": "easy",
+      "tags": [
+        "batteries",
+        "dc-systems",
+        "starting"
+      ],
+      "learningObjective": "Identify the battery as the initial power source for engine start in a DC system.",
+      "fullObjective": "Recognize that the aircraft battery supplies the cranking current for engine start, after which the alternator or generator takes over electrical loads.",
+      "flashcard": {
+        "term": "Initial start power",
+        "definition": "The battery. It supplies cranking current until the alternator or generator comes online and takes over bus loads.",
+        "analogy": "Like the starter motor on a car - battery does the cranking, then the alternator runs things.",
+        "unit": "Basic Electrical Theory"
+      },
+      "jeopardy": {
+        "question": "This DC component provides the cranking current that starts the engine.",
+        "choices": [
+          "The alternator",
+          "The voltage regulator",
+          "The external power unit only",
+          "The battery"
+        ],
+        "correctIndex": 3,
+        "explanation": "The battery stores the energy used for engine cranking. The alternator only takes over once the engine is running, and external power is optional, not the inherent source."
+      },
+      "multipleChoice": {
+        "question": "What supplies the initial power for engine start in an aircraft DC system?",
+        "choices": [
+          "The aircraft battery",
+          "The alternator during windmilling",
+          "The avionics master switch",
+          "The main bus tie relay"
+        ],
+        "correctIndex": 0,
+        "explanation": "The battery is the only stored-energy source available before the engine is running, so it provides the cranking current. The alternator cannot produce output until the engine turns."
+      },
+      "practice": {
+        "question": "Scenario: A pilot flips the battery master and cranks the starter. Which DC component is actually delivering that cranking current?",
+        "choices": [
+          "The alternator (windmilling)",
+          "The battery",
+          "The voltage regulator",
+          "The static inverter"
+        ],
+        "correctIndex": 1,
+        "explanation": "Before the engine runs, only the battery is energized. It delivers the several hundred amps needed for starting. The alternator cannot supply current until the engine is spinning it."
+      },
+      "preassessment": {
+        "question": "What provides initial power to start the engine?",
+        "choices": [
+          "Alternator",
+          "Ground power cart always",
+          "Static inverter",
+          "Battery"
+        ],
+        "correctIndex": 3
+      },
+      "targetCaetId": "464177",
+      "targetCaetStem": "Which component in a DC electrical system serves as the initial power source for starting the engine?",
+      "targetCaetPp": 0.76
+    },
+    {
+      "id": "CAT2-NEW-068",
+      "category": "mod2-basic-electrical",
+      "difficulty": "easy",
+      "tags": [
+        "series-circuits",
+        "resistance",
+        "formulas"
+      ],
+      "learningObjective": "Identify the formula for total resistance in a series circuit.",
+      "fullObjective": "Recognize that in a series circuit total resistance is the arithmetic sum of every individual resistor (Rt = R1 + R2 + ... + Rn).",
+      "flashcard": {
+        "term": "Series total resistance",
+        "definition": "Add all the resistors: Rt = R1 + R2 + R3 + ... + Rn.",
+        "analogy": "Multiple narrow pipes in a row - each adds to how hard it is for water to flow through.",
+        "unit": "Basic Electrical Theory"
+      },
+      "jeopardy": {
+        "question": "This is how total resistance is found in a series circuit.",
+        "choices": [
+          "Rt = 1/(1/R1 + 1/R2 + ... + 1/Rn)",
+          "Rt = average of R1 through Rn",
+          "Rt = (R1 x R2) / (R1 + R2)",
+          "Rt = R1 + R2 + ... + Rn"
+        ],
+        "correctIndex": 3,
+        "explanation": "In a series circuit, resistance is cumulative: simply add each value. The reciprocal formula applies to parallel circuits, and averaging has no basis in series math."
+      },
+      "multipleChoice": {
+        "question": "What expression gives the total resistance of resistors connected in series?",
+        "choices": [
+          "Rt = 1/(1/R1 + 1/R2 + ... + 1/Rn)",
+          "Rt = R1 - R2 - ... - Rn",
+          "Rt = (R1 x R2) / (R1 + R2)",
+          "Rt = R1 + R2 + ... + Rn"
+        ],
+        "correctIndex": 3,
+        "explanation": "Series totals add directly. The reciprocal form and product-over-sum form are for parallel networks, and subtraction has no physical meaning for series resistance."
+      },
+      "practice": {
+        "question": "Scenario: You have three resistors wired end-to-end: 100, 220, and 470 ohms. How do you compute the total resistance of the string?",
+        "choices": [
+          "Use 1/Rt = 1/100 + 1/220 + 1/470",
+          "Multiply them together",
+          "Take the geometric mean of the three",
+          "Add them: 100 + 220 + 470 = 790 ohms"
+        ],
+        "correctIndex": 3,
+        "explanation": "Series resistance is additive: 100 + 220 + 470 = 790 ohms. Reciprocals apply only to parallel, and no resistance network uses geometric means or products to find total resistance."
+      },
+      "preassessment": {
+        "question": "Total resistance in series equals:",
+        "choices": [
+          "1/(1/R1 + 1/R2 + ...)",
+          "The smallest R",
+          "(R1 x R2) / (R1 + R2)",
+          "R1 + R2 + ..."
+        ],
+        "correctIndex": 3
+      },
+      "targetCaetId": "464182",
+      "targetCaetStem": "How is total resistance (Rt) computed in a series circuit?  Rn represents the total number of resistors in a circuit.",
+      "targetCaetPp": 0.81
+    },
+    {
+      "id": "CAT2-NEW-069",
+      "category": "mod2-basic-electrical",
+      "difficulty": "easy",
+      "tags": [
+        "ohms-law",
+        "current-calculation"
+      ],
+      "learningObjective": "Calculate current for a simple lamp circuit using Ohm's Law.",
+      "fullObjective": "Apply I = V/R to a 12-volt, 6-ohm lamp circuit to compute the expected current draw.",
+      "flashcard": {
+        "term": "12 V bulb at 6 ohms",
+        "definition": "2 A. I = V/R = 12/6.",
+        "analogy": "Double the pressure (12 V versus 6 V), double the flow through a fixed pipe.",
+        "unit": "Basic Electrical Theory"
+      },
+      "jeopardy": {
+        "question": "This is the current through a 6-ohm bulb on a 12-volt battery.",
+        "choices": [
+          "2 A",
+          "6 A",
+          "0.5 A",
+          "72 A"
+        ],
+        "correctIndex": 0,
+        "explanation": "I = V/R = 12/6 = 2 A. Multiplying V x R gives 72 and flipping the division gives 0.5 A - both typical errors."
+      },
+      "multipleChoice": {
+        "question": "A bulb of 6 ohms is powered by a 12-volt battery. How much current flows?",
+        "choices": [
+          "0.5 A",
+          "6 A",
+          "72 A",
+          "2 A"
+        ],
+        "correctIndex": 3,
+        "explanation": "Use I = V/R: 12 V divided by 6 ohms gives 2 A. Multiplying instead of dividing produces 72 A, and inverting gives 0.5 A."
+      },
+      "practice": {
+        "question": "Scenario: A technician measures a landing-light bulb at 6 ohms and connects it to a 12 V source. What should the ammeter read?",
+        "choices": [
+          "0.5 A",
+          "6 A",
+          "2 A",
+          "18 A"
+        ],
+        "correctIndex": 2,
+        "explanation": "Ohm's Law: I = V/R = 12/6 = 2 A. Any reading far from 2 A suggests a short, an open partial path, or wrong bulb resistance."
+      },
+      "preassessment": {
+        "question": "12 V battery, 6 ohm bulb. Current?",
+        "choices": [
+          "0.5 A",
+          "2 A",
+          "6 A",
+          "72 A"
+        ],
+        "correctIndex": 1
+      },
+      "targetCaetId": "464179",
+      "targetCaetStem": "A circuit has a 12-volt battery and a light bulb measuring 6 ohms of resistance. What is the current flowing through the circuit?",
+      "targetCaetPp": 0.85
+    },
+    {
+      "id": "CAT2-NEW-070",
+      "category": "mod2-basic-electrical",
+      "difficulty": "medium",
+      "tags": [
+        "troubleshooting",
+        "voltage-drop",
+        "wiring"
+      ],
+      "learningObjective": "Identify likely causes of low voltage at a load.",
+      "fullObjective": "Recognize that excessive voltage drop across poor connections, corroded terminals, or undersized wiring is a common cause of lower-than-expected voltage at a load.",
+      "flashcard": {
+        "term": "Low voltage at load",
+        "definition": "Usually excessive voltage drop from poor connections, corrosion, or undersized wire between the source and load.",
+        "analogy": "A pinched garden hose still delivers water, but at lower pressure at the nozzle.",
+        "unit": "Basic Electrical Theory"
+      },
+      "jeopardy": {
+        "question": "This condition most often causes lower-than-expected voltage at a DC load.",
+        "choices": [
+          "The battery is overcharged",
+          "The voltage regulator is set too high",
+          "The load's internal resistance is too high",
+          "High resistance at a corroded connection upstream"
+        ],
+        "correctIndex": 3,
+        "explanation": "Corrosion or loose terminals insert unwanted series resistance. The resulting IR drop robs the load of voltage. An overcharged battery or high regulator setting would instead raise voltage."
+      },
+      "multipleChoice": {
+        "question": "A load reads lower voltage than expected. Which is the most likely cause?",
+        "choices": [
+          "An over-specified voltage regulator",
+          "High-resistance corroded connections upstream",
+          "Too large a conductor gauge",
+          "A low-current circuit breaker properly sized"
+        ],
+        "correctIndex": 1,
+        "explanation": "Corroded or loose connections add unplanned resistance, producing an IR drop that lowers load voltage. Oversized wire would actually reduce drop, and a properly sized CB does not cause a drop."
+      },
+      "practice": {
+        "question": "Scenario: A position light is dimmer than spec and the bus voltage looks normal. Voltage at the lamp is about 10 V on a 14 V bus. What is the most likely cause?",
+        "choices": [
+          "High-resistance corrosion in the wiring or connectors",
+          "The bus voltage is too high",
+          "The ammeter shunt is open",
+          "The lamp is drawing too little current"
+        ],
+        "correctIndex": 0,
+        "explanation": "A 4 V drop between bus and lamp points to series resistance from corrosion, chafed strands, or loose terminals. Bus is still normal, so the problem is downstream of the bus and upstream of the lamp."
+      },
+      "preassessment": {
+        "question": "Lower-than-expected voltage at a load likely comes from:",
+        "choices": [
+          "Corrosion or loose terminals creating a voltage drop",
+          "Perfect connections",
+          "Oversized wire",
+          "A properly rated breaker"
+        ],
+        "correctIndex": 0
+      },
+      "targetCaetId": "464185",
+      "targetCaetStem": "A circuit shows lower-than-expected voltage across a load. Which is a likely cause?",
+      "targetCaetPp": 0.85
+    },
+    {
+      "id": "CAT2-NEW-071",
+      "category": "mod2-basic-electrical",
+      "difficulty": "medium",
+      "tags": [
+        "troubleshooting",
+        "lighting",
+        "voltage-drop"
+      ],
+      "learningObjective": "Diagnose dim aircraft lighting as a voltage-drop or low-bus issue.",
+      "fullObjective": "Recognize that dim lamps most commonly result from high resistance in connections, corroded grounds, or a low bus voltage caused by a failing regulator or battery.",
+      "flashcard": {
+        "term": "Dim aircraft lamps",
+        "definition": "Usually a voltage-drop issue: corroded grounds, bad connectors, or a low bus caused by a failing regulator or weak battery.",
+        "analogy": "A flashlight with old batteries still lights up, but weakly - the issue is the supply, not the bulb itself.",
+        "unit": "Basic Electrical Theory"
+      },
+      "jeopardy": {
+        "question": "This is the most likely reason an aircraft lighting circuit is running dimmer than normal.",
+        "choices": [
+          "A higher-than-rated bus voltage",
+          "Excessive voltage drop from corrosion or poor connections",
+          "An oversized circuit breaker",
+          "Increased capacitance in the wiring"
+        ],
+        "correctIndex": 1,
+        "explanation": "Corroded grounds, loose terminals, or a weak bus all lower voltage at the bulbs and produce dim lighting. Higher bus voltage would brighten lamps, and a bigger CB does not dim anything."
+      },
+      "multipleChoice": {
+        "question": "Which cause best explains aircraft lamps burning dimmer than usual?",
+        "choices": [
+          "A healthy fully charged battery",
+          "Voltage drop from corroded grounds or loose terminals",
+          "The wire gauge is larger than required",
+          "The voltage regulator is set above nominal"
+        ],
+        "correctIndex": 1,
+        "explanation": "Dim lights typically trace to a voltage drop between the bus and lamp - corrosion, poor terminations, or a sagging bus. A high regulator or oversized wire would actually brighten lighting."
+      },
+      "practice": {
+        "question": "Scenario: Cabin lights on a light twin are noticeably dim in flight. The bus voltage reads a bit low on the panel meter. Which is the MOST likely cause?",
+        "choices": [
+          "An overly strong battery",
+          "An oversized main CB",
+          "Excessive voltage drop and/or a sagging bus from a failing regulator or corroded grounds",
+          "Wire gauge that is heavier than required"
+        ],
+        "correctIndex": 2,
+        "explanation": "Dim lamps plus a low bus indicator point to reduced voltage reaching the lamps, usually from corroded grounds, loose terminations, or an undercharging system. Oversized breakers or wire would not dim lamps."
+      },
+      "preassessment": {
+        "question": "Aircraft lamps are dimmer than usual. MOST likely cause?",
+        "choices": [
+          "Over-voltage from the regulator",
+          "Brand-new bulbs installed",
+          "Oversized wire gauge",
+          "Voltage drop from corrosion or weak bus"
+        ],
+        "correctIndex": 3
+      },
+      "targetCaetId": "464189",
+      "targetCaetStem": "An aircraft lighting circuit’s bulbs are dimmer than usual Which of the following is the MOST likely cause?",
+      "targetCaetPp": 0.88
+    },
+    {
+      "id": "CAT2-NEW-072",
+      "category": "mod2-basic-electrical",
+      "difficulty": "hard",
+      "tags": [
+        "emi",
+        "wire-bundling",
+        "arinc",
+        "data-integrity"
+      ],
+      "learningObjective": "Identify EMI coupling as the risk when data lines share bundles with power wiring.",
+      "fullObjective": "Recognize that bundling ARINC or other low-level data lines with high-current power wires exposes the data lines to electromagnetic interference that can corrupt signaling.",
+      "flashcard": {
+        "term": "Data lines bundled with power",
+        "definition": "Creates EMI coupling: high-current AC ripple and switching noise induces voltages on adjacent data lines and can corrupt data.",
+        "analogy": "Like running a recording microphone cable zip-tied to a vacuum cleaner power cord - the cord's magnetic field bleeds into the audio.",
+        "unit": "Basic Electrical Theory"
+      },
+      "jeopardy": {
+        "question": "This is the primary risk when ARINC data lines are zip-tied inside a bundle of high-current power wires.",
+        "choices": [
+          "Mechanical chafing only",
+          "Electromagnetic interference coupling onto the data lines",
+          "Increased weight of the bundle",
+          "Reduced heat dissipation of the power wires"
+        ],
+        "correctIndex": 1,
+        "explanation": "High-current wiring creates changing magnetic fields that induce noise into nearby data lines. That EMI can corrupt ARINC signaling, produce checksum errors, or cause dropouts."
+      },
+      "multipleChoice": {
+        "question": "ARINC data lines are found run in the same bundle as high-current power wires. Which issue is most likely?",
+        "choices": [
+          "Increased data-line current draw",
+          "EMI coupled from the power wires corrupting data",
+          "Better signal integrity due to shielding",
+          "Lower bundle weight after re-routing"
+        ],
+        "correctIndex": 1,
+        "explanation": "Running signal and power together lets the power wires' changing fields induce noise on the data lines. This corrupts ARINC data. It does not increase data-line current or improve integrity."
+      },
+      "practice": {
+        "question": "Scenario: An inspection reveals ARINC data wires tie-wrapped inside the same harness as high-current feeder wires. What problem should you flag?",
+        "choices": [
+          "The data wires will overheat the power wires",
+          "Bundle weight will exceed FAR limits",
+          "EMI from the power wires can couple onto the data lines and corrupt signaling",
+          "Data will transmit faster from the proximity"
+        ],
+        "correctIndex": 2,
+        "explanation": "Mixing low-level data wiring with high-current feeders invites EMI coupling. Installation practices require separation or shielding to keep data integrity. It does not cause overheating of the power wires or speed up data."
+      },
+      "preassessment": {
+        "question": "Data lines bundled with high-current power wires raises the risk of:",
+        "choices": [
+          "Data wires overheating first",
+          "Improved signal quality",
+          "EMI coupling and data corruption",
+          "Weight savings"
+        ],
+        "correctIndex": 2
+      },
+      "targetCaetId": "464292",
+      "targetCaetStem": "During inspection, ARINC data lines are bundled with high-current power wires. Which of the following would be a potential issue?",
+      "targetCaetPp": 0.92
+    },
+    {
+      "id": "CAT2-NEW-073",
+      "category": "mod2-basic-electrical",
+      "difficulty": "medium",
+      "tags": [
+        "hf",
+        "communication",
+        "long-range"
+      ],
+      "learningObjective": "Identify the primary use of HF communications in aviation.",
+      "fullObjective": "Recognize that HF radio (3 to 30 MHz) is used in aviation primarily for long-range over-water and oceanic voice communication beyond VHF line-of-sight range.",
+      "flashcard": {
+        "term": "HF in aviation",
+        "definition": "Long-range, typically oceanic or remote-area voice communication where VHF line-of-sight is not available.",
+        "analogy": "HF is the long-wave shortcut that bounces off the ionosphere; VHF is a flashlight beam that only reaches as far as you can see.",
+        "unit": "Basic Electrical Theory"
+      },
+      "jeopardy": {
+        "question": "This is the primary reason aircraft carry HF radios.",
+        "choices": [
+          "Short-range ATC in the pattern",
+          "Satellite television reception",
+          "Pulse-ranging navigation",
+          "Long-range, over-water and remote communications"
+        ],
+        "correctIndex": 3,
+        "explanation": "HF signals refract off the ionosphere, giving thousands of miles of range beyond VHF. That is why HF is used for oceanic and remote-area operations where VHF line-of-sight is unavailable."
+      },
+      "multipleChoice": {
+        "question": "HF communication in aviation is used mainly for:",
+        "choices": [
+          "Tower and ground local communication",
+          "Short-range ground navigation",
+          "Long-range oceanic and remote voice comms",
+          "Transponder mode-S identification"
+        ],
+        "correctIndex": 2,
+        "explanation": "HF's ability to bounce off the ionosphere supports long-distance transmission across oceans and remote regions where VHF cannot reach. Local tower work is done on VHF, and transponders have their own frequencies."
+      },
+      "practice": {
+        "question": "Scenario: A transoceanic corporate flight is being equipped for North Atlantic operations. Why does the avionics shop install an HF radio?",
+        "choices": [
+          "For local ground-control chatter",
+          "To enable long-range voice comms where VHF line-of-sight is lost",
+          "For weather radar display",
+          "To drive the VOR deviation bar"
+        ],
+        "correctIndex": 1,
+        "explanation": "Over ocean, VHF runs out of range quickly. HF radio, via skywave propagation, reaches thousands of miles and is the standard long-range voice link for oceanic and remote operations."
+      },
+      "preassessment": {
+        "question": "HF radio is primarily used in aviation for:",
+        "choices": [
+          "Very short-range communication",
+          "Long-range over-water voice",
+          "Satellite TV reception",
+          "Local navigation only"
+        ],
+        "correctIndex": 1
+      },
+      "targetCaetId": "464217",
+      "targetCaetStem": "HF (High Frequency) communication is used in aviation primarily for:",
+      "targetCaetPp": 0.92
+    },
+    {
+      "id": "CAT2-NEW-074",
+      "category": "mod2-basic-electrical",
+      "difficulty": "medium",
+      "tags": [
+        "alternator",
+        "generator",
+        "dc-systems"
+      ],
+      "learningObjective": "Explain why alternators are preferred over generators in modern DC systems.",
+      "fullObjective": "Recognize that alternators are lighter, produce usable output at low RPM (including idle), and are more reliable than DC generators, which drives their adoption in modern aircraft.",
+      "flashcard": {
+        "term": "Alternator vs generator",
+        "definition": "Alternators are lighter, output at lower RPM (even idle), and have no heavy commutator. Generators need higher RPM before they produce rated output.",
+        "analogy": "Like comparing a modern LED driver to an old dynamo on a bicycle - the LED setup works even when you are barely moving.",
+        "unit": "Basic Electrical Theory"
+      },
+      "jeopardy": {
+        "question": "This is the main reason modern aircraft DC systems use alternators instead of generators.",
+        "choices": [
+          "They produce useful output at low RPM and weigh less",
+          "They eliminate the need for a battery",
+          "They are heavier and more robust",
+          "They output pure AC with no rectification needed"
+        ],
+        "correctIndex": 0,
+        "explanation": "Alternators are lighter and produce usable current even at idle RPM, unlike DC generators that require higher RPM. They still need diodes to rectify to DC for the bus."
+      },
+      "multipleChoice": {
+        "question": "Why do modern DC electrical systems use alternators rather than generators?",
+        "choices": [
+          "Alternators run without any cooling",
+          "Alternators require no voltage regulation",
+          "Alternators weigh less and produce output even at low engine RPM",
+          "Alternators remove the need for aircraft batteries"
+        ],
+        "correctIndex": 2,
+        "explanation": "Alternators produce usable current at low RPM (including ground idle) and are lighter than equivalent generators. They still need a regulator and a battery; cooling is still required."
+      },
+      "practice": {
+        "question": "Scenario: An apprentice asks why the twin you are working on uses alternators rather than DC generators. What is the best explanation?",
+        "choices": [
+          "Alternators do not need voltage regulation",
+          "Alternators produce raw AC with no rectifiers anywhere",
+          "Alternators allow the battery to be removed",
+          "Alternators are lighter and deliver output even at low engine RPM"
+        ],
+        "correctIndex": 3,
+        "explanation": "Alternators outperform DC generators on weight and low-RPM output, which matters at taxi/idle when generators would barely produce rated current. Regulators, batteries, and internal diodes remain necessary."
+      },
+      "preassessment": {
+        "question": "Why are alternators preferred in modern DC systems?",
+        "choices": [
+          "No regulator needed",
+          "Lighter and produce output at low RPM",
+          "They eliminate the battery",
+          "They output DC with no rectifier"
+        ],
+        "correctIndex": 1
+      },
+      "targetCaetId": "464175",
+      "targetCaetStem": "Why are alternators preferred over generators in modern DC electrical systems?",
+      "targetCaetPp": 1.0
     }
   ]
 }

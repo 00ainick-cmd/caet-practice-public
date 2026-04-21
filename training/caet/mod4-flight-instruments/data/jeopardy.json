@@ -254,6 +254,116 @@
         "correctIndex": 2,
         "explanation": "The Air Data Computer (ADC) reads pitot and static pressure and computes altitude, airspeed, and vertical speed digitally, then feeds the PFD. AHRS handles attitude and heading. FMS handles flight planning. AFD handles flight control."
       }
+    ],
+    "Extended Coverage": [
+      {
+        "id": "CAT4-NEW-J03",
+        "category": "mod4-flight-instruments",
+        "unit": "Gyros & Vacuum System",
+        "targets_caet_id": "464253",
+        "clue": "In a light GA aircraft, this is what actually sets a turn coordinator apart from the classic turn & bank.",
+        "choices": [
+          "They are identical instruments with different faces",
+          "The turn & bank detects rate of roll; the turn coordinator does not",
+          "The turn coordinator's canted gyro detects rate of roll and rate of turn; the turn & bank detects rate of turn only",
+          "Neither instrument senses roll rate; both show only heading change"
+        ],
+        "correctIndex": 2,
+        "explanation": "The canted gyro in a turn coordinator responds to both roll rate and turn rate, giving the pilot an earlier cue during roll-in. The turn & bank uses a horizontal gyro that responds only to rate of turn.",
+        "targetCaetId": "464253",
+        "targetCaetStem": "Which statement best describes the difference between a turn coordinator and a turn & bank indicator in a small GA aircraft?",
+        "targetCaetPp": 0.67
+      },
+      {
+        "id": "CAT4-NEW-J04",
+        "category": "mod4-flight-instruments",
+        "unit": "Gyros & Vacuum System",
+        "targets_caet_id": "464255",
+        "clue": "On an air-driven attitude indicator, the suction system's MAIN job is this.",
+        "choices": [
+          "It spins the internal gyroscope by pulling air across the rotor buckets",
+          "It cools the instrument case to prevent overheating",
+          "It erects the instrument to magnetic north on startup",
+          "It charges the instrument's internal backup battery"
+        ],
+        "correctIndex": 0,
+        "explanation": "The vacuum pump's primary role is to spin the gyro — air is pulled through the case and strikes buckets on the rotor, driving it to high RPM. Rigidity in space then provides the stable attitude reference.",
+        "targetCaetId": "464255",
+        "targetCaetStem": "In a vacuum-driven attitude indicator, the vacuum system PRIMARILY:",
+        "targetCaetPp": 0.71
+      },
+      {
+        "id": "CAT4-NEW-J05",
+        "category": "mod4-flight-instruments",
+        "unit": "AHRS & Glass Cockpit",
+        "targets_caet_id": "464258",
+        "clue": "These are the flight parameters picked up by the solid-state sensors inside an EFIS suite.",
+        "choices": [
+          "Aircraft attitude (pitch and roll), heading, and air data (altitude, airspeed, VSI)",
+          "Only engine performance data like RPM and fuel flow",
+          "Only aircraft heading from a solid-state magnetometer",
+          "Only the aircraft's GPS position and track"
+        ],
+        "correctIndex": 0,
+        "explanation": "EFIS solid-state sensors produce attitude, heading, and air data. MEMS gyros, accelerometers, and magnetometers handle the AHRS side (attitude and heading); solid-state pressure sensors in the ADC handle air data (airspeed, altitude, VSI). Engine data and GPS position come from separate subsystems.",
+        "targetCaetId": "464258",
+        "targetCaetStem": "An Electronic Flight Instrument System (EFIS) typically uses solid-state sensors to measure:",
+        "targetCaetPp": 0.75
+      },
+      {
+        "id": "CAT4-NEW-J06",
+        "category": "mod4-flight-instruments",
+        "unit": "Airspeed Indicator",
+        "targets_caet_id": "464243",
+        "clue": "With the pitot tube fully plugged, this is the gauge that takes the direct hit.",
+        "choices": [
+          "The altimeter",
+          "The vertical speed indicator",
+          "The airspeed indicator",
+          "The attitude indicator"
+        ],
+        "correctIndex": 2,
+        "explanation": "A complete pitot blockage primarily affects the airspeed indicator, since the ASI is the only instrument that uses ram pressure. The altimeter and VSI are static-only instruments and remain normal. Gyro instruments are independent of the pitot-static system.",
+        "targetCaetId": "464243",
+        "targetCaetStem": "Which instrument is primarily affected if the pitot tube becomes completely blocked?",
+        "targetCaetPp": 0.75
+      },
+      {
+        "id": "CAT4-NEW-J07",
+        "category": "mod4-flight-instruments",
+        "unit": "Altimeter & Barometric",
+        "targets_caet_id": "464245",
+        "clue": "Under the ISA model, this value is the accepted pressure at mean sea level.",
+        "choices": [
+          "28.00 inHg, equivalent to about 948 hPa",
+          "30.12 inHg, equivalent to about 1020 hPa",
+          "32.50 inHg, equivalent to about 1100 hPa",
+          "29.92 inHg, equivalent to 1013.25 hPa and about 14.7 psi"
+        ],
+        "correctIndex": 3,
+        "explanation": "The standard atmospheric pressure at sea level is 29.92 inHg, equal to 1013.25 hPa (millibars) or about 14.7 psi. This is the reference used at and above the transition altitude (FL180 in the US). The other values are plausible but incorrect.",
+        "targetCaetId": "464245",
+        "targetCaetStem": "What is the standard atmospheric pressure at sea level?",
+        "targetCaetPp": 0.89
+      },
+      {
+        "id": "CAT4-NEW-J08",
+        "category": "mod4-flight-instruments",
+        "unit": "AHRS & Glass Cockpit",
+        "targets_caet_id": "464257",
+        "clue": "In a modern glass cockpit, these are the traditional flight instruments the PFD typically replaces.",
+        "choices": [
+          "The airspeed indicator, altimeter, vertical speed indicator, attitude indicator, and heading indicator",
+          "Only the airspeed indicator and altimeter",
+          "Only the attitude indicator and heading indicator",
+          "Only the magnetic compass and turn coordinator"
+        ],
+        "correctIndex": 0,
+        "explanation": "The PFD consolidates five traditional instruments: ASI, altimeter, VSI, attitude indicator, and heading indicator. Airspeed, altitude, and VSI come from the Air Data Computer; attitude and heading come from the AHRS. The turn coordinator and magnetic compass are typically retained as backups.",
+        "targetCaetId": "464257",
+        "targetCaetStem": "In a modern glass cockpit, the Primary Flight Display (PFD) typically replaces which traditional flight instruments?",
+        "targetCaetPp": 0.94
+      }
     ]
   },
   "final": [

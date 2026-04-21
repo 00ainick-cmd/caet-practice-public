@@ -871,6 +871,859 @@
         ],
         "correctIndex": 3
       }
+    },
+    {
+      "id": "CAT8-NEW-015",
+      "category": "mod8-shop-safety",
+      "unit": "Shop Safety",
+      "difficulty": "medium",
+      "tags": [
+        "fire",
+        "class-c",
+        "electrical-equipment"
+      ],
+      "learningObjective": "Identify the category of hazard covered by a Class C fire rating",
+      "fullObjective": "Recognize that Class C on the U.S. fire classification system covers fires involving energized electrical equipment (wiring, motors, avionics, tools) and that extinguishers used on Class C fires must be non-conductive agents such as CO2 or dry chemical — never water or water-based agents.",
+      "flashcard": {
+        "term": "Class C fire — what it covers",
+        "definition": "Under the U.S. fire classification system (A, B, C, D, K), Class C covers fires involving energized electrical equipment: wiring, motors, avionics, test benches, and powered tools. Because the equipment is live, the extinguishing agent must be non-conductive. CO2 and dry-chemical extinguishers are approved; water and water-based foams are prohibited because they conduct current and create a shock hazard for the operator.",
+        "analogy": "Think of Class C as the 'Current' fire — the circuit is still live, so only a non-conductive agent can safely put it out.",
+        "unit": "Fire Safety"
+      },
+      "jeopardy": {
+        "question": "A Class C fire rating covers fires that involve this type of hazard.",
+        "choices": [
+          "Ordinary combustibles such as wood, paper, and rags",
+          "Flammable liquids such as solvents, gasoline, and hydraulic fluid",
+          "Energized electrical equipment such as wiring, motors, and avionics",
+          "Combustible metals such as magnesium and sodium"
+        ],
+        "correctIndex": 2,
+        "explanation": "Class A covers ordinary combustibles; Class B covers flammable liquids; Class C covers energized electrical equipment; Class D covers combustible metals; Class K covers cooking oils. The technician must match the extinguisher to the class of fire."
+      },
+      "multipleChoice": {
+        "question": "A Class C fire rating covers fires that involve which type of hazard?",
+        "choices": [
+          "Ordinary combustibles such as wood, paper, and shop rags",
+          "Combustible metals such as magnesium, sodium, and lithium",
+          "Flammable liquids such as solvents, gasoline, and hydraulic fluid",
+          "Energized electrical equipment — wiring, motors, avionics, and powered shop tools — which requires a non-conductive extinguishing agent such as CO2 or dry chemical"
+        ],
+        "correctIndex": 3,
+        "explanation": "Class C is the electrical-equipment class. Because the equipment is still live, only non-conductive agents (CO2, dry chemical) may be used. Class A covers ordinary combustibles, Class B covers flammable liquids, Class D covers combustible metals, and Class K covers cooking oils. Selecting the wrong extinguisher class can electrocute the operator or spread the fire."
+      },
+      "practice": {
+        "question": "A technician sees the letter C on the faceplate of a fire extinguisher mounted next to an avionics test bench. What category of fire is that extinguisher rated to fight?",
+        "choices": [
+          "Fires in paper, wood, or shop rags",
+          "Fires involving energized electrical equipment — the C rating tells the technician the extinguisher is safe to use on live wiring, motors, avionics, and powered bench equipment. The agent is non-conductive (CO2 or dry chemical), so the operator is not exposed to a shock hazard while discharging it",
+          "Fires in gasoline, solvent, or hydraulic fluid spills",
+          "Fires in magnesium or sodium metal chips"
+        ],
+        "correctIndex": 1,
+        "explanation": "The C rating means the extinguisher is approved for energized electrical equipment. That is exactly why it is mounted by the test bench — the most likely fire in that area is a short or overheat on a live circuit. A Class A would be for the rag bin, a Class B for a solvent cabinet, and a Class D for a metals-machining area. Using a water extinguisher on a Class C fire risks electrocution."
+      },
+      "preassessment": {
+        "question": "Class C fires involve what?",
+        "choices": [
+          "Wood and paper",
+          "Flammable liquids",
+          "Energized electrical equipment",
+          "Combustible metals"
+        ],
+        "correctIndex": 2
+      },
+      "targetCaetId": "464378",
+      "targetCaetStem": "Class C fires are commonly associated with:",
+      "targetCaetPp": 0.69
+    },
+    {
+      "id": "CAT8-NEW-016",
+      "category": "mod8-shop-safety",
+      "unit": "Shop Safety",
+      "difficulty": "medium",
+      "tags": [
+        "grounding",
+        "installation",
+        "first-step",
+        "equipotential"
+      ],
+      "learningObjective": "Identify the first step to ensure proper grounding when installing a new avionics system",
+      "fullObjective": "Recognize that before connecting any energized circuit or test equipment to a newly installed avionics system, the first step is to establish an equipotential ground reference — verifying that the aircraft structure, the unit's ground, the bonding straps, and the test equipment ground are all tied to a single low-impedance reference — per the installation manual and AC 43.13.",
+      "flashcard": {
+        "term": "Proper grounding — first step on a new install",
+        "definition": "Before energizing a new avionics system, the first step in establishing proper grounding is to create an equipotential ground reference: the aircraft structure, the unit's chassis ground, the bonding jumpers, and any test-equipment ground must all be tied to a single low-impedance reference. This prevents ground loops, protects the technician from differential-voltage shock, and ensures correct operation of shielded cables and signal references.",
+        "analogy": "Think of grounding like laying a foundation — every component has to stand on the same reference level before you turn on the power, or the whole system will be uneven and unsafe.",
+        "unit": "Installation Safety"
+      },
+      "jeopardy": {
+        "question": "A technician begins a new-panel install and the unit must be grounded. This is the initial action to establish correct grounding.",
+        "choices": [
+          "Apply aircraft power and measure the voltage at the case",
+          "Check that the pilot's seat rails are bonded to the airframe",
+          "Create an equipotential reference by bonding the chassis, the airframe, and any bench test gear to one low-impedance point per the install manual",
+          "Tie the antenna coax shield to the headset jack"
+        ],
+        "correctIndex": 2,
+        "explanation": "Equipotential bonding before power-up is the initial step. Measuring under power skips the prerequisite. Seat and headset bonding are unrelated to the new system's ground reference."
+      },
+      "multipleChoice": {
+        "question": "A technician is beginning an installation that calls for a chassis ground to airframe structure. Which action must be completed before energizing the unit?",
+        "choices": [
+          "Create an equipotential reference by bonding the chassis, the bonding jumpers, the airframe structure, and any bench test equipment to one low-impedance ground point per the install manual and AC 43.13",
+          "Apply aircraft power and then check case voltage to see if the ground appears acceptable",
+          "Confirm the pilot's seat rails are bonded to the airframe before doing anything else",
+          "Tie the antenna coax shield to the headset jack ground"
+        ],
+        "correctIndex": 0,
+        "explanation": "Bonding must be established before energizing the unit. The standard procedure is to bond the new unit's chassis, the aircraft structure, any bonding straps, and test equipment to a single low-impedance reference, following the installation manual and AC 43.13-1B guidance. This prevents differential voltages, eliminates ground loops, and protects the technician. Applying power first, or bonding unrelated items, is unsafe and non-compliant."
+      },
+      "practice": {
+        "question": "A shop is about to bench-install a new GPS navigator whose installation manual calls for a chassis bond to airframe structure. The unit is out of the box and the mounting tray is in place. Which action must be completed before any power-on testing?",
+        "choices": [
+          "Route power to the unit and look at the display to confirm it is working",
+          "Create an equipotential reference first: follow the installation manual's bonding diagram to tie the chassis, the bonding jumpers, the mounting tray, nearby airframe structure, and any bench test equipment to one low-impedance point. Verify bond resistance with a milliohm meter where the manual specifies. Only after bonding is verified does the technician route power and begin functional tests",
+          "Confirm that the pilot's seat rails are bonded to the airframe before anything else",
+          "Clip the antenna coax shield to the nearest headset jack as a ground"
+        ],
+        "correctIndex": 1,
+        "explanation": "The correct first action is equipotential bonding in accordance with the installation manual. Bond resistance is typically required to be in the low-milliohm range. Skipping this step and applying power risks damaging the unit, creating a shock hazard to the technician, and producing intermittent operation once the aircraft returns to service. AC 43.13-1B Chapter 11 covers bonding and grounding practices."
+      },
+      "preassessment": {
+        "question": "Before energizing a newly installed avionics unit, what must be done?",
+        "choices": [
+          "Apply power first",
+          "Establish equipotential bond per the install manual",
+          "Bond the pilot seat",
+          "Clip coax shield to headset jack"
+        ],
+        "correctIndex": 1
+      },
+      "targetCaetId": "464310",
+      "targetCaetStem": "Scenario: You are tasked with installing a new avionics system that requires grounding. What is the first step to ensure proper grounding?",
+      "targetCaetPp": 0.71
+    },
+    {
+      "id": "CAT8-NEW-017",
+      "category": "mod8-shop-safety",
+      "unit": "Shop Safety",
+      "difficulty": "medium",
+      "tags": [
+        "hydraulic-fluid",
+        "spill",
+        "avionics-bench",
+        "containment"
+      ],
+      "learningObjective": "Identify the recommended action when a hydraulic fluid spill occurs near an avionics bench",
+      "fullObjective": "Recognize that the recommended response to a hydraulic fluid spill near an avionics bench is to stop work, alert others, contain the spill with approved absorbents (never shop rags alone), ventilate the area, avoid ignition sources, clean up per the SDS, and dispose of the contaminated absorbent as hazardous waste.",
+      "flashcard": {
+        "term": "Hydraulic fluid spill — correct response",
+        "definition": "A hydraulic fluid spill near an avionics bench is both a slip hazard and a fire hazard (most hydraulic fluids are combustible). The correct response: stop work and alert others, block ignition sources, contain the spill with approved absorbent (pads, pillows, granular absorbent — not shop rags alone), ventilate the area, follow the SDS for cleanup, and dispose of contaminated absorbent as hazardous waste in a labeled container.",
+        "analogy": "A fluid spill is like a leak in a kitchen — stop, warn, contain, clean, and dispose properly rather than walking away or covering it with a newspaper.",
+        "unit": "Chemical Safety"
+      },
+      "jeopardy": {
+        "question": "A puddle of hydraulic fluid has leaked onto the floor next to an avionics workstation. This is the correct response.",
+        "choices": [
+          "Continue working and clean up the puddle at the end of the shift",
+          "Push the fluid into the closest floor drain with a broom",
+          "Pour thinner over the puddle to dilute it",
+          "Halt work and warn coworkers, remove nearby ignition sources, absorb the pool with an approved absorbent pad or granule, clean per the SDS, and place the contaminated absorbent into a labeled hazmat container"
+        ],
+        "correctIndex": 3,
+        "explanation": "Halt, warn, contain, clean per SDS, and dispose as hazmat. Continuing to work creates slip and fire risk. Solvent makes a worse mixture. Drain disposal violates environmental regulations."
+      },
+      "multipleChoice": {
+        "question": "A puddle of hydraulic fluid has leaked onto the floor next to an avionics workstation. What is the correct response?",
+        "choices": [
+          "Continue working and clean up the puddle at the end of the shift when there is more time",
+          "Push the fluid into the closest floor drain with a broom",
+          "Pour thinner over the puddle to dilute the fluid and then walk away",
+          "Halt work and warn coworkers out of the area, remove ignition sources, absorb the pool with an approved absorbent pad or granule, ventilate, clean up per the SDS, and place the contaminated absorbent into a labeled hazmat container for certified disposal"
+        ],
+        "correctIndex": 3,
+        "explanation": "Hydraulic fluid is both a slip hazard and a combustible liquid. The required response is containment with approved absorbent, control of ignition sources, SDS-directed cleanup, and disposal of contaminated absorbent as hazardous waste. Ignoring the puddle invites injury. Solvents can increase the fire hazard. Drain disposal violates the Clean Water Act."
+      },
+      "practice": {
+        "question": "During a routine avionics installation, a pressurized hydraulic line leaks onto the floor next to the avionics bench, creating a pool about three feet across. Bystanders are walking through the shop. What is the correct immediate response?",
+        "choices": [
+          "Finish the current task first, then mop up the fluid at the end of the shift",
+          "Pour mineral spirits on the spill to thin it out and then move on",
+          "Stop work and warn personnel out of the area; eliminate nearby ignition sources (unplug heaters, post 'no smoking'); place an absorbent pad or boom around the perimeter and lay absorbent granules over the pool; open ventilation; follow the fluid's SDS for cleanup; and place the contaminated absorbent into a properly labeled hazmat drum for certified disposal",
+          "Push the pooled fluid toward the floor drain with a shop broom"
+        ],
+        "correctIndex": 2,
+        "explanation": "Hydraulic fluids are typically combustible and always a slip risk. The correct sequence is stop-warn-contain-clean-dispose. Approved absorbents are used; contaminated absorbent is hazmat (not regular trash). Floor-drain disposal violates federal and local environmental rules and can contaminate waterways. Thinning the spill with a solvent only makes cleanup harder and increases fire risk."
+      },
+      "preassessment": {
+        "question": "Hydraulic fluid spilled near the bench — recommended action?",
+        "choices": [
+          "Stop, alert, contain with approved absorbent, clean per SDS, hazmat disposal",
+          "Finish work, clean at end of shift",
+          "Pour solvent on it",
+          "Sweep into floor drain"
+        ],
+        "correctIndex": 0
+      },
+      "targetCaetId": "464371",
+      "targetCaetStem": "There is a hydraulic fluid spill near the avionics bench Recommended action?",
+      "targetCaetPp": 0.75
+    },
+    {
+      "id": "CAT8-NEW-018",
+      "category": "mod8-shop-safety",
+      "unit": "Shop Safety",
+      "difficulty": "medium",
+      "tags": [
+        "flammable-liquids",
+        "storage",
+        "cabinet",
+        "ul-listed"
+      ],
+      "learningObjective": "Identify the correct method for storing flammable liquids in an avionics shop",
+      "fullObjective": "Recognize that flammable liquids in an avionics shop must be stored in a UL-listed (or FM-approved) flammable-liquid storage cabinet that is grounded, properly vented per local code, kept closed when not in use, labeled 'Flammable — Keep Fire Away,' and located away from heat, ignition sources, and exits.",
+      "flashcard": {
+        "term": "Flammable liquid storage",
+        "definition": "Flammable liquids must be stored in a UL-listed (or FM-approved) flammable-liquid storage cabinet. The cabinet must be grounded, vented per local code, kept closed when not in use, labeled 'Flammable — Keep Fire Away,' and located away from heat sources, ignition sources, and exits. Free-standing cans on benches, storage inside electrical enclosures, and refrigerator-style household cabinets are all non-compliant.",
+        "analogy": "A flammable-liquid cabinet is like a small safe for the fire-hazard chemicals — listed, labeled, grounded, and closed until you need something inside.",
+        "unit": "Fire Safety"
+      },
+      "jeopardy": {
+        "question": "This is the compliant method for keeping flammable chemicals in an avionics maintenance facility.",
+        "choices": [
+          "Loose on an open bench next to the soldering station",
+          "In cardboard cartons stacked near the shop exit",
+          "Inside a household refrigerator converted to chemical storage",
+          "In a UL-listed (or FM-approved) flammable-liquid cabinet that is grounded, properly vented, kept closed when not in use, and labeled 'Flammable — Keep Fire Away'"
+        ],
+        "correctIndex": 3,
+        "explanation": "UL-listed / FM-approved cabinets are the standard. Open benches create ignition risk. Household refrigerators are an ignition source (the compressor arcs). Cardboard near the exit blocks egress and spreads fire."
+      },
+      "multipleChoice": {
+        "question": "What is the compliant method for keeping flammable chemicals in an avionics maintenance facility?",
+        "choices": [
+          "In a UL-listed (or FM-approved) flammable-liquid cabinet that is grounded, vented per local code, kept closed when not in use, labeled 'Flammable — Keep Fire Away,' and located away from heat and ignition sources",
+          "Loose on an open bench next to the soldering station for easy access",
+          "Inside a household refrigerator converted to cold chemical storage",
+          "In cardboard shipping cartons stacked near the shop exit"
+        ],
+        "correctIndex": 0,
+        "explanation": "The correct method is a UL-listed (or FM-approved) flammable-liquid cabinet: grounded, vented, closed when not in use, and labeled. Open-bench storage exposes the liquid to ignition sources and spills. Converted household refrigerators are dangerous because internal thermostats and compressor relays arc. Cardboard storage near an exit creates fire load and blocks egress."
+      },
+      "practice": {
+        "question": "A shop manager is setting up a flammable-liquid storage area for IPA, contact cleaner, and a small quantity of naphtha used on the avionics bench. Which storage method is compliant?",
+        "choices": [
+          "Leave the bottles open on a shelf above the soldering station so technicians can reach them quickly",
+          "Install a UL-listed (or FM-approved) flammable-liquid storage cabinet: grounded via a bonding strap, vented per local fire code (or sealed with vent caps if code permits), self-closing doors kept latched when not in use, outside labeling 'Flammable — Keep Fire Away,' and placement at least several feet from soldering stations, heaters, and exits. Keep inventory inside the cabinet limited to daily-use quantities",
+          "Convert a household refrigerator to chemical storage because it seals the fumes inside",
+          "Stack the shipping cartons near the main exit so nothing blocks the benches"
+        ],
+        "correctIndex": 1,
+        "explanation": "The NFPA/OSHA approach is a listed flammable-liquid cabinet with grounding, venting, self-closing latched doors, and outside labeling. Distance from ignition sources and exits is also required. Open-shelf storage above a soldering station is dangerous — a tipped bottle plus a hot iron is an ignition event. Household refrigerators arc internally and have caused fatal lab fires. Storage near an exit blocks egress during a fire."
+      },
+      "preassessment": {
+        "question": "What is the correct storage practice for flammable liquids in an avionics shop?",
+        "choices": [
+          "Open bench near soldering",
+          "Cardboard cartons near exit",
+          "Household refrigerator",
+          "UL-listed flammable-liquid cabinet, grounded, vented, closed, labeled"
+        ],
+        "correctIndex": 3
+      },
+      "targetCaetId": "464365",
+      "targetCaetStem": "How should flammable liquids be stored in an avionics shop?",
+      "targetCaetPp": 0.76
+    },
+    {
+      "id": "CAT8-NEW-019",
+      "category": "mod8-shop-safety",
+      "unit": "Shop Safety",
+      "difficulty": "medium",
+      "tags": [
+        "rotorcraft",
+        "ground-safety",
+        "approach",
+        "tail-rotor"
+      ],
+      "learningObjective": "Identify a safe practice when working on the ground around a moving or running rotorcraft",
+      "fullObjective": "Recognize that safe ground practices around a moving or running rotorcraft include approaching only in the pilot's view (roughly the 3 and 9 o'clock positions), staying crouched while inside the rotor disc area, waiting for the pilot's signal before approaching, and never walking under the tail rotor or the rising side of a sloping rotor disc.",
+      "flashcard": {
+        "term": "Safe practice around a running rotorcraft",
+        "definition": "When working on the ground around a moving or running rotorcraft, approach only within the pilot's direct line of sight (roughly 3 and 9 o'clock in most helicopters), wait for the pilot's signal, crouch as you pass inside the rotor disc, never walk aft of the cabin toward the tail rotor, and never approach on the uphill side of a sloping rotor disc. The tail rotor is usually invisible at speed and is lethal on contact.",
+        "analogy": "Treat the rotor disc like a meat slicer on a slope — visible in front, invisible on the sides, and always stay low inside its reach.",
+        "unit": "Aircraft Ground Safety"
+      },
+      "jeopardy": {
+        "question": "A helicopter is running on the ramp and a technician must approach it. This describes the correct ground-safety practice.",
+        "choices": [
+          "Walk aft of the cabin and around the tail rotor to save time",
+          "Run under the rotor disc to minimize exposure time",
+          "Approach on the uphill side of a helicopter parked on sloping ground",
+          "Enter the pilot's field of view at roughly 3 or 9 o'clock, wait for the pilot's signal, crouch while inside the rotor disc, and stay clear of the tail rotor region"
+        ],
+        "correctIndex": 3,
+        "explanation": "Pilot line-of-sight approach, pilot's signal, crouched movement, and tail-rotor avoidance are the established rules. Walking near the tail rotor or on the uphill side of a sloping disc puts the technician in the blade strike zone."
+      },
+      "multipleChoice": {
+        "question": "A helicopter is running on the ramp and a technician must approach it. Which option describes the correct ground-safety practice?",
+        "choices": [
+          "Entering the pilot's field of view at roughly 3 or 9 o'clock, waiting for the pilot's signal, crouching while inside the rotor disc, and staying well clear of the tail rotor and the uphill side of a sloping rotor disc",
+          "Walking aft of the cabin and around the tail rotor to save a few steps",
+          "Approaching on the uphill side of a helicopter parked on sloping terrain so the disc clears the technician's head",
+          "Running under the rotor disc to keep exposure short"
+        ],
+        "correctIndex": 0,
+        "explanation": "Safe helicopter ground practice: stay in the pilot's line of sight at 3 and 9 o'clock, wait for a clear signal, crouch under the disc (blades flex downward with gusts), keep well clear of the tail rotor (which is often invisible and lethal), and never approach on the uphill side of a sloping disc — the blade tip can dip to head level. Walking aft or running under the disc ignores these rules and has caused fatal strikes."
+      },
+      "practice": {
+        "question": "A technician is sent out to a customer's helicopter that has just landed with its rotor still turning. The pilot is still in the cockpit and needs to speak with the technician. How should the technician approach?",
+        "choices": [
+          "Walk briskly to the tail of the helicopter to stay out of the rotor disc",
+          "Approach from the uphill side because the disc is higher overhead",
+          "Move into the pilot's view on the 3 or 9 o'clock side, stop outside the disc, establish eye contact, and wait for the pilot's thumbs-up signal. Then approach in a crouched posture, keep the main rotor blades above head level, never cross to the tail-rotor side of the cabin, and if the helicopter is on sloping ground, approach from the downhill side only. If anything feels unsafe, stop and wait",
+          "Duck under the rotor and run straight to the cockpit door to save time"
+        ],
+        "correctIndex": 2,
+        "explanation": "The standard procedure is pilot line-of-sight approach, pilot signal, crouched movement, and total avoidance of the tail rotor and the uphill side of a sloping disc. The tail rotor is essentially invisible at full RPM and kills anyone who contacts it. On sloping ground the main rotor tip on the uphill side can drop to head height. Running under the disc is dangerous because gusts or cyclic inputs can flex the blades downward."
+      },
+      "preassessment": {
+        "question": "Safe practice around a moving rotorcraft?",
+        "choices": [
+          "Walk aft past the tail rotor",
+          "Approach on the uphill side",
+          "Approach in pilot's view at 3/9, wait for signal, crouch, avoid tail rotor",
+          "Run under the disc"
+        ],
+        "correctIndex": 2
+      },
+      "targetCaetId": "464362",
+      "targetCaetStem": "Which of the following best describes a safe practice around moving rotorcraft?",
+      "targetCaetPp": 0.82
+    },
+    {
+      "id": "CAT8-NEW-020",
+      "category": "mod8-shop-safety",
+      "unit": "Shop Safety",
+      "difficulty": "medium",
+      "tags": [
+        "rf",
+        "transmitter",
+        "exposure",
+        "biggest-concern"
+      ],
+      "learningObjective": "Identify the biggest technician-safety concern when working on aircraft systems that transmit radiofrequency energy",
+      "fullObjective": "Recognize that the biggest safety concern when working on aircraft systems that transmit RF energy (weather radar, transponders, radio altimeters, HF comms) is personnel exposure to the transmitted beam — which can cause thermal injury to the eyes and deep tissue, and requires observing published keep-out zones, de-energizing transmitters for close work, and capping or covering antennas.",
+      "flashcard": {
+        "term": "RF transmit systems — biggest safety concern",
+        "definition": "When working on aircraft systems that transmit RF energy (weather radar, transponders, radio altimeters, HF comms), the biggest concern is personnel exposure to the transmitted beam. RF energy at close range can cause thermal burns to deep tissue and permanent injury to the eyes. Required practices: observe published keep-out zones, de-energize transmitters for close work (pull breakers and tag), cap or cover transmitting antennas, and follow the maintenance manual's RF-safety notes.",
+        "analogy": "A radar transmitter at close range is like a microwave oven with the door open — you cannot see the beam, but it cooks tissue just the same.",
+        "unit": "RF Safety"
+      },
+      "jeopardy": {
+        "question": "A technician services a transmitter such as weather radar or a transponder. This is a leading safety concern.",
+        "choices": [
+          "The paint finish on the radome fading from sunlight",
+          "Interference with nearby consumer Bluetooth headsets in the shop",
+          "The possibility that the avionics bays will overheat during maintenance",
+          "Bodily exposure to the transmitted beam, which can cause thermal injury to the eyes and deep tissue and requires observing keep-out zones and de-energizing transmitters"
+        ],
+        "correctIndex": 3,
+        "explanation": "Personnel RF exposure is the primary shop-safety concern. Paint fading, bay overheating, and consumer-electronics interference are not technician-injury hazards."
+      },
+      "multipleChoice": {
+        "question": "A technician is servicing a transmitter such as weather radar or a transponder. Which item is a leading safety concern?",
+        "choices": [
+          "Bodily exposure to the transmitted beam — especially to the eyes and deep tissue — which requires observing published keep-out zones, de-energizing transmitters for close work, and capping or covering transmitting antennas",
+          "The paint finish on the radome fading from prolonged sunlight exposure",
+          "The possibility that the avionics bay will overheat during bench work",
+          "Interference with nearby consumer Bluetooth headsets inside the hangar"
+        ],
+        "correctIndex": 0,
+        "explanation": "Personnel exposure to the transmitted beam is the primary RF-safety concern. The eyes and testes are especially vulnerable to thermal injury from concentrated beams at close range. Keep-out zones, transmitter de-energization, and antenna covers are standard mitigations. Paint fade, bay overheat, and Bluetooth interference are not technician-injury hazards."
+      },
+      "practice": {
+        "question": "A technician is about to remove and reinstall the weather radar flat-plate antenna in the nose of a turboprop. The aircraft is in the hangar. What is the single biggest RF-safety concern the technician must address before starting work?",
+        "choices": [
+          "Whether the radome paint will match after reassembly",
+          "Personnel exposure to the transmitted RF beam if the radar is inadvertently energized. Before any close-in work, pull and tag the radar circuit breaker, place a warning placard in the cockpit, cap or cover the antenna face, and confirm with the maintenance manual's keep-out zones. Never work in front of an energized radar antenna",
+          "Whether the avionics bay temperature will rise during the job",
+          "Whether the radar might interfere with a Bluetooth headset in the shop"
+        ],
+        "correctIndex": 1,
+        "explanation": "Personnel RF exposure is the primary hazard. High-power transmitters such as weather radar can cause thermal burns to deep tissue and permanent eye injury at close range. Mandatory protections: pull the breaker, tag and placard, cap the antenna, and consult the manual's keep-out zones. Paint, bay temperature, and consumer-electronics interference are not life-safety issues."
+      },
+      "preassessment": {
+        "question": "Biggest concern on RF-emitting systems?",
+        "choices": [
+          "Radome paint",
+          "Bay overheat",
+          "Personnel exposure to the transmitted RF beam",
+          "Bluetooth interference"
+        ],
+        "correctIndex": 2
+      },
+      "targetCaetId": "464379",
+      "targetCaetStem": "When working on aircraft systems that emit radiofrequency (RF) signals, one of the biggest concerns is:",
+      "targetCaetPp": 0.84
+    },
+    {
+      "id": "CAT8-NEW-021",
+      "category": "mod8-shop-safety",
+      "unit": "Shop Safety",
+      "difficulty": "easy",
+      "tags": [
+        "sds",
+        "chemical-safety",
+        "information-source"
+      ],
+      "learningObjective": "Identify where to find specific safety information about a chemical solvent used for avionics cleaning",
+      "fullObjective": "Recognize that the Safety Data Sheet (SDS) — provided by the chemical manufacturer and kept readily accessible in the shop per OSHA's Hazard Communication Standard — is the authoritative source for chemical-specific information on hazards, PPE, first aid, handling, storage, spill response, and disposal.",
+      "flashcard": {
+        "term": "Where to find safety info on a shop chemical",
+        "definition": "The manufacturer's Safety Data Sheet (SDS) is the authoritative source for product-specific safety information on any cleaning chemical used at the bench. OSHA's Hazard Communication Standard, 29 CFR 1910.1200, requires shops to keep these sheets within reach of every affected employee. Each SDS follows the same 16-section layout — hazards, required PPE, first aid, handling, storage, spill cleanup, and disposal.",
+        "analogy": "The SDS is the owner's manual for the chemical — brand-specific, authoritative, and required to be on hand before you open the container.",
+        "unit": "Hazard Communication"
+      },
+      "jeopardy": {
+        "question": "A technician needs product-specific hazard details for a cleaning solvent on the bench. This is the correct reference to consult.",
+        "choices": [
+          "A general internet search on the product name",
+          "The Safety Data Sheet (SDS) for that product, provided by the manufacturer and kept accessible in the shop per OSHA's Hazard Communication Standard",
+          "The shipping invoice that came with the product",
+          "A handwritten note from a previous technician"
+        ],
+        "correctIndex": 1,
+        "explanation": "The SDS is the authoritative, regulation-required source. Generic internet results, invoices, and handwritten notes are neither authoritative nor compliant with 29 CFR 1910.1200."
+      },
+      "multipleChoice": {
+        "question": "A technician needs product-specific hazard details for a cleaning solvent on the bench. Which reference is the correct one to consult?",
+        "choices": [
+          "A general internet search on the product's brand name",
+          "The Safety Data Sheet (SDS) for the specific product, provided by the manufacturer and kept readily accessible in the shop per OSHA's Hazard Communication Standard (29 CFR 1910.1200)",
+          "The shipping invoice that arrived with the product",
+          "A handwritten note left on the shelf by a previous technician"
+        ],
+        "correctIndex": 1,
+        "explanation": "The SDS is the required, authoritative source for product-specific safety information. It follows a standardized 16-section format (hazards, PPE, first aid, spill response, disposal, etc.) and must be accessible to all employees. Internet searches, invoices, and handwritten notes are not compliant substitutes and can contain errors or apply to a different product formulation."
+      },
+      "practice": {
+        "question": "A technician has been issued an unfamiliar circuit-board cleaning solvent. Before using it, the technician wants to confirm the proper PPE, ventilation requirements, and spill response for that specific product. Where is the correct place to look?",
+        "choices": [
+          "Run an internet search on the brand name and trust the top result",
+          "Check the shipping invoice that came with the chemical",
+          "Pull the Safety Data Sheet (SDS) for that exact product from the shop's SDS binder (or the electronic SDS system). The SDS — prepared by the manufacturer and required by OSHA's Hazard Communication Standard — contains 16 standardized sections including hazards, required PPE, first aid, handling, storage, spill response, and disposal. If the SDS is missing, ask the supervisor to obtain it from the supplier before use",
+          "Look for a handwritten sticky note left by another technician"
+        ],
+        "correctIndex": 2,
+        "explanation": "The SDS is the regulatory-required, product-specific source. Sections 4 (first aid), 6 (accidental release), 7 (handling/storage), and 8 (exposure controls/PPE) give the technician everything needed to work safely with that specific product. Internet searches can return data for a different formulation or an outdated version. Invoices and sticky notes are neither authoritative nor complete."
+      },
+      "preassessment": {
+        "question": "Where do you find safety info on a specific chemical solvent?",
+        "choices": [
+          "Internet search",
+          "Sticky note",
+          "Shipping invoice",
+          "The product's Safety Data Sheet (SDS)"
+        ],
+        "correctIndex": 3
+      },
+      "targetCaetId": "464364",
+      "targetCaetStem": "Where should you find specific safety info about a chemical solvent used in avionics cleaning?",
+      "targetCaetPp": 0.84
+    },
+    {
+      "id": "CAT8-NEW-022",
+      "category": "mod8-shop-safety",
+      "unit": "Shop Safety",
+      "difficulty": "medium",
+      "tags": [
+        "near-miss",
+        "safety-culture",
+        "definition"
+      ],
+      "learningObjective": "Describe what a near-miss is in the context of shop safety",
+      "fullObjective": "Recognize that a near-miss is an unplanned event that could have caused injury, illness, or property damage but did not, and that reporting and investigating near-misses reveals latent hazards and allows the shop to correct them before an actual accident occurs.",
+      "flashcard": {
+        "term": "Near-miss — definition",
+        "definition": "A near-miss is an unplanned event that could have caused injury, illness, or property damage but did not — the outcome was avoided by timing, position, or luck rather than by design. Near-misses are the last warning before an actual accident; reporting and investigating them reveals latent hazards and lets the shop correct root causes (procedures, training, equipment) without anyone being hurt first.",
+        "analogy": "A near-miss is a free rehearsal of a real accident — treat it like a dress rehearsal and fix the set before opening night.",
+        "unit": "Safety Culture"
+      },
+      "jeopardy": {
+        "question": "Within an aviation shop safety program, this is what the term near-miss refers to.",
+        "choices": [
+          "An unplanned event that could have caused injury, illness, or damage but did not, reported so that latent hazards can be corrected before an actual accident",
+          "A minor injury that required first-aid treatment",
+          "A customer complaint about slow service",
+          "A tool that was briefly misplaced during a task"
+        ],
+        "correctIndex": 0,
+        "explanation": "A near-miss is a no-injury warning event with the potential for harm. Minor injuries are actual incidents, not near-misses. Customer complaints and briefly misplaced tools are not safety events."
+      },
+      "multipleChoice": {
+        "question": "Within an aviation shop safety program, what does the term near-miss refer to?",
+        "choices": [
+          "An unplanned event that could have caused injury, illness, or property damage but did not — reported and investigated so that latent hazards can be corrected before an actual accident occurs",
+          "A minor injury that required first-aid treatment",
+          "A customer complaint about slow turnaround on a repair",
+          "A tool that was briefly misplaced during a task"
+        ],
+        "correctIndex": 0,
+        "explanation": "A near-miss is an unplanned event with the potential for harm but no actual harm — a scaffold that nearly tipped, a panel that nearly fell, a solvent spill a technician nearly slipped on. Reporting near-misses is the highest-leverage safety activity a shop can perform. Minor injuries are actual incidents. Customer complaints and lost tools are not near-miss events."
+      },
+      "practice": {
+        "question": "A technician is walking through the shop when a heavy avionics unit shifts on a roll-around cart. The unit tips forward but is caught by the cart rail before it falls. No one is hurt, and the equipment is undamaged. Should this be reported, and how should the shop treat it?",
+        "choices": [
+          "Report it as a near-miss. A near-miss is an unplanned event that could have caused injury or damage but did not. Investigating it — why did the unit shift, was the cart appropriate, were tie-downs used, was the load too heavy — allows the shop to correct the root cause before the same sequence injures someone or breaks a $30,000 unit. A blame-free reporting culture is essential so technicians actually speak up",
+          "No report is needed because nothing was damaged and no one was hurt",
+          "No report is needed because only one technician witnessed it",
+          "The technician should handle the fix personally without telling anyone"
+        ],
+        "correctIndex": 0,
+        "explanation": "A near-miss is exactly this type of event — no injury, no damage, but clear potential. Reporting and investigating is the way shops convert free warnings into corrective action. A blame-free reporting environment is critical; if technicians fear punishment, near-misses go unreported and the underlying hazards persist until someone is hurt."
+      },
+      "preassessment": {
+        "question": "What is a near-miss?",
+        "choices": [
+          "Minor injury needing first aid",
+          "Briefly misplaced tool",
+          "Customer complaint",
+          "Event that could have caused harm but did not"
+        ],
+        "correctIndex": 3
+      },
+      "targetCaetId": "464359",
+      "targetCaetStem": "Which of the following best describes a “near-miss” in the context of shop safety?",
+      "targetCaetPp": 0.89
+    },
+    {
+      "id": "CAT8-NEW-023",
+      "category": "mod8-shop-safety",
+      "unit": "Shop Safety",
+      "difficulty": "hard",
+      "tags": [
+        "electrical-shock",
+        "first-aid",
+        "cut-power-first"
+      ],
+      "learningObjective": "Identify the correct immediate first-aid response when coming upon an electrical-shock victim",
+      "fullObjective": "Recognize that the correct immediate response to an electrical-shock victim is to FIRST ensure the victim is no longer in contact with the energized source — by cutting power at the breaker or separating the victim with a non-conductive object — then call emergency services (911), assess breathing, and begin CPR/AED as trained if the victim is unresponsive.",
+      "flashcard": {
+        "term": "Electrical-shock victim — correct first-aid sequence",
+        "definition": "Immediate response to an electrical-shock victim, in order: (1) ensure the victim is no longer in contact with the energized source — cut power at the breaker, or use a non-conductive object (dry wood, plastic, rubber) to separate them; never touch a victim still in contact with live current; (2) call 911; (3) assess responsiveness and breathing; (4) begin CPR and use an AED as trained if the victim is unresponsive and not breathing normally.",
+        "analogy": "Rescuer safety first — if you grab a live victim, now there are two victims. Kill the power, then help.",
+        "unit": "Emergency Response"
+      },
+      "jeopardy": {
+        "question": "A coworker has been shocked by live current and is down on the floor. This is the correct sequence of actions.",
+        "choices": [
+          "Pull the person away from the source with bare hands to save time",
+          "Leave the area and find a supervisor before doing anything",
+          "Splash water on the person to revive them",
+          "First make sure the person is no longer in contact with the energized source (cut power at the breaker or separate them with a non-conductive object), then call 911, assess breathing, and start CPR or use an AED as trained"
+        ],
+        "correctIndex": 3,
+        "explanation": "Cut the power or separate with a non-conductive object first, then call and treat. Touching a live person can electrocute the rescuer. Water is dangerous near live circuits. Leaving delays lifesaving care."
+      },
+      "multipleChoice": {
+        "question": "A coworker has been shocked by live current and is down on the floor. What is the correct sequence of actions?",
+        "choices": [
+          "Pull the coworker away from the source with bare hands to save time",
+          "First make sure the coworker is no longer in contact with the energized source — cut power at the breaker or use a non-conductive object (dry wood, plastic, rubber) to separate them. Then call 911, assess responsiveness and breathing, and begin CPR or use an AED as trained",
+          "Splash water on the coworker to try to revive them",
+          "Leave the area to find a supervisor before taking any action"
+        ],
+        "correctIndex": 1,
+        "explanation": "The correct sequence is: verify the coworker is no longer energized (cut power or separate with a non-conductive object) — call 911 — assess and begin CPR/AED if needed. Grabbing a person still in contact with live current electrocutes the rescuer. Water is a shock hazard near energized equipment. Leaving to find a supervisor delays critical care; call 911 from the scene."
+      },
+      "practice": {
+        "question": "A technician turns a corner in the avionics shop and finds a coworker lying next to an energized 120 V test bench, apparently unresponsive after receiving a shock. What is the correct sequence of actions?",
+        "choices": [
+          "Grab the coworker and pull them clear of the bench immediately",
+          "Pour water on the coworker to try to wake them",
+          "First confirm the coworker is no longer in contact with the energized source — ideally by shutting off the bench at its breaker or disconnecting the power cord. If the breaker is not reachable, use a non-conductive object (a dry wooden tool handle, a plastic broomstick) to separate the victim from the source. Then call 911, check responsiveness and breathing, begin CPR if not breathing, and apply an AED if available and if trained",
+          "Leave the area and go find the shop supervisor before doing anything"
+        ],
+        "correctIndex": 2,
+        "explanation": "Rescuer safety is always the first priority. A victim still in contact with live current will electrocute anyone who touches them. The correct sequence is kill-or-separate-the-source, then call, then assess and treat. Water near live electrical equipment is dangerous. Leaving the victim to find a supervisor delays life-critical care — call 911 from the scene and, if possible, send someone else for help."
+      },
+      "preassessment": {
+        "question": "Immediate first aid for an electrical-shock victim?",
+        "choices": [
+          "Pull them away with bare hands",
+          "Leave to find a supervisor",
+          "Splash water on them",
+          "Ensure victim is no longer in contact with the source, then 911, then CPR/AED"
+        ],
+        "correctIndex": 3
+      },
+      "targetCaetId": "464361",
+      "targetCaetStem": "A technician encounters an electrical shock victim. What is the immediate, correct first aid response?",
+      "targetCaetPp": 0.89
+    },
+    {
+      "id": "CAT8-NEW-024",
+      "category": "mod8-shop-safety",
+      "unit": "Shop Safety",
+      "difficulty": "easy",
+      "tags": [
+        "sds",
+        "part-145",
+        "hazard-communication",
+        "document"
+      ],
+      "learningObjective": "Identify the document that must be readily available for each hazardous material used in a Part 145 repair station",
+      "fullObjective": "Recognize that the document that must be readily available for each hazardous material in a Part 145 repair station is the Safety Data Sheet (SDS) — formerly called the Material Safety Data Sheet (MSDS) — required by OSHA's Hazard Communication Standard (29 CFR 1910.1200) and enforced as part of Part 145 shop safety compliance.",
+      "flashcard": {
+        "term": "Required hazmat paperwork at a Part 145 station",
+        "definition": "For every hazardous product brought into a Part 145 station, an SDS (formerly MSDS) has to be on hand within easy reach of the crew who work with it. The document is required by the OSHA HazCom standard at 29 CFR 1910.1200 and follows a fixed 16-section template covering hazards, PPE, first aid, spill response, and disposal. Most shops satisfy the requirement through either a clearly labeled SDS binder or an electronic SDS portal accessible during every shift.",
+        "analogy": "Think of the SDS binder as the shop's 'chemical emergency kit' — one sheet per product, available to every technician, every shift.",
+        "unit": "Hazard Communication"
+      },
+      "jeopardy": {
+        "question": "At a Part 145 repair station, this paperwork is required on hand for every chemical product in use.",
+        "choices": [
+          "An annual environmental compliance report",
+          "A receiving inspection tag attached to the container",
+          "A signed purchase order for that chemical",
+          "The Safety Data Sheet (SDS), formerly the Material Safety Data Sheet (MSDS), required by OSHA's Hazard Communication Standard"
+        ],
+        "correctIndex": 3,
+        "explanation": "The SDS is the OSHA-required document. Compliance reports, purchase orders, and receiving tags are administrative records and do not contain the hazard/PPE/first-aid information an employee needs at the moment of exposure."
+      },
+      "multipleChoice": {
+        "question": "At a Part 145 repair station, what paperwork is required on hand for every chemical product in use?",
+        "choices": [
+          "An annual environmental compliance report filed with the state",
+          "A receiving inspection tag attached to the container at delivery",
+          "A signed purchase order showing the chemical was bought from an approved supplier",
+          "The Safety Data Sheet (SDS), formerly the Material Safety Data Sheet (MSDS), required by OSHA's Hazard Communication Standard (29 CFR 1910.1200), accessible to all affected employees during every work shift"
+        ],
+        "correctIndex": 3,
+        "explanation": "The SDS is the regulation-required hazmat document. Under 29 CFR 1910.1200 it must be readily available to every affected employee on every shift, typically via an SDS binder or electronic SDS system. Annual reports, purchase orders, and receiving tags are administrative records that do not provide the hazard, PPE, first-aid, and spill-response information an employee needs at the point of use."
+      },
+      "practice": {
+        "question": "An FAA Part 145 repair station uses a dozen hazardous chemicals in its avionics shop — cleaners, solvents, adhesives, and potting compound. An OSHA compliance inspector asks what document is kept for each product and how it is made available. What is the correct answer?",
+        "choices": [
+          "The shop keeps an annual environmental compliance summary on file for auditors only",
+          "The shop maintains a current Safety Data Sheet (SDS) for every hazardous product in use. SDSs are provided by the manufacturer, follow a 16-section format, and are kept in an SDS binder in the shop plus an electronic SDS system accessible on shop computers. Every technician is shown the location during orientation, and access is available during every work shift — in compliance with OSHA's Hazard Communication Standard (29 CFR 1910.1200)",
+          "The shop keeps signed purchase orders as the safety record",
+          "The shop attaches a receiving tag to each container and considers that sufficient"
+        ],
+        "correctIndex": 1,
+        "explanation": "The SDS is the required document; access must be immediate, during every shift. The typical implementation combines a physical binder with an electronic system for redundancy. Environmental summaries, purchase orders, and receiving tags are administrative records, not hazard-communication documents, and do not satisfy 29 CFR 1910.1200 or Part 145 shop-safety requirements."
+      },
+      "preassessment": {
+        "question": "Required document for each hazmat in a Part 145 shop?",
+        "choices": [
+          "Annual environmental report",
+          "Purchase order",
+          "Safety Data Sheet (SDS / formerly MSDS)",
+          "Receiving tag"
+        ],
+        "correctIndex": 2
+      },
+      "targetCaetId": "464375",
+      "targetCaetStem": "Which document must be readily available for each hazardous material used in a Part 145 shop?",
+      "targetCaetPp": 0.92
+    },
+    {
+      "id": "CAT8-NEW-025",
+      "category": "mod8-shop-safety",
+      "unit": "Shop Safety",
+      "difficulty": "medium",
+      "tags": [
+        "fod",
+        "dropped-screw",
+        "immediate-action",
+        "panel"
+      ],
+      "learningObjective": "Identify the correct immediate action when a fastener is dropped behind an aircraft panel during installation",
+      "fullObjective": "Recognize that when a fastener (screw, washer, or any piece of hardware) is dropped behind a panel during an avionics installation, the correct immediate action is to stop work, find and remove the dropped item before continuing, because loose hardware left behind the panel is FOD that can short energized circuits, jam controls, or damage equipment in flight.",
+      "flashcard": {
+        "term": "Dropped-fastener FOD — correct immediate action",
+        "definition": "When a fastener is dropped behind a panel during an installation, stop work and recover the dropped item before continuing. Loose hardware behind a panel is FOD — it can short an energized circuit, jam a control linkage, damage equipment during flight maneuvers, or later fall into an area of the aircraft that is difficult to inspect. If the item cannot be retrieved by inspection mirror or magnet, further disassembly is required; the aircraft cannot be released to service with known loose hardware inside.",
+        "analogy": "Aircraft are no place for loose change — every dropped fastener must be accounted for before the panel closes.",
+        "unit": "FOD Control"
+      },
+      "jeopardy": {
+        "question": "While fitting a new radio, a screw slips from the driver and falls into the equipment bay behind the instrument panel. This is the correct next action.",
+        "choices": [
+          "Carry on with the installation and look for the screw at the end of the job",
+          "Halt work, locate the fallen screw with a mirror or magnet, and recover it before continuing — loose hardware behind a panel is FOD that can short circuits, jam controls, or damage equipment",
+          "Grab a new screw from the kit and continue without retrieving the fallen one",
+          "Assume the fallen screw is small enough to be harmless and carry on"
+        ],
+        "correctIndex": 1,
+        "explanation": "Halt and retrieve the fallen fastener before continuing. Deferring, replacing without retrieving, or assuming harmlessness all leave FOD inside the airframe."
+      },
+      "multipleChoice": {
+        "question": "While fitting a new radio, a screw slips from the driver and falls into the equipment bay behind the instrument panel. What is the correct next action?",
+        "choices": [
+          "Carry on with the installation and hunt for the screw later in the job",
+          "Assume the fallen screw is too small to cause a problem and carry on",
+          "Grab a fresh screw from the hardware kit and continue without retrieving the fallen one",
+          "Halt work, locate the fallen screw using an inspection mirror, flashlight, or magnet-on-a-stick, and recover it before continuing — loose hardware behind a panel is foreign-object debris (FOD) that can short energized circuits, jam control linkages, or damage equipment in flight"
+        ],
+        "correctIndex": 3,
+        "explanation": "Halt-and-recover is the only correct response. A fallen fastener can short a live circuit, jam a control, or damage an LRU during maneuvers. Simply replacing the screw leaves the original behind as FOD. 'Too small to matter' is wrong — small hardware is exactly what migrates into wire bundles and control cavities. If retrieval requires further disassembly, do it; the aircraft cannot be released with known loose hardware inside."
+      },
+      "practice": {
+        "question": "A technician is installing a new avionics radio and a small panel screw slips out of the driver and drops behind the instrument panel. The screw falls into an area with wiring bundles and control cables. What should the technician do immediately?",
+        "choices": [
+          "Keep driving screws and look for the dropped one at the end of the shift",
+          "Decide the screw is too small to matter and continue the installation",
+          "Pull another screw from the kit and continue, leaving the dropped one where it fell",
+          "Stop work immediately. Illuminate the area, use an inspection mirror and a magnet-on-a-stick to try to locate and recover the dropped screw. If it cannot be reached, perform whatever additional disassembly is needed to retrieve it — the aircraft cannot be released with a known loose fastener inside. Document the FOD event and the recovery. Only then resume the installation"
+        ],
+        "correctIndex": 3,
+        "explanation": "The only acceptable action is immediate recovery. A dropped screw behind a panel can short energized bus bars, jam control cables during maneuvers, or damage an LRU. Deferring, replacing-without-retrieving, and 'it's small' are all unacceptable. Formal FOD programs require that any lost fastener be tracked until recovered, with additional disassembly if needed. FOD events have caused in-flight emergencies and hull losses."
+      },
+      "preassessment": {
+        "question": "Screw dropped behind a panel during installation — immediate action?",
+        "choices": [
+          "Finish the job, look later",
+          "Grab a new screw and move on",
+          "Stop, locate, and recover before continuing",
+          "Decide it is too small to matter"
+        ],
+        "correctIndex": 2
+      },
+      "targetCaetId": "464368",
+      "targetCaetStem": "During an avionics installation, a small screw is dropped behind a panel What should be done immediately?",
+      "targetCaetPp": 0.92
+    },
+    {
+      "id": "CAT8-NEW-026",
+      "category": "mod8-shop-safety",
+      "unit": "Shop Safety",
+      "difficulty": "easy",
+      "tags": [
+        "fire-extinguisher",
+        "inspection",
+        "readiness-check"
+      ],
+      "learningObjective": "Describe what a technician should verify when checking a fire extinguisher's readiness in a GA avionics shop",
+      "fullObjective": "Recognize that a fire extinguisher readiness check in a GA avionics shop includes verifying the pressure gauge is in the green zone, the tamper seal and pull pin are intact, the cylinder and nozzle show no damage, the inspection tag is current per the station's schedule, and the extinguisher type matches the hazards of the area.",
+      "flashcard": {
+        "term": "Fire extinguisher readiness check — what to verify",
+        "definition": "A readiness check of a shop fire extinguisher verifies: (1) pressure gauge in the green zone, (2) tamper seal and pull pin intact, (3) no physical damage to the cylinder, hose, or nozzle, (4) inspection tag current per the station's schedule (monthly visual, annual professional service), and (5) the extinguisher class (A, B, C, K) matches the hazards of the area it is mounted in. Any 'no' answer takes the extinguisher out of service until corrected.",
+        "analogy": "A readiness check is like a preflight for a fire extinguisher — a short, fixed list that catches the common reasons it would not work when needed.",
+        "unit": "Fire Safety"
+      },
+      "jeopardy": {
+        "question": "A technician performs the monthly readiness inspection on a shop extinguisher. These are the items that must be confirmed.",
+        "choices": [
+          "Only the cylinder color",
+          "Only that an extinguisher is mounted somewhere in the shop",
+          "Only the inspection tag date",
+          "Pressure gauge in the green zone, intact tamper seal and pull pin, no physical damage, current inspection tag, and correct extinguisher class for the area"
+        ],
+        "correctIndex": 3,
+        "explanation": "A proper readiness check is a short checklist: pressure, seal/pin, damage, tag currency, and class match. Single-item checks miss common failure modes."
+      },
+      "multipleChoice": {
+        "question": "A technician performs the monthly readiness inspection on a shop extinguisher. What items must be confirmed?",
+        "choices": [
+          "The pressure gauge is in the green zone, the tamper seal and pull pin are intact, there is no physical damage to the cylinder or nozzle, the inspection tag is current per the station's schedule, and the class rating matches the hazards of the area it is mounted in",
+          "Only the color of the extinguisher cylinder",
+          "Only the date printed on the inspection tag",
+          "Only that an extinguisher is mounted somewhere in the shop"
+        ],
+        "correctIndex": 0,
+        "explanation": "A readiness check is a short, fixed list: pressure, seal/pin, physical damage, tag currency, and class match. Each item catches a distinct failure mode. Any 'no' takes the extinguisher out of service until corrected. Monthly visual checks plus an annual professional service are standard at GA shops."
+      },
+      "practice": {
+        "question": "The shop manager assigns a technician to perform the monthly fire-extinguisher readiness check across the avionics shop. What should the technician verify at each extinguisher?",
+        "choices": [
+          "For each extinguisher: confirm the pressure gauge needle is in the green zone, the tamper seal and pull pin are intact, the cylinder and hose show no cracks or corrosion, the inspection tag is current per the station's monthly/annual schedule, the class rating (A, B, C, K) matches the hazards in that area, and the extinguisher is in its designated mounting location with clear access. Document the check. Any 'no' answer puts that extinguisher out of service and triggers a service call",
+          "Verify only that the cylinder is not rusty",
+          "Verify only the tag date and move on",
+          "Verify only that an extinguisher is present, regardless of type"
+        ],
+        "correctIndex": 0,
+        "explanation": "A compliant readiness check covers pressure, seal/pin, physical condition, tag currency, class-to-hazard match, and mounting/access. Each item addresses a distinct failure mode. Monthly visual checks plus annual professional inspections are the standard pattern. A single failed item removes that extinguisher from service until corrected; an untracked readiness check has the same effect as no extinguisher at all."
+      },
+      "preassessment": {
+        "question": "Fire extinguisher readiness check — verify what?",
+        "choices": [
+          "Cylinder color only",
+          "Pressure, seal/pin, damage, tag currency, and class match",
+          "Tag date only",
+          "Presence only"
+        ],
+        "correctIndex": 1
+      },
+      "targetCaetId": "464377",
+      "targetCaetStem": "When checking a fire extinguisher’s readiness in a GA avionics shop, a technician should:",
+      "targetCaetPp": 0.94
+    },
+    {
+      "id": "CAT8-NEW-027",
+      "category": "mod8-shop-safety",
+      "unit": "Shop Safety",
+      "difficulty": "medium",
+      "tags": [
+        "hearing-protection",
+        "noise",
+        "shop-hazards",
+        "osha"
+      ],
+      "learningObjective": "Explain why hearing protection is critical for technicians working in a busy shop with multiple aircraft",
+      "fullObjective": "Recognize that hearing protection is critical in a busy shop with multiple aircraft because sustained noise from engine runs, APUs, ground power units, pneumatic tools, and ramp operations routinely exceeds OSHA's 85 dBA action level and can cause permanent, cumulative, irreversible hearing loss — and that OSHA requires employers to provide hearing protection and a hearing conservation program at sustained exposures above 85 dBA.",
+      "flashcard": {
+        "term": "Why hearing protection matters in a busy shop",
+        "definition": "A busy shop with multiple aircraft routinely generates sustained noise from engine runs, APUs, ground power units, pneumatic tools, rivet guns, and ramp operations. OSHA's action level for hearing conservation is an 8-hour time-weighted exposure of 85 dBA; exposures above that level cause permanent, cumulative, irreversible hearing loss. At 85 dBA or above, OSHA (29 CFR 1910.95) requires the employer to provide hearing protection, annual audiograms, and a hearing conservation program. Hearing damage is painless, gradual, and undetectable until it is already permanent.",
+        "analogy": "Hearing loss is like UV skin damage — invisible, cumulative, painless while it happens, and impossible to reverse once done.",
+        "unit": "OSHA / PPE"
+      },
+      "jeopardy": {
+        "question": "On the ramp and during engine runs, hearing protection is mandatory for good reason. This is the primary hazard it guards against.",
+        "choices": [
+          "Because sustained noise from engine runs, APUs, GPUs, and pneumatic tools routinely exceeds OSHA's 85 dBA action level and causes permanent, cumulative, irreversible hearing loss",
+          "Because loud noise startles technicians and reduces productivity",
+          "Because noise makes radio communication less clear during maintenance",
+          "Because loud noise interferes with instrument display readability"
+        ],
+        "correctIndex": 0,
+        "explanation": "The core reason is permanent hearing-loss risk at sustained exposures above 85 dBA. Productivity, radio clarity, and display readability are secondary comfort or workflow concerns, not the OSHA-recognized hazard."
+      },
+      "multipleChoice": {
+        "question": "On the ramp and during engine runs, hearing protection is mandatory for good reason. What is the primary hazard it guards against?",
+        "choices": [
+          "Loud noise startles technicians and slows productivity",
+          "The noise makes radio communication between technicians less clear",
+          "Sustained noise from engine runs, APUs, ground power units, pneumatic tools, and ramp operations routinely exceeds OSHA's 85 dBA action level and causes permanent, cumulative, irreversible hearing loss unless hearing protection is worn",
+          "Loud noise makes it harder to read instrument displays"
+        ],
+        "correctIndex": 2,
+        "explanation": "The regulatory and medical basis is permanent hearing-loss risk. OSHA 29 CFR 1910.95 sets the 85 dBA 8-hour time-weighted action level; at or above that level the employer must provide hearing protection, annual audiograms, and a hearing conservation program. Engine runs, APUs, GPUs, and pneumatic tools routinely exceed 85 dBA. Productivity, comm clarity, and display readability are secondary workflow concerns."
+      },
+      "practice": {
+        "question": "A technician new to a busy multi-aircraft hangar asks why the shop has a strict hearing-protection rule on the ramp and during engine runs. What is the correct answer?",
+        "choices": [
+          "Because the noise is annoying and slows down productivity",
+          "Because the noise interferes with radio chatter between technicians",
+          "Because the sustained noise in that environment — engine runs, APUs, ground power units, pneumatic tools, rivet guns, and ramp operations — routinely exceeds OSHA's 85 dBA action level for an 8-hour time-weighted exposure. Exposure above that level causes permanent, cumulative, and irreversible hearing loss. Under 29 CFR 1910.95, the employer must provide hearing protection, annual audiograms, and a hearing conservation program once exposures reach that threshold. Hearing damage is painless and gradual, so the technician cannot feel it happening",
+          "Because the noise makes panel-mounted display text harder to read"
+        ],
+        "correctIndex": 2,
+        "explanation": "The critical reason is permanent hearing-loss risk above 85 dBA sustained exposure. OSHA's hearing-conservation standard was written because technicians routinely leave long careers with significant, irreversible hearing loss. Protection is easy; the damage is not. Productivity, comm clarity, and display readability are real concerns but are not the safety hazard that drives the rule."
+      },
+      "preassessment": {
+        "question": "Why is hearing protection critical in a busy shop?",
+        "choices": [
+          "Noise reduces productivity",
+          "Sustained noise > 85 dBA causes permanent, cumulative hearing loss",
+          "Noise reduces radio clarity",
+          "Noise reduces display readability"
+        ],
+        "correctIndex": 1
+      },
+      "targetCaetId": "464376",
+      "targetCaetStem": "In a busy shop with multiple aircraft, why is hearing protection so critical for technicians?",
+      "targetCaetPp": 0.95
     }
   ]
 }

@@ -1541,6 +1541,1111 @@
         ],
         "correctIndex": 0
       }
+    },
+    {
+      "id": "CAT5-NEW-031",
+      "category": "mod5-digital-databus",
+      "difficulty": "medium",
+      "tags": [
+        "arinc-429",
+        "architecture",
+        "topology"
+      ],
+      "learningObjective": "Identify the bus architecture used by ARINC 429 in aircraft avionics installations.",
+      "fullObjective": "Recognize that ARINC 429 is a one-way broadcast bus in which a single source transmits data on a dedicated twisted-shielded pair to as many as 20 listening receivers, with no shared multi-master operation.",
+      "unit": "Digital Databuses",
+      "flashcard": {
+        "term": "ARINC 429 topology",
+        "definition": "An avionics system using ARINC 429 runs on a one-way broadcast topology. One source (the transmitter) drives its own dedicated twisted-shielded pair, and up to 20 listening receivers tap onto that pair. No second transmitter is allowed on the same wires.",
+        "analogy": "Like a ceiling speaker in an airport terminal: one announcement source, many travelers listening, and nobody else can grab the microphone.",
+        "unit": "Digital Databuses"
+      },
+      "jeopardy": {
+        "question": "An avionics system running ARINC 429 uses this bus architecture.",
+        "choices": [
+          "Shared multi-master bus with collision detection",
+          "Half-duplex token ring between paired terminals",
+          "One-way broadcast, one source feeding up to 20 listeners",
+          "Full-duplex peer-to-peer mesh"
+        ],
+        "correctIndex": 2,
+        "explanation": "ARINC 429 is strictly one-way broadcast: a single transmitter drives a dedicated pair and up to 20 receivers listen. Multi-master and collision detection describe Ethernet. Token ring is a different LAN topology. Full-duplex peer-to-peer is not the ARINC 429 model."
+      },
+      "multipleChoice": {
+        "question": "In an avionics installation that uses ARINC 429, which bus architecture is in use?",
+        "choices": [
+          "A one-way broadcast pair with a single transmitter and up to 20 receivers",
+          "A shared multi-master pair where any box may transmit when the bus is quiet",
+          "A half-duplex token-ring loop between paired line replaceable units",
+          "A full-duplex peer-to-peer mesh that meshes every unit to every other"
+        ],
+        "correctIndex": 0,
+        "explanation": "ARINC 429 uses a one-way (unidirectional) broadcast pair. One transmitter owns the wires; up to 20 receivers listen. Multi-master access is used on shared buses like CAN or Ethernet. Token-passing rings are LAN topologies, and peer-to-peer mesh is not the ARINC 429 model."
+      },
+      "practice": {
+        "question": "A technician is adding a fourth receiver to an ARINC 429 altitude line that already feeds three other LRUs from the air data computer. How should the new receiver be wired into the system?",
+        "choices": [
+          "Install a second transmitter on the same pair so the new receiver has its own driver",
+          "Tap it onto the existing pair as an additional listening receiver, since ARINC 429 allows up to 20",
+          "Route the new receiver through a bus controller that polls the air data computer",
+          "Convert the pair to a bidirectional link so the new receiver can request data"
+        ],
+        "correctIndex": 1,
+        "explanation": "ARINC 429 is unidirectional broadcast, so extra receivers are simply tapped onto the existing pair, up to 20 total. You cannot add a second transmitter to the same pair, the standard has no bus controller, and the link remains one-way."
+      },
+      "preassessment": {
+        "question": "Which description fits the ARINC 429 bus architecture?",
+        "choices": [
+          "Multi-master shared bus with collision detection",
+          "Token ring loop",
+          "Full-duplex peer-to-peer mesh",
+          "One-way broadcast, one transmitter and up to 20 receivers"
+        ],
+        "correctIndex": 3
+      },
+      "targetCaetId": "464267",
+      "targetCaetStem": "In an avionics system using ARINC 429, what type of bus architecture is employed?",
+      "targetCaetPp": 0.13
+    },
+    {
+      "id": "CAT5-NEW-032",
+      "category": "mod5-digital-databus",
+      "difficulty": "medium",
+      "tags": [
+        "arinc-429",
+        "signaling",
+        "voltage-levels"
+      ],
+      "learningObjective": "State the differential voltage used by ARINC 429 to represent a binary one.",
+      "fullObjective": "Recognize that ARINC 429 uses bipolar return-to-zero signaling, where a binary one is represented by a differential high of approximately +10 volts between the two signal wires, a binary zero by approximately -10 volts, and the null between bits by zero volts.",
+      "unit": "Digital Databuses",
+      "flashcard": {
+        "term": "ARINC 429 binary one voltage",
+        "definition": "A binary one on ARINC 429 is a differential voltage of about +10 V measured between the two conductors of the twisted pair. A zero is about -10 V, and the line returns to 0 V between each bit. This three-state scheme is called bipolar return-to-zero.",
+        "analogy": "Think of each bit as a flag: raised high for a one, lowered for a zero, and held flat at zero volts between signals.",
+        "unit": "Digital Databuses"
+      },
+      "jeopardy": {
+        "question": "For a logic-1 state on the ARINC 429 bus, the differential signal level sits near this value.",
+        "choices": [
+          "Plus 3 volts",
+          "Plus 5 volts",
+          "Plus 10 volts",
+          "Plus 28 volts"
+        ],
+        "correctIndex": 2,
+        "explanation": "ARINC 429 represents a binary one with a differential level of about +10 V across the pair. Plus 3 and plus 5 volts are common CMOS and TTL logic families, not ARINC 429. Plus 28 volts is an aircraft DC bus, not a digital databus signal."
+      },
+      "multipleChoice": {
+        "question": "In an ARINC 429 system, which typical voltage is used to represent a binary one?",
+        "choices": [
+          "Approximately +3 V single-ended to ground",
+          "Approximately +28 V single-ended referenced to chassis",
+          "Approximately +5 V single-ended to ground",
+          "Approximately +10 V differential across the twisted pair"
+        ],
+        "correctIndex": 3,
+        "explanation": "A binary one on ARINC 429 is a differential pulse of about +10 V across the two signal wires. Plus 3 and plus 5 V belong to logic-family signaling such as CMOS or TTL. Plus 28 V is the nominal aircraft DC bus and is not used to carry databus bits."
+      },
+      "practice": {
+        "question": "A technician places an oscilloscope across the two conductors of an ARINC 429 pair and sees a pulse rising to roughly +10 V. What binary value does that pulse represent?",
+        "choices": [
+          "A null between bits, because +10 V is the idle level",
+          "A binary one, because ARINC 429 uses about +10 V differential for the high state",
+          "A framing marker that separates words on the bus",
+          "A binary zero, because ARINC 429 inverts the polarity for a zero"
+        ],
+        "correctIndex": 1,
+        "explanation": "ARINC 429 bipolar return-to-zero signaling uses roughly +10 V differential for a one, -10 V for a zero, and 0 V for the null between bits. The idle level is 0 V, a zero is the negative pulse, and there is no separate framing marker inside the word."
+      },
+      "preassessment": {
+        "question": "Which voltage best represents a binary one on ARINC 429?",
+        "choices": [
+          "+3 V",
+          "+10 V",
+          "+5 V",
+          "+28 V"
+        ],
+        "correctIndex": 1
+      },
+      "targetCaetId": "464262",
+      "targetCaetStem": "In ARINC 429, what is the typical voltage used to represent a binary \"I\"?",
+      "targetCaetPp": 0.38
+    },
+    {
+      "id": "CAT5-NEW-033",
+      "category": "mod5-digital-databus",
+      "difficulty": "medium",
+      "tags": [
+        "rs-232",
+        "signaling",
+        "characteristics"
+      ],
+      "learningObjective": "Identify a key characteristic of RS-232 signals that affects installation practice.",
+      "fullObjective": "Recognize that RS-232 uses single-ended signaling referenced to a common ground, with logic levels typically between plus or minus 3 volts and plus or minus 15 volts, a point-to-point link of two devices, and a short cable length limit of roughly 50 feet.",
+      "unit": "Digital Databuses",
+      "flashcard": {
+        "term": "RS-232 installation characteristic",
+        "definition": "When installing RS-232 connections, the key characteristic is that the signal is single-ended and referenced to a shared ground, swinging roughly plus or minus 3 to plus or minus 15 volts. Each RS-232 link connects exactly two devices and is generally limited to about 50 feet of cable.",
+        "analogy": "RS-232 is the old intercom line: two handsets, one shared wire path, and it only works over a short run before the signal fades.",
+        "unit": "Digital Databuses"
+      },
+      "jeopardy": {
+        "question": "When installing an RS-232 connection, this is a key electrical characteristic of the signals.",
+        "choices": [
+          "Single-ended signaling referenced to ground, typically plus or minus 3 to 15 volts",
+          "Transformer-coupled Manchester signaling at 1 megabit per second",
+          "Differential pair at plus or minus 10 volts",
+          "Optical pulses carried on a plastic fiber"
+        ],
+        "correctIndex": 0,
+        "explanation": "RS-232 is single-ended: each signal is measured against a common ground, with levels in the plus or minus 3 to 15 V range. Plus or minus 10 V differential describes ARINC 429. Transformer-coupled Manchester at 1 Mbps describes MIL-STD-1553. RS-232 is electrical, not optical."
+      },
+      "multipleChoice": {
+        "question": "In the avionics shop, what physical trait should technicians expect when working with RS-232 signal levels during an install?",
+        "choices": [
+          "Differential signaling at approximately plus or minus 10 volts on a twisted pair",
+          "Transformer-coupled Manchester II signaling at 1 megabit per second",
+          "Optical pulses transmitted over a multimode fiber",
+          "Single-ended signaling referenced to ground at typically plus or minus 3 to 15 volts"
+        ],
+        "correctIndex": 3,
+        "explanation": "RS-232 signals are single-ended and referenced to a shared ground, with logic levels typically plus or minus 3 to 15 V. Differential plus or minus 10 V describes ARINC 429, Manchester at 1 Mbps describes MIL-STD-1553, and optical fiber is not used by the RS-232 standard."
+      },
+      "practice": {
+        "question": "A technician installing an RS-232 link from a panel-mount GPS to an MFD is told to hold the cable run under 50 feet. Which characteristic of RS-232 makes that length limit necessary?",
+        "choices": [
+          "RS-232 draws high current that overheats long conductors",
+          "RS-232 is optical and light power drops sharply beyond 50 feet",
+          "RS-232 requires 120-ohm termination that fails after 50 feet of cable",
+          "RS-232 is single-ended and vulnerable to ground offset and noise that grow with cable length"
+        ],
+        "correctIndex": 3,
+        "explanation": "RS-232 is single-ended and shares a ground reference, so ground offsets and induced noise accumulate over distance. That is why the practical run is short. RS-232 is electrical not optical, does not use 120-ohm termination (that is CAN bus), and is a low-current standard."
+      },
+      "preassessment": {
+        "question": "Which best describes RS-232 signals?",
+        "choices": [
+          "Differential at plus or minus 10 volts",
+          "Manchester at 1 megabit per second",
+          "Single-ended at plus or minus 3 to 15 volts",
+          "Optical pulses on fiber"
+        ],
+        "correctIndex": 2
+      },
+      "targetCaetId": "464294",
+      "targetCaetStem": "When installing RS-232 connections, which is a key characteristic of RS-232 signals?",
+      "targetCaetPp": 0.5
+    },
+    {
+      "id": "CAT5-NEW-034",
+      "category": "mod5-digital-databus",
+      "difficulty": "hard",
+      "tags": [
+        "mil-std-1553",
+        "troubleshooting",
+        "bus-activity"
+      ],
+      "learningObjective": "Identify likely causes when a MIL-STD-1553 bus sits in a non-idle state for longer than expected.",
+      "fullObjective": "Recognize that a MIL-STD-1553 bus held in a non-idle condition beyond the normal message schedule commonly results from excessive bus controller polling or retries, reflections from a missing or damaged 78 ohm terminator, a stuck transmitter on one remote terminal, or heavy noise pickup on the bus.",
+      "unit": "Digital Databus Troubleshooting",
+      "flashcard": {
+        "term": "MIL-STD-1553 non-idle for too long",
+        "definition": "When a MIL-STD-1553 bus analyzer shows the bus operating in a non-idle state longer than expected, the common root causes are the bus controller running excessive polling or retry cycles, a missing or damaged 78 ohm terminator causing ringing and reflections, a stuck transmitter on a remote terminal holding the bus busy, or heavy noise forcing repeated retries.",
+        "analogy": "It is like a conference room where the chairperson keeps asking for a roll call response that never comes back clean, so the meeting never goes quiet.",
+        "unit": "Digital Databus Troubleshooting"
+      },
+      "jeopardy": {
+        "question": "A MIL-STD-1553 bus is analyzed and found operating in a non-idle state for longer than expected. This is a likely cause.",
+        "choices": [
+          "The aircraft GPS almanac is out of date",
+          "Normal inactivity between scheduled major frames",
+          "Excessive bus controller retries caused by errors or a stuck transmitter",
+          "The cockpit lighting is set to night mode"
+        ],
+        "correctIndex": 2,
+        "explanation": "A bus that stays non-idle longer than expected usually reflects a protocol problem: the bus controller is retrying messages due to errors, a remote terminal is stuck transmitting, or reflections from a bad terminator are corrupting responses. Inactivity would look idle, not non-idle, and GPS almanac or cockpit lighting have nothing to do with 1553 bus state."
+      },
+      "multipleChoice": {
+        "question": "A MIL-STD-1553 databus is analyzed and found operating in a non-idle state longer than expected. What is a likely cause?",
+        "choices": [
+          "A normal pause between scheduled major frames when no messages are needed",
+          "Excessive bus controller retries, a stuck remote terminal transmitter, or reflections from a damaged 78 ohm terminator",
+          "The cockpit overhead lighting switching to night dim mode",
+          "The aircraft GPS almanac expiring and requiring replacement data"
+        ],
+        "correctIndex": 1,
+        "explanation": "Extended non-idle activity on 1553 typically reflects protocol-level trouble: the bus controller repeatedly retrying after error responses, a remote terminal stuck keying the bus, or reflections from a bad terminator. A scheduled pause would look idle, not non-idle, and unrelated avionics do not drive 1553 bus state."
+      },
+      "practice": {
+        "question": "Scenario: A technician analyzes a MIL-STD-1553 bus and finds that the line is active far longer each frame than the design schedule allows. What should the technician investigate first?",
+        "choices": [
+          "Whether the aircraft is parked on a slope that affects bus timing",
+          "Whether the cabin pressure controller has cycled during the test",
+          "Whether the GPS almanac data has been updated in the last 30 days",
+          "Whether the bus controller is retrying messages due to bad responses from a remote terminal or a damaged 78 ohm terminator"
+        ],
+        "correctIndex": 3,
+        "explanation": "Longer-than-expected non-idle activity on 1553 most often points to retries driven by bad replies from a remote terminal or by reflections from a bad terminator. Aircraft attitude, GPS almanac age, and cabin pressure cycling do not influence bus idle time and would not explain the symptom."
+      },
+      "preassessment": {
+        "question": "Which is a likely cause of MIL-STD-1553 bus activity running longer than expected?",
+        "choices": [
+          "A planned idle period in the major frame",
+          "An expired GPS almanac",
+          "Bus controller retries, a stuck RT transmitter, or a bad 78 ohm terminator",
+          "Cockpit lighting at night brightness"
+        ],
+        "correctIndex": 2
+      },
+      "targetCaetId": "464273",
+      "targetCaetStem": "Scenario: You are analyzing a MIL-STD-1553 databus and find that the bus is operating in a non-idle state for longer than expected. What could be a possible cause?",
+      "targetCaetPp": 0.5
+    },
+    {
+      "id": "CAT5-NEW-035",
+      "category": "mod5-digital-databus",
+      "difficulty": "medium",
+      "tags": [
+        "troubleshooting",
+        "functional-check",
+        "procedures"
+      ],
+      "learningObjective": "Identify the correct preparation step before a functional check of a digital autopilot that uses ARINC data.",
+      "fullObjective": "Recognize that before performing a functional check of a digital autopilot using ARINC data, the technician should verify that all relevant databus wiring is secure, shields are grounded, software or configuration settings match the applicable service bulletin or installation data, and that any required placards or safety provisions are in place.",
+      "unit": "Digital Databus Troubleshooting",
+      "flashcard": {
+        "term": "Autopilot functional test prep",
+        "definition": "Before powering up the checkout on a digital autopilot fed by ARINC data, confirm the bus wiring and shields terminate properly, verify the software part number and strapping match the approved config, read through the OEM test procedure, and apply all shop precautions for live surface movement. Skipping any of these steps risks either a bad indication on the test or a runaway control surface in the hangar.",
+        "analogy": "Like a pilot running the pre-flight checklist: you do not just power on and hope it flies; you verify the cables, paperwork, and safety before any live motion.",
+        "unit": "Digital Databus Troubleshooting"
+      },
+      "jeopardy": {
+        "question": "With a digital autopilot fed by ARINC data, this preparation belongs on the checklist before the functional test.",
+        "choices": [
+          "Remove all ARINC interconnect pins so the autopilot cannot receive outside data",
+          "Place the aircraft in a hover and engage every servo before turning on power",
+          "Verify ARINC wiring, shield grounding, and software configuration against approved installation data",
+          "Skip the manufacturer procedure because the autopilot self-tests at power-up"
+        ],
+        "correctIndex": 2,
+        "explanation": "The correct preparation is a pre-check of wiring, shields, and software configuration against approved installation data, plus a review of the manufacturer functional test. Removing ARINC pins would disable the check. Ground aircraft do not hover, and self-test does not replace a documented functional check."
+      },
+      "multipleChoice": {
+        "question": "The technician is about to run the functional test on a digital autopilot that relies on ARINC-data. What preparation belongs on the checklist first?",
+        "choices": [
+          "Verify the ARINC wiring, shield grounds, and software configuration match approved installation data, then review the manufacturer test procedure",
+          "Disconnect every ARINC input so the autopilot runs only on internal memory",
+          "Energize every control servo with the aircraft on jacks before applying ship power",
+          "Skip the manufacturer procedure because the autopilot will self-test during engagement"
+        ],
+        "correctIndex": 0,
+        "explanation": "The correct preparation is a pre-check: confirm ARINC wiring is sound, shields are properly grounded, and the autopilot software and configuration match the approved installation data, then follow the manufacturer functional-test procedure. Removing inputs disables the check, pre-energizing servos before power creates safety hazards, and self-test alone does not satisfy a functional check."
+      },
+      "practice": {
+        "question": "Scenario: A technician is about to perform a functional check on a digital autopilot whose roll and pitch inputs arrive over ARINC 429. What is the best first action?",
+        "choices": [
+          "Power the autopilot immediately and observe control surface movement, adjusting as needed",
+          "Verify that the ARINC 429 wiring, shield grounding, and autopilot configuration match the approved installation data before applying power",
+          "Disconnect the ARINC inputs so only the internal gyros drive the surfaces",
+          "Engage the autopilot in flight to see whether it behaves correctly"
+        ],
+        "correctIndex": 1,
+        "explanation": "The correct first step is a quiet paperwork and wiring check: ARINC pairs sound, shields grounded, software configured per approved data. Powering up blindly risks uncommanded surface motion, disconnecting the ARINC inputs defeats the purpose of the check, and in-flight testing is not appropriate for initial functional verification."
+      },
+      "preassessment": {
+        "question": "Before functionally checking a digital autopilot that uses ARINC data, you should:",
+        "choices": [
+          "Remove all ARINC interconnect pins",
+          "Engage every servo before turning on power",
+          "Skip the manufacturer procedure",
+          "Verify wiring, shield grounds, and configuration against approved data"
+        ],
+        "correctIndex": 3
+      },
+      "targetCaetId": "464290",
+      "targetCaetStem": "Before a functional check of a digital autopilot using ARINC data, you should:",
+      "targetCaetPp": 0.56
+    },
+    {
+      "id": "CAT5-NEW-036",
+      "category": "mod5-digital-databus",
+      "difficulty": "medium",
+      "tags": [
+        "troubleshooting",
+        "test-equipment",
+        "intermittent"
+      ],
+      "learningObjective": "Select the most useful test instrument for troubleshooting an intermittent digital databus failure.",
+      "fullObjective": "Recognize that a protocol-aware digital bus analyzer captures and decodes ARINC 429, MIL-STD-1553, and similar traffic, revealing parity errors, missing labels, and framing faults that intermittent databus failures produce, whereas an analog multimeter or stand-alone oscilloscope cannot decode protocol content.",
+      "unit": "Digital Databus Test Equipment",
+      "flashcard": {
+        "term": "Intermittent databus troubleshooting tool",
+        "definition": "When troubleshooting an intermittent digital databus failure, the most useful instrument is a bus analyzer. It captures live ARINC 429 or MIL-STD-1553 traffic, decodes each word, and flags parity errors, missing labels, and framing faults as they happen. A plain multimeter or scope shows voltages but not protocol content.",
+        "analogy": "A bus analyzer is to intermittent databus trouble what a listening device is to a noisy phone line: it records every word so you can catch the moment things go wrong.",
+        "unit": "Digital Databus Test Equipment"
+      },
+      "jeopardy": {
+        "question": "Chasing an intermittent on a digital databus, this is the shop instrument that gives the clearest picture.",
+        "choices": [
+          "A panel-mount analog voltmeter",
+          "A torque wrench rated for connector backshells",
+          "A digital bus analyzer that captures and decodes ARINC 429 or 1553 traffic",
+          "A static pressure leak tester"
+        ],
+        "correctIndex": 2,
+        "explanation": "A bus analyzer captures live traffic, decodes each word, and flags parity or framing errors as they occur, which is what intermittent trouble requires. A voltmeter only reads levels, a torque wrench is a mechanical tool, and a static leak tester addresses pressure systems, not digital buses."
+      },
+      "multipleChoice": {
+        "question": "Chasing an intermittent fault on a digital databus, which shop instrument gives the technician the most useful picture of what is happening?",
+        "choices": [
+          "A panel-mount analog voltmeter reading bus DC offset",
+          "A digital bus analyzer that captures and decodes ARINC 429 or MIL-STD-1553 traffic and flags parity or framing errors",
+          "A calibrated torque wrench for connector backshells",
+          "An aircraft static pressure leak tester"
+        ],
+        "correctIndex": 1,
+        "explanation": "A bus analyzer is the right tool for intermittent databus faults: it logs traffic and decodes protocol-level errors such as parity, framing, and missing labels that appear only briefly. An analog voltmeter measures DC, not fast protocol events. A torque wrench and a leak tester address unrelated maintenance tasks."
+      },
+      "practice": {
+        "question": "Scenario: An MFD occasionally drops altitude data from an ARINC 429 source in flight, but the problem does not repeat on the bench. Which instrument is most likely to catch the fault when it happens?",
+        "choices": [
+          "A panel-mount analog voltmeter reading the DC level on the ARINC pair",
+          "A digital bus analyzer recording ARINC 429 traffic throughout a representative flight profile",
+          "A static pressure leak tester connected to the pitot system",
+          "A torque wrench used to re-torque each backshell"
+        ],
+        "correctIndex": 1,
+        "explanation": "Intermittent dropout most often shows up as a brief parity failure or missing label. Only a bus analyzer captures and decodes that event. A voltmeter cannot see sub-millisecond events, and torque wrenches or static leak testers have no role in databus diagnosis."
+      },
+      "preassessment": {
+        "question": "Which instrument helps most with an intermittent digital databus fault?",
+        "choices": [
+          "A bus analyzer that decodes bus traffic",
+          "An analog voltmeter",
+          "A torque wrench",
+          "A static pressure leak tester"
+        ],
+        "correctIndex": 0
+      },
+      "targetCaetId": "464287",
+      "targetCaetStem": "When troubleshooting a digital databus system failing intermittently, which test instrument helps most?",
+      "targetCaetPp": 0.62
+    },
+    {
+      "id": "CAT5-NEW-037",
+      "category": "mod5-digital-databus",
+      "difficulty": "medium",
+      "tags": [
+        "mil-std-1553",
+        "troubleshooting",
+        "address"
+      ],
+      "learningObjective": "Diagnose a MIL-STD-1553 remote terminal that does not respond to commands from the bus controller.",
+      "fullObjective": "Recognize that when a single MIL-STD-1553 device fails to respond to bus controller commands, the most likely causes include an incorrect remote terminal address strap, an open or miswired stub coupler, a damaged or missing 78 ohm terminator at the end of the main bus, or a disconnected power or ground lead on the terminal itself.",
+      "unit": "Digital Databus Troubleshooting",
+      "flashcard": {
+        "term": "1553 remote terminal not responding",
+        "definition": "When one remote terminal on a MIL-STD-1553 bus does not respond to commands, the likely causes are an incorrect RT address strap (the hardware setting that tells the terminal which messages to answer), an open or miswired stub coupler, a damaged terminator at the end of the main bus, or a missing power or ground connection on that terminal.",
+        "analogy": "It is like a house numbered wrong on a street: the mail carrier (bus controller) calls the address, but no one at that address knows the mail is for them, so no one answers.",
+        "unit": "Digital Databus Troubleshooting"
+      },
+      "jeopardy": {
+        "question": "One device on a MIL-STD-1553 bus is not responding to commands from the bus controller. This is a likely cause.",
+        "choices": [
+          "An incorrect remote terminal address strap or an open stub coupler on that device",
+          "The cabin altitude selector in manual mode",
+          "An expired VOR receiver check",
+          "The aircraft weather radar being set to off"
+        ],
+        "correctIndex": 0,
+        "explanation": "A single non-responsive RT usually has an address-strap error, an open stub coupler, or a power or ground problem on that terminal. Weather radar, cabin altitude, and VOR checks are unrelated systems and do not determine whether a 1553 terminal replies to its bus controller."
+      },
+      "multipleChoice": {
+        "question": "A technician finds that one device on a MIL-STD-1553 bus does not respond to commands from the bus controller. What is a likely cause of this issue?",
+        "choices": [
+          "The aircraft weather radar being set to standby mode",
+          "An incorrect remote terminal address strap, an open stub coupler, or a missing power or ground lead on that device",
+          "A cabin pressure selector left in manual mode",
+          "An expired check on the VOR receiver in the adjacent rack"
+        ],
+        "correctIndex": 1,
+        "explanation": "A single non-responsive RT typically means it cannot hear its own address (bad strapping), its stub is open or miswired, or it has no power or ground. Weather radar mode, cabin pressure settings, and VOR checks have no effect on whether a 1553 terminal answers the bus controller."
+      },
+      "practice": {
+        "question": "Scenario: You replace a remote terminal on a MIL-STD-1553 bus. After installation, the bus controller commands the new terminal and no response is returned, while every other terminal works normally. What should you check first?",
+        "choices": [
+          "The next due date of the VOR receiver accuracy check",
+          "The aircraft weather radar mode and range selection",
+          "The cabin altitude selector on the pressurization panel",
+          "The RT address strap on the new terminal, the stub coupler, and the power and ground leads at the terminal"
+        ],
+        "correctIndex": 3,
+        "explanation": "A single terminal failing to answer points to an issue local to that terminal: address strap, stub coupler, or power and ground. The rest of the bus is fine, which rules out terminators and the bus controller. Weather radar, cabin pressurization, and VOR checks have no role in 1553 response."
+      },
+      "preassessment": {
+        "question": "One 1553 device is not responding to the bus controller. What is a likely cause?",
+        "choices": [
+          "Weather radar in standby",
+          "Overdue VOR check",
+          "Manual cabin altitude",
+          "Bad RT address strap, open stub, or missing power/ground"
+        ],
+        "correctIndex": 3
+      },
+      "targetCaetId": "464269",
+      "targetCaetStem": "Scenario: You are troubleshooting a system with multiple avionics components connected via MIL-STD-1553. You observe that one of the devices is not responding to commands from the bus controller. What is a likely cause of this issue?",
+      "targetCaetPp": 0.69
+    },
+    {
+      "id": "CAT5-NEW-038",
+      "category": "mod5-digital-databus",
+      "difficulty": "medium",
+      "tags": [
+        "arinc-429",
+        "data-rate",
+        "speed"
+      ],
+      "learningObjective": "State the correct transmission speeds defined by the ARINC 429 standard.",
+      "fullObjective": "Recognize that ARINC 429 defines exactly two transmission speeds, a low-speed rate of 12 to 14.5 kilobits per second used for slow parameters and a high-speed rate of 100 kilobits per second used for most modern avionics.",
+      "unit": "Digital Databuses",
+      "flashcard": {
+        "term": "ARINC 429 transmission speed",
+        "definition": "ARINC 429 defines two fixed speeds and only two: low speed at 12 to 14.5 kilobits per second, and high speed at 100 kilobits per second. The two speeds are not mixed on the same pair, and neither speed is variable or negotiated.",
+        "analogy": "Like a two-speed blower motor: you get low or high, with nothing in between, and both devices on the pair must agree on which speed is running.",
+        "unit": "Digital Databuses"
+      },
+      "jeopardy": {
+        "question": "Among the claims about ARINC 429 data rates, this one is accurate.",
+        "choices": [
+          "The rate is negotiated between transmitter and receiver on each word",
+          "The standard defines two fixed rates, about 12 kbps low speed and 100 kbps high speed",
+          "The standard supports speeds up to 10 megabits per second",
+          "Both low and high speed may run simultaneously on the same pair"
+        ],
+        "correctIndex": 1,
+        "explanation": "ARINC 429 defines two fixed speeds: low at 12 to 14.5 kbps and high at 100 kbps. Neither is negotiated per word, 10 Mbps is far above the standard, and only one speed may run on a given pair at a time."
+      },
+      "multipleChoice": {
+        "question": "Of the following statements about ARINC 429 data rates, identify the accurate one.",
+        "choices": [
+          "The transmitter and receiver negotiate the bit rate on each word exchange",
+          "ARINC 429 supports transmission speeds up to 10 megabits per second on any pair",
+          "ARINC 429 defines two fixed rates, a low-speed rate near 12 kilobits per second and a high-speed rate of 100 kilobits per second",
+          "Low-speed and high-speed words may be interleaved on the same physical pair"
+        ],
+        "correctIndex": 2,
+        "explanation": "ARINC 429 is a two-speed, non-negotiated standard: about 12 kbps low and 100 kbps high. There is no auto-negotiation, the peak rate is well below 10 Mbps, and a single pair carries only one of the two speeds."
+      },
+      "practice": {
+        "question": "A technician is configuring an ARINC 429 receiver card to match a new GPS unit whose data sheet calls out high-speed operation. Which configuration is correct?",
+        "choices": [
+          "Set the receiver to 100 kilobits per second to match the high-speed ARINC 429 rate",
+          "Set the receiver to 10 megabits per second for modern avionics",
+          "Leave the receiver on auto-negotiate so it locks on to whatever the transmitter sends",
+          "Set both a low-speed and a high-speed input on the same pair for redundancy"
+        ],
+        "correctIndex": 0,
+        "explanation": "High-speed ARINC 429 is 100 kbps. There is no 10 Mbps mode, no auto-negotiation, and a single ARINC 429 pair carries only one speed, not both at once. The receiver must be set to the same fixed speed as the transmitter or no decoding occurs."
+      },
+      "preassessment": {
+        "question": "Identify the accurate statement about ARINC 429 data rates.",
+        "choices": [
+          "Auto-negotiated per word",
+          "Two fixed rates: about 12 kbps low and 100 kbps high",
+          "Up to 10 megabits per second",
+          "Both speeds run together on one pair"
+        ],
+        "correctIndex": 1
+      },
+      "targetCaetId": "464286",
+      "targetCaetStem": "Which statement about ARINC 429 transmission speed is correct?",
+      "targetCaetPp": 0.69
+    },
+    {
+      "id": "CAT5-NEW-039",
+      "category": "mod5-digital-databus",
+      "difficulty": "hard",
+      "tags": [
+        "troubleshooting",
+        "flight-critical",
+        "first-step"
+      ],
+      "learningObjective": "Identify the correct first response when a digital flight control computer sends erroneous attitude data due to databus corruption.",
+      "fullObjective": "Recognize that when a flight control computer delivers erroneous attitude data caused by databus corruption, the first step is to disengage or inhibit the affected flight control function, isolate the aircraft to a safe configuration, record the observed symptoms, and then investigate the databus wiring, shields, and source units before returning anything to service.",
+      "unit": "Digital Databus Troubleshooting",
+      "flashcard": {
+        "term": "Bad attitude data from a corrupted bus",
+        "definition": "When bus corruption is causing the flight control computer to push out incorrect attitude, the immediate priority is to disengage the affected flight control function, leave the ship in a safe configuration, write up the symptoms carefully, and only then start methodical troubleshooting. Work outward from databus shield and wiring integrity, then move upstream to verify the health of the attitude source itself.",
+        "analogy": "Like smelling smoke in a kitchen: you first turn off the burner and step back before you try to find the cause.",
+        "unit": "Digital Databus Troubleshooting"
+      },
+      "jeopardy": {
+        "question": "A flight control computer is pushing bad attitude data because the bus is corrupted — this is the first required action.",
+        "choices": [
+          "Sign the aircraft off as airworthy and schedule the troubleshooting for the next inspection",
+          "Disengage the affected flight control function and isolate the aircraft to a safe configuration",
+          "Replace every avionics box on the bus without further testing",
+          "Increase the autopilot authority so it can override the bad attitude signal"
+        ],
+        "correctIndex": 1,
+        "explanation": "Flight-critical bad data requires an immediate safety action: disengage or inhibit the affected control, safe the aircraft, and record symptoms before investigating. Signing off an aircraft with known bad flight control data is not acceptable, shotgun replacement wastes parts and time, and increasing autopilot authority would amplify, not solve, the error."
+      },
+      "multipleChoice": {
+        "question": "A flight control computer is pushing bad attitude data onto the bus because the databus itself is corrupted. What action must come first?",
+        "choices": [
+          "Raise the autopilot authority limit so that it can override the bad attitude data",
+          "Return the aircraft to service and plan troubleshooting at the next scheduled inspection",
+          "Replace every avionics box connected to the bus and run a functional check afterward",
+          "Disengage or inhibit the affected flight control function, isolate the aircraft to a safe configuration, and record the symptoms"
+        ],
+        "correctIndex": 3,
+        "explanation": "With flight-critical corruption, the first step is always to remove the hazard: disengage the affected function, safe the aircraft, and document the symptoms for the subsequent investigation of wiring, shields, and source units. Continuing to fly, shotgun replacement, or tuning the autopilot are all inappropriate responses."
+      },
+      "practice": {
+        "question": "Scenario: During a functional check, the digital flight control computer shows a pitch angle that disagrees with two independent attitude sources, and a bus analyzer shows parity errors on its ARINC 429 input. What is the best first action?",
+        "choices": [
+          "Disengage the autopilot and any flight director, safe the aircraft on the ground, then investigate the ARINC input wiring and source",
+          "Swap out every LRU on the ARINC 429 bus immediately, then functional check",
+          "Release the aircraft to service and note the discrepancy for the next scheduled check",
+          "Raise the autopilot authority so it can force the correct pitch through the bad data"
+        ],
+        "correctIndex": 0,
+        "explanation": "The correct first action is safety-first: disengage the affected control function, keep the aircraft safe, and then methodically investigate the bus. Letting the aircraft fly with known bad flight control data, shotgun replacing hardware, or increasing autopilot authority are all unacceptable responses."
+      },
+      "preassessment": {
+        "question": "First step when a flight control computer sends bad attitude data due to databus corruption?",
+        "choices": [
+          "Disengage the affected function and safe the aircraft",
+          "Replace every LRU on the bus",
+          "Increase autopilot authority",
+          "Return to service, fix later"
+        ],
+        "correctIndex": 0
+      },
+      "targetCaetId": "464288",
+      "targetCaetStem": "If a digital flight control computer sends erroneous attitude info due to databus corruption, first step?",
+      "targetCaetPp": 0.71
+    },
+    {
+      "id": "CAT5-NEW-040",
+      "category": "mod5-digital-databus",
+      "difficulty": "medium",
+      "tags": [
+        "arinc-429",
+        "latency",
+        "scheduling"
+      ],
+      "learningObjective": "Explain the most likely cause of high update latency on an ARINC 429 bus.",
+      "fullObjective": "Recognize that high latency between data updates on an ARINC 429 bus usually results from the transmitter spacing out its broadcasts at long intervals, from low-speed operation (about 12 kbps rather than 100 kbps), or from a heavily loaded receiver that cannot keep up with incoming labels, rather than from any shared-bus arbitration delay, because ARINC 429 has a single dedicated transmitter per pair.",
+      "unit": "Digital Databus Troubleshooting",
+      "flashcard": {
+        "term": "High latency on ARINC 429",
+        "definition": "Noticeable delay between ARINC 429 updates usually means the transmitter is sending that parameter at a slow repetition rate, the pair is running at 12 kbps low speed instead of 100 kbps high speed, or the receiving box is overloaded. It is not caused by bus arbitration, because ARINC 429 has a single dedicated transmitter per pair with no contention.",
+        "analogy": "Like a radio station broadcasting a weather report only once every 30 minutes: the listener does not get faster updates by tuning harder; the station has to broadcast more often, or run faster.",
+        "unit": "Digital Databus Troubleshooting"
+      },
+      "jeopardy": {
+        "question": "On an ARINC 429 bus, high latency between data updates is most likely explained by this cause.",
+        "choices": [
+          "The transmitter is broadcasting the parameter at a slow repetition rate, the pair is running at 12 kbps low speed, or the receiver is overloaded",
+          "Retries commanded by a MIL-STD-1553 bus controller on the same wires",
+          "Arbitration delay on a shared multi-master bus",
+          "Excessive handshaking between the transmitter and receiver per word"
+        ],
+        "correctIndex": 0,
+        "explanation": "ARINC 429 is single-transmitter per pair, so there is no arbitration, no bus controller, and no per-word handshake. The real drivers of latency are the transmitter repetition rate, low-speed operation, or a receiver that cannot keep up with the label stream."
+      },
+      "multipleChoice": {
+        "question": "Scenario: the tech sees unusually long delays between data updates on an ARINC 429 bus inside a complex suite. Identify the most plausible reason.",
+        "choices": [
+          "Multi-master arbitration delay between transmitters competing for the bus",
+          "The transmitter is sending the parameter at a slow repetition rate, the pair is running low speed (12 kbps), or the receiver is overloaded with other labels",
+          "Retries commanded by a MIL-STD-1553 bus controller that is also connected to the pair",
+          "Per-word handshake and acknowledge traffic between transmitter and receiver"
+        ],
+        "correctIndex": 1,
+        "explanation": "ARINC 429 pairs have exactly one transmitter, so there is no arbitration and no bus controller. Latency grows when the transmitter only broadcasts a label occasionally, when the pair runs at 12 kbps, or when the receiver is too busy handling other labels. Per-word handshaking is not part of the standard."
+      },
+      "practice": {
+        "question": "Scenario: A technician reviewing a bus analyzer log sees that an altitude label arrives on the MFD only every 200 milliseconds, while the installation expects updates every 50 milliseconds. The pair is dedicated to altitude. What is the most likely cause?",
+        "choices": [
+          "A second transmitter is competing with the air data computer for the pair",
+          "A MIL-STD-1553 bus controller is directing retries on the same pair",
+          "A handshake protocol between the air data computer and the MFD acknowledges each word",
+          "The air data computer is broadcasting altitude only at 5 Hz, or the pair is running in 12 kbps low-speed mode, or the MFD is overloaded with other labels"
+        ],
+        "correctIndex": 3,
+        "explanation": "Because ARINC 429 is single-transmitter per pair, only the transmitter repetition rate, the bus speed setting, or the receiver workload can stretch the time between label arrivals. Multi-master contention, 1553-style retries, and per-word handshakes are not features of ARINC 429."
+      },
+      "preassessment": {
+        "question": "What is the most likely cause of high ARINC 429 update latency?",
+        "choices": [
+          "Multi-master arbitration",
+          "Slow transmitter repetition, low-speed mode, or overloaded receiver",
+          "1553 bus controller retries",
+          "Per-word handshake"
+        ],
+        "correctIndex": 1
+      },
+      "targetCaetId": "464270",
+      "targetCaetStem": "Scenario: In a complex avionics system, you notice high latency between data updates on an ARINC 429 bus. What is the most likely explanation?",
+      "targetCaetPp": 0.71
+    },
+    {
+      "id": "CAT5-NEW-041",
+      "category": "mod5-digital-databus",
+      "difficulty": "easy",
+      "tags": [
+        "digital-fundamentals",
+        "word-length",
+        "terminology"
+      ],
+      "learningObjective": "Define the term word length as used on avionics data buses.",
+      "fullObjective": "Recognize that word length on an avionics data bus is the total number of bits transmitted in one databus word, including every defined field such as label, data, status, and parity, and that it is a fixed property of each databus standard rather than of any one message.",
+      "unit": "Digital Fundamentals",
+      "flashcard": {
+        "term": "Word length (databus terminology)",
+        "definition": "On an avionics data bus, word length is the total count of bits sent in one databus word, including every field defined by the standard. ARINC 429 uses a 32-bit word; MIL-STD-1553 uses a 20-bit word. The number is set by the standard and never changes from message to message.",
+        "analogy": "Word length is like the fixed number of digits on a license plate: the plate always has the same number of character slots, no matter what name or number is stamped on it.",
+        "unit": "Digital Fundamentals"
+      },
+      "jeopardy": {
+        "question": "On an avionics databus, this is the attribute the phrase word length describes.",
+        "choices": [
+          "The physical distance a single bit travels down the cable",
+          "The total number of bits in one transmitted databus word",
+          "The number of LRUs installed on the airframe",
+          "The time in minutes a bus operates between resets"
+        ],
+        "correctIndex": 1,
+        "explanation": "Word length is the total bit count of one databus word, counting every defined field. Physical distance describes cable length, operating time is a reliability metric, and LRU count is an aircraft configuration detail, not a databus parameter."
+      },
+      "multipleChoice": {
+        "question": "On an avionics databus, the phrase word length describes which attribute of the protocol?",
+        "choices": [
+          "The physical distance a single bit travels down the cable",
+          "The number of minutes the bus operates before a scheduled reset",
+          "The total number of bits that make up one transmitted databus word",
+          "The number of line replaceable units installed on the airframe"
+        ],
+        "correctIndex": 2,
+        "explanation": "Word length is defined as the total bit count of a databus word, including label, data, status, and parity fields. It is a property of the databus standard, not of cable geometry, operating time, or the aircraft equipment list."
+      },
+      "practice": {
+        "question": "A technician reviewing an ARINC 429 specification sees the entry \"word length: 32 bits.\" What does that entry tell the technician?",
+        "choices": [
+          "The bus runs for 32 minutes between required resets",
+          "Each bit travels 32 inches down the cable before reaching the receiver",
+          "Each databus word transmitted on this bus is exactly 32 bits long, including every defined field",
+          "The airframe has 32 line replaceable units connected to this bus"
+        ],
+        "correctIndex": 2,
+        "explanation": "A word-length entry of 32 bits tells the technician that every ARINC 429 word on that bus consists of exactly 32 bits, with the standard's defined fields filling those bits. It has nothing to do with physical cable length, operating intervals, or LRU counts."
+      },
+      "preassessment": {
+        "question": "What does word length mean on an avionics data bus?",
+        "choices": [
+          "Total bits in one databus word",
+          "Distance a bit travels",
+          "Minutes before a reset",
+          "Number of LRUs on the airframe"
+        ],
+        "correctIndex": 0
+      },
+      "targetCaetId": "464265",
+      "targetCaetStem": "In the context of avionics data buses, what does the term \"word length\" refer to?",
+      "targetCaetPp": 0.73
+    },
+    {
+      "id": "CAT5-NEW-042",
+      "category": "mod5-digital-databus",
+      "difficulty": "easy",
+      "tags": [
+        "digital-fundamentals",
+        "binary",
+        "bit"
+      ],
+      "learningObjective": "Identify the bit as the fundamental building block of digital systems.",
+      "fullObjective": "Recognize that the bit, a single binary digit holding a value of either zero or one, is the fundamental building block of every digital system, including the digital avionics data buses used on modern aircraft.",
+      "unit": "Digital Fundamentals",
+      "flashcard": {
+        "term": "Bit (fundamental building block)",
+        "definition": "A bit is a single binary digit that holds one of exactly two values, zero or one. Every digital system, including every avionics databus, ultimately stores and moves its information as groups of bits. Bytes, words, and labels are all organized collections of bits.",
+        "analogy": "A bit is like a single light switch: on or off. A whole avionics message is a pattern of many switches read in order.",
+        "unit": "Digital Fundamentals"
+      },
+      "jeopardy": {
+        "question": "Every avionics databus, like any digital system, is ultimately assembled from this most basic element.",
+        "choices": [
+          "The bit, a single binary digit valued zero or one",
+          "The byte, always exactly eight characters of text",
+          "The analog voltage referenced to a common ground",
+          "The rotary synchro resolver shaft"
+        ],
+        "correctIndex": 0,
+        "explanation": "A bit, a single binary digit, is the fundamental unit of digital data. Bytes are groups of eight bits, not the base unit. Analog voltages are not digital. Synchro resolvers are analog electromechanical devices, not digital building blocks."
+      },
+      "multipleChoice": {
+        "question": "Every digital system, including those used on avionics data buses, is assembled out of which most basic element?",
+        "choices": [
+          "The byte, which must always contain exactly eight characters of text",
+          "The analog voltage referenced to the aircraft chassis ground",
+          "The bit, a single binary digit that holds a value of zero or one",
+          "The rotary synchro resolver shaft angle"
+        ],
+        "correctIndex": 2,
+        "explanation": "The bit, a single binary digit with value zero or one, is the fundamental unit of digital systems. A byte is a group of bits and is not the base unit. Analog voltages belong to analog systems. A synchro resolver is an analog electromechanical device and not a digital building block."
+      },
+      "practice": {
+        "question": "A trainee asks what is stored by a single zero or one in a digital databus word. What is the correct answer?",
+        "choices": [
+          "A byte, which requires exactly eight zeros and ones arranged together",
+          "An analog voltage that represents a continuous value",
+          "A single bit, which is the fundamental building block of every digital system",
+          "The shaft angle of a resolver inside the receiving unit"
+        ],
+        "correctIndex": 2,
+        "explanation": "A single zero or one stored in a databus word is, by definition, one bit. A byte is eight bits. Analog voltages and resolver shaft angles belong to analog systems, not digital ones."
+      },
+      "preassessment": {
+        "question": "Every digital system is assembled out of this most basic element.",
+        "choices": [
+          "A byte (always eight characters)",
+          "An analog voltage",
+          "A synchro resolver shaft",
+          "A bit (a single binary digit)"
+        ],
+        "correctIndex": 3
+      },
+      "targetCaetId": "464279",
+      "targetCaetStem": "What is the fundamental building block of digital systems?",
+      "targetCaetPp": 0.78
+    },
+    {
+      "id": "CAT5-NEW-043",
+      "category": "mod5-digital-databus",
+      "difficulty": "medium",
+      "tags": [
+        "rs-422",
+        "rs-485",
+        "wiring"
+      ],
+      "learningObjective": "Describe the wiring practice used for RS-422 or RS-485 in smaller aircraft systems.",
+      "fullObjective": "Recognize that RS-422 and RS-485 installations in smaller aircraft systems use a shielded twisted pair carrying a differential signal, with termination resistors (typically 120 ohms) at each end of the bus to prevent reflections, and with RS-422 using one driver and up to ten receivers while RS-485 supports multi-drop operation of up to 32 devices.",
+      "unit": "Digital Databuses",
+      "flashcard": {
+        "term": "Wiring approach for RS-422 / RS-485 on light aircraft",
+        "definition": "The accepted recipe is a shielded twisted pair running a differential signal, with roughly 120-ohm terminations on both ends of the bus to kill reflections. RS-422 links allow one driver feeding up to ten receivers; RS-485 is the multidrop flavor, permitting as many as 32 drivers and receivers to share the same pair.",
+        "analogy": "Like a two-conductor intercom bus with a cap on each end: one pair of wires serves every station, and the end caps stop echoes from bouncing back down the line.",
+        "unit": "Digital Databuses"
+      },
+      "jeopardy": {
+        "question": "On light aircraft, this is the accepted wiring approach for RS-422 or RS-485 links.",
+        "choices": [
+          "An optical fiber with an LED source at each end",
+          "Two separate unshielded single-ended wires referenced to chassis ground",
+          "A single coaxial cable with 75 ohm connectors at every tap",
+          "A shielded differential twisted pair with termination resistors at each end of the bus"
+        ],
+        "correctIndex": 3,
+        "explanation": "RS-422 and RS-485 use a shielded differential twisted pair with terminators (typically 120 ohms) at each end to absorb reflections. Single-ended unshielded wires describe RS-232. Coax and fiber are not used by these standards."
+      },
+      "multipleChoice": {
+        "question": "For RS-422 or RS-485 links used on light aircraft, identify the accepted wiring approach.",
+        "choices": [
+          "Two separate single-ended wires referenced to chassis ground and left unshielded",
+          "A shielded differential twisted pair with termination resistors (typically 120 ohms) at each end of the bus",
+          "A single coaxial cable with 75 ohm BNC connectors at every device",
+          "A fiber-optic cable with an LED transmitter at each end of the run"
+        ],
+        "correctIndex": 1,
+        "explanation": "RS-422 and RS-485 are differential standards that run on a shielded twisted pair with terminators at each end of the bus. RS-232 uses unshielded single-ended wiring. Coaxial BNC wiring is associated with video or RF, and optical fiber is not used by either standard."
+      },
+      "practice": {
+        "question": "Scenario: A smaller aircraft installation calls for RS-485 between one sensor and several displays. Which wiring approach is correct?",
+        "choices": [
+          "Separate single-ended wires from the sensor to each display, referenced to the aircraft chassis ground",
+          "A 75 ohm coaxial cable tapped at each display",
+          "A shielded differential twisted pair daisy-chained through each display with termination resistors at each end of the bus",
+          "A multimode fiber ring passing through each display in sequence"
+        ],
+        "correctIndex": 2,
+        "explanation": "The proper wiring practice is a shielded differential twisted pair daisy-chained to each display, with 120 ohm terminators at each end to absorb reflections. Single-ended wires describe RS-232, coax is not used for RS-485, and fiber is not part of the standard."
+      },
+      "preassessment": {
+        "question": "What wiring is typical for RS-422/RS-485 in small aircraft?",
+        "choices": [
+          "Two single-ended wires to chassis ground",
+          "Shielded differential twisted pair terminated at each end",
+          "Optical fiber",
+          "75 ohm coaxial cable"
+        ],
+        "correctIndex": 1
+      },
+      "targetCaetId": "464296",
+      "targetCaetStem": "Which best describes a wiring practice for RS-422 or RS-485 in smaller aircraft systems?",
+      "targetCaetPp": 0.8
+    },
+    {
+      "id": "CAT5-NEW-044",
+      "category": "mod5-digital-databus",
+      "difficulty": "medium",
+      "tags": [
+        "test-equipment",
+        "bus-analyzer",
+        "capture"
+      ],
+      "learningObjective": "Identify the bus analyzer as the tool used to capture and analyze digital databus traffic.",
+      "fullObjective": "Recognize that a digital bus analyzer is the common shop tool used to capture live ARINC 429, MIL-STD-1553, and similar databus traffic and to decode each word into human-readable labels, data, and error indications.",
+      "unit": "Digital Databus Test Equipment",
+      "flashcard": {
+        "term": "Digital bus analyzer",
+        "definition": "A digital bus analyzer is a test instrument that captures live traffic on ARINC 429, MIL-STD-1553, or similar buses and decodes each word into the label, data, status, and any error indication. It is the tool of choice for capturing and analyzing digital databus traffic.",
+        "analogy": "A bus analyzer is to digital avionics what a court reporter is to a trial: it records every statement as it is made and produces a readable transcript.",
+        "unit": "Digital Databus Test Equipment"
+      },
+      "jeopardy": {
+        "question": "Inside an avionics shop, this piece of test equipment is the one technicians reach for to capture and decode traffic on a digital databus.",
+        "choices": [
+          "An analog pitot-static test box",
+          "A mechanical torque wrench",
+          "A digital bus analyzer that records and decodes ARINC 429 or 1553 words",
+          "A temperature-compensated altimeter tester"
+        ],
+        "correctIndex": 2,
+        "explanation": "A bus analyzer captures live databus traffic and decodes it into readable words and error indications. Pitot-static, torque, and altimeter testers address unrelated mechanical and pneumatic tasks."
+      },
+      "multipleChoice": {
+        "question": "For capturing and decoding traffic on a digital avionics databus, which piece of test equipment does a technician normally reach for?",
+        "choices": [
+          "An analog pitot-static test box used to verify airspeed indicators",
+          "A mechanical torque wrench used to set connector backshells",
+          "A digital bus analyzer that records and decodes ARINC 429 or MIL-STD-1553 words",
+          "A temperature-compensated altimeter tester used for static system checks"
+        ],
+        "correctIndex": 2,
+        "explanation": "A bus analyzer is the standard instrument for capturing and decoding digital databus traffic. Pitot-static, torque, and altimeter testers address unrelated maintenance tasks and do not decode databus words."
+      },
+      "practice": {
+        "question": "A technician needs to verify that an ARINC 429 transmitter is sending the correct altitude label at the expected rate. Which instrument is the appropriate tool?",
+        "choices": [
+          "A digital bus analyzer, which captures the ARINC 429 traffic and decodes each label, data field, and parity result",
+          "A mechanical torque wrench calibrated for connector backshells",
+          "An analog pitot-static test box that pressurizes the altimeter case",
+          "A temperature-compensated altimeter tester used during altimeter certification"
+        ],
+        "correctIndex": 0,
+        "explanation": "A bus analyzer is the right tool: it captures the live traffic and decodes each word so the technician can confirm the altitude label is present at the correct rate. The other instruments address analog pneumatic or mechanical tasks, not digital decoding."
+      },
+      "preassessment": {
+        "question": "For capturing and decoding traffic on a digital avionics databus, what test equipment does the tech reach for?",
+        "choices": [
+          "A digital bus analyzer",
+          "A pitot-static test box",
+          "A torque wrench",
+          "A temperature-compensated altimeter tester"
+        ],
+        "correctIndex": 0
+      },
+      "targetCaetId": "464282",
+      "targetCaetStem": "Which tool is commonly used to capture and analyze digital databus traffic?",
+      "targetCaetPp": 0.8
+    },
+    {
+      "id": "CAT5-NEW-045",
+      "category": "mod5-digital-databus",
+      "difficulty": "medium",
+      "tags": [
+        "arinc-429",
+        "troubleshooting",
+        "intermittent"
+      ],
+      "learningObjective": "State the appropriate first step when ARINC 429 devices suffer intermittent loss of communication.",
+      "fullObjective": "Recognize that the first thing to check for intermittent loss of ARINC 429 communication between devices is the physical layer: connector security, cable continuity, and shield grounding on the affected pair, because those items cause the large majority of intermittent bus symptoms.",
+      "unit": "Digital Databus Troubleshooting",
+      "flashcard": {
+        "term": "ARINC 429 intermittent loss — first check",
+        "definition": "When ARINC 429 communication drops intermittently between avionics units, the first thing to check is the physical layer: connector seating and security, cable continuity along the pair, and shield grounding. Loose pins, chafed wires, or an open shield produce almost all intermittent bus symptoms.",
+        "analogy": "Like a flickering lamp: you check the plug and cord first, not the light bulb factory.",
+        "unit": "Digital Databus Troubleshooting"
+      },
+      "jeopardy": {
+        "question": "An ARINC 429 link drops intermittently between two avionics units. This is the first thing to check.",
+        "choices": [
+          "The software revision of a third, unrelated LRU on another bus",
+          "The aircraft fuel quantity reading at the time of the fault",
+          "The autopilot trim servo current in steady-state flight",
+          "Connector security, cable continuity, and shield grounding on the affected pair"
+        ],
+        "correctIndex": 3,
+        "explanation": "Intermittent ARINC 429 dropouts are dominated by physical-layer faults, so the first check is connector security, cable continuity, and shield grounding. Unrelated software, fuel readings, and autopilot currents do not cause symmetric bus dropouts between two units."
+      },
+      "multipleChoice": {
+        "question": "Scenario: on an ARINC 429-equipped aircraft, components are dropping communication intermittently. What area should the technician investigate FIRST?",
+        "choices": [
+          "The software revision of an unrelated LRU on a different bus inside the avionics bay",
+          "The aircraft fuel quantity indication at the time the dropouts occurred",
+          "Connector security, cable continuity, and shield grounding on the affected ARINC 429 pair",
+          "The autopilot pitch trim servo current during steady-state cruise"
+        ],
+        "correctIndex": 2,
+        "explanation": "Intermittent ARINC 429 loss is overwhelmingly a physical-layer problem, so the first item to check is the affected pair: connectors, cable, and shield grounding. Unrelated software, fuel quantity, and autopilot trim current have no causal link to intermittent bus dropouts between specific units."
+      },
+      "practice": {
+        "question": "Scenario: An ARINC 429 feed from the GPS to the MFD drops for a few seconds at random intervals. Both units self-test normally and the problem did not appear on the bench. What should you check first?",
+        "choices": [
+          "Inspect and reseat the ARINC 429 connectors, check continuity of the pair, and verify shield grounding on both ends",
+          "Replace the MFD with a new unit and repeat the flight test to see if the dropouts follow the MFD",
+          "Install a new GPS antenna and re-check the ARINC 429 dropouts after the antenna swap",
+          "Update the unrelated radio management unit software and re-test"
+        ],
+        "correctIndex": 0,
+        "explanation": "Dropouts that only appear in the aircraft point to the physical layer. Start with the connectors, pair continuity, and shield grounding. Swapping the MFD, changing the antenna, or updating an unrelated software package are expensive guesses that do not address the likely cause."
+      },
+      "preassessment": {
+        "question": "First check for intermittent ARINC 429 loss between devices?",
+        "choices": [
+          "Connectors, cable continuity, and shield grounding",
+          "Software of an unrelated LRU",
+          "Fuel quantity reading",
+          "Autopilot trim current"
+        ],
+        "correctIndex": 0
+      },
+      "targetCaetId": "464272",
+      "targetCaetStem": "Scenario: An aircraft is using ARINC 429 for communication between its avionics components. You notice an intermittent loss of communication between devices. What should be the first thing to check?",
+      "targetCaetPp": 0.81
+    },
+    {
+      "id": "CAT5-NEW-046",
+      "category": "mod5-digital-databus",
+      "difficulty": "medium",
+      "tags": [
+        "arinc-429",
+        "benefits",
+        "integration"
+      ],
+      "learningObjective": "State the main reason digital data buses such as ARINC 429 are used in modern avionics.",
+      "fullObjective": "Recognize that the main reason modern avionics rely on digital data buses such as ARINC 429 is standardized, high-integrity data exchange between many line replaceable units using relatively few wires, replacing point-to-point analog wiring that was heavier, less noise resistant, and more difficult to integrate.",
+      "unit": "Digital Databuses",
+      "flashcard": {
+        "term": "Why ARINC 429 is used in modern avionics",
+        "definition": "The main reason digital data buses such as ARINC 429 are used in modern avionics is to exchange standardized, digital data between many line replaceable units over relatively few wires. This replaces the bulky, point-to-point analog wiring of earlier generations and improves noise immunity and maintainability.",
+        "analogy": "Like swapping a tangle of single-purpose doorbell wires for one neat telephone line that can carry any message to any room.",
+        "unit": "Digital Databuses"
+      },
+      "jeopardy": {
+        "question": "This is the main reason the industry moved modern avionics onto digital buses like ARINC 429.",
+        "choices": [
+          "To exchange standardized digital data between many avionics units over relatively few wires",
+          "To supply high-current 28 volt DC power to flight control servos",
+          "To physically support the weight of avionics racks inside the aircraft",
+          "To serve as the structural grounding path for the airframe"
+        ],
+        "correctIndex": 0,
+        "explanation": "Digital data buses were introduced to replace heavy point-to-point analog wiring with a compact, standardized digital exchange between LRUs. They do not deliver high-current power, do not carry structural loads, and do not provide the airframe grounding path."
+      },
+      "multipleChoice": {
+        "question": "Why did the industry move modern avionics onto digital data buses such as ARINC 429 in the first place?",
+        "choices": [
+          "To supply high-current 28 volt DC power to flight control servos",
+          "To physically support the weight of avionics racks inside the airframe",
+          "To serve as the primary structural grounding path for the airframe",
+          "To exchange standardized digital data between many line replaceable units using relatively few wires"
+        ],
+        "correctIndex": 3,
+        "explanation": "Digital data buses standardize how avionics units share information, and they replace heavy point-to-point analog wiring. They are not a power distribution method, not structural support, and not the airframe ground path."
+      },
+      "practice": {
+        "question": "A trainee asks why a modern avionics installation uses ARINC 429 instead of running separate wires for each parameter from each LRU. What is the best answer?",
+        "choices": [
+          "Digital data buses distribute the 28 volt DC power that the servos need during control inputs",
+          "The ARINC 429 bus is the airframe's main structural grounding conductor",
+          "The ARINC 429 wires physically support the avionics racks and hold the LRUs in place",
+          "Digital data buses like ARINC 429 let many units share standardized digital data over relatively few wires, saving weight and improving integrity"
+        ],
+        "correctIndex": 3,
+        "explanation": "ARINC 429 exists to move standardized digital data between LRUs with minimal wiring. It is not a power feed, not structural support, and not the airframe grounding path, which are separate systems."
+      },
+      "preassessment": {
+        "question": "Why are digital data buses like ARINC 429 used in modern avionics?",
+        "choices": [
+          "To carry high-current 28 V DC to servos",
+          "To physically support avionics racks",
+          "To provide structural grounding",
+          "To share standardized digital data between units over few wires"
+        ],
+        "correctIndex": 3
+      },
+      "targetCaetId": "464285",
+      "targetCaetStem": "What is the main reason for using digital data buses like ARINC 429 in modern avionics?",
+      "targetCaetPp": 0.87
+    },
+    {
+      "id": "CAT5-NEW-047",
+      "category": "mod5-digital-databus",
+      "difficulty": "easy",
+      "tags": [
+        "arinc-429",
+        "architecture",
+        "summary"
+      ],
+      "learningObjective": "Summarize ARINC 429 as a one-way digital data bus.",
+      "fullObjective": "Recognize that ARINC 429 is primarily a one-way, point-to-multipoint digital data bus designed to move standardized avionics data from one transmitter to many receivers over a dedicated twisted shielded pair, at 12 kbps or 100 kbps.",
+      "unit": "Digital Databuses",
+      "flashcard": {
+        "term": "ARINC 429 at a glance",
+        "definition": "Architecturally, the bus is a one-way, point-to-multipoint digital link — one driver pushes data onto a dedicated twisted shielded pair, and up to 20 receivers can listen in. It operates at either 12 kbps (low speed) or 100 kbps (high speed), and remains the most common databus in civil aviation today.",
+        "analogy": "Like a small radio broadcasting tower: one transmitter, one frequency, many radios tuned in, no calling back to the tower.",
+        "unit": "Digital Databuses"
+      },
+      "jeopardy": {
+        "question": "Classified by bus architecture, ARINC 429 falls into this category.",
+        "choices": [
+          "A one-way digital data bus with one transmitter and up to 20 receivers",
+          "A mechanical control cable system that drives flight surfaces",
+          "A pneumatic pitot-static reference system",
+          "A 28 volt DC power distribution bus"
+        ],
+        "correctIndex": 0,
+        "explanation": "ARINC 429 is primarily a one-way digital data bus with one transmitter and up to 20 receivers. It is not an electrical power distribution system, not a mechanical control cable system, and not a pneumatic reference."
+      },
+      "multipleChoice": {
+        "question": "Classify ARINC 429 according to its fundamental bus architecture.",
+        "choices": [
+          "One-way digital data bus with one transmitter and up to 20 receivers on a twisted shielded pair",
+          "28 volt DC power distribution bus that feeds avionics equipment",
+          "Mechanical control cable system that drives the aircraft flight surfaces",
+          "Pneumatic pitot-static reference system that supplies the air data computer"
+        ],
+        "correctIndex": 0,
+        "explanation": "ARINC 429 is primarily a one-way digital data bus on a twisted shielded pair, with one transmitter and up to 20 receivers. It is not a power bus, not a mechanical control cable, and not a pneumatic reference."
+      },
+      "practice": {
+        "question": "A new apprentice asks in one sentence what ARINC 429 actually is. What is the best description?",
+        "choices": [
+          "A 28 volt DC distribution bus used to power cockpit lighting and avionics cooling fans",
+          "A mechanical cable run that transmits pilot inputs to the control surfaces",
+          "A one-way digital data bus that carries avionics data from one transmitter to up to 20 receivers on a twisted shielded pair",
+          "A pitot-static plumbing run that carries pressure to the air data computer"
+        ],
+        "correctIndex": 2,
+        "explanation": "ARINC 429 is a one-way digital data bus. One transmitter, up to 20 receivers, dedicated twisted shielded pair. It is not a power feeder, not a mechanical control run, and not a pneumatic plumbing run."
+      },
+      "preassessment": {
+        "question": "Classify ARINC 429 by bus architecture.",
+        "choices": [
+          "One-way digital data bus",
+          "Mechanical control cable system",
+          "Pneumatic pitot-static reference",
+          "28 V DC power bus"
+        ],
+        "correctIndex": 0
+      },
+      "targetCaetId": "464281",
+      "targetCaetStem": "ARINC 429 is primarily a:",
+      "targetCaetPp": 1.0
     }
   ]
 }

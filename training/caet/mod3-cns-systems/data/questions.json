@@ -1359,6 +1359,1034 @@
         ],
         "correctIndex": 3
       }
+    },
+    {
+      "id": "CAT3-NEW-023",
+      "category": "mod3-cns-systems",
+      "difficulty": "medium",
+      "tags": [
+        "transponder",
+        "mode-c",
+        "altitude",
+        "identification"
+      ],
+      "learningObjective": "Identify the transponder mode that transmits both squawk code and altitude",
+      "fullObjective": "Recognize that Mode C is the transponder mode that provides both aircraft identification (four-digit squawk code) and pressure altitude reporting to ATC, distinguishing it from Mode A (identification only) and Mode S (which adds selective interrogation).",
+      "flashcard": {
+        "term": "Mode C altitude and ID reporting",
+        "definition": "Mode C adds altitude reporting to the identification function of Mode A. A Mode C transponder transmits the pilot-selected four-digit squawk code plus pressure altitude from the altitude encoder, allowing ATC to correlate a target's identity with its flight level on radar.",
+        "analogy": "Mode A tells ATC who you are; Mode C tells ATC who you are AND how high you are.",
+        "unit": "Transponder Systems"
+      },
+      "jeopardy": {
+        "question": "Among civilian transponder modes, this one sends both the squawk code and altitude data to ATC.",
+        "choices": [
+          "Mode C, which adds encoded altitude to the Mode A identification",
+          "Mode B, a legacy voice mode",
+          "Mode A, which reports altitude only",
+          "Mode 4, used by military IFF"
+        ],
+        "correctIndex": 0,
+        "explanation": "Mode C is defined by the addition of altitude reporting to the Mode A identification function. Mode A provides ID only (not altitude). There is no civilian 'Mode B' in this context. Mode 4 is a military IFF mode, not relevant to civilian ATC."
+      },
+      "multipleChoice": {
+        "question": "A controller needs to see both the aircraft's identification code and its reported altitude on the radar scope; which transponder mode must the aircraft be transmitting in?",
+        "choices": [
+          "Mode 4, a civilian altitude-reporting standard",
+          "Mode A, because Mode A is the mode that reports both identification and altitude",
+          "No transponder mode reports altitude; altitude is measured by ground radar",
+          "Mode C, because Mode C adds pressure altitude to the Mode A identification function"
+        ],
+        "correctIndex": 3,
+        "explanation": "Mode C is defined as Mode A plus altitude encoding from the altitude encoder. Mode A by itself reports only the squawk code. Ground radar cannot measure altitude directly — it relies on the encoded altitude in the transponder reply. Mode 4 is military IFF, not civilian."
+      },
+      "practice": {
+        "question": "A technician is troubleshooting a Mode C transponder because ATC reports receiving the aircraft's four-digit code but no altitude readout; which combination of information is Mode C supposed to deliver?",
+        "choices": [
+          "The four-digit squawk code and the aircraft's pressure altitude from the altitude encoder",
+          "Only the aircraft's pressure altitude, with no identification",
+          "The aircraft's GPS coordinates and ground speed",
+          "Only the four-digit squawk code, with no altitude"
+        ],
+        "correctIndex": 0,
+        "explanation": "Mode C transponders transmit both the squawk code and encoded pressure altitude. If ATC reports 'code, no altitude,' the most common cause is a failed altitude encoder or a broken encoder-to-transponder connection — not a transponder failure. GPS coordinates and ground speed are ADS-B Out functions, not Mode C."
+      },
+      "preassessment": {
+        "question": "Identify the transponder operating mode that reports aircraft ID along with altitude.",
+        "choices": [
+          "Mode A",
+          "Mode 4",
+          "Mode B",
+          "Mode C"
+        ],
+        "correctIndex": 3
+      },
+      "targetCaetId": "464204",
+      "targetCaetStem": "Which transponder mode provides both identification and altitude reporting?",
+      "targetCaetPp": 0.44
+    },
+    {
+      "id": "CAT3-NEW-024",
+      "category": "mod3-cns-systems",
+      "difficulty": "easy",
+      "tags": [
+        "audio",
+        "mono",
+        "voice-comms"
+      ],
+      "learningObjective": "Describe the typical use of mono audio in GA aircraft",
+      "fullObjective": "Recognize that mono audio in general-aviation aircraft is used for voice communications and intercom because voice traffic does not benefit from stereo separation; the same signal is routed to both earpieces of the headset.",
+      "flashcard": {
+        "term": "Mono audio usage",
+        "definition": "In a GA aircraft audio panel, mono audio distribution is used for voice traffic: radio communications, intercom, and navigation audio identifiers. The same signal is sent to both earpieces so the pilot hears voice clearly regardless of head orientation. Stereo is usually reserved for music or entertainment sources on panels that support it.",
+        "analogy": "Voice calls are mono on purpose — stereo separation would make ATC sound like it was coming from one side of the cockpit for no good reason.",
+        "unit": "Audio Systems"
+      },
+      "jeopardy": {
+        "question": "In a GA aircraft audio system, this is the typical purpose of mono audio distribution.",
+        "choices": [
+          "Carrying voice communications and intercom audio identically to both earpieces",
+          "Routing music to the left ear only",
+          "Reducing the aircraft's total audio power consumption",
+          "Providing surround sound for the cabin"
+        ],
+        "correctIndex": 0,
+        "explanation": "Mono audio in a GA aircraft handles voice traffic — comm radios, intercom, and nav audio — by sending the same signal to both ears. Stereo is useful for music but adds no benefit to voice. Mono does not reduce power consumption meaningfully, and GA audio panels do not provide surround sound."
+      },
+      "multipleChoice": {
+        "question": "When a general-aviation audio panel distributes audio in mono, the most common purpose is to:",
+        "choices": [
+          "Send voice communications and intercom audio equally to both ears of the pilot's headset",
+          "Reduce electrical draw by powering only one audio channel",
+          "Send the audio only to the pilot-side headset and not the copilot's",
+          "Provide multi-channel surround sound to cabin passengers"
+        ],
+        "correctIndex": 0,
+        "explanation": "Mono audio delivers the same signal to both earpieces — standard for voice traffic where spatial separation adds no benefit. Mono is not limited to a single seat; it is delivered to all headsets. It does not meaningfully reduce electrical draw. Surround sound is not a function of GA audio panels."
+      },
+      "practice": {
+        "question": "A pilot asks why ATC communications and intercom sound identical in both ears while music from the aux input sounds spread across left and right; how would you explain this design choice?",
+        "choices": [
+          "Voice and intercom audio are distributed in mono (same signal to both ears) because stereo separation offers no operational benefit for voice, while music inputs can be routed in stereo on audio panels that support it",
+          "The aircraft uses a special 'emergency-only' audio mode",
+          "The headset is defective and needs repair on the right channel",
+          "Mono is now obsolete and the aircraft needs an avionics upgrade"
+        ],
+        "correctIndex": 0,
+        "explanation": "The design is intentional. Voice traffic is distributed in mono because understanding a controller's instructions does not require stereo imaging, and mono ensures the pilot hears clearly regardless of headset orientation. Music from an auxiliary input may be routed in stereo on panels that offer it, producing the left/right separation the pilot noticed. There is no 'emergency mode' involved, and stereo is not prohibited."
+      },
+      "preassessment": {
+        "question": "Mono audio in a GA aircraft is typically used for what?",
+        "choices": [
+          "Emergency alerts only",
+          "Music playback only",
+          "Voice communications and intercom audio",
+          "Cabin passenger entertainment"
+        ],
+        "correctIndex": 2
+      },
+      "targetCaetId": "464233",
+      "targetCaetStem": "In general aviation aircraft audio systems, \"mono\" audio is typically used for:",
+      "targetCaetPp": 0.5
+    },
+    {
+      "id": "CAT3-NEW-025",
+      "category": "mod3-cns-systems",
+      "difficulty": "medium",
+      "tags": [
+        "stuck-mic",
+        "ptt",
+        "troubleshooting"
+      ],
+      "learningObjective": "Diagnose a stuck microphone PTT as the cause of a constant carrier on a comm frequency",
+      "fullObjective": "Recognize that when a pilot hears a continuous tone or open carrier instead of a response from ATC, the most likely cause is a stuck push-to-talk (PTT) switch in another aircraft, which is transmitting a continuous carrier and blocking the frequency for everyone else.",
+      "flashcard": {
+        "term": "Stuck microphone (stuck mic)",
+        "definition": "A stuck microphone occurs when a PTT switch fails in the keyed position, causing the transmitter to send a continuous carrier. The stuck mic blocks the frequency — other stations on the channel hear only a constant tone or carrier and cannot communicate. The fix is to find and release the stuck PTT, usually by identifying and calling the offending aircraft on another frequency.",
+        "analogy": "A stuck mic is like someone holding down the talk button on a walkie-talkie: nobody else on that channel can transmit until they let go.",
+        "unit": "VHF Comm Troubleshooting"
+      },
+      "jeopardy": {
+        "question": "A pilot hears a continuous tone on the comm frequency instead of any ATC reply; this is the most likely cause.",
+        "choices": [
+          "A stuck push-to-talk (PTT) switch somewhere on the frequency, holding the channel open with a continuous carrier",
+          "The VOR station has lost power",
+          "The aircraft's GPS antenna has lost signal",
+          "The aircraft's own transponder has failed"
+        ],
+        "correctIndex": 0,
+        "explanation": "A stuck PTT holds a transmitter keyed, putting a continuous carrier on the frequency and blocking everyone else. Transponder, VOR, and GPS failures do not produce a continuous tone on a comm frequency — they affect their own respective systems."
+      },
+      "multipleChoice": {
+        "question": "A pilot calls ATC on the active comm frequency but instead of a reply hears only a continuous tone; which scenario is most likely?",
+        "choices": [
+          "Another station on the frequency has a stuck push-to-talk switch, keying the transmitter continuously and blocking the channel",
+          "The aircraft's transponder has stopped responding to ATC interrogations",
+          "The VOR station serving that airspace has lost power",
+          "The aircraft's GPS antenna connection has opened"
+        ],
+        "correctIndex": 0,
+        "explanation": "A continuous tone or open carrier is the classic symptom of a stuck microphone. The stuck PTT keeps a transmitter keyed, so nobody else on the frequency can be heard. Transponder, VOR, and GPS problems do not produce a constant comm-frequency tone — each would manifest differently in its own system."
+      },
+      "practice": {
+        "question": "During a flight, a pilot calls the tower and receives no response, only a steady carrier tone on the frequency; which troubleshooting action is most appropriate?",
+        "choices": [
+          "Suspect a stuck microphone on the frequency; try contacting ATC on an alternate frequency (such as 121.5 MHz) to report the issue and identify the blocking station",
+          "Immediately land at the nearest airport because the comm radio has failed",
+          "Turn off the transponder because its carrier is interfering",
+          "Reset the GPS receiver to clear the signal"
+        ],
+        "correctIndex": 0,
+        "explanation": "A continuous tone on an otherwise-working comm frequency indicates a stuck mic, typically on another aircraft. Switching to 121.5 (guard) or another published frequency lets ATC identify the offending station. The comm radio itself is fine — it is receiving the carrier. Transponder and GPS are unrelated."
+      },
+      "preassessment": {
+        "question": "A steady carrier tone on a comm frequency most likely indicates what?",
+        "choices": [
+          "A GPS antenna fault",
+          "A failed transponder",
+          "A VOR outage",
+          "A stuck PTT on the frequency blocking communication"
+        ],
+        "correctIndex": 3
+      },
+      "targetCaetId": "464211",
+      "targetCaetStem": "A pilot hears a constant tone instead of a response from ATC.. Which scenario is most likely?",
+      "targetCaetPp": 0.63
+    },
+    {
+      "id": "CAT3-NEW-026",
+      "category": "mod3-cns-systems",
+      "difficulty": "medium",
+      "tags": [
+        "vor",
+        "antenna",
+        "mounting"
+      ],
+      "learningObjective": "Describe the typical configuration of VOR antennas on a GA aircraft",
+      "fullObjective": "Recognize that VOR antennas on GA aircraft are typically horizontally polarized dual-element 'cat-whisker' or blade antennas mounted on top of the vertical stabilizer or the fuselage for a clear line-of-sight view of ground VOR transmitters.",
+      "flashcard": {
+        "term": "VOR antenna configuration",
+        "definition": "VOR antennas on GA aircraft are commonly dual-element horizontally polarized designs — either the classic 'cat-whisker' V-dipole on top of the vertical stabilizer or an equivalent blade antenna on the fuselage. Horizontal polarization matches the VOR ground transmission, and the top-side location gives a clear view of ground stations.",
+        "analogy": "VOR antennas look like a pair of forward-swept whiskers because they are dual-element horizontally polarized dipoles — not the vertical blade you see for comm or transponder.",
+        "unit": "Antennas — VOR"
+      },
+      "jeopardy": {
+        "question": "Piston singles typically use this physical arrangement for the navigation antenna that receives VOR signals.",
+        "choices": [
+          "As horizontally polarized dual-element (cat-whisker) antennas mounted on top of the vertical stabilizer or upper fuselage",
+          "As loop antennas inside the cabin for shielding",
+          "As vertical blade antennas mounted on the belly",
+          "As helical antennas mounted on the wing tip for polarization diversity"
+        ],
+        "correctIndex": 0,
+        "explanation": "VOR uses horizontal polarization, so the airborne antenna is a horizontally polarized dipole — typically the V-shaped 'cat-whisker' on the vertical stabilizer or an equivalent blade design. Vertical blades on the belly are transponders. Loop antennas inside the cabin apply to ADF, not VOR. Helical wing-tip antennas are not standard VOR practice."
+      },
+      "multipleChoice": {
+        "question": "On a typical piston-single, how are navigation antennas for VOR reception usually mounted?",
+        "choices": [
+          "Vertical-polarization whip antennas mounted on the underside of the fuselage",
+          "Enclosed loop antennas mounted inside the cabin",
+          "Horizontally polarized dual-element antennas — commonly the 'cat-whisker' V-dipole — mounted on top of the vertical stabilizer or upper fuselage",
+          "Slot antennas built into the wing leading edge"
+        ],
+        "correctIndex": 2,
+        "explanation": "VOR signals are horizontally polarized, so the airborne antenna is also horizontally polarized. The classic GA solution is a dual-element V-dipole ('cat-whisker') on the vertical stabilizer. Belly whips, cabin loops, and wing-leading-edge slots are used for other systems (transponder, ADF, and specialized installations) but not standard VOR."
+      },
+      "practice": {
+        "question": "During an antenna survey, a technician sees a V-shaped dual-element antenna on the top of the vertical stabilizer; which system does this antenna most likely belong to?",
+        "choices": [
+          "Transponder, because transponder antennas are often dual-element V-dipoles",
+          "VOR navigation, because VOR antennas are commonly horizontally polarized dual-element cat-whisker V-dipoles on the vertical stabilizer",
+          "ADF, because ADF uses two elements for directional sensing",
+          "Marker beacon, because marker beacons use V-shaped antennas"
+        ],
+        "correctIndex": 1,
+        "explanation": "The V-shaped dual-element antenna on top of the vertical stabilizer is the classic VOR cat-whisker. It is horizontally polarized to match the VOR ground transmission. Transponder antennas are vertical blades on the belly. ADF uses a loop plus sense antenna. Marker beacon antennas are simple horizontal elements mounted under the fuselage, not on the stabilizer."
+      },
+      "preassessment": {
+        "question": "VOR antennas on a GA aircraft are usually:",
+        "choices": [
+          "Loop antennas inside the cabin",
+          "Vertical blades on the belly",
+          "Horizontally polarized dual-element (cat-whisker) antennas on the vertical stabilizer or upper fuselage",
+          "Wing leading-edge slots"
+        ],
+        "correctIndex": 2
+      },
+      "targetCaetId": "464225",
+      "targetCaetStem": "VOR antennas are often:",
+      "targetCaetPp": 0.69
+    },
+    {
+      "id": "CAT3-NEW-027",
+      "category": "mod3-cns-systems",
+      "difficulty": "easy",
+      "tags": [
+        "transponder",
+        "far-91-413",
+        "test-interval"
+      ],
+      "learningObjective": "State the test interval required by FAR 91.413 for aircraft transponders",
+      "fullObjective": "Recognize that FAR 91.413 requires each aircraft transponder to be tested and inspected at least every 24 calendar months for continued airworthiness in airspace requiring Mode C.",
+      "flashcard": {
+        "term": "FAR 91.413 test interval",
+        "definition": "FAR 91.413 mandates that each aircraft transponder be tested and inspected no less than every 24 calendar months. Aircraft operating in airspace that requires a transponder (Mode C veil, Class B, above 10,000 ft MSL, etc.) cannot legally fly if the most recent 91.413 test is out of date.",
+        "analogy": "Think of 91.413 like a two-year sticker for a vehicle — without the current test signed off, you cannot legally operate in airspace that requires it.",
+        "unit": "Regulations — Transponders"
+      },
+      "jeopardy": {
+        "question": "Under FAR 91.413, this is the maximum interval between required transponder tests and inspections.",
+        "choices": [
+          "12 calendar months",
+          "36 calendar months",
+          "Every 500 flight hours",
+          "24 calendar months"
+        ],
+        "correctIndex": 3,
+        "explanation": "FAR 91.413 sets a 24-calendar-month maximum interval for the required transponder test and inspection. 12 months matches the annual inspection for some items, but not transponders. 36 months is too long. Flight-hour intervals do not apply to this rule."
+      },
+      "multipleChoice": {
+        "question": "Per FAR 91.413, at what interval must an installed transponder receive its inspection and performance test?",
+        "choices": [
+          "Every 12 calendar months, at each annual inspection",
+          "Every 36 calendar months, at the third annual",
+          "Every 500 flight hours, regardless of calendar time",
+          "Every 24 calendar months, on a fixed calendar basis"
+        ],
+        "correctIndex": 3,
+        "explanation": "FAR 91.413 mandates transponder test and inspection every 24 calendar months. The interval is calendar-based, not tied to the annual inspection or to flight hours. Aircraft cannot legally fly in transponder-required airspace if the test is overdue."
+      },
+      "practice": {
+        "question": "An aircraft's most recent 91.413 transponder test was completed 25 months ago, and the pilot plans a flight through Class B airspace; is this legally acceptable?",
+        "choices": [
+          "Yes, because the transponder is still functioning electrically",
+          "No, because FAR 91.413 requires the transponder test within the previous 24 calendar months, and this aircraft is now out of compliance for Mode C airspace",
+          "Yes, as long as the flight stays below 10,000 feet MSL",
+          "Yes, as long as the pilot squawks 1200 (VFR)"
+        ],
+        "correctIndex": 1,
+        "explanation": "FAR 91.413 is a calendar requirement — at 25 months the aircraft is out of compliance, and Class B entry requires an operating and legally tested Mode C transponder. Electrical function is not a substitute for the regulatory sign-off. Squawking VFR does not bypass the requirement. Class B has no altitude-based exemption."
+      },
+      "preassessment": {
+        "question": "FAR 91.413 requires transponder testing how often?",
+        "choices": [
+          "Every 24 calendar months",
+          "Every 36 calendar months",
+          "Every 12 calendar months",
+          "Every 500 flight hours"
+        ],
+        "correctIndex": 0
+      },
+      "targetCaetId": "464153",
+      "targetCaetStem": "According to FAR 91.413, how often must a transponder be tested and inspected?",
+      "targetCaetPp": 0.71
+    },
+    {
+      "id": "CAT3-NEW-028",
+      "category": "mod3-cns-systems",
+      "difficulty": "medium",
+      "tags": [
+        "transponder",
+        "mode-c",
+        "pressure-altitude"
+      ],
+      "learningObjective": "Identify what additional data Mode C transmits compared to Mode A",
+      "fullObjective": "Recognize that a Mode C transponder automatically transmits the aircraft's pressure altitude (from the altitude encoder) in addition to the four-digit squawk code that Mode A provides.",
+      "flashcard": {
+        "term": "Extra data sent by Mode C",
+        "definition": "Beyond the four-digit squawk, a Mode C reply carries the ship's pressure altitude in 100-foot steps from the blind encoder. This value is always referenced to 29.92 inHg regardless of what the pilot dialed into the Kollsman window, because the encoder has no knowledge of local baro setting. The ground station corrects the reading before display.",
+        "analogy": "Mode A is a name tag; Mode C is a name tag plus a height sticker that reads off what an altimeter set to 29.92 would show.",
+        "unit": "Transponder Systems"
+      },
+      "jeopardy": {
+        "question": "Beyond the Mode A squawk, this is the additional data stream a Mode C reply carries.",
+        "choices": [
+          "The aircraft's GPS latitude and longitude",
+          "The aircraft's pressure altitude, referenced to 29.92 inHg, from the altitude encoder",
+          "The pilot's voice on the tuned ATC frequency",
+          "The current local altimeter setting in inches of mercury"
+        ],
+        "correctIndex": 1,
+        "explanation": "Mode C adds pressure altitude — derived from the altitude encoder and referenced to 29.92 inHg. GPS position is an ADS-B Out function. Voice is on the comm radio. Mode C does not transmit the local baro setting; ATC applies that correction on the ground."
+      },
+      "multipleChoice": {
+        "question": "Beyond the Mode A identification code, a Mode C transponder automatically transmits:",
+        "choices": [
+          "The aircraft's GPS-derived latitude and longitude",
+          "The pilot's voice transmissions on the selected ATC frequency",
+          "The aircraft's pressure altitude in 100-foot increments, from the altitude encoder",
+          "The pilot's currently set altimeter Kollsman window (inHg) value"
+        ],
+        "correctIndex": 2,
+        "explanation": "Mode C adds pressure altitude to Mode A identification. Altitude is encoded by a blind encoder referenced to 29.92 inHg — it is not corrected for local pressure. GPS position is an ADS-B Out function. Voice is separate (comm radio). The local altimeter setting stays with the pilot; ATC compensates for it."
+      },
+      "practice": {
+        "question": "A technician is asked what information ATC will gain from turning on a Mode C transponder compared with Mode A only; which statement best captures the additional Mode C data?",
+        "choices": [
+          "Mode C automatically transmits the aircraft's pressure altitude from the altitude encoder, in addition to the squawk code that Mode A already provides",
+          "Mode C transmits the aircraft's GPS latitude and longitude to ATC",
+          "Mode C transmits the pilot's voice communications on a separate frequency",
+          "Mode C transmits the aircraft's weight and fuel state"
+        ],
+        "correctIndex": 0,
+        "explanation": "The one and only 'upgrade' from Mode A to Mode C is encoded pressure altitude. GPS coordinates are ADS-B Out. Voice traffic is separate. Aircraft weight and fuel state are never transponder outputs. Mode C pressure altitude is referenced to 29.92 inHg; ATC applies local baro corrections to display MSL altitudes on scopes."
+      },
+      "preassessment": {
+        "question": "Mode C transmits what in addition to the squawk code?",
+        "choices": [
+          "GPS position",
+          "Pressure altitude from the altitude encoder",
+          "Pilot voice",
+          "Local altimeter setting"
+        ],
+        "correctIndex": 1
+      },
+      "targetCaetId": "464229",
+      "targetCaetStem": "Mode C transponders, in addition to Mode A, automatically transmit:",
+      "targetCaetPp": 0.74
+    },
+    {
+      "id": "CAT3-NEW-029",
+      "category": "mod3-cns-systems",
+      "difficulty": "medium",
+      "tags": [
+        "regulation",
+        "transponder",
+        "far-91-413"
+      ],
+      "learningObjective": "Identify the specific FAR that mandates transponder testing",
+      "fullObjective": "Recognize that FAR 91.413 is the specific federal aviation regulation that requires each aircraft transponder installed under 14 CFR to be tested and inspected at least every 24 calendar months.",
+      "flashcard": {
+        "term": "Transponder test regulation",
+        "definition": "The regulation that specifically requires aircraft transponder testing is FAR 91.413. It applies to all transponders installed on U.S.-registered aircraft and requires a test and inspection at least every 24 calendar months. Compare to 91.411 (altimeter/static system / altitude encoder) and 91.207 (ELT) which apply to different equipment.",
+        "analogy": "91.413 is the 'transponder law' — written specifically for transponders, separate from the altimeter/static regulation (91.411) and the ELT rule (91.207).",
+        "unit": "Regulations — CFR References"
+      },
+      "jeopardy": {
+        "question": "This FAR specifically mandates the required test and inspection of an aircraft transponder.",
+        "choices": [
+          "FAR 91.413",
+          "FAR 91.207",
+          "FAR 91.411",
+          "FAR 43.3"
+        ],
+        "correctIndex": 0,
+        "explanation": "FAR 91.413 covers transponder tests and inspections. FAR 91.207 covers ELTs. FAR 91.411 covers altimeter and static-system tests (and the altitude encoder). FAR 43.3 defines who may perform maintenance."
+      },
+      "multipleChoice": {
+        "question": "Which federal aviation regulation specifically requires periodic testing and inspection of an aircraft transponder?",
+        "choices": [
+          "FAR 91.207, which covers ELT inspection requirements",
+          "FAR 91.413, which covers transponder tests and inspections",
+          "FAR 91.411, which covers altimeter and static-system tests",
+          "FAR 43.3, which defines maintenance authorization"
+        ],
+        "correctIndex": 1,
+        "explanation": "FAR 91.413 is the transponder-specific regulation, requiring a test every 24 calendar months. 91.207 applies to ELTs. 91.411 applies to altimeter and static-system checks. 43.3 addresses who is authorized to perform maintenance, not what must be tested."
+      },
+      "practice": {
+        "question": "A shop is planning the next required inspection cycle for an aircraft's avionics; which FAR should the supervisor cite as the basis for the 24-month transponder test?",
+        "choices": [
+          "FAR 91.207 — the ELT inspection requirement",
+          "FAR 91.413 — the transponder test and inspection requirement",
+          "FAR 91.411 — the altimeter/static system check",
+          "FAR 43.3 — the maintenance authorization rule"
+        ],
+        "correctIndex": 1,
+        "explanation": "FAR 91.413 is the correct citation for transponder tests. FAR 91.411 is frequently performed at the same interval on the pitot-static/altitude-encoder system and is often paired with 91.413 in work orders, but it is a separate regulation. 91.207 applies to ELTs and 43.3 to maintenance authorization."
+      },
+      "preassessment": {
+        "question": "Which FAR requires transponder testing?",
+        "choices": [
+          "FAR 43.3",
+          "FAR 91.411",
+          "FAR 91.413",
+          "FAR 91.207"
+        ],
+        "correctIndex": 2
+      },
+      "targetCaetId": "464154",
+      "targetCaetStem": "What regulation specifically requires testing of the transponder system?",
+      "targetCaetPp": 0.75
+    },
+    {
+      "id": "CAT3-NEW-030",
+      "category": "mod3-cns-systems",
+      "difficulty": "medium",
+      "tags": [
+        "lightning-detection",
+        "weather",
+        "stormscope"
+      ],
+      "learningObjective": "Describe the purpose of an airborne lightning detection system",
+      "fullObjective": "Recognize that airborne lightning detection systems (such as Stormscope or Strikefinder) are designed to detect electrical discharges from thunderstorm activity at long range so pilots can visualize and avoid areas of convective weather.",
+      "flashcard": {
+        "term": "Lightning Detection System",
+        "definition": "A lightning detection system (e.g., Stormscope, Strikefinder) senses the electromagnetic pulses emitted by lightning discharges and plots the strikes on a cockpit display relative to the aircraft. This gives the pilot a real-time map of thunderstorm activity for strategic weather avoidance, independent of weather radar and without requiring ground-uplink services.",
+        "analogy": "A lightning detection system is like a passive storm radar — it does not transmit; it listens for lightning and plots the strikes so you can steer around them.",
+        "unit": "Weather Detection"
+      },
+      "jeopardy": {
+        "question": "An airborne lightning detection system is designed to do this.",
+        "choices": [
+          "Protect the aircraft's structure from direct lightning strikes",
+          "Ground the airframe to reduce static buildup",
+          "Shield avionics from EMI in normal flight",
+          "Detect electrical discharges from thunderstorms and display their position so the pilot can avoid convective weather"
+        ],
+        "correctIndex": 3,
+        "explanation": "A lightning detection system is a passive weather-avoidance tool — it detects thunderstorm discharges and displays their positions. It does not protect the airframe from strikes (static wicks and bonding do that), shield avionics, or ground the airframe."
+      },
+      "multipleChoice": {
+        "question": "For what operational purpose is an onboard lightning detection system installed?",
+        "choices": [
+          "Physically protect the airframe from direct lightning strikes through active discharge",
+          "Detect electrical discharges produced by thunderstorms and plot their positions on a cockpit display so the pilot can avoid convective weather",
+          "Shield onboard avionics from ambient electromagnetic interference during all flight phases",
+          "Electrically ground the airframe to reduce static-electricity buildup"
+        ],
+        "correctIndex": 1,
+        "explanation": "Lightning detection systems are passive receivers (e.g., Stormscope, Strikefinder) that sense the EM pulses from lightning and display strike positions. They are a weather-avoidance aid — not a physical protection, shielding, or grounding system. Static wicks handle discharge; bonding handles grounding."
+      },
+      "practice": {
+        "question": "A pilot asks the avionics shop about installing a Stormscope on a piston twin for weather avoidance; the technician should describe the system's main function as:",
+        "choices": [
+          "A lightning-arrester that prevents strikes from damaging the aircraft",
+          "An EMI-shielding device that protects all onboard avionics",
+          "A replacement for static wicks on the trailing edges",
+          "A passive receiver that detects lightning discharges from thunderstorms and displays their location, allowing the pilot to steer around convective weather without relying on ground-uplink weather data"
+        ],
+        "correctIndex": 3,
+        "explanation": "Stormscope and similar systems are passive lightning detectors — they pick up EM pulses from lightning discharges and map the strikes on a cockpit display. They complement (but do not replace) weather radar and ADS-B In weather products. They do not prevent strikes, shield avionics, or replace static wicks."
+      },
+      "preassessment": {
+        "question": "What is a lightning detection system designed to do?",
+        "choices": [
+          "Detect thunderstorm discharges and display their locations for avoidance",
+          "Protect the airframe from strikes",
+          "Shield avionics from EMI",
+          "Ground the airframe"
+        ],
+        "correctIndex": 0
+      },
+      "targetCaetId": "464224",
+      "targetCaetStem": "Lightning Detection systems in aircraft are designed to:",
+      "targetCaetPp": 0.75
+    },
+    {
+      "id": "CAT3-NEW-031",
+      "category": "mod3-cns-systems",
+      "difficulty": "medium",
+      "tags": [
+        "audio",
+        "troubleshooting",
+        "grounding",
+        "connectors"
+      ],
+      "learningObjective": "Identify the typical causes of intermittent or noisy audio in a communication system",
+      "fullObjective": "Recognize that intermittent or noisy audio in an aircraft communication system is most commonly caused by physical-path problems: poor grounding, corroded or loose connector pins, damaged cable shields, and worn headset or microphone jacks.",
+      "flashcard": {
+        "term": "Intermittent audio — root causes",
+        "definition": "Intermittent or noisy audio in a comm system almost always traces to physical path issues: broken or high-resistance grounds, corroded connector pins, damaged coax shield, and loose or worn headset/mic jacks. Electronic failures in radios or audio panels are less common than these mechanical issues and should be suspected only after the physical path is cleared.",
+        "analogy": "When audio gets scratchy or drops out, inspect the plumbing first — plugs, grounds, shields — before blaming the radio.",
+        "unit": "Audio Systems — Troubleshooting"
+      },
+      "jeopardy": {
+        "question": "Intermittent or noisy audio in an aircraft comm system is most often traced to this category of problem.",
+        "choices": [
+          "A software error in the comm radio firmware",
+          "Physical-path issues: poor grounding, corroded connector pins, damaged cable shields, or worn headset and microphone jacks",
+          "Pilot error in selecting the wrong COM radio",
+          "Interference from the onboard GPS receiver"
+        ],
+        "correctIndex": 1,
+        "explanation": "Intermittent audio almost always stems from physical path problems — grounds, connectors, shields, and jacks. Firmware failures are rare and tend to be catastrophic rather than intermittent. The GPS receiver is passive and not a typical interference source. Wrong-COM selection produces no audio, not noise."
+      },
+      "multipleChoice": {
+        "question": "Scratchy or dropout-prone audio on the com radio is MOST commonly traceable to which problem?",
+        "choices": [
+          "Physical path problems, including poor or broken grounding, corroded connector pins, damaged shielding on cable runs, and worn microphone or headset jacks",
+          "EMI radiated by the aircraft's GPS receiver",
+          "The pilot having selected the wrong COM radio on the audio panel",
+          "Firmware bugs in the comm radio's operating software"
+        ],
+        "correctIndex": 0,
+        "explanation": "Intermittent or noisy audio is typically a physical-path issue — the connections, not the electronics. Inspect grounds, connector pins, cable shields, and jacks first. Firmware bugs are rare and produce consistent failures. GPS receivers are receive-only and do not generate significant interference. Wrong-COM selection means no audio, not bad audio."
+      },
+      "practice": {
+        "question": "A pilot reports crackling, cutting-out audio on the COM1 radio that worsens in turbulence; which first-step troubleshooting action is most likely to find the problem?",
+        "choices": [
+          "Inspect the physical audio path — microphone jack, headset jack, connector pins, cable shield, and chassis ground — for corrosion, looseness, and broken conductors",
+          "Send the COM1 radio for bench repair of its firmware",
+          "Replace the GPS antenna on top of the fuselage",
+          "Swap the audio panel for a different model"
+        ],
+        "correctIndex": 0,
+        "explanation": "Crackling that worsens in turbulence is a classic symptom of a loose or high-resistance physical connection — vibration modulates the contact and produces intermittent noise. Always inspect the jacks, pins, shields, and grounds before sending the radio for repair or replacing other equipment. GPS and the audio panel are unlikely root causes."
+      },
+      "preassessment": {
+        "question": "Intermittent or noisy comm audio is most often caused by:",
+        "choices": [
+          "Poor grounding, corroded connectors, damaged shields, or worn jacks",
+          "GPS receiver interference",
+          "Wrong COM radio selected",
+          "Firmware bugs"
+        ],
+        "correctIndex": 0
+      },
+      "targetCaetId": "464221",
+      "targetCaetStem": "Intermittent or noisy audio in a communication system is OFTEN caused by:",
+      "targetCaetPp": 0.78
+    },
+    {
+      "id": "CAT3-NEW-032",
+      "category": "mod3-cns-systems",
+      "difficulty": "easy",
+      "tags": [
+        "audio-panel",
+        "purpose",
+        "routing"
+      ],
+      "learningObjective": "Describe the primary purpose of an aircraft audio control panel",
+      "fullObjective": "Recognize that the primary purpose of an aircraft audio control panel is to select which radio is used for transmitting, select which receivers are monitored, manage intercom functions, and route audio from various sources (comm, nav, alerts, music) to the headsets and cabin speaker.",
+      "flashcard": {
+        "term": "Audio control panel purpose",
+        "definition": "The primary job of an aircraft audio control panel is to select and route audio. It chooses which transmitter is activated by the PTT, selects which receivers are monitored, manages intercom audio between crew and passengers, and distributes auxiliary audio sources (nav, alert tones, music) to headsets and speaker.",
+        "analogy": "An audio panel is the cockpit's audio switchboard — one central place to pick who talks, who you listen to, and what else you hear.",
+        "unit": "Audio Systems"
+      },
+      "jeopardy": {
+        "question": "In a cockpit, this single statement captures the main job done by the audio control panel.",
+        "choices": [
+          "To select transmit and receive radios, manage intercom, and route audio from various sources to the headsets and speaker",
+          "To amplify the transmit output power of comm radios",
+          "To convert AC electrical power into DC for avionics",
+          "To control cabin pressurization during climb and descent"
+        ],
+        "correctIndex": 0,
+        "explanation": "The audio panel is a source-selection and routing device. It does not amplify transmit power (internal to each radio), convert power, or regulate pressurization."
+      },
+      "multipleChoice": {
+        "question": "Describe the MAIN function served by the audio control panel in a cockpit.",
+        "choices": [
+          "Amplifying the transmit output power of the COM radios",
+          "Converting AC to DC for use by the avionics bus",
+          "Selecting which radio transmits, which receivers are monitored, and routing audio from multiple sources to the headsets and cabin speaker",
+          "Regulating cabin air pressure during flight"
+        ],
+        "correctIndex": 2,
+        "explanation": "The audio control panel is the cockpit's audio switchboard — it handles transmitter selection, receive monitoring, intercom, and audio routing. Radios produce their own transmit power. Power conversion is handled by the electrical system. Pressurization is an ECS function."
+      },
+      "practice": {
+        "question": "A pilot selects the COM2 radio's mic button on the audio panel but transmits no voice because COM1 is the pilot's intended radio; what role did the audio panel play?",
+        "choices": [
+          "The audio panel has no effect on transmitter selection",
+          "The audio panel set the transmit frequency for both radios automatically",
+          "The audio panel's mic selector routes the PTT signal to the selected transmitter, so pressing PTT transmitted on COM2 instead of COM1 — the pilot must reselect COM1 on the audio panel to transmit on that radio",
+          "The audio panel disabled both radios when COM2 was selected"
+        ],
+        "correctIndex": 2,
+        "explanation": "Selecting a radio on the audio panel determines which transmitter the PTT keys. This is a classic training scenario: the right radio is tuned to the right frequency, but the audio panel sends the PTT to the wrong radio. The fix is to reselect the intended radio on the audio panel. Audio panels do not tune frequencies or disable radios."
+      },
+      "preassessment": {
+        "question": "Identify the main function of a cockpit audio control panel.",
+        "choices": [
+          "Select transmit/receive radios and route audio sources",
+          "Convert AC to DC",
+          "Amplify transmit power",
+          "Regulate cabin pressure"
+        ],
+        "correctIndex": 0
+      },
+      "targetCaetId": "464232",
+      "targetCaetStem": "The PRIMARY purpose of an audio control panel in an aircraft is to:",
+      "targetCaetPp": 0.8
+    },
+    {
+      "id": "CAT3-NEW-033",
+      "category": "mod3-cns-systems",
+      "difficulty": "medium",
+      "tags": [
+        "ils",
+        "localizer",
+        "glideslope"
+      ],
+      "learningObjective": "Identify the system that provides both lateral and vertical guidance during an instrument approach",
+      "fullObjective": "Recognize that the Instrument Landing System (ILS) is the precision approach system that provides both lateral guidance (localizer) and vertical guidance (glideslope) to pilots flying approaches in instrument meteorological conditions.",
+      "flashcard": {
+        "term": "ILS — vertical + horizontal guidance",
+        "definition": "The Instrument Landing System (ILS) combines two signals: the localizer (aligned with the runway centerline for lateral guidance) and the glideslope (typically a 3-degree descent path for vertical guidance). Together they deliver precision approach guidance to CAT I, II, and III minimums depending on the installation and certification.",
+        "analogy": "ILS is two crosshairs — the localizer is the vertical crosshair (left/right), the glideslope is the horizontal crosshair (up/down). Fly both centered and you land on the runway.",
+        "unit": "Landing Systems"
+      },
+      "jeopardy": {
+        "question": "Among common nav aids, this system presents glideslope and localizer cues to the crew flying the approach.",
+        "choices": [
+          "VOR — Very High Frequency Omni-directional Range",
+          "ADF — Automatic Direction Finder",
+          "DME — Distance Measuring Equipment",
+          "ILS — Instrument Landing System"
+        ],
+        "correctIndex": 3,
+        "explanation": "ILS combines the localizer (horizontal) and glideslope (vertical) for full precision approach guidance. VOR provides only bearing. DME provides only distance. ADF provides only relative bearing to an NDB."
+      },
+      "multipleChoice": {
+        "question": "On final approach to landing, which nav aid presents the pilot with both glideslope and localizer information?",
+        "choices": [
+          "ILS, because it combines the localizer for lateral guidance and the glideslope for vertical guidance",
+          "DME, because distance readout supplies vertical and horizontal reference",
+          "ADF, because the needle swings in both azimuth and elevation",
+          "VOR, because the OBS provides both lateral course and vertical deviation"
+        ],
+        "correctIndex": 0,
+        "explanation": "Only ILS delivers both lateral (localizer) and vertical (glideslope) guidance — that is the defining feature of a precision approach. VOR supplies bearing only. DME supplies distance only. ADF supplies relative bearing to an NDB, not vertical guidance."
+      },
+      "practice": {
+        "question": "A pilot briefs an approach chart that shows a localizer frequency and a glideslope angle of 3 degrees; which approach system is depicted?",
+        "choices": [
+          "A VOR approach using the OBS for descent guidance",
+          "An ILS approach — the presence of both a localizer (horizontal) and a glideslope (vertical) identifies it as a precision ILS",
+          "A DME arc approach",
+          "An ADF/NDB approach"
+        ],
+        "correctIndex": 1,
+        "explanation": "A chart that shows both a localizer and a glideslope component identifies the approach as ILS. The 3-degree descent angle is standard for ILS glideslopes. VOR does not provide glideslope guidance. DME arcs are lateral-only procedures. ADF approaches provide relative bearing only."
+      },
+      "preassessment": {
+        "question": "Which system provides both vertical and horizontal approach guidance?",
+        "choices": [
+          "ILS",
+          "VOR",
+          "DME",
+          "ADF"
+        ],
+        "correctIndex": 0
+      },
+      "targetCaetId": "464215",
+      "targetCaetStem": "Which system provides vertical and horizontal guidance during landing?",
+      "targetCaetPp": 0.82
+    },
+    {
+      "id": "CAT3-NEW-034",
+      "category": "mod3-cns-systems",
+      "difficulty": "easy",
+      "tags": [
+        "transponder",
+        "purpose",
+        "atc-radar"
+      ],
+      "learningObjective": "Describe the primary purpose of an aircraft transponder",
+      "fullObjective": "Recognize that the primary purpose of an aircraft transponder is to reply to interrogations from ATC secondary surveillance radar with the aircraft's identification code (and, for Mode C or Mode S, altitude), enabling ATC to identify, track, and separate traffic on the radar display.",
+      "flashcard": {
+        "term": "Transponder function",
+        "definition": "The unit listens on 1030 MHz for ATC secondary surveillance interrogations and answers on 1090 MHz. Its replies include the selected squawk and, with Mode C or S capability, pressure altitude plus additional data. This lets controllers positively identify and vertically separate traffic on their scopes.",
+        "analogy": "A transponder is like a reply beacon — ATC 'asks' and the transponder 'answers' with the aircraft's ID (and altitude).",
+        "unit": "Transponder Systems"
+      },
+      "jeopardy": {
+        "question": "This phrase captures why an onboard transponder is fundamentally installed.",
+        "choices": [
+          "To receive voice communications from ATC on VHF",
+          "To compute the aircraft's GPS position",
+          "To reply to interrogations from ATC secondary surveillance radar with the aircraft's identification code and, if equipped, altitude",
+          "To provide vertical guidance during instrument approaches"
+        ],
+        "correctIndex": 2,
+        "explanation": "A transponder is a reply beacon for SSR — interrogated on 1030 MHz, replies on 1090 MHz with the squawk code (Mode A) and altitude (Mode C) or 24-bit address and data (Mode S). It does not receive voice, compute GPS, or provide glideslope guidance."
+      },
+      "multipleChoice": {
+        "question": "State the fundamental reason an aircraft is equipped with a transponder.",
+        "choices": [
+          "Replying to interrogations from ATC secondary surveillance radar with the aircraft's identification code and, if Mode C or S equipped, altitude and related data",
+          "Receiving voice communications from ATC on the VHF band",
+          "Computing the aircraft's GPS position for display on the moving map",
+          "Providing vertical guidance signals on an instrument approach"
+        ],
+        "correctIndex": 0,
+        "explanation": "The transponder's job is to reply to ATC secondary surveillance radar so the aircraft appears with identification (and altitude) on the controller's scope. Voice communications are handled by the COM radio. GPS computes position independently. Glideslope vertical guidance comes from the ILS."
+      },
+      "practice": {
+        "question": "A technician is explaining transponder basics to a new hire; which sentence captures the transponder's core role on the aircraft?",
+        "choices": [
+          "It listens for ATC voice transmissions and routes them to the cockpit speaker",
+          "It measures GPS satellite ranges and computes the aircraft's position",
+          "It decodes the ILS glideslope signal for the flight director",
+          "It replies to secondary surveillance radar interrogations with the aircraft's identification code and, for Mode C and higher, altitude, so ATC can see and track the aircraft on radar"
+        ],
+        "correctIndex": 3,
+        "explanation": "The transponder is the aircraft's reply beacon for SSR. When ATC interrogates on 1030 MHz, the transponder answers on 1090 MHz with the code and altitude. Voice, GPS, and ILS functions belong to other systems — the comm radio, the GPS receiver, and the ILS receiver respectively."
+      },
+      "preassessment": {
+        "question": "What is the primary purpose of a transponder?",
+        "choices": [
+          "Receive ATC voice",
+          "Compute GPS position",
+          "Reply to ATC SSR with ID and altitude",
+          "Provide ILS glideslope"
+        ],
+        "correctIndex": 2
+      },
+      "targetCaetId": "464228",
+      "targetCaetStem": "The PRIMARY purpose of an aircraft transponder is to:",
+      "targetCaetPp": 0.85
+    },
+    {
+      "id": "CAT3-NEW-035",
+      "category": "mod3-cns-systems",
+      "difficulty": "medium",
+      "tags": [
+        "transponder",
+        "antenna",
+        "installation"
+      ],
+      "learningObjective": "Identify critical installation steps for a new digital transponder antenna",
+      "fullObjective": "Recognize that when installing a new digital transponder antenna, the technician must mount it on the belly (underside) of the aircraft with proper bonding to the airframe ground plane, approved connectors torqued to spec, adequate separation from other antennas, and weather-sealed base for reliable operation at 1030/1090 MHz.",
+      "flashcard": {
+        "term": "Transponder antenna installation",
+        "definition": "A digital transponder antenna (1030/1090 MHz) must be belly-mounted with a solid electrical bond to the airframe ground plane, approved connectors torqued to spec, weather-sealed base, and sufficient separation from other L-band antennas (DME, GPS) to avoid mutual coupling. Improper bonding or placement degrades reply power and range.",
+        "analogy": "Installing a transponder antenna is like mounting a satellite dish — location, ground plane, and weather seal all matter, or the signal suffers.",
+        "unit": "Antennas — Transponder"
+      },
+      "jeopardy": {
+        "question": "During the installation of a new digital transponder antenna, this practice is the one that preserves RF performance.",
+        "choices": [
+          "Routing the coax through a hot exhaust duct to preheat the connection",
+          "Belly-mounting the antenna with proper bonding to the airframe ground plane, approved connectors torqued to spec, and adequate separation from other L-band antennas",
+          "Substituting the specified connectors with whatever is in the shop drawer",
+          "Omitting the base sealant to allow moisture to evaporate quickly"
+        ],
+        "correctIndex": 1,
+        "explanation": "Belly mount, good ground-plane bonding, approved torqued connectors, and antenna-to-antenna separation are the critical performance drivers. Hot-duct routing damages coax. Wrong connectors introduce impedance mismatch. Skipping sealant lets moisture in and causes corrosion."
+      },
+      "multipleChoice": {
+        "question": "During initial installation of a new digital transponder antenna, which procedural step is essential for proper RF performance?",
+        "choices": [
+          "Routing the coaxial cable alongside high-temperature exhaust components to preheat the connection",
+          "Belly-mounting the antenna with solid bonding to the airframe ground plane, approved connectors torqued to specification, and adequate separation from nearby L-band antennas",
+          "Leaving the antenna base unsealed so moisture can evaporate from under it",
+          "Substituting the specified RF connectors with whatever connectors are in the shop storage bin"
+        ],
+        "correctIndex": 1,
+        "explanation": "Transponder antennas need a clear view downward to ATC ground radar, so belly mounting is required. Bonding to the airframe ground plane is critical for radiation efficiency. Approved connectors torqued to spec preserve the 50-ohm match. Separation prevents mutual coupling with nearby DME or GPS antennas. Unsealed bases admit moisture and corrode."
+      },
+      "practice": {
+        "question": "A technician is installing a new digital transponder antenna on a Part 23 aircraft; which action is most important for reliable operation?",
+        "choices": [
+          "Mounting the antenna on the belly with proper bonding to the airframe ground plane, using approved connectors torqued to specification, and ensuring adequate separation from DME and GPS antennas",
+          "Routing the coax near the engine exhaust to warm it and reduce humidity inside the cable",
+          "Using whatever RF connector happens to fit the cable end",
+          "Leaving the base unsealed so any condensation can dry out"
+        ],
+        "correctIndex": 0,
+        "explanation": "The belly location, airframe bonding, proper connector installation, and antenna separation all directly affect transponder reply power and range. Routing coax near hot exhaust damages the jacket and dielectric. Wrong connectors create impedance mismatches. An unsealed base admits water and corrodes the mount. All of these shortcuts degrade transponder performance and risk regulatory non-compliance."
+      },
+      "preassessment": {
+        "question": "A new digital transponder antenna is being fitted to an aircraft. What practice secures proper performance?",
+        "choices": [
+          "Route coax through hot ducts",
+          "Belly mount with proper bonding, approved torqued connectors, and antenna separation",
+          "Use any RF connector that fits",
+          "Leave the base unsealed"
+        ],
+        "correctIndex": 1
+      },
+      "targetCaetId": "464326",
+      "targetCaetStem": "Installing a new digital transponder antenna, which step ensures good performance?",
+      "targetCaetPp": 0.88
+    },
+    {
+      "id": "CAT3-NEW-036",
+      "category": "mod3-cns-systems",
+      "difficulty": "medium",
+      "tags": [
+        "antenna",
+        "inspection",
+        "corrosion",
+        "security"
+      ],
+      "learningObjective": "Identify the items included in a regular communication antenna inspection",
+      "fullObjective": "Recognize that regular inspection of aircraft communication antennas must include checks for physical damage, corrosion at the base and mounting flange, secure mounting hardware, intact base sealant, and continuity of the electrical bond to the airframe ground plane.",
+      "flashcard": {
+        "term": "Comm antenna inspection items",
+        "definition": "A proper communication antenna inspection covers: physical damage (cracks, dents, bent elements), corrosion at the base and mounting flange, mounting hardware torque and security, base sealant integrity, and the electrical bond/ground continuity to the airframe. Electrical performance may be confirmed with a ground test of VSWR or return loss.",
+        "analogy": "Inspecting an antenna is like inspecting a bolt AND its wiring — check the metal, the fasteners, and the electrical path to the airframe.",
+        "unit": "Antennas — Inspection"
+      },
+      "jeopardy": {
+        "question": "These are the defect categories a technician confirms during the periodic look at an aircraft com antenna.",
+        "choices": [
+          "The antenna's internal firmware version and manufacturer serial tag only",
+          "Physical damage, corrosion at the base, mounting hardware security, sealant integrity, and bonding/ground continuity to the airframe",
+          "Only the color of the paint on the antenna",
+          "Only the transmit-frequency stability of the connected radio"
+        ],
+        "correctIndex": 1,
+        "explanation": "Antenna inspection covers physical, mechanical, and electrical integrity — damage, corrosion, hardware, sealant, and bonding. Antennas do not have firmware. Paint color is cosmetic. Radio frequency stability is a radio test, not an antenna inspection."
+      },
+      "multipleChoice": {
+        "question": "During a scheduled look at an aircraft com antenna, what conditions must the technician evaluate?",
+        "choices": [
+          "The antenna's internal firmware version and serial-number tag only",
+          "Physical damage, base corrosion, mounting hardware security, base sealant integrity, and electrical bonding/ground continuity to the airframe",
+          "The paint color of the antenna shell only",
+          "The frequency stability of the radio connected to the antenna"
+        ],
+        "correctIndex": 1,
+        "explanation": "A proper inspection covers physical damage, corrosion, mounting security, sealant, and bonding — all important for mechanical integrity and radiation performance. Antennas are passive and have no firmware. Paint color is not a performance parameter. Radio frequency stability is tested at the radio, not the antenna."
+      },
+      "practice": {
+        "question": "During a 100-hour inspection, a technician notices the COM1 whip antenna on the belly has visible corrosion around its mounting flange; which items must still be checked before returning the aircraft to service?",
+        "choices": [
+          "Physical damage to the element, corrosion at the base (already found — requires removal, cleaning, resealing, and bond verification), mounting hardware security, sealant condition, and continuity of the bond to the airframe",
+          "Only the radio's transmit frequency stability",
+          "Only the cosmetic paint finish needs to be addressed",
+          "Only the antenna's serial tag needs photographing"
+        ],
+        "correctIndex": 0,
+        "explanation": "Base corrosion compromises both the mechanical mounting and the electrical bond to the airframe ground plane. Proper corrective action includes removing the antenna, cleaning the bonding surface to bare metal, applying fresh sealant, reinstalling with proper torque, and verifying bond continuity. The inspection also covers damage to the element, hardware security, and sealant integrity overall."
+      },
+      "preassessment": {
+        "question": "Regular comm antenna inspection should include what?",
+        "choices": [
+          "Firmware and serial tag only",
+          "Paint color only",
+          "Radio frequency stability only",
+          "Physical damage, corrosion, mounting hardware, sealant, and bonding"
+        ],
+        "correctIndex": 3
+      },
+      "targetCaetId": "464220",
+      "targetCaetStem": "Regular inspection of aircraft communication antennas should include checking for:",
+      "targetCaetPp": 0.89
+    },
+    {
+      "id": "CAT3-NEW-037",
+      "category": "mod3-cns-systems",
+      "difficulty": "hard",
+      "tags": [
+        "vor",
+        "ramp-test",
+        "ground-testing"
+      ],
+      "learningObjective": "Describe what a VOR ramp test set does during ground testing",
+      "fullObjective": "Recognize that a VOR ramp test set generates a simulated VOR signal with a selectable radial so that the technician can verify the aircraft's VOR receiver correctly displays the selected bearing, flag indications, and TO/FROM senses on the ground before flight.",
+      "flashcard": {
+        "term": "VOR ramp test set",
+        "definition": "A VOR ramp test set transmits a low-power simulated VOR signal — typically on a standard test frequency — and allows the technician to dial in a specific radial (for example, 000 or 090 degrees). The technician then verifies that the aircraft VOR receiver displays the matching bearing, proper flag behavior, and correct TO/FROM indication. This confirms the receiver is working without requiring flight to a real VOR station.",
+        "analogy": "A VOR ramp test set is like a portable VOR ground station — you bring the signal to the airplane, dial in the radial, and see whether the receiver reads it correctly.",
+        "unit": "Test Equipment — VOR"
+      },
+      "jeopardy": {
+        "question": "During ground testing of a VOR receiver, a ramp test set does this.",
+        "choices": [
+          "Physically rotates the VOR antenna on the aircraft to each cardinal direction",
+          "Measures battery voltage in the cockpit",
+          "Generates a simulated VOR signal with a selectable radial so the technician can verify the receiver displays the correct bearing, flag, and TO/FROM indications",
+          "Replaces the need for ever performing an in-flight VOR check"
+        ],
+        "correctIndex": 2,
+        "explanation": "A ramp test set produces a controlled VOR signal, allowing the technician to dial radials and confirm the receiver responds correctly. It does not rotate antennas, measure battery voltage, or eliminate pilot in-flight VOR checks (which remain a separate 91.171 requirement for IFR VOR use)."
+      },
+      "multipleChoice": {
+        "question": "On a shop bench, a VOR ramp tester is used against an installed VOR receiver primarily to do what?",
+        "choices": [
+          "Physically rotate the aircraft's VOR antenna through each cardinal heading",
+          "Transmit a simulated VOR signal at selectable radials so the technician can verify the receiver reads the expected bearing, flag behavior, and TO/FROM indication",
+          "Verify the VOR-required in-flight accuracy check of FAR 91.171",
+          "Measure the aircraft battery voltage while the avionics are running"
+        ],
+        "correctIndex": 1,
+        "explanation": "A VOR ramp test set radiates a low-power simulated VOR signal with an adjustable radial. The technician dials a radial (e.g., 180), verifies the receiver indicates the same radial correctly, and checks flag and TO/FROM behavior. It does not move antennas, measure battery voltage, or substitute for the pilot's required in-flight VOR check under 91.171."
+      },
+      "practice": {
+        "question": "A technician needs to verify a newly installed VOR receiver on an aircraft that is parked in the hangar; which correct use of a ramp test set confirms proper receiver function?",
+        "choices": [
+          "Rotate the aircraft's VOR antenna manually through 360 degrees while watching the needle",
+          "Disconnect the battery and measure standby current on the VOR receiver",
+          "Complete an FAR 91.171 in-flight VOR accuracy check from the ground",
+          "Position the ramp test set near the VOR antenna, dial in a known radial such as 000, and verify that the aircraft's VOR indicator shows the matching bearing with a centered CDI and correct TO/FROM flag, then repeat for additional radials"
+        ],
+        "correctIndex": 3,
+        "explanation": "The ramp test set generates a simulated VOR signal; the technician dials a radial, confirms the receiver displays it accurately, checks the flag and TO/FROM sense, and repeats for a second radial to verify angular accuracy. Physically rotating the antenna, disconnecting the battery, or trying to satisfy 91.171 from the ground are all incorrect — 91.171 is a separate flight check for IFR VOR airworthiness."
+      },
+      "preassessment": {
+        "question": "A VOR ramp test set is used to do what on the ground?",
+        "choices": [
+          "Rotate the VOR antenna",
+          "Measure battery voltage",
+          "Simulate a VOR signal at selectable radials to verify receiver indications",
+          "Complete the 91.171 in-flight check"
+        ],
+        "correctIndex": 2
+      },
+      "targetCaetId": "464227",
+      "targetCaetStem": "Ground testing of a VOR navigation system typically involves using a VOR ramp test set to:",
+      "targetCaetPp": 0.9
+    },
+    {
+      "id": "CAT3-NEW-038",
+      "category": "mod3-cns-systems",
+      "difficulty": "hard",
+      "tags": [
+        "audio-panel",
+        "integration",
+        "grounding",
+        "shielding"
+      ],
+      "learningObjective": "Identify the most important integration factor for clear audio and low interference when installing an audio panel",
+      "fullObjective": "Recognize that the most important factor when integrating an audio panel with other avionics is proper grounding, shielding, and cable routing — a single clean audio ground reference, shielded and properly terminated audio cables, and separation from noise sources are essential for clear audio and minimal interference.",
+      "flashcard": {
+        "term": "Audio panel integration — key factor",
+        "definition": "When integrating an audio panel with other avionics, the dominant factor for clear audio and low interference is proper grounding and shielding. Use a single clean audio ground reference (avoid ground loops), shielded twisted-pair audio cables with shields grounded only at the panel end per the installation manual, and route cables away from high-current feeders, strobes, and alternator harnesses.",
+        "analogy": "Audio is vulnerable to ground loops and induced noise — treat the audio panel like a studio mixer: single-point ground, shielded cables, clean routing.",
+        "unit": "Audio Systems — Installation"
+      },
+      "jeopardy": {
+        "question": "This installation consideration matters most for audio clarity and noise rejection when an audio panel is wired up with other avionics.",
+        "choices": [
+          "Proper grounding and shielding — a single clean audio ground reference, shielded audio cables terminated per the installation manual, and routing away from noise sources",
+          "Mounting the audio panel as close to the alternator as possible for power access",
+          "Using unshielded twisted-pair cable to reduce weight",
+          "Using the largest possible cable diameter for all audio runs"
+        ],
+        "correctIndex": 0,
+        "explanation": "Audio paths are low-level and susceptible to ground loops and induced noise. Proper grounding, shielded cabling terminated correctly, and careful routing dominate audio quality. Larger cable diameters do not fix noise. Proximity to the alternator adds noise. Unshielded cable invites EMI."
+      },
+      "multipleChoice": {
+        "question": "During installation of an audio panel alongside other avionics, what installation consideration has the GREATEST impact on audio clarity and noise rejection?",
+        "choices": [
+          "Proper grounding and shielding practices — a single clean audio ground reference, shielded audio cables terminated per the installation manual, and cable routing away from noise sources",
+          "Using the largest available wire diameter for every audio run to reduce resistance",
+          "Mounting the audio panel as close to the alternator as practical to shorten the power-lead run",
+          "Using unshielded twisted-pair audio cable throughout the installation to save weight"
+        ],
+        "correctIndex": 0,
+        "explanation": "Audio signals are low-level and very sensitive to ground loops and EMI. The dominant integration factor is grounding and shielding: a single-point audio ground, shielded cables with shields terminated as the manual specifies, and routing well away from alternators, strobes, and high-current wiring. Wire diameter does not address noise. Alternator proximity adds noise. Unshielded cable invites interference."
+      },
+      "practice": {
+        "question": "A technician is installing an audio panel alongside a new COM/NAV/GPS stack; which installation practice will most improve audio quality and reduce interference?",
+        "choices": [
+          "Use the largest-gauge wire available for every audio run",
+          "Establish a single-point audio ground reference, use shielded audio cables terminated only at the panel end (per the installation manual), and route audio bundles away from alternator harnesses and strobe power leads",
+          "Use unshielded twisted-pair cable throughout to save weight",
+          "Install the audio panel as close as possible to the alternator to minimize power-lead length"
+        ],
+        "correctIndex": 1,
+        "explanation": "Proper grounding and shielding practice is the foundation of low-noise audio. A single-point audio ground avoids ground loops; shields terminated per the installation manual (usually only at one end) prevent shield currents; and cable routing away from alternators and strobes keeps inducted noise out of the audio path. Wire gauge, proximity to the alternator, and unshielded cable all work against audio quality."
+      },
+      "preassessment": {
+        "question": "Most important factor for clear audio when integrating an audio panel?",
+        "choices": [
+          "Proper grounding, shielding, and cable routing away from noise sources",
+          "Proximity to the alternator",
+          "Unshielded twisted-pair cable",
+          "Largest possible wire gauge"
+        ],
+        "correctIndex": 0
+      },
+      "targetCaetId": "464234",
+      "targetCaetStem": "When integrating an audio panel with other avionics, which factor is most important for ensuring clear audio and minimal interference?",
+      "targetCaetPp": 0.9
     }
   ]
 }

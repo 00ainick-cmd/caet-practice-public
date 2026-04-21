@@ -1114,6 +1114,589 @@
         ],
         "correctIndex": 3
       }
+    },
+    {
+      "id": "CAT1-NEW-019",
+      "category": "mod1-maintenance-regs",
+      "difficulty": "medium",
+      "tags": [
+        "stc",
+        "tso",
+        "major-alteration",
+        "flight-manual-supplement"
+      ],
+      "learningObjective": "Classify an installation as major or minor when a TSO article is installed under an STC that introduces an Aircraft Flight Manual Supplement.",
+      "fullObjective": "Recognize that an installation performed under a Supplemental Type Certificate which requires an Aircraft Flight Manual Supplement is, by its very nature, a major alteration because it changes operating limitations, procedures, or performance information presented to the flight crew.",
+      "flashcard": {
+        "term": "STC with AFM Supplement",
+        "definition": "An installation performed under a Supplemental Type Certificate that includes an Aircraft Flight Manual Supplement is considered a major alteration, because the AFMS changes the approved operating limitations or procedures of the aircraft.",
+        "analogy": "Think of the AFMS as a new chapter added to the pilot's rulebook; anything that rewrites the rulebook is always a major change, never a minor tweak.",
+        "unit": "Maintenance Regulations"
+      },
+      "jeopardy": {
+        "question": "This classification applies to an installation approved by an STC whose paperwork includes an Aircraft Flight Manual Supplement.",
+        "choices": [
+          "Minor alteration",
+          "Preventive maintenance",
+          "Major alteration",
+          "Minor repair"
+        ],
+        "correctIndex": 2,
+        "explanation": "Any STC installation that carries an AFMS alters the approved operating limitations or flight procedures, which by definition makes it a major alteration per Part 43 Appendix A."
+      },
+      "multipleChoice": {
+        "question": "An avionics shop installs a TSO-approved unit using a Supplemental Type Certificate that is issued with an Aircraft Flight Manual Supplement. How should this work be classified?",
+        "choices": [
+          "A minor alteration, because the hardware is TSO approved",
+          "Preventive maintenance, because the STC already covers airworthiness",
+          "A major alteration, because the STC package changes approved operating data",
+          "A minor repair, because the installation follows manufacturer data"
+        ],
+        "correctIndex": 2,
+        "explanation": "Per Part 43 Appendix A, a change that affects operating limitations, flight characteristics, or the flight manual is a major alteration. An STC issued with an AFMS alters approved flight data, so the installation is major."
+      },
+      "practice": {
+        "question": "Scenario: A technician at a Part 145 shop is installing a new autopilot under an STC. The STC paperwork directs the operator to insert an Aircraft Flight Manual Supplement covering the new operating limitations. How should the job be documented and approved?",
+        "choices": [
+          "As preventive maintenance, with a pilot sign-off",
+          "As a minor alteration, logged in the airframe record only",
+          "As a major alteration requiring FAA Form 337",
+          "As a minor repair, since the STC already provides approval"
+        ],
+        "correctIndex": 2,
+        "explanation": "An STC installation that includes an AFMS changes approved flight data and is therefore a major alteration. Major alterations must be documented on FAA Form 337 in accordance with Part 43 Section 43.9 and Appendix B."
+      },
+      "preassessment": {
+        "question": "If an STC installation requires an Aircraft Flight Manual Supplement, the work is classified as which of the following?",
+        "choices": [
+          "Minor alteration",
+          "Minor repair",
+          "Preventive maintenance",
+          "Major alteration"
+        ],
+        "correctIndex": 3
+      },
+      "targetCaetId": "464152",
+      "targetCaetStem": "If a TSO part does have an STC for installation and includes a flight manual supplement, is that installation major or minor?",
+      "targetCaetPp": 0.56
+    },
+    {
+      "id": "CAT1-NEW-020",
+      "category": "mod1-maintenance-regs",
+      "difficulty": "medium",
+      "tags": [
+        "part-145",
+        "capability-list",
+        "technical-data",
+        "current-manuals"
+      ],
+      "learningObjective": "Decide whether a repair station may perform work on an article listed on its capability list when current technical data is not on hand.",
+      "fullObjective": "Recognize that Part 145 Section 145.109 requires a certificated repair station to have the current manufacturer maintenance manual or other approved technical data available when performing work, even if the article is on the capability list; without current data the work may not be performed.",
+      "flashcard": {
+        "term": "Capability List vs. Current Data",
+        "definition": "Being on the capability list shows a repair station is approved for a class of work, but Part 145 Section 145.109 still requires the current revision of the manufacturer maintenance manual or other approved technical data before any task is performed.",
+        "analogy": "Having a driver's license (capability list) doesn't let you drive without a working car; the current manual is the car that actually takes you down the road.",
+        "unit": "Maintenance Regulations"
+      },
+      "jeopardy": {
+        "question": "This is required by Section 145.109 before a repair station works on an article, even when the article already appears on the capability list.",
+        "choices": [
+          "A copy of the operator's minimum equipment list",
+          "The current revision of the manufacturer maintenance manual",
+          "A signed customer work order",
+          "A fresh 8130-3 from the vendor"
+        ],
+        "correctIndex": 1,
+        "explanation": "Section 145.109 requires current technical data, meaning the latest revision of the manufacturer maintenance manual or other FAA-approved data, to be available and used. The capability list alone does not authorize work without that data."
+      },
+      "multipleChoice": {
+        "question": "A Part 145 repair station has a particular communications radio listed on its approved capability list, but the most recent revision of the component maintenance manual has not yet been obtained. May the station perform maintenance on that radio?",
+        "choices": [
+          "No, because current technical data is required under Section 145.109",
+          "Yes, because the radio is on the capability list",
+          "Yes, as long as a previous revision of the manual is on file",
+          "No, unless the FAA Principal Inspector grants a one-time waiver"
+        ],
+        "correctIndex": 0,
+        "explanation": "Section 145.109 requires the repair station to have and use the current revision of the manufacturer maintenance manual or other approved data. Capability list coverage does not waive that requirement, and older revisions do not satisfy it."
+      },
+      "practice": {
+        "question": "Scenario: A customer brings a VHF communications radio to your Part 145 shop for repair. Your capability list covers the unit, but the manufacturer issued a new manual revision last month and your shop has not downloaded it. What is the correct action?",
+        "choices": [
+          "Proceed using the older manual revision since the radio is on the capability list",
+          "Release the unit after bench testing even without the new manual",
+          "Obtain the current manual revision before starting the repair",
+          "Have the technician use personal notes from a recent training class"
+        ],
+        "correctIndex": 2,
+        "explanation": "Part 145 Section 145.109 requires the station to maintain and use the current manufacturer maintenance manual. The correct action is to obtain the latest revision before beginning work; neither an older revision nor personal notes meets the regulatory requirement."
+      },
+      "preassessment": {
+        "question": "A repair station lists an avionics unit on its capability list, but the newest manual revision has not arrived. Can it perform the repair?",
+        "choices": [
+          "No, current technical data is required",
+          "Yes, but only bench testing",
+          "Yes, the capability list is enough",
+          "Yes, if the customer signs a waiver"
+        ],
+        "correctIndex": 0
+      },
+      "targetCaetId": "464145",
+      "targetCaetStem": "A repair station’s capability list shows a certain radio as “within capabilities,” but the latest manual revision is not available. Can you perform maintenance on it?",
+      "targetCaetPp": 0.67
+    },
+    {
+      "id": "CAT1-NEW-021",
+      "category": "mod1-maintenance-regs",
+      "difficulty": "medium",
+      "tags": [
+        "part-145",
+        "wiring",
+        "ac-43-13",
+        "installation-standards"
+      ],
+      "learningObjective": "Identify the primary industry-accepted wiring standard that a Part 145 avionics shop follows for installation workmanship.",
+      "fullObjective": "Recognize that FAA Advisory Circular AC 43.13-1B Chapter 11 (and for new aircraft, AC 43.13-2B) is the most widely accepted data for acceptable methods, techniques, and practices for avionics wiring installation when no specific manufacturer data applies.",
+      "flashcard": {
+        "term": "AC 43.13-1B Chapter 11",
+        "definition": "The FAA Advisory Circular chapter that is the primary acceptable methods, techniques, and practices for aircraft electrical wiring installation, used by Part 145 shops when the manufacturer's instructions do not cover the specific installation.",
+        "analogy": "It is the electrician's 'building code' for airplanes. Follow it and your wiring is presumed airworthy; ignore it and you own every problem that results.",
+        "unit": "Maintenance Regulations"
+      },
+      "jeopardy": {
+        "question": "This FAA document is the primary acceptable-methods reference for avionics wiring installation workmanship in a Part 145 shop.",
+        "choices": [
+          "RTCA DO-178C",
+          "MIL-STD-810",
+          "AC 43.13-1B Chapter 11",
+          "TSO-C91"
+        ],
+        "correctIndex": 2,
+        "explanation": "AC 43.13-1B Chapter 11 provides the FAA-accepted methods, techniques, and practices for aircraft electrical wiring installation, including routing, support, and protection. DO-178C covers software, MIL-STD-810 covers environmental test, and TSO-C91 is an ELT TSO."
+      },
+      "multipleChoice": {
+        "question": "Which reference is considered the most important standard to follow when a Part 145 shop routes and supports new avionics wiring and no specific manufacturer installation data applies?",
+        "choices": [
+          "RTCA DO-160 environmental conditions",
+          "MIL-STD-704 aircraft power standards",
+          "AC 43.13-1B Chapter 11 wiring practices",
+          "TSO-C126 for 406 MHz ELTs"
+        ],
+        "correctIndex": 2,
+        "explanation": "AC 43.13-1B Chapter 11 gives the FAA's accepted methods for aircraft electrical wiring installation and is the default workmanship standard when the aircraft or STC installation instructions do not address a specific detail. The other documents address power quality, environmental qualification, and specific equipment categories."
+      },
+      "practice": {
+        "question": "Scenario: You are routing and clamping new wiring for a transponder upgrade in a Part 145 shop. The STC installation instructions do not specify support spacing or bend-radius details. Which document should you follow for the workmanship standard?",
+        "choices": [
+          "AC 43.13-1B Chapter 11 for wiring practices",
+          "MIL-STD-704 for aircraft power limits",
+          "RTCA DO-160 for environmental qualification",
+          "The operator's Minimum Equipment List"
+        ],
+        "correctIndex": 0,
+        "explanation": "When an STC or manufacturer document is silent on a wiring workmanship detail, AC 43.13-1B Chapter 11 is the FAA-accepted source for installation methods. The other documents address different aspects of airworthiness and do not cover wiring workmanship."
+      },
+      "preassessment": {
+        "question": "Which standard is most important for avionics wiring installation in a Part 145 shop?",
+        "choices": [
+          "MIL-STD-704",
+          "AC 43.13-1B Chapter 11",
+          "RTCA DO-160",
+          "TSO-C126"
+        ],
+        "correctIndex": 1
+      },
+      "targetCaetId": "464322",
+      "targetCaetStem": "When installing avionics wiring in a Part 145 shop, which standard is most crucial?",
+      "targetCaetPp": 0.75
+    },
+    {
+      "id": "CAT1-NEW-022",
+      "category": "mod1-maintenance-regs",
+      "difficulty": "medium",
+      "tags": [
+        "part-145",
+        "technical-data",
+        "accountable-manager",
+        "responsibility"
+      ],
+      "learningObjective": "Identify which party in a Part 145 repair station is ultimately responsible for ensuring current technical data is available and used.",
+      "fullObjective": "Recognize that Part 145 places ultimate responsibility on the repair station (through its accountable manager) to ensure current manufacturer and regulatory technical data is available and actually used by personnel performing maintenance.",
+      "flashcard": {
+        "term": "Technical-Data Responsibility (Part 145)",
+        "definition": "Under Part 145, the repair station itself is responsible for making sure current manufacturer maintenance manuals, service bulletins, and regulatory data are available and used. The accountable manager carries this duty on behalf of the certificate holder.",
+        "analogy": "The certificate holder owns the shop's quality, just like a restaurant owner owns food safety even when line cooks do the cooking.",
+        "unit": "Maintenance Regulations"
+      },
+      "jeopardy": {
+        "question": "Part 145 assigns ultimate accountability for ensuring technicians have and use current technical data to this role.",
+        "choices": [
+          "The individual technician at the bench",
+          "The repair station (through its accountable manager)",
+          "The customer who owns the aircraft",
+          "The FAA Principal Avionics Inspector"
+        ],
+        "correctIndex": 1,
+        "explanation": "Part 145 Section 145.109 and 145.211 make the repair station, acting through its accountable manager and quality system, responsible for maintaining and using current technical data. The technician follows that data, the customer is not responsible, and the FAA inspector oversees compliance rather than supplies the data."
+      },
+      "multipleChoice": {
+        "question": "In a Part 145 avionics repair station, who bears the ultimate responsibility for ensuring that current manufacturer manuals and other approved technical data are on hand and actually used during maintenance?",
+        "choices": [
+          "The individual bench technician",
+          "The assigned FAA inspector",
+          "The customer who signs the work order",
+          "The repair station, through its accountable manager"
+        ],
+        "correctIndex": 3,
+        "explanation": "Under Part 145, Sections 145.109 and 145.211 place responsibility for current technical data on the repair station and its accountable manager. The technician has a duty to follow the data, but overall responsibility rests with the certificate holder."
+      },
+      "practice": {
+        "question": "Scenario: An FAA inspector visits your Part 145 shop and finds that one bench has an outdated manual. The inspector asks who is responsible for current technical data being on hand and used. Which answer is correct?",
+        "choices": [
+          "The technician, because they do the work",
+          "The repair station, through the accountable manager",
+          "The customer, because they requested the repair",
+          "The FAA, because it issued the certificate"
+        ],
+        "correctIndex": 1,
+        "explanation": "Responsibility for current technical data rests with the certificate holder under Part 145. The accountable manager ensures the quality system keeps manuals current. Individual technicians must follow the data but do not own the obligation to supply it."
+      },
+      "preassessment": {
+        "question": "Under Part 145, who is ultimately responsible for ensuring current technical data is available during maintenance?",
+        "choices": [
+          "The repair station",
+          "The customer",
+          "The FAA inspector",
+          "The bench technician"
+        ],
+        "correctIndex": 0
+      },
+      "targetCaetId": "464159",
+      "targetCaetStem": "Under Part 145, who is responsible for ensuring that the current technical data is available and used during avionics maintenance?",
+      "targetCaetPp": 0.75
+    },
+    {
+      "id": "CAT1-NEW-023",
+      "category": "mod1-maintenance-regs",
+      "difficulty": "medium",
+      "tags": [
+        "part-145",
+        "capability-list",
+        "ratings",
+        "scope"
+      ],
+      "learningObjective": "Describe the scope of a Part 145 repair station's capability list and how it is limited by ratings and approved data.",
+      "fullObjective": "Recognize that a repair station's capability list identifies the specific makes and models (within the shop's ratings) that the station is authorized to maintain, provided it has the required housing, equipment, personnel, and current technical data for each listed article.",
+      "flashcard": {
+        "term": "Repair Station Capability List",
+        "definition": "A document that identifies the specific articles a Part 145 repair station is authorized to maintain within its approved ratings. Each entry is backed by a self-evaluation showing the shop has the housing, tools, personnel, and current data required for that article.",
+        "analogy": "Think of it as the menu at a restaurant: the ratings are the cuisines you can cook (Italian, sushi), and the capability list is every specific dish you are actually equipped to serve.",
+        "unit": "Maintenance Regulations"
+      },
+      "jeopardy": {
+        "question": "This list, maintained under Part 145, identifies the specific articles a repair station is authorized to maintain within its approved ratings.",
+        "choices": [
+          "The shop's tool calibration log",
+          "The repair station's capability list",
+          "The operator's Minimum Equipment List",
+          "The FAA Approved Aircraft Inspection Program"
+        ],
+        "correctIndex": 1,
+        "explanation": "Under Section 145.215, a limited-rated repair station uses a capability list to identify specific articles it is authorized to maintain. Each addition is backed by a self-evaluation demonstrating compliance with Part 145. The other documents serve unrelated purposes."
+      },
+      "multipleChoice": {
+        "question": "How is the authorized work scope of a Part 145 repair station most accurately captured in its capability list?",
+        "choices": [
+          "It lists specific articles the station is authorized to maintain within its approved ratings",
+          "It replaces the need for manufacturer maintenance manuals on those articles",
+          "It lists every aircraft type the shop may return to service in any condition",
+          "It grants blanket authority to perform major repairs on any airframe"
+        ],
+        "correctIndex": 0,
+        "explanation": "Per Section 145.215, the capability list names the specific makes and models a limited-rated station may maintain inside its ratings. It does not replace manuals, grant airframe authority, or exempt the station from other Part 145 requirements."
+      },
+      "practice": {
+        "question": "Scenario: A new avionics technician asks you what their Part 145 shop's capability list actually allows. Which response best explains the scope?",
+        "choices": [
+          "It names the specific articles the shop may maintain within its ratings, provided required data and resources exist",
+          "It replaces the need for service bulletins and manufacturer manuals",
+          "It grants temporary authority to return major airframe repairs to service",
+          "It permits any work on any aircraft the customer brings in"
+        ],
+        "correctIndex": 0,
+        "explanation": "The capability list under Section 145.215 identifies specific articles a limited-rated station may maintain, conditioned on proper ratings, facilities, personnel, and current data. It does not replace manuals or extend authority beyond the ratings on the certificate."
+      },
+      "preassessment": {
+        "question": "Which best describes a Part 145 repair station's capability list?",
+        "choices": [
+          "Specific articles the shop may maintain within its ratings",
+          "A list of all aircraft types the shop can sign off",
+          "A substitute for manufacturer manuals",
+          "Authority to perform airframe major repairs"
+        ],
+        "correctIndex": 0
+      },
+      "targetCaetId": "464160",
+      "targetCaetStem": "Which statement best describes the scope of a repair station’s capabilities under Part 145?",
+      "targetCaetPp": 0.89
+    },
+    {
+      "id": "CAT1-NEW-024",
+      "category": "mod1-maintenance-regs",
+      "difficulty": "easy",
+      "tags": [
+        "form-8130-3",
+        "airworthiness-approval",
+        "return-to-service"
+      ],
+      "learningObjective": "Identify the primary purpose of FAA Form 8130-3, the Authorized Release Certificate / Airworthiness Approval Tag.",
+      "fullObjective": "Recognize that FAA Form 8130-3 certifies that a specific article (new or overhauled) conforms to approved design data and is in a condition for safe operation, providing airworthiness approval for return to service or installation.",
+      "flashcard": {
+        "term": "FAA Form 8130-3",
+        "definition": "The Authorized Release Certificate used to provide airworthiness approval for an aircraft part or article, certifying that the item conforms to approved design data and is in a condition for safe operation.",
+        "analogy": "It is a birth certificate plus a clean bill of health for a part: it proves the part is both genuine and airworthy at the moment it leaves the issuer.",
+        "unit": "Maintenance Regulations"
+      },
+      "jeopardy": {
+        "question": "This is the main reason the FAA issues Form 8130-3 with a new or overhauled component.",
+        "choices": [
+          "To document the component warranty terms",
+          "To transfer ownership of the article",
+          "To list every prior operator of the article",
+          "To certify airworthiness approval of the article for installation or return to service"
+        ],
+        "correctIndex": 3,
+        "explanation": "Form 8130-3 is the Authorized Release Certificate and Airworthiness Approval Tag. Its primary purpose is to certify that the article conforms to approved design data and is in a condition for safe operation. It is not a bill of sale, ownership record, or warranty document."
+      },
+      "multipleChoice": {
+        "question": "Which statement best captures the main purpose of FAA Form 8130-3, the Authorized Release Certificate?",
+        "choices": [
+          "To transfer legal ownership of an aircraft part between parties",
+          "To record pilot training on newly installed avionics",
+          "To provide airworthiness approval for an article for installation or return to service",
+          "To replace the maintenance record entry for minor repairs"
+        ],
+        "correctIndex": 2,
+        "explanation": "Form 8130-3 provides airworthiness approval by certifying that the listed article conforms to approved design data and is in a condition for safe operation. It does not convey ownership, pilot training, or replace logbook entries."
+      },
+      "practice": {
+        "question": "Scenario: A vendor ships your Part 145 shop an overhauled transponder accompanied by an FAA Form 8130-3. When you review the tag, what does that 8130-3 primarily certify about the unit?",
+        "choices": [
+          "That the unit has been legally sold to your shop",
+          "That the unit conforms to approved data and is in a condition for safe operation",
+          "That the unit meets a specific warranty duration",
+          "That the unit has been flight tested in an aircraft"
+        ],
+        "correctIndex": 1,
+        "explanation": "The 8130-3 is an airworthiness approval tag certifying conformity to approved design data and condition for safe operation. It is not a bill of sale, warranty document, or flight test record."
+      },
+      "preassessment": {
+        "question": "What is the main purpose of FAA Form 8130-3?",
+        "choices": [
+          "Certify airworthiness approval of an article",
+          "Transfer part ownership",
+          "Record pilot training",
+          "Document a warranty period"
+        ],
+        "correctIndex": 0
+      },
+      "targetCaetId": "464156",
+      "targetCaetStem": "What is the primary purpose of an FAA Form 8130-3 (Airworthiness Approval Tag)?",
+      "targetCaetPp": 0.92
+    },
+    {
+      "id": "CAT1-NEW-025",
+      "category": "mod1-maintenance-regs",
+      "difficulty": "hard",
+      "tags": [
+        "part-145",
+        "wiring",
+        "circular-connector",
+        "best-practices"
+      ],
+      "learningObjective": "Identify the recommended practice for inserting and extracting terminated wires from a standard circular connector in a Part 145 shop.",
+      "fullObjective": "Recognize that a calibrated insertion/extraction tool designed for the specific connector series must be used to seat and remove terminated contacts, preventing damage to grommets, retention clips, and contacts.",
+      "flashcard": {
+        "term": "Connector Insertion/Extraction Tool",
+        "definition": "A color-coded, series-specific hand tool used to push terminated contacts into, and remove them from, a circular connector without damaging the grommet seal or retention clip.",
+        "analogy": "Like using a proper dental tool instead of a pocketknife: the right instrument protects the delicate surrounding structure while doing the actual work.",
+        "unit": "Maintenance Regulations"
+      },
+      "jeopardy": {
+        "question": "This is the recommended way to seat or remove terminated contacts in a standard circular connector.",
+        "choices": [
+          "Use the correct color-coded insertion/extraction tool",
+          "Push the contact in by hand and pull with the wire",
+          "Heat the grommet with a heat gun before inserting",
+          "Use needle-nose pliers on the contact barrel"
+        ],
+        "correctIndex": 0,
+        "explanation": "Only the connector-specific, color-coded insertion/extraction tool seats contacts to the correct depth and releases retention clips without tearing the grommet. Pliers, bare hands, or heat all risk connector damage."
+      },
+      "multipleChoice": {
+        "question": "When installing or removing a terminated wire in a standard circular connector at a Part 145 avionics shop, which practice is recommended?",
+        "choices": [
+          "Use needle-nose pliers to grip the contact and push it into place",
+          "Use the correct color-coded insertion/extraction tool for that connector series",
+          "Pull on the wire itself to extract a contact from the grommet",
+          "Warm the grommet with a heat gun until the contact slides freely"
+        ],
+        "correctIndex": 1,
+        "explanation": "The accepted practice, reflected in AC 43.13-1B Chapter 11 and connector manufacturer data, is to use the series-specific insertion/extraction tool. It protects the grommet, properly seats the contact, and correctly releases retention clips. The other options commonly damage the connector."
+      },
+      "practice": {
+        "question": "Scenario: A technician needs to remove a damaged contact from a circular connector on a panel harness and install a new terminated wire in its place. Which approach follows Part 145 best practice?",
+        "choices": [
+          "Use the manufacturer's matching color-coded insertion/extraction tool",
+          "Gently pull the wire until the contact pops free of the grommet",
+          "Grip the contact shoulder with small pliers and rock it out",
+          "Apply heat to soften the grommet, then pull the wire"
+        ],
+        "correctIndex": 0,
+        "explanation": "The series-specific insertion/extraction tool is the only method that reliably releases the retention clip and preserves the grommet seal. Pulling on the wire, using pliers, or heating the grommet introduces damage that can lead to intermittent connections or loss of environmental seal."
+      },
+      "preassessment": {
+        "question": "What is the recommended way to insert or remove a terminated wire in a circular connector?",
+        "choices": [
+          "Use the matching insertion/extraction tool",
+          "Pull on the wire",
+          "Use needle-nose pliers",
+          "Heat the grommet first"
+        ],
+        "correctIndex": 0
+      },
+      "targetCaetId": "464311",
+      "targetCaetStem": "When inserting or extracting terminated wires from a standard circular connector, which practice is recommended in a Part 145 shop?",
+      "targetCaetPp": 0.93
+    },
+    {
+      "id": "CAT1-NEW-026",
+      "category": "mod1-maintenance-regs",
+      "difficulty": "easy",
+      "tags": [
+        "part-1",
+        "definitions",
+        "maintenance"
+      ],
+      "learningObjective": "Recall the 14 CFR Part 1 definition of maintenance.",
+      "fullObjective": "Recognize that 14 CFR Part 1.1 defines maintenance as inspection, overhaul, repair, preservation, and the replacement of parts, but excludes preventive maintenance.",
+      "flashcard": {
+        "term": "Maintenance (14 CFR Part 1.1)",
+        "definition": "Inspection, overhaul, repair, preservation, and the replacement of parts, but not preventive maintenance.",
+        "analogy": "Think of maintenance as the 'big bucket' of everything you do to keep an aircraft airworthy, minus the small pilot-level chores (preventive maintenance) that live in their own bucket.",
+        "unit": "Maintenance Regulations"
+      },
+      "jeopardy": {
+        "question": "According to 14 CFR Part 1, this term means inspection, overhaul, repair, preservation, and the replacement of parts, but not preventive maintenance.",
+        "choices": [
+          "Alteration",
+          "Preventive maintenance",
+          "Maintenance",
+          "Rebuilding"
+        ],
+        "correctIndex": 2,
+        "explanation": "Part 1.1 defines maintenance as inspection, overhaul, repair, preservation, and replacement of parts, explicitly excluding preventive maintenance. Alteration, preventive maintenance, and rebuilding each have their own separate definitions."
+      },
+      "multipleChoice": {
+        "question": "According to 14 CFR Part 1, which definition best matches the regulatory meaning of maintenance?",
+        "choices": [
+          "Any modification that changes the aircraft's type design",
+          "Inspection, overhaul, repair, preservation, and replacement of parts, excluding preventive maintenance",
+          "Simple preservation and minor tasks a pilot may perform",
+          "Only the repair of structural damage to an airframe"
+        ],
+        "correctIndex": 1,
+        "explanation": "Part 1.1 defines maintenance as inspection, overhaul, repair, preservation, and the replacement of parts, and specifically excludes preventive maintenance. Alterations and pilot-performed preventive tasks are defined separately."
+      },
+      "practice": {
+        "question": "Scenario: During a shop orientation, a new technician asks what the regulations actually mean by 'maintenance.' Which answer is correct under 14 CFR Part 1?",
+        "choices": [
+          "Any change to the aircraft's approved type design",
+          "Only tasks listed in Appendix A as preventive maintenance",
+          "Inspection, overhaul, repair, preservation, and replacement of parts, not including preventive maintenance",
+          "Any cleaning or cosmetic work performed on the aircraft"
+        ],
+        "correctIndex": 2,
+        "explanation": "Part 1.1 gives a specific definition of maintenance covering inspection, overhaul, repair, preservation, and replacement of parts, while excluding preventive maintenance. Cosmetic work, type design changes, and preventive tasks do not match this definition."
+      },
+      "preassessment": {
+        "question": "Under 14 CFR Part 1, what is maintenance?",
+        "choices": [
+          "Any type design change",
+          "Inspection, overhaul, repair, preservation, and parts replacement",
+          "Only structural repair",
+          "Any cosmetic cleaning"
+        ],
+        "correctIndex": 1
+      },
+      "targetCaetId": "464142",
+      "targetCaetStem": "According to FAA regulations, what is the definition of “maintenance”?",
+      "targetCaetPp": 0.94
+    },
+    {
+      "id": "CAT1-NEW-027",
+      "category": "mod1-maintenance-regs",
+      "difficulty": "easy",
+      "tags": [
+        "part-145",
+        "safety",
+        "housekeeping",
+        "human-factors"
+      ],
+      "learningObjective": "Explain why Part 145 shops must keep walkways and work areas clear of clutter.",
+      "fullObjective": "Recognize that Part 145 Section 145.103 requires housing and facilities to support safe work, so keeping walkways and work areas clear prevents personnel injury, protects aircraft and parts, and reduces FOD risk.",
+      "flashcard": {
+        "term": "Shop Housekeeping (Part 145)",
+        "definition": "The discipline of keeping walkways, benches, and storage clear of clutter. Required by Part 145 Section 145.103 and OSHA to prevent slips, trips, falls, FOD events, and damage to aircraft parts.",
+        "analogy": "A cluttered shop is like a crowded staircase: the first misstep produces injuries and broken hardware that were entirely avoidable.",
+        "unit": "Maintenance Regulations"
+      },
+      "jeopardy": {
+        "question": "This is the main reason Part 145 shops must keep walkways and work areas free of clutter.",
+        "choices": [
+          "To impress the FAA inspector visually",
+          "To fit more inventory into a small building",
+          "To prevent slips, trips, injuries, and damage to aircraft parts",
+          "To meet a customer contract requirement"
+        ],
+        "correctIndex": 2,
+        "explanation": "Clear walkways prevent slip and trip injuries, reduce foreign object damage, and protect aircraft parts from being struck or dropped. Section 145.103 requires facilities that support safe work, making clutter control a regulatory as well as a safety matter."
+      },
+      "multipleChoice": {
+        "question": "At a general aviation repair station operating under Part 145, explain why aisles and benches must be kept uncluttered.",
+        "choices": [
+          "So the shop appears tidy for visiting customers",
+          "So additional tooling can be stored on the floor",
+          "Because the FAA audits walkway width once per year",
+          "To prevent slips, trips, personal injury, and damage to aircraft parts"
+        ],
+        "correctIndex": 3,
+        "explanation": "Section 145.103 requires housing and facilities that support safe work. Clear walkways protect personnel from slip and trip injuries, reduce foreign object damage risk, and keep removed parts and aircraft hardware from being damaged. Cosmetics and storage convenience are not the driver."
+      },
+      "practice": {
+        "question": "Scenario: A new technician is curious why the lead insists that hoses, cables, and boxes never sit in a walkway overnight. Which answer best captures the regulatory and safety reason?",
+        "choices": [
+          "It makes the shop look better in photos",
+          "It reduces the shop's electrical utility bill",
+          "It is only a personal preference of the lead technician",
+          "It prevents slip, trip, and fall injuries and protects aircraft parts, as Part 145.103 requires safe facilities"
+        ],
+        "correctIndex": 3,
+        "explanation": "Part 145.103 requires facilities that support safe work. Clear walkways prevent slips, trips, and falls and protect aircraft parts from being damaged by feet, carts, or falling objects. The other answers either ignore the regulation or miss the actual safety rationale."
+      },
+      "preassessment": {
+        "question": "Why must a Part 145 shop keep walkways clear of clutter?",
+        "choices": [
+          "To look organized for customers",
+          "To prevent injuries and part damage",
+          "To store extra inventory",
+          "To meet utility requirements"
+        ],
+        "correctIndex": 1
+      },
+      "targetCaetId": "464358",
+      "targetCaetStem": "In a Part 145 general aviation repair station, why is it crucial to keep walkways and work areas free of clutter?",
+      "targetCaetPp": 0.95
     }
   ]
 }

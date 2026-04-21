@@ -192,6 +192,83 @@
         "correctIndex": 0,
         "explanation": "The wiggle test reveals intermittent physical connections. It is a diagnostic technique, not a torque application, voltage test, or software check."
       }
+    ],
+    "Extended Coverage": [
+      {
+        "id": "CAT7-NEW-J01",
+        "clue": "During a voltage test on a 24 V DC circuit, this could cause a multimeter to display 235 V.",
+        "choices": [
+          "The 24 V source has suddenly increased its output tenfold",
+          "The meter is set to AC instead of DC, the range is wrong, a probe is damaged, or the meter is picking up induced ghost voltage on a floating test point",
+          "The internal resistance of the component is now infinite",
+          "The meter has a perfectly functioning low battery"
+        ],
+        "correctIndex": 1,
+        "explanation": "A 10x reading on a fixed DC source is a measurement-setup artifact — wrong mode, wrong range, damaged lead, or ghost voltage on a floating point. The source cannot produce 235 V from a 24 V bus, and component resistance does not raise applied voltage.",
+        "targetCaetId": "464198",
+        "targetCaetStem": "Scenario: You are conducting a voltage test on a 24V DC circuit, and the multimeter shows a reading of 235V What could be the cause of this small voltage drop?",
+        "targetCaetPp": 0.5
+      },
+      {
+        "id": "CAT7-NEW-J02",
+        "clue": "This technique BEST confirms that a specific switch is causing a parasitic battery drain.",
+        "choices": [
+          "Swapping the suspect switch with a known-good one and waiting a week",
+          "Checking the switch for visible cracks",
+          "Installing an ammeter in series with the battery and pulling circuit breakers one at a time while watching for the drain to drop to normal",
+          "Running a megger test on the switch contacts"
+        ],
+        "correctIndex": 2,
+        "explanation": "The breaker-pull method with an in-line ammeter isolates the drain to a specific branch. Blind swap testing is slow and inconclusive. Visual inspection misses internal faults. Megger testing is for insulation, not parasitic leakage.",
+        "targetCaetId": "464171",
+        "targetCaetStem": "If a technician suspects a faulty switch is causing a parasitic draw, how can they BEST confirm this?",
+        "targetCaetPp": 0.52
+      },
+      {
+        "id": "CAT7-NEW-J03",
+        "clue": "This is the diagnostic approach a technician uses to verify a suspected switch is causing parasitic draw.",
+        "choices": [
+          "Measuring the switch body with an infrared thermometer",
+          "Placing a current measurement on the battery lead and pulling circuit breakers individually until the draw returns to normal",
+          "Checking the switch against its part number in the illustrated parts catalog",
+          "Listening for a faint buzz at the switch with a stethoscope"
+        ],
+        "correctIndex": 1,
+        "explanation": "A current measurement plus systematic breaker pulling is the verification technique. Temperature, parts-catalog lookup, and audio methods cannot positively identify a milliampere-range drain.",
+        "targetCaetId": "464200",
+        "targetCaetStem": "Scenario: You are conducting a voltage test on a 24V DC circuit, and the multimeter shows a reading of 235V. What could be the cause of this small voltage drop?",
+        "targetCaetPp": 0.67
+      },
+      {
+        "id": "CAT7-NEW-J04",
+        "clue": "To ensure accurate readings with a micrometer, a technician should do this.",
+        "choices": [
+          "Verify the zero reading before each use and apply consistent contact force with the ratchet or friction thimble, keeping the measuring faces clean and the part seated squarely",
+          "Tighten the thimble by hand as much as possible to guarantee contact",
+          "Measure each part only once for consistency",
+          "Use body heat to warm the part before measurement"
+        ],
+        "correctIndex": 0,
+        "explanation": "Accurate micrometer technique relies on zero verification, consistent force via the ratchet, clean faces, and square seating. Hand overtightening, single readings, and warming the part all introduce error.",
+        "targetCaetId": "464342",
+        "targetCaetStem": "When using a micrometer, what should be done to ensure accurate measurements?",
+        "targetCaetPp": 0.87
+      },
+      {
+        "id": "CAT7-NEW-J05",
+        "clue": "This is the principal application of a milliohmmeter in avionics work.",
+        "choices": [
+          "Stressing insulation at high DC voltage",
+          "Measuring very low resistances in the milliohm range, such as bonding straps and relay contacts, with a four-wire Kelvin connection",
+          "Viewing signal shape versus time",
+          "Counting pulses per second on a digital line"
+        ],
+        "correctIndex": 1,
+        "explanation": "A milliohmmeter reads very low resistance with four-wire Kelvin technique. Insulation stress testing is the megger's role. Waveform viewing is the oscilloscope. Pulse counting uses a frequency counter.",
+        "targetCaetId": "464349",
+        "targetCaetStem": "A milliohmmeter is primarily used to:",
+        "targetCaetPp": 0.94
+      }
     ]
   },
   "final": [

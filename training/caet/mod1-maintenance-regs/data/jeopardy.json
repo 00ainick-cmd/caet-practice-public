@@ -254,6 +254,98 @@
         "correctIndex": 3,
         "explanation": "An Airworthiness Directive (AD) is a legally binding FAA order issued when an unsafe condition exists. Manufacturer Service Bulletins are advisory unless an AD references them. Service Letters and Maintenance Alerts are informational only."
       }
+    ],
+    "Extended Coverage": [
+      {
+        "id": "CAT1-NEW-J03",
+        "clue": "This governs whether work may start when an article sits on the capability list but the newest manual revision is not yet in the shop.",
+        "choices": [
+          "The customer may sign a waiver and work proceeds",
+          "Work may not begin until current technical data is on hand",
+          "The capability list alone authorizes the work",
+          "The FAA inspector must approve the missing revision"
+        ],
+        "correctIndex": 1,
+        "explanation": "Part 145 Section 145.109 requires a repair station to have and use the current manufacturer maintenance manual or other FAA-approved data. Capability list coverage is not a substitute for current data. A customer waiver and verbal FAA approval cannot replace the regulation.",
+        "targetCaetId": "464145",
+        "targetCaetStem": "A repair station’s capability list shows a certain radio as “within capabilities,” but the latest manual revision is not available. Can you perform maintenance on it?",
+        "targetCaetPp": 0.67
+      },
+      {
+        "id": "CAT1-NEW-J04",
+        "clue": "This FAA advisory circular is the default acceptable-methods reference for avionics wiring installation workmanship in a Part 145 shop.",
+        "choices": [
+          "AC 90-100",
+          "AC 20-138",
+          "AC 23-17",
+          "AC 43.13-1B"
+        ],
+        "correctIndex": 3,
+        "explanation": "AC 43.13-1B, especially Chapter 11, gives the FAA's accepted methods, techniques, and practices for aircraft electrical wiring installation. AC 20-138 addresses GPS/GNSS installations, AC 23-17 deals with Part 23 systems, and AC 90-100 covers U.S. RNAV operations.",
+        "targetCaetId": "464322",
+        "targetCaetStem": "When installing avionics wiring in a Part 145 shop, which standard is most crucial?",
+        "targetCaetPp": 0.75
+      },
+      {
+        "id": "CAT1-NEW-J05",
+        "clue": "This is the proper description of a Part 145 repair station's capability list.",
+        "choices": [
+          "An FAA-approved substitute for manufacturer manuals",
+          "A list of aircraft types the station may return to service",
+          "A record of every tool the station owns",
+          "A list of specific articles the station may maintain within its approved ratings"
+        ],
+        "correctIndex": 3,
+        "explanation": "Section 145.215 defines the capability list as identifying the specific articles, within the shop's ratings, that it is authorized to maintain. It is not a manual substitute, nor an airframe privilege, nor a tool inventory.",
+        "targetCaetId": "464160",
+        "targetCaetStem": "Which statement best describes the scope of a repair station’s capabilities under Part 145?",
+        "targetCaetPp": 0.89
+      },
+      {
+        "id": "CAT1-NEW-J06",
+        "clue": "This is the first reasonable action for a new technician troubleshooting an intermittent VOR NAV flag complaint in a Part 145 shop.",
+        "choices": [
+          "Swap the antenna and coax without testing",
+          "Replace the VOR receiver on the bench",
+          "Verify the complaint and review the manufacturer troubleshooting procedures",
+          "Return the unit to service with a pilot placard"
+        ],
+        "correctIndex": 2,
+        "explanation": "Troubleshooting begins with verifying the reported symptom and consulting the approved manufacturer data. Swapping parts before confirming the problem wastes time and may mask the true cause. Placarding does not address airworthiness of a required NAV system.",
+        "targetCaetId": "464235",
+        "targetCaetStem": "A pilot complains of intermittent NAV flag indications on a VOR receiver. Which step might a new technician take first in a Part 145 shop?",
+        "targetCaetPp": 0.92
+      },
+      {
+        "id": "CAT1-NEW-J07",
+        "clue": "This combination of details must appear in the return-to-service log entry for an avionics maintenance task under Section 43.9.",
+        "choices": [
+          "Only the customer's name and invoice number",
+          "A photograph of the removed component",
+          "Description of work, date completed, technician signature, and certificate number",
+          "The aircraft sale history"
+        ],
+        "correctIndex": 2,
+        "explanation": "Section 43.9 requires each maintenance record entry to include a description of the work performed, the date of completion, and the signature and certificate number of the person approving the work. Invoices, photos, or ownership history are not regulatory substitutes.",
+        "targetCaetId": "464147",
+        "targetCaetStem": "What must be included in a maintenance log entry for an avionics repair?",
+        "targetCaetPp": 0.93
+      },
+      {
+        "id": "CAT1-NEW-J08",
+        "clue": "This is the recommended technique for inserting or extracting terminated contacts in a circular connector.",
+        "choices": [
+          "The correct insertion/extraction tool sized for that connector series",
+          "Needle-nose pliers on the contact barrel",
+          "Pulling directly on the wire",
+          "A heated pick to soften the grommet"
+        ],
+        "correctIndex": 0,
+        "explanation": "Circular connectors use retention clips and rubber grommets that are easily damaged. The correct, color-coded insertion/extraction tool for the connector series seats and releases contacts without harming the grommet or clip. The other methods routinely cause connector damage.",
+        "targetCaetId": "464311",
+        "targetCaetStem": "When inserting or extracting terminated wires from a standard circular connector, which practice is recommended in a Part 145 shop?",
+        "targetCaetPp": 0.93
+      }
     ]
   },
   "final": [

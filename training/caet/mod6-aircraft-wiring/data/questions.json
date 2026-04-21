@@ -1542,6 +1542,1358 @@
         ],
         "correctIndex": 0
       }
+    },
+    {
+      "id": "CAT6-NEW-026",
+      "category": "mod6-aircraft-wiring",
+      "difficulty": "medium",
+      "tags": [
+        "insulation",
+        "wire-selection",
+        "primary-consideration"
+      ],
+      "learningObjective": "Identify the primary consideration when selecting wire insulation for aircraft use",
+      "fullObjective": "Recognize that the primary driver for insulation selection is the operating environment — temperature, chafing resistance, and chemical exposure — which determines whether materials such as Teflon (PTFE), FEP, or nylon are appropriate per AC 43.13-1B.",
+      "flashcard": {
+        "term": "Aircraft wire insulation selection",
+        "definition": "Insulation is selected based on the wire's operating environment: expected temperature range, abrasion and chafing resistance, and exposure to fuels, oils, or hydraulic fluids. High-temperature zones (near engines, exhaust, bleed air) call for Teflon/PTFE or FEP; general-purpose areas may use nylon-jacketed types.",
+        "analogy": "Choose insulation the way you choose work clothing — based on where you will be working, not on what looks good in the shop.",
+        "unit": "Aircraft Wiring Practices"
+      },
+      "jeopardy": {
+        "question": "This is the main factor that drives the choice of wire insulation in an aircraft installation.",
+        "choices": [
+          "The shop's preferred vendor",
+          "The color of the insulation jacket",
+          "The operating environment, including temperature, abrasion, and fluid exposure",
+          "The appearance of the finished harness"
+        ],
+        "correctIndex": 2,
+        "explanation": "Environment drives insulation choice. Teflon/PTFE handles high heat near engines; nylon works for general airframe runs; specific fluids may demand specific jacket materials. Color, vendor, and appearance are administrative details, not engineering drivers."
+      },
+      "multipleChoice": {
+        "question": "A technician is selecting wire for a new avionics installation. Which factor most directly determines the appropriate insulation type?",
+        "choices": [
+          "The color coding preferred by the shop",
+          "The operating environment, including temperature, abrasion risk, and fluid exposure",
+          "The cost per foot of the candidate wire types",
+          "The reel diameter available at the supplier"
+        ],
+        "correctIndex": 1,
+        "explanation": "Insulation choice is environmental engineering. Teflon/PTFE for hot zones, nylon or PVC-nylon for general areas, and specific fluid-resistant jackets where hydraulic fluid or fuel contact is possible. Cost, color, and reel size are logistics, not selection criteria."
+      },
+      "practice": {
+        "question": "During a panel upgrade, a technician must run new wire through a zone near the engine firewall where ambient temperatures can reach 200 degrees C. Which insulation type is the best choice?",
+        "choices": [
+          "Teflon (PTFE) or FEP-insulated wire rated for the expected temperature",
+          "Standard nylon-jacketed general-purpose hookup wire",
+          "Automotive-grade PVC wire from the parts bin",
+          "Unjacketed bare conductor secured inside a loom"
+        ],
+        "correctIndex": 0,
+        "explanation": "Near the firewall, only high-temperature insulation such as Teflon (PTFE) or FEP is acceptable. Nylon and PVC will soften, degrade, or ignite at elevated temperatures. Bare wire is never acceptable in aircraft wiring — insulation is mandatory."
+      },
+      "preassessment": {
+        "question": "What is the primary factor when choosing aircraft wire insulation?",
+        "choices": [
+          "Reel size",
+          "Jacket color",
+          "Cost per foot",
+          "Operating environment (temperature, abrasion, fluid exposure)"
+        ],
+        "correctIndex": 3
+      },
+      "targetCaetId": "464301",
+      "targetCaetStem": "What is the primary consideration when choosing wire insulation for an aircraft?",
+      "targetCaetPp": 0.14
+    },
+    {
+      "id": "CAT6-NEW-027",
+      "category": "mod6-aircraft-wiring",
+      "difficulty": "hard",
+      "tags": [
+        "shielding",
+        "emi",
+        "grounding",
+        "shield-termination"
+      ],
+      "learningObjective": "Identify the accepted practice for terminating cable shields to reduce EMI in avionics wiring",
+      "fullObjective": "Recognize that cable shields must be grounded at a defined end (typically the receiver/chassis) — or at both ends per equipment instructions — never left floating on both ends, and that the shield drain must be terminated to a low-impedance ground point per AC 43.13-1B Chapter 11.",
+      "flashcard": {
+        "term": "Shield termination — EMI control",
+        "definition": "To control EMI, shields are grounded to a low-impedance ground at one end (typically the receiver or chassis) or at both ends when the installation manual requires it. A shield left floating on both ends acts as an antenna and increases interference instead of reducing it.",
+        "analogy": "A shield is only useful if it has somewhere to dump the noise — grounding it gives the induced current a return path; floating it traps the noise inside.",
+        "unit": "Aircraft Wiring Practices"
+      },
+      "jeopardy": {
+        "question": "This is the accepted shield-termination guideline that reduces electromagnetic interference in avionics wiring.",
+        "choices": [
+          "Ground the shield at one end (typically the receiver) or at both ends per the installation manual",
+          "Tie the shield to the signal conductor at each end",
+          "Wrap the shield around the connector without electrical continuity",
+          "Leave both ends of the shield disconnected so no current can flow"
+        ],
+        "correctIndex": 0,
+        "explanation": "Grounding the shield at a defined end gives induced noise currents a low-impedance return path. Floating both ends turns the shield into an antenna; wrapping without continuity is mechanical only; tying shield to signal shorts the circuit."
+      },
+      "multipleChoice": {
+        "question": "Which shield-termination method is most commonly specified for controlling EMI on avionics signal cables?",
+        "choices": [
+          "Tying the shield conductor to the inner signal wire at the load end",
+          "Leaving both shield ends floating so stray currents cannot enter",
+          "Grounding the shield at one end (usually the receiver/chassis side) or at both ends when the installation manual calls for it",
+          "Coiling the shield around the outside of the connector"
+        ],
+        "correctIndex": 2,
+        "explanation": "Standard practice is single-end grounding at the receiver, or double-end grounding when specified by equipment manuals. A floating shield acts as an antenna. Connecting shield to signal creates a short. Coiling around a connector is a mechanical wrap with no electrical grounding."
+      },
+      "practice": {
+        "question": "A technician is installing a new digital data cable between a remote sensor and a display unit. The installation manual specifies single-point shield grounding. Where should the shield be terminated?",
+        "choices": [
+          "At both ends using a jumper to the signal conductor",
+          "At the sensor end only, with the receiver end cut short and taped",
+          "At neither end, so the shield remains electrically isolated",
+          "At the receiver/display-unit chassis only, per the manual's single-point instruction"
+        ],
+        "correctIndex": 3,
+        "explanation": "Single-point shield grounding per the manual means one end — typically the receiver — is grounded and the other is insulated (not floating into contact with metal, but intentionally capped). Neither-end floating defeats the shield. Jumping shield to signal would short the data line."
+      },
+      "preassessment": {
+        "question": "How should a cable shield normally be terminated to reduce EMI?",
+        "choices": [
+          "Left floating at both ends",
+          "Grounded at one end, or both ends per the installation manual",
+          "Cut off at both ends",
+          "Tied to the signal wire"
+        ],
+        "correctIndex": 1
+      },
+      "targetCaetId": "464312",
+      "targetCaetStem": "Which guideline is commonly followed for shield termination to reduce EMI in avionics wiring?",
+      "targetCaetPp": 0.62
+    },
+    {
+      "id": "CAT6-NEW-028",
+      "category": "mod6-aircraft-wiring",
+      "difficulty": "medium",
+      "tags": [
+        "routing",
+        "harness-fit",
+        "installation-problem"
+      ],
+      "learningObjective": "Identify the correct next step when a wire bundle does not fit the designated routing path",
+      "fullObjective": "Recognize that when a bundle does not fit its intended routing, the technician must stop, consult the wiring diagram and installation instructions, and find an approved alternate route rather than forcing the bundle into position.",
+      "flashcard": {
+        "term": "Bundle does not fit routing path",
+        "definition": "When a wire bundle will not fit the designated route, do not force it. Stop, consult the installation drawings and AMM, and identify an approved alternate path — or obtain engineering approval for a deviation. Forcing a bundle causes insulation damage, pinched conductors, and interference with moving parts.",
+        "analogy": "If the part won't fit where the drawing says it goes, the answer is never a bigger hammer — it is a second look at the drawing.",
+        "unit": "Aircraft Wiring Practices"
+      },
+      "jeopardy": {
+        "question": "This is the correct next step when an installed wire bundle will not fit the designated routing path.",
+        "choices": [
+          "Stop, review the installation drawings and AMM, and select an approved alternate route",
+          "Force the bundle into place with pliers to meet the planned path",
+          "Cut the bundle in half and splice it on the other side of the obstruction",
+          "Remove a portion of the airframe structure to create more room"
+        ],
+        "correctIndex": 0,
+        "explanation": "Forcing damages insulation and strains crimps. Unauthorized structure removal is never permitted. Cutting and splicing defeats the original harness design. The correct action is to stop, consult approved documentation, and reroute by approved means."
+      },
+      "multipleChoice": {
+        "question": "During an avionics installation, a technician discovers the wire bundle will not fit the routing path shown on the drawing. What should the technician do next?",
+        "choices": [
+          "Stop work, review the installation drawings and AMM, and choose an approved alternate path or request engineering guidance",
+          "Cut the bundle and splice it beyond the tight spot",
+          "Trim a notch in the airframe to make room",
+          "Use pliers to force the bundle along the planned route"
+        ],
+        "correctIndex": 0,
+        "explanation": "Installation data is the controlling authority. If the bundle cannot follow the shown path, the only proper action is to review the documentation, identify an approved alternate, and — if none exists — request engineering guidance. Forcing, splicing, or modifying structure without approval is prohibited."
+      },
+      "practice": {
+        "question": "A technician is halfway through an installation when the harness will not slip through the designated grommet in the bulkhead. What is the best course of action?",
+        "choices": [
+          "Apply lubricant and force the bundle through the existing hole",
+          "Enlarge the grommet hole with a rotary tool so the bundle fits",
+          "Shave the insulation off several wires to reduce bundle diameter",
+          "Pause the installation, compare the bundle diameter to the drawing, and select an approved alternate path or request engineering disposition"
+        ],
+        "correctIndex": 3,
+        "explanation": "Enlarging structure holes changes the airworthy configuration. Shaving insulation destroys the wire. Forcing with lubricant damages the jacket. The proper response is to stop, confirm bundle size against the drawing, and route by approved means — possibly with engineering approval."
+      },
+      "preassessment": {
+        "question": "A wire bundle does not fit the designated routing path. What should you do first?",
+        "choices": [
+          "Force it into place",
+          "Cut the structure",
+          "Splice the harness",
+          "Stop and review the drawings or request engineering guidance"
+        ],
+        "correctIndex": 3
+      },
+      "targetCaetId": "464308",
+      "targetCaetStem": "Scenario: During an avionics installation, you notice that the wire bundle does not fit the designated routing path. What should you do next?",
+      "targetCaetPp": 0.67
+    },
+    {
+      "id": "CAT6-NEW-029",
+      "category": "mod6-aircraft-wiring",
+      "difficulty": "easy",
+      "tags": [
+        "nav-lights",
+        "parallel-circuits",
+        "circuit-topology"
+      ],
+      "learningObjective": "Identify the circuit topology when one lamp fails but the others remain lit",
+      "fullObjective": "Recognize that when a single bulb in a multi-bulb circuit fails and the remaining bulbs stay lit, the bulbs are connected in parallel — each providing an independent current path from the source to ground.",
+      "flashcard": {
+        "term": "Parallel lamp circuit",
+        "definition": "In a parallel circuit, each bulb has its own independent path from the bus to ground. If one bulb opens, the other branches keep operating because they still have a complete path. This is the standard wiring topology for most aircraft navigation, position, and cabin lighting.",
+        "analogy": "Parallel bulbs are like multiple hoses sharing one water source — if one hose is pinched closed, the others still flow.",
+        "unit": "Aircraft Wiring Practices"
+      },
+      "jeopardy": {
+        "question": "This is the wiring topology of three navigation lamps when one bulb burns out but the other two keep operating normally.",
+        "choices": [
+          "Series",
+          "Single-wire loop",
+          "Series-parallel with a common shunt",
+          "Parallel"
+        ],
+        "correctIndex": 3,
+        "explanation": "Parallel wiring gives each bulb its own independent path. If one opens, the others retain continuity and stay lit. A series circuit fails completely when any one bulb opens. A series-parallel arrangement would show partial behavior, not fully independent lamps."
+      },
+      "multipleChoice": {
+        "question": "Three navigation lamps share a single circuit breaker. When one bulb burns out, the remaining two stay fully lit. How are the lamps most likely connected?",
+        "choices": [
+          "In series, so current flows through each bulb in turn",
+          "In parallel, each bulb on its own branch from bus to ground",
+          "In a shunt-loop configuration with shared filaments",
+          "In a single daisy chain with a common return"
+        ],
+        "correctIndex": 1,
+        "explanation": "Only parallel connection allows remaining lamps to stay lit when one bulb opens. Series connection would extinguish all three. 'Shunt-loop' is not a standard topology for aircraft lighting, and daisy-chain wiring typically behaves like a series string for open-circuit fault response."
+      },
+      "practice": {
+        "question": "During a post-flight walkaround, one of three wingtip position lamps is dark while the other two still operate. What does this symptom tell the technician about the circuit?",
+        "choices": [
+          "The circuit breaker is tripping intermittently for only one lamp",
+          "The bulbs are wired in parallel, which is why a single bulb failure does not affect the others",
+          "The ground wire is open for all three lamps",
+          "The bulbs must be wired in series because a single break stopped a single lamp"
+        ],
+        "correctIndex": 1,
+        "explanation": "Parallel wiring isolates bulb failures. A series configuration would kill all three lights if any single bulb opened. A tripping breaker would affect every lamp sharing it; a common ground open would also extinguish all lamps together. The symptom points to parallel wiring with one failed bulb."
+      },
+      "preassessment": {
+        "question": "One bulb of three fails but the other two stay lit. The bulbs are connected in:",
+        "choices": [
+          "Parallel",
+          "Series",
+          "Open loop",
+          "Daisy chain"
+        ],
+        "correctIndex": 0
+      },
+      "targetCaetId": "464181",
+      "targetCaetStem": "In a navigation light circuit, if one bulb fails but the other two remain lit, the lights are most likely connected in:",
+      "targetCaetPp": 0.7
+    },
+    {
+      "id": "CAT6-NEW-030",
+      "category": "mod6-aircraft-wiring",
+      "difficulty": "medium",
+      "tags": [
+        "emi",
+        "routing-practices",
+        "lighting-system",
+        "separation"
+      ],
+      "learningObjective": "Identify routing practices that minimize electromagnetic interference in a new lighting installation",
+      "fullObjective": "Recognize that EMI is reduced by separating signal cables from high-current/high-power wiring, using shielded or twisted-pair cable where appropriate, and crossing at right angles rather than running parallel over long distances — per AC 43.13-1B Chapter 11.",
+      "flashcard": {
+        "term": "Routing to minimize EMI",
+        "definition": "To reduce EMI, separate low-level signal wiring from high-current or power wiring, route each in its own bundle, use shielded or twisted-pair cable as specified, and cross power and signal paths at right angles when they must share an area. Parallel runs of signal and power cause capacitive and inductive coupling.",
+        "analogy": "Signal and power wires are like quiet and loud conversations — keep them in separate rooms, and when they cross paths, keep it brief.",
+        "unit": "Aircraft Wiring Practices"
+      },
+      "jeopardy": {
+        "question": "This is the best routing strategy to minimize EMI between a new lighting feed and other aircraft electrical systems.",
+        "choices": [
+          "Route the lighting feed in its own bundle, separated from high-current wiring, using shielded cable where specified and crossing power runs at right angles",
+          "Run the lighting feed parallel to the main bus cable for the entire length of the aircraft",
+          "Leave the lighting wire unsupported between endpoints",
+          "Bundle the lighting feed together with primary power wires for neatness"
+        ],
+        "correctIndex": 0,
+        "explanation": "Separation, shielding, and right-angle crossings are the three core EMI-control practices. Bundling with power or running parallel to a main bus maximizes coupling. Unsupported wire creates mechanical damage, not EMI control."
+      },
+      "multipleChoice": {
+        "question": "A technician is routing wiring for a new aircraft lighting system and must avoid interference from other electrical systems. Which routing practice best minimizes EMI?",
+        "choices": [
+          "Separate the lighting feed from high-current wiring, use shielded cable where specified, and cross power runs at right angles when sharing an area",
+          "Run the lighting feed in the same bundle as primary power for neatness",
+          "Route the lighting wire parallel to the main DC bus for its full length",
+          "Leave the lighting wire loose between termination points"
+        ],
+        "correctIndex": 0,
+        "explanation": "Separation of signal and power, shielding, and right-angle crossings are the standard EMI controls in AC 43.13-1B. Sharing bundles with power wiring or paralleling high-current feeders produces strong inductive and capacitive coupling."
+      },
+      "practice": {
+        "question": "A technician is planning the route for new cabin-lighting wiring that must pass through the same area as the primary electrical bus. What is the best way to minimize EMI?",
+        "choices": [
+          "Place both bundles in the same tie-wrap group to keep them together",
+          "Separate the lighting bundle from the primary bus, use shielded cable where the installation manual specifies, and cross the bus at right angles rather than running parallel",
+          "Run the two bundles in parallel for the entire length to simplify the installation",
+          "Leave the lighting wire untied so it can move away from the bus"
+        ],
+        "correctIndex": 1,
+        "explanation": "Common-bundling couples noise directly; parallel runs maximize length-dependent induction; loose wire causes chafing. Proper practice is physical separation, use of specified shielding, and right-angle crossings to minimize the interaction length."
+      },
+      "preassessment": {
+        "question": "How do you minimize EMI when routing new aircraft lighting wiring?",
+        "choices": [
+          "Bundle with power wires",
+          "Run parallel to the main bus",
+          "Separate from high-current wiring, use shielding as specified, cross at right angles",
+          "Leave the wire unsupported"
+        ],
+        "correctIndex": 2
+      },
+      "targetCaetId": "464307",
+      "targetCaetStem": "Scenario: You are wiring a new aircraft lighting system. The wiring must be routed in a way that avoids electromagnetic interference from other electrical systems. What should you do to minimize interference?",
+      "targetCaetPp": 0.71
+    },
+    {
+      "id": "CAT6-NEW-031",
+      "category": "mod6-aircraft-wiring",
+      "difficulty": "medium",
+      "tags": [
+        "splicing",
+        "environmental",
+        "heat-shrink-solder-sleeve"
+      ],
+      "learningObjective": "Identify the preferred splice type for environmentally sensitive aircraft locations",
+      "fullObjective": "Recognize that heat-shrink solder sleeves (environmental splices) are the preferred splice for areas exposed to temperature extremes, moisture, or vibration — such as engine bays, wheel wells, and unpressurized zones — because they combine a soldered electrical connection with a sealed, strain-relieved jacket.",
+      "flashcard": {
+        "term": "Environmental splice (heat-shrink solder sleeve)",
+        "definition": "An environmental splice uses a heat-shrink sleeve with a pre-measured solder ring and internal sealant. When heat is applied, the solder bonds the conductors and the sleeve seals the joint against moisture and contaminants. It is the preferred splice for engine bays, wheel wells, unpressurized areas, and other harsh environments.",
+        "analogy": "It is like a weatherproof lamination — one operation creates both the electrical joint and a sealed, strain-relieved jacket.",
+        "unit": "Aircraft Wiring Practices"
+      },
+      "jeopardy": {
+        "question": "This is the preferred splice type for harsh environments such as engine compartments, wheel wells, and unpressurized aircraft areas.",
+        "choices": [
+          "Heat-shrink solder sleeve (environmental splice)",
+          "Twist-and-tape field splice",
+          "Non-insulated butt crimp left exposed",
+          "Automotive-grade wire nut"
+        ],
+        "correctIndex": 0,
+        "explanation": "Heat-shrink solder sleeves combine a soldered joint with a sealed, adhesive-lined jacket — the only splice type approved for most environmentally exposed areas. Tape splices, bare crimps, and wire nuts are never acceptable on aircraft wiring."
+      },
+      "multipleChoice": {
+        "question": "Which splice type is generally preferred for aircraft locations exposed to moisture, temperature extremes, or vibration — such as near the engine or in unpressurized areas?",
+        "choices": [
+          "A household-style wire nut",
+          "A twist-and-tape splice made with electrical tape",
+          "A non-insulated butt-crimp terminal left uncovered",
+          "A heat-shrink solder sleeve that creates a sealed, soldered, strain-relieved joint"
+        ],
+        "correctIndex": 3,
+        "explanation": "Environmental splices — heat-shrink solder sleeves — form a sealed, moisture-resistant, soldered joint in one operation. Tape, bare crimps, and wire nuts are prohibited on aircraft: they fail under vibration, humidity, and temperature cycling."
+      },
+      "practice": {
+        "question": "A technician must add a splice to a wire running through an unpressurized wheel-well zone. Which splice method is best suited to that environment?",
+        "choices": [
+          "Wrap the joint with self-amalgamating tape after twisting the conductors",
+          "Crimp a bare butt splice and leave it exposed so it can be inspected visually",
+          "Use a commercial residential wire nut covered with silicone",
+          "Use a heat-shrink environmental solder sleeve that simultaneously solders and seals the joint"
+        ],
+        "correctIndex": 3,
+        "explanation": "Wheel wells see moisture, debris, and temperature swings. A heat-shrink solder sleeve creates a sealed, soldered, mechanically supported joint suited to that exposure. Tape, bare crimps, and wire nuts are not approved for aircraft service."
+      },
+      "preassessment": {
+        "question": "Which splice is preferred for environmentally sensitive aircraft areas?",
+        "choices": [
+          "Twisted connection with electrical tape",
+          "Heat-shrink solder sleeve",
+          "Uninsulated butt crimp",
+          "Wire nut"
+        ],
+        "correctIndex": 1
+      },
+      "targetCaetId": "464333",
+      "targetCaetStem": "What type of wire splice is generally preferred for environmentally sensitive areas in an aircraft, such as near the engine or in unpressurized areas?",
+      "targetCaetPp": 0.73
+    },
+    {
+      "id": "CAT6-NEW-032",
+      "category": "mod6-aircraft-wiring",
+      "difficulty": "medium",
+      "tags": [
+        "digital-data",
+        "twisted-pair",
+        "shielding",
+        "cable-type"
+      ],
+      "learningObjective": "Identify the wire type typically used for digital data transfer in GA avionics",
+      "fullObjective": "Recognize that digital data buses in GA avionics — such as ARINC 429, CAN, and RS-485 — commonly use shielded twisted-pair wiring to reduce EMI and maintain differential signal integrity.",
+      "flashcard": {
+        "term": "Shielded twisted pair (STP) — digital data",
+        "definition": "Digital avionics data buses (ARINC 429, CAN, RS-485 and similar) typically use shielded twisted-pair cable. The twist cancels common-mode noise through differential signaling; the shield blocks external EMI. Single-conductor unshielded wire is not suitable for modern digital data.",
+        "analogy": "The twist cancels noise the way two people walking in step cancel out side-to-side sway; the shield keeps outside noise from getting in.",
+        "unit": "Aircraft Wiring Practices"
+      },
+      "jeopardy": {
+        "question": "This is the wire type most commonly used to carry digital data between avionics units in a GA aircraft.",
+        "choices": [
+          "Single-conductor automotive primary wire",
+          "Shielded twisted pair",
+          "Uninsulated bus bar",
+          "Flat ribbon cable without shielding"
+        ],
+        "correctIndex": 1,
+        "explanation": "Shielded twisted pair is the standard for ARINC 429, CAN, RS-485, and other differential buses. The twist cancels common-mode noise; the shield blocks external EMI. Automotive single-conductor wire lacks both protections and is not approved for aircraft."
+      },
+      "multipleChoice": {
+        "question": "Which type of wiring is most commonly used to carry digital data signals between units in a GA avionics system?",
+        "choices": [
+          "Single-conductor automotive primary wire",
+          "Shielded twisted-pair cable",
+          "Uninsulated bus bar stock",
+          "Unshielded flat ribbon cable"
+        ],
+        "correctIndex": 1,
+        "explanation": "GA digital buses — ARINC 429, CAN, RS-485 — depend on differential signaling, which requires a twisted pair. Adding a shield blocks external EMI. Single-conductor, bus bar, and unshielded ribbon cables do not provide the noise rejection digital data requires."
+      },
+      "practice": {
+        "question": "A technician is pulling cable for a new ARINC 429 data link between an ADC and a multifunction display. Which cable type is the correct choice?",
+        "choices": [
+          "Two separate single-conductor general-purpose hookup wires routed independently",
+          "A coaxial RF cable with a BNC connector",
+          "Shielded twisted-pair cable rated for the intended data bus",
+          "Flat ribbon cable without a shield"
+        ],
+        "correctIndex": 2,
+        "explanation": "ARINC 429 is a differential data bus and requires a shielded twisted pair. Separate single-conductor wires would lose the twist's common-mode rejection. Coax is designed for RF, not differential data. Unshielded ribbon leaves the data exposed to EMI."
+      },
+      "preassessment": {
+        "question": "Digital data in a GA avionics system is typically carried by:",
+        "choices": [
+          "Single-conductor automotive wire",
+          "Shielded twisted pair",
+          "Bus bar",
+          "Unshielded ribbon"
+        ],
+        "correctIndex": 1
+      },
+      "targetCaetId": "464274",
+      "targetCaetStem": "Which type of wire is commonly used for digital data transfer in a GA avionics system?",
+      "targetCaetPp": 0.77
+    },
+    {
+      "id": "CAT6-NEW-033",
+      "category": "mod6-aircraft-wiring",
+      "difficulty": "medium",
+      "tags": [
+        "harness-routing",
+        "support-interval",
+        "clamping",
+        "ac-43.13"
+      ],
+      "learningObjective": "Identify correct routing and securing practices for wire harnesses in a GA aircraft",
+      "fullObjective": "Recognize that per AC 43.13-1B, harnesses must be secured with approved clamps or ties at intervals not exceeding 24 inches, maintained clear of sharp edges and moving parts, and protected where chafing is possible — using grommets, sleeving, or edge guards.",
+      "flashcard": {
+        "term": "Harness routing and support — GA standard",
+        "definition": "GA harnesses are secured with approved clamps or lacing ties at intervals not exceeding 24 inches (per AC 43.13-1B), kept clear of sharp edges, moving controls, and high-temperature sources, and protected with grommets, sleeving, or edge guards where contact or chafing is possible.",
+        "analogy": "Treat a harness like plumbing run through a wall — supported often, clear of anything that moves, protected where it passes through structure.",
+        "unit": "Aircraft Wiring Practices"
+      },
+      "jeopardy": {
+        "question": "This is the accepted general practice for routing and securing a wire harness in a small GA aircraft.",
+        "choices": [
+          "Bundle every wire in the aircraft into a single loom to save space",
+          "Route the harness so it hangs freely with no support between ends",
+          "Secure with approved clamps or ties at intervals of 24 inches or less, clear of moving parts and sharp edges, and protected where chafing is possible",
+          "Attach the harness directly to moving flight controls for convenience"
+        ],
+        "correctIndex": 2,
+        "explanation": "AC 43.13-1B calls for supports no farther apart than 24 inches, clearance from sharp edges and moving parts, and protection (grommets, sleeving, edge guards) wherever contact is possible. Single-bundle schemes and attaching to moving controls are prohibited."
+      },
+      "multipleChoice": {
+        "question": "How should a wire harness be routed and supported during a typical GA aircraft installation?",
+        "choices": [
+          "Leave the harness unsupported between the start and end points",
+          "Bundle all aircraft wiring into one large common loom to simplify tracking",
+          "Secure the harness with approved clamps or lacing ties at intervals of 24 inches or less, keep it clear of sharp edges and moving parts, and protect it where chafing is possible",
+          "Attach the harness directly to a moving flight-control surface"
+        ],
+        "correctIndex": 2,
+        "explanation": "AC 43.13-1B Chapter 11 requires support at intervals no greater than 24 inches, clearance from sharp edges and moving flight controls, and protection at every potential chafing point. Unsupported runs, mass-bundling, and attachment to moving surfaces are prohibited."
+      },
+      "practice": {
+        "question": "A technician is preparing to route a new harness through a small GA airframe. Which set of practices best matches AC 43.13-1B guidance?",
+        "choices": [
+          "Fasten the harness directly to the aileron pushrod to keep it out of the way",
+          "Leave the harness unsupported between endpoints so it can flex freely",
+          "Combine every circuit in the aircraft into one large loom to save routing time",
+          "Clamp or tie the harness at intervals of 24 inches or less, maintain clearance from moving controls and sharp edges, and add protective sleeving or grommets where contact is possible"
+        ],
+        "correctIndex": 3,
+        "explanation": "AC 43.13-1B provides the 24-inch maximum support spacing, the clearance requirements, and the protection expectations. Unsupported harnesses flex and chafe; mass-bundled looms create heat and interference issues; attaching to moving controls guarantees chafing."
+      },
+      "preassessment": {
+        "question": "How should a GA aircraft wire harness generally be routed and secured?",
+        "choices": [
+          "Clamped or tied at intervals of 24 inches or less, clear of moving parts and sharp edges, protected where chafing is possible",
+          "All wiring combined into a single loom",
+          "Attached to a moving control surface",
+          "Unsupported between endpoints"
+        ],
+        "correctIndex": 0
+      },
+      "targetCaetId": "464313",
+      "targetCaetStem": "How should a wire harness generally be routed and secured in a small GA aircraft environment?",
+      "targetCaetPp": 0.77
+    },
+    {
+      "id": "CAT6-NEW-034",
+      "category": "mod6-aircraft-wiring",
+      "difficulty": "medium",
+      "tags": [
+        "connectors",
+        "backshell",
+        "strain-relief",
+        "emi-shielding"
+      ],
+      "learningObjective": "Identify the primary function of a connector backshell",
+      "fullObjective": "Recognize that a backshell provides mechanical strain relief, cable support, and — on EMI versions — shield termination for the cable as it exits an aircraft connector, protecting the pin-to-wire joints from flex and contamination.",
+      "flashcard": {
+        "term": "Connector backshell — primary function",
+        "definition": "A backshell mounts to the rear of a connector and provides strain relief, cable support, and environmental/EMI protection for the wires exiting the connector. EMI backshells also terminate the cable shield to the connector shell, creating an electrically continuous shield path.",
+        "analogy": "The backshell is the connector's seatbelt — it keeps flex, vibration, and pull from ever reaching the delicate pin-to-wire joint.",
+        "unit": "Aircraft Wiring Practices"
+      },
+      "jeopardy": {
+        "question": "This is the primary reason a backshell is installed on an aircraft connector.",
+        "choices": [
+          "To provide color identification for the wire bundle",
+          "To increase the maximum current rating of each pin",
+          "To replace the need for a locking mechanism on the connector",
+          "To provide strain relief, cable support, and — on EMI versions — shield termination"
+        ],
+        "correctIndex": 3,
+        "explanation": "Backshells exist to mechanically support and strain-relieve the cable, protecting the pin-to-wire joints from flex. EMI backshells also terminate the cable shield. They do not change current rating or locking function."
+      },
+      "multipleChoice": {
+        "question": "What is the PRIMARY purpose of a backshell on an aircraft connector?",
+        "choices": [
+          "To color-code the connector for quick identification",
+          "To provide strain relief and cable support — and on EMI versions, to terminate the cable shield to the connector body",
+          "To increase the current-carrying capacity of the individual contacts",
+          "To eliminate the need for a mating retention device"
+        ],
+        "correctIndex": 1,
+        "explanation": "Backshells protect the pin-to-wire joint from flex, pull, and vibration. EMI backshells add shield termination by clamping the braid to the shell. They do not affect pin current rating and do not replace latching or coupling hardware."
+      },
+      "practice": {
+        "question": "A technician is selecting a backshell for a new circular MIL-spec connector on a shielded harness. What is the backshell's primary function in that installation?",
+        "choices": [
+          "Color-coding the connector so it can be identified at a glance",
+          "Raising the contact current rating above the connector's stated limit",
+          "Substituting for the connector's coupling ring",
+          "Providing strain relief and cable support at the wire exit, and terminating the cable shield to the connector body on EMI versions"
+        ],
+        "correctIndex": 3,
+        "explanation": "Backshells mechanically secure the cable and protect the pin terminations from flex. EMI backshells additionally clamp the shield to the connector body, providing a continuous shield path. They do not modify current rating or replace coupling hardware."
+      },
+      "preassessment": {
+        "question": "The primary purpose of a connector backshell is to:",
+        "choices": [
+          "Provide strain relief, cable support, and shield termination",
+          "Raise the pin current rating",
+          "Replace the locking mechanism",
+          "Color-code the connector"
+        ],
+        "correctIndex": 0
+      },
+      "targetCaetId": "464336",
+      "targetCaetStem": "Backshells are used on aircraft connectors PRIMARILY to provide:",
+      "targetCaetPp": 0.79
+    },
+    {
+      "id": "CAT6-NEW-035",
+      "category": "mod6-aircraft-wiring",
+      "difficulty": "medium",
+      "tags": [
+        "crimping",
+        "tools",
+        "connector-replacement",
+        "m22520"
+      ],
+      "learningObjective": "Identify the correct tool for replacing a crimped wire connector",
+      "fullObjective": "Recognize that replacing a crimped aircraft wire connector requires a calibrated crimping tool appropriate to the contact — typically an M22520 or manufacturer-equivalent tool with the correct positioner — and that pliers, solder, or general-purpose crimpers are not acceptable.",
+      "flashcard": {
+        "term": "Crimp connector replacement — correct tool",
+        "definition": "Aircraft crimp contacts are installed with a calibrated crimping tool (commonly M22520-series or manufacturer-approved equivalents) using the correct positioner and selector setting for the contact size. General-purpose crimpers, pliers, and solder are not acceptable substitutes for production crimps.",
+        "analogy": "Using pliers on an aviation crimp is like using a rock to drive a finish nail — it might hold for a moment, but it is not a production method.",
+        "unit": "Aircraft Wiring Practices"
+      },
+      "jeopardy": {
+        "question": "This is the correct tool for making a secure, repeatable termination when replacing an aircraft wire connector.",
+        "choices": [
+          "A propane torch with general-purpose solder",
+          "A pair of standard slip-joint pliers",
+          "A calibrated crimping tool (M22520 series or manufacturer equivalent) with the correct positioner",
+          "A rotary hammer with a crimping bit"
+        ],
+        "correctIndex": 2,
+        "explanation": "Production aircraft crimps require a calibrated crimper — typically M22520 — with the correct positioner for the contact. Pliers cannot produce a controlled crimp, torches do not make crimps, and rotary hammers have no role in terminations."
+      },
+      "multipleChoice": {
+        "question": "Which tool should a technician use to replace a crimped wire connector on an aircraft and ensure a secure, airworthy termination?",
+        "choices": [
+          "Standard slip-joint pliers from the shop toolbox",
+          "A propane torch with lead-tin solder in place of crimping",
+          "A calibrated crimping tool such as an M22520 series with the correct positioner for the contact",
+          "A general-purpose electrical multi-tool"
+        ],
+        "correctIndex": 2,
+        "explanation": "Aircraft crimps are specified by crimp force, tool cycle, and positioner. Only a calibrated crimper (M22520 or manufacturer equivalent) with the right positioner meets the specification. Pliers, torches, and general-purpose multi-tools cannot meet crimp specifications."
+      },
+      "practice": {
+        "question": "A technician needs to replace a damaged pin connector on an avionics harness. Which tool is appropriate for producing a proper aircraft crimp termination?",
+        "choices": [
+          "A pair of adjustable pliers adjusted to finger tight",
+          "A propane torch used to solder the pin to the conductor",
+          "A calibrated M22520-series crimping tool fitted with the correct positioner for the contact",
+          "A set of automotive butt-connector crimpers from the parts store"
+        ],
+        "correctIndex": 2,
+        "explanation": "The M22520 crimper (or approved equivalent) produces a controlled, four-indent crimp that is verifiable by pull-test and gauge. Pliers, torches, and automotive crimpers cannot meet aircraft crimp specification and are not approved."
+      },
+      "preassessment": {
+        "question": "Which tool is used to replace a crimped aircraft wire connector?",
+        "choices": [
+          "Slip-joint pliers",
+          "Calibrated M22520 crimping tool with correct positioner",
+          "Propane torch",
+          "Automotive crimpers"
+        ],
+        "correctIndex": 1
+      },
+      "targetCaetId": "464309",
+      "targetCaetStem": "Scenario: You are performing maintenance on an aircraft and need to replace a wire connector. Which tool should you use to ensure a secure and reliable connection?",
+      "targetCaetPp": 0.81
+    },
+    {
+      "id": "CAT6-NEW-036",
+      "category": "mod6-aircraft-wiring",
+      "difficulty": "medium",
+      "tags": [
+        "installation-practices",
+        "prohibited",
+        "automotive-parts"
+      ],
+      "learningObjective": "Identify prohibited practices in aircraft wiring installation",
+      "fullObjective": "Recognize that using non-aviation hardware such as automotive or household connectors, wire nuts, twist-and-tape splices, or non-calibrated crimping tools is prohibited in aircraft installations, per AC 43.13-1B and standard industry practice.",
+      "flashcard": {
+        "term": "Prohibited aircraft wiring practices",
+        "definition": "Aircraft wiring must not use automotive or household connectors, wire nuts, twist-and-tape splices, or uncalibrated crimping tools. These methods fail under vibration, temperature cycling, and moisture in flight environments. Only aviation-approved materials and tools are permitted.",
+        "analogy": "Aircraft wiring is like surgery — you cannot substitute hardware-store parts and expect the same reliability.",
+        "unit": "Aircraft Wiring Practices"
+      },
+      "jeopardy": {
+        "question": "This is a practice that must never be used when performing aircraft wiring installations.",
+        "choices": [
+          "Securing harnesses with approved clamps at defined intervals",
+          "Using calibrated crimping tools with the correct positioner",
+          "Applying heat-shrink solder sleeves in environmentally exposed areas",
+          "Installing automotive-grade wire connectors for avionics terminations"
+        ],
+        "correctIndex": 3,
+        "explanation": "Automotive connectors are not rated for aircraft vibration, temperature, or humidity and are prohibited. Clamped harnesses, calibrated crimpers, and environmental splices are all approved aircraft practices."
+      },
+      "multipleChoice": {
+        "question": "On an aircraft wiring install, which approach should a technician NOT use?",
+        "choices": [
+          "Supporting the harness with approved clamps at intervals of 24 inches or less",
+          "Installing automotive-grade connectors in place of aviation-approved connectors",
+          "Applying heat-shrink solder sleeves in environmentally exposed zones",
+          "Using a calibrated crimping tool with the correct positioner for each contact"
+        ],
+        "correctIndex": 1,
+        "explanation": "Automotive connectors fail under aircraft vibration, temperature swings, and humidity. Approved clamp spacing, calibrated crimpers, and environmental splices are all required good practices under AC 43.13-1B."
+      },
+      "practice": {
+        "question": "During a new install, a shop supervisor reviews the technician's plan. Which of the listed steps must be avoided?",
+        "choices": [
+          "Use the M22520 crimping tool specified in the installation manual",
+          "Support the harness every 24 inches or less with approved clamps",
+          "Substitute an automotive ATO-style connector for the specified MIL-spec connector",
+          "Terminate environmental splices with heat-shrink solder sleeves"
+        ],
+        "correctIndex": 2,
+        "explanation": "Automotive connectors are not aviation-approved and are prohibited in aircraft wiring. Approved clamping, calibrated crimping, and environmental splicing are all required practices per AC 43.13-1B."
+      },
+      "preassessment": {
+        "question": "Which practice should be avoided in aircraft wiring?",
+        "choices": [
+          "Clamping every 24 inches",
+          "Using a calibrated crimper",
+          "Using heat-shrink solder sleeves in harsh areas",
+          "Substituting automotive connectors for aviation-approved ones"
+        ],
+        "correctIndex": 3
+      },
+      "targetCaetId": "464304",
+      "targetCaetStem": "When performing an aircraft wiring installation, which practice should be avoided?",
+      "targetCaetPp": 0.81
+    },
+    {
+      "id": "CAT6-NEW-037",
+      "category": "mod6-aircraft-wiring",
+      "difficulty": "medium",
+      "tags": [
+        "termination",
+        "crimp",
+        "methods"
+      ],
+      "learningObjective": "Identify the most appropriate method for terminating aircraft wiring",
+      "fullObjective": "Recognize that aircraft wire termination is normally performed using a calibrated crimp tool and the correct aviation-approved contact, or — where specified — a soldered joint with a heat-shrink solder sleeve; never a twist-and-tape or wire-nut termination.",
+      "flashcard": {
+        "term": "Aircraft wire termination methods",
+        "definition": "Aircraft wires are normally terminated with a calibrated crimp tool using aviation-approved contacts, or — where specified by the installation manual — with a soldered joint finished with a heat-shrink solder sleeve. Twist-and-tape terminations and wire nuts are prohibited on aircraft.",
+        "analogy": "Termination is like a handshake — it must be firm, repeatable, and meet an agreed standard, not improvised.",
+        "unit": "Aircraft Wiring Practices"
+      },
+      "jeopardy": {
+        "question": "This is the most appropriate method for terminating wires in an aircraft installation.",
+        "choices": [
+          "A twist-and-tape connection made by hand",
+          "A residential wire nut with electrical tape over the top",
+          "A calibrated crimp termination using aviation-approved contacts (or a soldered joint with a heat-shrink sleeve where specified)",
+          "A solder-only termination with no strain relief"
+        ],
+        "correctIndex": 2,
+        "explanation": "Aviation terminations are made by calibrated crimp with approved contacts, or by soldering with heat-shrink sleeves when specified. Twist-and-tape, wire nuts, and solder-only joints without support are prohibited on aircraft."
+      },
+      "multipleChoice": {
+        "question": "For connecting wires in an aircraft installation, which termination technique is preferred?",
+        "choices": [
+          "A calibrated crimp termination using aviation-approved contacts, or a soldered joint with a heat-shrink sleeve where the manual specifies",
+          "A hand-twisted connection covered with electrical tape",
+          "A residential wire nut secured with additional tape",
+          "A solder joint with no strain relief or heat-shrink sleeve"
+        ],
+        "correctIndex": 0,
+        "explanation": "Calibrated crimping with approved contacts is the standard; soldering is used where the manual specifies, always finished with a heat-shrink sleeve for strain relief and environmental protection. Twist-and-tape, wire nuts, and unsupported solder are not acceptable on aircraft."
+      },
+      "practice": {
+        "question": "A technician is preparing to terminate a bundle of avionics wires into a new connector. Which termination method best meets aircraft wiring requirements?",
+        "choices": [
+          "Twist each wire pair and cover with electrical tape",
+          "Install a household wire nut at each joint and wrap with tape",
+          "Solder the wires together without a sleeve or strain relief",
+          "Crimp each wire to an aviation-approved contact using a calibrated M22520 tool, or use a soldered environmental splice where the manual specifies"
+        ],
+        "correctIndex": 3,
+        "explanation": "Calibrated crimping with approved contacts is the accepted aviation standard. Where soldering is specified, it is finished with a heat-shrink sleeve for strain relief and sealing. Twist-and-tape, wire nuts, and unsupported solder terminations are prohibited."
+      },
+      "preassessment": {
+        "question": "For an aircraft install, which termination technique is preferred?",
+        "choices": [
+          "Solder with no strain relief",
+          "Twist and tape",
+          "Household wire nut with tape",
+          "Calibrated crimp with approved contacts (or soldered with heat-shrink where specified)"
+        ],
+        "correctIndex": 3
+      },
+      "targetCaetId": "464321",
+      "targetCaetStem": "Which method is most appropriate for terminating aircraft wiring?",
+      "targetCaetPp": 0.83
+    },
+    {
+      "id": "CAT6-NEW-038",
+      "category": "mod6-aircraft-wiring",
+      "difficulty": "medium",
+      "tags": [
+        "connectors",
+        "automotive-vs-aviation",
+        "peer-feedback"
+      ],
+      "learningObjective": "Explain why automotive connectors are not acceptable for aircraft avionics installations",
+      "fullObjective": "Recognize that automotive connectors are not rated for the temperature extremes, vibration, and humidity seen in aircraft service and must not be substituted for aviation-approved connectors such as MIL-DTL-38999 or other qualified circular and rectangular connectors.",
+      "flashcard": {
+        "term": "Automotive vs aviation connectors",
+        "definition": "Automotive connectors are designed for lower vibration, lower temperature range, and less stringent sealing than aviation service. They are not qualified for flight use. Aircraft installations require aviation-approved connectors (commonly MIL-DTL-38999 circulars, qualified rectangulars, or coax types) with documented environmental ratings.",
+        "analogy": "Automotive-spec hardware in an airplane is like sneakers in a firefighting suit — not rated for the environment it will face.",
+        "unit": "Aircraft Wiring Practices"
+      },
+      "jeopardy": {
+        "question": "This is the correct response to a coworker who suggests using common automotive wire connectors on an avionics rack.",
+        "choices": [
+          "Automotive connectors are acceptable as long as they are new and clean",
+          "Automotive connectors are not qualified for aircraft vibration, temperature, and humidity, so aviation-approved connectors (such as MIL-DTL-38999) must be used instead",
+          "Automotive connectors can be used if covered with electrical tape",
+          "Automotive connectors are identical to MIL-spec connectors under a different label"
+        ],
+        "correctIndex": 1,
+        "explanation": "Automotive connectors lack the environmental qualification aircraft service requires. MIL-DTL-38999 and similar qualified connectors are the approved choice. Tape does not upgrade a connector's environmental rating."
+      },
+      "multipleChoice": {
+        "question": "A new technician proposes using common automotive wire connectors on an avionics rack. What is the best response?",
+        "choices": [
+          "Approve the substitution if the connectors look similar",
+          "Suggest wrapping the automotive connectors with tape to make them aircraft-rated",
+          "Explain that automotive connectors are not qualified for aircraft vibration, temperature, and humidity, so aviation-approved connectors must be used",
+          "Agree that automotive and MIL-DTL-38999 connectors are interchangeable"
+        ],
+        "correctIndex": 2,
+        "explanation": "Automotive connectors fail under aircraft conditions. Aviation-approved connectors (MIL-DTL-38999, qualified rectangulars, and coax types) carry documented environmental ratings. No amount of tape or visual similarity upgrades a connector."
+      },
+      "practice": {
+        "question": "A coworker wants to save time by using a bin of automotive blade connectors on a new avionics radio install. How should you respond?",
+        "choices": [
+          "Let them proceed because automotive connectors are functionally equivalent",
+          "Recommend covering the automotive connectors with shrink tubing to upgrade the rating",
+          "Explain that automotive connectors are not qualified for the aircraft environment, and insist on aviation-approved connectors (for example, MIL-DTL-38999) per the installation manual",
+          "Ask them to verify the connectors' voltage rating and accept them if it matches"
+        ],
+        "correctIndex": 2,
+        "explanation": "Automotive connectors are not qualified for aircraft vibration, temperature cycling, or moisture exposure. Qualified aviation connectors are required. Heat shrink cannot retroactively upgrade an unqualified connector to airworthy status."
+      },
+      "preassessment": {
+        "question": "Your coworker suggests automotive connectors on an avionics rack. What do you say?",
+        "choices": [
+          "That is fine if they look similar to aviation types",
+          "Automotive and MIL-spec connectors are the same",
+          "Add heat shrink and they can be used",
+          "Automotive connectors are not qualified for aircraft environments; use aviation-approved types"
+        ],
+        "correctIndex": 3
+      },
+      "targetCaetId": "464325",
+      "targetCaetStem": "A new technician suggests using common automotive wire connectors for an avionics rack. How would you respond to your coworker?",
+      "targetCaetPp": 0.83
+    },
+    {
+      "id": "CAT6-NEW-039",
+      "category": "mod6-aircraft-wiring",
+      "difficulty": "medium",
+      "tags": [
+        "wire-gauge",
+        "selection",
+        "current",
+        "voltage-drop"
+      ],
+      "learningObjective": "Identify the critical step in selecting wire gauge for new avionics equipment",
+      "fullObjective": "Recognize that wire gauge must be sized for the equipment's current draw, the expected voltage drop over the run length, and the operating environment — with guidance typically drawn from AC 43.13-1B and the equipment installation manual.",
+      "flashcard": {
+        "term": "Wire gauge selection",
+        "definition": "Wire gauge is sized based on the equipment's continuous and intermittent current draw, the allowable voltage drop over the run length, and the operating environment (bundled vs free-air, ambient temperature). Both AC 43.13-1B tables and the equipment installation manual provide selection data.",
+        "analogy": "Picking a wire gauge is like sizing plumbing — too small and you choke flow (voltage drop), too small and it overheats (current overload).",
+        "unit": "Aircraft Wiring Practices"
+      },
+      "jeopardy": {
+        "question": "This is the critical step when selecting wire gauge for newly installed avionics equipment.",
+        "choices": [
+          "Selecting the gauge used for the aircraft's cabin lighting",
+          "Calculating the required gauge from the equipment's current draw, acceptable voltage drop, and operating environment",
+          "Matching the existing gauge used on a different airframe model",
+          "Choosing the thinnest gauge that fits the connector to save weight"
+        ],
+        "correctIndex": 1,
+        "explanation": "Gauge selection is driven by current, voltage drop, and installation environment. The installation manual and AC 43.13-1B tables provide the calculation basis. Copying a different circuit or defaulting to the thinnest wire invites overload and excessive voltage drop."
+      },
+      "multipleChoice": {
+        "question": "A new avionics install requires a specific wire gauge. Which evaluation is the one the technician absolutely cannot skip?",
+        "choices": [
+          "Select the thinnest wire that fits the connector contacts",
+          "Match the gauge of the existing cabin-lighting wiring in the aircraft",
+          "Copy the wire gauge used on a different aircraft make and model",
+          "Calculate the required gauge from the equipment's current draw, acceptable voltage drop over the run, and operating environment"
+        ],
+        "correctIndex": 3,
+        "explanation": "Gauge is a calculated value: current, voltage drop, and environment drive the answer. AC 43.13-1B provides selection tables, and the installation manual lists specific requirements. Copying unrelated circuits or minimizing to connector size can produce overheating or excessive voltage drop."
+      },
+      "practice": {
+        "question": "A technician is installing a new 10 A avionics unit 20 feet from the bus. Which step is most critical for correct wire gauge selection?",
+        "choices": [
+          "Copy the gauge from a similar-looking circuit on another aircraft model",
+          "Select the smallest wire that will fit into the equipment's connector pins",
+          "Calculate the required gauge from the 10 A current draw, the acceptable voltage drop over the 20-foot run, and the operating environment (bundle vs free-air)",
+          "Use the gauge of the cabin lighting wiring already in the aircraft"
+        ],
+        "correctIndex": 2,
+        "explanation": "Wire gauge is calculated from current, run length (voltage drop), and environment. AC 43.13-1B tables and the installation manual provide the values. Copying unrelated circuits or fitting to the connector can produce overheating or unacceptable voltage drop."
+      },
+      "preassessment": {
+        "question": "What is the critical step in selecting wire gauge for new avionics?",
+        "choices": [
+          "Match another aircraft's wiring",
+          "Use the thinnest wire that fits the pins",
+          "Use cabin-lighting gauge",
+          "Calculate from current draw, voltage drop, and operating environment"
+        ],
+        "correctIndex": 3
+      },
+      "targetCaetId": "464314",
+      "targetCaetStem": "Which step is critical for selecting the correct wire gauge during a new avionics equipment installation?",
+      "targetCaetPp": 0.84
+    },
+    {
+      "id": "CAT6-NEW-040",
+      "category": "mod6-aircraft-wiring",
+      "difficulty": "easy",
+      "tags": [
+        "strain-relief",
+        "connector",
+        "wire-flex"
+      ],
+      "learningObjective": "Identify the main purpose of strain relief in aircraft wiring",
+      "fullObjective": "Recognize that strain relief protects the wire-to-contact joint by absorbing mechanical loads — pull, flex, and vibration — before they can reach the termination, preventing pin pull-outs and conductor fatigue failures.",
+      "flashcard": {
+        "term": "Strain relief — purpose",
+        "definition": "Strain relief absorbs mechanical pull, flex, and vibration at the point where the wire exits a connector or termination. It prevents the wire from bending or pulling directly on the pin-to-conductor joint, which would otherwise fatigue and fail.",
+        "analogy": "Strain relief is like a bend radius on a garden hose — it keeps the fitting from seeing the flex that would tear it loose.",
+        "unit": "Aircraft Wiring Practices"
+      },
+      "jeopardy": {
+        "question": "This is the main reason strain relief is added to aircraft wire terminations.",
+        "choices": [
+          "To absorb pull, flex, and vibration before they reach the wire-to-contact joint",
+          "To boost the current rating of individual pins",
+          "To color-code the cable by circuit function",
+          "To give the cable a decorative appearance at the connector"
+        ],
+        "correctIndex": 0,
+        "explanation": "Strain relief protects the delicate pin-to-wire joint from mechanical loads that would otherwise fatigue the conductor or pull the pin. It is not decorative, does not change current rating, and does not color-code the circuit."
+      },
+      "multipleChoice": {
+        "question": "What is the main reason strain relief is used at aircraft wire terminations?",
+        "choices": [
+          "To raise the current-carrying capacity of each contact",
+          "To make the termination look tidy and organized",
+          "To absorb pull, flex, and vibration before they can reach the wire-to-contact joint",
+          "To provide a color code for each circuit at the connector"
+        ],
+        "correctIndex": 2,
+        "explanation": "Strain relief exists to keep mechanical loads from reaching the pin-to-wire joint. Flex at the joint fatigues the conductor; pull can extract the pin. Appearance, current rating, and color coding are not strain-relief functions."
+      },
+      "practice": {
+        "question": "A technician notices that a new harness has no strain relief at the rear of a connector. What consequence is most likely if the installation is left as-is?",
+        "choices": [
+          "Flex and vibration at the connector exit will work the wire-to-contact joint, eventually fatiguing conductors or pulling pins out",
+          "The connector pins will overheat because strain relief controls current flow",
+          "The harness will look untidy but will function correctly",
+          "The cable color codes will fade faster"
+        ],
+        "correctIndex": 0,
+        "explanation": "With no strain relief, flex and vibration act directly on the pin-to-wire junction. Over time this fatigues the conductor or pulls the pin. Strain relief does not control current and does not affect color coding."
+      },
+      "preassessment": {
+        "question": "Why is strain relief added to aircraft wiring?",
+        "choices": [
+          "Neat appearance",
+          "Raise pin current rating",
+          "Absorb pull, flex, and vibration before the wire-to-contact joint",
+          "Provide color coding"
+        ],
+        "correctIndex": 2
+      },
+      "targetCaetId": "464320",
+      "targetCaetStem": "What is the main reason for using strain relief in aircraft wiring?",
+      "targetCaetPp": 0.86
+    },
+    {
+      "id": "CAT6-NEW-041",
+      "category": "mod6-aircraft-wiring",
+      "difficulty": "hard",
+      "tags": [
+        "wire-stripping",
+        "teflon",
+        "precision-stripper"
+      ],
+      "learningObjective": "Identify the recommended stripping practice for Teflon-insulated avionics wire",
+      "fullObjective": "Recognize that Teflon-insulated wire should be stripped with a precision (controlled-depth) mechanical stripper; heat strippers and uncontrolled blade strippers risk nicking the conductor or deforming the insulation, reducing reliability.",
+      "flashcard": {
+        "term": "Stripping Teflon-insulated wire",
+        "definition": "Teflon (PTFE) insulation is tough and temperature-resistant, but is easy to damage if stripping is uncontrolled. The recommended method is a precision mechanical stripper with the correct blade size for the wire gauge. Heat strippers can char the insulation; general-purpose strippers risk nicking strands.",
+        "analogy": "Stripping Teflon with a heat stripper is like peeling an apple with a blowtorch — the outside comes off, but so does a lot more than you wanted.",
+        "unit": "Aircraft Wiring Practices"
+      },
+      "jeopardy": {
+        "question": "This is the recommended practice when using a stripping tool on Teflon-coated avionics wire.",
+        "choices": [
+          "Use a hot-blade (thermal) stripper to burn through the insulation",
+          "Use a general-purpose multi-gauge stripper at its widest setting",
+          "Use a precision controlled-depth mechanical stripper with the correct blade for the wire gauge",
+          "Pull the insulation off by hand after scoring it with a knife"
+        ],
+        "correctIndex": 2,
+        "explanation": "Precision mechanical strippers with the right blade size cleanly remove Teflon without nicking strands. Thermal strippers can damage Teflon and release irritating fumes; wide-setting general-purpose tools are imprecise; knife scoring risks nicking the conductor."
+      },
+      "multipleChoice": {
+        "question": "For an avionics install using Teflon-insulated wire, what should a technician observe when operating automatic strippers?",
+        "choices": [
+          "Use a precision controlled-depth mechanical stripper with the correct blade size for the wire gauge",
+          "Use a general-purpose stripper at its widest opening",
+          "Use a hot-blade (thermal) stripper to melt through the insulation",
+          "Score the insulation with a knife and pull it off by hand"
+        ],
+        "correctIndex": 0,
+        "explanation": "Teflon is stripped with a precision mechanical stripper matched to the wire gauge. Thermal strippers can degrade Teflon and release fumes; oversized general-purpose tools nick conductors; knife scoring is imprecise and frequently damages strands."
+      },
+      "practice": {
+        "question": "A technician is stripping 22-gauge Teflon-insulated wire for a new avionics installation. Which technique best protects the conductor and insulation?",
+        "choices": [
+          "Use a precision mechanical stripper with the 22-gauge blade, verifying no strands are nicked after the cut",
+          "Use a general-purpose stripper at its widest setting to clear the insulation quickly",
+          "Burn off the insulation with a hot-blade stripper set to maximum temperature",
+          "Score the insulation with a pocketknife and pull it off by hand"
+        ],
+        "correctIndex": 0,
+        "explanation": "Precision mechanical stripping — correct blade size, controlled depth, post-strip inspection — protects both the conductor and the insulation. Thermal stripping can char Teflon; oversize or knife methods are prone to nicking strands, which creates stress risers that fail in service."
+      },
+      "preassessment": {
+        "question": "How should Teflon-coated avionics wire be stripped?",
+        "choices": [
+          "With a hot-blade stripper",
+          "With a general-purpose stripper at its widest setting",
+          "With a precision controlled-depth mechanical stripper matched to the gauge",
+          "By scoring with a knife and pulling off by hand"
+        ],
+        "correctIndex": 2
+      },
+      "targetCaetId": "464315",
+      "targetCaetStem": "Which practice is recommended when using automatic wire strippers on Teflon-coated wires for avionics installations?",
+      "targetCaetPp": 0.89
+    },
+    {
+      "id": "CAT6-NEW-042",
+      "category": "mod6-aircraft-wiring",
+      "difficulty": "easy",
+      "tags": [
+        "shielding",
+        "emi",
+        "purpose"
+      ],
+      "learningObjective": "Identify the primary purpose of shielded wire in avionics",
+      "fullObjective": "Recognize that shielded wire is used primarily to reduce electromagnetic interference — both preventing external noise from coupling onto the signal and preventing the signal from radiating outward — by providing a grounded conductive barrier around the signal conductors.",
+      "flashcard": {
+        "term": "Shielded wire — primary purpose",
+        "definition": "Shielded wire reduces electromagnetic coupling. A grounded conductive braid or foil around the signal conductors intercepts external noise that would otherwise couple onto the signal, and also contains radiation from the signal. It is standard for digital data buses and sensitive analog signals.",
+        "analogy": "A shield is a Faraday cage for the wire — outside noise hits the cage and is dumped to ground instead of reaching the conductor.",
+        "unit": "Aircraft Wiring Practices"
+      },
+      "jeopardy": {
+        "question": "This is the main reason avionics installations use shielded wire on sensitive signal circuits.",
+        "choices": [
+          "To increase the maximum current the wire can carry",
+          "To improve the flexibility of the cable",
+          "To color-code the wire for circuit identification",
+          "To reduce electromagnetic interference by intercepting external noise and containing internal radiation"
+        ],
+        "correctIndex": 3,
+        "explanation": "Shielding is an EMI control — a grounded conductive layer around the signal conductors. It does not raise current rating, does not improve flexibility (shields typically reduce it), and is not a color code."
+      },
+      "multipleChoice": {
+        "question": "On avionics circuits, the PRIMARY reason for choosing shielded wire is to:",
+        "choices": [
+          "Increase the current the conductor can carry",
+          "Improve the cable's mechanical flexibility",
+          "Reduce electromagnetic interference by intercepting external noise and containing internal radiation",
+          "Provide additional color coding for circuit identification"
+        ],
+        "correctIndex": 2,
+        "explanation": "Shielded wire exists to attenuate EMI coupling into or out of the signal conductor. Current rating is set by conductor cross-section, not shielding. Shielded cable is generally stiffer, and shielding does not serve as a color code."
+      },
+      "practice": {
+        "question": "A technician is choosing cable for an analog sensor signal line that runs close to high-current feeders. Why does the installation manual call for shielded wire?",
+        "choices": [
+          "To raise the permitted current on the sensor circuit",
+          "To improve the cable's bend radius and flexibility",
+          "To add another layer of color coding for identification",
+          "To reduce EMI coupling between the high-current feeders and the sensor signal, so the reading remains accurate"
+        ],
+        "correctIndex": 3,
+        "explanation": "Near high-current feeders, the sensor signal is vulnerable to inductive and capacitive coupling. A grounded shield attenuates that coupling. Shielding does not raise current rating, does not improve flexibility, and is not a color code."
+      },
+      "preassessment": {
+        "question": "Shielded wire is used primarily to:",
+        "choices": [
+          "Raise current rating",
+          "Improve flexibility",
+          "Reduce EMI coupling",
+          "Act as a color code"
+        ],
+        "correctIndex": 2
+      },
+      "targetCaetId": "464319",
+      "targetCaetStem": "Shielded wire is used in avionics systems PRIMARILY to:",
+      "targetCaetPp": 0.89
+    },
+    {
+      "id": "CAT6-NEW-043",
+      "category": "mod6-aircraft-wiring",
+      "difficulty": "medium",
+      "tags": [
+        "troubleshooting",
+        "power-up",
+        "shorts",
+        "continuity"
+      ],
+      "learningObjective": "Identify the first item to check when a newly installed avionics system fails to power up",
+      "fullObjective": "Recognize that a newly installed unit that will not power up is checked first for shorts and correct wiring (especially power and ground) before moving on to continuity checks and verification of voltages at the unit — protecting the unit and reducing troubleshooting time.",
+      "flashcard": {
+        "term": "Power-up failure — first check",
+        "definition": "When a newly installed avionics unit does not power up, the first check is the wiring — verify no shorts between power and ground, confirm correct power/ground routing against the installation drawing, and inspect pin seating at the connectors. Voltage-at-unit checks come next.",
+        "analogy": "Check the power side first — if power cannot get in (or is shorting out), nothing else downstream will work.",
+        "unit": "Aircraft Wiring Practices"
+      },
+      "jeopardy": {
+        "question": "This is the FIRST thing a technician should check when a newly installed avionics system fails to power up.",
+        "choices": [
+          "The firmware version loaded in the unit's memory",
+          "The aircraft's paint condition near the antenna",
+          "The performance of the on-board GPS receiver",
+          "The wiring — looking for shorts, incorrect power/ground routing, or unseated pins"
+        ],
+        "correctIndex": 3,
+        "explanation": "Power-up failures most often come from wiring errors — a ground-to-power short, a swapped power feed, or an unseated pin. Firmware, GPS performance, and paint are not the first line of investigation."
+      },
+      "multipleChoice": {
+        "question": "A technician completes a new avionics installation, but the unit fails to power up on first application of power. Which of the following should be checked FIRST?",
+        "choices": [
+          "The firmware version installed in the unit",
+          "The GPS reception at the current location",
+          "The condition of the exterior paint near the antenna",
+          "The wiring — check for shorts, verify correct power/ground routing against the drawing, and confirm pins are seated"
+        ],
+        "correctIndex": 3,
+        "explanation": "New-installation power-up failures are overwhelmingly wiring problems: ground-to-power shorts, reversed power, unseated pins. Wiring verification protects the unit and is the quickest diagnostic. Firmware, GPS, and paint are later-stage concerns."
+      },
+      "practice": {
+        "question": "After completing a new avionics install, a technician applies power and the unit remains dark. What is the FIRST diagnostic step?",
+        "choices": [
+          "Reload the unit's firmware from the manufacturer's website",
+          "Verify the wiring — check for shorts, confirm correct power and ground per the installation drawing, and inspect pin seating",
+          "Inspect the aircraft's exterior paint around antenna cutouts",
+          "Evaluate on-board GPS satellite acquisition"
+        ],
+        "correctIndex": 1,
+        "explanation": "Most new-install power-up failures are wiring-related: a short to ground, a swapped power/ground pair, or an unseated contact. Checking wiring first protects the equipment and isolates the fault quickly. Firmware, GPS, and paint checks do not address the symptom."
+      },
+      "preassessment": {
+        "question": "A newly installed avionics unit will not power up. What do you check first?",
+        "choices": [
+          "Wiring for shorts, correct power/ground, and pin seating",
+          "GPS reception",
+          "Exterior paint",
+          "Firmware version"
+        ],
+        "correctIndex": 0
+      },
+      "targetCaetId": "464305",
+      "targetCaetStem": "Scenario: You are tasked with wiring a new avionics system into an aircraft. After completing the installation, the system fails to power up. Which of the following is the FIRST thing you should check?",
+      "targetCaetPp": 0.92
+    },
+    {
+      "id": "CAT6-NEW-044",
+      "category": "mod6-aircraft-wiring",
+      "difficulty": "medium",
+      "tags": [
+        "harness-damage",
+        "outer-jacket",
+        "repair-action"
+      ],
+      "learningObjective": "Identify the best corrective action for a harness with a damaged outer jacket",
+      "fullObjective": "Recognize that a harness with a damaged outer jacket should be evaluated, and either repaired with approved protective sleeving/heat-shrink where underlying conductors are intact, or the damaged section replaced if the conductors are also compromised — per AC 43.13-1B Chapter 11.",
+      "flashcard": {
+        "term": "Damaged outer jacket — corrective action",
+        "definition": "A harness with a damaged outer jacket is inspected to determine whether underlying conductors are intact. If conductors are undamaged, the jacket is repaired or protected with approved sleeving or heat-shrink. If conductors are damaged, the affected section is replaced per AC 43.13-1B.",
+        "analogy": "A damaged jacket is like a torn coat sleeve — if the arm underneath is fine, patch the coat; if the arm is hurt too, more than a patch is needed.",
+        "unit": "Aircraft Wiring Practices"
+      },
+      "jeopardy": {
+        "question": "This is the best corrective action when a harness is found with a damaged outer jacket during an inspection.",
+        "choices": [
+          "Ignore the damage if the circuit still functions",
+          "Inspect for conductor damage, then repair the jacket with approved sleeving/heat-shrink — or replace the affected section if conductors are compromised",
+          "Wrap the damaged area with standard electrical tape and release the aircraft",
+          "Cut the entire harness out and replace it in full as a precaution"
+        ],
+        "correctIndex": 1,
+        "explanation": "The proper action is condition-based: check the conductors, then repair the jacket with approved protection or replace the section if conductors are damaged. Ignoring damage or using tape is not acceptable. Full harness replacement is excessive when localized repair is allowed."
+      },
+      "multipleChoice": {
+        "question": "During an inspection, a technician finds a harness with a damaged outer jacket. What is the BEST corrective action?",
+        "choices": [
+          "Ignore the damage because the circuit is still operational",
+          "Wrap the damaged area with standard electrical tape and return the aircraft to service",
+          "Inspect the conductors, then repair the jacket with approved protective sleeving or heat-shrink — or replace the affected section if conductors are also damaged",
+          "Remove and replace the entire harness as a precaution"
+        ],
+        "correctIndex": 2,
+        "explanation": "AC 43.13-1B guides a condition-based repair: verify conductor condition, protect/repair the jacket if conductors are intact, or replace the section if they are not. Tape is temporary; ignoring damage is prohibited; full replacement is unnecessary when a section repair is allowed."
+      },
+      "practice": {
+        "question": "A technician discovers a 4-inch section of damaged outer jacket on a harness, with no visible conductor damage. What is the best corrective action?",
+        "choices": [
+          "Inspect the conductors to confirm they are undamaged, then repair the jacket with approved protective sleeving or heat-shrink tubing",
+          "Wrap the area with electrical tape and release the aircraft",
+          "Remove the entire harness and install a brand-new one",
+          "Ignore the finding because the circuit still works"
+        ],
+        "correctIndex": 0,
+        "explanation": "Conductor condition drives the action. Intact conductors + damaged jacket = repair with approved protection. Damaged conductors = replace the affected section. Tape is not an approved repair. Full replacement is excessive for a localized jacket repair."
+      },
+      "preassessment": {
+        "question": "A harness has a damaged outer jacket but the conductors look intact. Best action?",
+        "choices": [
+          "Inspect conductors, then repair the jacket with approved sleeving or heat-shrink",
+          "Ignore it",
+          "Wrap with electrical tape",
+          "Replace the entire harness"
+        ],
+        "correctIndex": 0
+      },
+      "targetCaetId": "464327",
+      "targetCaetStem": "During inspection, you find a harness with a damaged outer jacket. Which of the following is the b Best corrective action?",
+      "targetCaetPp": 0.94
+    },
+    {
+      "id": "CAT6-NEW-045",
+      "category": "mod6-aircraft-wiring",
+      "difficulty": "hard",
+      "tags": [
+        "shielding",
+        "floating-shield",
+        "antenna-effect"
+      ],
+      "learningObjective": "Describe what happens when a shielded wire has both shield ends left floating",
+      "fullObjective": "Recognize that leaving both shield ends floating creates an ungrounded conductor that acts as a receiving/radiating antenna, which can increase EMI coupling rather than reduce it, defeating the shield's purpose.",
+      "flashcard": {
+        "term": "Floating shield — both ends",
+        "definition": "If both ends of a cable shield are left floating (ungrounded), the shield has no return path for induced currents. It then behaves like an antenna, capable of picking up or radiating noise, and can actually worsen EMI instead of reducing it. A shield must be grounded at one end or both per the installation manual.",
+        "analogy": "An ungrounded shield is like a lightning rod with no wire to earth — it collects energy but has nowhere to send it, so the energy couples into the conductor it was meant to protect.",
+        "unit": "Aircraft Wiring Practices"
+      },
+      "jeopardy": {
+        "question": "This is what happens when a shielded wire is installed with the shield floating at both ends.",
+        "choices": [
+          "The ungrounded shield behaves as an antenna, potentially increasing EMI coupling instead of reducing it",
+          "The shield automatically grounds itself through capacitance to the airframe",
+          "The shield provides maximum EMI suppression because it is fully isolated",
+          "The shield's current-carrying capability improves significantly"
+        ],
+        "correctIndex": 0,
+        "explanation": "A floating shield has no return path and acts as an antenna, degrading EMI performance instead of improving it. Capacitive coupling to structure is unreliable and non-compliant. Shields do not carry signal current, so current rating is not a factor."
+      },
+      "multipleChoice": {
+        "question": "If a shielded wire is found with the shield floating at both ends, which best describes the result?",
+        "choices": [
+          "The shield is providing optimal EMI protection by being fully isolated",
+          "The shield grounds itself automatically through stray capacitance to the airframe",
+          "The ungrounded shield acts as an antenna and can increase EMI coupling instead of reducing it",
+          "The shield's current-carrying capacity is improved"
+        ],
+        "correctIndex": 2,
+        "explanation": "A shield needs a low-impedance ground path to dump induced currents. Floating both ends leaves no return, and the shield becomes an antenna. Capacitive coupling to structure is not a compliant design. Shields do not conduct signal current."
+      },
+      "practice": {
+        "question": "A technician finds a harness where the shield drains are cut short at both ends, with no connection to ground. What is the most likely consequence?",
+        "choices": [
+          "The shield is providing maximum protection because it is fully isolated",
+          "The cable's current-carrying capacity is increased",
+          "The shield grounds itself automatically through capacitance",
+          "The ungrounded shield behaves as an antenna — it picks up or radiates noise, worsening EMI rather than reducing it"
+        ],
+        "correctIndex": 3,
+        "explanation": "An ungrounded shield cannot dissipate induced currents and becomes an EMI antenna. The proper fix is to ground the shield per the installation manual (single-point or both-ends, as specified). Capacitive coupling is not a reliable ground. Shields are not signal conductors."
+      },
+      "preassessment": {
+        "question": "What happens when both ends of a wire shield are left unterminated?",
+        "choices": [
+          "Maximum EMI protection",
+          "The shield grounds itself automatically",
+          "The shield acts like an antenna and can increase EMI",
+          "Improved current capacity"
+        ],
+        "correctIndex": 2
+      },
+      "targetCaetId": "464329",
+      "targetCaetStem": "If you discover a shielded wire with the shield floating at both ends, what occurs?",
+      "targetCaetPp": 1.0
+    },
+    {
+      "id": "CAT6-NEW-046",
+      "category": "mod6-aircraft-wiring",
+      "difficulty": "medium",
+      "tags": [
+        "harness-fabrication",
+        "layout",
+        "wiring-diagram"
+      ],
+      "learningObjective": "Identify the first step in fabricating a wire harness from a wiring diagram",
+      "fullObjective": "Recognize that harness fabrication begins with laying out the wiring diagram and planning the harness — identifying wire runs, connector positions, and bundle lengths — before any wire is cut or terminated.",
+      "flashcard": {
+        "term": "Harness fabrication — first step",
+        "definition": "Fabrication of a wire harness starts with reviewing the wiring diagram and laying out the physical plan: identifying each wire run, connector location, and bundle length, and marking break-out points. This precedes any cutting, stripping, or crimping.",
+        "analogy": "Like a tailor who measures and marks before the first cut — laying out the harness is measuring twice so you cut once.",
+        "unit": "Aircraft Wiring Practices"
+      },
+      "jeopardy": {
+        "question": "Working from a wiring diagram to fabricate a harness, this is typically the opening step of the process.",
+        "choices": [
+          "Lay out the wiring diagram and plan the harness — identify runs, connector positions, and bundle lengths",
+          "Crimp every connector to both ends of every wire before routing",
+          "Install the harness in the aircraft and then mark the break-outs",
+          "Cut all wires to finished length and bundle them immediately"
+        ],
+        "correctIndex": 0,
+        "explanation": "Layout and planning come first — identify each run, each connector, and each break-out based on the diagram. Cutting, crimping, and installing all come after the plan is verified. Jumping to cut or crimp wastes wire and produces misfit harnesses."
+      },
+      "multipleChoice": {
+        "question": "A technician is about to build a wire harness from a diagram. What is usually the opening step of that process?",
+        "choices": [
+          "Cut all wires to the estimated final length and bundle them together",
+          "Lay out the wiring diagram and plan the harness — identifying each wire run, connector position, and bundle length before cutting",
+          "Crimp every connector to both ends of every wire before any routing",
+          "Install the unmade harness into the aircraft and mark break-outs in place"
+        ],
+        "correctIndex": 1,
+        "explanation": "Harness fabrication begins with layout and planning from the diagram. Cutting, crimping, and installation come after the physical plan is verified. Skipping layout wastes wire, produces mismatched lengths, and usually results in rework."
+      },
+      "practice": {
+        "question": "A technician is assigned to fabricate a custom harness from a manufacturer's wiring diagram. What should the technician do FIRST?",
+        "choices": [
+          "Cut all wires to an estimated length and start crimping terminations",
+          "Install connectors on every wire end before any routing decisions",
+          "Place the unmade harness in the aircraft and work out the lengths while installed",
+          "Lay out the wiring diagram and plan the harness on a jig or board — identifying each run, connector location, and break-out length — before cutting any wire"
+        ],
+        "correctIndex": 3,
+        "explanation": "Professional harness fabrication begins with layout — usually on a harness board or jig — based on the wiring diagram. This establishes runs, break-outs, and lengths before wire is cut. Jumping straight to cutting, crimping, or in-aircraft fitting produces waste and rework."
+      },
+      "preassessment": {
+        "question": "What is the first step in fabricating a harness from a wiring diagram?",
+        "choices": [
+          "Lay out the diagram and plan the harness before cutting",
+          "Cut all wires immediately",
+          "Crimp all connectors first",
+          "Install the harness and mark break-outs in place"
+        ],
+        "correctIndex": 0
+      },
+      "targetCaetId": "464332",
+      "targetCaetStem": "When fabricating a wire harness from a wiring diagram, what is the FIRST step you should typically take?",
+      "targetCaetPp": 1.0
     }
   ]
 }

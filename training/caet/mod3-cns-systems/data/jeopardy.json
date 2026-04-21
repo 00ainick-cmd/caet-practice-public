@@ -317,6 +317,190 @@
         "correctIndex": 0,
         "explanation": "ADS-B In receives Traffic Information Service-Broadcast (TIS-B) and Flight Information Service-Broadcast (FIS-B) data from ground stations and other aircraft. ADS-B Out handles the transmit side. Mode S transponders perform interrogations; the blind encoder generates pressure altitude."
       }
+    ],
+    "Extended Coverage 1": [
+      {
+        "id": "CAT3-NEW-J04",
+        "clue": "A WAAS-enabled GPS receiver still requires this many satellites to compute a three-dimensional navigation fix.",
+        "choices": [
+          "Two satellites",
+          "Four satellites",
+          "Three satellites",
+          "Eight satellites"
+        ],
+        "correctIndex": 1,
+        "explanation": "WAAS is an augmentation overlay that improves accuracy and integrity — it does not change the basic geometry requirement. A receiver still needs four GPS satellites (three for triangulation, a fourth to resolve clock bias) to get a 3D fix. WAAS then applies differential corrections received from GEO satellites on top of that four-satellite solution.",
+        "targetCaetId": "464214",
+        "targetCaetStem": "How many GPS satellites must a receiver track for 3D navigation with WAAS?",
+        "targetCaetPp": 0.45
+      },
+      {
+        "id": "CAT3-NEW-J05",
+        "clue": "A pilot hears only a continuous carrier tone on the comm frequency rather than a reply from ATC; this is the scenario most likely to blame.",
+        "choices": [
+          "The aircraft's transponder has failed in Mode C",
+          "The aircraft's altitude encoder is miscalibrated",
+          "The ADS-B Out ground station has lost power",
+          "A push-to-talk switch on the frequency is stuck in the keyed position, transmitting a continuous carrier and blocking the channel"
+        ],
+        "correctIndex": 3,
+        "explanation": "A continuous tone on an otherwise-working comm frequency is the textbook signature of a stuck microphone — a PTT switch stuck keyed somewhere on the frequency. Transponder, ADS-B, and encoder faults affect their own systems and do not produce a comm-frequency carrier.",
+        "targetCaetId": "464211",
+        "targetCaetStem": "A pilot hears a constant tone instead of a response from ATC.. Which scenario is most likely?",
+        "targetCaetPp": 0.63
+      },
+      {
+        "id": "CAT3-NEW-J06",
+        "clue": "The antenna used for VOR reception on a piston single is usually mounted in this physical fashion.",
+        "choices": [
+          "Vertical blade antennas mounted on the underside of the fuselage",
+          "Internal loop antennas installed inside the cabin for electromagnetic shielding",
+          "Horizontally polarized dual-element cat-whisker or blade antennas mounted on top of the vertical stabilizer or upper fuselage",
+          "Helical antennas mounted at each wing tip for polarization diversity"
+        ],
+        "correctIndex": 2,
+        "explanation": "VOR ground transmitters emit horizontally polarized signals, so airborne VOR antennas are horizontally polarized dipoles — typically the V-shaped cat-whisker or an equivalent blade on the vertical stabilizer or upper fuselage. Belly blades are transponders, cabin loops are used for ADF, and wing-tip helicals are not standard VOR practice.",
+        "targetCaetId": "464225",
+        "targetCaetStem": "VOR antennas are often:",
+        "targetCaetPp": 0.69
+      },
+      {
+        "id": "CAT3-NEW-J07",
+        "clue": "Beyond the four-digit squawk, a Mode C reply adds this piece of data.",
+        "choices": [
+          "The aircraft's pressure altitude referenced to 29.92 inHg, from the altitude encoder",
+          "The aircraft's current GPS latitude and longitude",
+          "The local altimeter setting in inches of mercury selected by the pilot",
+          "The pilot's voice transmissions on the tuned ATC frequency"
+        ],
+        "correctIndex": 0,
+        "explanation": "Mode C adds pressure altitude — derived from the altitude encoder and referenced to 29.92 inHg — to the Mode A identification. GPS coordinates are an ADS-B Out function. The local altimeter setting stays with the pilot; ATC corrects on the ground. Voice traffic is on a separate COM radio.",
+        "targetCaetId": "464229",
+        "targetCaetStem": "Mode C transponders, in addition to Mode A, automatically transmit:",
+        "targetCaetPp": 0.74
+      },
+      {
+        "id": "CAT3-NEW-J08",
+        "clue": "This federal aviation regulation is the specific rule that requires testing and inspection of an aircraft transponder system.",
+        "choices": [
+          "FAR 91.207 (ELT inspection)",
+          "FAR 91.413 (transponder test and inspection)",
+          "FAR 91.411 (altimeter and static system test)",
+          "FAR 43.3 (maintenance authorization)"
+        ],
+        "correctIndex": 1,
+        "explanation": "FAR 91.413 is the transponder-specific regulation and requires the test every 24 calendar months. FAR 91.207 applies to ELTs. FAR 91.411 covers altimeter and static-system tests (and the altitude encoder). FAR 43.3 addresses who may perform maintenance, not what must be tested.",
+        "targetCaetId": "464154",
+        "targetCaetStem": "What regulation specifically requires testing of the transponder system?",
+        "targetCaetPp": 0.75
+      },
+      {
+        "id": "CAT3-NEW-J09",
+        "clue": "An airborne lightning detection system such as Stormscope is built for this purpose.",
+        "choices": [
+          "To physically protect the airframe from a direct lightning strike",
+          "To detect electrical discharges from thunderstorms and display their positions so the pilot can avoid convective weather",
+          "To ground the airframe and prevent static electricity from accumulating during flight",
+          "To shield every onboard avionics box from electromagnetic interference"
+        ],
+        "correctIndex": 1,
+        "explanation": "Lightning detection systems (Stormscope, Strikefinder) are passive receivers that sense the EM pulses from thunderstorm discharges and plot their positions on a cockpit display. They are a weather-avoidance aid, not structural protection, grounding, or EMI shielding — those functions belong to bonding, static wicks, and enclosure design respectively.",
+        "targetCaetId": "464224",
+        "targetCaetStem": "Lightning Detection systems in aircraft are designed to:",
+        "targetCaetPp": 0.75
+      }
+    ],
+    "Extended Coverage 2": [
+      {
+        "id": "CAT3-NEW-J10",
+        "clue": "The navigation data delivered to the cockpit by DME equipment is this.",
+        "choices": [
+          "The magnetic bearing from the DME station",
+          "The slant-range distance in nautical miles from the aircraft to the DME ground station",
+          "The current weather conditions at the DME site",
+          "The active runway in use at the destination airport"
+        ],
+        "correctIndex": 1,
+        "explanation": "DME provides slant-range distance — the straight-line distance from the aircraft to the ground station, in nautical miles. Bearing comes from VOR. Weather is broadcast separately (ATIS, AWOS). Runway information is on the approach chart or from ATIS, not DME.",
+        "targetCaetId": "464207",
+        "targetCaetStem": "DME (Distance Measuring Equipment) provides pilots with:",
+        "targetCaetPp": 0.78
+      },
+      {
+        "id": "CAT3-NEW-J11",
+        "clue": "For the best performance of a VHF communication antenna on a GA aircraft, this is the ideal mounting approach.",
+        "choices": [
+          "Inside the cockpit near the pilot for easy inspection",
+          "On the fuselage top or bottom with a clear line of sight, proper airframe ground plane beneath the base, and adequate separation from other antennas",
+          "On the inside surface of the windshield to exploit line-of-sight propagation",
+          "Attached to the propeller hub for best signal radiation during flight"
+        ],
+        "correctIndex": 1,
+        "explanation": "A VHF comm antenna (118-137 MHz) performs best fuselage-mounted (top or bottom) with an unobstructed view in all directions, a solid airframe ground plane beneath the base, and proper spacing from other antennas. Interior, propeller, and windshield locations all lack the ground plane or clear signal path a VHF monopole needs.",
+        "targetCaetId": "464218",
+        "targetCaetStem": "For optimal performance of a VHF communication antenna on a general aviation aircraft, it should ideally be mounted:",
+        "targetCaetPp": 0.79
+      },
+      {
+        "id": "CAT3-NEW-J12",
+        "clue": "This is the cockpit nav information delivered by a Very High Frequency Omni-directional Range station.",
+        "choices": [
+          "The aircraft's altitude above the VOR site",
+          "The distance in nautical miles to the VOR station",
+          "The magnetic radial (bearing) from the VOR station to the aircraft",
+          "A voice broadcast of current weather at the station"
+        ],
+        "correctIndex": 2,
+        "explanation": "VOR supplies bearing — the magnetic radial from the station to the aircraft. Distance is a DME function (often collocated with VOR). Altitude is not a VOR parameter. Weather broadcasts are delivered by HIWAS, ATIS, or AWOS, not by VOR navigation.",
+        "targetCaetId": "464222",
+        "targetCaetStem": "VOR (Very High Frequency Omni-Directional Range) navigation provides pilots with:",
+        "targetCaetPp": 0.83
+      },
+      {
+        "id": "CAT3-NEW-J13",
+        "clue": "Fitting a new digital transponder antenna, this is the single practice that protects RF performance.",
+        "choices": [
+          "Belly-mounting the antenna with proper bonding to the airframe ground plane, approved connectors torqued to specification, and adequate separation from other L-band antennas",
+          "Substituting the specified connectors with whatever RF connectors are in the shop drawer",
+          "Routing the coax through a hot exhaust duct to reduce internal moisture",
+          "Leaving the base unsealed so any condensation can evaporate"
+        ],
+        "correctIndex": 0,
+        "explanation": "Transponder antennas operate at 1030/1090 MHz and require a belly location with a solid ground plane, approved torqued connectors to preserve the 50-ohm match, and antenna separation to prevent L-band coupling. Hot-duct routing damages coax jackets. Wrong connectors create mismatches. An unsealed base admits moisture and accelerates corrosion.",
+        "targetCaetId": "464326",
+        "targetCaetStem": "Installing a new digital transponder antenna, which step ensures good performance?",
+        "targetCaetPp": 0.88
+      },
+      {
+        "id": "CAT3-NEW-J14",
+        "clue": "A VOR ramp test set, used on the ramp against an installed VOR, is typically employed to carry out this task.",
+        "choices": [
+          "Transmitting a simulated VOR signal at selectable radials so the technician can verify the receiver shows the correct bearing, flag behavior, and TO/FROM indication",
+          "Measuring the aircraft's battery voltage while the avionics bus is energized",
+          "Performing the FAR 91.171 in-flight VOR accuracy check from the ramp",
+          "Physically rotating the aircraft's VOR antenna through 360 degrees to verify mechanical travel"
+        ],
+        "correctIndex": 0,
+        "explanation": "A VOR ramp test set radiates a low-power simulated VOR signal, and the technician dials radials to verify the receiver indicates them correctly with appropriate flag and TO/FROM behavior. It does not rotate antennas, measure battery voltage, or replace the in-flight VOR check required by FAR 91.171.",
+        "targetCaetId": "464227",
+        "targetCaetStem": "Ground testing of a VOR navigation system typically involves using a VOR ramp test set to:",
+        "targetCaetPp": 0.9
+      },
+      {
+        "id": "CAT3-NEW-J15",
+        "clue": "When integrating an audio panel with other avionics, this factor matters most for clear audio and minimum interference.",
+        "choices": [
+          "Proper grounding and shielding — a single clean audio ground reference, shielded cables terminated per the installation manual, and careful routing away from noise sources",
+          "Using the largest-gauge wire available for every audio line to reduce resistance",
+          "Mounting the audio panel as close to the alternator as practical to shorten the power lead",
+          "Using unshielded twisted-pair cable throughout the audio installation to save weight"
+        ],
+        "correctIndex": 0,
+        "explanation": "Audio paths are low-level and extremely sensitive to ground loops and induced noise. The dominant installation factor is proper grounding and shielding: a single-point audio ground, shielded cables terminated per the installation manual, and routing well away from alternators, strobes, and heavy current feeders. Wire gauge does not address noise; alternator proximity adds it; unshielded cable invites it.",
+        "targetCaetId": "464234",
+        "targetCaetStem": "When integrating an audio panel with other avionics, which factor is most important for ensuring clear audio and minimal interference?",
+        "targetCaetPp": 0.9
+      }
     ]
   },
   "final": [

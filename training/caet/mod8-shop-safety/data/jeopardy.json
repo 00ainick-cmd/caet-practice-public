@@ -193,6 +193,98 @@
         "correctIndex": 3,
         "explanation": "Eye contact, safe zones, correct approach direction, staying low, and avoiding the tail rotor are all established safe-approach practices. Walking under, approaching from behind, or running through the disc area are all dangerous."
       }
+    ],
+    "Extended Coverage": [
+      {
+        "id": "CAT8-NEW-J02",
+        "clue": "This type of cabinet is required for flammable-chemical storage at an avionics maintenance facility.",
+        "choices": [
+          "An open shelf on the workbench next to the soldering iron",
+          "A stack of cardboard boxes near the exit door",
+          "A converted household refrigerator",
+          "A UL-listed (or FM-approved) flammable-liquid cabinet — grounded, vented, kept closed, and labeled 'Flammable — Keep Fire Away'"
+        ],
+        "correctIndex": 3,
+        "explanation": "The standard is a UL-listed / FM-approved flammable-liquid cabinet: grounded, vented per local code, self-closing and kept closed, and externally labeled. Open-bench storage near ignition sources, converted household refrigerators (their relays arc), and cardboard storage near exits are all non-compliant and dangerous.",
+        "targetCaetId": "464310",
+        "targetCaetStem": "Scenario: You are tasked with installing a new avionics system that requires grounding. What is the first step to ensure proper grounding?",
+        "targetCaetPp": 0.71
+      },
+      {
+        "id": "CAT8-NEW-J03",
+        "clue": "A technician begins a new panel install that calls for a chassis bond. This is the initial action to establish correct grounding.",
+        "choices": [
+          "Apply power and measure case voltage",
+          "Bond the pilot's seat to the airframe",
+          "Create an equipotential reference — bond the chassis, the airframe, and any bench test gear to one low-impedance point per the install manual and AC 43.13",
+          "Tie the antenna coax shield to the headset jack"
+        ],
+        "correctIndex": 2,
+        "explanation": "Bonding must be established before applying power. Equipotential bonding ties the chassis, airframe, bonding straps, and test equipment to a single low-impedance reference per the installation manual and AC 43.13-1B Chapter 11. Only then is it safe to energize the system.",
+        "targetCaetId": "464371",
+        "targetCaetStem": "There is a hydraulic fluid spill near the avionics bench Recommended action?",
+        "targetCaetPp": 0.75
+      },
+      {
+        "id": "CAT8-NEW-J04",
+        "clue": "A puddle of hydraulic fluid has leaked onto the floor next to an avionics workstation. This is the correct response.",
+        "choices": [
+          "Keep working and wipe it up at the end of the shift",
+          "Push the fluid into the closest floor drain with a broom",
+          "Pour thinner over the puddle to dilute it",
+          "Halt work and warn coworkers, remove nearby ignition sources, absorb the pool with an approved absorbent pad or granule, clean per the SDS, and place the contaminated absorbent into a labeled hazmat container"
+        ],
+        "correctIndex": 3,
+        "explanation": "Hydraulic fluid is a slip hazard and a combustible liquid. The correct response is halt-warn-contain-clean-dispose using approved absorbent, with contaminated absorbent disposed as hazmat. Drain disposal violates the Clean Water Act; adding solvent worsens the fire risk.",
+        "targetCaetId": "464365",
+        "targetCaetStem": "How should flammable liquids be stored in an avionics shop?",
+        "targetCaetPp": 0.76
+      },
+      {
+        "id": "CAT8-NEW-J05",
+        "clue": "A technician needs product-specific hazard details for a cleaning solvent on the bench. This is the correct reference to consult.",
+        "choices": [
+          "A general internet search on the product name",
+          "The Safety Data Sheet (SDS) for that specific product, provided by the manufacturer and kept accessible in the shop per OSHA's Hazard Communication Standard",
+          "The shipping invoice for the chemical",
+          "A handwritten note taped to the shelf"
+        ],
+        "correctIndex": 1,
+        "explanation": "The SDS is the authoritative, OSHA-required source. It follows a standardized 16-section format covering hazards, PPE, first aid, handling, spill response, and disposal. Internet results, invoices, and handwritten notes are not compliant and can be wrong.",
+        "targetCaetId": "464364",
+        "targetCaetStem": "Where should you find specific safety info about a chemical solvent used in avionics cleaning?",
+        "targetCaetPp": 0.84
+      },
+      {
+        "id": "CAT8-NEW-J06",
+        "clue": "At a Part 145 repair station, this paperwork is required on hand for every chemical product in use.",
+        "choices": [
+          "An annual environmental compliance report",
+          "A signed purchase order for the chemical",
+          "The Safety Data Sheet (SDS), formerly the MSDS, required by OSHA's Hazard Communication Standard (29 CFR 1910.1200)",
+          "The receiving inspection tag on the container"
+        ],
+        "correctIndex": 2,
+        "explanation": "The SDS is the OSHA-required hazmat document — readily available to every employee during every work shift. Environmental reports, purchase orders, and receiving tags are administrative records and do not satisfy 29 CFR 1910.1200.",
+        "targetCaetId": "464375",
+        "targetCaetStem": "Which document must be readily available for each hazardous material used in a Part 145 shop?",
+        "targetCaetPp": 0.92
+      },
+      {
+        "id": "CAT8-NEW-J07",
+        "clue": "On the ramp and during engine runs, hearing protection is mandatory for good reason. This is the primary hazard it guards against.",
+        "choices": [
+          "Loud noise slows down shop productivity",
+          "Loud noise interferes with radio communication",
+          "Sustained noise from engine runs, APUs, GPUs, and pneumatic tools routinely exceeds OSHA's 85 dBA action level and causes permanent, cumulative, irreversible hearing loss",
+          "Loud noise makes instrument displays harder to read"
+        ],
+        "correctIndex": 2,
+        "explanation": "The core reason is permanent hearing-loss risk above an 85 dBA 8-hour time-weighted exposure. OSHA 29 CFR 1910.95 requires hearing protection, annual audiograms, and a hearing conservation program at that threshold. Productivity, comm clarity, and display readability are secondary.",
+        "targetCaetId": "464376",
+        "targetCaetStem": "In a busy shop with multiple aircraft, why is hearing protection so critical for technicians?",
+        "targetCaetPp": 0.95
+      }
     ]
   },
   "final": [
