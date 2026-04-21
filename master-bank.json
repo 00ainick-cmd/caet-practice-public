@@ -13087,34 +13087,35 @@
       "multipleChoice": {
         "question": "During initial installation of a new digital transponder antenna, which procedural step is essential for proper RF performance?",
         "choices": [
-          "Routing the coaxial cable alongside high-temperature exhaust components to preheat the connection",
-          "Belly-mounting the antenna with solid bonding to the airframe ground plane, approved connectors torqued to specification, and adequate separation from nearby L-band antennas",
+          "Routing the coaxial cable alongside exhaust components for preheating",
+          "Belly-mount with proper bonding, approved torqued connectors, and L-band antenna separation",
           "Leaving the antenna base unsealed so moisture can evaporate from under it",
-          "Substituting the specified RF connectors with whatever connectors are in the shop storage bin"
+          "Using whatever RF connectors happen to be available in the shop bin"
         ],
         "correctIndex": 1,
-        "explanation": "Transponder antennas need a clear view downward to ATC ground radar, so belly mounting is required. Bonding to the airframe ground plane is critical for radiation efficiency. Approved connectors torqued to spec preserve the 50-ohm match. Separation prevents mutual coupling with nearby DME or GPS antennas. Unsealed bases admit moisture and corrode."
+        "explanation": "Proper transponder antenna installation requires: (1) ventral (belly) mounting for clear view to ground-based interrogators, (2) solid bonding to the airframe ground plane, (3) approved RF connectors torqued to manufacturer specification, and (4) adequate separation from other L-band antennas (DME, GPS) to prevent mutual interference."
       },
       "practice": {
         "question": "A technician is installing a new digital transponder antenna on a Part 23 aircraft; which action is most important for reliable operation?",
         "choices": [
-          "Mounting the antenna on the belly with proper bonding to the airframe ground plane, using approved connectors torqued to specification, and ensuring adequate separation from DME and GPS antennas",
-          "Routing the coax near the engine exhaust to warm it and reduce humidity inside the cable",
-          "Using whatever RF connector happens to fit the cable end",
-          "Leaving the base unsealed so any condensation can dry out"
+          "Mount on the belly with proper bonding, approved torqued connectors, and antenna separation",
+          "Route coax near the engine exhaust to warm it and reduce humidity inside the cable",
+          "Use whatever RF connector happens to fit the cable end on the shelf",
+          "Leave the base unsealed so any condensation can dry out during flight"
         ],
         "correctIndex": 0,
-        "explanation": "The belly location, airframe bonding, proper connector installation, and antenna separation all directly affect transponder reply power and range. Routing coax near hot exhaust damages the jacket and dielectric. Wrong connectors create impedance mismatches. An unsealed base admits water and corrodes the mount. All of these shortcuts degrade transponder performance and risk regulatory non-compliance."
+        "explanation": "On a Part 23 aircraft, the transponder antenna must be belly-mounted with a solid airframe bond, approved connectors torqued to spec, and adequate separation from DME and GPS antennas. Thermal coax routing is unnecessary. Mismatched connectors degrade RF return loss. Unsealed bases admit moisture and corrosion."
       },
       "preassessment": {
         "question": "A new digital transponder antenna is being fitted to an aircraft. What practice secures proper performance?",
         "choices": [
-          "Route coax through hot ducts",
-          "Belly mount with proper bonding, approved torqued connectors, and antenna separation",
-          "Use any RF connector that fits",
-          "Leave the base unsealed"
+          "Route the coax through hot ducts to warm it",
+          "Belly mount with proper bonding and connector torque",
+          "Use any RF connector that fits the cable",
+          "Leave the antenna base unsealed for drainage"
         ],
-        "correctIndex": 1
+        "correctIndex": 1,
+        "explanation": "Belly-mount with proper bonding and approved connectors torqued to spec is the procedural step required for good RF performance."
       },
       "targetCaetId": "464326",
       "targetCaetStem": "Installing a new digital transponder antenna, which step ensures good performance?",
@@ -13216,34 +13217,35 @@
       "multipleChoice": {
         "question": "On a shop bench, a VOR ramp tester is used against an installed VOR receiver primarily to do what?",
         "choices": [
-          "Physically rotate the aircraft's VOR antenna through each cardinal heading",
-          "Transmit a simulated VOR signal at selectable radials so the technician can verify the receiver reads the expected bearing, flag behavior, and TO/FROM indication",
-          "Verify the VOR-required in-flight accuracy check of FAR 91.171",
-          "Measure the aircraft battery voltage while the avionics are running"
+          "Physically rotate the aircraft VOR antenna through each cardinal heading",
+          "Transmit a simulated VOR signal at selectable radials to verify receiver indications",
+          "Verify the in-flight VOR accuracy check required by FAR 91.171",
+          "Measure aircraft battery voltage while the avionics are running"
         ],
         "correctIndex": 1,
-        "explanation": "A VOR ramp test set radiates a low-power simulated VOR signal with an adjustable radial. The technician dials a radial (e.g., 180), verifies the receiver indicates the same radial correctly, and checks flag and TO/FROM behavior. It does not move antennas, measure battery voltage, or substitute for the pilot's required in-flight VOR check under 91.171."
+        "explanation": "A VOR ramp tester transmits a simulated VOR signal at radials selected by the technician. The tech then checks that the aircraft's VOR indicator shows the expected bearing, proper flag behavior, and correct TO/FROM indication. This is a ground-based bench verification — not the in-flight 91.171 check."
       },
       "practice": {
         "question": "A technician needs to verify a newly installed VOR receiver on an aircraft that is parked in the hangar; which correct use of a ramp test set confirms proper receiver function?",
         "choices": [
-          "Rotate the aircraft's VOR antenna manually through 360 degrees while watching the needle",
-          "Disconnect the battery and measure standby current on the VOR receiver",
+          "Rotate the aircraft VOR antenna manually through 360 degrees while watching the needle",
+          "Disconnect the battery and measure standby current drawn by the VOR receiver",
           "Complete an FAR 91.171 in-flight VOR accuracy check from the ground",
-          "Position the ramp test set near the VOR antenna, dial in a known radial such as 000, and verify that the aircraft's VOR indicator shows the matching bearing with a centered CDI and correct TO/FROM flag, then repeat for additional radials"
+          "Use the ramp test set to dial in known radials and verify correct receiver indications"
         ],
         "correctIndex": 3,
-        "explanation": "The ramp test set generates a simulated VOR signal; the technician dials a radial, confirms the receiver displays it accurately, checks the flag and TO/FROM sense, and repeats for a second radial to verify angular accuracy. Physically rotating the antenna, disconnecting the battery, or trying to satisfy 91.171 from the ground are all incorrect — 91.171 is a separate flight check for IFR VOR airworthiness."
+        "explanation": "Position the ramp test set near the VOR antenna, dial in a known radial (e.g., 000), and verify that the aircraft's VOR indicator shows the matching bearing with a centered CDI and correct TO/FROM flag. Repeat for additional radials. This simulates the ground-station signal for bench verification — it is not an FAR 91.171 in-flight accuracy check."
       },
       "preassessment": {
         "question": "A VOR ramp test set is used to do what on the ground?",
         "choices": [
-          "Rotate the VOR antenna",
-          "Measure battery voltage",
-          "Simulate a VOR signal at selectable radials to verify receiver indications",
-          "Complete the 91.171 in-flight check"
+          "Rotate the VOR antenna through cardinal headings",
+          "Measure aircraft battery voltage during test",
+          "Simulate radials to verify receiver indications",
+          "Complete the 91.171 in-flight check from ground"
         ],
-        "correctIndex": 2
+        "correctIndex": 2,
+        "explanation": "A ramp test set simulates VOR radials so the tech can verify the receiver indications on the ground — this is a bench check, not an in-flight accuracy check."
       },
       "targetCaetId": "464227",
       "targetCaetStem": "Ground testing of a VOR navigation system typically involves using a VOR ramp test set to:",
@@ -13281,34 +13283,35 @@
       "multipleChoice": {
         "question": "During installation of an audio panel alongside other avionics, what installation consideration has the GREATEST impact on audio clarity and noise rejection?",
         "choices": [
-          "Proper grounding and shielding practices — a single clean audio ground reference, shielded audio cables terminated per the installation manual, and cable routing away from noise sources",
+          "Proper grounding and shielding — clean ground reference, shielded cables, noise-free routing",
           "Using the largest available wire diameter for every audio run to reduce resistance",
-          "Mounting the audio panel as close to the alternator as practical to shorten the power-lead run",
+          "Mounting the audio panel as close to the alternator as practical to shorten the leads",
           "Using unshielded twisted-pair audio cable throughout the installation to save weight"
         ],
         "correctIndex": 0,
-        "explanation": "Audio signals are low-level and very sensitive to ground loops and EMI. The dominant integration factor is grounding and shielding: a single-point audio ground, shielded cables with shields terminated as the manual specifies, and routing well away from alternators, strobes, and high-current wiring. Wire diameter does not address noise. Alternator proximity adds noise. Unshielded cable invites interference."
+        "explanation": "Audio clarity depends on three things: (1) a single clean audio ground reference (prevents ground loops), (2) shielded audio cables terminated per the installation manual (usually at the panel end only), and (3) physical routing away from alternator harnesses, strobe power leads, and other noise sources. Wire gauge and alternator proximity are not primary factors for audio quality."
       },
       "practice": {
         "question": "A technician is installing an audio panel alongside a new COM/NAV/GPS stack; which installation practice will most improve audio quality and reduce interference?",
         "choices": [
-          "Use the largest-gauge wire available for every audio run",
-          "Establish a single-point audio ground reference, use shielded audio cables terminated only at the panel end (per the installation manual), and route audio bundles away from alternator harnesses and strobe power leads",
-          "Use unshielded twisted-pair cable throughout to save weight",
-          "Install the audio panel as close as possible to the alternator to minimize power-lead length"
+          "Use the largest-gauge wire available for every audio run in the aircraft",
+          "Single-point audio ground, shielded cables, and routing away from noise sources",
+          "Use unshielded twisted-pair cable throughout the audio installation to save weight",
+          "Install the audio panel as close as possible to the alternator to shorten power leads"
         ],
         "correctIndex": 1,
-        "explanation": "Proper grounding and shielding practice is the foundation of low-noise audio. A single-point audio ground avoids ground loops; shields terminated per the installation manual (usually only at one end) prevent shield currents; and cable routing away from alternators and strobes keeps inducted noise out of the audio path. Wire gauge, proximity to the alternator, and unshielded cable all work against audio quality."
+        "explanation": "Establish a single-point audio ground reference (prevents ground loops), use shielded audio cables terminated only at the panel end per the installation manual, and route audio bundles away from alternator harnesses and strobe power leads. Wire gauge is far less important than grounding discipline. Unshielded cable invites interference."
       },
       "preassessment": {
         "question": "Most important factor for clear audio when integrating an audio panel?",
         "choices": [
-          "Proper grounding, shielding, and cable routing away from noise sources",
-          "Proximity to the alternator",
-          "Unshielded twisted-pair cable",
-          "Largest possible wire gauge"
+          "Proper grounding, shielding, and quiet cable routing",
+          "Proximity of the audio panel to the alternator unit",
+          "Using unshielded twisted-pair cable throughout",
+          "Using the largest possible audio wire gauge"
         ],
-        "correctIndex": 0
+        "correctIndex": 0,
+        "explanation": "Clean grounding, proper shielding, and quiet cable routing are the three factors that most affect audio clarity."
       },
       "targetCaetId": "464234",
       "targetCaetStem": "When integrating an audio panel with other avionics, which factor is most important for ensuring clear audio and minimal interference?",
