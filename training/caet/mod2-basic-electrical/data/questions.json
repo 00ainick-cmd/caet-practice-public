@@ -374,12 +374,13 @@
       "preassessment": {
         "question": "In electrical notation, what does the symbol 'Ω' represent?",
         "choices": [
-          "Voltage",
-          "Current",
-          "Power",
+          "Voltage (V)",
+          "Current (I)",
+          "Power (P)",
           "Resistance"
         ],
-        "correctIndex": 3
+        "correctIndex": 3,
+        "explanation": "The symbol Ω (omega) represents resistance, measured in ohms."
       }
     },
     {
@@ -665,13 +666,13 @@
       "practice": {
         "question": "A pilot reports that the landing light appears yellowish at takeoff power but returns to normal brightness at cruise. You pull the schematics and begin troubleshooting. Which finding would best explain this load-dependent dimming?",
         "choices": [
-          "The landing light bulb is the wrong part number for the aircraft",
-          "The alternator is over-regulating and producing too much voltage",
-          "The landing light is wired to the wrong bus",
-          "A corroded battery terminal adds series resistance — voltage drop is small at low current but larger at high current, producing the dimming effect under heavy load"
+          "The landing light bulb is the wrong part number for this specific aircraft",
+          "The alternator is over-regulating and producing excessive bus voltage at takeoff",
+          "The landing light is wired to the wrong bus segment for its load level",
+          "A corroded battery terminal adds series resistance that drops more at high current"
         ],
         "correctIndex": 3,
-        "explanation": "Voltage drop across a series resistance is proportional to current, so a corroded terminal with nearly constant resistance produces a small drop at low current and a much larger drop at high current. At takeoff many loads are active, so the total current is higher and the voltage drop is worse. At cruise with lower total current the drop is small and the light appears normal. This is a textbook load-dependent voltage drop symptom."
+        "explanation": "Voltage drop across series resistance is proportional to current, so a corroded terminal produces a small drop at low current and a larger drop at high current. At takeoff many loads are active, so total current is higher and the drop is worse. At cruise with lower total current, the drop is small and the light appears normal — a textbook load-dependent voltage drop symptom."
       },
       "preassessment": {
         "question": "What does dim, below-rated output from DC-powered bulbs most often indicate?",
@@ -785,7 +786,7 @@
       "practice": {
         "question": "A new technician attempts to measure current with a DMM by touching the probes across a battery, as if reading voltage. What will most likely happen?",
         "choices": [
-          "The DMM will read zero because ammeters must be in series — the probes shorted across the battery will blow the meter's internal fuse or damage the meter",
+          "It reads zero — the ammeter shorts the battery and blows the fuse",
           "The DMM will read the current correctly, because ammeter and voltmeter connections are the same",
           "The DMM will read half of the correct current value because of the parallel connection",
           "The DMM will read double the correct current value"
@@ -1027,13 +1028,13 @@
       "practice": {
         "question": "A technician measures bus voltage swings from 13 V to 17 V as engine RPM varies. Which component is the most likely cause?",
         "choices": [
-          "The battery, which is not holding charge",
-          "The voltage regulator, which should clamp the bus to approximately 14 V regardless of RPM",
-          "The master switch contactor",
-          "The ammeter shunt"
+          "The battery, which is no longer able to hold a charge",
+          "The regulator, which should clamp the bus near 14 V regardless of RPM",
+          "The master switch contactor, which is chattering under engine vibration",
+          "The ammeter shunt, which introduces an offset in the panel readout"
         ],
         "correctIndex": 1,
-        "explanation": "The voltage regulator's job is to keep bus voltage constant. Wide voltage swings with RPM indicate that the regulator is not performing correctly. Possible causes include wiring problems, a worn regulator, or a wrong-part replacement. Failing to replace a bad regulator can damage avionics through over-voltage conditions."
+        "explanation": "The voltage regulator's job is to keep bus voltage constant. Wide voltage swings with RPM indicate the regulator is not performing correctly — possible causes include wiring problems, a worn regulator, or a wrong-part replacement. Failing to replace a bad regulator can damage avionics through over-voltage conditions."
       },
       "preassessment": {
         "question": "What is the function of the voltage regulator in an aircraft electrical system?",
@@ -1088,13 +1089,13 @@
       "practice": {
         "question": "A technician installs a transformer in a 28 V DC circuit hoping to obtain 5 V DC at the secondary. Will this approach work?",
         "choices": [
-          "Yes, because transformers convert voltage regardless of whether the input is AC or DC",
-          "Yes, but only if the transformer is specifically labeled 'DC-compatible'",
-          "No, because transformers require a continuously changing magnetic flux, which steady DC does not produce — only AC creates the needed flux changes",
-          "No, because transformers only operate at 60 Hz"
+          "Yes, because transformers convert voltage regardless of input type",
+          "Yes, but only with a transformer labeled 'DC-compatible' in the data",
+          "No, because transformers need changing flux, which steady DC lacks",
+          "No, because transformers are designed to operate only at 60 Hz AC"
         ],
         "correctIndex": 2,
-        "explanation": "Transformers cannot step steady DC voltages. DC produces a magnetic field but not a changing one, so no voltage is induced in the secondary winding. A DC-to-DC converter is the correct device for this task."
+        "explanation": "Transformers cannot step steady DC voltages. DC produces a magnetic field but not a changing one, so no voltage is induced in the secondary winding. Only AC creates the needed flux changes. A DC-to-DC converter is the correct device for this task."
       },
       "preassessment": {
         "question": "With what type of input voltage do transformers operate?",
@@ -1149,13 +1150,13 @@
       "practice": {
         "question": "Why does the disconnect procedure specifically require removing the NEGATIVE terminal FIRST?",
         "choices": [
-          "Because negative terminals corrode faster than positive ones",
-          "To discharge static electricity from the battery housing",
-          "To prevent a wrench that accidentally touches grounded airframe from creating a short circuit across a live positive cable",
-          "Because FAA regulations mandate the order by part number"
+          "Because negative terminals corrode faster than positive ones do over time",
+          "To discharge any static electricity that may have built up on the battery housing",
+          "To prevent a wrench touching airframe from shorting across a live positive cable",
+          "Because FAA regulations mandate the specific removal order by battery part number"
         ],
         "correctIndex": 2,
-        "explanation": "The safety rationale is short-circuit prevention. With the ground path already disconnected, even a dead short from the positive terminal to the airframe cannot complete a circuit. This sequence is a universal automotive and aviation safety procedure."
+        "explanation": "The safety rationale is short-circuit prevention. With the ground path disconnected, even a dead short from positive to airframe cannot complete a circuit. This is a universal automotive and aviation safety procedure."
       },
       "preassessment": {
         "question": "Which terminal is removed first when disconnecting an aircraft battery?",
@@ -1210,13 +1211,13 @@
       "practice": {
         "question": "Your shop has a box of five expired Ni-Cad batteries. A new technician asks whether they can be thrown in the regular dumpster because they 'look like normal batteries.' What is your response?",
         "choices": [
-          "No — Ni-Cad batteries contain cadmium, a toxic heavy metal, so they must go to a certified hazardous-waste recycler",
+          "No — Ni-Cads contain cadmium and require hazmat recycling",
           "Yes, because after a few weeks the cadmium becomes inert",
           "Yes, but only if the case is cracked first to let the cells dry out",
           "It depends on the state; some states allow Ni-Cad batteries in regular trash"
         ],
         "correctIndex": 0,
-        "explanation": "Ni-Cad batteries are universal hazardous waste due to their cadmium content. No state allows them in regular trash. The shop should have a relationship with a hazmat recycler — many battery-supply vendors will accept spent batteries back for recycling."
+        "explanation": "Ni-Cad batteries are universal hazardous waste due to their cadmium content (a toxic heavy metal) and must go to a certified hazardous-waste recycler. No state allows them in regular trash. The shop should have a relationship with a hazmat recycler — many battery-supply vendors will accept spent batteries back for recycling."
       },
       "preassessment": {
         "question": "What is the correct disposal method for an expired Ni-Cad battery?",
@@ -1271,10 +1272,10 @@
       "practice": {
         "question": "A technician places a lead-acid battery on its side in the back of a shop cart in order to save space. What is the risk?",
         "choices": [
-          "Laying the battery on its side drains the battery",
-          "Placing the battery on its side will weld its terminals together",
-          "There is no real risk, because modern batteries do not leak",
-          "Even with caps on, a lead-acid battery on its side can leak sulfuric acid through cap vents, producing a chemical-burn and environmental hazard"
+          "Laying the battery on its side will permanently drain the stored energy",
+          "Placing a lead-acid battery on its side will weld the two terminals together",
+          "There is no meaningful risk, because modern sealed batteries simply do not leak",
+          "Sulfuric acid can vent through cap seals, risking chemical burns and damage"
         ],
         "correctIndex": 3,
         "explanation": "Even 'sealed' vented caps can allow electrolyte to seep when the battery is tipped. Sulfuric acid produces painful chemical burns and damages surfaces. Batteries must always be transported upright, using a proper battery carrier."
@@ -1444,12 +1445,12 @@
         "question": "Which instrument is used to verify the output frequency of an aircraft AC alternator on the bench?",
         "choices": [
           "Frequency meter or oscilloscope",
-          "A thermometer",
-          "A DMM set to DC volts",
-          "An ammeter"
+          "A laboratory thermometer",
+          "A DMM set to DC volts mode",
+          "An analog ammeter in series"
         ],
         "correctIndex": 0,
-        "explanation": "A frequency meter (analog or digital) directly reads hertz. An oscilloscope can display the waveform period from which frequency is calculated. Some DMMs include a dedicated Hz function, but the standard V, A, and Ω modes do not measure frequency."
+        "explanation": "A frequency meter reads hertz directly. An oscilloscope can display the waveform period, from which frequency is calculated. Thermometers measure heat, DC volts measures DC, and ammeters measure current — none measures AC frequency."
       },
       "practice": {
         "question": "After a teardown and rewind, you want to verify that an aircraft alternator produces exactly 400 Hz at its rated drive RPM. What is the simplest rigorous bench verification?",
@@ -1466,11 +1467,12 @@
         "question": "Which instrument is used to measure AC frequency?",
         "choices": [
           "Frequency meter or oscilloscope",
-          "A thermometer",
-          "A DMM set to DC volts",
-          "An ammeter"
+          "A laboratory thermometer",
+          "A DMM set to DC volts mode",
+          "An analog ammeter in series"
         ],
-        "correctIndex": 0
+        "correctIndex": 0,
+        "explanation": "A frequency meter reads hertz directly. An oscilloscope can display the waveform period from which frequency is calculated."
       }
     },
     {
@@ -1493,13 +1495,13 @@
       "jeopardy": {
         "question": "This is the PRIMARY purpose of a fuse or circuit breaker in an aircraft electrical system.",
         "choices": [
-          "Regulate system voltage",
-          "Protect wiring from excessive current by interrupting the circuit",
+          "Regulate the system voltage",
+          "Protect wiring by interrupting excessive current",
           "Store electrical energy for peak-load use",
           "Convert AC to DC"
         ],
         "correctIndex": 1,
-        "explanation": "Fuses and circuit breakers provide overcurrent protection, primarily for the wiring. Overheated wiring is a common cause of in-flight fires. Voltage regulation is the job of the regulator; energy storage is for batteries and capacitors; AC-to-DC conversion is done by rectifiers."
+        "explanation": "Fuses and circuit breakers provide overcurrent protection, primarily for the wiring — they interrupt the circuit when current is excessive. Overheated wiring is a common cause of in-flight fires. Voltage regulation is the job of the regulator; energy storage is for batteries and capacitors; AC-to-DC conversion is done by rectifiers."
       },
       "multipleChoice": {
         "question": "What is the primary function of a fuse or circuit breaker in an aircraft electrical system?",
@@ -1515,23 +1517,24 @@
       "practice": {
         "question": "A student asks why a 10 A circuit breaker is installed in a circuit when the load itself only draws 3 A normally. What is the correct explanation?",
         "choices": [
-          "The breaker is oversized and should match the load draw exactly",
-          "The breaker protects the WIRING from excessive current during faults; it is sized to the wire's safe ampacity, not the load's nominal draw",
-          "The breaker will not trip at 3 A because the load is below its rating",
-          "The breaker should be sized smaller than the load for safety reasons"
+          "The breaker is oversized and should match the load draw exactly for safety",
+          "The breaker protects WIRING from fault current, sized to wire ampacity",
+          "The breaker will not trip at 3 A because the load is well below its rating",
+          "The breaker should be sized smaller than the load to protect the equipment"
         ],
         "correctIndex": 1,
-        "explanation": "Circuit breakers are sized to protect wire ampacity with some margin, not to match exact load. A 3 A load on 14 AWG wire (rated roughly 15 A) might be protected by a 10 A breaker — the breaker protects the wire from short-circuit overcurrent while allowing normal load current to pass. Sizing the breaker exactly to the load would cause nuisance tripping on startup surges."
+        "explanation": "Circuit breakers are sized to protect wire ampacity, not exact load. A 3 A load on 14 AWG wire (~15 A rated) might be protected by a 10 A breaker. Sizing to the load would cause nuisance tripping on surges."
       },
       "preassessment": {
         "question": "What is the primary purpose of a fuse or circuit breaker?",
         "choices": [
-          "To regulate voltage",
-          "To protect wiring from overcurrent",
-          "To store energy",
-          "To convert AC to DC"
+          "To regulate the line voltage supply",
+          "Protect wiring from overcurrent",
+          "To store surplus electrical energy",
+          "To convert AC power into DC power"
         ],
-        "correctIndex": 1
+        "correctIndex": 1,
+        "explanation": "Fuses and circuit breakers protect wiring from overcurrent. Voltage regulation, energy storage, and AC/DC conversion are functions of other devices."
       }
     },
     {
@@ -1636,10 +1639,10 @@
       "practice": {
         "question": "An aircraft has a 'main bus' and a separate 'essential bus.' What does the essential-bus concept allow the pilot to do during an electrical emergency?",
         "choices": [
-          "Disconnect the alternator to save battery capacity",
-          "Recharge the battery in flight",
-          "Route power around a failed alternator",
-          "Isolate the essential bus and shed all non-essential loads so that critical avionics and instruments continue to receive battery power for as long as possible"
+          "Disconnect the alternator from the bus to save remaining battery capacity",
+          "Recharge the battery using the standby alternator field winding in flight",
+          "Route power around a failed alternator using a crossfeed contactor link",
+          "Isolate essential bus and shed non-essential loads to extend battery life"
         ],
         "correctIndex": 3,
         "explanation": "The essential-bus architecture isolates critical loads (communication, navigation, pitot heat, critical instruments) so they can continue operating on battery power after load shedding. This is specifically designed for post-alternator-failure endurance, which is why emergency checklists include 'shed non-essential loads' as an early step."
@@ -1697,23 +1700,24 @@
       "practice": {
         "question": "A pilot complains that the battery is always dead after the aircraft sits for a week. You suspect a parasitic draw. Which is the MOST common cause in general aviation aircraft?",
         "choices": [
-          "The battery naturally self-discharges fully every week",
-          "Static electricity buildup on the airframe",
-          "A stuck relay, a leaky avionics module, or a wire inadvertently landed on the 'always-hot' side of the battery contactor",
-          "The battery cap is vented, allowing charge to escape"
+          "The battery naturally self-discharges completely every single week of sitting",
+          "Built-up static electricity on the airframe drains the battery through the hull",
+          "A stuck relay, leaky module, or wire landed on the 'always-hot' contactor side",
+          "The battery caps are vented, allowing electrical charge to escape out of the cells"
         ],
         "correctIndex": 2,
-        "explanation": "Common culprits include a relay coil that failed to drop out after master-off, an avionics unit whose 'off' state still draws several milliamps, or — most often — a wire landed on the battery side of the master contactor instead of on the bus side, which bypasses the master switch entirely. A parasitic draw hunt typically starts at the battery with an ammeter in series and the master switch OFF."
+        "explanation": "Common culprits include a relay coil that failed to drop out after master-off, an avionics unit whose off state still draws several milliamps, or — most often — a wire landed on the battery side of the master contactor instead of on the bus side, which bypasses the master switch entirely. A parasitic draw hunt typically starts at the battery with an ammeter in series and the master switch OFF."
       },
       "preassessment": {
         "question": "What is parasitic current draw in an aircraft?",
         "choices": [
           "Normal engine-start current",
           "Alternator charging current",
-          "Unintended drain with the master switch OFF",
+          "Drain with master switch OFF",
           "Battery charging current"
         ],
-        "correctIndex": 2
+        "correctIndex": 2,
+        "explanation": "Parasitic current draw is an unintended drain that continues with the master switch OFF, often from always-hot accessories, clock circuits, or shorted switches."
       }
     },
     {
@@ -1757,13 +1761,13 @@
       "practice": {
         "question": "A new aircraft owner asks, 'What does the aircraft's DC electrical system actually do while I'm flying?' Which response is the best one-sentence answer?",
         "choices": [
-          "It only powers the radio — everything else is mechanical",
-          "It provides the main thrust by driving an electric motor",
-          "It starts the engine, and in flight it powers all avionics and instruments while the alternator simultaneously recharges the battery",
-          "It operates only during emergencies"
+          "It only powers the radio — everything else in the aircraft is mechanical",
+          "It provides the main thrust by driving an electric propulsion motor",
+          "It starts the engine, powers avionics in flight, and charges the battery",
+          "It operates only during emergencies when the main generator fails"
         ],
         "correctIndex": 2,
-        "explanation": "The DC system has two primary roles: engine starting (a one-time event at each flight) and continuous in-flight power distribution to avionics, instruments, and lighting, while the alternator simultaneously supplies loads and recharges the battery."
+        "explanation": "The DC system has two primary roles: engine starting (a one-time event per flight) and continuous in-flight power distribution to avionics, instruments, and lighting, while the alternator simultaneously supplies loads and recharges the battery."
       },
       "preassessment": {
         "question": "What is the primary role of the DC electrical system in a typical GA aircraft?",
@@ -1894,12 +1898,13 @@
       "preassessment": {
         "question": "What is the SAFE way to get rid of a used Ni-Cad battery?",
         "choices": [
-          "Toss it in general trash",
-          "Burn it in a metal drum",
-          "Bury it in the field behind the hangar",
-          "Recycle through a certified hazardous-waste facility"
+          "Toss it in the general trash bin",
+          "Burn it inside a metal shop drum",
+          "Bury it in a field behind the hangar building",
+          "Recycle via a certified hazardous-waste facility"
         ],
-        "correctIndex": 3
+        "correctIndex": 3,
+        "explanation": "Ni-Cad batteries contain cadmium, a regulated toxic metal, and must be recycled through a certified hazardous-waste facility. Trash, burial, and burning are prohibited."
       },
       "targetCaetId": "464169",
       "targetCaetStem": "Which of the following is a SAFE procedure for disposing of a Ni-Cad battery?",
@@ -3033,9 +3038,9 @@
         "question": "Scenario: A position light is dimmer than spec and the bus voltage looks normal. Voltage at the lamp is about 10 V on a 14 V bus. What is the most likely cause?",
         "choices": [
           "High-resistance corrosion in the wiring or connectors",
-          "The bus voltage is too high",
-          "The ammeter shunt is open",
-          "The lamp is drawing too little current"
+          "The bus voltage is too high for the installed lamp",
+          "The main ammeter shunt is open on this circuit",
+          "The lamp is drawing too little current for the bulb"
         ],
         "correctIndex": 0,
         "explanation": "A 4 V drop between bus and lamp points to series resistance from corrosion, chafed strands, or loose terminals. Bus is still normal, so the problem is downstream of the bus and upstream of the lamp."
@@ -3043,12 +3048,13 @@
       "preassessment": {
         "question": "Lower-than-expected voltage at a load likely comes from:",
         "choices": [
-          "Corrosion or loose terminals creating a voltage drop",
-          "Perfect connections",
-          "Oversized wire",
-          "A properly rated breaker"
+          "Corroded connections causing voltage drop",
+          "Perfectly clean bolted connections",
+          "Oversized wire gauge on the feeder",
+          "Correctly rated circuit breaker"
         ],
-        "correctIndex": 0
+        "correctIndex": 0,
+        "explanation": "Lower-than-expected load voltage typically comes from corrosion or loose terminals creating series resistance and a voltage drop."
       },
       "targetCaetId": "464185",
       "targetCaetStem": "A circuit shows lower-than-expected voltage across a load. Which is a likely cause?",
@@ -3074,13 +3080,13 @@
       "jeopardy": {
         "question": "This is the most likely reason an aircraft lighting circuit is running dimmer than normal.",
         "choices": [
-          "A higher-than-rated bus voltage",
-          "Excessive voltage drop from corrosion or poor connections",
-          "An oversized circuit breaker",
-          "Increased capacitance in the wiring"
+          "Voltage drop from corrosion or poor joints",
+          "A higher-than-rated bus voltage supply",
+          "An oversized circuit breaker installed",
+          "Increased capacitance along the wiring"
         ],
-        "correctIndex": 1,
-        "explanation": "Corroded grounds, loose terminals, or a weak bus all lower voltage at the bulbs and produce dim lighting. Higher bus voltage would brighten lamps, and a bigger CB does not dim anything."
+        "correctIndex": 0,
+        "explanation": "Excessive voltage drop caused by corroded grounds, loose terminals, or a weak bus all lower voltage at the bulbs and produce dim lighting. Higher bus voltage would brighten lamps, and a bigger CB does not dim anything."
       },
       "multipleChoice": {
         "question": "Which cause best explains aircraft lamps burning dimmer than usual?",
@@ -3096,13 +3102,13 @@
       "practice": {
         "question": "Scenario: Cabin lights on a light twin are noticeably dim in flight. The bus voltage reads a bit low on the panel meter. Which is the MOST likely cause?",
         "choices": [
-          "An overly strong battery",
-          "An oversized main CB",
-          "Excessive voltage drop and/or a sagging bus from a failing regulator or corroded grounds",
-          "Wire gauge that is heavier than required"
+          "An overly strong battery delivering excess current to the lights",
+          "Excessive drop or sag from a failing regulator or corroded grounds",
+          "An oversized main circuit breaker protecting the lighting bus",
+          "Wire gauge installed that is heavier than the required specification"
         ],
-        "correctIndex": 2,
-        "explanation": "Dim lamps plus a low bus indicator point to reduced voltage reaching the lamps, usually from corroded grounds, loose terminations, or an undercharging system. Oversized breakers or wire would not dim lamps."
+        "correctIndex": 1,
+        "explanation": "Dim lamps plus a low bus indicator point to reduced voltage reaching the lamps, usually from corroded grounds, loose terminations, or an undercharging system. Oversized breakers or heavy wire would not dim lamps."
       },
       "preassessment": {
         "question": "Aircraft lamps are dimmer than usual. MOST likely cause?",
@@ -3139,10 +3145,10 @@
       "jeopardy": {
         "question": "This is the primary risk when ARINC data lines are zip-tied inside a bundle of high-current power wires.",
         "choices": [
-          "Mechanical chafing only",
-          "Electromagnetic interference coupling onto the data lines",
-          "Increased weight of the bundle",
-          "Reduced heat dissipation of the power wires"
+          "Mechanical chafing of the data line insulation only",
+          "EMI coupling from the power wires onto the data lines",
+          "A modest increase in the total weight of the wire bundle",
+          "Reduced heat dissipation from the high-current power wires"
         ],
         "correctIndex": 1,
         "explanation": "High-current wiring creates changing magnetic fields that induce noise into nearby data lines. That EMI can corrupt ARINC signaling, produce checksum errors, or cause dropouts."
@@ -3163,11 +3169,11 @@
         "choices": [
           "The data wires will overheat the power wires",
           "Bundle weight will exceed FAR limits",
-          "EMI from the power wires can couple onto the data lines and corrupt signaling",
+          "EMI from the power wires can corrupt data signaling",
           "Data will transmit faster from the proximity"
         ],
         "correctIndex": 2,
-        "explanation": "Mixing low-level data wiring with high-current feeders invites EMI coupling. Installation practices require separation or shielding to keep data integrity. It does not cause overheating of the power wires or speed up data."
+        "explanation": "Mixing low-level data wiring with high-current feeders invites EMI coupling from the power wires onto the data lines, corrupting signaling. Installation practices require separation or shielding to keep data integrity. It does not cause overheating of the power wires or speed up data."
       },
       "preassessment": {
         "question": "Data lines bundled with high-current power wires raises the risk of:",
@@ -3206,7 +3212,7 @@
           "Short-range ATC in the pattern",
           "Satellite television reception",
           "Pulse-ranging navigation",
-          "Long-range, over-water and remote communications"
+          "Long-range, over-water communications"
         ],
         "correctIndex": 3,
         "explanation": "HF signals refract off the ionosphere, giving thousands of miles of range beyond VHF. That is why HF is used for oceanic and remote-area operations where VHF line-of-sight is unavailable."
@@ -3225,10 +3231,10 @@
       "practice": {
         "question": "Scenario: A transoceanic corporate flight is being equipped for North Atlantic operations. Why does the avionics shop install an HF radio?",
         "choices": [
-          "For local ground-control chatter",
-          "To enable long-range voice comms where VHF line-of-sight is lost",
-          "For weather radar display",
-          "To drive the VOR deviation bar"
+          "For local ground-control and taxi chatter",
+          "Long-range voice comms beyond VHF range",
+          "For weather radar antenna display drive",
+          "To drive the VOR deviation bar in cruise"
         ],
         "correctIndex": 1,
         "explanation": "Over ocean, VHF runs out of range quickly. HF radio, via skywave propagation, reaches thousands of miles and is the standard long-range voice link for oceanic and remote operations."

@@ -61,13 +61,13 @@
       "practice": {
         "question": "A pilot reports that during a climb the airspeed indicator continued to read an abnormally high airspeed even as the aircraft slowed and approached a stall. The static system appears normal. What is the most likely cause?",
         "choices": [
-          "The pitot tube is blocked — trapped ram pressure caused the ASI to read higher as static pressure decreased with altitude, a textbook blocked-pitot climb signature",
-          "The airspeed indicator is miscalibrated",
-          "The aircraft was overweight",
-          "The engine was developing less power than expected"
+          "The pitot tube is blocked — trapped ram pressure masks true airspeed",
+          "The airspeed indicator has been miscalibrated at the factory before install",
+          "The aircraft was overweight for the departure runway and climb profile",
+          "The engine was developing less power than the pilot expected in climb"
         ],
         "correctIndex": 0,
-        "explanation": "This is the classic blocked-pitot-in-climb signature. The ASI behaves like an altimeter when the pitot inlet is blocked — reading higher as the aircraft climbs, regardless of true airspeed. The fix is to clear the pitot obstruction (often ice, in which case pitot heat should have prevented the blockage)."
+        "explanation": "This is the classic blocked-pitot-in-climb signature. Trapped ram pressure caused the ASI to read higher as static pressure decreased with altitude. The ASI behaves like an altimeter when the pitot inlet is blocked — reading higher as the aircraft climbs, regardless of true airspeed. The fix is to clear the pitot obstruction (often ice, in which case pitot heat should have prevented the blockage)."
       },
       "preassessment": {
         "question": "Blocked pitot during climb — what happens to indicated airspeed?",
@@ -123,13 +123,13 @@
       "practice": {
         "question": "A pilot in descent sees the airspeed indicator reading lower than expected, even as the aircraft feels faster and the engine sounds higher. The static system checks normal. What is most likely happening?",
         "choices": [
-          "The engine is not producing enough power",
-          "The airspeed indicator has failed mechanically",
-          "The pitot tube is blocked — trapped ram pressure combined with increasing static pressure during descent causes the ASI to read lower, possibly masking dangerous overspeed conditions",
-          "The pilot is over-reading the instrument"
+          "The engine is not producing enough power for the descent",
+          "The airspeed indicator has failed mechanically in flight",
+          "The pitot tube is blocked, masking true airspeed in descent",
+          "The pilot is simply over-reading the instrument scale"
         ],
         "correctIndex": 2,
-        "explanation": "This pattern — descent + lower-than-expected ASI + aircraft feels fast — is the blocked-pitot-in-descent signature. The masking of true airspeed is especially dangerous because the pilot may push speed higher to 'match' the low reading, potentially exceeding Vne."
+        "explanation": "This pattern — descent with lower-than-expected ASI but the aircraft feels fast — is the blocked-pitot-in-descent signature. Trapped ram pressure combined with increasing static pressure during descent causes the ASI to read low, potentially masking overspeed. The pilot may push speed higher to 'match' the low reading, possibly exceeding Vne."
       },
       "preassessment": {
         "question": "Blocked pitot during descent — ASI reads:",
@@ -246,12 +246,12 @@
         "question": "A technician is testing the aircraft pitot-static system. The plan calls for applying a controlled vacuum to the static port and watching for correct response on the pitot-static-driven instruments. Which three instruments should the technician expect to respond to the static input?",
         "choices": [
           "Attitude indicator, heading indicator, and turn coordinator",
-          "Only the altimeter",
-          "Altimeter, vertical speed indicator, and airspeed indicator — these are the three instruments that rely on static pressure",
-          "Engine gauges and fuel gauges"
+          "Only the altimeter responds to controlled static input",
+          "Altimeter, VSI, and airspeed indicator — the static-driven trio",
+          "Engine gauges and fuel quantity gauges in the panel cluster"
         ],
         "correctIndex": 2,
-        "explanation": "Altimeter, VSI, and ASI all respond to static pressure changes. A functional test of the static system verifies that all three respond correctly to controlled input. The gyro and engine instruments are unrelated."
+        "explanation": "Altimeter, VSI, and ASI all respond to static pressure changes. A functional test of the static system verifies that all three respond correctly to controlled input. Gyro and engine instruments are unrelated."
       },
       "preassessment": {
         "question": "Which instruments rely on the static port?",
@@ -317,12 +317,13 @@
       "preassessment": {
         "question": "What does the pitot tube do?",
         "choices": [
-          "Measure static pressure",
-          "Sense ram air pressure for the airspeed indicator",
-          "Measure temperature",
-          "Detect icing"
+          "Measure static pressure at the port",
+          "Sense ram air for the airspeed indicator",
+          "Measure outside air temperature",
+          "Detect icing conditions in cloud"
         ],
-        "correctIndex": 1
+        "correctIndex": 1,
+        "explanation": "The pitot tube senses ram air pressure, which the airspeed indicator uses to compute indicated airspeed. Static pressure, temperature, and icing are sensed by other devices."
       }
     },
     {
@@ -367,13 +368,13 @@
       "practice": {
         "question": "A technician verifying a pitot-static system calibration notes that the static port pressure changes with altitude but not with airspeed. Is this expected behavior?",
         "choices": [
-          "No — static pressure should vary with airspeed",
-          "No — static pressure should increase with airspeed",
-          "Yes — the static system senses ambient atmospheric pressure, which depends on altitude but not on the aircraft's speed. This is the defining characteristic of the static system",
-          "Yes, but only below 10,000 feet"
+          "No — static pressure should definitely vary with airspeed too",
+          "No — static pressure should increase directly with airspeed",
+          "Yes — static pressure is altitude-dependent, airspeed-independent",
+          "Yes, but only below 10,000 feet MSL in stable air conditions"
         ],
         "correctIndex": 2,
-        "explanation": "Static pressure is altitude-dependent and (ideally) airspeed-independent. Well-designed static ports are placed where airflow around the fuselage does not disturb the measurement. This is what distinguishes static pressure from ram pressure (pitot), which depends on airspeed."
+        "explanation": "Static pressure is altitude-dependent and (ideally) airspeed-independent. The static system senses ambient atmospheric pressure, which depends on altitude but not on the aircraft's speed. This is the defining characteristic of the static system. Well-designed static ports are placed where airflow around the fuselage does not disturb the measurement. This is what distinguishes static pressure from ram pressure (pitot), which depends on airspeed."
       },
       "preassessment": {
         "question": "What does the static pressure system sense?",
@@ -671,23 +672,24 @@
       "practice": {
         "question": "A pilot is flying a constant-rate descent of 500 feet per minute to reach the initial approach fix at the correct altitude. Which instrument most directly helps the pilot maintain this rate?",
         "choices": [
-          "The altimeter, which shows current altitude",
-          "The airspeed indicator",
-          "The heading indicator",
-          "The VSI, which directly displays the rate of descent in feet per minute — the pilot maintains the desired rate by keeping the VSI needle at 500 fpm down"
+          "The altimeter, which shows the current altitude directly",
+          "The airspeed indicator, which shows forward speed only",
+          "The heading indicator, which shows magnetic direction",
+          "The VSI, which directly displays rate of descent in fpm"
         ],
         "correctIndex": 3,
-        "explanation": "The VSI directly displays rate, which is exactly the parameter being controlled. The altimeter shows current altitude but not rate. Airspeed and heading are separate parameters. Pilots manage descent profiles primarily by VSI reference with altimeter cross-checks."
+        "explanation": "The VSI directly displays rate, which is exactly the parameter being controlled. The pilot maintains the desired rate by keeping the VSI needle at 500 fpm down. The altimeter shows current altitude but not rate. Airspeed and heading are separate parameters. Pilots manage descent profiles primarily by VSI reference with altimeter cross-checks."
       },
       "preassessment": {
         "question": "What does the VSI show?",
         "choices": [
-          "Current altitude",
-          "Airspeed",
-          "Heading",
+          "Current indicated altitude",
+          "Current indicated airspeed",
+          "Current magnetic heading",
           "Rate of climb or descent"
         ],
-        "correctIndex": 3
+        "correctIndex": 3,
+        "explanation": "The VSI shows the rate of climb or descent in feet per minute."
       }
     },
     {
@@ -854,13 +856,13 @@
       "practice": {
         "question": "A new technician looking at a standard six-pack instrument panel sees a cross or 'T' shape formed by four of the six instruments. Which four are they?",
         "choices": [
-          "Airspeed indicator (upper left), attitude indicator (upper center), altimeter (upper right), and heading indicator (center below the attitude indicator) — the T-arrangement preferred by the FAA",
-          "Attitude indicator, VSI, heading indicator, and turn coordinator",
-          "The four engine gauges",
-          "VSI, turn coordinator, altimeter, and tachometer"
+          "ASI, attitude indicator, altimeter, heading indicator — the FAA-preferred T",
+          "Attitude indicator, VSI, heading indicator, and the turn coordinator instrument",
+          "The four engine gauges commonly grouped together on the lower right panel",
+          "VSI, turn coordinator, altimeter, and engine tachometer in a T arrangement"
         ],
         "correctIndex": 0,
-        "explanation": "The 'T' arrangement is FAA-preferred because it supports a natural scan pattern centered on the attitude indicator. The other two standard-six instruments (VSI and turn coordinator) fill the bottom row but are not part of the 'T' itself."
+        "explanation": "The 'T' arrangement is FAA-preferred because it supports a natural scan pattern centered on the attitude indicator: Airspeed indicator (upper left), attitude indicator (upper center), altimeter (upper right), and heading indicator (center below the attitude indicator). The other two standard-six instruments (VSI and turn coordinator) fill the bottom row but are not part of the 'T' itself."
       },
       "preassessment": {
         "question": "Which instruments form the standard 'T' arrangement?",
@@ -916,12 +918,12 @@
         "question": "A pilot's checklist calls for verifying 'no gyroscopic instruments have unusual indications before flight.' Which instrument is the pilot NOT checking?",
         "choices": [
           "The attitude indicator",
-          "The magnetic compass, which is not a gyroscopic instrument",
+          "The magnetic compass",
           "The heading indicator",
           "The turn coordinator"
         ],
         "correctIndex": 1,
-        "explanation": "The three gyro instruments (AI, HI, turn coordinator) are part of a 'gyro check.' The magnetic compass is checked separately — looking for correct reading, readability, and fluid clarity — but it is not part of the gyroscopic-instrument verification."
+        "explanation": "The three gyro instruments (AI, HI, turn coordinator) are part of a gyro check. The magnetic compass is not gyroscopic — it is checked separately for correct reading, readability, and fluid clarity."
       },
       "preassessment": {
         "question": "Which instrument is NOT typically driven by a gyroscope?",
@@ -987,12 +989,13 @@
       "preassessment": {
         "question": "AHRS uses solid-state sensors to determine:",
         "choices": [
-          "Airspeed only",
-          "Runway position",
+          "Indicated airspeed only",
+          "Runway position on field",
           "Pitch, roll, and heading",
-          "Weight and balance"
+          "Aircraft weight and balance"
         ],
-        "correctIndex": 2
+        "correctIndex": 2,
+        "explanation": "An AHRS (Attitude and Heading Reference System) uses solid-state sensors (accelerometers, rate gyros, magnetometers) to determine aircraft pitch, roll, and heading."
       }
     },
     {
@@ -1109,12 +1112,13 @@
       "preassessment": {
         "question": "Pitot heat CB pops immediately on reset — next step?",
         "choices": [
-          "Reset repeatedly",
+          "Reset the breaker again",
           "Install a larger breaker",
-          "Leave OFF and investigate the cause",
+          "Leave OFF and investigate",
           "Jumper the breaker closed"
         ],
-        "correctIndex": 2
+        "correctIndex": 2,
+        "explanation": "A breaker that trips immediately on reset indicates an active fault. Leave the circuit OFF and investigate before any further action."
       }
     },
     {
@@ -1151,21 +1155,21 @@
       "multipleChoice": {
         "question": "A steam-gauge piston trainer has an engine-driven vacuum pump. Which gyro instrument typically runs off that pump?",
         "choices": [
-          "The attitude indicator, whose internal gyroscope is spun by air drawn through the case by the engine-driven vacuum pump",
-          "The airspeed indicator, which uses vacuum to sense ram pressure",
-          "The altimeter, which uses vacuum to drive its aneroid bellows",
-          "The turn coordinator, which relies on vacuum for its canted gyro"
+          "Attitude indicator — internal gyroscope spun by engine-driven vacuum airflow",
+          "Airspeed indicator, which uses vacuum to sense ram air pressure in the line",
+          "Altimeter, which uses applied vacuum to flex its aneroid bellows capsule",
+          "Turn coordinator, which relies on engine vacuum for its canted internal gyro"
         ],
         "correctIndex": 0,
-        "explanation": "The attitude indicator is the classic vacuum-driven gyro instrument, along with the heading indicator in most installations. The airspeed indicator and altimeter are pressure-based pitot-static instruments (no vacuum involved). The turn coordinator is typically electric in modern GA aircraft."
+        "explanation": "The attitude indicator is the classic vacuum-driven gyro, along with the heading indicator in most installations. The ASI and altimeter are pressure instruments (no vacuum). The turn coordinator is typically electric in modern GA aircraft."
       },
       "practice": {
         "question": "A technician is explaining to a student which instruments stop working when the engine-driven vacuum pump fails in a conventional Cessna. Which instrument is most directly affected?",
         "choices": [
-          "The magnetic compass, because vacuum stabilizes the compass card",
-          "The airspeed indicator, because vacuum drives the pitot differential",
-          "The altimeter, because vacuum is needed to reference static pressure",
-          "The attitude indicator, because its gyroscope is spun by the vacuum pump; the heading indicator is typically affected too because it shares the vacuum source"
+          "The magnetic compass, because vacuum stabilizes the compass card during turns",
+          "The airspeed indicator, because vacuum drives the pitot pressure differential",
+          "The altimeter, because vacuum is needed to reference static pressure properly",
+          "The attitude indicator — its gyroscope is vacuum-driven; HI typically also affected"
         ],
         "correctIndex": 3,
         "explanation": "A vacuum pump failure takes out the attitude indicator and heading indicator together because both rely on vacuum-driven gyros. The airspeed indicator and altimeter are pressure instruments and keep working. The magnetic compass is passive and independent of the vacuum system."
@@ -1208,12 +1212,12 @@
         "question": "For a light GA ship, this correctly distinguishes a turn coordinator from the classic turn & bank.",
         "choices": [
           "They display the same information with only cosmetic face differences",
-          "The turn coordinator's canted gyro senses rate of roll AND rate of turn, while the turn & bank senses only rate of turn",
+          "The canted gyro senses roll rate AND turn rate; turn & bank senses turn only",
           "The turn & bank senses rate of roll; the turn coordinator does not",
           "Both sense only rate of roll"
         ],
         "correctIndex": 1,
-        "explanation": "The key difference is the gyro orientation. A canted gyro (turn coordinator) responds to both roll rate and turn rate; a horizontal gyro (turn & bank) responds only to turn rate. The turn coordinator gives the pilot an earlier cue during roll-in."
+        "explanation": "The key difference is the gyro orientation. A canted gyro (turn coordinator) responds to both roll rate and turn rate; a horizontal gyro (turn & bank) responds only to rate of turn. The turn coordinator gives the pilot an earlier cue during roll-in."
       },
       "multipleChoice": {
         "question": "A turn coordinator and a classic turn & bank display similar information but are not identical. Identify the correct distinction between the two for a light GA ship.",
@@ -1229,23 +1233,24 @@
       "practice": {
         "question": "A technician is explaining to a student why the turn coordinator in a Cessna 172 has a canted gyro while the turn & bank in an older Piper does not. Which is the most accurate explanation?",
         "choices": [
-          "The canted gyro is simply a cosmetic design change",
-          "A horizontal gyro senses both roll and yaw; canting it removes the roll sensitivity",
-          "Canting the gyro about 30 degrees makes it sense rate of roll in addition to rate of turn, so the turn coordinator cues the pilot earlier during roll-in; the horizontal gyro of the turn & bank responds only after a turn has actually started",
-          "Canted gyros are used only in IFR aircraft"
+          "The canted gyro is simply a cosmetic design change with no function",
+          "A horizontal gyro senses both roll and yaw; canting removes roll sense",
+          "Canting 30 degrees adds roll-rate sensing for earlier turn-entry cueing",
+          "Canted gyros are used only in IFR-certified aircraft configurations"
         ],
         "correctIndex": 2,
-        "explanation": "The canted-gyro design is the reason a turn coordinator detects roll rate before the turn develops. A horizontal gyro (turn & bank) is sensitive only to rate of turn around the yaw axis. Both instruments include a slip/skid ball, but the gyro-response characteristics are the key functional difference."
+        "explanation": "The canted-gyro design is the reason a turn coordinator detects roll rate before the turn develops. Canting the gyro about 30 degrees makes it sense rate of roll in addition to rate of turn, so the turn coordinator cues the pilot earlier during roll-in. The horizontal gyro of the turn & bank responds only after a turn has actually started. Both instruments include a slip/skid ball, but the gyro-response characteristics are the key functional difference."
       },
       "preassessment": {
         "question": "Turn coordinator vs turn & bank — key difference?",
         "choices": [
-          "They are identical",
+          "They are identical instruments in every way",
           "Turn & bank senses roll; turn coordinator does not",
-          "Neither senses roll",
-          "Turn coordinator senses rate of roll AND rate of turn; turn & bank senses rate of turn only"
+          "Neither one of them senses any rate of roll",
+          "TC senses roll and turn; T&B senses turn only"
         ],
-        "correctIndex": 3
+        "correctIndex": 3,
+        "explanation": "The turn coordinator senses both rate of roll and rate of turn via its canted gyro. The older turn-and-bank senses only rate of turn. Option B inverts the relationship."
       },
       "targetCaetId": "464253",
       "targetCaetStem": "Which statement best describes the difference between a turn coordinator and a turn & bank indicator in a small GA aircraft?",
@@ -1284,13 +1289,13 @@
       "multipleChoice": {
         "question": "What physical property of a spinning mass is exploited by gyro instruments to hold a fixed reference?",
         "choices": [
-          "Precession — the response of a spinning gyro to an applied force",
-          "Magnetic dip — the tilt of Earth's magnetic field",
-          "Rigidity in space — a spinning gyroscope resists changes to the orientation of its spin axis and therefore provides a stable reference",
-          "Coriolis effect — the apparent deflection caused by Earth's rotation"
+          "Precession — the response of a spinning gyro to an applied external force",
+          "Magnetic dip — the downward tilt of Earth's magnetic field lines with latitude",
+          "Rigidity in space — a spinning gyro resists changes to its spin axis orientation",
+          "Coriolis effect — the apparent deflection of motion caused by Earth's own rotation"
         ],
         "correctIndex": 2,
-        "explanation": "Rigidity in space is the principle: a spinning mass resists changes in the orientation of its axis. Precession is a different property (how the gyro responds to an applied force, offset 90 degrees around the rotation). Magnetic dip affects compasses, not gyros. Coriolis is unrelated to gyroscopic instruments."
+        "explanation": "Rigidity in space is the principle: a spinning mass resists changes in the orientation of its axis. Precession is a different property (response to applied force, offset 90 degrees). Magnetic dip affects compasses. Coriolis is unrelated."
       },
       "practice": {
         "question": "A student asks how an attitude indicator can keep showing level flight even while the aircraft pitches and rolls. What is the correct explanation?",
@@ -1339,10 +1344,10 @@
       "jeopardy": {
         "question": "On an air-driven attitude indicator, this is the MAIN job performed by the suction system.",
         "choices": [
-          "It powers the backup battery",
-          "It cools the instrument housing",
-          "It erects the attitude indicator to magnetic north",
-          "It spins the internal gyroscope by pulling air across the rotor buckets"
+          "It powers the standby backup battery for the panel",
+          "It cools the instrument housing and nearby electronics",
+          "It erects the attitude indicator to magnetic north on start",
+          "It spins the gyro by pulling air across the rotor buckets"
         ],
         "correctIndex": 3,
         "explanation": "The vacuum pump's primary role is to spin the gyro by pulling air through the case and across the rotor buckets. Cooling, heading erection to magnetic north, and battery charging are not functions of the vacuum system."
@@ -1350,24 +1355,24 @@
       "multipleChoice": {
         "question": "For an air-driven attitude indicator, the suction system's MAIN job is to:",
         "choices": [
-          "Cools the instrument housing to prevent overheating",
-          "Spins the internal gyroscope by drawing air through the instrument case and across buckets on the rotor, so rigidity in space can provide a stable attitude reference",
-          "Erects the attitude indicator to magnetic north",
-          "Powers the instrument's backup battery"
+          "Cools the instrument housing to prevent internal gyro overheating",
+          "Drives the gyro by airflow so rigidity provides an attitude reference",
+          "Erects the attitude indicator toward magnetic north at startup",
+          "Powers the instrument's backup battery during alternator failure"
         ],
         "correctIndex": 1,
-        "explanation": "The vacuum system's primary function is to spin the gyro. The engine-driven vacuum pump pulls air through the instrument, and the moving air strikes buckets on the gyro rotor to drive it at high RPM. A spinning gyro exhibits rigidity in space, which is what gives the attitude indicator its stable reference. Cooling, magnetic erection, and battery power are not vacuum-system functions."
+        "explanation": "The vacuum system's primary function is to spin the gyro. The engine-driven vacuum pump pulls air through the instrument case and across buckets on the gyro rotor, driving it at high RPM. A spinning gyro exhibits rigidity in space, which is what gives the attitude indicator its stable reference. Cooling, magnetic erection, and battery power are not vacuum-system functions."
       },
       "practice": {
         "question": "A technician is explaining to a student why the attitude indicator takes a few minutes to become reliable after engine start in a vacuum-driven system. What is the correct explanation?",
         "choices": [
-          "The vacuum pump has to spin the gyroscope up to operating RPM; until the gyro is spinning fast enough, rigidity in space is too weak to give a stable reference and the attitude display may drift or lag",
-          "The instrument needs to warm up electrically before it becomes accurate",
+          "The vacuum pump must spin the gyro up to RPM before rigidity is stable",
+          "The attitude instrument needs time to warm up electrically before becoming accurate",
           "The GPS signal must stabilize before the attitude indicator can compute pitch and roll",
-          "The magnetic compass must align with the gyro before the instrument is usable"
+          "The magnetic compass must align with the gyro before the instrument becomes usable"
         ],
         "correctIndex": 0,
-        "explanation": "The lag is mechanical: the gyro needs to reach operating RPM before it has enough angular momentum for a stable reference. That's why vacuum-driven attitude indicators typically have a warm-up period after engine start. There is no electrical warm-up, no GPS dependency, and no compass alignment involved in a classic vacuum-driven AI."
+        "explanation": "The lag is mechanical: the gyro needs to reach operating RPM before it has enough angular momentum for a stable reference. Until it is spinning fast enough, rigidity in space is too weak to hold attitude. There is no electrical warm-up, no GPS dependency, and no compass alignment in a classic vacuum-driven AI."
       },
       "preassessment": {
         "question": "For an air-driven attitude indicator, the suction system MAINLY:",
@@ -1418,7 +1423,7 @@
           "The altimeter only, because it reads static pressure directly",
           "The attitude indicator, the heading indicator, and the turn coordinator",
           "The magnetic compass and the engine tachometer",
-          "The altimeter, the vertical speed indicator, and the airspeed indicator — all three use static pressure as a reference"
+          "The altimeter, VSI, and airspeed indicator — all use static pressure"
         ],
         "correctIndex": 3,
         "explanation": "Three instruments depend on the static port: altimeter (senses static pressure directly), VSI (senses rate of change of static pressure), and ASI (uses static pressure as the reference against ram pressure). Gyroscopic instruments, the magnetic compass, and engine instruments are independent of the static system. A blocked static port therefore affects all three pitot-static instruments at the same time."
@@ -1426,13 +1431,13 @@
       "practice": {
         "question": "A technician pressurizes the static side of a pitot-static test setup and sees the altimeter and VSI respond, but the airspeed indicator also registers a change even though the pitot side is untouched. Is this expected behavior?",
         "choices": [
-          "Yes, because the airspeed indicator compares pitot pressure against static pressure — changing the static reference changes the measured differential. The altimeter, VSI, and ASI are all static-dependent, which is why all three responded",
-          "No, the VSI should not be affected by static pressure changes",
-          "No, the airspeed indicator should not be affected by the static side",
-          "Yes, but only the altimeter should have responded"
+          "Yes — the ASI is static-dependent like the altimeter and VSI",
+          "No — the VSI should not be affected by static pressure changes",
+          "No — the airspeed indicator should be unaffected by the static side",
+          "Yes, but only the altimeter should have responded to the change"
         ],
         "correctIndex": 0,
-        "explanation": "The airspeed indicator is static-dependent because it uses static pressure as the reference against pitot ram pressure. Changing the static side changes the measured differential, which the ASI displays as airspeed. The altimeter and VSI are also static-dependent, so all three responding is correct."
+        "explanation": "The airspeed indicator is static-dependent because it uses static pressure as the reference against pitot ram pressure. The airspeed indicator compares pitot pressure against static pressure — changing the static reference changes the measured differential. The altimeter, VSI, and ASI are all static-dependent, which is why all three responded."
       },
       "preassessment": {
         "question": "Which instruments rely on the static port?",
@@ -1471,45 +1476,46 @@
       "jeopardy": {
         "question": "On an EFIS, the solid-state sensors pick up these flight parameters in place of mechanical gyros and pitot capsules.",
         "choices": [
-          "Only aircraft heading",
-          "Aircraft attitude (pitch and roll), heading, and air data (altitude, airspeed, VSI)",
-          "Only engine performance data",
-          "Only GPS position"
+          "Only the aircraft heading from a magnetometer",
+          "Attitude, heading, and air data from solid-state sensors",
+          "Only engine performance data from engine sensors",
+          "Only GPS position from the installed GPS receiver"
         ],
         "correctIndex": 1,
-        "explanation": "EFIS uses solid-state sensors to measure attitude, heading, and air data. Engine performance is handled by the engine instrument system (not EFIS). GPS position is from the GPS receiver, not the EFIS sensor suite."
+        "explanation": "EFIS uses solid-state sensors to measure aircraft attitude (pitch and roll), heading, and air data (altitude, airspeed, VSI). Engine performance is handled by the engine instrument system (not EFIS). GPS position is from the GPS receiver, not the EFIS sensor suite."
       },
       "multipleChoice": {
         "question": "On an EFIS, solid-state sensors replace mechanical gyros and pitot capsules in order to measure which parameters?",
         "choices": [
-          "Only aircraft heading, using a solid-state magnetometer",
-          "Only the aircraft's GPS position and track",
-          "Only engine performance parameters",
-          "Aircraft attitude (pitch and roll), heading, and air data (altitude, airspeed, and vertical speed) — using MEMS gyros, accelerometers, magnetometers, and pressure sensors"
+          "Only aircraft heading, sensed by a solid-state magnetometer module",
+          "Only the aircraft's GPS position and track from satellite signals",
+          "Only engine performance parameters such as RPM and fuel flow",
+          "Attitude, heading, and air data from MEMS gyros and ADC sensors"
         ],
         "correctIndex": 3,
-        "explanation": "EFIS solid-state sensors measure attitude, heading, and air data. The AHRS side uses MEMS rate gyros, accelerometers, and magnetometers to produce pitch, roll, and heading. The Air Data Computer uses solid-state pressure sensors on the pitot and static lines to produce altitude, airspeed, and VSI. Engine data and GPS position come from separate subsystems."
+        "explanation": "EFIS solid-state sensors measure attitude (pitch and roll), heading, and air data (altitude, airspeed, and vertical speed). The AHRS side uses MEMS rate gyros, accelerometers, and magnetometers to produce pitch, roll, and heading. The Air Data Computer uses solid-state pressure sensors on the pitot and static lines to produce altitude, airspeed, and VSI. Engine data and GPS position come from separate subsystems."
       },
       "practice": {
         "question": "A technician is explaining to an apprentice which parameters an EFIS derives from its own solid-state sensor suite (excluding external inputs like GPS). Which list is correct?",
         "choices": [
-          "Attitude (pitch and roll), heading, altitude, airspeed, and vertical speed — produced by the combined AHRS and Air Data Computer sensor suite",
-          "Heading and outside air temperature only",
-          "GPS position, ground speed, and track",
-          "Engine RPM and fuel flow"
+          "Attitude, heading, altitude, airspeed, and VSI from AHRS and ADC",
+          "Heading and outside air temperature only from the sensor suite",
+          "GPS position, ground speed, and track across the ground",
+          "Engine RPM, fuel flow, and other engine-monitor parameters"
         ],
         "correctIndex": 0,
-        "explanation": "The EFIS solid-state sensors produce attitude, heading, and air data. AHRS handles attitude and heading; ADC handles airspeed, altitude, and VSI. GPS position and engine parameters are external inputs that the EFIS may display but does not generate from its own sensors."
+        "explanation": "The EFIS solid-state sensors produce attitude (pitch and roll), heading, altitude, airspeed, and vertical speed — from the combined AHRS and Air Data Computer sensor suite. AHRS handles attitude and heading; ADC handles airspeed, altitude, and VSI. GPS position and engine parameters are external inputs that the EFIS may display but does not generate from its own sensors."
       },
       "preassessment": {
         "question": "EFIS solid-state sensors measure:",
         "choices": [
-          "Only heading",
-          "Only engine parameters",
+          "Only magnetic heading data",
+          "Only engine performance parameters",
           "Attitude, heading, and air data",
-          "Only GPS position"
+          "Only onboard GPS position data"
         ],
-        "correctIndex": 2
+        "correctIndex": 2,
+        "explanation": "EFIS solid-state sensor suites measure attitude, heading, and air data (altitude, airspeed, vertical speed) to drive the primary and multifunction displays."
       },
       "targetCaetId": "464258",
       "targetCaetStem": "An Electronic Flight Instrument System (EFIS) typically uses solid-state sensors to measure:",
@@ -1560,13 +1566,13 @@
       "practice": {
         "question": "During flight a pilot notes that the altimeter and VSI are reading normally, but the airspeed indicator is behaving erratically after flying through visible moisture. Which system is the most likely culprit?",
         "choices": [
-          "The pitot tube, because the airspeed indicator is the only instrument fed by pitot ram pressure and normal altimeter/VSI readings confirm the static side is healthy",
-          "The vacuum pump, because the ASI is vacuum driven",
-          "The magnetic compass, because it affects pitot sensing",
-          "The static system, because erratic airspeed always indicates a static-side problem"
+          "The pitot tube — only the ASI uses ram pressure; static is confirmed healthy",
+          "The vacuum pump, because the ASI is a vacuum-driven instrument in most aircraft",
+          "The magnetic compass, because compass deviations affect the pitot sensing path",
+          "The static system, because any erratic airspeed always indicates a static problem"
         ],
         "correctIndex": 0,
-        "explanation": "The pattern — normal altimeter and VSI, erratic ASI only — points to a pitot-only problem. The ASI is the sole user of ram pressure. Because altimeter and VSI (static-dependent) are normal, the static side is fine. Pitot icing or moisture intrusion is a common cause, which is why pitot heat is important in visible moisture."
+        "explanation": "Normal altimeter and VSI, erratic ASI only, points to a pitot-only problem. The ASI is the sole user of ram pressure. Static-dependent instruments are normal, so static is fine. Pitot icing or moisture intrusion is a common cause."
       },
       "preassessment": {
         "question": "Pitot tube completely blocked — which instrument primarily affected?",
@@ -1606,22 +1612,22 @@
         "choices": [
           "A defective altimeter setting knob",
           "An over-calibrated airspeed indicator from the factory",
-          "A partial pitot blockage or a leak in the pitot line that reduces ram pressure reaching the ASI",
+          "A partial pitot blockage or leak reducing ram pressure",
           "An incorrect compass card entry"
         ],
         "correctIndex": 2,
-        "explanation": "Consistently low ASI readings point to reduced ram pressure — typically a partial pitot block or a pitot-line leak. Altimeter setting and compass cards are unrelated. Instrument over-calibration is rare compared to physical pitot-path problems."
+        "explanation": "Consistently low ASI readings point to reduced ram pressure — typically a partial pitot block or a leak in the pitot line that reduces ram pressure reaching the ASI. Altimeter setting and compass cards are unrelated. Instrument over-calibration is rare compared to physical pitot-path problems."
       },
       "multipleChoice": {
         "question": "Scenario: a pilot squawks that the ASI always indicates a value lower than expected. Identify the most probable root cause.",
         "choices": [
-          "A defective altimeter setting knob",
-          "An over-calibrated airspeed indicator from the factory",
-          "An incorrect entry on the compass correction card",
-          "A partial blockage in the pitot tube or a leak in the pitot line, which reduces the ram pressure reaching the ASI and shrinks the pitot-static differential"
+          "A defective altimeter Kollsman setting knob on the front of the instrument",
+          "An over-calibrated airspeed indicator from the factory before installation",
+          "An incorrect entry on the aircraft's compass deviation correction card",
+          "A partial pitot blockage or line leak that reduces ram-pressure differential"
         ],
         "correctIndex": 3,
-        "explanation": "Consistently low ASI readings come from reduced ram pressure reaching the instrument. The most common causes are a partial pitot blockage (dirt, insects, ice residue, moisture) or a leak in the pitot line between the tube and the ASI. A clogged pitot drain is related. Altimeter and compass settings have no effect on the ASI."
+        "explanation": "Consistently low ASI readings come from reduced ram pressure reaching the instrument. The most common causes are a partial pitot blockage (dirt, insects, ice residue, moisture) or a leak in the pitot line between the tube and the ASI, which reduces the pitot-static differential. A clogged pitot drain is related. Altimeter and compass settings have no effect on the ASI."
       },
       "practice": {
         "question": "During a post-maintenance test flight a pilot reports the airspeed indicator consistently reads about 8 knots lower than GPS ground speed suggests. Which is the most productive first check?",
@@ -1637,12 +1643,13 @@
       "preassessment": {
         "question": "ASI consistently reads too low — most likely cause?",
         "choices": [
-          "Altimeter knob",
-          "Partial pitot block or pitot-line leak",
-          "Over-calibrated ASI",
-          "Compass card error"
+          "Altimeter Kollsman knob",
+          "Partial pitot block or leak",
+          "Over-calibrated ASI unit",
+          "Compass card deviation"
         ],
-        "correctIndex": 1
+        "correctIndex": 1,
+        "explanation": "A partial pitot blockage or leak reduces sensed ram pressure, so the ASI reads low. Altimeter settings, calibration bias, and compass error do not match this symptom."
       },
       "targetCaetId": "464251",
       "targetCaetStem": "A pilot reports the airspeed indicator consistently reads too low. Which of the following is the MOST likely cause?",
@@ -1671,35 +1678,35 @@
       "jeopardy": {
         "question": "On the pitot heat circuit the breaker trips the instant the tech resets it — this is the correct follow-up action.",
         "choices": [
-          "Reset the breaker repeatedly until it holds",
-          "Install a larger-rated circuit breaker",
-          "Bypass the breaker with a jumper for the flight",
-          "Leave the breaker OFF and investigate for a short, damaged heater element, or moisture intrusion"
+          "Reset the breaker repeatedly until it finally holds for flight",
+          "Install a larger-rated circuit breaker in the affected panel",
+          "Bypass the breaker with a jumper wire for the planned flight",
+          "Leave the breaker OFF and investigate for short or damage"
         ],
         "correctIndex": 3,
-        "explanation": "Immediate retrip means the fault is still present. Leave the breaker off and find the cause. Repeated reset, upsizing, or bypassing are all unsafe and violate maintenance practice."
+        "explanation": "Immediate retrip means the fault is still present. Leave the breaker off and find the cause. Repeated reset, upsizing, or bypassing are unsafe and violate maintenance practice."
       },
       "multipleChoice": {
         "question": "On the pitot heat circuit, the breaker trips the instant the technician resets it. What is the correct follow-up action?",
         "choices": [
-          "Reset the breaker repeatedly until it finally holds in",
-          "Install a larger-rated circuit breaker so it will not trip again",
-          "Leave the breaker OFF and investigate the cause (short circuit, damaged heater element, or moisture intrusion) before any further reset or flight",
-          "Bypass the breaker with a jumper to use pitot heat for the flight"
+          "Reset the breaker repeatedly until it finally holds in position",
+          "Install a larger-rated circuit breaker so it will no longer trip out",
+          "Leave OFF and investigate short, heater damage, or moisture first",
+          "Bypass the breaker with a jumper so pitot heat is usable this flight"
         ],
         "correctIndex": 2,
-        "explanation": "An immediate retrip means the fault is still there. The breaker is doing its job. The correct action is to leave it off and find the root cause — most commonly a short in the heater wiring, a water-intruded heater element, or a damaged connector. Repeatedly resetting can damage wiring or start a fire. Up-sizing the breaker defeats the overcurrent protection and is strictly prohibited. Bypassing is equally unsafe. The aircraft should not be flown into conditions requiring pitot heat until the fault is corrected."
+        "explanation": "An immediate retrip means the fault is still there. The breaker is doing its job. Leave it off and find the root cause — most commonly a short in the heater wiring, a water-intruded heater element, or a damaged connector. Repeatedly resetting can damage wiring or start a fire. Up-sizing the breaker defeats overcurrent protection. Bypassing is equally unsafe. The aircraft should not be flown into conditions requiring pitot heat until corrected."
       },
       "practice": {
         "question": "A technician on the ramp resets a tripped pitot heat breaker during pre-flight and it pops again within a second. The pilot is preparing to fly into known icing conditions. What is the correct response?",
         "choices": [
-          "Reset the breaker one more time and if it pops, delay the flight one hour and try again",
-          "Install a larger-rated breaker to keep it from tripping",
-          "Jumper the breaker closed so the pitot heat will work for this flight only",
-          "Leave the breaker OFF and investigate the cause before any further reset or flight. Likely causes include a short in the heater wiring (often from chafing), a failed or water-intruded heater element, or a damaged connector. The aircraft should not be dispatched into icing without working pitot heat"
+          "Reset once more; if it pops, delay one hour and try resetting again",
+          "Install a larger-rated breaker to prevent the pitot heat from tripping",
+          "Jumper the breaker closed so pitot heat works for this one flight only",
+          "Leave the breaker OFF and investigate the cause before any flight"
         ],
         "correctIndex": 3,
-        "explanation": "Immediate retrip is the circuit protection doing its job — the fault is still present. Leave the breaker OFF and investigate. Flight into known icing without working pitot heat is unsafe because pitot icing while airborne is a real threat. The correct process is to find and fix the root cause before the flight, or delay the flight until the system is repaired. Bypassing or up-sizing is prohibited."
+        "explanation": "Immediate retrip is the circuit protection doing its job — the fault is still present. Leave the breaker OFF and investigate. Likely causes include a short in the heater wiring (often from chafing), a failed or water-intruded heater element, or a damaged connector. The aircraft should not be dispatched into icing without working pitot heat. Flight into known icing without working pitot heat is unsafe because pitot icing while airborne is a real threat. Bypassing or up-sizing is prohibited."
       },
       "preassessment": {
         "question": "Pitot heat CB pops on reset — next step?",
@@ -1737,45 +1744,46 @@
       "jeopardy": {
         "question": "Inside the altimeter, this is the physical quantity the instrument actually senses.",
         "choices": [
-          "The aircraft's magnetic heading",
+          "Static pressure, converted to altitude",
+          "The aircraft's magnetic heading data",
           "Ram air pressure at the pitot tube",
-          "The aircraft's pitch and bank attitude",
-          "Static atmospheric pressure, which it converts to altitude"
+          "The aircraft's pitch and bank attitude"
         ],
-        "correctIndex": 3,
-        "explanation": "An altimeter measures static atmospheric pressure and displays it as altitude. Ram pressure is used by the ASI. Pitch/bank is measured by the attitude indicator. Heading is measured by the heading indicator or compass."
+        "correctIndex": 0,
+        "explanation": "An altimeter measures static atmospheric pressure and converts it to an altitude reading. Ram pressure is used by the ASI. Pitch/bank is measured by the attitude indicator. Heading is measured by the heading indicator or compass."
       },
       "multipleChoice": {
         "question": "The altimeter is calibrated to display altitude based on which sensed quantity?",
         "choices": [
-          "Ram air pressure at the pitot tube, converted to airspeed",
-          "Static atmospheric pressure, which the instrument converts to altitude using a standard pressure-altitude relationship",
-          "Aircraft pitch and bank attitude relative to the horizon",
-          "Aircraft heading relative to magnetic north"
+          "Ram air pressure sensed at the pitot tube, which is converted to airspeed",
+          "Static atmospheric pressure, converted to altitude via standard pressure laws",
+          "Aircraft pitch and bank attitude measured relative to the visible horizon",
+          "Aircraft heading relative to magnetic north as sensed by the magnetic compass"
         ],
         "correctIndex": 1,
-        "explanation": "The altimeter senses static atmospheric pressure and translates it into altitude. Lower pressure means higher altitude. The Kollsman setting adjusts the reference for current local barometric pressure. Ram pressure, attitude, and heading are measured by other instruments with different operating principles."
+        "explanation": "The altimeter senses static atmospheric pressure and translates it into altitude. Lower pressure means higher altitude. The Kollsman setting adjusts the local barometric reference. Ram pressure, attitude, and heading use different instruments."
       },
       "practice": {
         "question": "A student asks how an altimeter 'knows' the aircraft's altitude without using GPS or radar. Which is the best explanation?",
         "choices": [
-          "The altimeter measures static atmospheric pressure, which decreases predictably with altitude (about 1 inHg per 1,000 ft near sea level); the instrument converts that pressure to a displayed altitude using a standard scale, with the Kollsman setting accounting for current weather",
-          "The altimeter uses an internal accelerometer to track vertical motion from takeoff",
-          "The altimeter receives altitude data from a radar altimeter",
-          "The altimeter reads the aircraft's pitch angle and estimates altitude"
+          "The altimeter senses static pressure and converts it to altitude",
+          "The altimeter uses an internal accelerometer to track vertical motion",
+          "The altimeter receives altitude data from a dedicated radar altimeter",
+          "The altimeter reads pitch angle and estimates altitude from climb rate"
         ],
         "correctIndex": 0,
-        "explanation": "A standard altimeter is a pressure instrument. Radar altimeters are separate devices that measure height above terrain directly. Inertial or accelerometer-based altitude tracking is not how a pressure altimeter works. Pitch angle has nothing to do with altitude measurement."
+        "explanation": "A standard altimeter is a pressure instrument. It measures static atmospheric pressure, which decreases predictably with altitude (about 1 inHg per 1,000 ft near sea level); the instrument converts that pressure to a displayed altitude using a standard scale, with the Kollsman setting accounting for current weather. Radar altimeters are separate devices that measure height above terrain directly. Inertial or accelerometer-based altitude tracking is not how a pressure altimeter works."
       },
       "preassessment": {
         "question": "The altimeter reads altitude based on which sensed quantity?",
         "choices": [
-          "Ram air pressure",
-          "Static atmospheric pressure converted to altitude",
-          "Pitch and bank",
-          "Magnetic heading"
+          "Ram air pressure from the pitot tube",
+          "Static atmospheric pressure from the ports",
+          "Pitch and bank angle from the attitude gyro",
+          "Magnetic heading from the flux gate sensor"
         ],
-        "correctIndex": 1
+        "correctIndex": 1,
+        "explanation": "The altimeter senses static atmospheric pressure and converts it to an altitude reading. Ram pressure is the airspeed indicator. Pitch and bank come from the attitude indicator; heading from the compass or heading indicator."
       },
       "targetCaetId": "464236",
       "targetCaetStem": "What does an altimeter measure?",
@@ -1803,24 +1811,24 @@
       "jeopardy": {
         "question": "Sampled at the flush fuselage ports and fed to the altimeter, ASI, and VSI — this is what gets measured.",
         "choices": [
-          "Ram air pressure created by forward motion",
-          "Humidity of the surrounding air",
-          "Outside air temperature",
-          "Undisturbed ambient atmospheric pressure around the aircraft, which decreases with altitude"
+          "Ram air pressure created by the aircraft's forward motion",
+          "Humidity level of the surrounding outside air mass",
+          "Outside air temperature at the current altitude level",
+          "Ambient atmospheric pressure, decreasing with altitude"
         ],
         "correctIndex": 3,
-        "explanation": "The static system senses undisturbed ambient atmospheric pressure — altitude-dependent, speed-independent. Ram pressure comes from the pitot tube. Temperature and humidity use separate sensors."
+        "explanation": "The static system senses undisturbed ambient atmospheric pressure — altitude-dependent and speed-independent. Ram pressure comes from the pitot tube. Temperature and humidity use separate sensors."
       },
       "multipleChoice": {
         "question": "An aircraft static pressure system detects which quantity?",
         "choices": [
-          "The undisturbed ambient atmospheric pressure around the aircraft, which decreases with altitude and is ideally independent of airspeed",
+          "Undisturbed ambient atmospheric pressure, decreasing with altitude",
           "Ram air pressure created by the aircraft's forward motion",
-          "The outside air temperature",
-          "The humidity of the surrounding air"
+          "The outside air temperature at the current flight altitude",
+          "The ambient humidity level of the surrounding air"
         ],
         "correctIndex": 0,
-        "explanation": "The static pressure system senses ambient atmospheric pressure, which depends on altitude but not on the aircraft's forward motion. Static ports are placed at locations on the fuselage where airflow is 'still' relative to the aircraft so the measurement is unaffected by the aircraft's movement. Ram pressure (forward motion), temperature, and humidity are measured by separate sensors."
+        "explanation": "The static pressure system senses ambient atmospheric pressure, which depends on altitude but not on the aircraft's forward motion. Static ports are placed where airflow is 'still' relative to the aircraft so the measurement is unaffected by motion. Ram pressure, temperature, and humidity are measured by separate sensors."
       },
       "practice": {
         "question": "A technician verifying a static system calibration notes that the port pressure changes with altitude but not with airspeed. Is this the expected behavior for a well-designed static system?",
@@ -1837,11 +1845,12 @@
         "question": "The static pressure system senses:",
         "choices": [
           "Ram air pressure",
-          "Humidity",
-          "Outside air temperature",
-          "Undisturbed ambient atmospheric pressure"
+          "Cabin humidity level",
+          "Outside air temperature value",
+          "Undisturbed ambient pressure"
         ],
-        "correctIndex": 3
+        "correctIndex": 3,
+        "explanation": "The static pressure system senses undisturbed ambient atmospheric pressure, which drives the altimeter, VSI, and airspeed indicator."
       },
       "targetCaetId": "464256",
       "targetCaetStem": "The static pressure system in an aircraft senses:",
@@ -1881,13 +1890,13 @@
       "multipleChoice": {
         "question": "State the standard (ISA) pressure value accepted at sea level.",
         "choices": [
-          "29.92 inches of mercury (1013.25 hPa, about 14.7 psi)",
-          "28.00 inches of mercury (about 948 hPa)",
-          "30.12 inches of mercury (about 1020 hPa)",
-          "32.50 inches of mercury (about 1100 hPa)"
+          "29.92 inches mercury (1013.25 hPa, ~14.7 psi)",
+          "28.00 inches mercury (about 948 hPa)",
+          "30.12 inches mercury (about 1020 hPa)",
+          "32.50 inches mercury (about 1100 hPa)"
         ],
         "correctIndex": 0,
-        "explanation": "The standard atmospheric pressure at sea level is 29.92 inHg, equivalent to 1013.25 hPa (millibars) or approximately 14.7 psi. This is the reference pressure pilots set on the altimeter at and above the transition altitude (FL180 in the US) for flight-level operations. The other values are plausible distractors that fall outside the standard."
+        "explanation": "The standard atmospheric pressure at sea level is 29.92 inHg, equivalent to 1013.25 hPa (millibars) or approximately 14.7 psi. This is the reference pressure pilots set on the altimeter at and above the transition altitude (FL180 in the US) for flight-level operations."
       },
       "practice": {
         "question": "A technician is explaining the standard altimeter setting used above the transition altitude. Which value is correct?",
@@ -1904,11 +1913,12 @@
         "question": "ISA sea level pressure value?",
         "choices": [
           "28.00 inHg",
-          "29.92 inHg (1013.25 hPa)",
+          "29.92 inHg",
           "30.12 inHg",
           "32.50 inHg"
         ],
-        "correctIndex": 1
+        "correctIndex": 1,
+        "explanation": "ISA sea-level pressure is 29.92 inHg (1013.25 hPa)."
       },
       "targetCaetId": "464245",
       "targetCaetStem": "What is the standard atmospheric pressure at sea level?",
@@ -1937,35 +1947,35 @@
       "jeopardy": {
         "question": "Inside a glass panel setup, these are the conventional round dials consolidated onto the PFD.",
         "choices": [
-          "Only the attitude indicator and heading indicator",
-          "The airspeed indicator, altimeter, vertical speed indicator, attitude indicator, and heading indicator",
-          "Only the airspeed indicator and altimeter",
-          "Only the magnetic compass and turn coordinator"
+          "Only the attitude indicator and heading indicator are consolidated",
+          "Airspeed, altimeter, VSI, attitude, and heading indicators combined",
+          "Only the airspeed indicator and altimeter are moved to the PFD",
+          "Only the magnetic compass and turn coordinator are consolidated"
         ],
         "correctIndex": 1,
-        "explanation": "The PFD consolidates five traditional instruments: ASI, altimeter, VSI, attitude indicator, and heading indicator. The turn coordinator and magnetic compass are often retained as backup instruments and are not replaced by the PFD."
+        "explanation": "The PFD consolidates five traditional instruments: ASI, altimeter, VSI, attitude indicator, and heading indicator. The turn coordinator and magnetic compass are often retained as backups."
       },
       "multipleChoice": {
         "question": "Inside a glass panel setup, the PFD consolidates which set of conventional round dials onto a single screen?",
         "choices": [
-          "The airspeed indicator, altimeter, vertical speed indicator, attitude indicator, and heading indicator — five traditional instruments consolidated onto one display",
+          "ASI, altimeter, VSI, attitude indicator, and heading indicator combined",
           "Only the airspeed indicator and altimeter, with other instruments unchanged",
-          "Only the attitude indicator and heading indicator",
-          "Only the magnetic compass and turn coordinator, which become digital"
+          "Only the attitude indicator and heading indicator, displayed on the PFD",
+          "Only the magnetic compass and turn coordinator, which become digitized"
         ],
         "correctIndex": 0,
-        "explanation": "The PFD replaces five traditional instruments: the airspeed indicator, altimeter, VSI, attitude indicator, and heading indicator. Airspeed, altitude, and VSI data come from the Air Data Computer; attitude and heading come from the AHRS. The turn coordinator and magnetic compass are typically retained as mechanical backup instruments and are not replaced by the PFD itself."
+        "explanation": "The PFD replaces five traditional instruments: the airspeed indicator, altimeter, VSI, attitude indicator, and heading indicator. Airspeed, altitude, and VSI come from the Air Data Computer; attitude and heading come from the AHRS. The turn coordinator and magnetic compass are typically retained as mechanical backups."
       },
       "practice": {
         "question": "A technician is explaining to a pilot transitioning from analog to glass which mechanical instruments are consolidated onto the PFD in a typical modern cockpit. Which list is correct?",
         "choices": [
-          "Attitude indicator and heading indicator only — the air-data instruments remain mechanical",
-          "Only the airspeed indicator and altimeter — everything else remains mechanical",
-          "Airspeed indicator, altimeter, VSI, attitude indicator, and heading indicator — the five primary flight instruments, fed by the Air Data Computer (airspeed/altitude/VSI) and the AHRS (attitude/heading). The turn coordinator and magnetic compass are commonly kept as backup",
-          "Only the magnetic compass and turn coordinator — the others remain mechanical"
+          "Attitude and heading only — air-data instruments remain mechanical gauges",
+          "Only the airspeed indicator and altimeter — all others remain mechanical",
+          "ASI, altimeter, VSI, attitude, and heading — the five primary flight gauges",
+          "Only the magnetic compass and turn coordinator — others remain mechanical"
         ],
         "correctIndex": 2,
-        "explanation": "The PFD typically consolidates the five primary flight instruments — ASI, altimeter, VSI, attitude indicator, and heading indicator — into a single display. These parameters come from the ADC (air data) and AHRS (attitude and heading). A mechanical turn coordinator and magnetic compass are usually retained as backup per regulatory requirements, and are not part of what the PFD replaces."
+        "explanation": "The PFD typically consolidates the five primary flight instruments — airspeed indicator, altimeter, VSI, attitude indicator, and heading indicator — into a single display. These parameters come from the Air Data Computer (airspeed/altitude/VSI) and the AHRS (attitude/heading). A mechanical turn coordinator and magnetic compass are usually retained as backup per regulatory requirements, and are not part of what the PFD replaces."
       },
       "preassessment": {
         "question": "What does the PFD typically replace in a glass cockpit?",

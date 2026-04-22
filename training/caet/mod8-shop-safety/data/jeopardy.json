@@ -88,12 +88,12 @@
         "clue": "When checking a fire extinguisher's readiness in a GA avionics shop, a technician should verify these items.",
         "choices": [
           "Only the color of the extinguisher body",
-          "Pressure gauge in the green zone, intact safety pin, and current inspection tag",
+          "Pressure gauge, safety pin, and inspection tag",
           "Only the tag date",
           "Only that the extinguisher exists in the shop"
         ],
         "correctIndex": 1,
-        "explanation": "A proper readiness check covers multiple items. Surface-only or presence-only checks miss common failure modes — low pressure, missing pin, physical damage, expired inspection."
+        "explanation": "A proper readiness check verifies the pressure gauge is in the green zone, the safety pin is intact, and the inspection tag is current. Surface-only or presence-only checks miss common failure modes — low pressure, missing pin, physical damage, expired inspection."
       },
       {
         "id": "CAT8-NEW-007",
@@ -137,9 +137,9 @@
         "id": "CAT8-NEW-006",
         "clue": "This practice best prevents ESD damage to sensitive avionics.",
         "choices": [
-          "Wearing wool clothing for static comfort",
-          "Walking on carpet before touching components",
-          "Handling components with bare hands only",
+          "Wearing wool clothing to add static comfort on the bench",
+          "Walking across carpet before handling electronic components",
+          "Handling components with bare hands only while on a stool",
           "Using a grounded wrist strap, ESD mat, and antistatic packaging"
         ],
         "correctIndex": 3,
@@ -199,13 +199,13 @@
         "id": "CAT8-NEW-J02",
         "clue": "This type of cabinet is required for flammable-chemical storage at an avionics maintenance facility.",
         "choices": [
-          "An open shelf on the workbench next to the soldering iron",
-          "A stack of cardboard boxes near the exit door",
-          "A converted household refrigerator",
-          "A UL-listed (or FM-approved) flammable-liquid cabinet — grounded, vented, kept closed, and labeled 'Flammable — Keep Fire Away'"
+          "An open shelf on the workbench right next to the soldering iron",
+          "A stack of cardboard boxes arranged near the building's exit door",
+          "A converted household refrigerator repurposed for chemical storage",
+          "A UL-listed flammable cabinet, grounded, vented, closed, and labeled"
         ],
         "correctIndex": 3,
-        "explanation": "The standard is a UL-listed / FM-approved flammable-liquid cabinet: grounded, vented per local code, self-closing and kept closed, and externally labeled. Open-bench storage near ignition sources, converted household refrigerators (their relays arc), and cardboard storage near exits are all non-compliant and dangerous.",
+        "explanation": "The standard is a UL-listed or FM-approved flammable-liquid cabinet: grounded, vented per local code, self-closing and kept closed, and externally labeled. Open-bench storage near ignition sources, converted household refrigerators (their relays arc), and cardboard storage near exits are all non-compliant and dangerous.",
         "targetCaetId": "464310",
         "targetCaetStem": "Scenario: You are tasked with installing a new avionics system that requires grounding. What is the first step to ensure proper grounding?",
         "targetCaetPp": 0.71
@@ -214,13 +214,13 @@
         "id": "CAT8-NEW-J03",
         "clue": "A technician begins a new panel install that calls for a chassis bond. This is the initial action to establish correct grounding.",
         "choices": [
-          "Apply power and measure case voltage",
-          "Bond the pilot's seat to the airframe",
-          "Create an equipotential reference — bond the chassis, the airframe, and any bench test gear to one low-impedance point per the install manual and AC 43.13",
-          "Tie the antenna coax shield to the headset jack"
+          "Apply power and measure case voltage against the frame",
+          "Bond the pilot's seat to the airframe with a ground strap",
+          "Create an equipotential reference per the install manual",
+          "Tie the antenna coax shield to the headset jack ground"
         ],
         "correctIndex": 2,
-        "explanation": "Bonding must be established before applying power. Equipotential bonding ties the chassis, airframe, bonding straps, and test equipment to a single low-impedance reference per the installation manual and AC 43.13-1B Chapter 11. Only then is it safe to energize the system.",
+        "explanation": "Bonding must be established before applying power. Equipotential bonding ties the chassis, the airframe, and any bench test gear to one low-impedance point per the installation manual and AC 43.13-1B Chapter 11. Only then is it safe to energize the system.",
         "targetCaetId": "464371",
         "targetCaetStem": "There is a hydraulic fluid spill near the avionics bench Recommended action?",
         "targetCaetPp": 0.75
@@ -229,13 +229,13 @@
         "id": "CAT8-NEW-J04",
         "clue": "A puddle of hydraulic fluid has leaked onto the floor next to an avionics workstation. This is the correct response.",
         "choices": [
-          "Keep working and wipe it up at the end of the shift",
-          "Push the fluid into the closest floor drain with a broom",
-          "Pour thinner over the puddle to dilute it",
-          "Halt work and warn coworkers, remove nearby ignition sources, absorb the pool with an approved absorbent pad or granule, clean per the SDS, and place the contaminated absorbent into a labeled hazmat container"
+          "Keep working and wipe the puddle up at the end of the shift",
+          "Push the fluid into the closest floor drain with a shop broom",
+          "Pour thinner over the puddle to dilute it before walking away",
+          "Halt work, warn coworkers, absorb per SDS, and dispose as hazmat"
         ],
         "correctIndex": 3,
-        "explanation": "Hydraulic fluid is a slip hazard and a combustible liquid. The correct response is halt-warn-contain-clean-dispose using approved absorbent, with contaminated absorbent disposed as hazmat. Drain disposal violates the Clean Water Act; adding solvent worsens the fire risk.",
+        "explanation": "Hydraulic fluid is a slip hazard and a combustible liquid. Halt work and warn coworkers, remove nearby ignition sources, absorb the pool with an approved absorbent pad or granule, clean per the SDS, and place the contaminated absorbent into a labeled hazmat container. Drain disposal violates the Clean Water Act; adding solvent worsens the fire risk.",
         "targetCaetId": "464365",
         "targetCaetStem": "How should flammable liquids be stored in an avionics shop?",
         "targetCaetPp": 0.76
@@ -245,12 +245,12 @@
         "clue": "A technician needs product-specific hazard details for a cleaning solvent on the bench. This is the correct reference to consult.",
         "choices": [
           "A general internet search on the product name",
-          "The Safety Data Sheet (SDS) for that specific product, provided by the manufacturer and kept accessible in the shop per OSHA's Hazard Communication Standard",
-          "The shipping invoice for the chemical",
-          "A handwritten note taped to the shelf"
+          "The Safety Data Sheet for the specific product",
+          "The original shipping invoice for the chemical",
+          "A handwritten note taped to the storage shelf"
         ],
         "correctIndex": 1,
-        "explanation": "The SDS is the authoritative, OSHA-required source. It follows a standardized 16-section format covering hazards, PPE, first aid, handling, spill response, and disposal. Internet results, invoices, and handwritten notes are not compliant and can be wrong.",
+        "explanation": "The SDS is the authoritative, OSHA-required source, provided by the manufacturer and kept accessible in the shop per OSHA's Hazard Communication Standard. It follows a standardized 16-section format covering hazards, PPE, first aid, handling, spill response, and disposal. Internet results, invoices, and handwritten notes are not compliant and can be wrong.",
         "targetCaetId": "464364",
         "targetCaetStem": "Where should you find specific safety info about a chemical solvent used in avionics cleaning?",
         "targetCaetPp": 0.84
@@ -259,13 +259,13 @@
         "id": "CAT8-NEW-J06",
         "clue": "At a Part 145 repair station, this paperwork is required on hand for every chemical product in use.",
         "choices": [
-          "An annual environmental compliance report",
-          "A signed purchase order for the chemical",
-          "The Safety Data Sheet (SDS), formerly the MSDS, required by OSHA's Hazard Communication Standard (29 CFR 1910.1200)",
-          "The receiving inspection tag on the container"
+          "The chemical product's annual environmental compliance report",
+          "A signed purchase order showing the chemical was bought",
+          "The Safety Data Sheet (SDS) required by OSHA HazCom standard",
+          "The receiving inspection tag from initial container delivery"
         ],
         "correctIndex": 2,
-        "explanation": "The SDS is the OSHA-required hazmat document — readily available to every employee during every work shift. Environmental reports, purchase orders, and receiving tags are administrative records and do not satisfy 29 CFR 1910.1200.",
+        "explanation": "The SDS (formerly MSDS) is the OSHA-required hazmat document under 29 CFR 1910.1200 — readily available to every employee during every work shift. Environmental reports, purchase orders, and receiving tags are administrative records and do not satisfy the HazCom Standard.",
         "targetCaetId": "464375",
         "targetCaetStem": "Which document must be readily available for each hazardous material used in a Part 145 shop?",
         "targetCaetPp": 0.92
@@ -274,13 +274,13 @@
         "id": "CAT8-NEW-J07",
         "clue": "On the ramp and during engine runs, hearing protection is mandatory for good reason. This is the primary hazard it guards against.",
         "choices": [
-          "Loud noise slows down shop productivity",
-          "Loud noise interferes with radio communication",
-          "Sustained noise from engine runs, APUs, GPUs, and pneumatic tools routinely exceeds OSHA's 85 dBA action level and causes permanent, cumulative, irreversible hearing loss",
+          "Loud noise slows down overall shop productivity",
+          "Loud noise interferes with shop radio communication",
+          "Sustained ramp noise causes permanent hearing loss",
           "Loud noise makes instrument displays harder to read"
         ],
         "correctIndex": 2,
-        "explanation": "The core reason is permanent hearing-loss risk above an 85 dBA 8-hour time-weighted exposure. OSHA 29 CFR 1910.95 requires hearing protection, annual audiograms, and a hearing conservation program at that threshold. Productivity, comm clarity, and display readability are secondary.",
+        "explanation": "The core reason is permanent hearing-loss risk above an 85 dBA 8-hour time-weighted exposure. Sustained noise from engine runs, APUs, GPUs, and pneumatic tools routinely exceeds OSHA's 85 dBA action level and causes permanent, cumulative, irreversible hearing loss. OSHA 29 CFR 1910.95 requires hearing protection, annual audiograms, and a hearing conservation program at that threshold. Productivity, comm clarity, and display readability are secondary.",
         "targetCaetId": "464376",
         "targetCaetStem": "In a busy shop with multiple aircraft, why is hearing protection so critical for technicians?",
         "targetCaetPp": 0.95

@@ -354,12 +354,12 @@
         "clue": "A MIL-STD-1553 databus shows non-idle activity longer than expected. This is a possible cause.",
         "choices": [
           "Scheduled idle time within a normal major frame",
-          "Bus controller retries caused by error responses or a damaged 78 ohm terminator",
+          "Bus controller retries or a damaged 78 Ω terminator",
           "An expired flight manual supplement on the aircraft",
           "Cockpit night-mode lighting engaged"
         ],
         "correctIndex": 1,
-        "explanation": "Extended non-idle activity points to retries driven by bad responses from a remote terminal, a stuck transmitter, or reflections from a bad terminator. Scheduled idle time looks idle, not busy, and unrelated paperwork or lighting does not affect bus state.",
+        "explanation": "Extended non-idle activity points to retries driven by bad error responses from a remote terminal, a stuck transmitter, or reflections from a bad 78 ohm terminator. Scheduled idle time looks idle, not busy, and unrelated paperwork or lighting does not affect bus state.",
         "targetCaetId": "464273",
         "targetCaetStem": "Scenario: You are analyzing a MIL-STD-1553 databus and find that the bus is operating in a non-idle state for longer than expected. What could be a possible cause?",
         "targetCaetPp": 0.5
@@ -385,8 +385,8 @@
         "choices": [
           "Peer-to-peer transmission by any unit whenever the bus is quiet",
           "One-way broadcast from one transmitter to up to 20 receivers",
-          "Command and response controlled by a single bus controller with up to 31 remote terminals",
-          "Continuous token passing between matched pairs"
+          "Command/response run by a single BC with up to 31 RTs",
+          "Continuous token passing between matched pairs of remote terminals"
         ],
         "correctIndex": 2,
         "explanation": "MIL-STD-1553 is a command/response protocol: a single bus controller initiates every transaction and up to 31 remote terminals respond only when addressed. Peer-to-peer, one-way broadcast, and token passing describe other standards.",
@@ -430,7 +430,7 @@
         "id": "CAT5-NEW-J08",
         "clue": "This best describes ARINC 429 in a single phrase.",
         "choices": [
-          "A one-way digital data bus with one transmitter and up to 20 receivers on a twisted shielded pair",
+          "One-way bus, one transmitter, up to 20 receivers on twisted pair",
           "A 28 volt DC power feeder that supplies avionics equipment",
           "A mechanical cable system that drives the control surfaces",
           "A pneumatic reference line that supplies the air data computer"
@@ -460,10 +460,10 @@
         "id": "CAT5-NEW-J10",
         "clue": "Among RS-232 databus traits, this one shows up commonly on the spec sheet.",
         "choices": [
-          "Transformer-coupled Manchester encoding at 1 megabit per second",
-          "Differential signaling at plus or minus 10 volts with up to 20 receivers per pair",
-          "Single-ended signaling referenced to ground at typically plus or minus 3 to 15 volts, point-to-point between two devices",
-          "Optical pulses over a plastic multimode fiber"
+          "Transformer-coupled Manchester encoding at 1 megabit per second on a twisted shielded pair",
+          "Differential signaling at plus or minus 10 volts with up to 20 receivers per pair, broadcast only",
+          "Single-ended signaling referenced to ground at plus or minus 3 to 15 volts, point-to-point",
+          "Optical pulses transmitted over a plastic multimode fiber between two avionics units"
         ],
         "correctIndex": 2,
         "explanation": "RS-232 is single-ended, referenced to ground, at about plus or minus 3 to 15 V, and is point-to-point between exactly two devices. Plus or minus 10 V differential is ARINC 429, Manchester at 1 Mbps is MIL-STD-1553, and RS-232 is not optical.",
@@ -475,10 +475,10 @@
         "id": "CAT5-NEW-J11",
         "clue": "One device on a MIL-STD-1553 bus is not responding to commands from the bus controller. This is a likely cause.",
         "choices": [
-          "The aircraft weather radar being set to standby",
-          "An incorrect RT address strap, an open stub coupler, or a missing power or ground lead on that device",
-          "An expired VOR receiver accuracy check",
-          "Cabin altitude control in manual mode"
+          "The aircraft weather radar is set to standby mode",
+          "Incorrect RT address strap, open stub, or missing power",
+          "An expired VOR receiver accuracy check is overdue",
+          "Cabin altitude control is left in manual mode"
         ],
         "correctIndex": 1,
         "explanation": "A single non-responsive remote terminal usually has a bad address strap, an open stub coupler, or a power/ground problem local to that terminal. Weather radar mode, cabin altitude, and VOR checks are unrelated.",
@@ -522,10 +522,10 @@
         "id": "CAT5-NEW-J14",
         "clue": "A technician sees high latency between data updates on an ARINC 429 bus. This is the most likely explanation.",
         "choices": [
-          "MIL-STD-1553 bus controller retries directed onto the ARINC pair",
-          "Multi-master arbitration delay between competing transmitters",
-          "The transmitter broadcasts the parameter at a slow repetition rate, the pair runs at 12 kbps low speed, or the receiver is overloaded with labels",
-          "Per-word handshaking acknowledges between transmitter and receiver"
+          "MIL-STD-1553 bus controller retries redirected onto the ARINC pair",
+          "Multi-master arbitration delays among competing transmitters on the pair",
+          "Slow transmit repetition, low-speed mode, or a receiver overloaded with labels",
+          "Per-word handshaking acknowledgments between transmitter and receiver nodes"
         ],
         "correctIndex": 2,
         "explanation": "ARINC 429 has one transmitter per pair and no arbitration or handshake. Latency grows with slow transmitter repetition, low-speed operation, or an overloaded receiver. The other options describe other standards or mechanisms that ARINC 429 does not use.",
@@ -539,7 +539,7 @@
         "choices": [
           "The aircraft GPS almanac expiration date",
           "The cockpit voice recorder channel assignments",
-          "The RT address strapping and the stub coupler and termination on the bus",
+          "The RT address, stub coupler, and bus termination",
           "The baggage door proximity switch alignment"
         ],
         "correctIndex": 2,
@@ -568,12 +568,12 @@
         "clue": "Data errors appear during a test of an ARINC 429 system. This is the first troubleshooting step.",
         "choices": [
           "Replace the transmitting line replaceable unit on the spot",
-          "Verify physical-layer integrity: cable continuity, connector security, and shield grounding",
+          "Verify physical layer: cable, connectors, and shield grounding",
           "Reconfigure every receiver on the bus to a new bit rate",
           "Perform a software revision update on every connected unit"
         ],
         "correctIndex": 1,
-        "explanation": "The first step for ARINC 429 data errors is a physical-layer check: cable, connectors, and shield grounding cause most errors. Shotgun replacement, rate changes, and blanket software updates are poor starting points.",
+        "explanation": "The first step for ARINC 429 data errors is a physical-layer check of cable continuity, connector security, and shield grounding — these cause most errors. Shotgun replacement, rate changes, and blanket software updates are poor starting points.",
         "targetCaetId": "464268",
         "targetCaetStem": "Scenario: During an avionics system test, you notice data errors in the ARINC 429 communication. What is the FIRST step to troubleshoot the issue?",
         "targetCaetPp": 0.79
@@ -644,7 +644,7 @@
         "id": "CAT5-NEW-J22",
         "clue": "This is the main reason industry migrated modern avionics to digital buses such as ARINC 429.",
         "choices": [
-          "To exchange standardized digital data between many avionics units using relatively few wires",
+          "To exchange standardized digital data using relatively few wires",
           "To serve as high-current DC power feeders for the servos",
           "To provide structural grounding for the airframe",
           "To physically support the weight of the avionics racks"
@@ -660,7 +660,7 @@
         "clue": "This statement best describes ARINC 429 as it is used in general-aviation avionics.",
         "choices": [
           "A bidirectional command-and-response bus with a dedicated bus controller",
-          "A one-way broadcast digital data bus, one transmitter and up to 20 receivers on a twisted shielded pair at 12 or 100 kbps",
+          "A one-way broadcast bus, up to 20 receivers, 12 or 100 kbps",
           "A multi-master shared bus at 1 megabit per second with dual-redundant cables",
           "A point-to-point analog signal line referenced to chassis ground"
         ],
@@ -674,10 +674,10 @@
         "id": "CAT5-NEW-J24",
         "clue": "Classified by architecture, ARINC 429 falls into this category of bus.",
         "choices": [
-          "One-way digital data bus with one transmitter and up to 20 receivers",
-          "Mechanical control cable system for flight surfaces",
-          "Pneumatic pitot-static reference line",
-          "28 volt DC power distribution bus"
+          "One-way digital bus: one transmitter, up to 20 receivers",
+          "Mechanical control cable system for flight control surfaces",
+          "A pneumatic pitot-static reference line for air data units",
+          "A 28 volt DC power distribution bus for avionics equipment"
         ],
         "correctIndex": 0,
         "explanation": "ARINC 429 is primarily a one-way digital data bus with one transmitter and up to 20 receivers on a twisted shielded pair. It is not a power bus, a mechanical control system, or a pneumatic reference line.",

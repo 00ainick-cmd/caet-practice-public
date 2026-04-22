@@ -61,13 +61,13 @@
       "practice": {
         "question": "A new technician at a repair station asks which federal regulation defines how maintenance tasks must actually be performed. What is the correct answer?",
         "choices": [
-          "Part 43, which contains the performance rules for maintenance, preventive maintenance, rebuilding, and alteration that every person performing maintenance must follow",
-          "Part 21, which covers certification of products and parts",
+          "Part 43 — performance rules for maintenance, preventive maintenance, and alteration",
+          "Part 21, which covers certification of aeronautical products and parts",
           "Part 91, which addresses flight rules rather than maintenance performance",
           "Part 147, which governs aviation maintenance technician school curricula"
         ],
         "correctIndex": 0,
-        "explanation": "Part 43 is the core maintenance-performance regulation. It applies to every person performing maintenance on certificated aircraft — including mechanics, repair stations, and operators. Part 145 specifies how repair stations are organized, but the 'how-to' of maintenance itself lives in Part 43."
+        "explanation": "Part 43 is the core maintenance-performance regulation. It applies to every person performing maintenance on certificated aircraft — including mechanics, repair stations, and operators. Part 145 specifies how repair stations are organized, but the how-to of maintenance itself lives in Part 43."
       },
       "preassessment": {
         "question": "Which 14 CFR part outlines the performance rules for aircraft maintenance?",
@@ -121,23 +121,24 @@
       "practice": {
         "question": "A private pilot who owns a light aircraft asks whether they can legally change the engine oil themselves. What is the correct answer under 14 CFR Part 43?",
         "choices": [
-          "No, only A&P mechanics may service aircraft engine oil",
-          "Yes, any pilot can perform any maintenance they feel comfortable doing",
-          "Yes, changing engine oil appears on the preventive maintenance list in Part 43 Appendix A, and a certificated pilot may perform it on their own aircraft as long as the aircraft is not operated under Part 121, 129, or 135; the pilot must document the work properly",
-          "No, oil changes require a DER sign-off"
+          "No — only A&P mechanics may service engine oil on any aircraft",
+          "Yes — any pilot can perform maintenance they feel comfortable doing",
+          "Yes — it is preventive maintenance allowed for pilot-owners",
+          "No — engine oil changes require DER sign-off and Form 337"
         ],
         "correctIndex": 2,
-        "explanation": "Engine oil changes are a classic example of preventive maintenance explicitly permitted to pilot-owners by Part 43 Appendix A. The pilot must hold at least a Private certificate, must own or operate the aircraft, and must document the work in the logbook. Not every maintenance activity qualifies — the list in Appendix A is specific."
+        "explanation": "Engine oil changes are a classic example of preventive maintenance explicitly permitted to pilot-owners by Part 43 Appendix A. The pilot must hold at least a Private certificate, must own or operate the aircraft (not operated under Part 121, 129, or 135), and must document the work in the logbook. Not every maintenance activity qualifies — the list in Appendix A is specific."
       },
       "preassessment": {
         "question": "What does Part 43 say about preventive maintenance?",
         "choices": [
-          "Any repair a technician deems minor",
-          "Only A&P mechanics may perform it",
-          "Simple or minor operations listed in Appendix A",
-          "Requires DER approval"
+          "Any repair a technician deems to be minor",
+          "Only A&P mechanics may perform this work",
+          "Simple or minor operations in Appendix A",
+          "Requires DER approval before being performed"
         ],
-        "correctIndex": 2
+        "correctIndex": 2,
+        "explanation": "Part 43 defines preventive maintenance as the simple or minor operations listed in Appendix A."
       }
     },
     {
@@ -182,13 +183,13 @@
       "practice": {
         "question": "A technician plans to install a new engine that is not on the aircraft's type certificate data sheet (TCDS). Is this a major alteration, and what documentation is required?",
         "choices": [
-          "No, because any engine swap is routine and needs only a logbook entry",
-          "No, because the engine is a replacement part",
-          "Yes, this is a major alteration because it changes a type-design item (powerplant) in a way that may appreciably affect performance, weight/balance, and flight characteristics; it requires approved data (typically an STC or DER-approved data) and FAA Form 337",
-          "Yes, but only a logbook entry is needed"
+          "No — an engine swap is routine and needs only a logbook entry",
+          "No — the engine is simply a replacement part under warranty",
+          "Yes — a major alteration needing approved data and Form 337",
+          "Yes — but only a logbook entry is needed to document the swap"
         ],
         "correctIndex": 2,
-        "explanation": "An engine not on the TCDS is a textbook major alteration — it changes a type-design component in a way that affects airworthiness qualities. Approved data (STC, DER field approval, or manufacturer data) must be used, and the work must be documented on Form 337. A logbook entry alone is insufficient."
+        "explanation": "An engine not on the TCDS is a textbook major alteration — it changes a type-design component (powerplant) in a way that may appreciably affect performance, weight/balance, and flight characteristics. Approved data (STC, DER field approval, or manufacturer data) must be used, and the work must be documented on FAA Form 337. A logbook entry alone is insufficient."
       },
       "preassessment": {
         "question": "What is a major alteration per Part 43 Appendix A?",
@@ -221,21 +222,21 @@
       "jeopardy": {
         "question": "Per 14 CFR §43.9, these four elements must be in every maintenance record entry.",
         "choices": [
-          "Only the date and the technician's initials",
-          "Description of work, date of completion, name of person, and approving signature",
-          "The number of hours spent on the work",
-          "The customer's name and address"
+          "Only the date and the technician's initials on the page",
+          "Work description, completion date, name, approving signature",
+          "The total number of labor hours spent on the work order",
+          "The customer's name, address, and registered phone number"
         ],
         "correctIndex": 1,
-        "explanation": "Section 43.9 specifies the four required elements. Time spent and customer contact information are not required by §43.9 (though they may be recorded for business purposes)."
+        "explanation": "Section 43.9 specifies the four required elements: description of work, date of completion, name of person, and approving signature. Time spent and customer contact are not required by §43.9."
       },
       "multipleChoice": {
         "question": "What must be included in a maintenance record entry per 14 CFR §43.9?",
         "choices": [
-          "Only the date and the technician's initials",
-          "Description of work, date, person performing work, and approving signature",
-          "The number of labor hours charged for the work",
-          "The customer's name, address, and contact phone number"
+          "Only the date of work and the technician's initials",
+          "Description, date, person performing work, and signature",
+          "The total number of labor hours charged for the work done",
+          "The customer's name, mailing address, and contact phone number"
         ],
         "correctIndex": 1,
         "explanation": "Part 43.9 requires four specific elements in every maintenance record entry: work description, completion date, person performing the work, and approving signature/certificate information. Labor hours and customer contact data are not part of the regulatory requirement."
@@ -306,13 +307,13 @@
       "practice": {
         "question": "An aircraft owner wants to have the required 24-month pitot-static and transponder certifications performed. Who can legally sign off these inspections?",
         "choices": [
-          "The owner, if they have a current Private Pilot certificate",
-          "A certificated repair station with the appropriate instrument/accessory ratings, or the manufacturer of the aircraft or equipment under specified conditions",
-          "Any A&P mechanic at the local airport",
-          "No one locally — only FAA field offices"
+          "The owner, provided they hold a current Private Pilot certificate",
+          "A repair station with appropriate ratings, or the OEM under specified conditions",
+          "Any A&P mechanic working at the local general-aviation airport",
+          "No one locally — only FAA field offices may perform the certifications"
         ],
         "correctIndex": 1,
-        "explanation": "Part 91.411 and 91.413 require appropriately-rated repair station or manufacturer involvement. A general A&P at the local airport cannot sign off the 24-month certifications without the proper repair-station rating. The aircraft owner and FAA field offices are not authorized to perform these inspections."
+        "explanation": "Parts 91.411 and 91.413 require an appropriately rated repair station or the manufacturer. A general A&P without the instrument/accessory rating cannot sign off the 24-month certifications. Owners and FAA field offices are not authorized to perform these inspections."
       },
       "preassessment": {
         "question": "Who can perform pitot-static and transponder inspections per 91.411/91.413?",
@@ -345,13 +346,13 @@
       "jeopardy": {
         "question": "This is how an altimeter or transponder test must be documented in the maintenance records.",
         "choices": [
-          "With just a sticker on the instrument",
+          "With just a sticker on the instrument face",
           "Verbally confirmed with the pilot",
           "Only by the flight crew in the aircraft discrepancy log",
-          "With the date of the test, the maximum altitude tested, and the approving signature"
+          "With test date, maximum altitude tested, and signature"
         ],
         "correctIndex": 3,
-        "explanation": "Proper documentation includes the test date, maximum altitude (altimeter only), and the signature/certificate data of the person approving the return to service. Stickers alone are informational but do not satisfy the record-keeping requirement. Verbal confirmation and pilot-side logs do not substitute for the maintenance record entry."
+        "explanation": "Proper documentation includes the test date, maximum altitude (altimeter only), and the approving signature/certificate data of the person returning the unit to service. Stickers alone are informational but do not satisfy the record-keeping requirement. Verbal confirmation and pilot-side logs do not substitute for the maintenance record entry."
       },
       "multipleChoice": {
         "question": "What entries must appear in the maintenance records after an altimeter or transponder performance test is completed?",
@@ -367,13 +368,13 @@
       "practice": {
         "question": "A technician has just completed the 24-month altimeter and transponder tests on an aircraft. What must go into the maintenance records?",
         "choices": [
-          "Only a note saying 'tests completed'",
-          "A sticker in the cockpit is sufficient",
-          "No entry is required — the test certificate from the test equipment is sufficient",
-          "A compliant entry per §43.9 and Part 43 Appendices E/F: the date of each test, the maximum altitude to which the altimeter was tested, and the technician's signature, certificate number, and kind of certificate approving the return to service"
+          "Only a note in the logbook saying that the tests were completed successfully",
+          "A sticker placed in the cockpit is sufficient documentation for these tests",
+          "No logbook entry is required — the test equipment certificate is sufficient",
+          "A §43.9 entry with test date, max altitude, technician signature, and number"
         ],
         "correctIndex": 3,
-        "explanation": "The maintenance record entry is mandatory. It must include the required elements per §43.9 and the specific test-related data per Appendices E (altimeter) and F (transponder). Stickers, raw test certificates, or abbreviated notes do not satisfy the regulatory requirement."
+        "explanation": "The maintenance record entry is mandatory. It must include the required elements per §43.9 and the specific test-related data per Appendices E (altimeter) and F (transponder): the date of each test, the maximum altitude to which the altimeter was tested, and the technician's signature, certificate number, and kind of certificate approving the return to service. Stickers, raw test certificates, or abbreviated notes do not satisfy the regulatory requirement."
       },
       "preassessment": {
         "question": "How must altimeter/transponder test results be documented?",
@@ -428,13 +429,13 @@
       "practice": {
         "question": "A technician installs a new TSO-approved autopilot per an STC kit that includes a flight manual supplement. What classification and paperwork apply?",
         "choices": [
-          "Minor alteration — logbook entry only",
-          "Preventive maintenance — the owner signs off",
-          "No documentation needed because the autopilot is a TSO part",
-          "Major alteration — use the STC as approved data, follow the installation manual, and complete FAA Form 337 in addition to the logbook entry. The flight manual supplement must also be placed with the aircraft documents"
+          "Minor alteration — logbook entry only is sufficient documentation",
+          "Preventive maintenance — the aircraft owner may sign it off",
+          "No documentation is needed because the autopilot is a TSO part",
+          "Major alteration — STC, Form 337, AFM supplement, logbook entry"
         ],
         "correctIndex": 3,
-        "explanation": "STC-installed autopilot with an AFM supplement is major. The STC serves as the approved data; Form 337 documents the alteration; the AFM supplement goes with the aircraft flight manual. Logbook entry alone is not sufficient, and neither pilots nor TSO status alone authorize an alteration of this scope."
+        "explanation": "STC-installed autopilot with an AFM supplement is major. Use the STC as approved data, follow the installation manual, and complete FAA Form 337 in addition to the logbook entry. The flight manual supplement must also be placed with the aircraft documents. Logbook entry alone is not sufficient, and neither pilots nor TSO status alone authorize an alteration of this scope."
       },
       "preassessment": {
         "question": "TSO part installed with STC and AFM supplement — major or minor?",
@@ -489,13 +490,13 @@
       "practice": {
         "question": "A technician replaces a failed TSO-approved communication radio with another TSO-approved radio that has the same form, fit, and function, using the manufacturer's installation manual. What classification and documentation apply?",
         "choices": [
-          "Maintenance (not a major alteration). Document per §43.9 in the logbook with a description of the work, date, name of the person performing the work, and the approving signature with certificate data",
-          "Major alteration — requires Form 337 and STC",
-          "Preventive maintenance — the owner may sign off",
-          "Nothing is needed if the new radio turns on and functions"
+          "Maintenance — document per §43.9 with a complete logbook entry",
+          "Major alteration — requires Form 337 and STC approved data",
+          "Preventive maintenance — the aircraft owner may sign it off",
+          "Nothing required if the new radio powers up and functions properly"
         ],
         "correctIndex": 0,
-        "explanation": "Like-for-like TSO replacement done per the manufacturer's manual is maintenance, not a major alteration. The required documentation is a §43.9-compliant logbook entry. Pilot-owner preventive maintenance is not the applicable category, and documentation is always required for maintenance work."
+        "explanation": "Like-for-like TSO replacement done per the manufacturer's manual is maintenance, not a major alteration. The required documentation is a §43.9-compliant logbook entry with a description of the work, date, name of the person performing the work, and the approving signature with certificate data. Pilot-owner preventive maintenance is not the applicable category, and documentation is always required for maintenance work."
       },
       "preassessment": {
         "question": "Is replacing a TSO part with another TSO part generally a major alteration?",
@@ -670,13 +671,13 @@
       "practice": {
         "question": "A repair station's capability list shows a specific radio model as 'within capabilities,' but the latest manual revision for that radio is not currently available in the shop. Can the station legally work on that radio?",
         "choices": [
-          "Yes, because the radio is on the capability list",
-          "No — capability includes the requirement that current technical data be available. Without the latest manual revision, the station cannot perform the work until the current data is obtained",
-          "Yes, if the technician is experienced with the model",
-          "Yes, with a note in the work order that the data is out of date"
+          "Yes — being on the capability list is the only requirement for the work",
+          "No — capability requires current technical data, which is not available",
+          "Yes — if the technician has prior experience with the radio model",
+          "Yes — if a note about the outdated data is placed in the work order"
         ],
         "correctIndex": 1,
-        "explanation": "Being on the capability list is necessary but not sufficient. The station must also have current technical data available. Without the latest manual revision, the technical-data requirement is not met, and the station cannot perform work per its own accepted procedures and Part 145 obligations. Current data must be obtained before proceeding."
+        "explanation": "Being on the capability list is necessary but not sufficient. Capability also includes the requirement that current technical data be available. Without the latest manual revision, the station cannot perform the work until the current data is obtained. Current data must be obtained before proceeding per Part 145 obligations."
       },
       "preassessment": {
         "question": "What is the purpose of a Part 145 capability list?",
@@ -771,9 +772,9 @@
         "question": "This is the primary purpose of FAA Form 8130-3 (Authorized Release Certificate / Airworthiness Approval Tag).",
         "choices": [
           "To approve new or overhauled aircraft parts for return to service",
-          "To record a pilot's flight review",
-          "To document an aircraft's registration status",
-          "To serve as a sales invoice for aircraft parts"
+          "To record a certificated pilot's most recent biennial flight review",
+          "To document the current aircraft registration status with the FAA",
+          "To serve as a sales invoice for aircraft parts shipped from vendors"
         ],
         "correctIndex": 0,
         "explanation": "The 8130-3 is an airworthiness-approval and traceability document for aircraft parts. It is not related to pilot flight reviews, aircraft registration, or sales invoicing (though the tag often accompanies sales of new or overhauled parts)."
@@ -792,13 +793,13 @@
       "practice": {
         "question": "A technician receives an avionics unit with an FAA Form 8130-3 tag attached. What does that tag tell the technician?",
         "choices": [
-          "The unit conforms to approved design data and has been approved for return to service per the issuer's statement, providing airworthiness traceability for the part",
-          "The unit was sold recently and is still under warranty",
-          "The aircraft the unit is installed in is registered with the FAA",
-          "The pilot who flew the aircraft is current on their flight review"
+          "Conformance to approved design data and approval for return to service",
+          "The unit was sold recently and remains within the manufacturer's warranty",
+          "The aircraft the unit is installed in is currently registered with the FAA",
+          "The pilot who flew the aircraft is current on their biennial flight review"
         ],
         "correctIndex": 0,
-        "explanation": "The 8130-3 certifies conformance to approved design data and approval for return to service. It gives the installer confidence that the part is airworthy and provides a traceable chain from approval to installation. Warranty, aircraft registration, and pilot currency are separate matters."
+        "explanation": "Form 8130-3 certifies conformance to approved design data and approval for return to service per the issuer's statement, giving the installer airworthiness traceability for the part. Warranty, aircraft registration, and pilot currency are separate matters with separate documentation."
       },
       "preassessment": {
         "question": "What is FAA Form 8130-3 used for?",
@@ -830,10 +831,10 @@
       "jeopardy": {
         "question": "According to FAA regulations, this is the definition of 'maintenance.'",
         "choices": [
-          "Any activity that keeps an aircraft operating",
-          "Inspection, overhaul, repair, preservation, and parts replacement",
-          "Only replacing failed parts",
-          "Any work performed by an A&P mechanic"
+          "Any activity that keeps an aircraft operating safely",
+          "Inspection, overhaul, repair, preservation, parts replacement",
+          "Only the replacement of parts that have failed in service",
+          "Any maintenance work performed by a certificated A&P mechanic"
         ],
         "correctIndex": 1,
         "explanation": "The Part 1 definition is specific: maintenance = inspection, overhaul, repair, preservation, and parts replacement — but NOT preventive maintenance, which is defined separately. General phrases like 'any activity' or 'any work by an A&P' are not the regulatory definition."
@@ -841,10 +842,10 @@
       "multipleChoice": {
         "question": "In 14 CFR Part 1, how is the term 'maintenance' defined for regulatory purposes?",
         "choices": [
-          "Any activity that keeps an aircraft operating",
+          "Any activity that keeps an aircraft operational in the fleet",
           "Inspection, overhaul, repair, preservation, and parts replacement",
-          "Only the replacement of failed parts",
-          "Any work performed by a certificated A&P mechanic"
+          "Only the replacement of failed parts in the airframe",
+          "Any work performed by a certificated A&P mechanic of any rating"
         ],
         "correctIndex": 1,
         "explanation": "14 CFR Part 1 defines maintenance as inspection, overhaul, repair, preservation, and parts replacement, explicitly excluding preventive maintenance. Preventive maintenance is a separate category limited to the simple operations listed in Part 43 Appendix A."
@@ -852,13 +853,13 @@
       "practice": {
         "question": "A student asks where the line is between 'maintenance' and 'preventive maintenance' in FAA regulations. What is the best answer?",
         "choices": [
-          "Both are the same — the terms are interchangeable",
-          "Maintenance (per Part 1) is a broad category: inspection, overhaul, repair, preservation, and parts replacement. Preventive maintenance is a separate narrower category consisting only of the simple or minor preservation operations listed in Part 43 Appendix A",
+          "Both are the same — the two terms are fully interchangeable in FAA use",
+          "Maintenance is broad; preventive is the narrow Appendix A list only",
           "Maintenance refers only to major repairs; everything else is preventive",
-          "The distinction is made by individual technician judgment"
+          "The distinction is made by the individual technician's own judgment"
         ],
         "correctIndex": 1,
-        "explanation": "The FAA draws a clear regulatory distinction: maintenance is the broader category; preventive maintenance is a narrower category limited to the specific items in Appendix A. The distinction matters because preventive maintenance can be performed by certain pilot-owners, while general maintenance requires appropriately certificated mechanics or repair stations."
+        "explanation": "The FAA draws a clear regulatory distinction: maintenance (per Part 1) is a broad category — inspection, overhaul, repair, preservation, and parts replacement. Preventive maintenance is a separate narrower category consisting only of the simple or minor preservation operations listed in Part 43 Appendix A. The distinction matters because preventive maintenance can be performed by certain pilot-owners, while general maintenance requires appropriately certificated mechanics or repair stations."
       },
       "preassessment": {
         "question": "What is the FAA definition of 'maintenance'?",
@@ -924,12 +925,13 @@
       "preassessment": {
         "question": "Why must Part 145 shops keep walkways clear?",
         "choices": [
-          "Visual appeal only",
-          "No such requirement exists",
-          "OSHA only, not Part 145",
-          "To reduce safety hazards and quality risks"
+          "For visual appeal and shop aesthetics only",
+          "No such requirement exists under the rules",
+          "Under OSHA standards only, not Part 145",
+          "To reduce safety and quality risks"
         ],
-        "correctIndex": 3
+        "correctIndex": 3,
+        "explanation": "Part 145 shops must keep walkways clear to reduce safety hazards and protect work quality."
       }
     },
     {
@@ -974,13 +976,13 @@
       "practice": {
         "question": "A new technician has accepted a position at a Part 145 repair station whose FAA-approved antidrug program includes pre-employment testing. What is the correct sequence of events before the technician can begin work?",
         "choices": [
-          "The technician must complete and pass the pre-employment drug test before beginning work in a safety-sensitive position. Only after the test is complete and the result is negative may the technician begin safety-sensitive duties",
-          "Start work immediately; the test can be completed at any time",
-          "Begin work if the technician self-certifies they are drug-free",
-          "Complete the test within a year of starting work"
+          "Pass the pre-employment drug test before starting safety-sensitive duties",
+          "Start work immediately; the test can be completed at any convenient time",
+          "Begin work if the technician self-certifies they are drug-free on paper",
+          "Complete the drug test within one year of the start of employment date"
         ],
         "correctIndex": 0,
-        "explanation": "Pre-employment testing is a gating requirement. The sequence is: conditional offer, test, negative result, then start of safety-sensitive work. Starting work before the test is complete, or relying on self-certification, violates Part 120 and the station's approved program."
+        "explanation": "Pre-employment testing is a gating requirement. The sequence is: conditional offer, test, negative result, then start of safety-sensitive work. The technician must complete and pass the pre-employment drug test before beginning work in a safety-sensitive position. Starting work before the test is complete, or relying on self-certification, violates Part 120 and the station's approved program."
       },
       "preassessment": {
         "question": "If pre-employment drug testing is part of a Part 145 program, when must the technician complete it?",
@@ -1035,13 +1037,13 @@
       "practice": {
         "question": "A technician picks up a digital multimeter from the shop's shared tool area. The calibration sticker on the meter shows the last calibration was 14 months ago, and the sticker indicates the interval is 12 months. Can the technician use this meter?",
         "choices": [
-          "Yes — 14 months is close enough to 12 months",
-          "Yes — if the technician personally verifies the meter against a battery voltage",
+          "Yes — 14 months is close enough to 12 months for shop use",
+          "Yes — if the technician personally verifies it against a battery",
           "Yes — if the technician documents the discrepancy in the work order",
-          "No — the meter is out of its calibration interval and cannot be used for valid measurements in a Part 145 environment. The meter must be sent for calibration before use, and the technician should select a different, in-calibration meter in the meantime"
+          "No — the meter is out of calibration and cannot be used for Part 145"
         ],
         "correctIndex": 3,
-        "explanation": "An instrument past its calibration date cannot produce valid measurements in a Part 145 environment, regardless of how small the overage. The meter must be recalibrated before use. Battery-voltage spot-checks and documentation of the discrepancy do not substitute for formal calibration."
+        "explanation": "An instrument past its calibration date cannot produce valid measurements in a Part 145 environment, regardless of how small the overage. The meter must be sent for calibration before use, and the technician should select a different, in-calibration meter in the meantime. Battery-voltage spot-checks and documentation of the discrepancy do not substitute for formal calibration."
       },
       "preassessment": {
         "question": "Before using specialized test equipment in a Part 145 shop, confirm:",
@@ -1096,13 +1098,13 @@
       "practice": {
         "question": "A technician is troubleshooting intermittent NAV flag indications on a VOR. Which sequence of first-steps is most appropriate in a Part 145 shop?",
         "choices": [
-          "Replace the receiver and flight-test",
-          "Send the aircraft home and tell the pilot to fly it and see if the problem returns",
-          "Swap the NAV head unit with a neighbor aircraft",
-          "Inspect the VOR antenna for physical damage and secure mounting; verify coax continuity and shield integrity; check all connector pins for tightness and corrosion; verify adequate and stable power to the receiver. Only after these physical-layer items are confirmed good should internal receiver faults be investigated"
+          "Replace the receiver immediately and conduct a verification flight-test",
+          "Send the aircraft home and ask the pilot to monitor for future occurrences",
+          "Swap the NAV head unit with a neighboring aircraft to compare behavior",
+          "Inspect antenna, coax, connectors, and power before checking the receiver"
         ],
         "correctIndex": 3,
-        "explanation": "The correct first-step sequence is a systematic physical-layer check. This is consistent with best Part 145 troubleshooting practice — start with cheap, low-risk checks that resolve most intermittent symptoms before moving to expensive replacement. Ad-hoc swaps, sending the aircraft home without action, and immediate receiver replacement are all poor practice."
+        "explanation": "The correct first-step sequence is a systematic physical-layer check: inspect the VOR antenna for physical damage and secure mounting; verify coax continuity and shield integrity; check all connector pins for tightness and corrosion; verify adequate and stable power to the receiver. Only after these items are confirmed good should internal receiver faults be investigated. This is consistent with best Part 145 troubleshooting practice — start with cheap, low-risk checks that resolve most intermittent symptoms before moving to expensive replacement. Ad-hoc swaps, sending the aircraft home without action, and immediate receiver replacement are all poor practice."
       },
       "preassessment": {
         "question": "What is a good first step for intermittent VOR NAV flag indications?",
@@ -1268,11 +1270,11 @@
         "choices": [
           "RTCA DO-178C",
           "MIL-STD-810",
-          "AC 43.13-1B Chapter 11",
-          "TSO-C91"
+          "AC 43.13-1B",
+          "TSO-C91 ELT"
         ],
         "correctIndex": 2,
-        "explanation": "AC 43.13-1B Chapter 11 provides the FAA-accepted methods, techniques, and practices for aircraft electrical wiring installation, including routing, support, and protection. DO-178C covers software, MIL-STD-810 covers environmental test, and TSO-C91 is an ELT TSO."
+        "explanation": "AC 43.13-1B Chapter 11 provides the FAA-accepted methods for aircraft electrical wiring installation. DO-178C covers software, MIL-STD-810 covers environmental test, and TSO-C91 is an ELT TSO."
       },
       "multipleChoice": {
         "question": "Which reference is considered the most important standard to follow when a Part 145 shop routes and supports new avionics wiring and no specific manufacturer installation data applies?",
@@ -1300,11 +1302,12 @@
         "question": "Which standard is most important for avionics wiring installation in a Part 145 shop?",
         "choices": [
           "MIL-STD-704",
-          "AC 43.13-1B Chapter 11",
+          "AC 43.13-1B",
           "RTCA DO-160",
           "TSO-C126"
         ],
-        "correctIndex": 1
+        "correctIndex": 1,
+        "explanation": "AC 43.13-1B Chapter 11 provides FAA-accepted methods for aircraft electrical wiring. MIL-STD-704 covers power characteristics, DO-160 covers environmental test, TSO-C126 is an ELT standard."
       },
       "targetCaetId": "464322",
       "targetCaetStem": "When installing avionics wiring in a Part 145 shop, which standard is most crucial?",
@@ -1331,20 +1334,20 @@
       "jeopardy": {
         "question": "Part 145 assigns ultimate accountability for ensuring technicians have and use current technical data to this role.",
         "choices": [
-          "The individual technician at the bench",
-          "The repair station (through its accountable manager)",
-          "The customer who owns the aircraft",
-          "The FAA Principal Avionics Inspector"
+          "The individual technician working at the bench",
+          "The repair station, through its accountable manager",
+          "The aircraft owner who signs the work order document",
+          "The FAA Principal Avionics Inspector for the shop's region"
         ],
         "correctIndex": 1,
-        "explanation": "Part 145 Section 145.109 and 145.211 make the repair station, acting through its accountable manager and quality system, responsible for maintaining and using current technical data. The technician follows that data, the customer is not responsible, and the FAA inspector oversees compliance rather than supplies the data."
+        "explanation": "Part 145 Sections 145.109 and 145.211 make the repair station, acting through its accountable manager and quality system, responsible for maintaining and using current technical data. The technician follows that data, the customer is not responsible, and the FAA inspector oversees compliance rather than supplies the data."
       },
       "multipleChoice": {
         "question": "In a Part 145 avionics repair station, who bears the ultimate responsibility for ensuring that current manufacturer manuals and other approved technical data are on hand and actually used during maintenance?",
         "choices": [
-          "The individual bench technician",
-          "The assigned FAA inspector",
-          "The customer who signs the work order",
+          "The individual bench technician assigned to the workorder",
+          "The assigned FAA Principal Avionics Inspector at the FSDO",
+          "The paying customer who signs the work order at intake",
           "The repair station, through its accountable manager"
         ],
         "correctIndex": 3,
@@ -1418,13 +1421,13 @@
       "practice": {
         "question": "Scenario: A new avionics technician asks you what their Part 145 shop's capability list actually allows. Which response best explains the scope?",
         "choices": [
-          "It names the specific articles the shop may maintain within its ratings, provided required data and resources exist",
+          "It names the articles the shop may maintain within its ratings",
           "It replaces the need for service bulletins and manufacturer manuals",
           "It grants temporary authority to return major airframe repairs to service",
           "It permits any work on any aircraft the customer brings in"
         ],
         "correctIndex": 0,
-        "explanation": "The capability list under Section 145.215 identifies specific articles a limited-rated station may maintain, conditioned on proper ratings, facilities, personnel, and current data. It does not replace manuals or extend authority beyond the ratings on the certificate."
+        "explanation": "The capability list under Section 145.215 identifies specific articles a limited-rated station may maintain, conditioned on proper ratings, facilities, personnel, and current data being available. It does not replace manuals or extend authority beyond the ratings on the certificate."
       },
       "preassessment": {
         "question": "Which best describes a Part 145 repair station's capability list?",
@@ -1460,21 +1463,21 @@
       "jeopardy": {
         "question": "This is the main reason the FAA issues Form 8130-3 with a new or overhauled component.",
         "choices": [
-          "To document the component warranty terms",
-          "To transfer ownership of the article",
-          "To list every prior operator of the article",
-          "To certify airworthiness approval of the article for installation or return to service"
+          "To document the component's warranty terms and conditions",
+          "To transfer the legal ownership of the article between parties",
+          "To list every prior operator or owner of the article over time",
+          "To certify airworthiness approval for installation or service"
         ],
         "correctIndex": 3,
-        "explanation": "Form 8130-3 is the Authorized Release Certificate and Airworthiness Approval Tag. Its primary purpose is to certify that the article conforms to approved design data and is in a condition for safe operation. It is not a bill of sale, ownership record, or warranty document."
+        "explanation": "Form 8130-3 is the Authorized Release Certificate and Airworthiness Approval Tag. Its primary purpose is to certify that the article conforms to approved design data and is in a safe condition. It is not a bill of sale, ownership record, or warranty."
       },
       "multipleChoice": {
         "question": "Which statement best captures the main purpose of FAA Form 8130-3, the Authorized Release Certificate?",
         "choices": [
           "To transfer legal ownership of an aircraft part between parties",
-          "To record pilot training on newly installed avionics",
-          "To provide airworthiness approval for an article for installation or return to service",
-          "To replace the maintenance record entry for minor repairs"
+          "To record pilot training on newly installed cockpit avionics",
+          "To provide airworthiness approval for installation or return to service",
+          "To replace the maintenance logbook entry for minor repair actions"
         ],
         "correctIndex": 2,
         "explanation": "Form 8130-3 provides airworthiness approval by certifying that the listed article conforms to approved design data and is in a condition for safe operation. It does not convey ownership, pilot training, or replace logbook entries."
@@ -1483,22 +1486,23 @@
         "question": "Scenario: A vendor ships your Part 145 shop an overhauled transponder accompanied by an FAA Form 8130-3. When you review the tag, what does that 8130-3 primarily certify about the unit?",
         "choices": [
           "That the unit has been legally sold to your shop",
-          "That the unit conforms to approved data and is in a condition for safe operation",
+          "That the unit conforms to approved data and is safe to operate",
           "That the unit meets a specific warranty duration",
           "That the unit has been flight tested in an aircraft"
         ],
         "correctIndex": 1,
-        "explanation": "The 8130-3 is an airworthiness approval tag certifying conformity to approved design data and condition for safe operation. It is not a bill of sale, warranty document, or flight test record."
+        "explanation": "The 8130-3 is an airworthiness approval tag certifying conformity to approved design data and that the article is in a condition for safe operation. It is not a bill of sale, warranty document, or flight test record."
       },
       "preassessment": {
         "question": "What is the main purpose of FAA Form 8130-3?",
         "choices": [
-          "Certify airworthiness approval of an article",
-          "Transfer part ownership",
-          "Record pilot training",
+          "Certify airworthiness of an article",
+          "Transfer part ownership rights",
+          "Record pilot training hours",
           "Document a warranty period"
         ],
-        "correctIndex": 0
+        "correctIndex": 0,
+        "explanation": "FAA Form 8130-3 certifies airworthiness approval of an article, confirming it conforms to approved data and is in a condition for safe operation."
       },
       "targetCaetId": "464156",
       "targetCaetStem": "What is the primary purpose of an FAA Form 8130-3 (Airworthiness Approval Tag)?",
@@ -1558,12 +1562,13 @@
       "preassessment": {
         "question": "What is the recommended way to insert or remove a terminated wire in a circular connector?",
         "choices": [
-          "Use the matching insertion/extraction tool",
-          "Pull on the wire",
-          "Use needle-nose pliers",
-          "Heat the grommet first"
+          "Use the matching insert/extract tool",
+          "Pull hard on the wire alone",
+          "Use a pair of needle-nose pliers",
+          "Heat the grommet first with a gun"
         ],
-        "correctIndex": 0
+        "correctIndex": 0,
+        "explanation": "The matching insertion/extraction tool is the approved method. Pulling, pliers, or heating damages the grommet, contact, or wire."
       },
       "targetCaetId": "464311",
       "targetCaetStem": "When inserting or extracting terminated wires from a standard circular connector, which practice is recommended in a Part 145 shop?",
@@ -1600,34 +1605,35 @@
       "multipleChoice": {
         "question": "According to 14 CFR Part 1, which definition best matches the regulatory meaning of maintenance?",
         "choices": [
-          "Any modification that changes the aircraft's type design",
-          "Inspection, overhaul, repair, preservation, and replacement of parts, excluding preventive maintenance",
-          "Simple preservation and minor tasks a pilot may perform",
-          "Only the repair of structural damage to an airframe"
+          "Any modification that changes the aircraft's approved type design today",
+          "Inspection, overhaul, repair, preservation, replacement — not preventive",
+          "Simple preservation and minor tasks a certificated pilot may perform alone",
+          "Only the structural repair work performed on an airframe after damage event"
         ],
         "correctIndex": 1,
-        "explanation": "Part 1.1 defines maintenance as inspection, overhaul, repair, preservation, and the replacement of parts, and specifically excludes preventive maintenance. Alterations and pilot-performed preventive tasks are defined separately."
+        "explanation": "Part 1.1 defines maintenance as inspection, overhaul, repair, preservation, and replacement of parts, specifically excluding preventive maintenance. Alterations and pilot-performed preventive tasks are defined separately."
       },
       "practice": {
         "question": "Scenario: During a shop orientation, a new technician asks what the regulations actually mean by 'maintenance.' Which answer is correct under 14 CFR Part 1?",
         "choices": [
-          "Any change to the aircraft's approved type design",
-          "Only tasks listed in Appendix A as preventive maintenance",
-          "Inspection, overhaul, repair, preservation, and replacement of parts, not including preventive maintenance",
-          "Any cleaning or cosmetic work performed on the aircraft"
+          "Any change to the aircraft's approved type design for certification",
+          "Only the tasks specifically listed in Appendix A as preventive maintenance",
+          "Inspection, overhaul, repair, preservation, replacement — not preventive",
+          "Any cleaning, polishing, or cosmetic work performed on the aircraft exterior"
         ],
         "correctIndex": 2,
-        "explanation": "Part 1.1 gives a specific definition of maintenance covering inspection, overhaul, repair, preservation, and replacement of parts, while excluding preventive maintenance. Cosmetic work, type design changes, and preventive tasks do not match this definition."
+        "explanation": "Part 1.1 defines maintenance as inspection, overhaul, repair, preservation, and replacement of parts, while excluding preventive maintenance. Cosmetic work, type design changes, and preventive tasks do not match this definition."
       },
       "preassessment": {
         "question": "Under 14 CFR Part 1, what is maintenance?",
         "choices": [
-          "Any type design change",
-          "Inspection, overhaul, repair, preservation, and parts replacement",
-          "Only structural repair",
-          "Any cosmetic cleaning"
+          "Any change to aircraft type design",
+          "Inspection, overhaul, repair, preservation",
+          "Only structural aircraft repairs",
+          "Any cosmetic aircraft cleaning"
         ],
-        "correctIndex": 1
+        "correctIndex": 1,
+        "explanation": "Under 14 CFR Part 1, maintenance is inspection, overhaul, repair, preservation, and parts replacement. It does not include type-design changes (those are alterations), and it is not limited to structural work or cosmetic cleaning."
       },
       "targetCaetId": "464142",
       "targetCaetStem": "According to FAA regulations, what is the definition of “maintenance”?",
@@ -1654,10 +1660,10 @@
       "jeopardy": {
         "question": "This is the main reason Part 145 shops must keep walkways and work areas free of clutter.",
         "choices": [
-          "To impress the FAA inspector visually",
-          "To fit more inventory into a small building",
-          "To prevent slips, trips, injuries, and damage to aircraft parts",
-          "To meet a customer contract requirement"
+          "To impress the visiting FAA inspector visually",
+          "To fit more shop inventory into a small hangar",
+          "To prevent slips, trips, and aircraft part damage",
+          "To meet a specific customer contract requirement"
         ],
         "correctIndex": 2,
         "explanation": "Clear walkways prevent slip and trip injuries, reduce foreign object damage, and protect aircraft parts from being struck or dropped. Section 145.103 requires facilities that support safe work, making clutter control a regulatory as well as a safety matter."
@@ -1665,24 +1671,24 @@
       "multipleChoice": {
         "question": "At a general aviation repair station operating under Part 145, explain why aisles and benches must be kept uncluttered.",
         "choices": [
-          "So the shop appears tidy for visiting customers",
-          "So additional tooling can be stored on the floor",
+          "So the shop appears tidy for any visiting customers",
+          "So additional tooling can be stored on the shop floor",
           "Because the FAA audits walkway width once per year",
-          "To prevent slips, trips, personal injury, and damage to aircraft parts"
+          "To prevent slips, trips, injuries, and aircraft part damage"
         ],
         "correctIndex": 3,
-        "explanation": "Section 145.103 requires housing and facilities that support safe work. Clear walkways protect personnel from slip and trip injuries, reduce foreign object damage risk, and keep removed parts and aircraft hardware from being damaged. Cosmetics and storage convenience are not the driver."
+        "explanation": "Section 145.103 requires housing and facilities that support safe work. Clear walkways protect personnel from slip and trip injuries, reduce foreign object damage risk, and keep removed parts and aircraft hardware from being damaged."
       },
       "practice": {
         "question": "Scenario: A new technician is curious why the lead insists that hoses, cables, and boxes never sit in a walkway overnight. Which answer best captures the regulatory and safety reason?",
         "choices": [
-          "It makes the shop look better in photos",
-          "It reduces the shop's electrical utility bill",
-          "It is only a personal preference of the lead technician",
-          "It prevents slip, trip, and fall injuries and protects aircraft parts, as Part 145.103 requires safe facilities"
+          "It makes the shop look better and more professional in marketing photos",
+          "It reduces the shop's monthly electrical utility bill and overhead costs",
+          "It is only a personal organizational preference of the lead technician",
+          "It prevents slips, trips, and falls — Part 145.103 requires safe facilities"
         ],
         "correctIndex": 3,
-        "explanation": "Part 145.103 requires facilities that support safe work. Clear walkways prevent slips, trips, and falls and protect aircraft parts from being damaged by feet, carts, or falling objects. The other answers either ignore the regulation or miss the actual safety rationale."
+        "explanation": "Part 145.103 requires facilities that support safe work. Clear walkways prevent slips, trips, and falls and protect aircraft parts from damage. The other answers ignore the regulation or miss the safety rationale."
       },
       "preassessment": {
         "question": "Why must a Part 145 shop keep walkways clear of clutter?",

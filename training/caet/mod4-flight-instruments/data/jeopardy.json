@@ -265,11 +265,11 @@
         "choices": [
           "They are identical instruments with different faces",
           "The turn & bank detects rate of roll; the turn coordinator does not",
-          "The turn coordinator's canted gyro detects rate of roll and rate of turn; the turn & bank detects rate of turn only",
+          "The canted gyro detects roll and turn rate; turn & bank detects only turn",
           "Neither instrument senses roll rate; both show only heading change"
         ],
         "correctIndex": 2,
-        "explanation": "The canted gyro in a turn coordinator responds to both roll rate and turn rate, giving the pilot an earlier cue during roll-in. The turn & bank uses a horizontal gyro that responds only to rate of turn.",
+        "explanation": "The turn coordinator's canted gyro detects both rate of roll and rate of turn, giving the pilot an earlier cue during roll-in. The turn & bank uses a horizontal gyro that responds only to rate of turn.",
         "targetCaetId": "464253",
         "targetCaetStem": "Which statement best describes the difference between a turn coordinator and a turn & bank indicator in a small GA aircraft?",
         "targetCaetPp": 0.67
@@ -281,10 +281,10 @@
         "targets_caet_id": "464255",
         "clue": "On an air-driven attitude indicator, the suction system's MAIN job is this.",
         "choices": [
-          "It spins the internal gyroscope by pulling air across the rotor buckets",
-          "It cools the instrument case to prevent overheating",
-          "It erects the instrument to magnetic north on startup",
-          "It charges the instrument's internal backup battery"
+          "It spins the gyro by pulling air across the rotor buckets",
+          "It cools the instrument case to prevent overheating in flight",
+          "It erects the instrument to magnetic north during startup spin-up",
+          "It charges the instrument's internal backup battery during operation"
         ],
         "correctIndex": 0,
         "explanation": "The vacuum pump's primary role is to spin the gyro — air is pulled through the case and strikes buckets on the rotor, driving it to high RPM. Rigidity in space then provides the stable attitude reference.",
@@ -299,13 +299,13 @@
         "targets_caet_id": "464258",
         "clue": "These are the flight parameters picked up by the solid-state sensors inside an EFIS suite.",
         "choices": [
-          "Aircraft attitude (pitch and roll), heading, and air data (altitude, airspeed, VSI)",
+          "Attitude, heading, and air data (altitude/airspeed/VSI)",
           "Only engine performance data like RPM and fuel flow",
           "Only aircraft heading from a solid-state magnetometer",
           "Only the aircraft's GPS position and track"
         ],
         "correctIndex": 0,
-        "explanation": "EFIS solid-state sensors produce attitude, heading, and air data. MEMS gyros, accelerometers, and magnetometers handle the AHRS side (attitude and heading); solid-state pressure sensors in the ADC handle air data (airspeed, altitude, VSI). Engine data and GPS position come from separate subsystems.",
+        "explanation": "EFIS solid-state sensors produce attitude (pitch and roll), heading, and air data (altitude, airspeed, VSI). MEMS gyros, accelerometers, and magnetometers handle the AHRS side; solid-state pressure sensors in the ADC handle air data. Engine data and GPS position come from separate subsystems.",
         "targetCaetId": "464258",
         "targetCaetStem": "An Electronic Flight Instrument System (EFIS) typically uses solid-state sensors to measure:",
         "targetCaetPp": 0.75
@@ -338,10 +338,10 @@
           "28.00 inHg, equivalent to about 948 hPa",
           "30.12 inHg, equivalent to about 1020 hPa",
           "32.50 inHg, equivalent to about 1100 hPa",
-          "29.92 inHg, equivalent to 1013.25 hPa and about 14.7 psi"
+          "29.92 inHg, 1013.25 hPa, about 14.7 psi"
         ],
         "correctIndex": 3,
-        "explanation": "The standard atmospheric pressure at sea level is 29.92 inHg, equal to 1013.25 hPa (millibars) or about 14.7 psi. This is the reference used at and above the transition altitude (FL180 in the US). The other values are plausible but incorrect.",
+        "explanation": "The standard atmospheric pressure at sea level is 29.92 inHg, equal to 1013.25 hPa (millibars) or about 14.7 psi. This is the reference used at and above the transition altitude (FL180 in the US).",
         "targetCaetId": "464245",
         "targetCaetStem": "What is the standard atmospheric pressure at sea level?",
         "targetCaetPp": 0.89
@@ -353,13 +353,13 @@
         "targets_caet_id": "464257",
         "clue": "In a modern glass cockpit, these are the traditional flight instruments the PFD typically replaces.",
         "choices": [
-          "The airspeed indicator, altimeter, vertical speed indicator, attitude indicator, and heading indicator",
-          "Only the airspeed indicator and altimeter",
-          "Only the attitude indicator and heading indicator",
-          "Only the magnetic compass and turn coordinator"
+          "Airspeed, altimeter, VSI, attitude, and heading indicators combined",
+          "Only the airspeed indicator and altimeter are moved to the PFD",
+          "Only the attitude indicator and heading indicator are consolidated",
+          "Only the magnetic compass and turn coordinator are consolidated"
         ],
         "correctIndex": 0,
-        "explanation": "The PFD consolidates five traditional instruments: ASI, altimeter, VSI, attitude indicator, and heading indicator. Airspeed, altitude, and VSI come from the Air Data Computer; attitude and heading come from the AHRS. The turn coordinator and magnetic compass are typically retained as backups.",
+        "explanation": "The PFD consolidates five traditional instruments: ASI, altimeter, VSI, attitude indicator, and heading indicator. Airspeed, altitude, and VSI come from the ADC; attitude and heading come from the AHRS. Turn coordinator and magnetic compass are typically retained as backups.",
         "targetCaetId": "464257",
         "targetCaetStem": "In a modern glass cockpit, the Primary Flight Display (PFD) typically replaces which traditional flight instruments?",
         "targetCaetPp": 0.94

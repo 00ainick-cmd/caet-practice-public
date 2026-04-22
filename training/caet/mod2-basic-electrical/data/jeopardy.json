@@ -359,13 +359,13 @@
         "id": "CAT2-NEW-042",
         "clue": "This is the PRIMARY purpose of a fuse or circuit breaker in an aircraft electrical system.",
         "choices": [
-          "Regulate system voltage",
-          "Protect wiring from excessive current by interrupting the circuit",
+          "Regulate the system voltage",
+          "Protect wiring by interrupting excessive current",
           "Store electrical energy for peak-load use",
           "Convert AC to DC"
         ],
         "correctIndex": 1,
-        "explanation": "Fuses and circuit breakers provide overcurrent protection, primarily for the wiring. Overheated wiring is a common cause of in-flight fires. Voltage regulation is the job of the regulator; energy storage is for batteries and capacitors; AC-to-DC conversion is done by rectifiers."
+        "explanation": "Fuses and circuit breakers provide overcurrent protection, primarily for the wiring — they interrupt the circuit when current is excessive. Overheated wiring is a common cause of in-flight fires. Voltage regulation is the job of the regulator; energy storage is for batteries and capacitors; AC-to-DC conversion is done by rectifiers."
       },
       {
         "id": "CAT2-NEW-048",
@@ -401,9 +401,9 @@
         "clue": "This is the only compliant way to get rid of a spent Ni-Cad battery.",
         "choices": [
           "Return it to a certified hazardous-waste recycler",
-          "Bury it at a remote field site",
-          "Incinerate it in a drum fire",
-          "Toss it in the general shop trash"
+          "Bury it at a remote field site behind the hangar",
+          "Incinerate it in a 55-gallon drum fire outdoors",
+          "Toss it in the general shop trash at end of shift"
         ],
         "correctIndex": 0,
         "explanation": "Cadmium is a regulated toxic metal. Federal and local rules require Ni-Cad cells to go to an authorized hazardous-waste recycler. Trash, burial, and burning are prohibited and create environmental and legal liability.",
@@ -569,9 +569,9 @@
         "id": "CAT2-NEW-J13",
         "clue": "On the bench, a tech reaches for this instrument to confirm the operating frequency an AC alternator is producing.",
         "choices": [
-          "A clamp-on DC current probe",
-          "An analog ammeter",
-          "A megohmmeter",
+          "A clamp-on DC current probe for wire bundles",
+          "An analog panel ammeter in series with the load",
+          "A megohmmeter used for insulation resistance",
           "A frequency meter (or frequency counter)"
         ],
         "correctIndex": 3,
@@ -631,10 +631,10 @@
         "id": "CAT2-NEW-J17",
         "clue": "This frequency range covers VHF voice communication used in general aviation.",
         "choices": [
-          "3 to 30 MHz (HF)",
-          "30 to 88 MHz (low VHF)",
-          "118 to 137 MHz (aeronautical VHF)",
-          "960 to 1215 MHz (L-band)"
+          "3 to 30 megahertz (HF)",
+          "30 to 88 megahertz (low VHF)",
+          "118 to 137 megahertz (aero VHF)",
+          "960 to 1215 megahertz (L-band)"
         ],
         "correctIndex": 2,
         "explanation": "Aeronautical VHF voice spans 118.000 to 136.975 MHz, just above the commercial FM broadcast band. HF is long-range, low VHF is mostly land mobile, and L-band covers DME and transponder replies.",
@@ -693,13 +693,13 @@
         "id": "CAT2-NEW-J21",
         "clue": "This is the most common cause of voltage that is lower than expected across a load.",
         "choices": [
-          "An overcharged battery",
-          "High-resistance connections or corrosion upstream of the load",
-          "A regulator set too high",
+          "An overcharged aircraft battery",
+          "High-resistance or corroded connections",
+          "A voltage regulator set too high",
           "Wire gauge that is larger than required"
         ],
         "correctIndex": 1,
-        "explanation": "Corroded terminals or loose connections add unintended series resistance, producing an IR drop that lowers the voltage at the load. Overcharging or high regulator settings would push voltage up, not down.",
+        "explanation": "Corroded terminals or loose, high-resistance connections upstream of the load add unintended series resistance, producing an IR drop that lowers the voltage at the load. Overcharging or high regulator settings would push voltage up, not down.",
         "targetCaetId": "464185",
         "targetCaetStem": "A circuit shows lower-than-expected voltage across a load. Which is a likely cause?",
         "targetCaetPp": 0.85
@@ -708,13 +708,13 @@
         "id": "CAT2-NEW-J22",
         "clue": "This is the MOST likely reason an aircraft lighting circuit is running dimmer than usual.",
         "choices": [
+          "Voltage drop from corrosion or bad joints",
           "A bus voltage higher than nominal",
           "Oversized wiring in the bundle",
-          "Voltage drop from corroded grounds or a sagging bus",
           "A newer, higher-output alternator"
         ],
         "correctIndex": 2,
-        "explanation": "Dim lamps usually indicate low voltage arriving at the bulb - from corrosion, loose terminals, or a weakening charging system. Higher bus voltage or higher-output alternators would brighten lights, not dim them.",
+        "explanation": "Dim lamps usually indicate low voltage arriving at the bulb — from corrosion, loose terminals, or a weakening charging system. Higher bus voltage or higher-output alternators would brighten lights, not dim them.",
         "targetCaetId": "464189",
         "targetCaetStem": "An aircraft lighting circuit’s bulbs are dimmer than usual Which of the following is the MOST likely cause?",
         "targetCaetPp": 0.88
@@ -738,10 +738,10 @@
         "id": "CAT2-NEW-J24",
         "clue": "This is the primary mission for HF communications in aviation.",
         "choices": [
-          "Short-range tower chatter",
-          "Satellite television reception",
-          "Very short pulse ranging",
-          "Long-range oceanic and remote voice communication"
+          "Short-range tower chatter in the pattern",
+          "Satellite television reception onboard",
+          "Very short pulse ranging signals",
+          "Long-range oceanic and remote voice"
         ],
         "correctIndex": 3,
         "explanation": "HF signals (3 to 30 MHz) bounce off the ionosphere, covering thousands of miles where VHF line-of-sight is lost. That is why HF is the long-range voice link for oceanic and remote-area operations.",

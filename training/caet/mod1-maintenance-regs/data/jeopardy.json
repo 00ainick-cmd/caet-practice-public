@@ -60,10 +60,10 @@
         "id": "CAT1-NEW-014",
         "clue": "According to FAA regulations, this is the definition of 'maintenance.'",
         "choices": [
-          "Any activity that keeps an aircraft operating",
-          "Inspection, overhaul, repair, preservation, and parts replacement",
-          "Only replacing failed parts",
-          "Any work performed by an A&P mechanic"
+          "Any activity that keeps an aircraft operating safely",
+          "Inspection, overhaul, repair, preservation, parts replacement",
+          "Only the replacement of parts that have failed in service",
+          "Any maintenance work performed by a certificated A&P mechanic"
         ],
         "correctIndex": 1,
         "explanation": "The Part 1 definition is specific: maintenance = inspection, overhaul, repair, preservation, and parts replacement — but NOT preventive maintenance, which is defined separately. General phrases like 'any activity' or 'any work by an A&P' are not the regulatory definition."
@@ -74,25 +74,25 @@
         "id": "CAT1-NEW-004",
         "clue": "Per 14 CFR §43.9, these four elements must be in every maintenance record entry.",
         "choices": [
-          "Only the date and the technician's initials",
-          "Description of work, date of completion, name of person, and approving signature",
-          "The number of hours spent on the work",
-          "The customer's name and address"
+          "Only the date and the technician's initials on the page",
+          "Work description, completion date, name, approving signature",
+          "The total number of labor hours spent on the work order",
+          "The customer's name, address, and registered phone number"
         ],
         "correctIndex": 1,
-        "explanation": "Section 43.9 specifies the four required elements. Time spent and customer contact information are not required by §43.9 (though they may be recorded for business purposes)."
+        "explanation": "Section 43.9 specifies the four required elements: description of work, date of completion, name of person, and approving signature. Time spent and customer contact are not required by §43.9."
       },
       {
         "id": "CAT1-NEW-006",
         "clue": "This is how an altimeter or transponder test must be documented in the maintenance records.",
         "choices": [
-          "With just a sticker on the instrument",
+          "With just a sticker on the instrument face",
           "Verbally confirmed with the pilot",
           "Only by the flight crew in the aircraft discrepancy log",
-          "With the date of the test, the maximum altitude tested, and the approving signature"
+          "With test date, maximum altitude tested, and signature"
         ],
         "correctIndex": 3,
-        "explanation": "Proper documentation includes the test date, maximum altitude (altimeter only), and the signature/certificate data of the person approving the return to service. Stickers alone are informational but do not satisfy the record-keeping requirement. Verbal confirmation and pilot-side logs do not substitute for the maintenance record entry."
+        "explanation": "Proper documentation includes the test date, maximum altitude (altimeter only), and the approving signature/certificate data of the person returning the unit to service. Stickers alone are informational but do not satisfy the record-keeping requirement. Verbal confirmation and pilot-side logs do not substitute for the maintenance record entry."
       },
       {
         "id": "CAT1-NEW-009",
@@ -123,9 +123,9 @@
         "clue": "This is the primary purpose of FAA Form 8130-3 (Authorized Release Certificate / Airworthiness Approval Tag).",
         "choices": [
           "To approve new or overhauled aircraft parts for return to service",
-          "To record a pilot's flight review",
-          "To document an aircraft's registration status",
-          "To serve as a sales invoice for aircraft parts"
+          "To record a certificated pilot's most recent biennial flight review",
+          "To document the current aircraft registration status with the FAA",
+          "To serve as a sales invoice for aircraft parts shipped from vendors"
         ],
         "correctIndex": 0,
         "explanation": "The 8130-3 is an airworthiness-approval and traceability document for aircraft parts. It is not related to pilot flight reviews, aircraft registration, or sales invoicing (though the tag often accompanies sales of new or overhauled parts)."
@@ -246,10 +246,10 @@
         "id": "CAT1-NEW-J02",
         "clue": "This FAA document legally mandates corrective action on an unsafe condition and is enforceable on aircraft operators.",
         "choices": [
-          "Service Bulletin",
-          "Service Letter",
-          "Maintenance Alert",
-          "Airworthiness Directive"
+          "Manufacturer Service Bulletin",
+          "Manufacturer Service Letter",
+          "FAA Maintenance Alert bulletin",
+          "FAA Airworthiness Directive"
         ],
         "correctIndex": 3,
         "explanation": "An Airworthiness Directive (AD) is a legally binding FAA order issued when an unsafe condition exists. Manufacturer Service Bulletins are advisory unless an AD references them. Service Letters and Maintenance Alerts are informational only."
@@ -290,10 +290,10 @@
         "id": "CAT1-NEW-J05",
         "clue": "This is the proper description of a Part 145 repair station's capability list.",
         "choices": [
-          "An FAA-approved substitute for manufacturer manuals",
-          "A list of aircraft types the station may return to service",
-          "A record of every tool the station owns",
-          "A list of specific articles the station may maintain within its approved ratings"
+          "An FAA-approved substitute for up-to-date manufacturer manuals",
+          "A list of aircraft types the station may return to service after work",
+          "An inventory record of every calibrated tool the station owns",
+          "A list of specific articles the station may maintain within its ratings"
         ],
         "correctIndex": 3,
         "explanation": "Section 145.215 defines the capability list as identifying the specific articles, within the shop's ratings, that it is authorized to maintain. It is not a manual substitute, nor an airframe privilege, nor a tool inventory.",
@@ -307,11 +307,11 @@
         "choices": [
           "Swap the antenna and coax without testing",
           "Replace the VOR receiver on the bench",
-          "Verify the complaint and review the manufacturer troubleshooting procedures",
+          "Verify the complaint and review manufacturer procedures",
           "Return the unit to service with a pilot placard"
         ],
         "correctIndex": 2,
-        "explanation": "Troubleshooting begins with verifying the reported symptom and consulting the approved manufacturer data. Swapping parts before confirming the problem wastes time and may mask the true cause. Placarding does not address airworthiness of a required NAV system.",
+        "explanation": "Troubleshooting begins with verifying the reported symptom and consulting the approved manufacturer troubleshooting procedures. Swapping parts before confirming the problem wastes time and may mask the true cause. Placarding does not address airworthiness of a required NAV system.",
         "targetCaetId": "464235",
         "targetCaetStem": "A pilot complains of intermittent NAV flag indications on a VOR receiver. Which step might a new technician take first in a Part 145 shop?",
         "targetCaetPp": 0.92
@@ -320,13 +320,13 @@
         "id": "CAT1-NEW-J07",
         "clue": "This combination of details must appear in the return-to-service log entry for an avionics maintenance task under Section 43.9.",
         "choices": [
-          "Only the customer's name and invoice number",
-          "A photograph of the removed component",
-          "Description of work, date completed, technician signature, and certificate number",
-          "The aircraft sale history"
+          "Only the customer's name and shop invoice number",
+          "A photograph of the removed original component",
+          "Work description, date, signature, certificate number",
+          "The aircraft's complete historical sale record"
         ],
         "correctIndex": 2,
-        "explanation": "Section 43.9 requires each maintenance record entry to include a description of the work performed, the date of completion, and the signature and certificate number of the person approving the work. Invoices, photos, or ownership history are not regulatory substitutes.",
+        "explanation": "Section 43.9 requires each maintenance record entry to include a description of the work performed, the date of completion, and the signature and certificate number of the person approving the work. Invoices, photos, and ownership history are not substitutes.",
         "targetCaetId": "464147",
         "targetCaetStem": "What must be included in a maintenance log entry for an avionics repair?",
         "targetCaetPp": 0.93
@@ -335,13 +335,13 @@
         "id": "CAT1-NEW-J08",
         "clue": "This is the recommended technique for inserting or extracting terminated contacts in a circular connector.",
         "choices": [
-          "The correct insertion/extraction tool sized for that connector series",
-          "Needle-nose pliers on the contact barrel",
-          "Pulling directly on the wire",
-          "A heated pick to soften the grommet"
+          "The correct insertion/extraction tool for that series",
+          "Needle-nose pliers gripping the contact barrel body",
+          "Pulling directly on the connected wire to release it",
+          "A heated pick used to soften the rubber grommet"
         ],
         "correctIndex": 0,
-        "explanation": "Circular connectors use retention clips and rubber grommets that are easily damaged. The correct, color-coded insertion/extraction tool for the connector series seats and releases contacts without harming the grommet or clip. The other methods routinely cause connector damage.",
+        "explanation": "Circular connectors use retention clips and rubber grommets that are easily damaged. The correct, color-coded insertion/extraction tool sized for the connector series seats and releases contacts without harming the grommet or clip. The other methods routinely cause connector damage.",
         "targetCaetId": "464311",
         "targetCaetStem": "When inserting or extracting terminated wires from a standard circular connector, which practice is recommended in a Part 145 shop?",
         "targetCaetPp": 0.93

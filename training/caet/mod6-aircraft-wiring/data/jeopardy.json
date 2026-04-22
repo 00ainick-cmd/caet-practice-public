@@ -74,10 +74,10 @@
         "id": "CAT6-NEW-001",
         "clue": "This is the most important consideration when routing aircraft wiring.",
         "choices": [
-          "Protecting the harness from chafing, abrasion, heat, and moving parts",
-          "Using the shortest possible cable length",
-          "Making the harness visible for easy inspection",
-          "Color-coordinating the harness with nearby structures"
+          "Protecting the harness from chafing, abrasion, heat, moving parts",
+          "Using the absolute shortest possible cable length in the run",
+          "Making the harness visible for easy visual shop inspection",
+          "Color-coordinating the harness with nearby airframe structures"
         ],
         "correctIndex": 0,
         "explanation": "Physical protection is the driving consideration. Short length, visibility, and appearance are secondary to keeping the harness safe from mechanical and environmental damage. Chafing on a metal edge can destroy insulation in a few flight hours."
@@ -184,10 +184,10 @@
         "id": "CAT6-NEW-013",
         "clue": "This is the correct response to a coworker who suggests using automotive wire connectors on an avionics rack.",
         "choices": [
-          "Automotive connectors lack the qualification and traceability required for aircraft avionics",
+          "Automotive connectors lack qualification/traceability for avionics",
           "Agree, because automotive connectors are cheaper and readily available",
-          "Suggest using them only for non-critical signals",
-          "Use them temporarily and replace them at the next inspection"
+          "Suggest using them only for non-critical avionics rack signals",
+          "Use them temporarily and then replace them at the next inspection"
         ],
         "correctIndex": 0,
         "explanation": "Automotive connectors are not approved for aircraft avionics installations under any circumstance, including 'non-critical' signals. Temporary use followed by later replacement still violates the installation requirements and creates legal, safety, and documentation problems."
@@ -222,13 +222,13 @@
         "id": "CAT6-NEW-018",
         "clue": "This type of splice is generally preferred for environmentally sensitive areas of an aircraft such as near the engine or in a wheel well.",
         "choices": [
-          "Twist-and-tape splice",
-          "Environmentally sealed crimp splice with heat-shrink adhesive",
-          "Wire-nut connector",
-          "Open butt splice with no covering"
+          "Twist-and-tape splice wrap",
+          "Sealed crimp splice, heat-shrink",
+          "Hardware-store wire-nut cap",
+          "Open butt splice, no cover"
         ],
         "correctIndex": 1,
-        "explanation": "Sealed heat-shrink crimp splices are the aircraft standard for environmentally sensitive areas. Twist-and-tape, wire-nuts, and open splices admit moisture, fuel, and oil, leading to corrosion and intermittent connections. Wire-nuts are not acceptable on aircraft at all."
+        "explanation": "Sealed heat-shrink crimp splices are the aircraft standard for environmentally sensitive areas. Twist-and-tape, wire-nuts, and open splices admit moisture, fuel, and oil, causing corrosion. Wire-nuts are never acceptable on aircraft."
       },
       {
         "id": "CAT6-NEW-023",
@@ -308,13 +308,13 @@
         "id": "CAT6-NEW-025",
         "clue": "This is what shear wire is designed to do.",
         "choices": [
-          "Break deliberately at a defined force to indicate that a component has been actuated",
+          "Break deliberately at a defined force to indicate actuation",
           "Carry electrical current as a primary conductor",
           "Support the weight of engine mounts",
           "Provide a bonding path between airframe structures"
         ],
         "correctIndex": 0,
-        "explanation": "Shear wire's purpose is deliberate mechanical failure at a calibrated force, to indicate actuation. It is not an electrical conductor, not a structural support, and not a bonding component."
+        "explanation": "Shear wire's purpose is deliberate mechanical failure at a calibrated force, to indicate that a component has been actuated. It is not an electrical conductor, not a structural support, and not a bonding component."
       }
     ],
     "Extended Coverage 1": [
@@ -322,13 +322,13 @@
         "id": "CAT6-NEW-J01",
         "clue": "This is the FIRST step a technician takes when a wire bundle is found chafed against a metal edge during inspection.",
         "choices": [
-          "Wrap the chafed area with tape and return the aircraft to service",
-          "Ignore the finding as long as the circuit still works",
-          "Inspect the damaged wires, repair or replace them, then correct the routing or install edge protection to prevent recurrence",
-          "Replace the entire harness as a precaution"
+          "Wrap the chafed area with friction tape and return the aircraft to line service",
+          "Ignore the finding provided the affected circuit still works normally under test",
+          "Inspect damaged wires, repair or replace, and correct the routing or add protection",
+          "Replace the entire wiring harness from end to end as a general precaution measure"
         ],
         "correctIndex": 2,
-        "explanation": "A chafed bundle demands both repair and root-cause correction. The first step is to assess damage and address the cause — rerouting or adding edge protection. Tape is a temporary expedient; ignoring damage is prohibited; full replacement is excessive for a localized problem.",
+        "explanation": "A chafed bundle demands both repair and root-cause correction. The first step is to assess damage and address the cause — rerouting or adding edge protection. Tape is temporary; ignoring is prohibited; full replacement is excessive.",
         "targetCaetId": "464306",
         "targetCaetStem": "Scenario: During an aircraft inspection, you find that a wire bundle is damaged due to rubbing against a metal edge. What should be your first step in addressing this issue?",
         "targetCaetPp": 0.31
@@ -352,13 +352,13 @@
         "id": "CAT6-NEW-J03",
         "clue": "This is the correct action when a newly installed wire bundle will not fit its designated routing path.",
         "choices": [
-          "Force the bundle into place with hand tools",
-          "Cut a larger passage through airframe structure",
-          "Stop, consult the installation drawing and AMM, and select an approved alternate path or request engineering disposition",
-          "Shave insulation off individual wires to reduce bundle diameter"
+          "Force the wire bundle into place with hand tools and pliers",
+          "Cut a larger passage through airframe structure to fit it",
+          "Stop, consult drawings, and select an approved alternate path",
+          "Shave the insulation off individual wires to reduce bundle size"
         ],
         "correctIndex": 2,
-        "explanation": "Approved documentation is the controlling authority. If the designated path cannot be used, the technician stops, reviews the drawings, and seeks an approved alternate — or engineering guidance. Forcing, structural modification, and insulation removal are never acceptable responses.",
+        "explanation": "Approved documentation is the controlling authority. If the designated path cannot be used, the technician stops, reviews drawings, and seeks an approved alternate — or engineering guidance. Forcing, structural modification, and insulation removal are never acceptable.",
         "targetCaetId": "464308",
         "targetCaetStem": "Scenario: During an avionics installation, you notice that the wire bundle does not fit the designated routing path. What should you do next?",
         "targetCaetPp": 0.67
@@ -382,13 +382,13 @@
         "id": "CAT6-NEW-J05",
         "clue": "This routing practice best reduces electromagnetic interference on a new aircraft lighting feed that runs near other electrical systems.",
         "choices": [
-          "Separate it from high-current wiring, use shielded cable where specified, and cross power paths at right angles",
+          "Separate from power wiring, shield where specified, cross at right angles",
           "Bundle the new feed in the same loom as primary power for neatness",
           "Run it parallel to the main DC bus for its full length",
           "Leave it unsupported between end points to let it move freely"
         ],
         "correctIndex": 0,
-        "explanation": "Separation from power wiring, use of specified shielding, and right-angle crossings minimize inductive and capacitive coupling. Common-bundling and parallel runs maximize interference; loose wire creates mechanical damage rather than EMI control.",
+        "explanation": "Separation from high-current wiring, use of specified shielding, and right-angle crossings minimize inductive and capacitive coupling. Common-bundling and parallel runs maximize interference; loose wire creates mechanical damage rather than EMI control.",
         "targetCaetId": "464307",
         "targetCaetStem": "Scenario: You are wiring a new aircraft lighting system. The wiring must be routed in a way that avoids electromagnetic interference from other electrical systems. What should you do to minimize interference?",
         "targetCaetPp": 0.71
@@ -397,13 +397,13 @@
         "id": "CAT6-NEW-J06",
         "clue": "This describes how a wire harness is typically routed and supported in a small GA aircraft environment.",
         "choices": [
-          "Unsupported between both ends",
-          "Clamped or tied at intervals of 24 inches or less, clear of moving parts and sharp edges, and protected where chafing is possible",
-          "All circuits combined into a single airframe-length loom",
-          "Secured directly to a moving flight control to keep it out of the way"
+          "Unsupported between both harness ends",
+          "Clamped at ≤24 in, clear of edges and moving parts",
+          "All circuits combined into one airframe-length loom",
+          "Secured directly to a moving flight control surface"
         ],
         "correctIndex": 1,
-        "explanation": "AC 43.13-1B sets the 24-inch maximum support spacing and requires clearance from sharp edges and moving parts, plus protection at any possible chafe point. Unsupported runs, single-loom schemes, and attachment to moving surfaces all violate good practice.",
+        "explanation": "AC 43.13-1B sets the 24-inch maximum support spacing and requires clearance from sharp edges and moving parts, plus chafe protection. Unsupported runs, single-loom schemes, and attachment to moving surfaces all violate good practice.",
         "targetCaetId": "464313",
         "targetCaetStem": "How should a wire harness generally be routed and secured in a small GA aircraft environment?",
         "targetCaetPp": 0.77
@@ -414,13 +414,13 @@
         "id": "CAT6-NEW-J07",
         "clue": "This is the PRIMARY function provided by a backshell on an aircraft connector.",
         "choices": [
-          "Mechanical strain relief, cable support, and shield termination on EMI versions",
+          "Strain relief, cable support, and (EMI) shield termination",
           "Higher pin current rating",
           "A substitute for the connector's coupling mechanism",
           "Color identification of the bundle"
         ],
         "correctIndex": 0,
-        "explanation": "A backshell strain-relieves and supports the cable at the rear of the connector, and on EMI versions, terminates the cable shield to the shell. It does not change pin current rating or replace latching hardware.",
+        "explanation": "A backshell provides mechanical strain relief, cable support at the rear of the connector, and on EMI versions, terminates the cable shield to the connector shell. It does not change pin current rating or replace latching hardware.",
         "targetCaetId": "464336",
         "targetCaetStem": "Backshells are used on aircraft connectors PRIMARILY to provide:",
         "targetCaetPp": 0.79
@@ -429,13 +429,13 @@
         "id": "CAT6-NEW-J08",
         "clue": "This is the tool a technician should use to make a secure and repeatable termination when replacing a crimped wire connector.",
         "choices": [
-          "A calibrated M22520-series crimping tool with the correct positioner for the contact",
-          "A propane torch with solder",
-          "A general-purpose multi-tool",
-          "Slip-joint pliers"
+          "Calibrated M22520-series crimp tool with correct positioner",
+          "A propane torch with rosin-core solder and a flux brush",
+          "A general-purpose multi-tool with integrated crimper jaws",
+          "Standard shop slip-joint pliers with insulated handles"
         ],
         "correctIndex": 0,
-        "explanation": "Aircraft crimp terminations are specified by controlled crimp force and tool cycle. A calibrated M22520 (or manufacturer equivalent) with the correct positioner is the only approved tool. Pliers, torches, and general-purpose multi-tools cannot meet the specification.",
+        "explanation": "Aircraft crimp terminations are specified by controlled crimp force and tool cycle. A calibrated M22520 (or manufacturer equivalent) with the correct positioner for the contact is the only approved tool. Pliers, torches, and general-purpose multi-tools cannot meet the specification.",
         "targetCaetId": "464309",
         "targetCaetStem": "Scenario: You are performing maintenance on an aircraft and need to replace a wire connector. Which tool should you use to ensure a secure and reliable connection?",
         "targetCaetPp": 0.81
@@ -459,13 +459,13 @@
         "id": "CAT6-NEW-J10",
         "clue": "This is the most appropriate method for terminating wires in an aircraft installation.",
         "choices": [
-          "Crimp to aviation-approved contacts with a calibrated tool, or solder and finish with a heat-shrink sleeve where specified",
-          "Use a residential wire nut secured with tape",
-          "Twist and tape the ends by hand",
-          "Solder the wires directly with no strain relief"
+          "Crimp to aviation contacts with a calibrated tool, or approved solder with heat-shrink",
+          "Use a residential wire nut secured with several wraps of tape",
+          "Twist the wire ends by hand and cover with electrical tape",
+          "Solder the wires directly together with no strain relief or sleeving"
         ],
         "correctIndex": 0,
-        "explanation": "Calibrated crimping with approved contacts is the aviation standard; soldering is used where specified, always finished with a heat-shrink sleeve for strain relief. Twist-and-tape, wire nuts, and unsupported solder terminations are prohibited.",
+        "explanation": "Calibrated crimping with approved contacts is the aviation standard; soldering is used where specified, always finished with heat-shrink for strain relief. Twist-and-tape, wire nuts, and unsupported solder terminations are prohibited.",
         "targetCaetId": "464321",
         "targetCaetStem": "Which method is most appropriate for terminating aircraft wiring?",
         "targetCaetPp": 0.83
@@ -477,10 +477,10 @@
           "Matching the gauge used elsewhere on the aircraft without calculation",
           "Copying the gauge used on a different aircraft model",
           "Selecting the thinnest wire that fits the connector pins",
-          "Calculating the gauge from the equipment's current draw, acceptable voltage drop, and operating environment"
+          "Calculate from current draw, voltage drop, and environment"
         ],
         "correctIndex": 3,
-        "explanation": "Gauge is a calculated value based on current, voltage drop, and environment. AC 43.13-1B tables and the installation manual provide the data. Copying unrelated circuits or fitting to the connector can produce overheating or excessive voltage drop.",
+        "explanation": "Gauge is a calculated value based on equipment current, voltage drop, and operating environment. AC 43.13-1B tables and the installation manual provide the data. Copying unrelated circuits or fitting to the connector can produce overheating or excessive voltage drop.",
         "targetCaetId": "464314",
         "targetCaetStem": "Which step is critical for selecting the correct wire gauge during a new avionics equipment installation?",
         "targetCaetPp": 0.84
@@ -491,10 +491,10 @@
         "id": "CAT6-NEW-J12",
         "clue": "Handling Teflon-insulated avionics wire with automatic strippers, this is the recommended practice.",
         "choices": [
-          "Use a hot-blade (thermal) stripper to melt through the insulation",
-          "Use a precision controlled-depth mechanical stripper with the correct blade for the gauge",
-          "Score the insulation with a knife and pull it off by hand",
-          "Use a general-purpose stripper at its widest setting"
+          "Use a hot-blade thermal stripper to melt through the Teflon insulation",
+          "Use a precision controlled-depth stripper with the correct blade for the gauge",
+          "Score the Teflon insulation with a knife and then pull it off by hand",
+          "Use a general-purpose multi-gauge stripper set to its widest opening"
         ],
         "correctIndex": 1,
         "explanation": "Precision mechanical stripping with the correct blade cleanly removes Teflon without nicking the conductor. Thermal strippers can damage Teflon and release fumes; oversize or knife methods risk conductor nicks that fail in service.",
@@ -509,10 +509,10 @@
           "Firmware version in the unit's memory",
           "Condition of the exterior paint around the antenna",
           "GPS satellite acquisition status",
-          "Wiring — check for shorts, verify correct power and ground, and inspect pin seating"
+          "Wiring — shorts, power/ground, and pin seating"
         ],
         "correctIndex": 3,
-        "explanation": "New-install power-up failures are overwhelmingly wiring problems — shorts, reversed power, or unseated contacts. Wiring verification comes first and protects the equipment. Firmware, GPS, and paint are not initial diagnostics.",
+        "explanation": "New-install power-up failures are overwhelmingly wiring problems — shorts, reversed power, or unseated contacts. Check for shorts, verify correct power and ground, and inspect pin seating first. Firmware, GPS, and paint are not initial diagnostics.",
         "targetCaetId": "464305",
         "targetCaetStem": "Scenario: You are tasked with wiring a new avionics system into an aircraft. After completing the installation, the system fails to power up. Which of the following is the FIRST thing you should check?",
         "targetCaetPp": 0.92
@@ -521,13 +521,13 @@
         "id": "CAT6-NEW-J14",
         "clue": "This is the BEST corrective action when a harness is discovered with a damaged outer jacket.",
         "choices": [
-          "Inspect underlying conductors and then repair the jacket with approved sleeving/heat-shrink, or replace the affected section if conductors are also damaged",
-          "Wrap the area with standard electrical tape and release the aircraft",
-          "Ignore the damage if the circuit is still operating",
-          "Remove and replace the entire harness even if damage is local"
+          "Inspect the conductors, then repair the jacket with approved sleeving or heat-shrink",
+          "Wrap the damaged area with several turns of standard electrical tape and release",
+          "Ignore the jacket damage entirely if the circuit still operates electrically",
+          "Remove and replace the entire harness assembly even when damage is local"
         ],
         "correctIndex": 0,
-        "explanation": "Condition-based repair is the standard: verify conductor condition, then repair the jacket with approved protection or replace the affected section. Tape is not a permanent repair; ignoring damage is prohibited; full replacement is excessive when localized repair is allowed.",
+        "explanation": "Condition-based repair is the standard: verify conductor condition, then repair the jacket with approved protection or replace the affected section if conductors are also damaged. Tape is not a permanent repair; ignoring damage is prohibited; full replacement is excessive when localized repair is allowed.",
         "targetCaetId": "464327",
         "targetCaetStem": "During inspection, you find a harness with a damaged outer jacket. Which of the following is the b Best corrective action?",
         "targetCaetPp": 0.94
@@ -554,10 +554,10 @@
           "Cut every wire to the estimated length and bundle them immediately",
           "Install the unmade harness into the aircraft and mark break-outs in place",
           "Crimp connectors to both ends of every wire before routing",
-          "Lay out the diagram and plan the harness — identifying each run, connector location, and break-out length — before cutting"
+          "Lay out the diagram and plan each run, connector, and break-out"
         ],
         "correctIndex": 3,
-        "explanation": "Harness fabrication begins with layout on a jig or board from the wiring diagram. Cutting, crimping, and installation come after the plan is verified. Skipping layout produces length errors and rework.",
+        "explanation": "Harness fabrication begins with layout on a jig or board from the wiring diagram — identifying each run, connector location, and break-out length before cutting. Cutting, crimping, and installation come after the plan is verified. Skipping layout produces length errors and rework.",
         "targetCaetId": "464332",
         "targetCaetStem": "When fabricating a wire harness from a wiring diagram, what is the FIRST step you should typically take?",
         "targetCaetPp": 1.0
