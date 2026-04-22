@@ -1,0 +1,1418 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SP: Smart Probes & Air Data | CAET Advanced Prep</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../shared/ace-theme.css">
+  <style>
+    /* ==================== FLASHCARDS.HTML SKIN OVERRIDES ====================
+       ace-theme.css provides all tokens. These alias old names and extend for
+       flashcard-specific UI. Dark-first (data-theme="dark" on html).
+    ====================================================================== */
+
+    /* Map old token names → new ace-theme vars */
+    :root {
+      --accent-blue:      var(--blue);
+      --accent-blue-hover: #79b8ff;
+      --error:            var(--danger);
+      --font-ui:          var(--font-sans);
+      --font-body:        var(--font-sans);
+      --radius-card:      var(--radius-lg);
+      --radius-btn:       var(--radius-md);
+      --transition-fast:  0.15s ease;
+      --transition-med:   0.3s ease;
+    }
+
+    /* ==================== RESET & BASE ==================== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body { height: 100%; }
+
+    body {
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--text-primary);
+      background: var(--bg);
+      transition: background var(--transition-med), color var(--transition-med);
+    }
+
+    /* ==================== STICKY HEADER ==================== */
+    .header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 0 1.5rem;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(8px);
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      background: transparent;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-btn);
+      color: var(--text-primary);
+      font-family: var(--font-ui);
+      font-size: 13px;
+      font-weight: 500;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all var(--transition-fast);
+    }
+
+    .back-btn:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+      background: var(--gold-soft);
+    }
+
+    .back-btn svg {
+      width: 14px;
+      height: 14px;
+      flex-shrink: 0;
+    }
+
+    .header-title {
+      font-family: var(--font-ui);
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text-primary);
+      letter-spacing: -0.01em;
+    }
+
+    .header-center {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Session timer in header */
+    .session-timer {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 10px;
+      background: transparent;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-btn);
+      cursor: default;
+    }
+
+    .timer-icon {
+      width: 14px;
+      height: 14px;
+      stroke: var(--text-secondary);
+      flex-shrink: 0;
+    }
+
+    .timer-label {
+      font-family: var(--font-ui);
+      font-size: 11px;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .timer-value {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--gold);
+    }
+
+    /* Pomodoro button */
+    .pomodoro-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      background: transparent;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-btn);
+      cursor: pointer;
+      transition: all var(--transition-fast);
+      color: var(--text-secondary);
+    }
+
+    .pomodoro-btn:hover {
+      border-color: #e74c3c;
+      color: #e74c3c;
+      background: color-mix(in srgb, #e74c3c 8%, transparent);
+    }
+
+    .pomodoro-btn svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .mode-badge {
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 3px 10px;
+      background: var(--gold-soft);
+      color: var(--gold);
+      border: 1px solid rgba(212,168,83,0.3);
+      border-radius: var(--radius-full);
+    }
+
+    /* Theme toggle */
+    .theme-toggle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      background: transparent;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-btn);
+      cursor: pointer;
+      transition: all var(--transition-fast);
+      color: var(--text-secondary);
+    }
+
+    .theme-toggle:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+      background: var(--gold-soft);
+    }
+
+    .theme-toggle svg { width: 16px; height: 16px; }
+
+    /* ==================== MAIN LAYOUT ==================== */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 24px 20px;
+    }
+
+    /* ==================== PAGE HEADER ==================== */
+    .page-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .page-title {
+      font-family: var(--font-ui);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--text-primary);
+      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .page-title svg {
+      width: 22px;
+      height: 22px;
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+
+    /* Deck switcher pills */
+    .deck-switch {
+      display: inline-flex;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 3px;
+      gap: 2px;
+    }
+
+    .chip {
+      font-family: var(--font-ui);
+      font-size: 13px;
+      font-weight: 500;
+      padding: 5px 12px;
+      border-radius: 4px;
+      border: none;
+      background: transparent;
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: all var(--transition-fast);
+      white-space: nowrap;
+    }
+
+    .chip:hover { color: var(--text-primary); }
+
+    .chip.active {
+      background: linear-gradient(135deg, var(--gold), #c49440);
+      color: #0a0a0a;
+    }
+
+    /* ==================== CARD COMPONENT ==================== */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow-card);
+      margin-bottom: 16px;
+    }
+
+    .card-header {
+      padding: 14px 20px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .card-header h2 {
+      font-family: var(--font-ui);
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .shortcut-hint {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--text-secondary);
+      font-weight: 400;
+    }
+
+    .card-body {
+      padding: 20px;
+    }
+
+    /* ==================== FLIP CARD ==================== */
+    .flip {
+      position: relative;
+      height: 280px;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      cursor: pointer;
+      user-select: none;
+      perspective: 1000px;
+      transition: border-color var(--transition-fast);
+    }
+
+    .flip:hover {
+      border-color: var(--gold);
+    }
+
+    .flip-inner {
+      position: relative;
+      height: 100%;
+      transform-style: preserve-3d;
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .flip .face {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      padding: 24px;
+      text-align: center;
+    }
+
+    .flip .back {
+      transform: rotateY(180deg);
+    }
+
+    .flip.is-flipped .flip-inner {
+      transform: rotateY(180deg);
+    }
+
+    /* Card face content */
+    .fc-meta {
+      font-family: var(--font-ui);
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-secondary);
+      margin-bottom: 8px;
+    }
+
+    .fc-term {
+      font-family: var(--font-ui);
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--text-primary);
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin: 4px 0 8px;
+    }
+
+    .fc-unit {
+      font-size: 13px;
+      color: var(--text-secondary);
+      margin-bottom: 6px;
+    }
+
+    .fc-badge {
+      display: inline-block;
+      font-family: var(--font-ui);
+      font-size: 11px;
+      padding: 2px 7px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      color: var(--text-secondary);
+      margin: 2px;
+    }
+
+    .fc-def {
+      font-size: 17px;
+      line-height: 1.55;
+      color: var(--text-primary);
+      max-width: 65ch;
+      max-height: 200px;
+      overflow: auto;
+    }
+
+    .fc-flip-hint {
+      font-family: var(--font-ui);
+      font-size: 11px;
+      color: var(--text-secondary);
+      margin-top: 16px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* ==================== ACTION ROW ==================== */
+    .action-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 16px;
+      flex-wrap: wrap;
+    }
+
+    .rating-group {
+      display: flex;
+      gap: 6px;
+    }
+
+    .nav-group {
+      display: flex;
+      gap: 6px;
+    }
+
+    /* Buttons */
+    .btn {
+      font-family: var(--font-ui);
+      font-size: 13px;
+      font-weight: 500;
+      padding: 8px 16px;
+      border-radius: var(--radius-btn);
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text-primary);
+      cursor: pointer;
+      transition: all var(--transition-fast);
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .btn:hover { border-color: var(--gold); color: var(--gold); }
+    .btn:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--gold), #c49440);
+      color: #0a0a0a;
+      border-color: transparent;
+      font-weight: 600;
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(135deg, #e8c87a, var(--gold));
+      border-color: transparent;
+      color: #0a0a0a;
+    }
+
+    .btn-success {
+      background: transparent;
+      color: var(--success);
+      border-color: color-mix(in srgb, var(--success) 40%, transparent);
+    }
+
+    .btn-success:hover, .btn-success.active {
+      background: var(--success);
+      color: #fff;
+      border-color: var(--success);
+    }
+
+    .btn-warning {
+      background: transparent;
+      color: var(--warning);
+      border-color: color-mix(in srgb, var(--warning) 40%, transparent);
+    }
+
+    .btn-warning:hover, .btn-warning.active {
+      background: var(--warning);
+      color: #fff;
+      border-color: var(--warning);
+    }
+
+    .btn-danger {
+      background: transparent;
+      color: var(--error);
+      border-color: color-mix(in srgb, var(--error) 40%, transparent);
+    }
+
+    .btn-danger:hover, .btn-danger.active {
+      background: var(--error);
+      color: #fff;
+      border-color: var(--error);
+    }
+
+    /* ==================== LIST VIEW ==================== */
+    .list-scroll {
+      max-height: 320px;
+      overflow-y: auto;
+      padding-right: 4px;
+    }
+
+    .list-scroll::-webkit-scrollbar { width: 4px; }
+    .list-scroll::-webkit-scrollbar-track { background: transparent; }
+    .list-scroll::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+    .list-item {
+      padding: 12px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-btn);
+      margin-bottom: 8px;
+      background: var(--bg);
+      transition: border-color var(--transition-fast);
+    }
+
+    .list-item:hover { border-color: var(--gold); }
+    .list-item:last-child { margin-bottom: 0; }
+
+    .list-item-term {
+      font-family: var(--font-ui);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .list-item-def {
+      font-size: 13px;
+      color: var(--text-secondary);
+      margin-top: 3px;
+      line-height: 1.4;
+    }
+
+    .list-item-meta {
+      font-family: var(--font-ui);
+      font-size: 11px;
+      color: var(--text-secondary);
+      margin-top: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .rating-dot {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 1px 6px;
+      border-radius: 20px;
+    }
+
+    .rating-dot.easy { background: color-mix(in srgb, var(--success) 15%, transparent); color: var(--success); }
+    .rating-dot.difficult { background: color-mix(in srgb, var(--error) 15%, transparent); color: var(--error); }
+
+    /* ==================== FILTER SECTION ==================== */
+    .tags-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 12px;
+    }
+
+    .tag {
+      font-family: var(--font-ui);
+      font-size: 12px;
+      padding: 4px 10px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background: transparent;
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: all var(--transition-fast);
+    }
+
+    .tag:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+      background: var(--gold-soft);
+    }
+
+    .tag.active {
+      background: linear-gradient(135deg, var(--gold), #c49440);
+      border-color: transparent;
+      color: #0a0a0a;
+    }
+
+    .search-wrap {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 0;
+    }
+
+    .search-icon {
+      width: 16px;
+      height: 16px;
+      color: var(--text-secondary);
+      flex-shrink: 0;
+    }
+
+    .search-input {
+      flex: 1;
+      font-family: var(--font-body);
+      font-size: 14px;
+      padding: 9px 12px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-btn);
+      background: var(--bg);
+      color: var(--text-primary);
+      outline: none;
+      transition: border-color var(--transition-fast);
+    }
+
+    .search-input:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(212,168,83,0.15);
+    }
+
+    .search-input::placeholder { color: var(--text-secondary); }
+
+    /* ==================== EMPTY STATE ==================== */
+    .empty-state {
+      padding: 36px 20px;
+      text-align: center;
+      color: var(--text-secondary);
+      font-family: var(--font-ui);
+      font-size: 14px;
+    }
+
+    .empty-state svg {
+      width: 32px;
+      height: 32px;
+      margin-bottom: 10px;
+      opacity: 0.4;
+    }
+
+    /* ==================== PROGRESS BAR ==================== */
+    .progress-strip {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 20px;
+      border-top: 1px solid var(--border);
+    }
+
+    .progress-label {
+      font-family: var(--font-ui);
+      font-size: 12px;
+      color: var(--text-secondary);
+      white-space: nowrap;
+    }
+
+    .progress-bar-track {
+      flex: 1;
+      height: 4px;
+      background: var(--border);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--gold), #e8c87a);
+      border-radius: 2px;
+      transition: width var(--transition-med);
+    }
+
+    .progress-count {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--text-secondary);
+      white-space: nowrap;
+    }
+
+    /* ==================== RESPONSIVE ==================== */
+    @media (max-width: 768px) {
+      .header { padding: 0 1rem; }
+      .header-title { display: none; }
+      .container { padding: 16px 12px; }
+      .page-header { flex-direction: column; align-items: flex-start; gap: 10px; }
+      .flip { height: 240px; }
+      .fc-term { font-size: 20px; }
+      .fc-def { font-size: 15px; }
+      .action-row { flex-direction: column; align-items: stretch; }
+      .rating-group, .nav-group { justify-content: stretch; }
+      .rating-group .btn, .nav-group .btn { flex: 1; justify-content: center; }
+    }
+
+    @media (max-width: 520px) {
+      .header-center { display: none; }
+      .flip { height: 210px; }
+      .fc-term { font-size: 17px; }
+      .card-body { padding: 14px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Sticky Header -->
+  <header class="header">
+    <div class="header-left">
+      <img src="../../../shared/logo.png" alt="CAET Prep Course" style="height:26px;width:auto;display:block;flex-shrink:0;">
+      <a href="#" class="back-btn" id="backBtn" title="Back to lesson">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M10 3L5 8l5 5"/>
+        </svg>
+        Lesson
+      </a>
+      <span class="header-title">Flashcards</span>
+    </div>
+
+    <div class="header-center">
+      <div class="session-timer" id="sessionTimer" title="Time spent this session">
+        <svg class="timer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"/>
+          <path d="M12 6v6l4 2"/>
+        </svg>
+        <span class="timer-label">Session</span>
+        <span class="timer-value" id="sessionTimeValue">00:00</span>
+      </div>
+      <button class="pomodoro-btn" id="pomodoroBtn" title="Pomodoro Timer (P)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="9"/>
+          <path d="M12 8v4l2.5 2.5"/>
+          <path d="M10 3h4M12 3v2"/>
+        </svg>
+      </button>
+    </div>
+
+    <div class="header-right">
+      <span class="mode-badge">Study Mode</span>
+      <button class="theme-toggle" id="themeToggle" title="Toggle theme" aria-label="Toggle light/dark theme">
+        <!-- Sun icon (shown in dark mode to switch to light) -->
+        <svg id="themeIconSun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="5"/>
+          <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+        </svg>
+        <!-- Moon icon (shown in light mode to switch to dark) -->
+        <svg id="themeIconMoon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none">
+          <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container">
+
+    <!-- Page header row -->
+    <div class="page-header">
+      <h1 class="page-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="2" y="3" width="20" height="14" rx="2"/>
+          <path d="M8 21h8M12 17v4"/>
+        </svg>
+        ACE Flashcard Glossary
+      </h1>
+      <div class="deck-switch" id="deckSwitch">
+        <button class="chip active" data-deck="all">All</button>
+        <button class="chip" data-deck="easy">Easy <span class="count" data-count="easy"></span></button>
+        <button class="chip" data-deck="difficult">Hard <span class="count" data-count="difficult"></span></button>
+      </div>
+    </div>
+
+    <!-- Flip Card Section -->
+    <div class="card">
+      <div class="card-header">
+        <h2>
+          Study Card
+          <span class="shortcut-hint">Space: Flip · ←/→: Navigate</span>
+        </h2>
+        <span id="cardCounter" style="font-family:var(--font-mono);font-size:12px;color:var(--text-secondary)"></span>
+      </div>
+      <div class="card-body">
+        <div class="flip" id="flip" role="button" aria-label="Flashcard — click to flip" tabindex="0">
+          <div class="flip-inner" id="flipInner">
+            <div class="face front" id="front"></div>
+            <div class="face back" id="back"></div>
+          </div>
+        </div>
+
+        <div class="action-row">
+          <div class="rating-group" id="ratingRow">
+            <button class="btn btn-success" id="rateEasy">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+              Easy
+            </button>
+            <button class="btn btn-danger" id="rateDifficult">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
+              Hard
+            </button>
+          </div>
+          <div class="nav-group">
+            <button class="btn" id="prev">← Prev</button>
+            <button class="btn btn-primary" id="next">Next →</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Progress bar -->
+      <div class="progress-strip" id="progressStrip">
+        <span class="progress-label" id="progressLabel">Progress</span>
+        <div class="progress-bar-track">
+          <div class="progress-bar-fill" id="progressFill" style="width:0%"></div>
+        </div>
+        <span class="progress-count" id="progressCount">0 / 0</span>
+      </div>
+    </div>
+
+    <!-- List View -->
+    <div class="card">
+      <div class="card-header">
+        <h2>All Terms</h2>
+      </div>
+      <div class="card-body">
+        <div class="list-scroll" id="list"></div>
+      </div>
+    </div>
+
+    <!-- Filter -->
+    <div class="card">
+      <div class="card-header">
+        <h2>Filter &amp; Search</h2>
+      </div>
+      <div class="card-body">
+        <div class="tags-row" id="tags"></div>
+        <div class="search-wrap">
+          <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+          </svg>
+          <input class="search-input" id="search" type="search" placeholder="Search term, definition, unit, or tag" />
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+<script>
+window.GameEngine = window.GameEngine || { track: () => {}, emit: () => {} };
+window.NotificationSystem = window.NotificationSystem || { show: () => {} };
+window.PomodoroTimer = window.PomodoroTimer || { start: () => {}, stop: () => {} };
+</script>
+
+<script>
+/* ==================== THEME TOGGLE ==================== */
+(function() {
+  const root = document.documentElement;
+  const toggle = document.getElementById('themeToggle');
+  const iconSun = document.getElementById('themeIconSun');
+  const iconMoon = document.getElementById('themeIconMoon');
+
+  function applyTheme(theme) {
+    root.setAttribute('data-theme', theme);
+    localStorage.setItem('ace_theme', theme);
+    // Sun shown in dark mode (click to go light), Moon shown in light mode (click to go dark)
+    if (theme === 'dark') {
+      iconSun.style.display = '';
+      iconMoon.style.display = 'none';
+    } else {
+      iconSun.style.display = 'none';
+      iconMoon.style.display = '';
+    }
+  }
+
+  // Load saved preference, default dark
+  const saved = localStorage.getItem('ace_theme') || 'dark';
+  applyTheme(saved);
+
+  toggle.addEventListener('click', () => {
+    const current = root.getAttribute('data-theme') || 'dark';
+    applyTheme(current === 'dark' ? 'light' : 'dark');
+  });
+})();
+</script>
+
+<script>
+(async function(){
+  // =============================================
+  // LESSON IDENTIFIER - auto-derived from ?data= param
+  // =============================================
+  const LESSON_ID = (function() {
+    const dp = new URLSearchParams(location.search).get('data') || '';
+    const m = dp.match(/cat-\d+-[\w-]+/);
+    return m ? m[0] : 'unknown-lesson';
+  })();
+
+  // ---------- Load Data from JSON ----------
+  let DATA = [];
+  const params = new URLSearchParams(location.search);
+  const backUrl = params.get('back') || 'index.html';
+
+  try {
+    const dataUrl = params.get('data') || 'data/questions.json';
+    const response = await fetch(dataUrl);
+    if (!response.ok) throw new Error('Failed to load questions.json');
+    const bank = await response.json();
+
+    // Transform questions to flashcard format (include LO for tracking)
+    // Handles both standard schema and cat-8 schema (objective/topic)
+    const FIXED_CARDS = bank.questions
+      .filter(q => q.flashcard)
+      .map(q => ({
+        term: q.flashcard.term,
+        definition: q.flashcard.definition,
+        analogy: q.flashcard.analogy || '',
+        unit: q.flashcard.unit || '',
+        tags: (q.tags || []).join('|'),
+        learningObjective: q.learningObjective || q.objective || null,
+        category: q.category || q.topic || null
+      }));
+
+    DATA = FIXED_CARDS.map(c => ({
+      ...c,
+      id: uidFrom(c.term + '::' + c.definition),
+      tags: normalizeTags(c.tags)
+    }));
+
+    console.log(`✅ Loaded ${DATA.length} flashcards from questions.json`);
+    initApp();
+
+  } catch (error) {
+    console.error('❌ Error loading questions:', error);
+    const main = document.querySelector('main.container');
+    if (main) {
+      main.innerHTML = `
+        <div style="text-align:center;padding:60px 20px;font-family:var(--font-ui)">
+          <svg style="width:48px;height:48px;margin-bottom:16px;color:var(--error);opacity:0.7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/>
+          </svg>
+          <h2 style="font-size:18px;color:var(--text-primary);margin-bottom:8px">Could not load flashcards</h2>
+          <p style="color:var(--text-secondary);font-size:14px;margin-bottom:20px">
+            Make sure <code style="background:var(--surface);padding:2px 6px;border-radius:3px;border:1px solid var(--border)">data/questions.json</code> exists in this folder.
+          </p>
+          <a href="${backUrl}" class="btn btn-primary" style="text-decoration:none;display:inline-flex">← Back to Lesson</a>
+        </div>`;
+    }
+    document.getElementById('backBtn')?.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.location.href = backUrl;
+    });
+    return;
+  }
+
+  function uidFrom(str){
+    let h=0; for(let i=0;i<str.length;i++){ h=(h<<5)-h+str.charCodeAt(i); h|=0 }
+    return Math.abs(h).toString(36);
+  }
+  function normalizeTags(t){
+    if(Array.isArray(t)) return t.map(s=>String(s).trim()).filter(Boolean);
+    if(typeof t === 'string') return t.split(/[|,]/).map(s=>s.trim()).filter(Boolean);
+    return [];
+  }
+
+  function initApp() {
+
+  // ---------- Session Timer ----------
+  const sessionStartTime = Date.now();
+
+  function getSessionTimeSpent() {
+    return Math.floor((Date.now() - sessionStartTime) / 1000);
+  }
+
+  // ---------- Storage ----------
+  const LS_KEY = 'glossary.mastery';
+  function loadMap(){ try{ return JSON.parse(localStorage.getItem(LS_KEY))||{} }catch{ return {} } }
+  function saveMap(m){ try{ localStorage.setItem(LS_KEY, JSON.stringify(m)) }catch{} }
+
+  // ---------- SM-2 ----------
+  const DAY = 24*60*60*1000;
+  function scheduleNext(state, rating){
+    const q = rating==='difficult'?2:5;
+    let { reps=0, ivl=0, ease=2.5 } = state||{};
+    const now = Date.now();
+    if(q < 3){ reps=0; ivl=1; }
+    else { if(reps===0) ivl=1; else if(reps===1) ivl=6; else ivl=Math.max(1, Math.round(ivl*ease)); reps+=1; }
+    ease = Math.max(1.3, ease + 0.1 - (5-q)*(0.08 + (5-q)*0.02));
+    const due = now + ivl*DAY;
+    return { ...state, rating, reps, ivl, ease, due, last: now };
+  }
+
+  // ---------- State ----------
+  const state = {
+    mastery: loadMap(),
+    deck: 'all',
+    query: '',
+    tags: new Set(),
+    idx: 0,
+    flipped: false,
+    reviewed: 0,
+    xpAwarded: false
+  };
+
+  // ---------- Elements ----------
+  const $front = document.getElementById('front');
+  const $back = document.getElementById('back');
+  const $flip = document.getElementById('flip');
+  const $list = document.getElementById('list');
+  const $tags = document.getElementById('tags');
+  const $search = document.getElementById('search');
+  const $prev = document.getElementById('prev');
+  const $next = document.getElementById('next');
+  const $rateEasy = document.getElementById('rateEasy');
+  const $rateDifficult = document.getElementById('rateDifficult');
+  const $chips = Array.from(document.querySelectorAll('.deck-switch .chip'));
+  const $counts = {
+    easy: document.querySelector('[data-count="easy"]'),
+    difficult: document.querySelector('[data-count="difficult"]')
+  };
+  const $sessionTimeValue = document.getElementById('sessionTimeValue');
+  const $cardCounter = document.getElementById('cardCounter');
+  const $progressFill = document.getElementById('progressFill');
+  const $progressCount = document.getElementById('progressCount');
+
+  // ---------- Session Timer Display ----------
+  function formatSessionTime(seconds) {
+    const hrs = Math.floor(seconds / 3600);
+    const mins = Math.floor((seconds % 3600) / 60);
+    const secs = seconds % 60;
+    if (hrs > 0) return `${hrs}:${String(mins).padStart(2,'0')}:${String(secs).padStart(2,'0')}`;
+    return `${String(mins).padStart(2,'0')}:${String(secs).padStart(2,'0')}`;
+  }
+
+  setInterval(() => {
+    if ($sessionTimeValue) $sessionTimeValue.textContent = formatSessionTime(getSessionTimeSpent());
+  }, 1000);
+
+  // Wire up Back button
+  const $backBtn = document.getElementById('backBtn');
+  if ($backBtn) {
+    $backBtn.addEventListener('click', async (e) => {
+      e.preventDefault();
+      try { await finishSession(); }
+      catch (err) { console.error('Error in finishSession:', err); window.location.href = backUrl; }
+    });
+  }
+
+  // Keyboard shortcut for Pomodoro (P key)
+  document.addEventListener('keydown', (e) => {
+    if (e.key.toLowerCase() === 'p' && !e.ctrlKey && !e.metaKey) {
+      const tag = (e.target && e.target.tagName || '').toLowerCase();
+      if (tag !== 'input' && tag !== 'textarea') {
+        e.preventDefault();
+        if (typeof PomodoroTimer !== 'undefined') PomodoroTimer.toggle();
+      }
+    }
+  });
+
+  // ---------- Derived ----------
+  function filtered(){
+    const q = state.query.trim().toLowerCase();
+    const base = DATA;
+    const byQ = q ? base.filter(d => (d.term||'').toLowerCase().includes(q) || (d.definition||'').toLowerCase().includes(q) || (d.unit||'').toLowerCase().includes(q) || (d.tags||[]).some(t=>t.toLowerCase().includes(q))) : base;
+    const byTags = state.tags.size ? byQ.filter(d => (d.tags||[]).some(t=>state.tags.has(t))) : byQ;
+    const byDeck = state.deck==='all' ? byTags : byTags.filter(d => (state.mastery[d.id]?.rating||'difficult') === state.deck);
+    return byDeck;
+  }
+
+  function computeTagIndex(){
+    const counts = {};
+    DATA.forEach(it => (it.tags||[]).forEach(t => { if(!t) return; counts[t]=(counts[t]||0)+1; }));
+    return Object.entries(counts).sort((a,b)=> b[1]-a[1] || String(a[0]).localeCompare(String(b[0])));
+  }
+
+  function computeCounts(){
+    const easy = DATA.filter(d => (state.mastery[d.id]?.rating||'difficult')==='easy').length;
+    const dif  = DATA.filter(d => (state.mastery[d.id]?.rating||'difficult')==='difficult').length;
+    if ($counts.easy) $counts.easy.textContent = `(${easy})`;
+    if ($counts.difficult) $counts.difficult.textContent = `(${dif})`;
+    // Update progress strip
+    const items = filtered();
+    const rated = items.filter(d => d.id && state.mastery[d.id]?.last).length;
+    if ($progressFill) $progressFill.style.width = items.length ? `${Math.round((rated/items.length)*100)}%` : '0%';
+    if ($progressCount) $progressCount.textContent = `${rated} / ${items.length}`;
+  }
+
+  // ---------- Render ----------
+  function renderCard(){
+    const items = filtered();
+    if(items.length===0){
+      $front.innerHTML = `<div class="empty-state"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><div>No cards match your filters.</div></div>`;
+      $back.innerHTML = '';
+      if ($cardCounter) $cardCounter.textContent = '0 / 0';
+      return;
+    }
+    if(state.idx >= items.length) state.idx = 0;
+    const cur = items[state.idx];
+    const rating = (state.mastery[cur.id]?.rating)||'difficult';
+    if ($cardCounter) $cardCounter.textContent = `${state.idx + 1} / ${items.length}`;
+
+    $front.innerHTML = `
+      <div>
+        <div class="fc-meta">Term</div>
+        <div class="fc-term">${escapeHTML(cur.term)}</div>
+        ${cur.unit ? `<div class="fc-unit">${escapeHTML(cur.unit)}</div>` : ''}
+        <div style="margin-top:8px">${(cur.tags||[]).map(t=>`<span class="fc-badge">${escapeHTML(t)}</span>`).join('')}</div>
+        <div class="fc-flip-hint">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 16V4m0 0L3 8m4-4l4 4M17 8v12m0 0l4-4m-4 4l-4-4"/></svg>
+          Click or Space to flip
+        </div>
+      </div>`;
+
+    $back.innerHTML = `
+      <div>
+        <div class="fc-meta">Definition</div>
+        <div class="fc-def">${escapeHTML(cur.definition)}</div>
+      </div>`;
+
+    setActive($rateEasy, rating==='easy');
+    setActive($rateDifficult, rating==='difficult');
+  }
+
+  function renderList(){
+    const items = filtered();
+    if(items.length===0){
+      $list.innerHTML = `<div class="empty-state">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+        No terms match.
+      </div>`;
+      return;
+    }
+    $list.innerHTML = items.map(it=>{
+      const r = (state.mastery[it.id]?.rating)||'difficult';
+      return `<div class="list-item">
+        <div class="list-item-term">${escapeHTML(it.term)}</div>
+        <div class="list-item-def">${escapeHTML(it.definition)}</div>
+        <div class="list-item-meta">
+          ${it.unit ? `<span>${escapeHTML(it.unit)}</span>` : ''}
+          ${(it.tags||[]).length ? `<span>${(it.tags||[]).map(escapeHTML).join(', ')}</span>` : ''}
+          <span class="rating-dot ${r}">${r==='difficult'?'Hard':r.charAt(0).toUpperCase()+r.slice(1)}</span>
+        </div>
+      </div>`;
+    }).join('');
+  }
+
+  function renderTags(){
+    const idx = computeTagIndex();
+    $tags.innerHTML = idx.slice(0,24).map(([tag,count])=>{
+      const active = state.tags.has(tag);
+      return `<button class="tag ${active?'active':''}" data-tag="${encodeURIComponent(tag)}">${escapeHTML(tag)} <span style="opacity:.65">(${count})</span></button>`;
+    }).join('') + (state.tags.size ? ' <button class="tag" id="clearTags" style="color:var(--error);border-color:var(--error)">✕ Clear</button>' : '');
+  }
+
+  function renderAll(){
+    computeCounts();
+    renderCard();
+    renderList();
+    renderTags();
+  }
+
+  // ---------- Utils ----------
+  function setActive(btn, on){
+    if(!btn) return;
+    const classes = btn.className.split(' ').filter(Boolean);
+    const has = classes.includes('active');
+    if(on && !has) btn.className += ' active';
+    if(!on && has) btn.className = classes.filter(c=>c!=='active').join(' ');
+  }
+  function escapeHTML(s){
+    return String(s).replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;','\'':'&#39;'}[m]));
+  }
+
+  // ---------- Events ----------
+  $flip.addEventListener('click', ()=>{ state.flipped=!state.flipped; $flip.classList.toggle('is-flipped', state.flipped); });
+  $flip.addEventListener('keydown', (e)=>{ if(e.code==='Enter'||e.code==='Space'){ e.preventDefault(); $flip.click(); } });
+  $prev.addEventListener('click', ()=>{ const len=filtered().length||1; state.flipped=false; state.idx=(state.idx-1+len)%len; $flip.classList.remove('is-flipped'); renderCard(); });
+  $next.addEventListener('click', ()=>{ const len=filtered().length||1; state.flipped=false; state.idx=(state.idx+1)%len; $flip.classList.remove('is-flipped'); renderCard(); });
+
+  $rateEasy.addEventListener('click', ()=>rate('easy'));
+  $rateDifficult.addEventListener('click', ()=>rate('difficult'));
+
+  $chips.forEach(ch=> ch.addEventListener('click', ()=>{
+    $chips.forEach(b=>b.classList.remove('active'));
+    ch.classList.add('active');
+    state.deck = ch.dataset.deck;
+    state.idx = 0; state.flipped=false; $flip.classList.remove('is-flipped');
+    renderAll();
+  }));
+
+  $tags.addEventListener('click', (e)=>{
+    const t = e.target.closest('[data-tag]');
+    if(t){
+      const tag = decodeURIComponent(t.getAttribute('data-tag'));
+      if(state.tags.has(tag)) state.tags.delete(tag); else state.tags.add(tag);
+      state.idx=0; state.flipped=false; $flip.classList.remove('is-flipped');
+      renderAll();
+    }
+    if(e.target && e.target.id==='clearTags'){ state.tags.clear(); renderAll(); }
+  });
+
+  $search.addEventListener('input', ()=>{ state.query = $search.value; state.idx=0; renderAll(); });
+
+  window.addEventListener('keydown', (e)=>{
+    const tag = (e.target && e.target.tagName||'').toLowerCase();
+    if(tag==='input' || tag==='textarea') return;
+    if(e.code==='ArrowLeft'){ e.preventDefault(); $prev.click(); }
+    if(e.code==='ArrowRight'){ e.preventDefault(); $next.click(); }
+    if(e.code==='Space'){ e.preventDefault(); $flip.click(); }
+  });
+
+  function rate(level){
+    const items = filtered(); if(items.length===0) return;
+    const cur = items[state.idx];
+    const st = state.mastery[cur.id] || { rating:'difficult', seen:0, correct:0, last:0, reps:0, ivl:0, ease:2.5, due:0 };
+    const next = scheduleNext(st, level);
+    state.mastery[cur.id] = next; saveMap(state.mastery);
+    state.reviewed++;
+    computeCounts();
+    trackFlashcardSort(level);
+    if (cur.learningObjective) {
+      trackLO(cur.learningObjective, level === 'easy');
+    }
+    // Cloud tracking via Supabase
+    if (window.flashcardTracker) {
+      window.flashcardTracker.recordRating({
+        questionId: cur.id, loId: cur.learningObjective,
+        category: cur.category, knew: level === 'easy'
+      });
+    }
+    // LO Mastery tracking
+    if (cur.learningObjective && window.LOMasteryTracker) {
+      window.LOMasteryTracker.record(LESSON_ID, cur.learningObjective, level === 'easy', 'flashcard');
+    }
+    $next.click();
+  }
+
+  // ============================================================================
+  // CUMULATIVE FLASHCARD STATS TRACKING
+  // ============================================================================
+  const SUMMARY_STATS_KEY = 'caet_summary_stats';
+
+  function loadSummaryStats() {
+    try { return JSON.parse(localStorage.getItem(SUMMARY_STATS_KEY)) || getDefaultSummaryStats(); }
+    catch(e) { return getDefaultSummaryStats(); }
+  }
+
+  function getDefaultSummaryStats() {
+    return {
+      flashcards: { easy: 0, difficult: 0, totalSorted: 0 },
+      practice: { gotIt: 0, missedIt: 0 },
+      jeopardy: { tilesAnswered: 0, correctTiles: 0, totalMoneyEarned: 0, gamesPlayed: 0, wins: 0 },
+      moduleAccess: { dc: false, ac: false, solid: false, digital: false },
+      lastUpdated: Date.now()
+    };
+  }
+
+  function saveSummaryStats(stats) {
+    try { stats.lastUpdated = Date.now(); localStorage.setItem(SUMMARY_STATS_KEY, JSON.stringify(stats)); }
+    catch(e) { console.warn('Could not save summary stats:', e); }
+  }
+
+  function trackFlashcardSort(level) {
+    try {
+      const stats = loadSummaryStats();
+      stats.flashcards[level] = (stats.flashcards[level] || 0) + 1;
+      stats.flashcards.totalSorted = (stats.flashcards.totalSorted || 0) + 1;
+      stats.moduleAccess[LESSON_ID] = true;
+      saveSummaryStats(stats);
+    } catch(e) { console.warn('Could not track flashcard sort:', e); }
+  }
+
+  // ============================================================================
+  // LEARNING OBJECTIVE TRACKING
+  // ============================================================================
+  const LO_SCORES_KEY = `caet_lo_scores_${LESSON_ID}`;
+
+  function loadLOScores() {
+    try { return JSON.parse(localStorage.getItem(LO_SCORES_KEY)) || {}; }
+    catch(e) { return {}; }
+  }
+
+  function saveLOScores(scores) {
+    try { localStorage.setItem(LO_SCORES_KEY, JSON.stringify(scores)); }
+    catch(e) { console.warn('Could not save LO scores:', e); }
+  }
+
+  function trackLO(learningObjective, isCorrect) {
+    if (!learningObjective) return;
+    try {
+      const scores = loadLOScores();
+      if (!scores[learningObjective]) scores[learningObjective] = { correct: 0, total: 0, bestPercent: 0, status: 'not_met' };
+      scores[learningObjective].total++;
+      if (isCorrect) scores[learningObjective].correct++;
+      const currentPercent = Math.round((scores[learningObjective].correct / scores[learningObjective].total) * 100);
+      scores[learningObjective].bestPercent = Math.max(scores[learningObjective].bestPercent || 0, currentPercent);
+      if (scores[learningObjective].bestPercent >= 80) scores[learningObjective].status = 'met';
+      else if (scores[learningObjective].bestPercent >= 60) scores[learningObjective].status = 'learning';
+      else scores[learningObjective].status = 'not_met';
+      saveLOScores(scores);
+    } catch(e) { console.warn('Could not track LO:', e); }
+  }
+
+  // ---------- Init ----------
+  DATA.forEach(it=>{ if(!state.mastery[it.id]) state.mastery[it.id] = { rating:'difficult', seen:0, correct:0, last:0, reps:0, ivl:0, ease:2.5, due:0 }; });
+  saveMap(state.mastery);
+  renderAll();
+
+  // ============================================================================
+  // GAMIFICATION HANDSHAKE SYSTEM
+  // ============================================================================
+  const COMPLETION_STORAGE_KEY = `ace_completions_${LESSON_ID}`;
+
+  function saveCompletionToStorage(moduleName, score, stats) {
+    try {
+      const completions = JSON.parse(localStorage.getItem(COMPLETION_STORAGE_KEY) || '{}');
+      completions[moduleName] = { score, stats, timestamp: Date.now(), synced: false };
+      localStorage.setItem(COMPLETION_STORAGE_KEY, JSON.stringify(completions));
+    } catch (e) { console.warn('Could not save to localStorage:', e); }
+  }
+
+  function sendCompletionMessage(moduleName, score, stats) {
+    try {
+      if (window.parent && window.parent !== window) {
+        window.parent.postMessage({ type: 'ACE_MODULE_COMPLETE', module: moduleName, score, stats, timestamp: Date.now() }, '*');
+      }
+    } catch (e) { console.warn('Could not send postMessage:', e); }
+  }
+
+  // ---------- Finish Session ----------
+  async function finishSession() {
+    const timeSpent = getSessionTimeSpent();
+
+    if (typeof window.dismissAllGameOverlays === 'function') window.dismissAllGameOverlays();
+
+    try {
+      const lessonKey = `caet_lesson_${LESSON_ID}`;
+      const lessonData = JSON.parse(localStorage.getItem(lessonKey) || '{}');
+      if (!lessonData.completed) lessonData.completed = {};
+      lessonData.completed.flashcards = true;
+      localStorage.setItem(lessonKey, JSON.stringify(lessonData));
+    } catch (e) { console.error('Could not save lesson progress:', e); }
+
+    try {
+      if (typeof GameEngine !== 'undefined' && !state.xpAwarded) {
+        GameEngine.setSuppressNotifications(true);
+        if (timeSpent > 0) GameEngine.addStudyTime(timeSpent);
+        const cardsReviewed = state.reviewed || 0;
+        const xpEarned = Math.min(cardsReviewed * 3, 50);
+        if (xpEarned > 0) GameEngine.awardXP(xpEarned, 'flashcards', { lessonId: LESSON_ID });
+        GameEngine.awardMilestone(LESSON_ID + '_flashcards', GameEngine.XP_REWARDS.flashcardsComplete, 'Flashcards Complete');
+        GameEngine.unlockBadge('first-steps');
+        state.xpAwarded = true;
+      }
+    } catch (e) { console.log('GameEngine error:', e.message); }
+
+    try {
+      if (window.parent && window.parent !== window) {
+        window.parent.postMessage({ type: 'ACE_MODULE_COMPLETE', module: 'flashcards', timeSpent, stats: { reviewed: state.reviewed } }, '*');
+      }
+    } catch (e) { console.log('Could not post to parent:', e); }
+
+    saveCompletionToStorage('flashcards', 100, { timeSpent });
+    sendCompletionMessage('flashcards', 100, { timeSpent });
+
+    if (typeof window.dismissAllGameOverlays === 'function') window.dismissAllGameOverlays();
+    window.location.href = backUrl;
+  }
+
+  // Periodic time reporting (every 30 seconds)
+  setInterval(() => {
+    try {
+      if (window.parent && window.parent !== window) {
+        window.parent.postMessage({ type: 'ACE_FLASHCARD_TIME', seconds: 30 }, '*');
+      }
+    } catch (e) {}
+  }, 30000);
+
+  // Save on unload
+  window.addEventListener('beforeunload', function() {
+    const total = DATA.length;
+    const easy = DATA.filter(d => (state.mastery[d.id]?.rating||'difficult')==='easy').length;
+    const difficult = DATA.filter(d => (state.mastery[d.id]?.rating||'difficult')==='difficult').length;
+    const score = Math.round((easy / total) * 100);
+    if (state.reviewed > 0 && typeof GameEngine !== 'undefined' && !state.xpAwarded) {
+      const xpEarned = Math.min(state.reviewed * 3, 50);
+      GameEngine.awardXP(xpEarned, 'flashcards');
+      GameEngine.addStudyTime(getSessionTimeSpent());
+      state.xpAwarded = true;
+    }
+    if (state.reviewed > 0) {
+      saveCompletionToStorage('flashcards', score, {
+        total, easy, difficult,
+        reviewed: state.reviewed
+      });
+    }
+  });
+
+  } // End of initApp()
+})();
+</script>
+<!-- Hide own topbar when running inside parent iframe overlay -->
+<script>
+  (function() {
+    try {
+      if (window.self !== window.top) {
+        const hdr = document.querySelector('.header');
+        if (hdr) hdr.style.display = 'none';
+        // Also remove the top padding/margin that compensates for the header
+        document.body.style.paddingTop = '0';
+      }
+    } catch(e) {}
+  })();
+</script>
+<!-- LO Mastery Tracker -->
+<script src="../../../shared/js/lo-mastery-tracker.js"></script>
+
+<!-- ============ SUPABASE CLOUD TRACKING ============ -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../../../shared/js/supabase-client.js"></script>
+<script src="../../../shared/js/assessment-tracker.js"></script>
+</body>
+</html>

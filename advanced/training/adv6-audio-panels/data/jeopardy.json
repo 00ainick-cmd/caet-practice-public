@@ -1,0 +1,179 @@
+{
+  "metadata": {
+    "module": "adv6",
+    "title": "Audio Panels"
+  },
+  "categories": {
+    "Audio Panels": [
+      {
+        "id": "ADV6-J001",
+        "clue": "This cockpit unit gives the flight crew selection and routing of communication audio among installed radios.",
+        "choices": [
+          "The aircraft audio panel",
+          "The ADS-B transponder",
+          "The emergency locator beacon",
+          "The cabin entertainment head unit"
+        ],
+        "correctIndex": 0,
+        "explanation": "The audio panel's primary service is selecting and routing COM audio between radios and crew headset stations. ADS-B transponders transmit surveillance data, ELTs broadcast distress signals, and cabin entertainment is a separate system."
+      },
+      {
+        "id": "ADV6-J002",
+        "clue": "This audio panel circuit keeps crew-to-crew intercom speech off the outgoing radio transmission.",
+        "choices": [
+          "Standby power consumption trim",
+          "Intercom to radio isolation",
+          "VHF interference notch filter",
+          "Transmit power amplification stage"
+        ],
+        "correctIndex": 1,
+        "explanation": "Intercom-to-radio isolation separates the intercom audio bus from the transmit path so only the keyed mic audio reaches the radio. Power amplification, RF filtering, and standby power trim are unrelated functions."
+      },
+      {
+        "id": "ADV6-J003",
+        "clue": "When a pilot cannot hear their own voice on the headset during transmit, this audio panel circuit is almost always the cause.",
+        "choices": [
+          "Receiver squelch gating circuit",
+          "Marker beacon decoding circuit",
+          "Transmit sidetone circuit",
+          "Music input muting circuit"
+        ],
+        "correctIndex": 2,
+        "explanation": "The sidetone circuit feeds the mic audio back to the headset during transmit so the pilot hears himself. Squelch controls receiver muting, marker circuits decode tones, and music muting silences entertainment on transmit."
+      },
+      {
+        "id": "ADV6-J004",
+        "clue": "On a COM audio panel, this knob sets the signal-to-noise threshold that mutes receiver output until a valid carrier appears.",
+        "choices": [
+          "The microphone sensitivity trim",
+          "The headset balance control",
+          "The marker beacon volume knob",
+          "The squelch control"
+        ],
+        "correctIndex": 3,
+        "explanation": "Squelch sets the noise threshold below which the receiver stays muted. Mic sensitivity, marker volume, and headset balance all affect different audio paths unrelated to receiver muting."
+      },
+      {
+        "id": "ADV6-J005",
+        "clue": "When ATC receives the copilot's voice while the pilot alone is keying the radio, this internal audio panel fault is the cause.",
+        "choices": [
+          "Intercom isolation circuit failure",
+          "Antenna impedance mismatch fault",
+          "Push-to-talk switch jammed closed",
+          "Mic element internal short circuit"
+        ],
+        "correctIndex": 0,
+        "explanation": "Failure of the intercom-to-radio isolation causes intercom audio to bleed onto the transmit signal. Antenna mismatch degrades range, a stuck PTT causes a hot mic, and a shorted mic element produces no audio."
+      },
+      {
+        "id": "ADV6-J006",
+        "clue": "When the radio shows carrier but no modulated voice, and bypassing this unit with a direct mic clears the fault, this is where the break lives.",
+        "choices": [
+          "The aircraft main battery charger",
+          "The audio panel mic routing circuit",
+          "The antenna coaxial cable connector",
+          "The COM radio transmitter amplifier"
+        ],
+        "correctIndex": 1,
+        "explanation": "Bypassing the audio panel with a direct mic restores voice, isolating the fault to the panel's mic routing. The radio amplifier and antenna are proven good by the successful test, and the battery charger is unrelated."
+      },
+      {
+        "id": "ADV6-J007",
+        "clue": "When a low-impedance headset is plugged into a jack expecting a high-impedance load, this is the symptom the pilot reports.",
+        "choices": [
+          "Loud squealing feedback oscillation",
+          "Excessive volume that cannot be reduced",
+          "Very low volume even at maximum setting",
+          "Intermittent audio cutting in and out"
+        ],
+        "correctIndex": 2,
+        "explanation": "A low-impedance headset on a high-impedance output loads the source heavily and drops the output voltage, yielding very faint audio. Excess volume, feedback, and intermittent dropouts do not match this mismatch."
+      },
+      {
+        "id": "ADV6-J008",
+        "clue": "When the outer marker lamp flashes correctly but no Morse tone reaches the headset, this part of the audio panel is suspect.",
+        "choices": [
+          "The marker receiver RF sensitivity stage",
+          "The ILS receiver glideslope decoder",
+          "The marker antenna cable connection",
+          "The audio panel marker beacon routing"
+        ],
+        "correctIndex": 3,
+        "explanation": "If the lamps illuminate, the marker receiver and antenna are detecting signal correctly. Only the audio routing inside the audio panel can explain missing tones with working lamps."
+      },
+      {
+        "id": "ADV6-J009",
+        "clue": "When a mic appears to transmit continuously on the intercom without any PTT input, this audio panel setting is the first thing to check.",
+        "choices": [
+          "VOX voice activation is enabled",
+          "The COM radio is stuck in transmit",
+          "The microphone element is shorted",
+          "The audio panel volume is too high"
+        ],
+        "correctIndex": 0,
+        "explanation": "VOX keys the intercom when cockpit noise exceeds threshold, mimicking a stuck mic. A stuck COM transmit would affect the radio, a shorted mic element gives no audio, and volume doesn't key the mic."
+      },
+      {
+        "id": "ADV6-J010",
+        "clue": "When a freshly installed audio panel produces a 400 Hz hum in the crew's headsets, this installation defect is the most common cause.",
+        "choices": [
+          "A ground wire bundled inside a power conduit",
+          "A poor ground connection to aircraft structure",
+          "A ground wire routed to the battery post",
+          "A ground wire with corroded terminal lug"
+        ],
+        "correctIndex": 1,
+        "explanation": "A poor structure ground creates a ground-loop path that picks up 400 Hz inverter noise. Battery-post grounds and conduit routing are questionable practices but not the classic root cause; corrosion symptoms appear later."
+      },
+      {
+        "id": "ADV6-J011",
+        "clue": "When a total audio panel failure occurs, this hardwired fallback path is what emergency mode guarantees.",
+        "choices": [
+          "An automatic ELT activation signal",
+          "An increased transmit power output",
+          "A direct pilot headset to COM1 path",
+          "An automatic cockpit voice recording"
+        ],
+        "correctIndex": 2,
+        "explanation": "Emergency mode hardwires the pilot headset to COM1 around the failed panel. Audio panel failure does not activate the ELT, increase transmit power, or start voice recording."
+      },
+      {
+        "id": "ADV6-J012",
+        "clue": "Modern audio panels use this combined visual and aural method to warn the crew of a stuck mic condition.",
+        "choices": [
+          "An emergency broadcast on guard frequency",
+          "An automatic disconnect after 30 seconds",
+          "An automatic reduction of antenna power",
+          "A flashing indicator with a warning tone"
+        ],
+        "correctIndex": 3,
+        "explanation": "Modern panels annunciate stuck mic with a flashing indicator plus a warning tone. Auto disconnects, guard broadcasts, and power reductions are not part of standard stuck-mic alerting."
+      },
+      {
+        "id": "ADV6-J013",
+        "clue": "This audio panel mode lets pilot and copilot listen to separate radios at the same time from their own headsets.",
+        "choices": [
+          "Split audio mode",
+          "Divided transmit power mode",
+          "Entertainment separation mode",
+          "Dual-frequency transmit mode"
+        ],
+        "correctIndex": 0,
+        "explanation": "Split audio assigns different radios to pilot and copilot headsets for independent monitoring. The other options describe functions that do not exist as named modes on an audio panel."
+      },
+      {
+        "id": "ADV6-J014",
+        "clue": "This unidirectional serial bus is the protocol most often used between a digital audio panel and the integrated avionics suite on a business jet.",
+        "choices": [
+          "The MIL-STD-1553 bus",
+          "The ARINC 429 data bus",
+          "The RS-232 serial port",
+          "The automotive CAN bus"
+        ],
+        "correctIndex": 1,
+        "explanation": "ARINC 429 is the civil aviation standard for digital avionics bussing. RS-232 is for short serial links, MIL-STD-1553 is used on military platforms, and CAN bus is found on ground vehicles."
+      }
+    ]
+  },
+  "final": []
+}

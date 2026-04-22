@@ -1,0 +1,880 @@
+{
+  "metadata": {
+    "module": "adv9",
+    "title": "Smart Probes & Air Data"
+  },
+  "questions": [
+    {
+      "id": "ADV9-001",
+      "category": "adv9-smart-probes-air-data",
+      "difficulty": "advanced",
+      "tags": [
+        "smart-probe",
+        "parameters",
+        "air-data"
+      ],
+      "learningObjective": "Identify the flight parameters derived from a pitot-static smart probe.",
+      "fullObjective": "Given a pitot-static smart probe installation, the technician shall identify airspeed, altitude, and vertical speed as the flight parameters supplied to the air data system.",
+      "targetSourceStem": "What flight parameters does a pitot-static smart probe measure for the air data system?",
+      "flashcard": {
+        "front": "Which flight parameters does a pitot-static smart probe supply to the air data system?",
+        "back": "Airspeed, altitude, and vertical speed, derived from the probe's total and static pressures.",
+        "correctIndex": 0
+      },
+      "jeopardy": {
+        "clue": "A pitot-static smart probe delivers these three core flight parameters to the air data system.",
+        "choices": [
+          "Autopilot command signals only",
+          "Outside air temperature only",
+          "Airspeed, altitude, vertical speed",
+          "Engine RPM and torque values"
+        ],
+        "correctIndex": 2,
+        "explanation": "Air data produces airspeed, altitude, and vertical speed from total and static pressures."
+      },
+      "multipleChoice": {
+        "stem": "A pitot-static smart probe provides the air data system with which set of parameters?",
+        "choices": [
+          "Engine RPM and shaft torque",
+          "Outside air temperature by itself",
+          "Airspeed, altitude, and vertical speed",
+          "Autopilot command discretes"
+        ],
+        "correctIndex": 2
+      },
+      "practice": {
+        "stem": "An instructor asks which parameters the air data system derives from a pitot-static smart probe. Which answer should the technician provide?",
+        "choices": [
+          "Outside air temperature by itself",
+          "Engine RPM and shaft torque values",
+          "Airspeed, altitude, and vertical speed",
+          "Autopilot command outputs to the servos"
+        ],
+        "correctIndex": 2
+      },
+      "preassessment": {
+        "stem": "Which flight parameters does a pitot-static smart probe supply to the air data system?",
+        "choices": [
+          "Engine RPM and torque values",
+          "Outside air temperature only",
+          "Airspeed, altitude, vertical speed",
+          "Autopilot command outputs only"
+        ],
+        "correctIndex": 2,
+        "explanation": "From total and static pressures the air data system derives airspeed, altitude, and vertical speed; OAT and engine parameters come from separate sensors."
+      }
+    },
+    {
+      "id": "ADV9-002",
+      "category": "adv9-smart-probes-air-data",
+      "difficulty": "advanced",
+      "tags": [
+        "smart-probe",
+        "digital-processor",
+        "architecture"
+      ],
+      "learningObjective": "Describe what makes a pitot-static probe a smart probe.",
+      "fullObjective": "Given a comparison of traditional and smart pitot-static probes, the technician shall describe the defining feature as an integrated digital processor that converts pressures into digital data.",
+      "targetSourceStem": "What makes a pitot-static probe a 'smart' probe compared to traditional pneumatic probes?",
+      "flashcard": {
+        "front": "What design feature earns a pitot-static probe the label 'smart'?",
+        "back": "An integrated digital processor that converts pressure into digital air data onboard the probe.",
+        "correctIndex": 0
+      },
+      "jeopardy": {
+        "clue": "This defining feature sets a 'smart' pitot-static probe apart from a conventional pneumatic one.",
+        "choices": [
+          "A self-adjusting heater element only",
+          "A ceramic probe body material",
+          "A manual calibration requirement",
+          "A built-in digital processor"
+        ],
+        "correctIndex": 3
+      },
+      "multipleChoice": {
+        "stem": "Compared to a traditional pneumatic probe, a pitot-static smart probe is distinguished by its:",
+        "choices": [
+          "Ceramic construction in place of metal alloy",
+          "Only having a self-adjusting heater element",
+          "Need for routine manual calibration of pressures",
+          "Integrated digital processor producing air data output"
+        ],
+        "correctIndex": 3
+      },
+      "practice": {
+        "stem": "A new technician asks why the term 'smart' is applied to modern pitot-static probes. Which feature makes them qualify?",
+        "choices": [
+          "Each probe simply includes a self-adjusting anti-ice heater and nothing else.",
+          "Each probe is constructed from a ceramic material for weight savings.",
+          "Each probe requires recurring manual pressure calibration by maintenance.",
+          "Each probe contains an integrated digital processor producing air data words."
+        ],
+        "correctIndex": 3
+      },
+      "preassessment": {
+        "stem": "What makes a pitot-static probe a smart probe rather than a traditional pneumatic one?",
+        "choices": [
+          "It has only a self-adjusting heater element.",
+          "It is constructed from ceramic material.",
+          "It requires manual calibration routines.",
+          "It contains an integrated digital processor."
+        ],
+        "correctIndex": 3
+      }
+    },
+    {
+      "id": "ADV9-003",
+      "category": "adv9-smart-probes-air-data",
+      "difficulty": "advanced",
+      "tags": [
+        "smart-probe",
+        "plumbing",
+        "installation-advantage"
+      ],
+      "learningObjective": "Explain the installation advantage of smart probes over traditional plumbing.",
+      "fullObjective": "Given a comparison between smart probes and traditional pitot-static plumbing, the technician shall explain that smart probes reduce tubing runs and overall system complexity.",
+      "targetSourceStem": "What advantage does a smart probe installation provide compared to traditional pitot-static plumbing?",
+      "flashcard": {
+        "front": "What is a primary installation advantage of smart probes over traditional pitot-static plumbing?",
+        "back": "They sharply reduce pneumatic tubing runs and the mechanical complexity of the installation.",
+        "correctIndex": 0
+      },
+      "jeopardy": {
+        "clue": "This installation advantage is the main reason manufacturers are replacing traditional pitot-static plumbing with smart probes.",
+        "choices": [
+          "Reduced tubing runs and complexity",
+          "Higher maintenance requirements",
+          "Simpler cockpit instrumentation",
+          "Lower overall system cost"
+        ],
+        "correctIndex": 0
+      },
+      "multipleChoice": {
+        "stem": "Compared to a traditional pitot-static plumbing installation, a smart probe system provides:",
+        "choices": [
+          "Reduced tubing runs and overall installation complexity",
+          "Higher scheduled maintenance task requirements",
+          "A simplified cockpit display instrumentation layout",
+          "A lower overall cost across the entire fleet life"
+        ],
+        "correctIndex": 0
+      },
+      "practice": {
+        "stem": "A retrofit engineer is justifying replacing pneumatic pitot-static plumbing with smart probes. Which design advantage does he cite?",
+        "choices": [
+          "The smart probe layout reduces pneumatic tubing runs and installation complexity.",
+          "The smart probe layout requires more frequent scheduled maintenance tasks.",
+          "The smart probe layout simplifies the cockpit display instrumentation itself.",
+          "The smart probe layout lowers the total lifecycle cost on every aircraft."
+        ],
+        "correctIndex": 0
+      },
+      "preassessment": {
+        "stem": "A smart probe installation offers which advantage over traditional pitot-static plumbing?",
+        "choices": [
+          "Reduced tubing runs and installation complexity",
+          "Higher scheduled maintenance task load",
+          "Simpler cockpit display instrumentation",
+          "Lower lifecycle cost in every case"
+        ],
+        "correctIndex": 0
+      }
+    },
+    {
+      "id": "ADV9-004",
+      "category": "adv9-smart-probes-air-data",
+      "difficulty": "advanced",
+      "tags": [
+        "static-port",
+        "pressure",
+        "measurement"
+      ],
+      "learningObjective": "Identify what pressure is measured at the static port of a pitot-static probe.",
+      "fullObjective": "Given a pitot-static probe, the technician shall identify that the static port measures the ambient atmospheric pressure surrounding the aircraft.",
+      "targetSourceStem": "What does the static pressure port on a pitot-static probe measure?",
+      "flashcard": {
+        "front": "What pressure does the static port on a pitot-static probe sense?",
+        "back": "The ambient atmospheric pressure surrounding the aircraft, independent of ram air effects.",
+        "correctIndex": 0
+      },
+      "jeopardy": {
+        "clue": "This is the pressure that the static port on a pitot-static probe samples from the airstream.",
+        "choices": [
+          "Cabin pressurization level",
+          "Ambient atmospheric pressure",
+          "Ram air dynamic pressure",
+          "Exhaust gas temperature"
+        ],
+        "correctIndex": 1
+      },
+      "multipleChoice": {
+        "stem": "The static port on a pitot-static probe senses which pressure?",
+        "choices": [
+          "Engine exhaust gas back pressure level",
+          "Ambient atmospheric pressure around the aircraft",
+          "Cabin pressurization differential pressure",
+          "Ram air dynamic pressure from forward motion"
+        ],
+        "correctIndex": 1
+      },
+      "practice": {
+        "stem": "An apprentice asks why the static port is drilled perpendicular to the airflow instead of facing forward. Which pressure is this port supposed to measure?",
+        "choices": [
+          "The pressurization differential inside the cabin",
+          "The ambient atmospheric pressure around the aircraft",
+          "The ram air dynamic pressure caused by forward flight",
+          "The back pressure in the engine exhaust stream"
+        ],
+        "correctIndex": 1
+      },
+      "preassessment": {
+        "stem": "The static port on a pitot-static probe measures:",
+        "choices": [
+          "Cabin pressurization level",
+          "Ambient atmospheric pressure",
+          "Ram air dynamic pressure",
+          "Exhaust gas back pressure"
+        ],
+        "correctIndex": 1
+      }
+    },
+    {
+      "id": "ADV9-005",
+      "category": "adv9-smart-probes-air-data",
+      "difficulty": "advanced",
+      "tags": [
+        "failure-mode",
+        "blockage",
+        "troubleshooting"
+      ],
+      "learningObjective": "Identify the dominant failure mode of pitot-static smart probes.",
+      "fullObjective": "Given historical smart probe failure data, the technician shall identify port blockage by ice or debris as the dominant failure mode causing pitot-static probe discrepancies.",
+      "targetSourceStem": "A technician is reviewing smart probe failure data. What failure mode causes the majority of pitot-static probe discrepancies?",
+      "flashcard": {
+        "front": "Which failure mode drives the majority of pitot-static smart probe discrepancies in service?",
+        "back": "Blockage of the pressure ports by ice accretion or foreign debris.",
+        "correctIndex": 0
+      },
+      "jeopardy": {
+        "clue": "Field data shows this failure mode is the dominant cause of pitot-static smart probe discrepancies.",
+        "choices": [
+          "Heater element open from thermal stress",
+          "Firmware corruption during power cycle",
+          "Blockage of ports by ice or debris",
+          "ARINC transmitter output stage failure"
+        ],
+        "correctIndex": 2
+      },
+      "multipleChoice": {
+        "stem": "When reviewing smart probe fleet failure data, the technician sees that most discrepancies are caused by:",
+        "choices": [
+          "Firmware corruption during a power cycle event",
+          "An open heater element from thermal stress cracking",
+          "Blockage of pressure ports by ice or foreign debris",
+          "Output stage failure of the ARINC transmitter chip"
+        ],
+        "correctIndex": 2
+      },
+      "practice": {
+        "stem": "A reliability engineer is compiling smart probe fleet data for a review. Which failure mode does he report as the leading cause of pitot-static probe discrepancies?",
+        "choices": [
+          "Opening of the heater element from repeated thermal stress",
+          "Corruption of the onboard firmware during a power cycle",
+          "Blockage of the pressure ports by ice or foreign debris",
+          "Output stage failure on the ARINC 429 transmitter chip"
+        ],
+        "correctIndex": 2
+      },
+      "preassessment": {
+        "stem": "The majority of pitot-static smart probe discrepancies are caused by:",
+        "choices": [
+          "Output stage failures on the ARINC transmitter",
+          "Firmware corruption during power cycling",
+          "Port blockage from ice or debris",
+          "Open heater elements from thermal stress"
+        ],
+        "correctIndex": 2
+      }
+    },
+    {
+      "id": "ADV9-006",
+      "category": "adv9-smart-probes-air-data",
+      "difficulty": "advanced",
+      "tags": [
+        "pitot-heat",
+        "anti-ice",
+        "current"
+      ],
+      "learningObjective": "Explain the purpose of the heating element inside a pitot probe.",
+      "fullObjective": "Given a pitot probe with a current-drawing heater, the technician shall explain that the heater's purpose is to prevent ice from blocking the probe's pressure ports.",
+      "targetSourceStem": "Pitot probes contain heating elements that draw significant electrical current. What is the purpose of these heaters?",
+      "flashcard": {
+        "front": "Why do pitot probes include heating elements that draw substantial current?",
+        "back": "The heaters prevent ice from forming over and blocking the pressure ports in flight.",
+        "correctIndex": 0
+      },
+      "jeopardy": {
+        "clue": "The heating element inside a pitot probe draws heavy current for this specific reason.",
+        "choices": [
+          "To stabilize the sensor temperature only",
+          "To warm air for temperature sensing",
+          "To supply power to the processor chip",
+          "To prevent ice from blocking the ports"
+        ],
+        "correctIndex": 3
+      },
+      "multipleChoice": {
+        "stem": "The high-current heating element inside a pitot probe is installed in order to:",
+        "choices": [
+          "Provide electrical power to the onboard processor",
+          "Stabilize the pressure sensor temperature only",
+          "Warm sampled air before temperature sensing occurs",
+          "Prevent ice from blocking the pressure ports in flight"
+        ],
+        "correctIndex": 3
+      },
+      "practice": {
+        "stem": "A technician is explaining to an apprentice why pitot probes draw so much current. Which rationale should he give for the heater element?",
+        "choices": [
+          "The heater warms the sampled air before the temperature sensor reads it.",
+          "The heater stabilizes the pressure sensor die temperature only.",
+          "The heater provides electrical power to the onboard probe processor.",
+          "The heater prevents ice from forming over and blocking the pressure ports."
+        ],
+        "correctIndex": 3
+      },
+      "preassessment": {
+        "stem": "The heating elements inside pitot probes are provided to:",
+        "choices": [
+          "Power the onboard probe processor",
+          "Stabilize only the pressure sensor temperature",
+          "Warm sampled air for temperature sensing",
+          "Keep ice from blocking the pressure ports"
+        ],
+        "correctIndex": 3
+      }
+    },
+    {
+      "id": "ADV9-007",
+      "category": "adv9-smart-probes-air-data",
+      "difficulty": "advanced",
+      "tags": [
+        "arinc-429",
+        "digital-bus",
+        "data-protocol"
+      ],
+      "learningObjective": "Identify the data protocol used by smart probes to send air data.",
+      "fullObjective": "Given a smart probe installation, the technician shall identify ARINC 429 digital data words as the typical transmission protocol for air data to the avionics.",
+      "targetSourceStem": "What data transmission protocol do smart probes typically use to send air data to the avionics?",
+      "flashcard": {
+        "front": "Which digital protocol do smart probes typically use to transmit air data to the avionics?",
+        "back": "ARINC 429 digital data words on a unidirectional twisted-shielded pair bus.",
+        "correctIndex": 0
+      },
+      "jeopardy": {
+        "clue": "This digital protocol is typically used by smart probes to transmit air data to the avionics suite.",
+        "choices": [
+          "ARINC 429 digital data words",
+          "Analog voltage proportional to pressure",
+          "Radio frequency telemetry link",
+          "Mechanical cable position signal"
+        ],
+        "correctIndex": 0
+      },
+      "multipleChoice": {
+        "stem": "Smart probes most commonly deliver air data to the avionics over which protocol?",
+        "choices": [
+          "ARINC 429 digital data words",
+          "Analog DC voltage proportional to pressure",
+          "A radio frequency telemetry link",
+          "Mechanical cable position linkage signals"
+        ],
+        "correctIndex": 0
+      },
+      "practice": {
+        "stem": "A shop technician is wiring a smart probe into a new air data interface. Which transmission protocol should he expect on the probe's output pair?",
+        "choices": [
+          "ARINC 429 digital data words over a twisted shielded pair",
+          "A proportional analog DC voltage corresponding to the pressure",
+          "A UHF radio frequency telemetry link between probe and avionics",
+          "A mechanical position cable linking the probe to an indicator"
+        ],
+        "correctIndex": 0
+      },
+      "preassessment": {
+        "stem": "Smart probes typically send air data to the avionics using which protocol?",
+        "choices": [
+          "ARINC 429 digital data words",
+          "Analog voltage proportional to pressure",
+          "Radio frequency telemetry link",
+          "Mechanical cable position signal"
+        ],
+        "correctIndex": 0
+      }
+    },
+    {
+      "id": "ADV9-008",
+      "category": "adv9-smart-probes-air-data",
+      "difficulty": "advanced",
+      "tags": [
+        "inaccuracy",
+        "port-blockage",
+        "troubleshooting"
+      ],
+      "learningObjective": "Identify the most common cause of inaccurate smart probe readings.",
+      "fullObjective": "Given inaccurate readings from a pitot-static smart probe, the technician shall identify blockage of the pressure sensing ports as the most common root cause.",
+      "targetSourceStem": "What is the most common cause of inaccurate readings from a pitot-static smart probe?",
+      "flashcard": {
+        "front": "What is the most common cause of inaccurate pitot-static smart probe readings?",
+        "back": "Physical blockage of the pressure sensing ports by ice, debris, or insects.",
+        "correctIndex": 0
+      },
+      "jeopardy": {
+        "clue": "Among all possible causes, this is the single most common source of inaccurate pitot-static smart probe readings.",
+        "choices": [
+          "Interference from the weather radar",
+          "Blockage of the pressure sensing ports",
+          "A loss of GPS receiver signal lock",
+          "A malfunction in the air data computer"
+        ],
+        "correctIndex": 1
+      },
+      "multipleChoice": {
+        "stem": "Inaccurate readings from a pitot-static smart probe are most commonly the result of:",
+        "choices": [
+          "A loss of GPS receiver signal lock",
+          "Blockage of the pressure sensing ports",
+          "An internal air data computer malfunction",
+          "Radio frequency interference from weather radar"
+        ],
+        "correctIndex": 1
+      },
+      "practice": {
+        "stem": "A pilot reports erratic airspeed and altitude readings after parking outside overnight. Which root cause should the technician investigate first on the smart probe system?",
+        "choices": [
+          "An internal malfunction of the air data computer unit",
+          "Blockage of the pressure sensing ports on the probe body",
+          "A loss of GPS receiver satellite signal lock from above",
+          "Interference from the aircraft weather radar transmissions"
+        ],
+        "correctIndex": 1
+      },
+      "preassessment": {
+        "stem": "Inaccurate pitot-static smart probe readings are most commonly caused by:",
+        "choices": [
+          "Weather radar RF interference",
+          "Blockage of the pressure sensing ports",
+          "Loss of GPS receiver signal lock",
+          "An air data computer internal malfunction"
+        ],
+        "correctIndex": 1
+      }
+    },
+    {
+      "id": "ADV9-009",
+      "category": "adv9-smart-probes-air-data",
+      "difficulty": "advanced",
+      "tags": [
+        "maintenance",
+        "inspection",
+        "scheduled"
+      ],
+      "learningObjective": "Identify the primary scheduled maintenance task for a pitot-static smart probe.",
+      "fullObjective": "Given a pitot-static smart probe between major inspections, the technician shall identify the primary scheduled maintenance task as a visual inspection of the ports for contamination.",
+      "targetSourceStem": "What is the primary scheduled maintenance task for pitot-static smart probes between major inspections?",
+      "flashcard": {
+        "front": "What is the primary scheduled maintenance task for a smart probe between heavy checks?",
+        "back": "A visual inspection of the pressure ports for contamination, cracks, or obstruction.",
+        "correctIndex": 0
+      },
+      "jeopardy": {
+        "clue": "Between heavy inspections, this is the primary scheduled maintenance task performed on pitot-static smart probes.",
+        "choices": [
+          "Quarterly heater element replacement",
+          "Monthly pressure sensor recalibration",
+          "Visual inspection of ports for contamination",
+          "Annual firmware update installation"
+        ],
+        "correctIndex": 2
+      },
+      "multipleChoice": {
+        "stem": "Between major inspections, the primary scheduled maintenance for a pitot-static smart probe is:",
+        "choices": [
+          "Quarterly replacement of the probe heater element",
+          "Monthly recalibration of the internal pressure sensor",
+          "Visual inspection of the pressure ports for contamination",
+          "Annual installation of a firmware update package"
+        ],
+        "correctIndex": 2
+      },
+      "practice": {
+        "stem": "A line technician reviews the maintenance manual for a pitot-static smart probe. Which task is listed as the primary scheduled maintenance between major inspections?",
+        "choices": [
+          "A quarterly replacement of the probe's heater element",
+          "A monthly recalibration of the internal pressure sensor",
+          "A visual inspection of the pressure ports for contamination",
+          "An annual installation of the latest firmware update"
+        ],
+        "correctIndex": 2
+      },
+      "preassessment": {
+        "stem": "The primary scheduled maintenance task on a pitot-static smart probe between major inspections is:",
+        "choices": [
+          "Monthly pressure sensor recalibration",
+          "Quarterly heater element replacement",
+          "Visual inspection of ports for contamination",
+          "Annual firmware update installation"
+        ],
+        "correctIndex": 2
+      }
+    },
+    {
+      "id": "ADV9-010",
+      "category": "adv9-smart-probes-air-data",
+      "difficulty": "advanced",
+      "tags": [
+        "pitot-pressure",
+        "total-pressure",
+        "ram-air"
+      ],
+      "learningObjective": "Identify the pressure measured by the pitot tube of a smart probe.",
+      "fullObjective": "Given a smart probe containing both pitot and static elements, the technician shall identify the pitot tube as measuring total pressure, which includes ram air contribution.",
+      "targetSourceStem": "A smart probe contains both pitot and static sensing elements. What specific pressure does the pitot tube measure?",
+      "flashcard": {
+        "front": "Within a smart probe, what pressure does the pitot tube itself measure?",
+        "back": "Total pressure, which is the sum of ambient static pressure and ram air dynamic pressure.",
+        "correctIndex": 0
+      },
+      "jeopardy": {
+        "clue": "In a pitot-static smart probe, this is the specific pressure the pitot tube element senses.",
+        "choices": [
+          "Ambient static pressure only",
+          "Temperature-compensated pressure",
+          "Differential for vertical speed",
+          "Total pressure including ram air"
+        ],
+        "correctIndex": 3
+      },
+      "multipleChoice": {
+        "stem": "Inside a smart probe, the pitot tube element measures:",
+        "choices": [
+          "Only the ambient static atmospheric pressure",
+          "A temperature-compensated cabin reference pressure",
+          "A differential pressure used for vertical speed",
+          "Total pressure, which includes ram air contribution"
+        ],
+        "correctIndex": 3
+      },
+      "practice": {
+        "stem": "A technician explains the internal breakdown of a smart probe. The pitot tube specifically samples what pressure?",
+        "choices": [
+          "A differential pressure dedicated to computing the vertical speed",
+          "Ambient static atmospheric pressure from around the aircraft only",
+          "A temperature-compensated cabin pressurization reference signal",
+          "Total pressure, which is ambient pressure plus ram air dynamic pressure"
+        ],
+        "correctIndex": 3
+      },
+      "preassessment": {
+        "stem": "The pitot tube element inside a smart probe senses:",
+        "choices": [
+          "Temperature-compensated cabin pressure",
+          "Ambient static pressure only",
+          "Differential pressure for vertical speed",
+          "Total pressure including ram air"
+        ],
+        "correctIndex": 3
+      }
+    },
+    {
+      "id": "ADV9-011",
+      "category": "adv9-smart-probes-air-data",
+      "difficulty": "advanced",
+      "tags": [
+        "preflight",
+        "troubleshooting",
+        "inspection"
+      ],
+      "learningObjective": "Prioritize preflight inspection items for an inconsistent smart probe.",
+      "fullObjective": "Given inconsistent smart probe data during preflight checks, the technician shall prioritize inspecting the wiring connections and port condition first.",
+      "targetSourceStem": "A smart probe shows inconsistent data during preflight checks. What should the technician inspect first?",
+      "flashcard": {
+        "front": "A smart probe produces inconsistent preflight data. What should be inspected first?",
+        "back": "Wiring connections and the physical condition of the pressure ports on the probe body.",
+        "correctIndex": 0
+      },
+      "jeopardy": {
+        "clue": "When a smart probe shows inconsistent preflight data, these two items should be inspected first.",
+        "choices": [
+          "The wiring connections and the port condition",
+          "The processor firmware version level",
+          "The pressure sensor calibration date",
+          "The power supply voltage regulation"
+        ],
+        "correctIndex": 0
+      },
+      "multipleChoice": {
+        "stem": "A smart probe shows inconsistent data during preflight. The first item to inspect is:",
+        "choices": [
+          "Wiring connections and port condition on the probe",
+          "The processor firmware version number installed",
+          "The pressure sensor calibration date sticker",
+          "The power supply voltage regulation output level"
+        ],
+        "correctIndex": 0
+      },
+      "practice": {
+        "stem": "During a preflight test, the right-side smart probe repeatedly reports inconsistent air data values. Where should the line technician look first?",
+        "choices": [
+          "At the wiring connections and the physical condition of the probe ports",
+          "At the installed processor firmware version number",
+          "At the calibration date recorded on the pressure sensor",
+          "At the regulation of the probe's DC power supply output"
+        ],
+        "correctIndex": 0
+      },
+      "preassessment": {
+        "stem": "If a smart probe shows inconsistent preflight data, the first thing to inspect is:",
+        "choices": [
+          "Wiring connections and port condition",
+          "Processor firmware version level",
+          "Pressure sensor calibration date",
+          "Power supply voltage regulation"
+        ],
+        "correctIndex": 0
+      }
+    },
+    {
+      "id": "ADV9-012",
+      "category": "adv9-smart-probes-air-data",
+      "difficulty": "advanced",
+      "tags": [
+        "self-test",
+        "bite",
+        "maintenance"
+      ],
+      "learningObjective": "Describe the maintenance benefit provided by the smart probe microprocessor.",
+      "fullObjective": "Given a smart probe with an embedded microprocessor, the technician shall describe the maintenance benefit as continuous self-test and fault detection capability.",
+      "targetSourceStem": "What capability does the microprocessor in a smart probe provide for maintenance?",
+      "flashcard": {
+        "front": "What maintenance capability does the microprocessor inside a smart probe provide?",
+        "back": "Continuous self-test and fault detection that reports internal health to the air data system.",
+        "correctIndex": 0
+      },
+      "jeopardy": {
+        "clue": "The microprocessor inside a smart probe offers this key capability to support maintenance actions.",
+        "choices": [
+          "Automatic probe weight reduction",
+          "Continuous self-test and fault detection",
+          "Improved mechanical durability",
+          "Multiple pressure type sensing"
+        ],
+        "correctIndex": 1
+      },
+      "multipleChoice": {
+        "stem": "The onboard microprocessor in a smart probe supports maintenance by providing:",
+        "choices": [
+          "An improvement in mechanical probe durability",
+          "Continuous self-test and fault detection output",
+          "An automatic reduction in probe weight",
+          "The ability to sense multiple pressure types"
+        ],
+        "correctIndex": 1
+      },
+      "practice": {
+        "stem": "A shop foreman is explaining the maintenance advantage of a modern smart probe. Which capability, enabled by the built-in microprocessor, should he highlight?",
+        "choices": [
+          "An improvement in mechanical durability under icing and bird strikes",
+          "Continuous self-test with fault detection reported to the air data system",
+          "An automatic weight reduction compared with conventional probe bodies",
+          "An ability to sense multiple pressure types using one sensing diaphragm"
+        ],
+        "correctIndex": 1
+      },
+      "preassessment": {
+        "stem": "The microprocessor inside a smart probe provides what maintenance capability?",
+        "choices": [
+          "Automatic probe weight reduction",
+          "Continuous self-test and fault detection",
+          "Improved mechanical durability margin",
+          "Multiple pressure type sensing modes"
+        ],
+        "correctIndex": 1
+      }
+    },
+    {
+      "id": "ADV9-013",
+      "category": "adv9-smart-probes-air-data",
+      "difficulty": "advanced",
+      "tags": [
+        "safety",
+        "failure",
+        "airspeed-altitude"
+      ],
+      "learningObjective": "Identify the primary safety consequence of a pitot-static smart probe failure.",
+      "fullObjective": "Given a pitot-static smart probe failure in flight, the technician shall identify erroneous airspeed and altitude data as the primary flight safety consequence.",
+      "targetSourceStem": "What is the primary flight safety consequence if a pitot-static smart probe fails during flight?",
+      "flashcard": {
+        "front": "What is the primary flight safety consequence of a pitot-static smart probe failure in flight?",
+        "back": "Erroneous airspeed and altitude data presented to the flight crew and autopilot.",
+        "correctIndex": 0
+      },
+      "jeopardy": {
+        "clue": "This is the primary flight safety consequence when a pitot-static smart probe fails in flight.",
+        "choices": [
+          "Navigation display blanking only",
+          "Loss of radio communication ability",
+          "Erroneous airspeed and altitude data",
+          "Increased fuel consumption rate"
+        ],
+        "correctIndex": 2
+      },
+      "multipleChoice": {
+        "stem": "The primary flight safety consequence of a pitot-static smart probe failure in flight is:",
+        "choices": [
+          "Blanking of the navigation display only",
+          "Complete loss of radio communication ability",
+          "Erroneous airspeed and altitude data",
+          "An increase in cruise fuel consumption rate"
+        ],
+        "correctIndex": 2
+      },
+      "practice": {
+        "stem": "A safety instructor is discussing consequences of a pitot-static smart probe failure in flight. Which consequence should he identify as the primary safety concern for the crew?",
+        "choices": [
+          "An increase in the cruise fuel consumption rate of the engines",
+          "A complete loss of all radio communication capability on the aircraft",
+          "Erroneous airspeed and altitude data displayed to the crew and autopilot",
+          "Blanking of the multifunction navigation display without any other effect"
+        ],
+        "correctIndex": 2
+      },
+      "preassessment": {
+        "stem": "A pitot-static smart probe failure in flight primarily causes:",
+        "choices": [
+          "Blanking of the nav display only",
+          "Loss of all radio communication",
+          "Erroneous airspeed and altitude data",
+          "Higher cruise fuel consumption"
+        ],
+        "correctIndex": 2
+      }
+    },
+    {
+      "id": "ADV9-014",
+      "category": "adv9-smart-probes-air-data",
+      "difficulty": "advanced",
+      "tags": [
+        "adc",
+        "inputs",
+        "pressure"
+      ],
+      "learningObjective": "Identify the pressure inputs required by the air data computer.",
+      "fullObjective": "Given an air data computer, the technician shall identify pitot (total) pressure and static (ambient) pressure as the two pressure inputs required to compute flight parameters.",
+      "targetSourceStem": "What pressure inputs does the air data computer require to compute flight parameters?",
+      "flashcard": {
+        "front": "Which two pressure inputs does an air data computer require to derive flight parameters?",
+        "back": "Pitot total pressure and static ambient pressure from the pitot-static system.",
+        "correctIndex": 0
+      },
+      "jeopardy": {
+        "clue": "These two pressure inputs are required by the air data computer to compute flight parameters.",
+        "choices": [
+          "Engine manifold pressure only",
+          "GPS altitude and ground speed",
+          "Fuel tank quantity level signals",
+          "Pitot total and static ambient pressure"
+        ],
+        "correctIndex": 3
+      },
+      "multipleChoice": {
+        "stem": "The air data computer requires which pressure inputs to compute flight parameters?",
+        "choices": [
+          "Engine manifold pressure by itself",
+          "GPS altitude and GPS ground speed",
+          "Fuel tank quantity sensor inputs",
+          "Pitot total and static ambient pressure"
+        ],
+        "correctIndex": 3
+      },
+      "practice": {
+        "stem": "A technician is wiring a new air data computer. Which two pressure inputs must be routed to it for it to compute airspeed and altitude?",
+        "choices": [
+          "Only fuel tank quantity sensor level inputs",
+          "GPS altitude and GPS ground speed signals",
+          "Only engine manifold pressure from the turbine",
+          "Pitot total pressure and static ambient pressure"
+        ],
+        "correctIndex": 3
+      },
+      "preassessment": {
+        "stem": "The air data computer computes flight parameters from which pressure inputs?",
+        "choices": [
+          "Fuel tank quantity level signals",
+          "GPS altitude and GPS ground speed",
+          "Only engine manifold pressure input",
+          "Pitot total and static ambient pressure"
+        ],
+        "correctIndex": 3
+      }
+    },
+    {
+      "id": "ADV9-015",
+      "category": "adv9-smart-probes-air-data",
+      "difficulty": "advanced",
+      "tags": [
+        "unreliable-airspeed",
+        "redundancy",
+        "disagreement"
+      ],
+      "learningObjective": "Identify the trigger condition for an unreliable airspeed warning on a multi-probe aircraft.",
+      "fullObjective": "Given a multi-probe aircraft, the technician shall identify disagreement between air data sources as the condition that triggers an unreliable airspeed warning.",
+      "targetSourceStem": "What condition triggers an 'unreliable airspeed' warning on a multi-probe aircraft?",
+      "flashcard": {
+        "front": "What condition triggers an unreliable airspeed warning on an aircraft with multiple probes?",
+        "back": "Disagreement between independent air data sources beyond the system's comparison threshold.",
+        "correctIndex": 0
+      },
+      "jeopardy": {
+        "clue": "On a multi-probe aircraft, this condition trips the 'unreliable airspeed' warning to the crew.",
+        "choices": [
+          "Disagreement between air data sources",
+          "Partial blockage on a single probe only",
+          "Loss of GPS satellite signal lock",
+          "A manual disconnect of the autopilot"
+        ],
+        "correctIndex": 0
+      },
+      "multipleChoice": {
+        "stem": "On a multi-probe aircraft, an 'unreliable airspeed' warning is triggered by:",
+        "choices": [
+          "Disagreement between independent air data sources",
+          "A partial blockage detected on a single probe only",
+          "Loss of satellite signal lock by the GPS receiver",
+          "A manual disconnect of the autopilot system"
+        ],
+        "correctIndex": 0
+      },
+      "practice": {
+        "stem": "A new technician asks how a multi-probe aircraft decides to annunciate unreliable airspeed. Which triggering condition should be cited?",
+        "choices": [
+          "A disagreement between the independent air data sources beyond a threshold",
+          "A partial blockage detected on only one of the installed probes",
+          "A loss of satellite signal lock by the GPS receiver in flight",
+          "A manual disconnection of the autopilot by the flight crew"
+        ],
+        "correctIndex": 0
+      },
+      "preassessment": {
+        "stem": "On a multi-probe aircraft, the unreliable airspeed warning is triggered by:",
+        "choices": [
+          "Disagreement between air data sources",
+          "A partial blockage on one probe only",
+          "Loss of GPS satellite signal lock",
+          "Manual autopilot disconnect"
+        ],
+        "correctIndex": 0
+      }
+    }
+  ]
+}

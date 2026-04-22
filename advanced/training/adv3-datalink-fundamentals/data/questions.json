@@ -1,0 +1,894 @@
+{
+  "metadata": {
+    "module": "adv3",
+    "title": "Datalink Fundamentals"
+  },
+  "questions": [
+    {
+      "id": "ADV3-001",
+      "category": "adv3-datalink-fundamentals",
+      "difficulty": "medium",
+      "tags": [
+        "datalink",
+        "ads-c",
+        "surveillance",
+        "reports"
+      ],
+      "learningObjective": "Identify the data elements in an ADS-C report.",
+      "fullObjective": "Given an ADS-C transmission, identify what surveillance information is contained in the report.",
+      "targetSourceStem": "ADV3-001",
+      "flashcard": {
+        "front": "What information is included in ADS-C surveillance reports to oceanic ATC?",
+        "back": "Aircraft position, altitude, speed, and route intent; ADS-C delivers a contracted surveillance snapshot."
+      },
+      "jeopardy": {
+        "clue": "These four core pieces of state data ride in every ADS-C report to oceanic ATC.",
+        "choices": [
+          "Weather radar returns and turbulence",
+          "Position, altitude, speed, route intent",
+          "Engine parameters and fuel quantity",
+          "Cabin temperature and pressure"
+        ],
+        "correctIndex": 1
+      },
+      "multipleChoice": {
+        "question": "For oceanic operations, an aircraft forwards ADS-C downlinks to the controlling agency. Which data set is packaged inside those downlinks?",
+        "choices": [
+          "Cabin temperature and pressure data appear in the report.",
+          "Position, altitude, speed, and route intent appear in the report.",
+          "Engine parameters and fuel quantity appear in the report.",
+          "Weather radar returns and turbulence appear in the report."
+        ],
+        "correctIndex": 1
+      },
+      "practice": {
+        "scenario": "You are briefing a new avionics tech on what oceanic ATC actually receives from ADS-C on a Gulfstream G550 crossing the NAT tracks.",
+        "question": "What information does the report contain?",
+        "choices": [
+          "Cabin temperature and pressure data are transmitted.",
+          "Position, altitude, speed, and route intent are transmitted.",
+          "Engine parameters and fuel quantity are transmitted.",
+          "Weather radar returns and turbulence are transmitted."
+        ],
+        "correctIndex": 1
+      },
+      "preassessment": {
+        "question": "What does an ADS-C report contain for oceanic ATC?",
+        "choices": [
+          "Weather radar returns and turbulence are contained.",
+          "Position, altitude, speed, and route intent are contained.",
+          "Engine parameters and fuel quantity are contained.",
+          "Cabin temperature and pressure data are contained."
+        ],
+        "correctIndex": 1
+      }
+    },
+    {
+      "id": "ADV3-002",
+      "category": "adv3-datalink-fundamentals",
+      "difficulty": "medium",
+      "tags": [
+        "datalink",
+        "cmu",
+        "cpdlc",
+        "ads-c"
+      ],
+      "learningObjective": "Identify the avionics unit that handles CPDLC and ADS-C processing.",
+      "fullObjective": "Given a list of avionics units, identify which processes CPDLC text messages and ADS-C position reports.",
+      "targetSourceStem": "ADV3-002",
+      "flashcard": {
+        "front": "Which avionics unit processes both CPDLC messages and ADS-C position reports?",
+        "back": "The Communications Management Unit (CMU); it is the datalink router on board."
+      },
+      "jeopardy": {
+        "clue": "This onboard datalink router juggles both CPDLC text and ADS-C contracts.",
+        "choices": [
+          "Radio altimeter transceiver",
+          "Attitude heading reference system",
+          "Communications management unit",
+          "Distance measuring equipment"
+        ],
+        "correctIndex": 2
+      },
+      "multipleChoice": {
+        "question": "When an aircraft operates in oceanic airspace, which LRU is responsible for handling both CPDLC text exchanges and ADS-C surveillance reporting?",
+        "choices": [
+          "The radio altimeter transceiver processes both.",
+          "The attitude heading reference system processes both.",
+          "The communications management unit processes both.",
+          "The distance measuring equipment processes both."
+        ],
+        "correctIndex": 2
+      },
+      "practice": {
+        "scenario": "During a FANS troubleshoot on a Global 6500, you must identify the single LRU that handles both CPDLC message flow and ADS-C contract reports.",
+        "question": "Which avionics unit should you check?",
+        "choices": [
+          "The attitude heading reference system is the correct LRU.",
+          "The radio altimeter transceiver is the correct LRU.",
+          "The communications management unit is the correct LRU.",
+          "The distance measuring equipment is the correct LRU."
+        ],
+        "correctIndex": 2
+      },
+      "preassessment": {
+        "question": "Which LRU processes both CPDLC and ADS-C traffic?",
+        "choices": [
+          "The attitude heading reference system processes both.",
+          "The radio altimeter transceiver processes both.",
+          "The communications management unit processes both.",
+          "The distance measuring equipment processes both."
+        ],
+        "correctIndex": 2
+      }
+    },
+    {
+      "id": "ADV3-003",
+      "category": "adv3-datalink-fundamentals",
+      "difficulty": "hard",
+      "tags": [
+        "datalink",
+        "fans",
+        "advisory-circular",
+        "installation"
+      ],
+      "learningObjective": "Identify the FAA document providing installation guidance for FANS datalink systems.",
+      "fullObjective": "Given a FANS datalink installation, identify which FAA Advisory Circular provides installation guidance.",
+      "targetSourceStem": "ADV3-003",
+      "flashcard": {
+        "front": "Which FAA document provides installation guidance for FANS datalink systems?",
+        "back": "FAA Advisory Circular 20-140B, the installation guidance document for FANS and CPDLC systems."
+      },
+      "jeopardy": {
+        "clue": "Reach for this AC number when writing an installation data package for a FANS datalink retrofit.",
+        "choices": [
+          "Advisory Circular 43.13-1B",
+          "Advisory Circular 20-160",
+          "RTCA Document DO-178C",
+          "Advisory Circular 20-140B"
+        ],
+        "correctIndex": 3
+      },
+      "multipleChoice": {
+        "question": "A shop is performing a FANS datalink retrofit. Which piece of FAA guidance material should the installer reference for approved installation practices?",
+        "choices": [
+          "RTCA Document DO-178C provides FANS install guidance.",
+          "Advisory Circular 20-160 provides FANS install guidance.",
+          "Advisory Circular 43.13-1B provides FANS install guidance.",
+          "Advisory Circular 20-140B provides FANS install guidance."
+        ],
+        "correctIndex": 3
+      },
+      "practice": {
+        "scenario": "You are authoring an installation data package for a FANS 1/A+ retrofit on a Global Express. An auditor asks which AC underpins your installation methods.",
+        "question": "Which FAA document do you cite?",
+        "choices": [
+          "Advisory Circular 43.13-1B is the correct installation AC.",
+          "Advisory Circular 20-160 is the correct installation AC.",
+          "RTCA Document DO-178C is the correct installation AC.",
+          "Advisory Circular 20-140B is the correct installation AC."
+        ],
+        "correctIndex": 3
+      },
+      "preassessment": {
+        "question": "Which FAA document provides FANS install guidance?",
+        "choices": [
+          "RTCA Document DO-178C provides the guidance.",
+          "Advisory Circular 20-160 provides the guidance.",
+          "Advisory Circular 43.13-1B provides the guidance.",
+          "Advisory Circular 20-140B provides the guidance."
+        ],
+        "correctIndex": 3
+      }
+    },
+    {
+      "id": "ADV3-004",
+      "category": "adv3-datalink-fundamentals",
+      "difficulty": "medium",
+      "tags": [
+        "datalink",
+        "cpdlc",
+        "alerting",
+        "annunciation"
+      ],
+      "learningObjective": "Identify the alerting method required for incoming CPDLC messages.",
+      "fullObjective": "Given CPDLC installation requirements, identify which alerting method satisfies the incoming-message alert requirement.",
+      "targetSourceStem": "ADV3-004",
+      "flashcard": {
+        "front": "What alerting method satisfies the incoming-CPDLC-message alert requirement?",
+        "back": "An aural tone paired with a visual annunciator; both are required for pilot awareness."
+      },
+      "jeopardy": {
+        "clue": "Pair this chime with a lit annunciator and your CPDLC install meets the alerting requirement.",
+        "choices": [
+          "Aural tone with visual annunciator",
+          "Message appears on the CDU only",
+          "Automatic printout on a cockpit printer",
+          "Voice announcement through the speakers"
+        ],
+        "correctIndex": 0
+      },
+      "multipleChoice": {
+        "question": "Regulatory guidance mandates a specific crew-alerting implementation whenever a CPDLC uplink arrives. Which of the following approaches meets that mandate?",
+        "choices": [
+          "An aural tone paired with a visual annunciator satisfies it.",
+          "Displaying the message on the CDU alone satisfies it.",
+          "Automatic printout on a cockpit printer satisfies it.",
+          "A voice announcement through the speakers satisfies it."
+        ],
+        "correctIndex": 0
+      },
+      "practice": {
+        "scenario": "You are signing off a CPDLC retrofit on a Legacy 500. The installation must alert the crew when a controller message arrives.",
+        "question": "Which alerting method satisfies the requirement?",
+        "choices": [
+          "An aural tone combined with a visual annunciator is required.",
+          "Displaying the message on the CDU only is required.",
+          "Automatic printout on a cockpit printer is required.",
+          "A voice announcement through the cockpit speakers is required."
+        ],
+        "correctIndex": 0
+      },
+      "preassessment": {
+        "question": "Which alerting method satisfies the CPDLC incoming-message requirement?",
+        "choices": [
+          "An aural tone with a visual annunciator satisfies it.",
+          "Showing the message on the CDU only satisfies it.",
+          "Printing the message automatically satisfies it.",
+          "Announcing the message by voice satisfies it."
+        ],
+        "correctIndex": 0
+      }
+    },
+    {
+      "id": "ADV3-005",
+      "category": "adv3-datalink-fundamentals",
+      "difficulty": "medium",
+      "tags": [
+        "datalink",
+        "arinc-622",
+        "interoperability",
+        "format"
+      ],
+      "learningObjective": "Explain why datalink messages must be formatted to ARINC 622 standards.",
+      "fullObjective": "Given datalink formatting requirements, explain why ARINC 622 compliance is required for datalink messages.",
+      "targetSourceStem": "ADV3-005",
+      "flashcard": {
+        "front": "Why must datalink equipment format messages to ARINC 622 standards?",
+        "back": "To ensure worldwide ATC interoperability, so any ground center can parse the messages consistently."
+      },
+      "jeopardy": {
+        "clue": "This is what ARINC 622 formatting buys you when messages must be parsed by ATC centers worldwide.",
+        "choices": [
+          "Compressed data for bandwidth",
+          "Worldwide ATC interoperability",
+          "Encrypted data for security",
+          "Faster message transmission times"
+        ],
+        "correctIndex": 1
+      },
+      "multipleChoice": {
+        "question": "For what reason are datalink messages required to conform to ARINC 622 formatting conventions?",
+        "choices": [
+          "To reduce message transmission time is the purpose.",
+          "To ensure worldwide ATC interoperability is the purpose.",
+          "To encrypt data for security purposes is the purpose.",
+          "To compress data for bandwidth savings is the purpose."
+        ],
+        "correctIndex": 1
+      },
+      "practice": {
+        "scenario": "A design review questions why your FANS software must conform to ARINC 622 message formatting rules.",
+        "question": "What is the primary reason?",
+        "choices": [
+          "Data compression for bandwidth is the primary reason.",
+          "Worldwide ATC interoperability is the primary reason.",
+          "Data encryption for security is the primary reason.",
+          "Reduced transmission time is the primary reason."
+        ],
+        "correctIndex": 1
+      },
+      "preassessment": {
+        "question": "Why is ARINC 622 message formatting required on datalink gear?",
+        "choices": [
+          "It provides faster message transmission.",
+          "It provides worldwide ATC interoperability.",
+          "It provides message encryption for security.",
+          "It provides message compression for bandwidth."
+        ],
+        "correctIndex": 1
+      }
+    },
+    {
+      "id": "ADV3-006",
+      "category": "adv3-datalink-fundamentals",
+      "difficulty": "easy",
+      "tags": [
+        "datalink",
+        "gps",
+        "ads-c",
+        "position"
+      ],
+      "learningObjective": "Identify the source of GPS position data for ADS-C.",
+      "fullObjective": "Given ADS-C system architecture, identify which component generates the GPS position used in surveillance reports.",
+      "targetSourceStem": "ADV3-006",
+      "flashcard": {
+        "front": "Which component generates the GPS position data for ADS-C surveillance reports?",
+        "back": "A GNSS or GPS satellite receiver; it provides the position fix the CMU uses to build the report."
+      },
+      "jeopardy": {
+        "clue": "This receiver tunes in the constellation overhead to supply ADS-C with its position fix.",
+        "choices": [
+          "VOR/DME ground station receiver",
+          "Attitude heading reference system",
+          "GNSS or GPS satellite receiver",
+          "Magnetic flux gate detector"
+        ],
+        "correctIndex": 2
+      },
+      "multipleChoice": {
+        "question": "An ADS-C report depends on accurate latitude and longitude values. Which onboard sensor supplies the source positioning information?",
+        "choices": [
+          "The attitude heading reference system generates the position.",
+          "A VOR or DME ground station receiver generates the position.",
+          "A GNSS or GPS satellite receiver generates the position.",
+          "A magnetic flux gate detector generates the position."
+        ],
+        "correctIndex": 2
+      },
+      "practice": {
+        "scenario": "An ADS-C contract on a Challenger 650 is dropping inaccurate position data. You must identify the component that sources the position fix feeding ADS-C.",
+        "question": "Which component is it?",
+        "choices": [
+          "A magnetic flux gate detector is the source.",
+          "The attitude heading reference system is the source.",
+          "A GNSS or GPS satellite receiver is the source.",
+          "The VOR/DME ground station receiver is the source."
+        ],
+        "correctIndex": 2
+      },
+      "preassessment": {
+        "question": "Which component sources position data for ADS-C reports?",
+        "choices": [
+          "A VOR/DME ground station receiver sources the data.",
+          "The attitude heading reference system sources the data.",
+          "A GNSS or GPS satellite receiver sources the data.",
+          "A magnetic flux gate detector sources the data."
+        ],
+        "correctIndex": 2
+      }
+    },
+    {
+      "id": "ADV3-007",
+      "category": "adv3-datalink-fundamentals",
+      "difficulty": "medium",
+      "tags": [
+        "datalink",
+        "ads-c",
+        "transmission",
+        "satcom"
+      ],
+      "learningObjective": "Identify the medium used to transmit ADS-C data to oceanic ATC.",
+      "fullObjective": "Given transmission options, identify how ADS-C surveillance data reaches the oceanic ATC facility.",
+      "targetSourceStem": "ADV3-007",
+      "flashcard": {
+        "front": "How is ADS-C surveillance data transmitted from aircraft to oceanic ATC?",
+        "back": "Via SatCom or VHF data link contracts, which route the report to the ground network."
+      },
+      "jeopardy": {
+        "clue": "ADS-C contracts ride over this SatCom or VHF pipe on their way to oceanic ATC.",
+        "choices": [
+          "The magnetic compass circuit",
+          "The onboard Ethernet LAN",
+          "HF voice radio relay only",
+          "SatCom or VHF data link contracts"
+        ],
+        "correctIndex": 3
+      },
+      "multipleChoice": {
+        "question": "By what transmission path do ADS-C surveillance messages travel from the airframe to an oceanic control center?",
+        "choices": [
+          "It is sent over the onboard Ethernet local network.",
+          "It is sent through the magnetic compass circuit.",
+          "It is sent exclusively via HF radio voice relay.",
+          "It is sent via SatCom or VHF data link contracts."
+        ],
+        "correctIndex": 3
+      },
+      "practice": {
+        "scenario": "A customer asks how ADS-C data actually leaves their Global 5500 and reaches Gander Oceanic.",
+        "question": "How is the data transmitted?",
+        "choices": [
+          "Over the onboard Ethernet network is correct.",
+          "Through the aircraft magnetic compass circuit is correct.",
+          "Exclusively through HF voice radio relay is correct.",
+          "Through SatCom or VHF data link contracts is correct."
+        ],
+        "correctIndex": 3
+      },
+      "preassessment": {
+        "question": "How does ADS-C data reach oceanic ATC?",
+        "choices": [
+          "Through HF voice radio relay only.",
+          "Through the aircraft magnetic compass circuit.",
+          "Through the onboard Ethernet network.",
+          "Through SatCom or VHF data link contracts."
+        ],
+        "correctIndex": 3
+      }
+    },
+    {
+      "id": "ADV3-008",
+      "category": "adv3-datalink-fundamentals",
+      "difficulty": "medium",
+      "tags": [
+        "datalink",
+        "ads-c",
+        "content",
+        "exclusions"
+      ],
+      "learningObjective": "Identify data elements that are not part of an ADS-C report.",
+      "fullObjective": "Given candidate data elements, identify which item is NOT part of a standard ADS-C position report.",
+      "targetSourceStem": "ADV3-008",
+      "flashcard": {
+        "front": "Which item is NOT a standard data element in an ADS-C report?",
+        "back": "Weather radar return images; ADS-C carries state and intent data, not radar imagery."
+      },
+      "jeopardy": {
+        "clue": "ADS-C will never carry these pictures home to ATC, no matter how bad the ride gets.",
+        "choices": [
+          "Weather radar return images",
+          "Current aircraft position coordinates",
+          "Next waypoint identifier and ETA",
+          "Estimated time over future waypoints"
+        ],
+        "correctIndex": 0
+      },
+      "multipleChoice": {
+        "question": "Among the following items, identify the one that is NOT carried as a typical field inside an ADS-C report.",
+        "choices": [
+          "Weather radar return images are not a standard element.",
+          "Current aircraft position coordinates are a standard element.",
+          "Next waypoint identifier and ETA are standard elements.",
+          "Estimated times over future waypoints are standard elements."
+        ],
+        "correctIndex": 0
+      },
+      "practice": {
+        "scenario": "A pilot thinks ADS-C sends the radar picture to oceanic ATC. You must correct the misconception by naming what is not in the report.",
+        "question": "Which item is NOT a standard ADS-C element?",
+        "choices": [
+          "Weather radar return images are not in the report.",
+          "Current aircraft position coordinates are not in the report.",
+          "Next waypoint identifier and ETA are not in the report.",
+          "Estimated times over future waypoints are not in the report."
+        ],
+        "correctIndex": 0
+      },
+      "preassessment": {
+        "question": "Which item is NOT a standard ADS-C position report element?",
+        "choices": [
+          "Weather radar return images are not standard elements.",
+          "Current position coordinates are not standard elements.",
+          "Next waypoint identifier and ETA are not standard elements.",
+          "Estimated times over future waypoints are not standard elements."
+        ],
+        "correctIndex": 0
+      }
+    },
+    {
+      "id": "ADV3-009",
+      "category": "adv3-datalink-fundamentals",
+      "difficulty": "medium",
+      "tags": [
+        "datalink",
+        "ads-c",
+        "contracts",
+        "triggers"
+      ],
+      "learningObjective": "Identify the events that trigger ADS-C report transmission.",
+      "fullObjective": "Given ADS-C operating behavior, identify what triggers position reports to be sent from the aircraft.",
+      "targetSourceStem": "ADV3-009",
+      "flashcard": {
+        "front": "What event triggers ADS-C position reports to be transmitted?",
+        "back": "Contract-based events or periodic intervals; demand, event, and periodic contracts drive the reports."
+      },
+      "jeopardy": {
+        "clue": "ADS-C fires off reports for these two kinds of triggers: either the controller's contract or a timer.",
+        "choices": [
+          "Routine voice communication checks",
+          "Contract-based events or periodic intervals",
+          "Continuous audio feedback detection",
+          "Transponder squawk code changes"
+        ],
+        "correctIndex": 1
+      },
+      "multipleChoice": {
+        "question": "Under normal operation, what condition causes the FMS to release an ADS-C position update to the ATC ground station?",
+        "choices": [
+          "Transponder squawk code changes trigger reports.",
+          "Contract-based events or periodic intervals trigger reports.",
+          "Routine voice communication checks trigger reports.",
+          "Continuous audio feedback detection triggers reports."
+        ],
+        "correctIndex": 1
+      },
+      "practice": {
+        "scenario": "A new CPDLC/ADS-C user asks when the aircraft actually decides to send ADS-C reports on an oceanic crossing.",
+        "question": "What event or events trigger the reports?",
+        "choices": [
+          "Continuous audio feedback detection triggers them.",
+          "Contract-based events or periodic intervals trigger them.",
+          "Routine voice communication checks trigger them.",
+          "Transponder squawk code changes trigger them."
+        ],
+        "correctIndex": 1
+      },
+      "preassessment": {
+        "question": "What triggers an ADS-C position report?",
+        "choices": [
+          "Transponder squawk changes trigger reports.",
+          "Contract events or periodic intervals trigger reports.",
+          "Routine voice comm checks trigger reports.",
+          "Continuous audio feedback triggers reports."
+        ],
+        "correctIndex": 1
+      }
+    },
+    {
+      "id": "ADV3-010",
+      "category": "adv3-datalink-fundamentals",
+      "difficulty": "hard",
+      "tags": [
+        "datalink",
+        "satcom",
+        "fans",
+        "level-d"
+      ],
+      "learningObjective": "Identify the SatCom level required for FANS 1/A operational compliance.",
+      "fullObjective": "Given FANS compliance requirements, identify which SatCom service level is required for FANS 1/A operations.",
+      "targetSourceStem": "ADV3-010",
+      "flashcard": {
+        "front": "Which SatCom level is required for FANS 1/A operational compliance?",
+        "back": "Level D data-capable SatCom service, which meets FANS 1/A data requirements."
+      },
+      "jeopardy": {
+        "clue": "This service level on the SatCom side is the baseline for FANS 1/A data compliance.",
+        "choices": [
+          "Level C basic voice service",
+          "Non-TSO uncertified system",
+          "Level D data-capable SatCom",
+          "ACARS-only text capability"
+        ],
+        "correctIndex": 2
+      },
+      "multipleChoice": {
+        "question": "To satisfy FANS 1/A operational requirements, what service class must the installed SatCom terminal support?",
+        "choices": [
+          "ACARS-only text capability is required.",
+          "Level C basic voice service is required.",
+          "Level D data-capable SatCom is required.",
+          "A non-TSO uncertified system is required."
+        ],
+        "correctIndex": 2
+      },
+      "practice": {
+        "scenario": "An operator wants to confirm their SatCom install meets the baseline for FANS 1/A oceanic compliance on a Falcon 900LX.",
+        "question": "Which SatCom service level is required?",
+        "choices": [
+          "A non-TSO uncertified system meets the requirement.",
+          "Level C basic voice service meets the requirement.",
+          "Level D data-capable SatCom meets the requirement.",
+          "ACARS-only text capability meets the requirement."
+        ],
+        "correctIndex": 2
+      },
+      "preassessment": {
+        "question": "Which SatCom level is required for FANS 1/A compliance?",
+        "choices": [
+          "A non-TSO uncertified system is required.",
+          "Level C basic voice service is required.",
+          "Level D data-capable SatCom is required.",
+          "ACARS-only text capability is required."
+        ],
+        "correctIndex": 2
+      }
+    },
+    {
+      "id": "ADV3-011",
+      "category": "adv3-datalink-fundamentals",
+      "difficulty": "medium",
+      "tags": [
+        "datalink",
+        "fans",
+        "annunciator",
+        "cpdlc"
+      ],
+      "learningObjective": "Identify the purpose of the external annunciator cube in FANS installs.",
+      "fullObjective": "Given a FANS installation, identify the purpose of the external annunciator cube.",
+      "targetSourceStem": "ADV3-011",
+      "flashcard": {
+        "front": "What is the purpose of the external annunciator cube installed with FANS equipment?",
+        "back": "It provides a visual alert for CPDLC message receipt so the crew sees when controller text arrives."
+      },
+      "jeopardy": {
+        "clue": "That small lit cube on the glareshield does this specific FANS job.",
+        "choices": [
+          "Shows current METAR weather data",
+          "Displays the GPS signal quality status",
+          "Indicates transponder squawk code changes",
+          "Provides a visual alert for CPDLC message receipt"
+        ],
+        "correctIndex": 3
+      },
+      "multipleChoice": {
+        "question": "On a FANS-equipped flight deck, why is a standalone annunciator cube wired into the installation?",
+        "choices": [
+          "It indicates when the transponder squawk code changes.",
+          "It displays the current GPS signal quality status.",
+          "It shows the latest METAR weather data for the route.",
+          "It provides a visual alert for CPDLC message receipt."
+        ],
+        "correctIndex": 3
+      },
+      "practice": {
+        "scenario": "A pilot asks what the little lit cube near the glareshield of their FANS-equipped Challenger 605 actually does.",
+        "question": "What is its purpose?",
+        "choices": [
+          "It shows the latest METAR weather for the destination.",
+          "It displays the GPS signal quality status for navigation.",
+          "It indicates that the transponder squawk code changed.",
+          "It gives the crew a visual alert when a CPDLC message arrives."
+        ],
+        "correctIndex": 3
+      },
+      "preassessment": {
+        "question": "What does the FANS external annunciator cube do?",
+        "choices": [
+          "It shows current METAR weather information.",
+          "It displays GPS signal quality status.",
+          "It indicates transponder squawk code changes.",
+          "It alerts visually when a CPDLC message is received."
+        ],
+        "correctIndex": 3
+      }
+    },
+    {
+      "id": "ADV3-012",
+      "category": "adv3-datalink-fundamentals",
+      "difficulty": "hard",
+      "tags": [
+        "datalink",
+        "cpdlc",
+        "recording",
+        "advisory-circular"
+      ],
+      "learningObjective": "Identify the FAA document governing onboard recording of CPDLC communications.",
+      "fullObjective": "Given regulatory references, identify which FAA document governs the onboard recording requirements for CPDLC communications.",
+      "targetSourceStem": "ADV3-012",
+      "flashcard": {
+        "front": "Which FAA document governs onboard recording requirements for CPDLC communications?",
+        "back": "FAA Advisory Circular 20-160, which addresses CPDLC recording."
+      },
+      "jeopardy": {
+        "clue": "This FAA AC is your go-to for how CPDLC messages must be recorded onboard.",
+        "choices": [
+          "FAA Advisory Circular 20-160",
+          "RTCA DO-178C software standard",
+          "RTCA DO-260 transponder standard",
+          "TSO-C132 traffic advisory standard"
+        ],
+        "correctIndex": 0
+      },
+      "multipleChoice": {
+        "question": "When CPDLC exchanges must be recorded on the aircraft, which piece of FAA guidance material spells out the retention rules?",
+        "choices": [
+          "FAA Advisory Circular 20-160 governs CPDLC recording.",
+          "RTCA DO-178C software standard governs CPDLC recording.",
+          "RTCA DO-260 transponder standard governs CPDLC recording.",
+          "TSO-C132 traffic advisory standard governs CPDLC recording."
+        ],
+        "correctIndex": 0
+      },
+      "practice": {
+        "scenario": "You are preparing CPDLC recording documentation for an STC package. The FAA wants the controlling AC on the top of the reference list.",
+        "question": "Which document should you cite?",
+        "choices": [
+          "FAA Advisory Circular 20-160 is the correct reference.",
+          "RTCA DO-178C software standard is the correct reference.",
+          "RTCA DO-260 transponder standard is the correct reference.",
+          "TSO-C132 traffic advisory standard is the correct reference."
+        ],
+        "correctIndex": 0
+      },
+      "preassessment": {
+        "question": "Which FAA document governs CPDLC recording onboard?",
+        "choices": [
+          "FAA AC 20-160 governs it.",
+          "RTCA DO-178C governs it.",
+          "RTCA DO-260 governs it.",
+          "TSO-C132 governs it."
+        ],
+        "correctIndex": 0,
+        "explanation": "FAA Advisory Circular 20-160 establishes CPDLC onboard recording requirements; the other documents cover unrelated topics."
+      }
+    },
+    {
+      "id": "ADV3-013",
+      "category": "adv3-datalink-fundamentals",
+      "difficulty": "hard",
+      "tags": [
+        "datalink",
+        "fans",
+        "ads-b-out",
+        "requirements"
+      ],
+      "learningObjective": "Distinguish FANS 1/A requirements from other surveillance parameters.",
+      "fullObjective": "Given parameters, identify which is NOT directly required for successful FANS 1/A data communication.",
+      "targetSourceStem": "ADV3-013",
+      "flashcard": {
+        "front": "Which parameter is NOT directly required for successful FANS 1/A data communication?",
+        "back": "ADS-B Out position broadcast; it is a separate surveillance mandate, not a FANS 1/A datalink requirement."
+      },
+      "jeopardy": {
+        "clue": "This surveillance broadcast is its own mandate and does not feed FANS 1/A datalink directly.",
+        "choices": [
+          "CMU CPDLC messaging function",
+          "ADS-B Out position broadcast",
+          "FMS flight intent data output",
+          "SatCom signal quality verification"
+        ],
+        "correctIndex": 1
+      },
+      "multipleChoice": {
+        "question": "From the choices below, identify the item that FANS 1/A datalink operations do NOT rely on directly.",
+        "choices": [
+          "SatCom signal quality verification is not directly required.",
+          "ADS-B Out position broadcast is not directly required.",
+          "CMU CPDLC messaging function is not directly required.",
+          "FMS flight intent data output is not directly required."
+        ],
+        "correctIndex": 1
+      },
+      "practice": {
+        "scenario": "An operator insists their ADS-B Out is tied to FANS 1/A. You are reviewing exactly which parameters are required for FANS 1/A data communication.",
+        "question": "Which parameter is NOT directly required?",
+        "choices": [
+          "FMS flight intent data output is directly required.",
+          "ADS-B Out position broadcast is not directly required.",
+          "CMU CPDLC messaging function is directly required.",
+          "SatCom signal quality is directly required."
+        ],
+        "correctIndex": 1
+      },
+      "preassessment": {
+        "question": "Which parameter is NOT directly required for FANS 1/A comm?",
+        "choices": [
+          "CMU CPDLC messaging is not required.",
+          "ADS-B Out position broadcast is not required.",
+          "FMS flight intent data output is not required.",
+          "SatCom signal quality is not required."
+        ],
+        "correctIndex": 1
+      }
+    },
+    {
+      "id": "ADV3-014",
+      "category": "adv3-datalink-fundamentals",
+      "difficulty": "medium",
+      "tags": [
+        "datalink",
+        "fans",
+        "loa",
+        "approval"
+      ],
+      "learningObjective": "Identify the authority that issues the LOA required for FANS operational approval.",
+      "fullObjective": "Given FANS operational approval requirements, identify which authority issues the Letter of Authorization.",
+      "targetSourceStem": "ADV3-014",
+      "flashcard": {
+        "front": "Which authority issues the Letter of Authorization required for FANS operational approval?",
+        "back": "The Federal Aviation Administration, which issues the LOA for U.S. operators."
+      },
+      "jeopardy": {
+        "clue": "For a U.S. operator, this agency signs the Letter of Authorization that clears the crew for FANS operations.",
+        "choices": [
+          "Eurocontrol air traffic management",
+          "International Civil Aviation Organization",
+          "Federal Aviation Administration",
+          "Original equipment manufacturer"
+        ],
+        "correctIndex": 2
+      },
+      "multipleChoice": {
+        "question": "To operate under FANS in US-controlled airspace, an operator must obtain an LOA. What agency grants that authorization?",
+        "choices": [
+          "The original equipment manufacturer issues the LOA.",
+          "The International Civil Aviation Organization issues the LOA.",
+          "The Federal Aviation Administration issues the LOA.",
+          "Eurocontrol air traffic management issues the LOA."
+        ],
+        "correctIndex": 2
+      },
+      "practice": {
+        "scenario": "A Part 91 operator plans to fly the NAT HLA and must obtain a Letter of Authorization for FANS operations on their Gulfstream G450.",
+        "question": "Which authority issues that LOA?",
+        "choices": [
+          "The original equipment manufacturer issues the LOA.",
+          "The International Civil Aviation Organization issues the LOA.",
+          "The Federal Aviation Administration issues the LOA.",
+          "Eurocontrol air traffic management issues the LOA."
+        ],
+        "correctIndex": 2
+      },
+      "preassessment": {
+        "question": "Which authority issues the FANS LOA?",
+        "choices": [
+          "Eurocontrol air traffic management issues it.",
+          "The International Civil Aviation Organization issues it.",
+          "The Federal Aviation Administration issues it.",
+          "The original equipment manufacturer issues it."
+        ],
+        "correctIndex": 2
+      }
+    },
+    {
+      "id": "ADV3-015",
+      "category": "adv3-datalink-fundamentals",
+      "difficulty": "medium",
+      "tags": [
+        "datalink",
+        "fms",
+        "ads-c",
+        "intent"
+      ],
+      "learningObjective": "Identify what FMS flight intent data contributes to ADS-C.",
+      "fullObjective": "Given an ADS-C architecture, identify what information the FMS provides as flight intent data.",
+      "targetSourceStem": "ADV3-015",
+      "flashcard": {
+        "front": "The FMS provides flight intent data to ADS-C. What information does this include?",
+        "back": "Planned route waypoints and timing; the FMS forecasts the intended path and ETAs that ADS-C reports."
+      },
+      "jeopardy": {
+        "clue": "This is what the FMS hands off to ADS-C so oceanic ATC knows where you plan to be and when.",
+        "choices": [
+          "Air data computer pressure values",
+          "VOR receiver signal strength readings",
+          "Transponder Mode S address codes",
+          "Planned route waypoints and timing"
+        ],
+        "correctIndex": 3
+      },
+      "multipleChoice": {
+        "question": "ADS-C messages incorporate flight intent forwarded by the FMS. What type of data is carried in that intent payload?",
+        "choices": [
+          "Transponder Mode S address codes are provided.",
+          "VOR receiver signal strength readings are provided.",
+          "Air data computer pressure values are provided.",
+          "Planned route waypoints and timing are provided."
+        ],
+        "correctIndex": 3
+      },
+      "practice": {
+        "scenario": "A pilot asks what specifically the FMS hands off to ADS-C to answer controller questions about planned positions and times on a Global 6000.",
+        "question": "What information is provided?",
+        "choices": [
+          "Transponder Mode S address codes are provided.",
+          "VOR receiver signal strength readings are provided.",
+          "Air data computer pressure values are provided.",
+          "Planned route waypoints and timing are provided."
+        ],
+        "correctIndex": 3
+      },
+      "preassessment": {
+        "question": "What FMS flight intent data goes to ADS-C?",
+        "choices": [
+          "Air data computer pressure values are provided.",
+          "VOR receiver signal strength readings are provided.",
+          "Transponder Mode S address codes are provided.",
+          "Planned route waypoints and timing are provided."
+        ],
+        "correctIndex": 3
+      }
+    }
+  ]
+}

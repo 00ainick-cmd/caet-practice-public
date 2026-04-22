@@ -1,0 +1,131 @@
+{
+  "metadata": {
+    "module": "adv7",
+    "title": "NAV/COM Systems"
+  },
+  "categories": {
+    "NAV/COM Systems": [
+      {
+        "id": "ADV7-J001",
+        "clue": "Glideslope, localizer, VOR, GPS, and ILS receivers are grouped together as components of this onboard functional category.",
+        "choices": [
+          "Navigation guidance systems",
+          "Voice communication systems",
+          "Weather detection systems",
+          "Flight control systems"
+        ],
+        "correctIndex": 0,
+        "explanation": "All five systems provide position or course guidance, making them navigation systems. Communications, weather, and flight control are separate categories with distinct purposes."
+      },
+      {
+        "id": "ADV7-J002",
+        "clue": "For aeronautical voice traffic, VHF airborne transceivers are tuned within this dedicated segment of the spectrum.",
+        "choices": [
+          "329.150 to 335.000 MHz",
+          "118.000 to 136.975 MHz",
+          "2.000 to 30.000 MHz",
+          "108.000 to 117.950 MHz"
+        ],
+        "correctIndex": 1,
+        "explanation": "VHF aviation COM is allocated 118.000 to 136.975 MHz. The 108-117.95 MHz band is VOR/LOC, 2-30 MHz is HF, and 329-335 MHz is the glideslope band."
+      },
+      {
+        "id": "ADV7-J003",
+        "clue": "This is the allocated frequency band for VOR and localizer receivers on civil aircraft.",
+        "choices": [
+          "329 to 335 MHz",
+          "118.0 to 136.975 MHz",
+          "108.0 to 117.95 MHz",
+          "75 MHz fixed frequency only"
+        ],
+        "correctIndex": 2,
+        "explanation": "VOR and LOC share 108.0 to 117.95 MHz, with odd decimals reserved for LOC. COM is 118.0+ MHz, marker beacons operate on 75 MHz, and glideslope uses 329-335 MHz."
+      },
+      {
+        "id": "ADV7-J004",
+        "clue": "Every marker beacon ground transmitter in the national airspace broadcasts on this single fixed frequency.",
+        "choices": [
+          "108.0 MHz nav band",
+          "121.5 MHz emergency",
+          "1030 MHz transponder",
+          "75 MHz marker band"
+        ],
+        "correctIndex": 3,
+        "explanation": "Outer, middle, and inner markers all broadcast on 75 MHz and are distinguished only by their modulation tones. 121.5 is emergency voice, 108 MHz is nav, and 1030 MHz is transponder interrogation."
+      },
+      {
+        "id": "ADV7-J005",
+        "clue": "This is what the pilot accomplishes by briefly keying an HF transmitter after selecting a new frequency.",
+        "choices": [
+          "Tunes the HF antenna coupler",
+          "Engages the aircraft autopilot",
+          "Shuts off cockpit electrical loads",
+          "Places weather radar into standby"
+        ],
+        "correctIndex": 0,
+        "explanation": "The initial key-up drives the automatic HF antenna coupler through its tuning cycle to minimize SWR. None of the other options are actions that PTT initiates."
+      },
+      {
+        "id": "ADV7-J006",
+        "clue": "This piece of test equipment measures forward and reflected power to yield the standing wave ratio of a COM antenna.",
+        "choices": [
+          "A NAV/COM signal generator",
+          "An inline directional wattmeter",
+          "A digital storage oscilloscope",
+          "A transponder ramp test set"
+        ],
+        "correctIndex": 1,
+        "explanation": "An inline directional wattmeter measures forward and reflected power so SWR can be calculated. Signal generators create RF for receiver tests, scopes view waveforms, and transponder sets test replies."
+      },
+      {
+        "id": "ADV7-J007",
+        "clue": "When a COM radio transmits normally but produces no receive audio even at full volume, this is the first setting to check.",
+        "choices": [
+          "Antenna may have high SWR",
+          "Final amplifier may be weak",
+          "Squelch may be set too high",
+          "PTT switch may be stuck on"
+        ],
+        "correctIndex": 2,
+        "explanation": "An over-tight squelch silences normal receive. High SWR would also affect transmit, a weak final would degrade transmit, and a stuck PTT would lock the radio in transmit."
+      },
+      {
+        "id": "ADV7-J008",
+        "clue": "When a VOR shows this flag while the aircraft is within published station range, the signal has dropped below the usable threshold.",
+        "choices": [
+          "A message that no station is tuned",
+          "An autopilot that is not coupled",
+          "An OBS set to the wrong radial",
+          "A NAV flag indicating unusable signal"
+        ],
+        "correctIndex": 3,
+        "explanation": "The NAV flag indicates the received signal is below the usable threshold. A missing station tuning would not show a flag, OBS setting does not trigger it, and autopilot coupling is a separate issue."
+      },
+      {
+        "id": "ADV7-J009",
+        "clue": "False glideslope captures on ILS approaches come from this part of the transmitted signal.",
+        "choices": [
+          "Side lobes above the correct path",
+          "The main beam at the correct angle",
+          "The localizer back course signal",
+          "The marker beacon coverage area"
+        ],
+        "correctIndex": 0,
+        "explanation": "Side lobes above the main glideslope beam produce false on-path indications. The main beam is the legitimate path, back course is a localizer phenomenon, and marker coverage is unrelated."
+      },
+      {
+        "id": "ADV7-J010",
+        "clue": "DME computes slant range using this timing measurement between the airborne interrogator and the ground transponder.",
+        "choices": [
+          "Phase comparison of two signals",
+          "Round-trip pulse delay timing",
+          "Frequency Doppler shift detection",
+          "Signal amplitude reduction measurement"
+        ],
+        "correctIndex": 1,
+        "explanation": "DME times the round-trip delay of its interrogation and the transponder reply to compute slant range. Amplitude, Doppler, and phase methods are used by other systems."
+      }
+    ]
+  },
+  "final": []
+}

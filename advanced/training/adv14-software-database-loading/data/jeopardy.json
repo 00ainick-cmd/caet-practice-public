@@ -1,0 +1,71 @@
+{
+  "metadata": {
+    "module": "adv14",
+    "title": "Software & Database Loading"
+  },
+  "categories": {
+    "Software & Database Loading": [
+      {
+        "id": "ADV14-J001",
+        "clue": "This is the first thing a technician verifies before loading an FMS navigation database update.",
+        "choices": [
+          "Database effective date matches current AIRAC cycle",
+          "Aircraft has flown within the last 30 days",
+          "Autopilot servo self-test has passed",
+          "All cockpit displays are currently powered on"
+        ],
+        "correctIndex": 0,
+        "explanation": "Confirm AIRAC effective date."
+      },
+      {
+        "id": "ADV14-J002",
+        "clue": "This is the correct action after a software load fails at 80% with INVALID displayed.",
+        "choices": [
+          "Install the previous software version",
+          "Cycle power and attempt the load again",
+          "Return the unit to the manufacturer",
+          "Continue flight operations and retry later"
+        ],
+        "correctIndex": 1,
+        "explanation": "Cycle power and retry the load."
+      },
+      {
+        "id": "ADV14-J003",
+        "clue": "This action should always precede a software load on integrated avionics to prevent data loss.",
+        "choices": [
+          "Reset all systems to factory defaults",
+          "Disconnect the aircraft battery",
+          "Export and save current configuration",
+          "Document the current display brightness settings"
+        ],
+        "correctIndex": 2,
+        "explanation": "Save configuration before loading."
+      },
+      {
+        "id": "ADV14-J004",
+        "clue": "This is where the FMS 'compatible hardware configuration part number' is documented.",
+        "choices": [
+          "Pilot operating handbook limitations",
+          "FMS operating manual table of contents",
+          "Navigation database header file",
+          "Aircraft equipment list or FMS data plate"
+        ],
+        "correctIndex": 3,
+        "explanation": "Equipment list or data plate."
+      },
+      {
+        "id": "ADV14-J005",
+        "clue": "This verification is required before returning a display unit to service after a software update.",
+        "choices": [
+          "Operational test per maintenance manual procedures",
+          "Flight test verifying every display function",
+          "Manufacturer certification of the software version",
+          "FSDO inspector approval of the installation"
+        ],
+        "correctIndex": 0,
+        "explanation": "Operational test per maintenance manual."
+      }
+    ]
+  },
+  "final": []
+}

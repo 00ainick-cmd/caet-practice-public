@@ -1,0 +1,598 @@
+{
+  "metadata": {
+    "module": "adv2",
+    "title": "Connectivity"
+  },
+  "questions": [
+    {
+      "id": "ADV2-001",
+      "category": "adv2-connectivity",
+      "difficulty": "easy",
+      "tags": [
+        "connectivity",
+        "services",
+        "passenger",
+        "crew"
+      ],
+      "learningObjective": "State the primary services provided by a business aircraft connectivity system.",
+      "fullObjective": "Given a list of possible services, identify those provided to passengers and crew by a business aircraft connectivity system.",
+      "targetSourceStem": "ADV2-001",
+      "flashcard": {
+        "front": "What service does a business aircraft connectivity system provide to passengers and crew?",
+        "back": "Internet access and voice communications for cabin users."
+      },
+      "jeopardy": {
+        "clue": "The two core cabin offerings from a business jet connectivity system.",
+        "choices": [
+          "Electrical load management",
+          "Flight management calculations",
+          "Engine trend monitoring feeds",
+          "Internet and voice communications"
+        ],
+        "correctIndex": 3
+      },
+      "multipleChoice": {
+        "question": "In a corporate-jet cabin, what function is the onboard connectivity suite primarily installed to deliver for those onboard?",
+        "choices": [
+          "Engine trend monitoring data is the primary service offered.",
+          "Flight management computations are the primary service offered.",
+          "Electrical load management is the primary service offered.",
+          "Internet access and voice communications are the primary services."
+        ],
+        "correctIndex": 3
+      },
+      "practice": {
+        "scenario": "An owner is comparing the connectivity package on two Challenger 3500s during a demo. They ask what the connectivity system actually provides to passengers and crew.",
+        "question": "What should you tell them the system provides?",
+        "choices": [
+          "It provides engine trend monitoring data for maintenance.",
+          "It provides flight management computations for the FMS.",
+          "It provides electrical load management for the buses.",
+          "It provides internet access and voice communications."
+        ],
+        "correctIndex": 3
+      },
+      "preassessment": {
+        "question": "Which service does a cabin connectivity system provide?",
+        "choices": [
+          "Engine trend monitoring feeds are provided.",
+          "Flight management computations are provided.",
+          "Electrical load management is provided.",
+          "Internet and voice communications are provided."
+        ],
+        "correctIndex": 3
+      }
+    },
+    {
+      "id": "ADV2-002",
+      "category": "adv2-connectivity",
+      "difficulty": "easy",
+      "tags": [
+        "connectivity",
+        "data-bus",
+        "ethernet",
+        "protocol"
+      ],
+      "learningObjective": "Identify the data protocol used for high-speed CMS device communication.",
+      "fullObjective": "Given a list of data bus options, identify the protocol modern cabin management systems use for high-speed device-to-device transfer.",
+      "targetSourceStem": "ADV2-002",
+      "flashcard": {
+        "front": "Which protocol do modern CMSs use for high-speed data transfer between cabin devices?",
+        "back": "Ethernet-based networking, which provides the bandwidth needed for streaming A/V and control traffic."
+      },
+      "jeopardy": {
+        "clue": "This IEEE networking technology gives modern cabins the bandwidth to stream HD video between devices.",
+        "choices": [
+          "Ethernet-based networking",
+          "MIL-STD-1553 data bus",
+          "ARINC 429 twisted-pair bus",
+          "RS-422 serial interface"
+        ],
+        "correctIndex": 0
+      },
+      "multipleChoice": {
+        "question": "On contemporary business aircraft, what networking technology enables rapid communication among cabin devices connected to the CMS?",
+        "choices": [
+          "Ethernet-based networking carries high-speed cabin data.",
+          "MIL-STD-1553 data bus carries high-speed cabin data.",
+          "ARINC 429 twisted pair carries high-speed cabin data.",
+          "RS-422 serial interface carries high-speed cabin data."
+        ],
+        "correctIndex": 0
+      },
+      "practice": {
+        "scenario": "During a retrofit design review you must pick the backbone the new CMS will use to move streaming A/V between head-end and seatback displays.",
+        "question": "Which protocol do modern CMSs use for high-speed device-to-device transfer?",
+        "choices": [
+          "Ethernet-based networking is the CMS high-speed backbone.",
+          "MIL-STD-1553 is the CMS high-speed backbone.",
+          "ARINC 429 is the CMS high-speed backbone.",
+          "RS-422 serial is the CMS high-speed backbone."
+        ],
+        "correctIndex": 0
+      },
+      "preassessment": {
+        "question": "Which protocol carries high-speed data between CMS devices?",
+        "choices": [
+          "Ethernet-based networking carries the high-speed data.",
+          "MIL-STD-1553 carries the high-speed data.",
+          "ARINC 429 carries the high-speed data.",
+          "RS-422 serial carries the high-speed data."
+        ],
+        "correctIndex": 0
+      }
+    },
+    {
+      "id": "ADV2-003",
+      "category": "adv2-connectivity",
+      "difficulty": "medium",
+      "tags": [
+        "connectivity",
+        "router",
+        "satcom",
+        "architecture"
+      ],
+      "learningObjective": "Identify the component that routes data between passenger devices and the SatCom system.",
+      "fullObjective": "Given a connectivity architecture, identify which component handles routing between passenger devices and the satellite communication system.",
+      "targetSourceStem": "ADV2-003",
+      "flashcard": {
+        "front": "Which component manages data routing between passenger devices and the SatCom system?",
+        "back": "The cabin network router; it sits between cabin Wi-Fi clients and the SDU/modem path to the satellite."
+      },
+      "jeopardy": {
+        "clue": "This cabin LRU is the traffic cop between passenger tablets and the satellite modem.",
+        "choices": [
+          "Flight management computer",
+          "Cabin network router",
+          "Satellite data unit modem",
+          "Mode S transponder"
+        ],
+        "correctIndex": 1
+      },
+      "multipleChoice": {
+        "question": "During a SatCom-based connectivity session, what hardware element directs traffic between passenger seat devices and the uplink transceiver?",
+        "choices": [
+          "The satellite data unit modem handles cabin device routing.",
+          "The cabin network router handles routing to the SatCom path.",
+          "The flight management computer handles cabin device routing.",
+          "The Mode S transponder handles cabin device routing."
+        ],
+        "correctIndex": 1
+      },
+      "practice": {
+        "scenario": "A passenger cannot reach the internet from an iPad on a Gulfstream G280 even though the SatCom link shows a healthy signal. You are tracing the data path.",
+        "question": "Which component manages routing between passenger devices and the SatCom system?",
+        "choices": [
+          "The Mode S transponder manages this routing.",
+          "The cabin network router manages this routing.",
+          "The flight management computer manages this routing.",
+          "The SatCom data unit modem manages this routing."
+        ],
+        "correctIndex": 1
+      },
+      "preassessment": {
+        "question": "Which component routes data between passenger devices and SatCom?",
+        "choices": [
+          "The SatCom data unit modem routes the data.",
+          "The cabin network router routes the data.",
+          "The flight management computer routes the data.",
+          "The Mode S transponder routes the data."
+        ],
+        "correctIndex": 1
+      }
+    },
+    {
+      "id": "ADV2-004",
+      "category": "adv2-connectivity",
+      "difficulty": "medium",
+      "tags": [
+        "connectivity",
+        "antenna",
+        "phased-array",
+        "tracking"
+      ],
+      "learningObjective": "Identify the antenna type that tracks satellites electronically without moving parts.",
+      "fullObjective": "Given antenna options, identify which type tracks a satellite electronically during aircraft maneuvers.",
+      "targetSourceStem": "ADV2-004",
+      "flashcard": {
+        "front": "Which antenna type tracks a satellite electronically during maneuvers?",
+        "back": "An electronically steered phased array; beam direction is controlled by phase, not mechanical motion."
+      },
+      "jeopardy": {
+        "clue": "This antenna technology shifts its beam via phase control rather than a gimbal motor.",
+        "choices": [
+          "Mechanically steered parabolic dish",
+          "Fixed-mount dipole antenna",
+          "Electronically steered phased array",
+          "Helical omnidirectional antenna"
+        ],
+        "correctIndex": 2
+      },
+      "multipleChoice": {
+        "question": "Because a business jet rolls and banks in flight, the SatCom antenna must keep the beam pointed at the spacecraft. What antenna design performs that pointing without moving parts?",
+        "choices": [
+          "A helical omnidirectional antenna tracks via phase control.",
+          "A mechanically steered parabolic dish tracks via phase control.",
+          "An electronically steered phased array tracks via phase control.",
+          "A fixed-mount dipole antenna tracks via phase control."
+        ],
+        "correctIndex": 2
+      },
+      "practice": {
+        "scenario": "You are specifying a Ka-band antenna for a retrofit on a Global 7500. The owner wants zero moving parts on the radome.",
+        "question": "Which antenna type tracks the satellite electronically during maneuvers?",
+        "choices": [
+          "A fixed-mount dipole antenna meets the requirement.",
+          "A mechanically steered parabolic dish meets the requirement.",
+          "An electronically steered phased array meets the requirement.",
+          "A helical omnidirectional antenna meets the requirement."
+        ],
+        "correctIndex": 2
+      },
+      "preassessment": {
+        "question": "Which antenna tracks a satellite electronically during maneuvers?",
+        "choices": [
+          "A fixed-mount dipole antenna tracks electronically.",
+          "A mechanically steered parabolic dish tracks electronically.",
+          "An electronically steered phased array tracks electronically.",
+          "A helical omnidirectional antenna tracks electronically."
+        ],
+        "correctIndex": 2
+      }
+    },
+    {
+      "id": "ADV2-005",
+      "category": "adv2-connectivity",
+      "difficulty": "medium",
+      "tags": [
+        "connectivity",
+        "standards",
+        "arinc",
+        "interoperability"
+      ],
+      "learningObjective": "Identify the body that publishes avionics interface standards enabling multi-vendor interoperability.",
+      "fullObjective": "Given a list of aviation organizations, identify which publishes the interface standards that allow avionics from different manufacturers to communicate.",
+      "targetSourceStem": "ADV2-005",
+      "flashcard": {
+        "front": "Which organization publishes the standards that let avionics from different manufacturers talk to each other?",
+        "back": "The Airlines Electronic Engineering Committee (AEEC), which produces the ARINC specifications."
+      },
+      "jeopardy": {
+        "clue": "This AEEC-led body is the reason a Honeywell box can exchange data with a Collins box without drama.",
+        "choices": [
+          "North Atlantic Treaty Organization",
+          "International Civil Aviation Organization",
+          "Federal Aviation Administration",
+          "Airlines Electronic Engineering Committee"
+        ],
+        "correctIndex": 3
+      },
+      "multipleChoice": {
+        "question": "For cross-manufacturer avionics interoperability, which industry body is responsible for writing the applicable interface standards?",
+        "choices": [
+          "The International Civil Aviation Organization publishes these standards.",
+          "The North Atlantic Treaty Organization publishes these standards.",
+          "The Federal Aviation Administration publishes these standards.",
+          "The Airlines Electronic Engineering Committee publishes ARINC standards."
+        ],
+        "correctIndex": 3
+      },
+      "practice": {
+        "scenario": "A design engineer needs to reference the specification that defines ARINC 664 to confirm interface compatibility between two vendors' network LRUs.",
+        "question": "Which organization publishes the applicable standard?",
+        "choices": [
+          "The North Atlantic Treaty Organization publishes it.",
+          "The International Civil Aviation Organization publishes it.",
+          "The Federal Aviation Administration publishes it.",
+          "The Airlines Electronic Engineering Committee publishes it."
+        ],
+        "correctIndex": 3
+      },
+      "preassessment": {
+        "question": "Which organization publishes avionics interoperability standards?",
+        "choices": [
+          "The International Civil Aviation Organization publishes them.",
+          "The North Atlantic Treaty Organization publishes them.",
+          "The Federal Aviation Administration publishes them.",
+          "The Airlines Electronic Engineering Committee publishes them."
+        ],
+        "correctIndex": 3
+      }
+    },
+    {
+      "id": "ADV2-006",
+      "category": "adv2-connectivity",
+      "difficulty": "easy",
+      "tags": [
+        "connectivity",
+        "satcom",
+        "inmarsat",
+        "broadband"
+      ],
+      "learningObjective": "Identify an aviation-specific broadband satellite network.",
+      "fullObjective": "Given a list of satellite and navigation networks, identify which provides broadband connectivity services designed for aviation.",
+      "targetSourceStem": "ADV2-006",
+      "flashcard": {
+        "front": "Which satellite network provides broadband connectivity designed for aviation?",
+        "back": "The Inmarsat satellite network, whose aeronautical services include SwiftBroadband and Jet ConneX."
+      },
+      "jeopardy": {
+        "clue": "This L-band and Ka-band satellite operator runs aviation services like SwiftBroadband and Jet ConneX.",
+        "choices": [
+          "Inmarsat satellite network",
+          "Global Positioning System",
+          "VHF omnidirectional range",
+          "ADS-B surveillance network"
+        ],
+        "correctIndex": 0
+      },
+      "multipleChoice": {
+        "question": "Of the satellite constellations available to corporate operators, which one is purpose-built as an aeronautical broadband provider?",
+        "choices": [
+          "The Inmarsat satellite network provides aviation broadband.",
+          "The Global Positioning System provides aviation broadband.",
+          "The VHF omnidirectional range system provides aviation broadband.",
+          "The ADS-B surveillance network provides aviation broadband."
+        ],
+        "correctIndex": 0
+      },
+      "practice": {
+        "scenario": "A fleet operator wants broadband in the cabin over the North Atlantic and asks which satellite network is specifically designed for that aviation use case.",
+        "question": "Which network should you name?",
+        "choices": [
+          "The Inmarsat satellite network is aviation-specific broadband.",
+          "The Global Positioning System is aviation-specific broadband.",
+          "The VHF omnidirectional range system is aviation-specific broadband.",
+          "The ADS-B surveillance network is aviation-specific broadband."
+        ],
+        "correctIndex": 0
+      },
+      "preassessment": {
+        "question": "Which satellite network delivers aviation-specific broadband?",
+        "choices": [
+          "The Inmarsat network delivers aviation broadband.",
+          "The Global Positioning System delivers aviation broadband.",
+          "The VHF omnidirectional range delivers aviation broadband.",
+          "The ADS-B surveillance network delivers aviation broadband."
+        ],
+        "correctIndex": 0
+      }
+    },
+    {
+      "id": "ADV2-007",
+      "category": "adv2-connectivity",
+      "difficulty": "medium",
+      "tags": [
+        "connectivity",
+        "frequency-bands",
+        "ka-band",
+        "throughput"
+      ],
+      "learningObjective": "Identify the frequency band providing the highest throughput for satellite in-flight connectivity.",
+      "fullObjective": "Given a list of radio frequency bands, identify which provides the highest data throughput for satellite-based in-flight connectivity.",
+      "targetSourceStem": "ADV2-007",
+      "flashcard": {
+        "front": "Which frequency band provides the highest throughput for satellite in-flight connectivity?",
+        "back": "Ka-band (roughly 26.5 to 40 GHz); higher bandwidth yields higher data rates than VHF, HF, or UHF options."
+      },
+      "jeopardy": {
+        "clue": "Operating from about 26.5 to 40 GHz, this band leads the pack for in-flight broadband throughput.",
+        "choices": [
+          "UHF band",
+          "Ka-band",
+          "HF band",
+          "VHF band"
+        ],
+        "correctIndex": 1
+      },
+      "multipleChoice": {
+        "question": "Of the RF spectrum options used for airborne broadband, which one delivers the greatest throughput on a SatCom link?",
+        "choices": [
+          "VHF band at 30 to 300 MHz delivers the highest throughput.",
+          "Ka-band at 26.5 to 40 GHz delivers the highest throughput.",
+          "HF band at 3 to 30 MHz delivers the highest throughput.",
+          "UHF band at 300 MHz to 3 GHz delivers the highest throughput."
+        ],
+        "correctIndex": 1
+      },
+      "practice": {
+        "scenario": "An owner is comparing two connectivity packages. One advertises Ka-band service and the other a legacy L-band plan. They ask which provides the highest throughput.",
+        "question": "Which band should you identify?",
+        "choices": [
+          "UHF band at 300 MHz to 3 GHz offers the highest throughput.",
+          "Ka-band at 26.5 to 40 GHz offers the highest throughput.",
+          "HF band at 3 to 30 MHz offers the highest throughput.",
+          "VHF band at 30 to 300 MHz offers the highest throughput."
+        ],
+        "correctIndex": 1
+      },
+      "preassessment": {
+        "question": "Which band provides the highest throughput for SatCom in-flight internet?",
+        "choices": [
+          "UHF band at 300 MHz to 3 GHz provides the highest throughput.",
+          "Ka-band at 26.5 to 40 GHz provides the highest throughput.",
+          "HF band at 3 to 30 MHz provides the highest throughput.",
+          "VHF band at 30 to 300 MHz provides the highest throughput."
+        ],
+        "correctIndex": 1
+      }
+    },
+    {
+      "id": "ADV2-008",
+      "category": "adv2-connectivity",
+      "difficulty": "easy",
+      "tags": [
+        "connectivity",
+        "air-to-ground",
+        "gogo",
+        "tower"
+      ],
+      "learningObjective": "Identify the connectivity system that uses ground-based towers over land.",
+      "fullObjective": "Given a list of connectivity systems, identify which uses ground-based towers to provide internet service to aircraft over land.",
+      "targetSourceStem": "ADV2-008",
+      "flashcard": {
+        "front": "Which air-to-ground connectivity system uses ground-based towers to serve aircraft over land?",
+        "back": "The Gogo Air-to-Ground system; a network of cell-like towers provides coverage in the contiguous U.S. and parts of Canada."
+      },
+      "jeopardy": {
+        "clue": "A network of cellular-style towers in the continental U.S. makes this air-to-ground service possible.",
+        "choices": [
+          "Inmarsat SwiftBroadband",
+          "Iridium Certus satellite link",
+          "Gogo Air-to-Ground system",
+          "GPS-based data link"
+        ],
+        "correctIndex": 2
+      },
+      "multipleChoice": {
+        "question": "For continental flights, which onboard connectivity product relies on a network of terrestrial cell-like sites instead of orbiting satellites?",
+        "choices": [
+          "The Inmarsat SwiftBroadband service uses ground towers.",
+          "The Iridium Certus satellite link uses ground towers.",
+          "The Gogo Air-to-Ground system uses ground towers.",
+          "A GPS-based data link service uses ground towers."
+        ],
+        "correctIndex": 2
+      },
+      "practice": {
+        "scenario": "A Citation CJ3+ operating primarily in the continental U.S. needs lower-cost connectivity that does not require a satellite terminal on the fuselage.",
+        "question": "Which air-to-ground system should you recommend?",
+        "choices": [
+          "The Inmarsat SwiftBroadband service matches this need.",
+          "The Iridium Certus satellite link matches this need.",
+          "The Gogo Air-to-Ground system matches this need.",
+          "A GPS-based data link service matches this need."
+        ],
+        "correctIndex": 2
+      },
+      "preassessment": {
+        "question": "Which connectivity system uses ground-based towers over land?",
+        "choices": [
+          "The Iridium Certus link uses ground towers.",
+          "The Inmarsat SwiftBroadband uses ground towers.",
+          "The Gogo Air-to-Ground system uses ground towers.",
+          "A GPS data link service uses ground towers."
+        ],
+        "correctIndex": 2
+      }
+    },
+    {
+      "id": "ADV2-009",
+      "category": "adv2-connectivity",
+      "difficulty": "medium",
+      "tags": [
+        "connectivity",
+        "satcom",
+        "latency",
+        "challenges"
+      ],
+      "learningObjective": "Identify a primary technical challenge of satellite-based connectivity.",
+      "fullObjective": "Given several candidate issues, identify which is a primary technical challenge of satellite-based connectivity in business aircraft.",
+      "targetSourceStem": "ADV2-009",
+      "flashcard": {
+        "front": "What is a primary technical challenge of satellite-based connectivity in business aircraft?",
+        "back": "High latency caused by the long satellite signal path; round-trip delay affects interactive applications."
+      },
+      "jeopardy": {
+        "clue": "The long trip up to orbit and back gives satellite internet this unavoidable timing penalty.",
+        "choices": [
+          "Interference from onboard weather radar",
+          "Incompatibility with cabin data buses",
+          "Excessive weight of flight computers",
+          "High latency from the signal path"
+        ],
+        "correctIndex": 3
+      },
+      "multipleChoice": {
+        "question": "Among the typical performance issues associated with SatCom connectivity on corporate jets, which one most affects interactive applications?",
+        "choices": [
+          "Excessive weight of flight computers is a primary challenge.",
+          "Interference from the onboard weather radar is a primary challenge.",
+          "Incompatibility with cabin data buses is a primary challenge.",
+          "High latency from the satellite signal path is a primary challenge."
+        ],
+        "correctIndex": 3
+      },
+      "practice": {
+        "scenario": "Passengers on a Falcon 2000LXS complain that video calls over the SatCom link feel laggy even when speed tests look acceptable.",
+        "question": "Which primary technical challenge best explains the complaint?",
+        "choices": [
+          "Excessive weight of the flight computers best explains it.",
+          "Interference from the weather radar best explains it.",
+          "Cabin data bus incompatibility best explains it.",
+          "High latency from the signal path best explains it."
+        ],
+        "correctIndex": 3
+      },
+      "preassessment": {
+        "question": "What is a primary challenge of SatCom connectivity in business aircraft?",
+        "choices": [
+          "Onboard radar interference is a primary challenge.",
+          "Cabin bus incompatibility is a primary challenge.",
+          "Flight computer weight is a primary challenge.",
+          "High latency from the signal path is a primary challenge."
+        ],
+        "correctIndex": 3
+      }
+    },
+    {
+      "id": "ADV2-010",
+      "category": "adv2-connectivity",
+      "difficulty": "medium",
+      "tags": [
+        "connectivity",
+        "standards",
+        "arinc",
+        "installation"
+      ],
+      "learningObjective": "Identify the interface standard that governs SatCom-to-aircraft network integration.",
+      "fullObjective": "Given interface standard options, identify which ensures cabin SatCom equipment communicates properly with the aircraft network.",
+      "targetSourceStem": "ADV2-010",
+      "flashcard": {
+        "front": "Which interface standard ensures that cabin SatCom equipment integrates with the aircraft network?",
+        "back": "ARINC published interface standards; these define the electrical and data rules for avionics integration."
+      },
+      "jeopardy": {
+        "clue": "Follow these AEEC-published interface specifications and your SatCom LRU will shake hands with the aircraft network.",
+        "choices": [
+          "ARINC published interface standards",
+          "NATO military communication protocols",
+          "FAA operational safety regulations",
+          "ICAO flight plan formatting rules"
+        ],
+        "correctIndex": 0
+      },
+      "multipleChoice": {
+        "question": "During a SatCom retrofit, correct handshaking between cabin gear and aircraft buses depends on adherence to which family of published interface specs?",
+        "choices": [
+          "ARINC published interface standards define the integration.",
+          "NATO military communication protocols define the integration.",
+          "FAA operational safety regulations define the integration.",
+          "ICAO flight plan formatting rules define the integration."
+        ],
+        "correctIndex": 0
+      },
+      "practice": {
+        "scenario": "You are drafting an STC data package for a new Ka-band SatCom install and must cite the standard governing data-bus integration with the existing avionics.",
+        "question": "Which interface standard should you cite?",
+        "choices": [
+          "ARINC published interface standards are the correct reference.",
+          "NATO military communication protocols are the correct reference.",
+          "FAA operational safety regulations are the correct reference.",
+          "ICAO flight plan formatting rules are the correct reference."
+        ],
+        "correctIndex": 0
+      },
+      "preassessment": {
+        "question": "Which interface standards govern SatCom-to-network integration on aircraft?",
+        "choices": [
+          "ARINC published interface standards govern the integration.",
+          "NATO communication protocols govern the integration.",
+          "FAA operational regulations govern the integration.",
+          "ICAO flight plan formats govern the integration."
+        ],
+        "correctIndex": 0
+      }
+    }
+  ]
+}

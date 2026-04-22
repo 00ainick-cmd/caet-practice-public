@@ -1,0 +1,480 @@
+{
+  "metadata": {
+    "module": "adv1",
+    "title": "Cabin Management Systems"
+  },
+  "questions": [
+    {
+      "id": "ADV1-001",
+      "category": "adv1-cabin-management-systems",
+      "difficulty": "medium",
+      "tags": [
+        "cms",
+        "components",
+        "electrical-system",
+        "boundaries"
+      ],
+      "learningObjective": "Distinguish CMS components from aircraft electrical system components.",
+      "fullObjective": "Given a list of aircraft equipment, identify which item belongs to the aircraft electrical system rather than the cabin management system.",
+      "targetSourceStem": "ADV1-001",
+      "flashcard": {
+        "front": "A shop tech lists items installed in a business jet cabin. Which one belongs to the electrical system, not the CMS?",
+        "back": "The generator control unit is electrical power infrastructure, not CMS equipment."
+      },
+      "jeopardy": {
+        "clue": "This power-regulation LRU lives in the electrical system, even though a tech may mistake it for a CMS box.",
+        "choices": [
+          "Generator control unit",
+          "Cabin audio amplifier",
+          "Seat control module",
+          "Window shade controller"
+        ],
+        "correctIndex": 0
+      },
+      "multipleChoice": {
+        "question": "A technician reviews equipment installed on a business jet. Which component belongs to the aircraft electrical system rather than the cabin management system?",
+        "choices": [
+          "The generator control unit regulates bus power.",
+          "The audio and video distribution unit routes media.",
+          "The cabin central processing unit runs CMS software.",
+          "The cabin lighting controller drives LED dimmers."
+        ],
+        "correctIndex": 0
+      },
+      "practice": {
+        "scenario": "You are inventorying LRUs during a pre-installation walk-through on a Challenger 350. The list includes a generator control unit, an audio and video distribution unit, a cabin central processing unit, and a lighting controller.",
+        "question": "Which LRU on the list is part of the aircraft electrical system rather than the cabin management system?",
+        "choices": [
+          "The generator control unit is electrical system equipment.",
+          "The audio and video distribution unit is electrical equipment.",
+          "The cabin central processor is electrical system hardware.",
+          "The cabin lighting controller is electrical system gear."
+        ],
+        "correctIndex": 0
+      },
+      "preassessment": {
+        "question": "Which of these LRUs is part of the aircraft electrical system instead of the CMS?",
+        "choices": [
+          "The generator control unit is an electrical system LRU.",
+          "The A/V distribution unit is an electrical system LRU.",
+          "The CMS central processor is an electrical system LRU.",
+          "The lighting controller is an electrical system LRU."
+        ],
+        "correctIndex": 0
+      }
+    },
+    {
+      "id": "ADV1-002",
+      "category": "adv1-cabin-management-systems",
+      "difficulty": "medium",
+      "tags": [
+        "cms",
+        "troubleshooting",
+        "ife",
+        "methodology"
+      ],
+      "learningObjective": "Identify troubleshooting actions that violate systematic methodology on an IFE fault.",
+      "fullObjective": "Given an IFE troubleshooting scenario, select the action that violates systematic fault-isolation principles.",
+      "targetSourceStem": "ADV1-002",
+      "flashcard": {
+        "front": "Which IFE troubleshooting action violates systematic fault-isolation principles?",
+        "back": "Swapping LRUs before diagnosing the fault; replacement happens after isolation, not before."
+      },
+      "jeopardy": {
+        "clue": "Doing this before actually diagnosing an IFE fault turns troubleshooting into parts roulette.",
+        "choices": [
+          "Reading fault codes from the diagnostic port",
+          "Swapping LRUs before diagnosing the fault",
+          "Confirming the pilot report with the crew",
+          "Verifying power and ground at the connector"
+        ],
+        "correctIndex": 1
+      },
+      "multipleChoice": {
+        "question": "An IFE unit is inoperative. Which troubleshooting action violates systematic fault-isolation principles?",
+        "choices": [
+          "Verifying the crew-reported symptom first confirms the issue.",
+          "Swapping LRUs before the fault is diagnosed wastes parts.",
+          "Reviewing the diagnostic interface shows stored fault codes.",
+          "Checking power and ground at the LRU connector isolates supply faults."
+        ],
+        "correctIndex": 1
+      },
+      "practice": {
+        "scenario": "A Falcon 7X pilot reports that the aft IFE screen is black while the forward screen works. You have 45 minutes before the next departure.",
+        "question": "Which troubleshooting action would violate systematic fault-isolation principles?",
+        "choices": [
+          "Measuring power and ground at the connector is proper.",
+          "Swapping LRUs before the fault is isolated is improper technique.",
+          "Pulling stored fault codes from the diagnostic port is proper.",
+          "Confirming the reported symptom first is proper technique."
+        ],
+        "correctIndex": 1
+      },
+      "preassessment": {
+        "question": "Which IFE troubleshooting action violates systematic fault-isolation principles?",
+        "choices": [
+          "Reading stored fault codes is systematic.",
+          "Replacing LRUs before diagnosis is non-systematic.",
+          "Confirming crew complaint first is systematic.",
+          "Testing connector power and ground is systematic."
+        ],
+        "correctIndex": 1
+      }
+    },
+    {
+      "id": "ADV1-003",
+      "category": "adv1-cabin-management-systems",
+      "difficulty": "medium",
+      "tags": [
+        "cms",
+        "software-update",
+        "configuration",
+        "backup"
+      ],
+      "learningObjective": "Identify shortcuts during CMS software updates that risk permanent configuration loss.",
+      "fullObjective": "Given a CMS software-update scenario, identify which shortcut creates risk of permanent loss of customer configuration.",
+      "targetSourceStem": "ADV1-003",
+      "flashcard": {
+        "front": "During a quick-turn CMS software update, which shortcut risks permanent loss of the customer configuration?",
+        "back": "Skipping the configuration backup step; without a backup, restoring settings after a failed load is impossible."
+      },
+      "jeopardy": {
+        "clue": "Skipping this save step before a CMS load can erase the owner's cabin settings for good.",
+        "choices": [
+          "Confirming hardware compatibility first",
+          "Using manufacturer-approved media",
+          "Skipping the configuration backup step",
+          "Removing power before inserting media"
+        ],
+        "correctIndex": 2
+      },
+      "multipleChoice": {
+        "question": "A tech is preparing a CMS software update on a tight schedule. Which shortcut creates a risk of permanent configuration loss?",
+        "choices": [
+          "Powering down before inserting media protects interfaces.",
+          "Using manufacturer-approved media reduces install errors.",
+          "Skipping the configuration backup step removes any restore path.",
+          "Verifying hardware compatibility prevents mismatches."
+        ],
+        "correctIndex": 2
+      },
+      "practice": {
+        "scenario": "A Gulfstream G650 is on a quick-turn and needs a CMS software update in 30 minutes. The owner's custom scene presets and wallpaper are stored only on the CPU.",
+        "question": "Which shortcut during the update would create a risk of permanent configuration loss?",
+        "choices": [
+          "Verifying hardware compatibility risks permanent loss of data.",
+          "Using approved media risks permanent loss of customer data.",
+          "Skipping the backup step risks permanent loss of customer data.",
+          "Powering down before media insert risks permanent loss."
+        ],
+        "correctIndex": 2
+      },
+      "preassessment": {
+        "question": "Which CMS update shortcut risks permanent loss of the customer configuration?",
+        "choices": [
+          "Verifying hardware compatibility creates loss risk.",
+          "Using approved install media creates loss risk.",
+          "Skipping the configuration backup creates loss risk.",
+          "Powering down before media insertion creates loss risk."
+        ],
+        "correctIndex": 2
+      }
+    },
+    {
+      "id": "ADV1-004",
+      "category": "adv1-cabin-management-systems",
+      "difficulty": "medium",
+      "tags": [
+        "cms",
+        "emi",
+        "wiring",
+        "interference"
+      ],
+      "learningObjective": "Identify wiring actions that increase EMI on CMS displays.",
+      "fullObjective": "Given a CMS EMI complaint, identify which technician action would increase rather than reduce the interference.",
+      "targetSourceStem": "ADV1-004",
+      "flashcard": {
+        "front": "A crew reports EMI on CMS displays. Which technician action would likely make the interference worse?",
+        "back": "Routing data cables near relay junction boxes; switching transients inject noise onto nearby conductors."
+      },
+      "jeopardy": {
+        "clue": "Running CMS cabling right next to these switching boxes bathes data lines in transient EMI.",
+        "choices": [
+          "Cabin LED strip returns",
+          "Grounded cold-air ducts",
+          "Carbon-fiber floorboards",
+          "Relay junction boxes"
+        ],
+        "correctIndex": 3
+      },
+      "multipleChoice": {
+        "question": "The crew logs a squawk that EMI is disrupting CMS screens. Out of the troubleshooting steps below, which one would actually make the problem worse?",
+        "choices": [
+          "Moving cables away from radar waveguide runs reduces pickup.",
+          "Verifying shield and bond integrity reduces coupled noise.",
+          "Locating the noise source with a spectrum analyzer helps isolate it.",
+          "Routing CMS cables close to relay junction boxes adds noise coupling."
+        ],
+        "correctIndex": 3
+      },
+      "practice": {
+        "scenario": "On a Hawker 800XP, the crew complains of horizontal bars and flicker on CMS displays whenever the galley loads cycle. You are planning wire-routing changes.",
+        "question": "Which action would most likely increase rather than decrease the interference?",
+        "choices": [
+          "Separating data cables from radar waveguide reduces EMI.",
+          "Checking shielding and bonding integrity would reduce EMI.",
+          "Using a spectrum analyzer to find the source reduces EMI.",
+          "Running data cables close to relay junction boxes increases EMI."
+        ],
+        "correctIndex": 3
+      },
+      "preassessment": {
+        "question": "Which technician action on CMS wiring would increase EMI on the displays?",
+        "choices": [
+          "Checking shield and ground integrity decreases EMI.",
+          "Moving cables away from radar waveguide decreases EMI.",
+          "Using a spectrum analyzer helps decrease EMI.",
+          "Routing cables near relay boxes increases EMI exposure."
+        ],
+        "correctIndex": 3
+      }
+    },
+    {
+      "id": "ADV1-005",
+      "category": "adv1-cabin-management-systems",
+      "difficulty": "easy",
+      "tags": [
+        "cms",
+        "bit",
+        "diagnostics",
+        "coverage"
+      ],
+      "learningObjective": "Recognize that testing a single CMS subsystem does not validate the whole system.",
+      "fullObjective": "Given a partial CMS diagnostic routine, explain why running BIT on only one subsystem fails to validate the entire CMS.",
+      "targetSourceStem": "ADV1-005",
+      "flashcard": {
+        "front": "A tech runs BIT only on CMS lighting. Why is this approach incomplete?",
+        "back": "The other CMS subsystems (IFE, A/V, seat, climate) stay untested and may still harbor faults."
+      },
+      "jeopardy": {
+        "clue": "Running BIT on only cabin lighting leaves these other CMS areas still in the dark.",
+        "choices": [
+          "The remaining CMS subsystems",
+          "The generator control unit output",
+          "The Mode S transponder reply",
+          "The traffic advisory processor"
+        ],
+        "correctIndex": 0
+      },
+      "multipleChoice": {
+        "question": "During routine maintenance a tech runs built-in test only on the CMS lighting. Why is this approach incomplete?",
+        "choices": [
+          "The other CMS subsystems remain untested and potentially faulted.",
+          "Built-in test cannot detect any lighting faults reliably.",
+          "Lighting is not actually part of the CMS function set.",
+          "Lighting should always be the last subsystem to be tested."
+        ],
+        "correctIndex": 0
+      },
+      "practice": {
+        "scenario": "You sign off a CMS return-to-service after running built-in test on lighting only. The next flight reveals a failed A/V distribution unit.",
+        "question": "Why was your diagnostic routine incomplete?",
+        "choices": [
+          "Other CMS subsystems were not tested for faults.",
+          "BIT is incapable of detecting any lighting faults.",
+          "Lighting is not a function of the CMS at all.",
+          "Lighting must always be tested last in sequence."
+        ],
+        "correctIndex": 0
+      },
+      "preassessment": {
+        "question": "Why is running BIT only on CMS lighting an incomplete approach?",
+        "choices": [
+          "Other CMS subsystems remain unverified by the test.",
+          "BIT cannot identify any lighting-related faults.",
+          "Lighting is not considered a CMS function.",
+          "Lighting belongs at the end of the test sequence."
+        ],
+        "correctIndex": 0
+      }
+    },
+    {
+      "id": "ADV1-006",
+      "category": "adv1-cabin-management-systems",
+      "difficulty": "medium",
+      "tags": [
+        "cms",
+        "wireless",
+        "security",
+        "vulnerability"
+      ],
+      "learningObjective": "Identify CMS wireless settings that create security vulnerabilities.",
+      "fullObjective": "Given a CMS wireless-security setup, identify which configuration choice creates an attack surface.",
+      "targetSourceStem": "ADV1-006",
+      "flashcard": {
+        "front": "Which CMS wireless setting creates a security vulnerability?",
+        "back": "Enabling unused wireless features; unused radios expand the attack surface without adding cabin value."
+      },
+      "jeopardy": {
+        "clue": "Leaving these radios turned on even though no one uses them quietly widens the attack surface.",
+        "choices": [
+          "A unique SSID with a strong password",
+          "Unused wireless features",
+          "WPA3 Wi-Fi encryption",
+          "AES-256 Bluetooth encryption"
+        ],
+        "correctIndex": 1
+      },
+      "multipleChoice": {
+        "question": "While locking down the wireless configuration on a CMS, which of the following options actually degrades cabin network security?",
+        "choices": [
+          "Enabling WPA3 on Wi-Fi provides strong cabin encryption.",
+          "Enabling unused wireless features expands the attack surface.",
+          "Enabling AES-256 on Bluetooth hardens the Bluetooth link.",
+          "Enabling a unique SSID plus strong password reduces risk."
+        ],
+        "correctIndex": 1
+      },
+      "practice": {
+        "scenario": "You are finalizing CMS wireless security on a new-delivery Praetor 600 before release to the owner. The CMS supports Wi-Fi, Bluetooth, and discovery broadcasts.",
+        "question": "Which configuration choice would create a security vulnerability?",
+        "choices": [
+          "Enabling WPA3 encryption on the Wi-Fi hardens security.",
+          "Leaving unused wireless features enabled creates vulnerability.",
+          "Enabling AES-256 on the Bluetooth link hardens security.",
+          "Using a unique SSID with a strong password hardens security."
+        ],
+        "correctIndex": 1
+      },
+      "preassessment": {
+        "question": "Which CMS wireless setting creates a security vulnerability?",
+        "choices": [
+          "Applying WPA3 on Wi-Fi hardens the link.",
+          "Leaving unused features active creates vulnerability.",
+          "Applying AES-256 on Bluetooth hardens the link.",
+          "Using a unique SSID and strong password hardens the link."
+        ],
+        "correctIndex": 1
+      }
+    },
+    {
+      "id": "ADV1-007",
+      "category": "adv1-cabin-management-systems",
+      "difficulty": "medium",
+      "tags": [
+        "cms",
+        "displays",
+        "blank-screen",
+        "troubleshooting"
+      ],
+      "learningObjective": "Identify items unrelated to CMS display failures.",
+      "fullObjective": "Given a list of possible failure causes for a blank CMS display, select the item that is unrelated to CMS display operation.",
+      "targetSourceStem": "ADV1-007",
+      "flashcard": {
+        "front": "Which item on the list is unrelated to a blank CMS display?",
+        "back": "Navigation database cycle expiration; the nav database drives the FMS, not the cabin display."
+      },
+      "jeopardy": {
+        "clue": "An expired one of these affects the FMS, not a blank CMS screen.",
+        "choices": [
+          "A backlight inverter circuit",
+          "A display power supply rail",
+          "A navigation database cycle",
+          "A display connector pin"
+        ],
+        "correctIndex": 2
+      },
+      "multipleChoice": {
+        "question": "While working an inoperative CMS screen, a technician reviews possible root causes. Which item on the list would NOT produce a blank-display symptom?",
+        "choices": [
+          "A failed backlight inverter can make the display appear blank.",
+          "Power supply voltage out of tolerance can blank the display.",
+          "Navigation database cycle expiration has no effect on CMS displays.",
+          "Corroded connector pins can interrupt display signals."
+        ],
+        "correctIndex": 2
+      },
+      "practice": {
+        "scenario": "A Citation Longitude arrives with a blank bulkhead CMS display. Another tech suggests the nav database has expired and wants to chase that lead.",
+        "question": "Which item on the troubleshooting list is actually unrelated to CMS display failures?",
+        "choices": [
+          "A failed backlight inverter is related to blank-display failures.",
+          "Power supply voltage out of tolerance is related to display failures.",
+          "The navigation database cycle is unrelated to CMS displays.",
+          "Corroded connector pins are related to display signal failures."
+        ],
+        "correctIndex": 2
+      },
+      "preassessment": {
+        "question": "Which cause is unrelated to a blank CMS display?",
+        "choices": [
+          "Corroded display connector pins are related to CMS displays.",
+          "Out-of-tolerance display power is related to CMS displays.",
+          "An expired navigation database is unrelated to CMS displays.",
+          "A failed backlight inverter is related to CMS displays."
+        ],
+        "correctIndex": 2
+      }
+    },
+    {
+      "id": "ADV1-008",
+      "category": "adv1-cabin-management-systems",
+      "difficulty": "medium",
+      "tags": [
+        "cms",
+        "touchscreen",
+        "troubleshooting",
+        "voltage"
+      ],
+      "learningObjective": "Determine first measurement for a blank CMS touchscreen with the breaker set.",
+      "fullObjective": "Given a blank CMS touchscreen with the circuit breaker engaged, determine the first electrical measurement a technician should take.",
+      "targetSourceStem": "ADV1-008",
+      "flashcard": {
+        "front": "A CMS touchscreen is blank with its CB in. What measurement should the tech take first?",
+        "back": "Bus voltage at the display power connector; confirm the display is actually receiving power before checking data or software."
+      },
+      "jeopardy": {
+        "clue": "With the breaker set and the screen dark, you grab a DMM and read this first.",
+        "choices": [
+          "Touch calibration at the screen face",
+          "Data bus traffic on the CMS network",
+          "Installed software version in the menu",
+          "Bus voltage at the display power connector"
+        ],
+        "correctIndex": 3
+      },
+      "multipleChoice": {
+        "question": "A CMS touchscreen shows a blank display and its circuit breaker is set. Which measurement should the technician take first?",
+        "choices": [
+          "Data bus activity on the CMS network should be measured first.",
+          "Touchscreen calibration at the screen surface should be checked first.",
+          "Installed software version in the diagnostic menu should be read first.",
+          "Bus voltage at the display power connector should be measured first."
+        ],
+        "correctIndex": 3
+      },
+      "practice": {
+        "scenario": "A Learjet 75 arrives with a fully blank aft cabin touchscreen. You verify the associated circuit breaker is in and the cabin master is on.",
+        "question": "What measurement should you take first?",
+        "choices": [
+          "Check data bus activity on the CMS network first.",
+          "Check touch calibration at the screen surface first.",
+          "Check software version in the diagnostic menu first.",
+          "Check bus voltage at the display power connector first."
+        ],
+        "correctIndex": 3
+      },
+      "preassessment": {
+        "question": "Which measurement comes first on a blank CMS touchscreen with its breaker set?",
+        "choices": [
+          "Touchscreen surface calibration comes first.",
+          "Data bus activity on the CMS network comes first.",
+          "Installed software version comes first.",
+          "Bus voltage at the display power connector comes first."
+        ],
+        "correctIndex": 3
+      }
+    }
+  ]
+}

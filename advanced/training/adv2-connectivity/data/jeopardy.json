@@ -1,0 +1,131 @@
+{
+  "metadata": {
+    "module": "adv2",
+    "title": "Connectivity"
+  },
+  "categories": {
+    "Connectivity": [
+      {
+        "id": "ADV2-J001",
+        "clue": "The two core cabin offerings from a business jet connectivity system.",
+        "choices": [
+          "Internet and voice communications",
+          "Flight management computations",
+          "Engine trend monitoring feeds",
+          "Electrical load management"
+        ],
+        "correctIndex": 0,
+        "explanation": "Cabin connectivity provides internet and voice services for passengers and crew; the other options belong to other aircraft systems."
+      },
+      {
+        "id": "ADV2-J002",
+        "clue": "This IEEE networking technology gives modern cabins the bandwidth to stream HD video between devices.",
+        "choices": [
+          "ARINC 429 twisted-pair bus",
+          "Ethernet-based networking",
+          "MIL-STD-1553 data bus",
+          "RS-422 serial interface"
+        ],
+        "correctIndex": 1,
+        "explanation": "Modern CMSs rely on Ethernet networking because legacy avionics buses cannot meet cabin A/V bandwidth demands."
+      },
+      {
+        "id": "ADV2-J003",
+        "clue": "This cabin LRU is the traffic cop between passenger tablets and the satellite modem.",
+        "choices": [
+          "Flight management computer",
+          "Satellite data unit modem",
+          "Cabin network router",
+          "Mode S transponder"
+        ],
+        "correctIndex": 2,
+        "explanation": "The cabin network router routes passenger device traffic onto the SatCom path through the SDU/modem."
+      },
+      {
+        "id": "ADV2-J004",
+        "clue": "This antenna technology shifts its beam via phase control rather than a gimbal motor.",
+        "choices": [
+          "Fixed-mount dipole antenna",
+          "Mechanically steered parabolic dish",
+          "Helical omnidirectional antenna",
+          "Electronically steered phased array"
+        ],
+        "correctIndex": 3,
+        "explanation": "Phased-array antennas steer the beam by controlling element phase, tracking satellites without moving parts."
+      },
+      {
+        "id": "ADV2-J005",
+        "clue": "This AEEC-led body is the reason a Honeywell box can exchange data with a Collins box without drama.",
+        "choices": [
+          "Airlines Electronic Engineering Committee",
+          "International Civil Aviation Organization",
+          "Federal Aviation Administration",
+          "North Atlantic Treaty Organization"
+        ],
+        "correctIndex": 0,
+        "explanation": "The AEEC publishes ARINC standards that define avionics interfaces for multi-vendor interoperability."
+      },
+      {
+        "id": "ADV2-J006",
+        "clue": "This L-band and Ka-band satellite operator runs aviation services like SwiftBroadband and Jet ConneX.",
+        "choices": [
+          "VHF omnidirectional range",
+          "Inmarsat satellite network",
+          "Global Positioning System",
+          "ADS-B surveillance network"
+        ],
+        "correctIndex": 1,
+        "explanation": "Inmarsat is the satellite operator whose aeronautical services deliver broadband to business aircraft."
+      },
+      {
+        "id": "ADV2-J007",
+        "clue": "Operating from about 26.5 to 40 GHz, this band leads the pack for in-flight broadband throughput.",
+        "choices": [
+          "HF band",
+          "VHF band",
+          "Ka-band",
+          "UHF band"
+        ],
+        "correctIndex": 2,
+        "explanation": "Ka-band's wide bandwidth provides the highest data rates currently available for satellite in-flight connectivity."
+      },
+      {
+        "id": "ADV2-J008",
+        "clue": "A network of cellular-style towers in the continental U.S. makes this air-to-ground service possible.",
+        "choices": [
+          "Inmarsat SwiftBroadband",
+          "Iridium Certus satellite link",
+          "GPS-based data link",
+          "Gogo Air-to-Ground system"
+        ],
+        "correctIndex": 3,
+        "explanation": "Gogo's Air-to-Ground network uses ground towers to serve aircraft over land, while Iridium and Inmarsat are satellite-based."
+      },
+      {
+        "id": "ADV2-J009",
+        "clue": "The long trip up to orbit and back gives satellite internet this unavoidable timing penalty.",
+        "choices": [
+          "High latency from the signal path",
+          "Interference from onboard weather radar",
+          "Excessive weight of flight computers",
+          "Incompatibility with cabin data buses"
+        ],
+        "correctIndex": 0,
+        "explanation": "Round-trip signal travel to a satellite introduces latency that affects interactive applications like voice and video."
+      },
+      {
+        "id": "ADV2-J010",
+        "clue": "Follow these AEEC-published interface specifications and your SatCom LRU will shake hands with the aircraft network.",
+        "choices": [
+          "FAA operational safety regulations",
+          "ARINC published interface standards",
+          "NATO military communication protocols",
+          "ICAO flight plan formatting rules"
+        ],
+        "correctIndex": 1,
+        "explanation": "ARINC standards define the electrical and data-bus interfaces that allow SatCom gear to integrate with aircraft avionics networks."
+      }
+    ]
+  },
+  "final": []
+}

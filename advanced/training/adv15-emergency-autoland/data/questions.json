@@ -1,0 +1,695 @@
+{
+  "metadata": {
+    "module": "adv15",
+    "title": "Emergency Autoland"
+  },
+  "questions": [
+    {
+      "id": "ADV15-001",
+      "category": "adv15-emergency-autoland",
+      "difficulty": "standard",
+      "tags": [
+        "eal",
+        "garmin",
+        "servos"
+      ],
+      "learningObjective": "State that a Garmin Emergency Autoland system uses four total servos during an autonomous landing.",
+      "fullObjective": "Given a Garmin Emergency Autoland installation, the technician identifies the total servo count as four.",
+      "targetSourceStem": "How many total servos does a Garmin Emergency Autoland system use to control the aircraft during an autonomous landing?",
+      "flashcard": {
+        "term": "Garmin EAL servo count",
+        "definition": "Garmin's Emergency Autoland system uses four total servos for autonomous aircraft control through landing.",
+        "analogy": "Like a car needing four wheels — four servos give EAL full authority over pitch, roll, yaw, and power/brakes.",
+        "unit": "adv15-emergency-autoland"
+      },
+      "jeopardy": {
+        "question": "This is the total servo count Garmin's Autoland system uses to land the airplane on its own.",
+        "choices": [
+          "Four servos total",
+          "Two servos total",
+          "Six servos total",
+          "Eight servos total"
+        ],
+        "correctIndex": 0,
+        "explanation": "Garmin Autoland uses four total servos."
+      },
+      "multipleChoice": {
+        "question": "How many servos total does the Garmin Emergency Autoland system employ during an autonomous landing?",
+        "choices": [
+          "Four servos total",
+          "Two servos total",
+          "Six servos total",
+          "Eight servos total"
+        ],
+        "correctIndex": 0,
+        "explanation": "The Garmin Emergency Autoland architecture uses four servos."
+      },
+      "practice": {
+        "question": "A tech documents the Garmin Autoland servo count on a sign-off sheet. What number is correct?",
+        "choices": [
+          "Four",
+          "Two",
+          "Six",
+          "Eight"
+        ],
+        "correctIndex": 0,
+        "explanation": "Four servos total; none of the other counts apply."
+      },
+      "preassessment": {
+        "question": "Garmin Emergency Autoland servo count?",
+        "choices": [
+          "Four",
+          "Two",
+          "Six",
+          "Eight"
+        ],
+        "correctIndex": 0
+      }
+    },
+    {
+      "id": "ADV15-002",
+      "category": "adv15-emergency-autoland",
+      "difficulty": "standard",
+      "tags": [
+        "eal",
+        "activation",
+        "pilot-incapacitation"
+      ],
+      "learningObjective": "Identify the two EAL activation triggers: pilot inactivity or a manual Autoland button press.",
+      "fullObjective": "Given EAL activation logic, the technician names pilot inactivity (incapacitation detection) and a manual Autoland button press as the two initiating events.",
+      "targetSourceStem": "What two events can initiate an Emergency Autoland activation sequence?",
+      "flashcard": {
+        "term": "EAL activation triggers",
+        "definition": "Emergency Autoland starts when it detects pilot inactivity or when the Autoland button is manually pressed.",
+        "analogy": "Like a panic alarm — someone hits the button, or the system notices nobody is responding and triggers on its own.",
+        "unit": "adv15-emergency-autoland"
+      },
+      "jeopardy": {
+        "question": "These two events kick off an Emergency Autoland sequence.",
+        "choices": [
+          "Bad weather and low fuel",
+          "Pilot inactivity or Autoland button press",
+          "High pilot stress and rough air",
+          "Engine failure and system malfunction"
+        ],
+        "correctIndex": 1,
+        "explanation": "Inactivity detection or manual button press trigger Autoland."
+      },
+      "multipleChoice": {
+        "question": "Which two events begin the EAL activation sequence?",
+        "choices": [
+          "High pilot stress and rough air",
+          "Pilot inactivity or pressing the Autoland button",
+          "Weather deterioration and low fuel",
+          "Engine failure and system malfunction"
+        ],
+        "correctIndex": 1,
+        "explanation": "These are the two designed triggers for EAL activation."
+      },
+      "practice": {
+        "question": "A pilot becomes unresponsive for an extended period. What will cause EAL to engage?",
+        "choices": [
+          "Engine failure alone",
+          "Inactivity or Autoland button",
+          "Bad weather or low fuel",
+          "High stress and rough air"
+        ],
+        "correctIndex": 1,
+        "explanation": "Inactivity detection triggers EAL automatically; the Autoland button provides manual activation. Either path engages the emergency landing sequence."
+      },
+      "preassessment": {
+        "question": "Which two events initiate EAL?",
+        "choices": [
+          "Weather and low fuel",
+          "Inactivity or button press",
+          "Stress and rough air",
+          "Engine fail and malfunction"
+        ],
+        "correctIndex": 1
+      }
+    },
+    {
+      "id": "ADV15-003",
+      "category": "adv15-emergency-autoland",
+      "difficulty": "standard",
+      "tags": [
+        "eal",
+        "airport-selection",
+        "decision-factors"
+      ],
+      "learningObjective": "List the factors Autoland weighs when selecting a landing airport: traffic, weather, fuel, and landing distance.",
+      "fullObjective": "Given an EAL airport-selection scenario, the technician lists traffic, weather, fuel, and landing distance as the decision factors the system evaluates.",
+      "targetSourceStem": "When selecting a landing airport, the Autoland system evaluates multiple factors. Which set of factors does the system consider?",
+      "flashcard": {
+        "term": "EAL airport-selection factors",
+        "definition": "Autoland evaluates traffic, weather, fuel reserves, and required landing distance when choosing a destination.",
+        "analogy": "Like a dispatcher balancing everything at once — it's not just the closest airport but the best overall fit.",
+        "unit": "adv15-emergency-autoland"
+      },
+      "jeopardy": {
+        "question": "These four factors shape Autoland's airport choice.",
+        "choices": [
+          "Only runway length and width",
+          "Only closest airport distance",
+          "Traffic, weather, fuel, landing distance",
+          "Only airports with instrument approaches"
+        ],
+        "correctIndex": 2,
+        "explanation": "Autoland weighs all four inputs, not just proximity."
+      },
+      "multipleChoice": {
+        "question": "Which group of factors does Autoland consider when selecting a landing airport?",
+        "choices": [
+          "Only airports with instrument approaches",
+          "Only runway length and width",
+          "Traffic, weather, fuel, and landing distance",
+          "Only the closest airport distance"
+        ],
+        "correctIndex": 2,
+        "explanation": "Garmin Autoland uses a multi-factor decision model."
+      },
+      "practice": {
+        "question": "EAL picks a destination using a weighted evaluation. Which factor set does it use?",
+        "choices": [
+          "Instrument-approach airports only",
+          "Runway length and width only",
+          "Traffic, weather, fuel, landing distance",
+          "Closest airport only"
+        ],
+        "correctIndex": 2,
+        "explanation": "The system considers traffic, weather, fuel, and runway suitability."
+      },
+      "preassessment": {
+        "question": "EAL airport-selection factors?",
+        "choices": [
+          "Length and width only",
+          "Closest only",
+          "Traffic, weather, fuel, distance",
+          "Instrument approaches only"
+        ],
+        "correctIndex": 2
+      }
+    },
+    {
+      "id": "ADV15-004",
+      "category": "adv15-emergency-autoland",
+      "difficulty": "standard",
+      "tags": [
+        "eal",
+        "relay-interface-panel",
+        "aircraft-config"
+      ],
+      "learningObjective": "Describe the EAL relay interface panel's role as the component that configures aircraft systems for landing.",
+      "fullObjective": "Given an EAL event, the technician identifies the relay interface panel as the element that configures the aircraft systems for the autonomous landing.",
+      "targetSourceStem": "What function does the EAL relay interface panel perform during an Emergency Autoland event?",
+      "flashcard": {
+        "term": "EAL relay interface panel",
+        "definition": "The panel that orchestrates aircraft system configuration (gear, flaps, deice, etc.) during Emergency Autoland.",
+        "analogy": "Like a smart home hub that flips all the right switches — the relay panel sets the aircraft up for landing.",
+        "unit": "adv15-emergency-autoland"
+      },
+      "jeopardy": {
+        "question": "This panel configures the aircraft systems during an Autoland event.",
+        "choices": [
+          "Communicates with passengers",
+          "Calms the incapacitated pilot",
+          "Disengages the Autoland system",
+          "Configures aircraft systems for landing"
+        ],
+        "correctIndex": 3,
+        "explanation": "The relay interface panel performs the aircraft system configuration."
+      },
+      "multipleChoice": {
+        "question": "Throughout an Emergency Autoland sequence, what is the job of the EAL relay interface panel inside the aircraft systems chain?",
+        "choices": [
+          "It communicates directly with passengers",
+          "It calms the incapacitated pilot",
+          "It disengages the Autoland system",
+          "It configures the aircraft systems for landing"
+        ],
+        "correctIndex": 3,
+        "explanation": "Its primary job is aircraft system configuration via relay switching."
+      },
+      "practice": {
+        "question": "During an Autoland event, which unit actuates the aircraft's systems to get them ready for landing?",
+        "choices": [
+          "Passenger briefing system",
+          "Autoland disengage switch",
+          "Cabin intercom",
+          "Relay interface panel"
+        ],
+        "correctIndex": 3,
+        "explanation": "The relay panel performs the configuration actions."
+      },
+      "preassessment": {
+        "question": "EAL relay interface panel function?",
+        "choices": [
+          "Disengages Autoland mode",
+          "Calms the pilot in command",
+          "Talks to the passengers",
+          "Configures aircraft systems"
+        ],
+        "correctIndex": 3,
+        "explanation": "The EAL relay interface panel drives the relays that configure aircraft systems (gear, flaps, deice, firewall, air data) for landing."
+      }
+    },
+    {
+      "id": "ADV15-005",
+      "category": "adv15-emergency-autoland",
+      "difficulty": "standard",
+      "tags": [
+        "eal",
+        "brake-servos",
+        "hydraulic"
+      ],
+      "learningObjective": "Describe how EAL brake servos connect mechanically to the hydraulic brake master cylinders to stop the aircraft.",
+      "fullObjective": "Given an EAL landing, the technician describes the brake servos as connecting to the hydraulic brake master cylinders to apply braking.",
+      "targetSourceStem": "How do the EAL brake servos bring the aircraft to a stop after touchdown?",
+      "flashcard": {
+        "term": "EAL brake servos",
+        "definition": "Servos mechanically attached to the hydraulic brake master cylinders, applying brake pressure to decelerate the aircraft after touchdown.",
+        "analogy": "Like a robot foot pressing the brake pedal — the servo pushes the master cylinder just as a pilot's foot would.",
+        "unit": "adv15-emergency-autoland"
+      },
+      "jeopardy": {
+        "question": "This is how EAL brake servos stop the airplane after touchdown.",
+        "choices": [
+          "They drive the hydraulic brake master cylinders",
+          "They electronically modulate emergency brakes",
+          "They clamp onto the brake assembly",
+          "They apply reverse thrust via engines"
+        ],
+        "correctIndex": 0,
+        "explanation": "Brake servos connect to the hydraulic master cylinders."
+      },
+      "multipleChoice": {
+        "question": "How do EAL brake servos stop the aircraft after touchdown?",
+        "choices": [
+          "They connect to the hydraulic brake master cylinders",
+          "They electronically modulate the emergency brakes",
+          "They clamp directly onto the brake assembly",
+          "They apply reverse thrust through the engines"
+        ],
+        "correctIndex": 0,
+        "explanation": "Brake servos drive the hydraulic brake master cylinders."
+      },
+      "practice": {
+        "question": "A technician traces the EAL braking path to its mechanical interface. What does it connect to?",
+        "choices": [
+          "Hydraulic brake master cylinders",
+          "An emergency-brake modulator",
+          "A mechanical caliper clamp",
+          "Engine reverse-thrust actuators"
+        ],
+        "correctIndex": 0,
+        "explanation": "The servo interface is the brake master cylinder."
+      },
+      "preassessment": {
+        "question": "EAL brake servos connect to what?",
+        "choices": [
+          "Brake master cylinders",
+          "Emergency-brake modulator",
+          "Caliper clamp",
+          "Engine reverser"
+        ],
+        "correctIndex": 0
+      }
+    },
+    {
+      "id": "ADV15-006",
+      "category": "adv15-emergency-autoland",
+      "difficulty": "standard",
+      "tags": [
+        "eal",
+        "post-landing",
+        "engine-shutdown"
+      ],
+      "learningObjective": "Describe that after Autoland stops the aircraft on the runway, the system shuts down the engines.",
+      "fullObjective": "Given a completed EAL landing and stop, the technician states that the system shuts down the engines on the runway.",
+      "targetSourceStem": "After the Autoland system lands the aircraft and brings it to a stop, what happens next?",
+      "flashcard": {
+        "term": "EAL post-stop action",
+        "definition": "After stopping on the runway, the Autoland system shuts the engines down so first responders can safely approach.",
+        "analogy": "Like a self-driving car that parks and turns itself off — no further motion, safe for rescuers.",
+        "unit": "adv15-emergency-autoland"
+      },
+      "jeopardy": {
+        "question": "This is the Autoland system's final act after the airplane is stopped.",
+        "choices": [
+          "It holds position until emergency crews arrive",
+          "It shuts the engines down on the runway",
+          "It taxis to a safe location",
+          "It taxis off the runway then stops"
+        ],
+        "correctIndex": 1,
+        "explanation": "Autoland shuts down the engines after coming to a stop."
+      },
+      "multipleChoice": {
+        "question": "What does Autoland do once the aircraft is stopped on the runway?",
+        "choices": [
+          "It taxis to a safe location",
+          "It shuts the engines down",
+          "It holds position with engines running",
+          "It taxis off the runway then stops"
+        ],
+        "correctIndex": 1,
+        "explanation": "Engine shutdown is the final, safety-critical action."
+      },
+      "practice": {
+        "question": "A technician reviews EAL sequence-of-events logs. What is logged after 'full stop'?",
+        "choices": [
+          "Taxi off runway then stop",
+          "Engine shutdown command",
+          "Taxi to parking",
+          "Hold-in-place with engines running"
+        ],
+        "correctIndex": 1,
+        "explanation": "The engines are commanded off once the aircraft stops."
+      },
+      "preassessment": {
+        "question": "After EAL stops the aircraft, what's next?",
+        "choices": [
+          "Hold position running",
+          "Engine shutdown",
+          "Taxi to safe area",
+          "Taxi off runway"
+        ],
+        "correctIndex": 1
+      }
+    },
+    {
+      "id": "ADV15-007",
+      "category": "adv15-emergency-autoland",
+      "difficulty": "advanced",
+      "tags": [
+        "eal",
+        "system-configuration",
+        "landing-prep"
+      ],
+      "learningObjective": "List the aircraft systems EAL configures: landing gear, flaps, deice, firewall shutoff, and air data.",
+      "fullObjective": "Given an EAL landing sequence, the technician lists the configured systems as landing gear, flaps, deice, firewall shutoff, and air data.",
+      "targetSourceStem": "What aircraft systems must the EAL configure in preparation for an autonomous landing?",
+      "flashcard": {
+        "term": "EAL configured systems",
+        "definition": "Landing gear, flaps, deice, firewall shutoff, and air data — all configured by EAL to prepare the aircraft for autonomous landing.",
+        "analogy": "Like a pre-landing checklist that runs itself — flaps, gear, heat, fuel cutoff, pitot, all handled automatically.",
+        "unit": "adv15-emergency-autoland"
+      },
+      "jeopardy": {
+        "question": "This full list of systems is what EAL sets up before landing.",
+        "choices": [
+          "Only gear and wing flaps",
+          "Only navigation and comm",
+          "Gear, flaps, deice, air data",
+          "Only autopilot and FD"
+        ],
+        "correctIndex": 2,
+        "explanation": "Autoland configures the full set: gear, flaps, deice, firewall shutoff, and air data."
+      },
+      "multipleChoice": {
+        "question": "To ready the airplane for an automatic touchdown during EAL, what group of airframe subsystems does the logic reconfigure?",
+        "choices": [
+          "Only nav and communication systems",
+          "Only the landing gear and wing flaps",
+          "Gear, flaps, deice, firewall, air data",
+          "Only autopilot and flight director"
+        ],
+        "correctIndex": 2,
+        "explanation": "EAL configures the full list: landing gear, flaps, deice, firewall shutoff, and air data."
+      },
+      "practice": {
+        "question": "A tech writes the EAL preparation steps on a documentation form. What list belongs there?",
+        "choices": [
+          "Only autopilot and flight director",
+          "Only gear and flaps",
+          "Gear, flaps, deice, air data",
+          "Only nav and comm"
+        ],
+        "correctIndex": 2,
+        "explanation": "EAL preparation includes the full canonical list: gear, flaps, deice, firewall shutoff, and air data."
+      },
+      "preassessment": {
+        "question": "Which systems does EAL configure?",
+        "choices": [
+          "AP and FD systems only",
+          "Gear and flaps only",
+          "Gear, flaps, deice, air data",
+          "Nav and comm systems"
+        ],
+        "correctIndex": 2,
+        "explanation": "EAL configures the full landing set: gear, flaps, deice, firewall shutoff, and air data."
+      }
+    },
+    {
+      "id": "ADV15-008",
+      "category": "adv15-emergency-autoland",
+      "difficulty": "advanced",
+      "tags": [
+        "eal",
+        "throttle-servos",
+        "pedestal"
+      ],
+      "learningObjective": "State that EAL throttle servos are installed in the pedestal and mechanically connected to the throttle levers.",
+      "fullObjective": "Given an EAL throttle servo installation, the technician describes it as located in the pedestal with a mechanical connection to the throttle levers.",
+      "targetSourceStem": "Where are the EAL throttle servos physically installed in the aircraft?",
+      "flashcard": {
+        "term": "EAL throttle servo location",
+        "definition": "Installed in the pedestal and mechanically connected to the throttle levers to adjust power during EAL.",
+        "analogy": "Like a robot arm mounted in the center console — it grabs the throttle and moves it exactly like a pilot.",
+        "unit": "adv15-emergency-autoland"
+      },
+      "jeopardy": {
+        "question": "This is where you'll find the EAL throttle servo and what it connects to.",
+        "choices": [
+          "In the avionics bay, linked to the relay panel",
+          "In the nacelles, linked to fuel controls",
+          "In the wing roots, with independent linkage",
+          "In the pedestal, mechanically linked to throttle levers"
+        ],
+        "correctIndex": 3,
+        "explanation": "Throttle servos live in the pedestal and drive the throttle levers."
+      },
+      "multipleChoice": {
+        "question": "For the EAL throttle servo pair, where is the hardware mounted in the airframe and what does it actuate?",
+        "choices": [
+          "In the avionics bay connected to the relay panel",
+          "In the engine nacelles connected to fuel controls",
+          "In the wing roots with independent throttle linkage",
+          "In the pedestal, mechanically connected to the throttle levers"
+        ],
+        "correctIndex": 3,
+        "explanation": "Pedestal-mounted throttle servos drive the existing throttle levers."
+      },
+      "practice": {
+        "question": "A technician opens the pedestal during an EAL install. What components are present there?",
+        "choices": [
+          "Engine-nacelle fuel control servos",
+          "Avionics bay relay servos",
+          "Wing-root throttle actuators",
+          "Throttle servos linked to throttle levers"
+        ],
+        "correctIndex": 3,
+        "explanation": "The throttle servos mount in the pedestal area."
+      },
+      "preassessment": {
+        "question": "EAL throttle servo location?",
+        "choices": [
+          "Wing roots",
+          "Nacelles, fuel controls",
+          "Avionics bay",
+          "Pedestal, on throttle levers"
+        ],
+        "correctIndex": 3
+      }
+    },
+    {
+      "id": "ADV15-009",
+      "category": "adv15-emergency-autoland",
+      "difficulty": "advanced",
+      "tags": [
+        "eal",
+        "avionics-platform",
+        "g1000-nxi",
+        "gfc-700"
+      ],
+      "learningObjective": "Identify the Garmin G1000 NXi flight deck with GFC 700 autopilot as the required avionics basis for EAL.",
+      "fullObjective": "Given an EAL installation requirement, the technician names the Garmin G1000 NXi flight deck with GFC 700 autopilot as the required avionics platform.",
+      "targetSourceStem": "Which avionics platform is required as the basis for an Emergency Autoland installation?",
+      "flashcard": {
+        "term": "EAL required avionics",
+        "definition": "The Garmin G1000 NXi flight deck paired with the GFC 700 digital autopilot forms the basis for Emergency Autoland.",
+        "analogy": "Like a specific model of phone required to run a specific app — EAL only works on G1000 NXi + GFC 700.",
+        "unit": "adv15-emergency-autoland"
+      },
+      "jeopardy": {
+        "question": "This is the required avionics platform for a Garmin Autoland installation.",
+        "choices": [
+          "G1000 NXi with GFC 700",
+          "TXi with GFC 600",
+          "GTN navigator series",
+          "Any Garmin autopilot"
+        ],
+        "correctIndex": 0,
+        "explanation": "Emergency Autoland is certified on G1000 NXi with GFC 700."
+      },
+      "multipleChoice": {
+        "question": "Which Garmin flight-deck and autopilot combination is required for Emergency Autoland?",
+        "choices": [
+          "G1000 NXi flight deck with GFC 700 autopilot",
+          "TXi flight deck with GFC 600 autopilot",
+          "GTN navigator series only",
+          "Any Garmin autopilot-equipped aircraft"
+        ],
+        "correctIndex": 0,
+        "explanation": "EAL requires the G1000 NXi + GFC 700 combination."
+      },
+      "practice": {
+        "question": "A sales quote lists EAL as an option. Which avionics platform is mandatory?",
+        "choices": [
+          "G1000 NXi with GFC 700",
+          "TXi with GFC 600",
+          "GTN alone",
+          "Any Garmin autopilot"
+        ],
+        "correctIndex": 0,
+        "explanation": "Only the G1000 NXi paired with the GFC 700 supports EAL."
+      },
+      "preassessment": {
+        "question": "Required avionics for EAL?",
+        "choices": [
+          "G1000 NXi + GFC 700",
+          "TXi plus GFC 600",
+          "GTN navigator only",
+          "Any Garmin autopilot"
+        ],
+        "correctIndex": 0,
+        "explanation": "EAL requires a G1000 NXi integrated flight deck paired with a GFC 700 autopilot."
+      }
+    },
+    {
+      "id": "ADV15-010",
+      "category": "adv15-emergency-autoland",
+      "difficulty": "standard",
+      "tags": [
+        "eal",
+        "approved-use",
+        "emergency-only"
+      ],
+      "learningObjective": "State that Emergency Autoland is approved for emergency use only and not as a general-purpose convenience.",
+      "fullObjective": "Given a scenario where a pilot wants to use EAL for fatigue management, the technician states that EAL is approved only for emergency situations.",
+      "targetSourceStem": "A pilot wants to use the Autoland system because they are fatigued on a long flight. Is this an approved use of the system?",
+      "flashcard": {
+        "term": "EAL approved use",
+        "definition": "Emergency Autoland is a safety-critical system approved only for genuine emergency (pilot-incapacitation) use.",
+        "analogy": "Like a car's airbag — it's reserved for crashes, not everyday driving convenience.",
+        "unit": "adv15-emergency-autoland"
+      },
+      "jeopardy": {
+        "question": "This is the simple rule governing when EAL may be used.",
+        "choices": [
+          "Only for practice approaches",
+          "Emergencies only",
+          "When the copilot seat is empty",
+          "Any reason the pilot wishes"
+        ],
+        "correctIndex": 1,
+        "explanation": "EAL is explicitly reserved for emergency situations."
+      },
+      "multipleChoice": {
+        "question": "Is activating Autoland because the pilot is fatigued an approved use of the system?",
+        "choices": [
+          "Yes, if the copilot seat is empty",
+          "No, EAL is for emergency situations only",
+          "Yes, it can be used for any reason",
+          "No, but practice approaches are allowed"
+        ],
+        "correctIndex": 1,
+        "explanation": "EAL is limited to emergency use."
+      },
+      "practice": {
+        "question": "A customer asks a technician if Autoland can be used just to rest on a long leg. What is the correct answer?",
+        "choices": [
+          "Yes, any reason is fine",
+          "No, EAL is emergency-use only",
+          "Yes if the copilot seat is empty",
+          "Only for practice approaches"
+        ],
+        "correctIndex": 1,
+        "explanation": "EAL cannot be used for non-emergency convenience."
+      },
+      "preassessment": {
+        "question": "Is fatigue an approved use for EAL?",
+        "choices": [
+          "Only for practice",
+          "No, emergency only",
+          "Yes if copilot absent",
+          "Yes, any reason"
+        ],
+        "correctIndex": 1
+      }
+    },
+    {
+      "id": "ADV15-011",
+      "category": "adv15-emergency-autoland",
+      "difficulty": "standard",
+      "tags": [
+        "eal",
+        "atc-communication",
+        "transponder"
+      ],
+      "learningObjective": "State that EAL communicates with ATC and transmits an emergency transponder code.",
+      "fullObjective": "Given EAL communication capabilities, the technician states that the system both communicates with ATC and sets an emergency transponder code.",
+      "targetSourceStem": "Does the Emergency Autoland system have the ability to communicate with air traffic control?",
+      "flashcard": {
+        "term": "EAL ATC comms",
+        "definition": "EAL communicates with ATC and simultaneously squawks an emergency transponder code to clear airspace.",
+        "analogy": "Like an emergency dispatcher radioing for help while also triggering a silent alarm — both channels open at once.",
+        "unit": "adv15-emergency-autoland"
+      },
+      "jeopardy": {
+        "question": "EAL uses both of these channels to announce the emergency to ATC.",
+        "choices": [
+          "Only an emergency transponder code",
+          "Voice messages to airport tower only",
+          "ATC voice and emergency squawk code",
+          "Only the ELT emergency beacon"
+        ],
+        "correctIndex": 2,
+        "explanation": "EAL talks to ATC and squawks the emergency transponder code simultaneously."
+      },
+      "multipleChoice": {
+        "question": "Does Emergency Autoland provide ATC communication, and if so, how?",
+        "choices": [
+          "No, it only sets a transponder emergency code",
+          "Yes, it transmits voice messages only to the tower",
+          "Yes, it transmits to ATC and squawks emergency",
+          "No, it only triggers the emergency locator beacon"
+        ],
+        "correctIndex": 2,
+        "explanation": "EAL transmits to ATC over the radio and simultaneously sets the emergency transponder code."
+      },
+      "practice": {
+        "question": "During an EAL event, what does the system do on the comm/xpdr side?",
+        "choices": [
+          "Transponder only",
+          "Voice to airport tower only",
+          "Talks to ATC and squawks emergency",
+          "ELT only"
+        ],
+        "correctIndex": 2,
+        "explanation": "Both ATC communication and emergency squawk are active."
+      },
+      "preassessment": {
+        "question": "Does EAL talk to ATC?",
+        "choices": [
+          "No, only the ELT activates",
+          "Yes, tower voice only",
+          "Yes, ATC voice and squawk",
+          "No, only the transponder"
+        ],
+        "correctIndex": 2,
+        "explanation": "EAL both transmits to ATC and sets an emergency transponder code."
+      }
+    }
+  ]
+}

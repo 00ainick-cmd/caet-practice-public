@@ -1,0 +1,1079 @@
+{
+  "metadata": {
+    "module": "adv10",
+    "title": "Wire Harness Fabrication"
+  },
+  "questions": [
+    {
+      "id": "ADV10-001",
+      "category": "adv10-wire-harness-fabrication",
+      "difficulty": "advanced",
+      "tags": [
+        "AWG",
+        "wire-sizing",
+        "conductor"
+      ],
+      "learningObjective": "Identify the physical property governed by the AWG number.",
+      "fullObjective": "Given a wire gauge specification, identify the conductor physical property that the American Wire Gauge number represents.",
+      "targetSourceStem": "The American Wire Gauge system assigns numbers to wire sizes. What physical property determines the AWG number?",
+      "flashcard": {
+        "front": "What physical property of a conductor does the American Wire Gauge number represent?",
+        "back": "The conductor's cross-sectional area (circular-mil area).",
+        "explanation": "AWG is a dimensional standard tied to circular-mil cross-sectional area. Current capacity and resistance are consequences of the area, insulation, and length, not the defining property."
+      },
+      "jeopardy": {
+        "category": "WIRE SIZING",
+        "clue": "This conductor property is what the American Wire Gauge number directly quantifies.",
+        "choices": [
+          "Cross-sectional area of the conductor",
+          "Maximum current carrying capacity",
+          "Conductor material composition",
+          "Electrical resistance per foot"
+        ],
+        "correctIndex": 0,
+        "explanation": "AWG is a dimensional standard that specifies the conductor's cross-sectional area."
+      },
+      "multipleChoice": {
+        "stem": "Which conductor physical property is used to assign a specific American Wire Gauge number to a wire?",
+        "choices": [
+          "The cross-sectional area of the conductor",
+          "The maximum current carrying capacity",
+          "The conductor material composition",
+          "The electrical resistance per foot"
+        ],
+        "correctIndex": 0,
+        "explanation": "AWG is defined by the conductor cross-sectional area, measured in circular mils."
+      },
+      "practice": {
+        "stem": "A technician selects wire by AWG number. Which physical property does the AWG number represent?",
+        "choices": [
+          "Cross-sectional area of the conductor",
+          "Maximum allowable current rating",
+          "Type of metal used in the conductor",
+          "DC resistance per foot of the conductor"
+        ],
+        "correctIndex": 0,
+        "explanation": "AWG classifies wires by cross-sectional area. Ampacity and resistance are consequences of that area."
+      },
+      "preassessment": {
+        "stem": "What property of a wire does the AWG number represent?",
+        "choices": [
+          "Conductor cross-section",
+          "Current carrying capacity",
+          "Conductor material type",
+          "Resistance per foot"
+        ],
+        "correctIndex": 0,
+        "explanation": "AWG designates the conductor's cross-sectional area; current capacity and resistance per foot are consequences of that area, not the defining quantity."
+      }
+    },
+    {
+      "id": "ADV10-002",
+      "category": "adv10-wire-harness-fabrication",
+      "difficulty": "advanced",
+      "tags": [
+        "stripping",
+        "backshell",
+        "precision-tool"
+      ],
+      "learningObjective": "Select the correct stripping tool for insulation removal inside a connector backshell.",
+      "fullObjective": "Given a wire preparation task inside a crowded connector backshell, select the stripping tool that provides the most precise and damage-free insulation removal.",
+      "targetSourceStem": "A technician needs to strip insulation for a termination inside a crowded connector backshell. Which tool provides the best precision?",
+      "flashcard": {
+        "front": "Which stripping tool provides the best precision when stripping insulation inside a crowded connector backshell?",
+        "back": "A calibrated manual stripper with the correct die for the wire's gauge and insulation.",
+        "explanation": "Calibrated dies match AWG and insulation thickness, removing insulation cleanly without nicking strands. Self-adjusting and pliers-type strippers lack that precision for connector work."
+      },
+      "jeopardy": {
+        "category": "STRIPPING TOOLS",
+        "clue": "This stripping tool, matched with the correct dies, gives the cleanest insulation removal near a connector backshell.",
+        "choices": [
+          "Automatic self-adjusting wire stripper",
+          "Calibrated manual stripper with correct dies",
+          "Electrician's pliers with a stripper notch",
+          "Razor blade rotated around the insulation"
+        ],
+        "correctIndex": 1,
+        "explanation": "A calibrated manual stripper with gauge-specific dies gives the cleanest removal and protects the conductor strands."
+      },
+      "multipleChoice": {
+        "stem": "Working within a crowded connector backshell, which stripping tool gives the best precision for insulation removal?",
+        "choices": [
+          "A razor blade rotated around the insulation",
+          "A calibrated manual stripper with correct dies",
+          "Electrician's pliers with a stripper notch",
+          "An automatic self-adjusting wire stripper"
+        ],
+        "correctIndex": 1,
+        "explanation": "A calibrated manual stripper with matched dies cuts cleanly without nicking strands and fits in tight spaces."
+      },
+      "practice": {
+        "stem": "A technician must strip tight-tolerance wires inside a MIL-DTL-38999 backshell. Which stripping tool is the best choice?",
+        "choices": [
+          "An automatic self-adjusting stripper",
+          "A calibrated manual stripper with correct dies",
+          "Electrician's pliers with a stripper notch",
+          "A razor blade rotated around the wire"
+        ],
+        "correctIndex": 1,
+        "explanation": "Calibrated dies matched to the wire deliver repeatable, clean strips without damaging strands."
+      },
+      "preassessment": {
+        "stem": "Which stripping tool is best for a backshell termination?",
+        "choices": [
+          "Electrician's pliers with notch",
+          "Calibrated manual stripper/dies",
+          "Automatic self-adjusting stripper",
+          "Razor blade rotation method"
+        ],
+        "correctIndex": 1,
+        "explanation": "Calibrated manual strippers with dies matched to the wire gauge are the approved tool; notched pliers, self-adjusting strippers, and razor blades damage conductors."
+      }
+    },
+    {
+      "id": "ADV10-003",
+      "category": "adv10-wire-harness-fabrication",
+      "difficulty": "advanced",
+      "tags": [
+        "flight-controls",
+        "interference",
+        "clamping"
+      ],
+      "learningObjective": "Prioritize a flight-control interference check before securing a wire bundle.",
+      "fullObjective": "Given a new wire bundle routed near flight controls, identify the most critical pre-release verification to prevent interference.",
+      "targetSourceStem": "Before securing a new wire bundle near flight controls, what is the most critical verification?",
+      "flashcard": {
+        "front": "Before securing a wire bundle near flight controls, what is the most critical verification?",
+        "back": "Cycle the controls through their full range of travel and confirm the bundle never contacts moving surfaces.",
+        "explanation": "Clamp hardware, 1/2-inch spacing, and drip loops are all important, but none replace the regulatory requirement to prove no interference across the full control travel."
+      },
+      "jeopardy": {
+        "category": "INSTALLATION SAFETY",
+        "clue": "This full-range verification is the most critical check before releasing a new wire bundle near flight controls.",
+        "choices": [
+          "The bundle has a drip loop formed before clamping",
+          "Clamp part numbers match the maintenance manual",
+          "Controls move full range without bundle contact",
+          "The bundle sits 1/2 inch from any control cable"
+        ],
+        "correctIndex": 2,
+        "explanation": "Proving no contact throughout the full range of motion is the regulatory requirement and catches clearance issues other checks miss."
+      },
+      "multipleChoice": {
+        "stem": "Before final clamping of a new wire bundle routed near flight controls, which verification is most critical?",
+        "choices": [
+          "Confirm clamps match the manufacturer part number",
+          "Maintain a 1/2-inch bundle offset from control cables",
+          "Cycle controls through full range with no bundle contact",
+          "Install a drip loop at the lowest point of the bundle"
+        ],
+        "correctIndex": 2,
+        "explanation": "No-interference through full control travel is the regulatory acceptance criterion and must be proved before release."
+      },
+      "practice": {
+        "stem": "A technician has routed a new bundle next to elevator control cables. What is the most critical check before the install is released?",
+        "choices": [
+          "Measure a 1/2-inch offset from each control cable",
+          "Verify clamp part numbers match the manual",
+          "Cycle the controls full range with no bundle contact",
+          "Install a drip loop at the lowest run"
+        ],
+        "correctIndex": 2,
+        "explanation": "Full-range control actuation without bundle contact proves that no binding or chafing will occur in service."
+      },
+      "preassessment": {
+        "stem": "What is the most critical verification before securing a bundle near flight controls?",
+        "choices": [
+          "1/2-inch offset from cables",
+          "Clamp part numbers match drawing",
+          "Full control travel clearance",
+          "Drip loop installed at bulkhead"
+        ],
+        "correctIndex": 2,
+        "explanation": "Verify that flight controls move through full travel without contacting the wire bundle."
+      }
+    },
+    {
+      "id": "ADV10-004",
+      "category": "adv10-wire-harness-fabrication",
+      "difficulty": "advanced",
+      "tags": [
+        "bonding",
+        "resistance",
+        "milliohm"
+      ],
+      "learningObjective": "State the maximum acceptable bonding resistance value.",
+      "fullObjective": "Given a bonding-jumper installation and a milliohm resistance reading, state the maximum acceptable resistance between a component and aircraft structure.",
+      "targetSourceStem": "After installing a bonding jumper, the technician measures resistance from the component to aircraft structure. What is the maximum acceptable reading?",
+      "flashcard": {
+        "front": "What is the maximum acceptable DC bonding resistance from a component to aircraft structure?",
+        "back": "0.003 ohm (3 milliohms).",
+        "explanation": "Industry practice and AC 43.13-1B specify bonding resistance of no more than 3 milliohms (0.003 ohm) to minimize voltage drops and lightning currents."
+      },
+      "jeopardy": {
+        "category": "BONDING",
+        "clue": "This is the maximum acceptable DC resistance from a bonded component to airframe structure.",
+        "choices": [
+          "100 ohms for shield ground paths",
+          "1.0 ohm at any measurement frequency",
+          "10 ohms measured at DC voltage",
+          "0.003 ohms (3 milliohms)"
+        ],
+        "correctIndex": 3,
+        "explanation": "Bonding resistance must be 0.003 ohm (3 milliohms) or less per accepted industry practice."
+      },
+      "multipleChoice": {
+        "stem": "After bonding a component to structure, what is the maximum DC resistance measurement allowed?",
+        "choices": [
+          "100 ohms for any shield path",
+          "1.0 ohm at DC",
+          "10 ohms at DC",
+          "0.003 ohm (3 milliohms)"
+        ],
+        "correctIndex": 3,
+        "explanation": "Bonding resistance must be 0.003 ohm or less."
+      },
+      "practice": {
+        "stem": "A tech bonds an LRU tray and reads 0.004 ohm to structure. What is the maximum resistance the reading should be under?",
+        "choices": [
+          "10 ohms at DC",
+          "1.0 ohm at any frequency",
+          "100 ohms for shield-ground paths",
+          "0.003 ohm (3 milliohms)"
+        ],
+        "correctIndex": 3,
+        "explanation": "Accepted DC bonding resistance is 3 milliohms (0.003 ohm); the 0.004-ohm reading is out of limits."
+      },
+      "preassessment": {
+        "stem": "What is the maximum acceptable DC bonding resistance?",
+        "choices": [
+          "10 ohms",
+          "1.0 ohm",
+          "100 ohms",
+          "0.003 ohms"
+        ],
+        "correctIndex": 3,
+        "explanation": "Bonding must be 3 milliohms or less."
+      }
+    },
+    {
+      "id": "ADV10-005",
+      "category": "adv10-wire-harness-fabrication",
+      "difficulty": "advanced",
+      "tags": [
+        "bonding",
+        "shock-mount",
+        "grounding"
+      ],
+      "learningObjective": "Explain why a bonding jumper is required when LRU mounts are non-conductive.",
+      "fullObjective": "Given an LRU tray mounted on non-conductive rubber shock mounts, explain the electrical purpose served by the bonding jumper to structure.",
+      "targetSourceStem": "An LRU tray is mounted on non-conductive rubber shock mounts. Why is a bonding jumper required between the tray and airframe?",
+      "flashcard": {
+        "front": "Why is a bonding jumper required when an LRU tray uses non-conductive rubber shock mounts?",
+        "back": "The jumper completes the electrical ground path from the LRU chassis to the airframe.",
+        "explanation": "Rubber mounts electrically isolate the tray, so without a jumper the chassis has no ground reference and EMI/fault currents have no return path."
+      },
+      "jeopardy": {
+        "category": "GROUNDING",
+        "clue": "This is the electrical purpose of a bonding jumper between an LRU tray on rubber shock mounts and the airframe.",
+        "choices": [
+          "Completes the electrical ground path",
+          "Absorbs additional airframe vibration energy",
+          "Serves as a backup mechanical attachment",
+          "Prevents rubber shock mounts from drying out"
+        ],
+        "correctIndex": 0,
+        "explanation": "Rubber shock mounts isolate the tray electrically, so the bonding jumper is needed to complete the ground path."
+      },
+      "multipleChoice": {
+        "stem": "Rubber shock mounts isolate an LRU tray electrically. What purpose does the bonding jumper to the airframe serve?",
+        "choices": [
+          "It completes the chassis ground path to the airframe",
+          "It absorbs additional vibration energy",
+          "It provides a backup mechanical attachment",
+          "It prevents the shock mounts from drying out"
+        ],
+        "correctIndex": 0,
+        "explanation": "Rubber mounts block the ground path; the jumper provides the required DC/RF reference to structure."
+      },
+      "practice": {
+        "stem": "An LRU tray is installed on rubber shock mounts. Why is a bonding jumper to the airframe required?",
+        "choices": [
+          "It provides the electrical ground path",
+          "It dampens vibration beyond shock mounts",
+          "It backs up the mechanical attachment",
+          "It prevents rubber mounts from cracking"
+        ],
+        "correctIndex": 0,
+        "explanation": "The bonding jumper completes the electrical path from chassis to structure, bypassing the insulating rubber shock mounts."
+      },
+      "preassessment": {
+        "stem": "Why is a bonding jumper needed when an LRU tray is on rubber shock mounts?",
+        "choices": [
+          "To complete the electrical ground path",
+          "To absorb vibration",
+          "To back up the mechanical mount",
+          "To prevent rubber drying"
+        ],
+        "correctIndex": 0,
+        "explanation": "It completes the chassis ground path."
+      }
+    },
+    {
+      "id": "ADV10-006",
+      "category": "adv10-wire-harness-fabrication",
+      "difficulty": "advanced",
+      "tags": [
+        "Kapton",
+        "hot-stamp",
+        "arc-tracking"
+      ],
+      "learningObjective": "Identify the hazard created when hot-stamping Kapton-insulated wire.",
+      "fullObjective": "Given a drawing prohibiting hot-stamp marking on Kapton-insulated wire, identify the failure mode the prohibition is intended to prevent.",
+      "targetSourceStem": "The engineering drawing prohibits hot-stamp marking on Kapton insulated wire. What hazard does hot-stamping create on this material?",
+      "flashcard": {
+        "front": "What hazard does hot-stamp marking create on Kapton-insulated wire?",
+        "back": "Micro-cracks in the polyimide insulation that can later propagate into arc tracking.",
+        "explanation": "Kapton polyimide is susceptible to arc tracking along micro-cracks. Drawings prohibit hot-stamping, relying on laser or ink-jet methods instead."
+      },
+      "jeopardy": {
+        "category": "KAPTON HAZARDS",
+        "clue": "This is the arc-tracking precursor created when hot-stamp marking is applied to Kapton insulation.",
+        "choices": [
+          "Discoloration that hides the wire ID",
+          "Micro-cracks leading to arc tracking",
+          "Marking adhesion failures over time",
+          "Conductor annealing that reduces capacity"
+        ],
+        "correctIndex": 1,
+        "explanation": "Hot-stamping creates micro-cracks in polyimide that can trigger arc tracking under sustained voltage."
+      },
+      "multipleChoice": {
+        "stem": "Why is hot-stamp marking prohibited on Kapton polyimide-insulated wire?",
+        "choices": [
+          "It causes the marking to lose adhesion over time",
+          "It creates micro-cracks that can lead to arc tracking",
+          "It causes discoloration that hides wire identification",
+          "It anneals the conductor and reduces ampacity"
+        ],
+        "correctIndex": 1,
+        "explanation": "Micro-cracks in the Kapton jacket can initiate catastrophic arc tracking."
+      },
+      "practice": {
+        "stem": "A drawing forbids hot-stamp marking on Kapton wire. What failure mode does this rule prevent?",
+        "choices": [
+          "Discoloration hiding the wire number",
+          "Micro-cracks that can initiate arc tracking",
+          "Adhesive failure of the printed marking",
+          "Annealing of the copper conductor"
+        ],
+        "correctIndex": 1,
+        "explanation": "The concern is micro-cracks leading to arc tracking, a known Kapton failure mode."
+      },
+      "preassessment": {
+        "stem": "What hazard results from hot-stamping Kapton wire?",
+        "choices": [
+          "Conductor work hardening",
+          "Micro-cracks and arc tracking",
+          "Printed marking adhesion loss",
+          "Insulation color fading"
+        ],
+        "correctIndex": 1,
+        "explanation": "Aged insulation develops micro-cracks that can initiate arc tracking, the principal safety-of-flight hazard."
+      }
+    },
+    {
+      "id": "ADV10-007",
+      "category": "adv10-wire-harness-fabrication",
+      "difficulty": "advanced",
+      "tags": [
+        "audio",
+        "COM-radio",
+        "shielded-cable"
+      ],
+      "learningObjective": "Select the correct wire type for COM-radio audio signals.",
+      "fullObjective": "Given a COM-radio audio installation, select the wire type that best prevents hum and noise pickup on microphone and headphone lines.",
+      "targetSourceStem": "What type of wire should be used for audio signals in a COM radio installation to prevent hum and noise?",
+      "flashcard": {
+        "front": "What wire type should be used for COM-radio audio signals to prevent hum and noise?",
+        "back": "Shielded audio cable, with the shield grounded at a single point per drawing.",
+        "explanation": "Shielded audio cable rejects electric-field coupling that causes hum. Coax is used for RF, not audio. Unshielded pairs are vulnerable to aircraft EMI sources."
+      },
+      "jeopardy": {
+        "category": "AUDIO WIRING",
+        "clue": "This wire type should be used for COM-radio audio signals to keep hum and noise out.",
+        "choices": [
+          "Single-conductor hookup wire",
+          "Unshielded twisted pair cable",
+          "Shielded audio cable",
+          "Coaxial cable only"
+        ],
+        "correctIndex": 2,
+        "explanation": "Shielded audio cable is standard for audio runs to reject EMI/RFI pickup."
+      },
+      "multipleChoice": {
+        "stem": "Which wire type is appropriate for routing COM-radio audio signals to minimize hum and noise?",
+        "choices": [
+          "Coaxial cable only",
+          "Unshielded twisted pair",
+          "Shielded audio cable",
+          "Single-conductor hookup wire"
+        ],
+        "correctIndex": 2,
+        "explanation": "Shielded audio cable rejects EMI and capacitive hum coupling."
+      },
+      "practice": {
+        "stem": "A technician is installing new headset jacks in the panel. Which wire type is specified for the COM-radio audio runs?",
+        "choices": [
+          "Coaxial cable for all runs",
+          "Unshielded twisted pair",
+          "Shielded audio cable",
+          "Single-conductor hookup wire"
+        ],
+        "correctIndex": 2,
+        "explanation": "Shielded audio cable is the industry standard for avionics audio circuits."
+      },
+      "preassessment": {
+        "stem": "Which wire type is used for COM-radio audio signals?",
+        "choices": [
+          "Coaxial cable only",
+          "Unshielded twisted pair",
+          "Shielded audio cable",
+          "Single-conductor wire"
+        ],
+        "correctIndex": 2,
+        "explanation": "Shielded audio cable is used for audio signals."
+      }
+    },
+    {
+      "id": "ADV10-008",
+      "category": "adv10-wire-harness-fabrication",
+      "difficulty": "advanced",
+      "tags": [
+        "splices",
+        "bundle",
+        "staggering"
+      ],
+      "learningObjective": "Apply the staggered-splice rule when multiple splices are required in a bundle.",
+      "fullObjective": "Given a wire bundle that requires multiple in-line splices, apply the correct positioning rule to prevent bulges and mechanical stress.",
+      "targetSourceStem": "A wire harness requires multiple splices due to wire length limitations. How should the splice locations be arranged within the bundle?",
+      "flashcard": {
+        "front": "How should multiple in-bundle splices be positioned along a harness?",
+        "back": "Staggered along the run so no two splices line up at the same cross-section.",
+        "explanation": "Staggered splices avoid a thick hump in the bundle, keep clamping and sleeving easier, and reduce chafe risk. Grouping or centering splices creates stress concentrations."
+      },
+      "jeopardy": {
+        "category": "SPLICE LAYOUT",
+        "clue": "This is how multiple splices should be arranged along a bundle to prevent bulging.",
+        "choices": [
+          "Located adjacent to the nearest connector",
+          "Grouped together for easier inspection",
+          "Centered on each individual wire run",
+          "Staggered along the bundle length"
+        ],
+        "correctIndex": 3,
+        "explanation": "Staggered placement keeps the bundle diameter uniform and prevents chafe and clamp issues."
+      },
+      "multipleChoice": {
+        "stem": "A harness requires multiple splices. How should the splices be positioned within the bundle?",
+        "choices": [
+          "Centered along each wire run",
+          "Grouped together so they can be inspected easily",
+          "Placed adjacent to the nearest connector",
+          "Staggered along the run to prevent a bulge"
+        ],
+        "correctIndex": 3,
+        "explanation": "Staggering preserves bundle diameter and avoids stress concentrations."
+      },
+      "practice": {
+        "stem": "Four splices are needed in a bundle that serves an overhead console. How should they be positioned?",
+        "choices": [
+          "Centered on each individual wire",
+          "Grouped together in a single area",
+          "All placed next to the nearest connector",
+          "Staggered along the bundle"
+        ],
+        "correctIndex": 3,
+        "explanation": "Staggering distributes the bulk and keeps clamping and sleeving clean."
+      },
+      "preassessment": {
+        "stem": "Where should splices be placed in a bundle with multiple splices?",
+        "choices": [
+          "Centered on each wire",
+          "Grouped for inspection",
+          "Adjacent to a connector",
+          "Staggered along the bundle"
+        ],
+        "correctIndex": 3,
+        "explanation": "Splices must be staggered."
+      }
+    },
+    {
+      "id": "ADV10-009",
+      "category": "adv10-wire-harness-fabrication",
+      "difficulty": "advanced",
+      "tags": [
+        "AC-43-13-1B",
+        "wire-marking",
+        "interval"
+      ],
+      "learningObjective": "State the maximum interval between wire identification markings.",
+      "fullObjective": "Given a wire marking requirement from AC 43.13-1B, state the maximum allowable distance between identification markings on a continuous wire run.",
+      "targetSourceStem": "According to AC 43.13-1B, what is the maximum distance between wire identification markings along a wire run?",
+      "flashcard": {
+        "front": "Per AC 43.13-1B, what is the maximum interval between wire identification markings?",
+        "back": "15 inches between consecutive markings.",
+        "explanation": "AC 43.13-1B recommends markings at intervals not greater than 15 inches along a wire run, ensuring positive identification during maintenance."
+      },
+      "jeopardy": {
+        "category": "WIRE MARKING",
+        "clue": "Per AC 43.13-1B, this is the maximum recommended interval between wire identification markings along a run.",
+        "choices": [
+          "15 inches between markings",
+          "6 inches between markings",
+          "36 inches between markings",
+          "No interval is specified by the AC"
+        ],
+        "correctIndex": 0,
+        "explanation": "AC 43.13-1B recommends markings no farther apart than 15 inches."
+      },
+      "multipleChoice": {
+        "stem": "AC 43.13-1B addresses wire identification marking along a run. What maximum distance between markings is recommended?",
+        "choices": [
+          "15 inches between markings",
+          "6 inches between markings",
+          "36 inches between markings",
+          "No interval is specified"
+        ],
+        "correctIndex": 0,
+        "explanation": "The AC recommends markings at intervals not greater than 15 inches."
+      },
+      "practice": {
+        "stem": "A long wire run in an unpressurized area lacks intermediate markings. Per AC 43.13-1B, what is the maximum allowed interval?",
+        "choices": [
+          "15 inches between markings",
+          "6 inches between markings",
+          "36 inches between markings",
+          "No interval is specified"
+        ],
+        "correctIndex": 0,
+        "explanation": "AC 43.13-1B recommends 15 inches as the maximum interval."
+      },
+      "preassessment": {
+        "stem": "Maximum wire ID marking interval per AC 43.13-1B?",
+        "choices": [
+          "15 inches",
+          "6 inches",
+          "36 inches",
+          "No interval specified"
+        ],
+        "correctIndex": 0,
+        "explanation": "15 inches between markings."
+      }
+    },
+    {
+      "id": "ADV10-010",
+      "category": "adv10-wire-harness-fabrication",
+      "difficulty": "advanced",
+      "tags": [
+        "pressurized-bulkhead",
+        "feedthrough",
+        "connectors"
+      ],
+      "learningObjective": "Select the correct connector type for a pressurized bulkhead penetration.",
+      "fullObjective": "Given a wire harness that must pass through a pressurized bulkhead, select the connector type that preserves cabin pressure at the penetration.",
+      "targetSourceStem": "A wire harness passes through a pressurized bulkhead. What type of connector maintains cabin pressure at the penetration?",
+      "flashcard": {
+        "front": "What type of connector maintains cabin pressure when a wire harness passes through a pressurized bulkhead?",
+        "back": "A pressure-seal feedthrough connector, often with hermetic seals around each contact.",
+        "explanation": "Ring terminals, butt splices, and D-sub connectors do not seal against pressure. A pressure-seal feedthrough is specifically rated for the pressure differential."
+      },
+      "jeopardy": {
+        "category": "PRESSURIZED BULKHEADS",
+        "clue": "This connector type maintains cabin pressure at the point a wire harness penetrates a pressure bulkhead.",
+        "choices": [
+          "Ring terminal lug on a single stud",
+          "Pressure-seal feedthrough connector",
+          "Standard butt splice connector",
+          "D-subminiature pin connector"
+        ],
+        "correctIndex": 1,
+        "explanation": "Pressure-seal feedthrough connectors are designed to carry the pressure differential at a bulkhead penetration."
+      },
+      "multipleChoice": {
+        "stem": "Which connector type is installed where a wire harness passes through a pressurized bulkhead?",
+        "choices": [
+          "A D-subminiature pin connector",
+          "A pressure-seal feedthrough connector",
+          "A standard butt splice connector",
+          "A ring terminal lug connector"
+        ],
+        "correctIndex": 1,
+        "explanation": "Pressure-seal feedthrough connectors maintain cabin pressure at the bulkhead."
+      },
+      "practice": {
+        "stem": "A bundle must pass through a pressurized fuselage bulkhead. Which connector preserves cabin pressure?",
+        "choices": [
+          "A D-subminiature connector",
+          "A pressure-seal feedthrough connector",
+          "A standard butt splice connector",
+          "A ring terminal lug connector"
+        ],
+        "correctIndex": 1,
+        "explanation": "Pressure-seal feedthroughs carry the pressure differential."
+      },
+      "preassessment": {
+        "stem": "Which connector maintains pressure at a pressurized bulkhead penetration?",
+        "choices": [
+          "Butt splice crimp",
+          "Pressure-seal feedthrough",
+          "Ring terminal lug",
+          "D-sub connector shell"
+        ],
+        "correctIndex": 1,
+        "explanation": "A pressure-seal feedthrough is required where wiring passes through a pressurized bulkhead."
+      }
+    },
+    {
+      "id": "ADV10-011",
+      "category": "adv10-wire-harness-fabrication",
+      "difficulty": "advanced",
+      "tags": [
+        "EEPROM",
+        "configuration",
+        "harness"
+      ],
+      "learningObjective": "Identify the harness-mounted EEPROM device storing aircraft configuration data.",
+      "fullObjective": "Given a description of aircraft configuration data stored in an EEPROM device integrated into the wiring harness, identify the industry name for this device.",
+      "targetSourceStem": "Aircraft configuration data is stored in an EEPROM device in the wiring harness. What is this device called?",
+      "flashcard": {
+        "front": "What is the harness-mounted EEPROM device that stores aircraft configuration data called?",
+        "back": "A configuration module.",
+        "explanation": "The configuration module holds aircraft-unique data so LRUs can be swapped without reprogramming. It is a passive EEPROM in the harness, often near an LRU connector."
+      },
+      "jeopardy": {
+        "category": "HARNESS COMPONENTS",
+        "clue": "This harness-mounted EEPROM device stores aircraft-specific configuration data.",
+        "choices": [
+          "Integration module",
+          "Interface adapter module",
+          "Configuration module",
+          "Data bus coupler module"
+        ],
+        "correctIndex": 2,
+        "explanation": "The configuration module is an EEPROM in the harness holding aircraft configuration data."
+      },
+      "multipleChoice": {
+        "stem": "An EEPROM that stores aircraft configuration data resides in the wiring harness itself. What is this device called?",
+        "choices": [
+          "A data bus coupler module",
+          "An interface adapter module",
+          "A configuration module",
+          "An integration module"
+        ],
+        "correctIndex": 2,
+        "explanation": "Configuration modules keep aircraft data with the aircraft so LRUs can be swapped quickly."
+      },
+      "practice": {
+        "stem": "When a pilot replaces an LRU, aircraft-specific data is preserved by an EEPROM in the wiring harness. What is this device called?",
+        "choices": [
+          "An integration module",
+          "An interface adapter module",
+          "A configuration module",
+          "A data bus coupler module"
+        ],
+        "correctIndex": 2,
+        "explanation": "It is the configuration module, holding aircraft-specific configuration data."
+      },
+      "preassessment": {
+        "stem": "What is the EEPROM in a harness that stores aircraft configuration data called?",
+        "choices": [
+          "Integration module",
+          "Interface adapter module",
+          "Configuration module",
+          "Data bus coupler"
+        ],
+        "correctIndex": 2,
+        "explanation": "Configuration module."
+      }
+    },
+    {
+      "id": "ADV10-012",
+      "category": "adv10-wire-harness-fabrication",
+      "difficulty": "advanced",
+      "tags": [
+        "SWAMP-area",
+        "wheel-well",
+        "environmental"
+      ],
+      "learningObjective": "Identify a typical SWAMP area on an aircraft.",
+      "fullObjective": "Given a list of aircraft locations, identify the one classified as a SWAMP area requiring special wire and harness protection against moisture and contaminants.",
+      "targetSourceStem": "Which aircraft location is designated as a SWAMP area requiring special wire protection?",
+      "flashcard": {
+        "front": "Which aircraft location is classified as a SWAMP area requiring special wire protection?",
+        "back": "The main wheel well area, due to water, mud, hydraulic fluid, and de-ice residue.",
+        "explanation": "SWAMP areas are Severely exposed to Water, chemicals, and Mechanical damage. Wheel wells and bilges qualify; pressurized avionics bays do not."
+      },
+      "jeopardy": {
+        "category": "SWAMP AREAS",
+        "clue": "This aircraft location is classified as a SWAMP area requiring special wire and harness protection.",
+        "choices": [
+          "Instrument panel interior behind glare shield",
+          "Cabin ceiling space above headliner",
+          "Pressurized avionics bay",
+          "Main wheel well area"
+        ],
+        "correctIndex": 3,
+        "explanation": "Wheel wells are classic SWAMP areas: wet, chemical-exposed, and mechanically abused."
+      },
+      "multipleChoice": {
+        "stem": "Which of the following is classified as a SWAMP area for wire harness protection?",
+        "choices": [
+          "The interior of the instrument panel",
+          "The cabin ceiling space",
+          "A pressurized avionics bay",
+          "The main wheel well area"
+        ],
+        "correctIndex": 3,
+        "explanation": "Wheel wells are Severely exposed to Water And Mechanical damage, qualifying as SWAMP areas."
+      },
+      "practice": {
+        "stem": "A technician is specifying harness protection for several aircraft locations. Which location is a SWAMP area?",
+        "choices": [
+          "The back of the instrument panel",
+          "The cabin ceiling space above the headliner",
+          "The pressurized avionics bay",
+          "The main wheel well area"
+        ],
+        "correctIndex": 3,
+        "explanation": "The wheel well is a SWAMP location with water, chemicals, and debris exposure."
+      },
+      "preassessment": {
+        "stem": "Which area is a SWAMP area?",
+        "choices": [
+          "Pressurized avionics bay",
+          "Cabin ceiling",
+          "Instrument panel interior",
+          "Main wheel well"
+        ],
+        "correctIndex": 3,
+        "explanation": "The main wheel well is a SWAMP area."
+      }
+    },
+    {
+      "id": "ADV10-013",
+      "category": "adv10-wire-harness-fabrication",
+      "difficulty": "advanced",
+      "tags": [
+        "magnetometer",
+        "shielded-twisted-pair",
+        "EMI"
+      ],
+      "learningObjective": "Select a wiring technique that minimizes magnetic interference near a magnetometer.",
+      "fullObjective": "Given a magnetometer installation near other aircraft harnesses, select the wiring technique that best minimizes magnetic interference coupling into the sensor.",
+      "targetSourceStem": "What wiring technique minimizes magnetic interference near a magnetometer installation?",
+      "flashcard": {
+        "front": "Which wiring technique minimizes magnetic interference near a magnetometer?",
+        "back": "Configure the sensor and power wires as shielded twisted pairs.",
+        "explanation": "Twisted pairs cancel magnetic fields; shielding adds electric-field rejection. Rigid conduit can introduce ferrous distortion, and same-gauge rules do not address the issue."
+      },
+      "jeopardy": {
+        "category": "MAGNETIC INTERFERENCE",
+        "clue": "This wiring technique minimizes magnetic interference near a magnetometer installation.",
+        "choices": [
+          "Configure as shielded twisted pairs",
+          "Route the wires through rigid metal conduit",
+          "Use the same gauge for every wire in the area",
+          "Connect every shield at the magnetometer end"
+        ],
+        "correctIndex": 0,
+        "explanation": "Shielded twisted pairs cancel magnetic field coupling while still rejecting electric fields."
+      },
+      "multipleChoice": {
+        "stem": "Which wiring technique best minimizes magnetic interference around a magnetometer installation?",
+        "choices": [
+          "Use shielded twisted pair wires",
+          "Route wires through rigid metal conduit",
+          "Use the same wire gauge for every circuit",
+          "Connect all shields at the magnetometer end"
+        ],
+        "correctIndex": 0,
+        "explanation": "Twisted pairs cancel the magnetic field created by balanced currents; shielding handles electric coupling."
+      },
+      "practice": {
+        "stem": "A magnetometer mounted in a wingtip is picking up noise. What wiring technique should be applied in the area?",
+        "choices": [
+          "Use shielded twisted pair wires",
+          "Route all wires through rigid metal conduit",
+          "Use the same gauge for every circuit",
+          "Connect every shield at the magnetometer"
+        ],
+        "correctIndex": 0,
+        "explanation": "Shielded twisted pairs cancel magnetic interference and shield electric fields."
+      },
+      "preassessment": {
+        "stem": "What wiring technique minimizes magnetic interference at a magnetometer?",
+        "choices": [
+          "Shielded twisted pair",
+          "Rigid metal conduit",
+          "Same-gauge wires",
+          "All shields at magnetometer"
+        ],
+        "correctIndex": 0,
+        "explanation": "Shielded twisted pairs cancel magnetic fields."
+      }
+    },
+    {
+      "id": "ADV10-014",
+      "category": "adv10-wire-harness-fabrication",
+      "difficulty": "advanced",
+      "tags": [
+        "troubleshooting",
+        "connector",
+        "cavity"
+      ],
+      "learningObjective": "Diagnose a no-voltage condition at an LRU connector when the breaker output is correct.",
+      "fullObjective": "Given a circuit with voltage present at the breaker output but not at the LRU connector, identify the most likely installation error.",
+      "targetSourceStem": "After harness installation, no voltage is present at the LRU connector with the circuit breaker engaged. Voltage is correct at the breaker output. What is the likely error?",
+      "flashcard": {
+        "front": "Voltage is correct at the breaker output but missing at the LRU connector. What is the most likely installation error?",
+        "back": "A connector pin that is not seated, or the wire inserted into the wrong cavity.",
+        "explanation": "Pin-seating and wrong-cavity errors are the most common harness fabrication issues that break continuity when breaker-side voltage is correct."
+      },
+      "jeopardy": {
+        "category": "TROUBLESHOOTING",
+        "clue": "This installation error best explains correct voltage at the breaker but none at the LRU connector.",
+        "choices": [
+          "Wire gauge too small for the circuit",
+          "Connector pin not seated or wrong cavity",
+          "Circuit breaker has high contact resistance",
+          "An internal short in the LRU pulls the line low"
+        ],
+        "correctIndex": 1,
+        "explanation": "Seating/cavity errors break continuity and are the first thing to check when breaker-side power is good."
+      },
+      "multipleChoice": {
+        "stem": "A technician measures correct voltage at the breaker output but zero at the LRU connector pin. What is the most likely installation error?",
+        "choices": [
+          "The wire gauge is too small for the circuit",
+          "The connector pin is not seated or is in the wrong cavity",
+          "The circuit breaker has high contact resistance",
+          "An internal LRU short is pulling the line low"
+        ],
+        "correctIndex": 1,
+        "explanation": "Pin-seating and cavity errors break continuity and should be checked first."
+      },
+      "practice": {
+        "stem": "Voltage is good at the breaker output but missing at the LRU connector pin. What should the technician suspect first?",
+        "choices": [
+          "A wire gauge too small for the load",
+          "A pin not seated or placed in the wrong cavity",
+          "A circuit breaker with contact resistance",
+          "An internal short in the LRU"
+        ],
+        "correctIndex": 1,
+        "explanation": "Seating and cavity errors are the most common fabrication mistakes for this symptom."
+      },
+      "preassessment": {
+        "stem": "Voltage is correct at the breaker but missing at the LRU connector. What is the likely error?",
+        "choices": [
+          "Wire too small",
+          "Pin not seated or wrong cavity",
+          "Breaker contact resistance",
+          "LRU internal short"
+        ],
+        "correctIndex": 1,
+        "explanation": "Seating/cavity error is most likely."
+      }
+    },
+    {
+      "id": "ADV10-015",
+      "category": "adv10-wire-harness-fabrication",
+      "difficulty": "advanced",
+      "tags": [
+        "stranded-wire",
+        "flexibility",
+        "aircraft-power"
+      ],
+      "learningObjective": "Explain the primary reason for using stranded wire in aircraft power circuits.",
+      "fullObjective": "Given the choice between stranded and solid conductors of the same gauge, identify the primary reason stranded is specified in aircraft installations.",
+      "targetSourceStem": "Aircraft power wires use stranded construction rather than solid conductors of the same gauge. What is the primary reason for using stranded wire?",
+      "flashcard": {
+        "front": "Why is stranded wire specified for aircraft power circuits instead of solid wire?",
+        "back": "Stranded construction provides flexibility for routing and tolerates aircraft vibration without fatigue failures.",
+        "explanation": "At the same AWG, stranded and solid have similar DC resistance and ampacity, but stranded survives flex and vibration. Solid wire work-hardens and fails."
+      },
+      "jeopardy": {
+        "category": "CONDUCTOR CONSTRUCTION",
+        "clue": "This is the primary reason aircraft power wires are stranded rather than solid conductors of the same gauge.",
+        "choices": [
+          "Lower electrical resistance than solid",
+          "Higher current carrying capacity than solid",
+          "Flexibility for routing and vibration",
+          "Better electromagnetic shielding than solid"
+        ],
+        "correctIndex": 2,
+        "explanation": "Stranded wire tolerates aircraft flex and vibration without the fatigue failures common in solid wire."
+      },
+      "multipleChoice": {
+        "stem": "Why do aircraft power circuits use stranded wire rather than solid wire of the same gauge?",
+        "choices": [
+          "To provide better electromagnetic shielding than solid",
+          "To lower overall electrical resistance compared with solid",
+          "To provide flexibility for routing and vibration tolerance",
+          "To provide higher current carrying capacity than solid"
+        ],
+        "correctIndex": 2,
+        "explanation": "Stranded construction survives the flexing and vibration encountered in aircraft."
+      },
+      "practice": {
+        "stem": "A technician is asked why aircraft power wires are stranded. What is the primary reason?",
+        "choices": [
+          "Better electromagnetic shielding than solid wire",
+          "Lower overall resistance than solid wire",
+          "Flexibility for routing and vibration tolerance",
+          "Greater current capacity than solid wire"
+        ],
+        "correctIndex": 2,
+        "explanation": "Stranded wire flexes without fatigue, which solid wire cannot do in aircraft service."
+      },
+      "preassessment": {
+        "stem": "Why is stranded wire used in aircraft power circuits?",
+        "choices": [
+          "Better RF shielding",
+          "Lower DC resistance",
+          "Flexibility and vibration",
+          "Higher current capacity"
+        ],
+        "correctIndex": 2,
+        "explanation": "Stranded wire provides the flexibility and vibration tolerance required in airframe installations."
+      }
+    },
+    {
+      "id": "ADV10-016",
+      "category": "adv10-wire-harness-fabrication",
+      "difficulty": "advanced",
+      "tags": [
+        "bonding",
+        "surface-prep",
+        "paint-removal"
+      ],
+      "learningObjective": "Identify the critical surface preparation step before installing a bonding jumper.",
+      "fullObjective": "Given a bonding-jumper installation to aircraft structure, identify the surface preparation step that is most critical to achieve low resistance.",
+      "targetSourceStem": "What is the most important surface preparation step before installing a bonding jumper to aircraft structure?",
+      "flashcard": {
+        "front": "What is the most important surface preparation step before installing a bonding jumper to structure?",
+        "back": "Remove all paint and primer down to bare metal at the contact area.",
+        "explanation": "Paint and primer are insulators. Bonding works only on bright, bare metal. Grease, roughening, and hole-drilling do not replace paint removal."
+      },
+      "jeopardy": {
+        "category": "BONDING PREP",
+        "clue": "This is the most critical surface preparation step before installing a bonding jumper to aircraft structure.",
+        "choices": [
+          "Drill the bonding hole to exact tolerance",
+          "Apply a thick layer of conductive grease",
+          "Roughen the surface with a steel wire brush",
+          "Remove all paint and primer"
+        ],
+        "correctIndex": 3,
+        "explanation": "Paint and primer are insulators; the joint must be bright, bare metal for low bonding resistance."
+      },
+      "multipleChoice": {
+        "stem": "Before installing a bonding jumper to aircraft structure, which surface preparation step is most critical?",
+        "choices": [
+          "Apply a thick coat of conductive grease to the area",
+          "Roughen the surface with a steel wire brush",
+          "Drill the bonding hole to an exact tolerance",
+          "Remove all paint and primer at the contact area"
+        ],
+        "correctIndex": 3,
+        "explanation": "The bonding surface must be bright, bare metal free of paint and primer."
+      },
+      "practice": {
+        "stem": "A technician is preparing an airframe bonding location. What is the most important preparation step?",
+        "choices": [
+          "Drill the hole to an exact tolerance",
+          "Apply a thick layer of conductive grease",
+          "Roughen the surface with a steel brush",
+          "Remove all paint and primer to bare metal"
+        ],
+        "correctIndex": 3,
+        "explanation": "Paint and primer must be fully removed to reach bare metal."
+      },
+      "preassessment": {
+        "stem": "What is the most important surface prep step for a bonding jumper?",
+        "choices": [
+          "Drill hole to exact size",
+          "Apply conductive grease",
+          "Roughen with steel brush",
+          "Remove all paint and primer"
+        ],
+        "correctIndex": 3,
+        "explanation": "Paint and primer removal is essential."
+      }
+    },
+    {
+      "id": "ADV10-017",
+      "category": "adv10-wire-harness-fabrication",
+      "difficulty": "advanced",
+      "tags": [
+        "schematic-symbols",
+        "ground",
+        "airframe"
+      ],
+      "learningObjective": "Interpret the downward triangle with horizontal line on aircraft wiring diagrams.",
+      "fullObjective": "Given a wiring diagram symbol consisting of a downward-pointing triangle with a horizontal line, identify the type of electrical connection the symbol represents.",
+      "targetSourceStem": "On an aircraft wiring diagram, a triangle pointing down with a horizontal line represents what type of electrical connection?",
+      "flashcard": {
+        "front": "On an aircraft wiring diagram, what does a downward triangle with a horizontal line represent?",
+        "back": "An airframe structure ground point.",
+        "explanation": "The triangle-and-bar symbol is the airframe chassis ground. Signal references and battery negative points use distinct symbols."
+      },
+      "jeopardy": {
+        "category": "WIRING DIAGRAMS",
+        "clue": "On an aircraft wiring diagram this downward-triangle-with-bar symbol represents this electrical connection.",
+        "choices": [
+          "Airframe structure ground point",
+          "Signal reference ground bus",
+          "Battery negative terminal point",
+          "Earth ground used for servicing"
+        ],
+        "correctIndex": 0,
+        "explanation": "The triangle-and-bar indicates airframe chassis ground."
+      },
+      "multipleChoice": {
+        "stem": "On an aircraft wiring diagram, a downward-pointing triangle with a horizontal line represents which type of connection?",
+        "choices": [
+          "Airframe structure ground point",
+          "Signal reference ground bus",
+          "Battery negative terminal point",
+          "Earth ground for servicing"
+        ],
+        "correctIndex": 0,
+        "explanation": "That symbol denotes airframe chassis ground, distinct from signal reference or battery negative."
+      },
+      "practice": {
+        "stem": "A technician reading a wiring diagram sees a downward triangle with a horizontal line. What connection does this represent?",
+        "choices": [
+          "Airframe structure ground",
+          "Signal reference ground",
+          "Battery negative terminal",
+          "Earth ground for servicing"
+        ],
+        "correctIndex": 0,
+        "explanation": "It is the airframe structure ground symbol."
+      },
+      "preassessment": {
+        "stem": "What does a downward triangle with horizontal line represent on a wiring diagram?",
+        "choices": [
+          "Airframe structure ground",
+          "Signal reference ground",
+          "Battery negative",
+          "Earth ground"
+        ],
+        "correctIndex": 0,
+        "explanation": "Airframe structure ground."
+      }
+    }
+  ]
+}

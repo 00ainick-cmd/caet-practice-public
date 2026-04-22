@@ -1,0 +1,107 @@
+{
+  "metadata": {
+    "module": "adv1",
+    "title": "Cabin Management Systems"
+  },
+  "categories": {
+    "Cabin Management Systems": [
+      {
+        "id": "ADV1-J001",
+        "clue": "This power-regulation LRU lives in the electrical system, even though a tech may mistake it for a CMS box.",
+        "choices": [
+          "Generator control unit",
+          "Cabin audio amplifier",
+          "Seat control module",
+          "Window shade controller"
+        ],
+        "correctIndex": 0,
+        "explanation": "The generator control unit regulates bus voltage and is part of the aircraft electrical system, not the CMS."
+      },
+      {
+        "id": "ADV1-J002",
+        "clue": "Doing this before actually diagnosing an IFE fault turns troubleshooting into parts roulette.",
+        "choices": [
+          "Confirming the pilot report with the crew",
+          "Swapping LRUs before diagnosing the fault",
+          "Reading fault codes from the diagnostic port",
+          "Verifying power and ground at the connector"
+        ],
+        "correctIndex": 1,
+        "explanation": "Systematic troubleshooting isolates the fault before replacing parts; shotgun-swapping LRUs violates the methodology."
+      },
+      {
+        "id": "ADV1-J003",
+        "clue": "Skipping this save step before a CMS load can erase the owner's cabin settings for good.",
+        "choices": [
+          "Confirming hardware compatibility first",
+          "Using manufacturer-approved media",
+          "Skipping the configuration backup step",
+          "Removing power before inserting media"
+        ],
+        "correctIndex": 2,
+        "explanation": "Without a pre-load configuration backup, a failed or interrupted update can permanently lose customer settings."
+      },
+      {
+        "id": "ADV1-J004",
+        "clue": "Running CMS cabling right next to these switching boxes bathes data lines in transient EMI.",
+        "choices": [
+          "Cabin LED strip returns",
+          "Grounded cold-air ducts",
+          "Carbon-fiber floorboards",
+          "Relay junction boxes"
+        ],
+        "correctIndex": 3,
+        "explanation": "Relay switching produces fast voltage transients that couple into nearby conductors, increasing EMI on CMS lines."
+      },
+      {
+        "id": "ADV1-J005",
+        "clue": "Running BIT on only cabin lighting leaves these other CMS areas still in the dark.",
+        "choices": [
+          "The remaining CMS subsystems",
+          "The generator control unit output",
+          "The Mode S transponder reply",
+          "The traffic advisory processor"
+        ],
+        "correctIndex": 0,
+        "explanation": "Testing a single subsystem leaves IFE, A/V, seat, and climate subsystems unverified, which is why the check is incomplete."
+      },
+      {
+        "id": "ADV1-J006",
+        "clue": "Leaving these radios turned on even though no one uses them quietly widens the attack surface.",
+        "choices": [
+          "AES-256 Bluetooth encryption",
+          "Unused wireless features",
+          "WPA3 Wi-Fi encryption",
+          "A unique SSID with a strong password"
+        ],
+        "correctIndex": 1,
+        "explanation": "Enabling unused wireless features gives attackers additional entry points without adding cabin functionality."
+      },
+      {
+        "id": "ADV1-J007",
+        "clue": "An expired one of these affects the FMS, not a blank CMS screen.",
+        "choices": [
+          "A backlight inverter circuit",
+          "A display power supply rail",
+          "A navigation database cycle",
+          "A display connector pin"
+        ],
+        "correctIndex": 2,
+        "explanation": "Nav database expiration affects FMS navigation capability; it has nothing to do with CMS display operation."
+      },
+      {
+        "id": "ADV1-J008",
+        "clue": "With the breaker set and the screen dark, you grab a DMM and read this first.",
+        "choices": [
+          "Data bus traffic on the CMS network",
+          "Touch calibration at the screen face",
+          "Installed software version in the menu",
+          "Bus voltage at the display power connector"
+        ],
+        "correctIndex": 3,
+        "explanation": "Before chasing data or software, confirm the display is actually receiving bus voltage at its power connector."
+      }
+    ]
+  },
+  "final": []
+}

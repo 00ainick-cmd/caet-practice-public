@@ -1,0 +1,1130 @@
+{
+  "metadata": {
+    "module": "adv4",
+    "title": "Flight Management Systems"
+  },
+  "questions": [
+    {
+      "id": "ADV4-001",
+      "category": "adv4-flight-management-systems",
+      "difficulty": "medium",
+      "tags": [
+        "fms",
+        "navigation",
+        "automation"
+      ],
+      "learningObjective": "Identify the core function of an FMS.",
+      "fullObjective": "Explain that the flight management system's primary role is automating navigation and performance calculations for the flight crew.",
+      "targetSourceStem": "What primary function does the flight management system provide to the flight crew?",
+      "flashcard": {
+        "term": "FMS primary function",
+        "definition": "Automates navigation computations and aircraft performance calculations so the crew can manage the flight plan rather than hand-fly each leg.",
+        "analogy": "Like a car's GPS combined with a fuel-economy computer working together for the pilots.",
+        "unit": "Flight Management Systems"
+      },
+      "jeopardy": {
+        "question": "This is the main service an FMS delivers to the flight crew during normal operations.",
+        "choices": [
+          "Automated navigation and performance computations",
+          "Ground proximity and traffic collision alerting",
+          "Automatic engine start and FADEC sequencing",
+          "Direct manual reversion of flight controls"
+        ],
+        "correctIndex": 0,
+        "explanation": "The FMS was designed to offload navigation and performance workload from the crew; alerting, engine starts, and manual reversion belong to other dedicated systems."
+      },
+      "multipleChoice": {
+        "question": "Which core service does the flight management system deliver to the pilots of a transport-category aircraft?",
+        "choices": [
+          "Automation of navigation and performance calculations",
+          "Alerting for conflicting traffic and nearby terrain",
+          "Automated sequencing of engine start procedures",
+          "Direct manual reversion of primary flight controls"
+        ],
+        "correctIndex": 0,
+        "explanation": "An FMS integrates sensor data to manage the flight plan and compute performance; TCAS, TAWS, FADEC, and flight controls are separate systems."
+      },
+      "practice": {
+        "question": "Scenario: A new-hire technician asks why the flight crew relies on the FMS for most of the cruise segment. Which answer best describes the FMS's primary contribution?",
+        "choices": [
+          "It performs the navigation and performance calculations automatically.",
+          "It issues alerts when nearby traffic or terrain becomes a threat.",
+          "It sequences the engine start valves during taxi operations.",
+          "It provides mechanical reversion when the autopilot is disengaged."
+        ],
+        "correctIndex": 0,
+        "explanation": "The FMS continuously computes position, route tracking, fuel burn, and vertical path automation, which is its defining purpose in the cockpit."
+      },
+      "preassessment": {
+        "question": "From the cockpit's standpoint, what is the core capability that an FMS delivers to the pilots?",
+        "choices": [
+          "Automated navigation and performance computations",
+          "Conflict alerts for nearby traffic and terrain",
+          "Automated engine start and FADEC control",
+          "Manual reversion of the flight control system"
+        ],
+        "correctIndex": 0
+      }
+    },
+    {
+      "id": "ADV4-002",
+      "category": "adv4-flight-management-systems",
+      "difficulty": "medium",
+      "tags": [
+        "fms",
+        "sensors",
+        "position"
+      ],
+      "learningObjective": "Identify the sensors that supply position data to the FMC.",
+      "fullObjective": "Recognize that the FMC blends GPS, inertial reference, air data, and VOR/DME inputs to compute an accurate aircraft position.",
+      "targetSourceStem": "Which combination of systems provides position data to the flight management computer?",
+      "flashcard": {
+        "term": "FMC position sensors",
+        "definition": "The FMC fuses GPS, IRS, ADC, and VOR/DME inputs to compute the current aircraft position.",
+        "analogy": "Like a phone using GPS, Wi-Fi, and cell towers together to pin down its location when one signal is weak.",
+        "unit": "Flight Management Systems"
+      },
+      "jeopardy": {
+        "question": "These four sensor sources are blended by the FMC to produce a fused aircraft position.",
+        "choices": [
+          "Pitot probe and radar altimeter pair",
+          "GPS, IRS, ADC, and VOR/DME",
+          "Weather radar feed and transponder reply",
+          "Magnetometer and TCAS traffic processor"
+        ],
+        "correctIndex": 1,
+        "explanation": "An FMC fuses satellite, inertial, air data, and ground-based radio navigation sources; the other options do not produce a navigational position solution."
+      },
+      "multipleChoice": {
+        "question": "Which set of onboard sensors supplies position inputs to the flight management computer?",
+        "choices": [
+          "A standalone magnetometer plus the TCAS processor",
+          "GPS receivers, IRS, ADC, and VOR/DME radios",
+          "The weather radar feed and transponder output",
+          "A pitot probe paired with the radar altimeter"
+        ],
+        "correctIndex": 1,
+        "explanation": "FMC position fusion uses GPS for absolute fixes, IRS for continuity, ADC for altitude and airspeed, and VOR/DME for ground-referenced updates."
+      },
+      "practice": {
+        "question": "Scenario: While tracing FMC position inputs on a schematic, which combination of sensors should the technician expect to find wired to the computer?",
+        "choices": [
+          "A magnetometer plus the TCAS processor",
+          "GPS, IRS, ADC, and VOR/DME inputs",
+          "Weather radar output and the transponder",
+          "A pitot tube and radar altimeter feed"
+        ],
+        "correctIndex": 1,
+        "explanation": "The position solution requires satellite, inertial, air data, and radio-based sources; the distractors provide surveillance or single-axis data, not a position fix."
+      },
+      "preassessment": {
+        "question": "Which sensor combination feeds position data to the FMC?",
+        "choices": [
+          "Pitot probe and radar altimeter",
+          "GPS, IRS, ADC, and VOR/DME",
+          "Weather radar and transponder",
+          "Magnetometer and TCAS processor"
+        ],
+        "correctIndex": 1
+      }
+    },
+    {
+      "id": "ADV4-003",
+      "category": "adv4-flight-management-systems",
+      "difficulty": "medium",
+      "tags": [
+        "fms",
+        "architecture",
+        "lru"
+      ],
+      "learningObjective": "Identify the major components in a typical FMS installation.",
+      "fullObjective": "Recognize that a typical FMS installation consists of a CDU, FMC, navigation database, and supporting sensor inputs.",
+      "targetSourceStem": "What components make up a typical flight management system installation?",
+      "flashcard": {
+        "term": "FMS components",
+        "definition": "A standard FMS installation is built from a CDU for crew entry, an FMC for computation, a navigation database, and connected sensor LRUs.",
+        "analogy": "Like a desktop computer: the keyboard, CPU, hard drive, and peripherals each play a specific role.",
+        "unit": "Flight Management Systems"
+      },
+      "jeopardy": {
+        "question": "This set of LRUs forms the architecture of a conventional FMS installation.",
+        "choices": [
+          "AHRS, ADC, and audio control panel units",
+          "FDR, CVR, and ELT recorder bundle",
+          "CDU, FMC, navigation database, and sensors",
+          "MFD, VHF radio, and TAWS processor"
+        ],
+        "correctIndex": 2,
+        "explanation": "A complete FMS is defined by its CDU interface, FMC computation engine, navigation database storage, and sensor inputs; the other groupings describe recording, attitude/air-data, or display/comm systems."
+      },
+      "multipleChoice": {
+        "question": "Which group of line-replaceable units defines a typical FMS installation?",
+        "choices": [
+          "Multifunction display, VHF communication radio, and TAWS processor",
+          "Flight data recorder, cockpit voice recorder, and emergency locator transmitter",
+          "Control display unit, flight management computer, navigation database, and sensors",
+          "Attitude heading reference, air data computer, and audio control panel"
+        ],
+        "correctIndex": 2,
+        "explanation": "The CDU, FMC, nav database, and sensor suite together form an FMS; the other answers describe recorders, attitude or comm systems."
+      },
+      "practice": {
+        "question": "Scenario: A technician is mapping the FMS architecture on a new aircraft. Which major components should appear in the block diagram of a typical FMS?",
+        "choices": [
+          "FDR, CVR, and ELT as primary FMS elements",
+          "AHRS, ADC, and audio panel as the FMS core",
+          "CDU, FMC, navigation database, and sensor inputs",
+          "MFD, VHF radio, and TAWS as FMS modules"
+        ],
+        "correctIndex": 2,
+        "explanation": "The FMS block diagram always centers on the FMC, with a CDU, a nav database, and sensor LRUs feeding it."
+      },
+      "preassessment": {
+        "question": "Which components are found in a typical FMS installation?",
+        "choices": [
+          "AHRS, ADC, and audio panel",
+          "FDR, CVR, and ELT units",
+          "CDU, FMC, database, sensors",
+          "MFD, VHF radio, and TAWS"
+        ],
+        "correctIndex": 2,
+        "explanation": "A typical FMS installation consists of the CDU (control display unit), FMC (flight management computer), navigation database, and position sensors."
+      }
+    },
+    {
+      "id": "ADV4-004",
+      "category": "adv4-flight-management-systems",
+      "difficulty": "medium",
+      "tags": [
+        "fms",
+        "navigation-database",
+        "procedures"
+      ],
+      "learningObjective": "Identify where published procedures are stored for the FMS.",
+      "fullObjective": "Recognize that published STAR and SID procedures are held in the FMS navigation database, not elsewhere in the aircraft.",
+      "targetSourceStem": "The pilot wants to fly a published STAR procedure. Where is this procedure data stored?",
+      "flashcard": {
+        "term": "STAR storage",
+        "definition": "Standard Terminal Arrival Routes are stored in the FMS navigation database, which is updated on the AIRAC 28-day cycle.",
+        "analogy": "Like address books on your phone: the routes live in the device's stored database, not on an outside server.",
+        "unit": "Flight Management Systems"
+      },
+      "jeopardy": {
+        "question": "This is where a published STAR procedure physically lives inside the avionics suite.",
+        "choices": [
+          "An ADS-B ground station database",
+          "A maintenance laptop storage drive",
+          "The aircraft configuration module",
+          "The FMS navigation database"
+        ],
+        "correctIndex": 3,
+        "explanation": "Published procedures such as STARs and SIDs are held in the FMS nav database; the distractors are ground systems, aircraft-identity storage, or maintenance tools."
+      },
+      "multipleChoice": {
+        "question": "When a pilot selects a published STAR on the CDU, which onboard storage location holds the procedure data?",
+        "choices": [
+          "The aircraft configuration module",
+          "The ADS-B ground station database",
+          "The maintenance laptop hard drive",
+          "The navigation database loaded in the FMS"
+        ],
+        "correctIndex": 3,
+        "explanation": "All coded approaches, SIDs, and STARs reside in the FMS nav database and are refreshed every 28 days."
+      },
+      "practice": {
+        "question": "Scenario: A pilot reports she cannot load yesterday's newly published STAR. Where should the technician look first to confirm the procedure is available onboard?",
+        "choices": [
+          "The shop's maintenance laptop archive",
+          "The ADS-B ground station database timestamp",
+          "The aircraft configuration module data",
+          "The FMS navigation database currency and version"
+        ],
+        "correctIndex": 3,
+        "explanation": "Procedure availability depends entirely on whether the procedure has been published in the currently loaded FMS nav database."
+      },
+      "preassessment": {
+        "question": "Where is a published STAR procedure stored onboard the aircraft?",
+        "choices": [
+          "On a maintenance laptop computer",
+          "In an ADS-B ground station database",
+          "In the aircraft configuration module",
+          "In the FMS navigation database"
+        ],
+        "correctIndex": 3
+      }
+    },
+    {
+      "id": "ADV4-005",
+      "category": "adv4-flight-management-systems",
+      "difficulty": "medium",
+      "tags": [
+        "fms",
+        "installation",
+        "arinc-429"
+      ],
+      "learningObjective": "Identify the interface parameter verified during FMS installation.",
+      "fullObjective": "Verify that ARINC 429 label assignments between LRUs are correctly mapped during FMS installation.",
+      "targetSourceStem": "During FMS installation, what interface parameter must be verified for proper system communication?",
+      "flashcard": {
+        "term": "FMS installation interface check",
+        "definition": "ARINC 429 label mapping between each LRU must be verified so that the FMS sends and receives the correct parameters on the correct buses.",
+        "analogy": "Like checking that every mailing address in a company matches the right department before sending internal memos.",
+        "unit": "Flight Management Systems"
+      },
+      "jeopardy": {
+        "question": "This is the interface parameter that technicians must verify during FMS installation to ensure LRUs talk correctly.",
+        "choices": [
+          "ARINC 429 label mapping between LRUs",
+          "ADF loop antenna orientation angle",
+          "Cabin reading light dimmer setting",
+          "Intercom squelch threshold level"
+        ],
+        "correctIndex": 0,
+        "explanation": "FMS communication depends on ARINC 429 labels being routed and received correctly across each connected LRU; the distractors are unrelated cabin or comm adjustments."
+      },
+      "multipleChoice": {
+        "question": "During FMS installation, which interface parameter must the technician verify between LRUs?",
+        "choices": [
+          "ARINC 429 label assignments between LRUs",
+          "ADF loop antenna physical orientation",
+          "Reading light dimmer potentiometer setting",
+          "Intercom squelch sensitivity level"
+        ],
+        "correctIndex": 0,
+        "explanation": "Label mapping determines which data each LRU transmits and receives; errors here cause missing or misinterpreted FMS data."
+      },
+      "practice": {
+        "question": "Scenario: The shop is integrating a new FMS into a King Air. Before sign-off, what interface parameter must the technician confirm for system communication?",
+        "choices": [
+          "Correct ARINC 429 label mapping to each LRU",
+          "Correct ADF loop antenna orientation angle",
+          "Correct cabin reading light dimmer position",
+          "Correct intercom squelch sensitivity level"
+        ],
+        "correctIndex": 0,
+        "explanation": "Without correct ARINC 429 label routing, sensors and displays will not exchange FMS data correctly, regardless of other configuration."
+      },
+      "preassessment": {
+        "question": "What interface parameter is verified during FMS installation?",
+        "choices": [
+          "ARINC 429 label mapping to each LRU",
+          "ADF loop antenna orientation",
+          "Cabin reading light dimmer setting",
+          "Intercom squelch sensitivity level"
+        ],
+        "correctIndex": 0
+      }
+    },
+    {
+      "id": "ADV4-006",
+      "category": "adv4-flight-management-systems",
+      "difficulty": "medium",
+      "tags": [
+        "fms",
+        "data-bus",
+        "arinc-429"
+      ],
+      "learningObjective": "Identify the data bus standard connecting the FMC and cockpit displays.",
+      "fullObjective": "Recognize ARINC 429 as the prevailing digital data bus used between the FMC and cockpit displays.",
+      "targetSourceStem": "What data bus standard is used for communication between the FMC and cockpit displays?",
+      "flashcard": {
+        "term": "FMC display bus",
+        "definition": "ARINC 429 is the one-way digital data bus standard used to carry FMC data to cockpit displays.",
+        "analogy": "Like a one-way radio broadcast that displays can tune in to without talking back.",
+        "unit": "Flight Management Systems"
+      },
+      "jeopardy": {
+        "question": "This digital data bus standard carries FMC output to cockpit display units.",
+        "choices": [
+          "MIL-STD-1553 command bus",
+          "ARINC 429 digital data bus",
+          "RS-232 serial interface",
+          "Controller area network bus"
+        ],
+        "correctIndex": 1,
+        "explanation": "ARINC 429 is the civil aviation standard for one-way data; RS-232, MIL-STD-1553, and CAN bus are used elsewhere but not for FMC-to-EFIS communication."
+      },
+      "multipleChoice": {
+        "question": "Which data bus standard is typically used to carry data from the FMC to cockpit displays?",
+        "choices": [
+          "RS-232 serial link",
+          "ARINC 429 digital bus",
+          "MIL-STD-1553 command bus",
+          "Controller area network bus"
+        ],
+        "correctIndex": 1,
+        "explanation": "ARINC 429 dominates civil transport FMC interfaces; MIL-STD-1553 is military, RS-232 is slow short-range serial, and CAN is used in engine and utility systems."
+      },
+      "practice": {
+        "question": "Scenario: The technician is tracing signal paths from the FMC to the primary flight displays. Which data bus standard should be used to decode those signals?",
+        "choices": [
+          "RS-232 serial data link",
+          "ARINC 429 digital data bus",
+          "MIL-STD-1553 command bus",
+          "Controller area network bus"
+        ],
+        "correctIndex": 1,
+        "explanation": "Decoding FMC-to-display signals requires ARINC 429 tools, matching the standard used by the installation."
+      },
+      "preassessment": {
+        "question": "Which data bus standard connects the FMC to cockpit displays?",
+        "choices": [
+          "RS-232 serial interface",
+          "ARINC 429 digital bus",
+          "MIL-STD-1553 command bus",
+          "Controller area network bus"
+        ],
+        "correctIndex": 1
+      }
+    },
+    {
+      "id": "ADV4-007",
+      "category": "adv4-flight-management-systems",
+      "difficulty": "easy",
+      "tags": [
+        "fms",
+        "cdu",
+        "interface"
+      ],
+      "learningObjective": "Identify the crew interface device for FMS data entry.",
+      "fullObjective": "Recognize the CDU keyboard as the primary device the crew uses to enter FMS flight plan data.",
+      "targetSourceStem": "What device does the pilot use to enter waypoints and flight plan data into the FMS?",
+      "flashcard": {
+        "term": "FMS data entry device",
+        "definition": "The Control Display Unit (CDU) provides the keyboard pilots use to enter waypoints, flight plans, and route modifications into the FMS.",
+        "analogy": "Like the keyboard and screen on a shared office computer where users type their requests.",
+        "unit": "Flight Management Systems"
+      },
+      "jeopardy": {
+        "question": "This is the device pilots use to type waypoints and flight plan data into the FMS.",
+        "choices": [
+          "The audio control panel selector",
+          "The transponder code entry pad",
+          "The CDU keyboard",
+          "The EFIS range and mode controller"
+        ],
+        "correctIndex": 2,
+        "explanation": "The CDU keyboard is dedicated to FMS data entry; the other controls manage audio, transponder codes, or display range."
+      },
+      "multipleChoice": {
+        "question": "Which cockpit device is used by the pilot to enter waypoints into the FMS?",
+        "choices": [
+          "The transponder code entry pad",
+          "The audio control panel selector",
+          "The Control Display Unit keyboard",
+          "The EFIS range and mode controller"
+        ],
+        "correctIndex": 2,
+        "explanation": "The CDU is the FMS user interface; the other devices control audio routing, transponder squawk, or display formatting."
+      },
+      "practice": {
+        "question": "Scenario: A pilot needs to manually enter a fresh waypoint mid-flight. Which cockpit device accepts that entry into the FMS?",
+        "choices": [
+          "The EFIS range and mode controller",
+          "The audio control panel source selector",
+          "The CDU keyboard and line-select keys",
+          "The transponder code entry keypad"
+        ],
+        "correctIndex": 2,
+        "explanation": "Waypoint entry is performed on the CDU keyboard; none of the distractor devices can write to the FMS database."
+      },
+      "preassessment": {
+        "question": "Where does the pilot enter FMS waypoints?",
+        "choices": [
+          "On the EFIS range controller",
+          "On the audio control panel",
+          "On the CDU keyboard",
+          "On the transponder keypad"
+        ],
+        "correctIndex": 2
+      }
+    },
+    {
+      "id": "ADV4-008",
+      "category": "adv4-flight-management-systems",
+      "difficulty": "medium",
+      "tags": [
+        "fms",
+        "autopilot",
+        "coupling"
+      ],
+      "learningObjective": "Identify the coupling capability verified during FMS-autopilot integration.",
+      "fullObjective": "Verify that the FMS provides both lateral and vertical guidance coupling to the autopilot during integration testing.",
+      "targetSourceStem": "When integrating FMS with the autopilot, what capability must the technician verify?",
+      "flashcard": {
+        "term": "FMS-to-autopilot coupling",
+        "definition": "Both lateral (LNAV) and vertical (VNAV) guidance signals from the FMS must couple correctly to the autopilot during integration checkout.",
+        "analogy": "Like confirming a driving instructor can steer and brake, not just one of the two.",
+        "unit": "Flight Management Systems"
+      },
+      "jeopardy": {
+        "question": "This is the coupling capability a technician must confirm when tying the FMS into the autopilot.",
+        "choices": [
+          "Autobrake arming and disarm logic",
+          "ADS-B transmit and receive function",
+          "Weather radar overlay on the display",
+          "Lateral and vertical guidance coupling"
+        ],
+        "correctIndex": 3,
+        "explanation": "Coupling is checked in both the LNAV and VNAV axes; autobrakes, radar overlays, and ADS-B are not autopilot coupling features."
+      },
+      "multipleChoice": {
+        "question": "Which autopilot capability must be verified during FMS integration testing?",
+        "choices": [
+          "Autobrake arming and disarm logic",
+          "ADS-B transmit and receive performance",
+          "Weather radar overlay routing to displays",
+          "Lateral and vertical guidance coupling"
+        ],
+        "correctIndex": 3,
+        "explanation": "An FMS is only useful as an automation source if both LNAV and VNAV commands drive the autopilot correctly."
+      },
+      "practice": {
+        "question": "Scenario: A shop is completing an FMS-to-autopilot integration. Which capability must be specifically verified on the post-installation checkout?",
+        "choices": [
+          "Weather radar imagery routing to the MFD",
+          "Arming and disarm logic for the autobrake system",
+          "ADS-B In and Out transmit/receive function",
+          "Lateral and vertical guidance coupling from FMS to autopilot"
+        ],
+        "correctIndex": 3,
+        "explanation": "The core integration requirement is that FMS steering and vertical path commands drive the autopilot; the distractors are separate system checks."
+      },
+      "preassessment": {
+        "question": "What must the technician verify when integrating FMS with autopilot?",
+        "choices": [
+          "ADS-B transmit/receive function",
+          "Autobrake arming logic",
+          "Weather radar display overlay",
+          "Lateral and vertical guidance coupling"
+        ],
+        "correctIndex": 3
+      }
+    },
+    {
+      "id": "ADV4-009",
+      "category": "adv4-flight-management-systems",
+      "difficulty": "medium",
+      "tags": [
+        "fms",
+        "test-equipment",
+        "arinc-429"
+      ],
+      "learningObjective": "Identify the test equipment used to verify ARINC 429 output from the FMC.",
+      "fullObjective": "Select a dedicated ARINC 429 data bus analyzer to confirm digital output from the flight management computer.",
+      "targetSourceStem": "What test equipment verifies ARINC 429 data transmission from the flight management computer?",
+      "flashcard": {
+        "term": "ARINC 429 test tool",
+        "definition": "A dedicated data bus protocol analyzer captures and decodes ARINC 429 labels transmitted by the FMC.",
+        "analogy": "Like using a software packet sniffer to read Wi-Fi traffic instead of a simple voltmeter.",
+        "unit": "Flight Management Systems"
+      },
+      "jeopardy": {
+        "question": "This is the test tool used to decode ARINC 429 data from an FMC.",
+        "choices": [
+          "A dedicated data bus protocol analyzer",
+          "A digital multimeter with frequency counter",
+          "A portable pitot-static test set",
+          "A fiber optic power level meter"
+        ],
+        "correctIndex": 0,
+        "explanation": "Only a protocol analyzer decodes ARINC 429 labels and words; DMMs, pitot-static sets, and optical meters cannot interpret the bus traffic."
+      },
+      "multipleChoice": {
+        "question": "Which piece of test equipment verifies ARINC 429 transmissions from the FMC?",
+        "choices": [
+          "A dedicated data bus protocol analyzer",
+          "A digital multimeter with frequency counter",
+          "A portable pitot-static tester",
+          "A fiber optic power level meter"
+        ],
+        "correctIndex": 0,
+        "explanation": "A bus analyzer is required to capture labels, parity, and SSM bits; the distractors measure voltage, pneumatics, or light intensity."
+      },
+      "practice": {
+        "question": "Scenario: A technician needs to verify that the FMC is transmitting correct ARINC 429 labels. Which test tool should be selected?",
+        "choices": [
+          "A dedicated ARINC 429 protocol analyzer",
+          "A digital multimeter with frequency mode",
+          "A portable pitot-static test set",
+          "A fiber optic power level meter"
+        ],
+        "correctIndex": 0,
+        "explanation": "Verifying labels and data validity requires a protocol analyzer; other instruments cannot parse ARINC 429 words."
+      },
+      "preassessment": {
+        "question": "Which tool verifies ARINC 429 data from the FMC?",
+        "choices": [
+          "A data bus protocol analyzer",
+          "A multimeter with frequency counter",
+          "A pitot-static test set",
+          "A fiber optic power meter"
+        ],
+        "correctIndex": 0
+      }
+    },
+    {
+      "id": "ADV4-010",
+      "category": "adv4-flight-management-systems",
+      "difficulty": "hard",
+      "tags": [
+        "fms",
+        "troubleshooting",
+        "lnav",
+        "autopilot"
+      ],
+      "learningObjective": "Diagnose why an autopilot fails to capture an LNAV route from the FMS.",
+      "fullObjective": "Recognize that a missing or mislabeled ARINC 429 roll steering signal is the most likely cause when LNAV fails to track after autopilot engagement.",
+      "targetSourceStem": "A pilot reports the aircraft will not intercept the programmed LNAV route after engaging the autopilot. The CDU shows the correct flight plan. What should the technician check?",
+      "flashcard": {
+        "term": "LNAV capture failure",
+        "definition": "If the flight plan is correct but the autopilot will not track LNAV, the ARINC 429 roll steering output from the FMC to the autopilot is the first suspect.",
+        "analogy": "Like having the right destination in the GPS but the steering wheel unplugged from the driver.",
+        "unit": "Flight Management Systems"
+      },
+      "jeopardy": {
+        "question": "This is the FMC output a technician should inspect when LNAV is programmed correctly but the autopilot refuses to capture the route.",
+        "choices": [
+          "VOR receiver signal strength indication",
+          "ARINC 429 roll steering output to the autopilot",
+          "Pitot-static system leak test results",
+          "Audio panel transmit and receive routing"
+        ],
+        "correctIndex": 1,
+        "explanation": "Roll steering (also called roll command) is the FMC's lateral command to the autopilot; without it, the autopilot cannot track the programmed route."
+      },
+      "multipleChoice": {
+        "question": "An autopilot fails to intercept the programmed LNAV route though the CDU shows the correct flight plan. Which signal path should be inspected first?",
+        "choices": [
+          "The pitot-static leak check results",
+          "The ARINC 429 roll steering command to the autopilot",
+          "The VOR receiver's signal strength output",
+          "The audio panel's transmit and receive routing"
+        ],
+        "correctIndex": 1,
+        "explanation": "Lateral capture relies on the roll steering word; all other systems listed are unrelated to LNAV routing."
+      },
+      "practice": {
+        "question": "Scenario: After takeoff, the autopilot engages but the aircraft does not capture the programmed LNAV course. The CDU flight plan is verified correct. Where should the technician troubleshoot first?",
+        "choices": [
+          "The VOR receiver's signal strength indication",
+          "The ARINC 429 roll steering word from FMC to autopilot",
+          "The pitot-static system leak test records",
+          "The audio panel transmit and receive routing"
+        ],
+        "correctIndex": 1,
+        "explanation": "Roll steering is the lateral command link; if it is missing or corrupt, LNAV displays correctly but the autopilot cannot follow it."
+      },
+      "preassessment": {
+        "question": "The autopilot won't track LNAV though the flight plan is correct. What should be checked?",
+        "choices": [
+          "Audio panel transmit routing",
+          "ARINC 429 roll steering to the autopilot",
+          "Pitot-static system leak results",
+          "VOR receiver signal strength"
+        ],
+        "correctIndex": 1
+      }
+    },
+    {
+      "id": "ADV4-011",
+      "category": "adv4-flight-management-systems",
+      "difficulty": "medium",
+      "tags": [
+        "fms",
+        "gps",
+        "test"
+      ],
+      "learningObjective": "Identify the test that confirms valid GPS position data into the FMS.",
+      "fullObjective": "Perform a sensor data validity and alignment test to verify the FMS is receiving valid GPS position data.",
+      "targetSourceStem": "What test confirms the FMS is receiving valid GPS position data?",
+      "flashcard": {
+        "term": "FMS GPS validation",
+        "definition": "A sensor data validity and alignment test compares the FMS-displayed position against the GPS position to confirm valid input.",
+        "analogy": "Like checking that two clocks show the same time before trusting either for an appointment.",
+        "unit": "Flight Management Systems"
+      },
+      "jeopardy": {
+        "question": "This is the test that proves the FMS is accepting valid GPS position data.",
+        "choices": [
+          "An audio sidetone level measurement",
+          "A VHF standing wave ratio check",
+          "A sensor data validity and alignment test",
+          "A DC bus voltage under load test"
+        ],
+        "correctIndex": 2,
+        "explanation": "Verifying position validity requires comparing sensor inputs against the FMS solution; the distractors test unrelated audio, antenna, or power parameters."
+      },
+      "multipleChoice": {
+        "question": "Which test confirms that valid GPS position data is reaching the flight management system?",
+        "choices": [
+          "A DC bus voltage loaded test",
+          "An audio sidetone level measurement",
+          "A sensor data validity and alignment test",
+          "A VHF antenna standing wave ratio check"
+        ],
+        "correctIndex": 2,
+        "explanation": "A sensor alignment and validity test shows whether the FMS is accepting and aligning the GPS position correctly."
+      },
+      "practice": {
+        "question": "Scenario: Before releasing an aircraft after a GPS antenna swap, which test should the technician perform to confirm the FMS is seeing valid GPS data?",
+        "choices": [
+          "Perform a VHF standing wave ratio check",
+          "Measure the audio panel sidetone level",
+          "Run the sensor data validity and alignment test",
+          "Load-test the DC bus voltage stability"
+        ],
+        "correctIndex": 2,
+        "explanation": "The sensor validity test verifies both signal presence and that the FMS accepts the GPS position; the other tests evaluate different systems."
+      },
+      "preassessment": {
+        "question": "To verify that the FMS has acquired usable GPS information, which bench procedure should the technician run?",
+        "choices": [
+          "Audio sidetone level measurement",
+          "VHF standing wave ratio check",
+          "Sensor data validity and alignment test",
+          "DC bus voltage under load test"
+        ],
+        "correctIndex": 2
+      }
+    },
+    {
+      "id": "ADV4-012",
+      "category": "adv4-flight-management-systems",
+      "difficulty": "medium",
+      "tags": [
+        "fms",
+        "direct-to",
+        "flight-plan"
+      ],
+      "learningObjective": "Explain what happens to the active flight plan when a direct-to clearance is entered.",
+      "fullObjective": "Recognize that entering a direct-to modifies the active leg so the FMS routes the aircraft directly to the selected waypoint.",
+      "targetSourceStem": "The pilot enters a direct-to clearance into the CDU. What change occurs in the active flight plan?",
+      "flashcard": {
+        "term": "Direct-to effect",
+        "definition": "A direct-to entry shortens the active flight plan so the active leg terminates at the selected waypoint, cutting out intermediate legs.",
+        "analogy": "Like telling a GPS 'just get me to the hotel' and it drops the scenic route.",
+        "unit": "Flight Management Systems"
+      },
+      "jeopardy": {
+        "question": "This change occurs in the active flight plan when a direct-to clearance is entered on the CDU.",
+        "choices": [
+          "The autopilot disconnects for manual flight",
+          "VNAV is disabled for the remainder of the flight",
+          "The FMS drops into dead reckoning mode",
+          "The active leg shifts to direct to the selected waypoint"
+        ],
+        "correctIndex": 3,
+        "explanation": "Direct-to rewrites the active leg; it does not disable VNAV, disconnect the autopilot, or force dead reckoning."
+      },
+      "multipleChoice": {
+        "question": "After the pilot commands a direct-to to a downstream waypoint, how does the active flight plan change?",
+        "choices": [
+          "The FMS switches to dead reckoning for navigation",
+          "All vertical navigation modes are disabled",
+          "The autopilot disconnects and manual flight is required",
+          "The active leg is rewritten to go direct to the waypoint"
+        ],
+        "correctIndex": 3,
+        "explanation": "Direct-to edits the lateral flight plan; VNAV stays available, the autopilot remains engaged, and GPS/IRS still drive position."
+      },
+      "practice": {
+        "question": "Scenario: ATC clears the aircraft direct to FRONK. The pilot enters the direct-to on the CDU. What change should the technician expect on the displayed flight plan?",
+        "choices": [
+          "All VNAV functions are disabled",
+          "The FMS reverts to dead reckoning mode",
+          "The autopilot disconnects automatically",
+          "The active leg changes to go direct to FRONK"
+        ],
+        "correctIndex": 3,
+        "explanation": "The FMS simply retargets the active leg; autopilot, VNAV, and sensor modes remain unaffected."
+      },
+      "preassessment": {
+        "question": "A direct-to entry changes the flight plan how?",
+        "choices": [
+          "The autopilot disconnects",
+          "VNAV disables entirely",
+          "FMS enters dead reckoning",
+          "Active leg goes to waypoint"
+        ],
+        "correctIndex": 3,
+        "explanation": "A direct-to entry truncates the active leg so it proceeds directly to the selected waypoint."
+      }
+    },
+    {
+      "id": "ADV4-013",
+      "category": "adv4-flight-management-systems",
+      "difficulty": "hard",
+      "tags": [
+        "fms",
+        "installation",
+        "lnav",
+        "arinc-429"
+      ],
+      "learningObjective": "Diagnose an LNAV tracking failure after a new FMS installation.",
+      "fullObjective": "Recognize that incorrect roll steering wiring or ARINC 429 label assignment is the most likely installation error when vertical modes work but lateral tracking fails.",
+      "targetSourceStem": "After installing a new FMS, the autopilot will not track the programmed lateral route. Vertical modes work normally. What is the most likely installation error?",
+      "flashcard": {
+        "term": "Post-install LNAV failure",
+        "definition": "When VNAV works but LNAV does not after installation, suspect roll steering wiring or incorrect ARINC 429 label assignments on the lateral channel.",
+        "analogy": "Like a car where the brake pedal works but the steering column was never bolted in.",
+        "unit": "Flight Management Systems"
+      },
+      "jeopardy": {
+        "question": "This installation error best explains why LNAV is failing while VNAV works normally on a newly installed FMS.",
+        "choices": [
+          "Roll steering wiring or label assignment error",
+          "Vertical gyro power supply connection issue",
+          "Pitot-static plumbing to ADC inputs",
+          "GPS antenna coaxial cable routing error"
+        ],
+        "correctIndex": 0,
+        "explanation": "Since VNAV is working, altitude, air data, and GPS position must be healthy; only the lateral roll steering path can cause the described split."
+      },
+      "multipleChoice": {
+        "question": "After a new FMS install, vertical modes function normally but the autopilot will not track LNAV. Which installation error is most likely?",
+        "choices": [
+          "Roll steering wiring or ARINC label error",
+          "Vertical gyro power supply miswiring",
+          "Pitot-static plumbing error to the ADC",
+          "GPS antenna coax routing obstruction"
+        ],
+        "correctIndex": 0,
+        "explanation": "Healthy VNAV means air data and GPS are working; the fault must be isolated to the lateral steering path (roll steering wiring or ARINC 429 label assignment) between the FMC and the autopilot."
+      },
+      "practice": {
+        "question": "Scenario: Post-installation testing shows VNAV captures and holds correctly, but the autopilot will not track lateral routes. Where should the technician focus troubleshooting?",
+        "choices": [
+          "The roll steering wiring and ARINC 429 label mapping",
+          "The vertical gyro power supply connections",
+          "The pitot-static plumbing to the ADC",
+          "The GPS antenna coaxial cable routing"
+        ],
+        "correctIndex": 0,
+        "explanation": "LNAV isolation to lateral steering indicates the roll command path, not air-data, gyro power, or GPS antenna."
+      },
+      "preassessment": {
+        "question": "VNAV works, LNAV doesn't, after a new FMS install. Likely cause?",
+        "choices": [
+          "Roll steering wiring fault",
+          "Vertical gyro power fault",
+          "ADC pitot-static error",
+          "GPS antenna coax issue"
+        ],
+        "correctIndex": 0,
+        "explanation": "Healthy VNAV means air data and GPS are working; the lateral fault is isolated to roll-steering wiring or ARINC 429 label assignment."
+      }
+    },
+    {
+      "id": "ADV4-014",
+      "category": "adv4-flight-management-systems",
+      "difficulty": "medium",
+      "tags": [
+        "fms",
+        "sid",
+        "navigation-database"
+      ],
+      "learningObjective": "Diagnose why a SID does not appear in the FMS procedure list.",
+      "fullObjective": "Recognize that an outdated or incomplete navigation database is the usual reason a published SID is missing from the FMS.",
+      "targetSourceStem": "The pilot attempts to load a published SID but the procedure does not appear in the FMS. The airport identifier is correct. What is the cause?",
+      "flashcard": {
+        "term": "Missing SID",
+        "definition": "If the airport identifier is correct but the SID is unavailable, the navigation database is probably outdated or the regional coverage is incomplete.",
+        "analogy": "Like searching for a new restaurant that opened after your map app was last updated.",
+        "unit": "Flight Management Systems"
+      },
+      "jeopardy": {
+        "question": "This is the usual reason a correctly identified airport offers no selectable SID in the FMS.",
+        "choices": [
+          "The GPS receiver has insufficient satellite coverage",
+          "The navigation database is outdated or incomplete",
+          "The CDU display brightness is set too low",
+          "The FMS software is stuck in maintenance mode"
+        ],
+        "correctIndex": 1,
+        "explanation": "Procedure availability depends on the currency and coverage of the nav database; GPS, brightness, and maintenance mode would produce different symptoms."
+      },
+      "multipleChoice": {
+        "question": "A pilot cannot find a published SID in the FMS even though the airport code is correct. What is the most likely cause?",
+        "choices": [
+          "CDU display brightness is too dim to see",
+          "An outdated or incomplete navigation database",
+          "Insufficient GPS satellite geometry or coverage",
+          "The FMS software is still in maintenance mode"
+        ],
+        "correctIndex": 1,
+        "explanation": "Missing procedures are a database problem; GPS and display brightness issues cause different failure symptoms."
+      },
+      "practice": {
+        "question": "Scenario: A pilot reports a brand-new SID is missing from the FMS though the airport ID is correct. What is the most likely cause?",
+        "choices": [
+          "The GPS has poor satellite coverage at that airport",
+          "The nav database is outdated or does not include the region",
+          "The CDU brightness is set too low to see the list",
+          "The FMS is stuck in maintenance mode"
+        ],
+        "correctIndex": 1,
+        "explanation": "If the FMS does not show the SID, the most common reason is a nav database that does not contain the procedure."
+      },
+      "preassessment": {
+        "question": "A SID doesn't appear in FMS though airport is correct. Cause?",
+        "choices": [
+          "Poor GPS satellite coverage",
+          "Outdated or incomplete nav database",
+          "CDU brightness set too low",
+          "FMS stuck in maintenance mode"
+        ],
+        "correctIndex": 1
+      }
+    },
+    {
+      "id": "ADV4-015",
+      "category": "adv4-flight-management-systems",
+      "difficulty": "hard",
+      "tags": [
+        "fms",
+        "troubleshooting",
+        "position"
+      ],
+      "learningObjective": "Diagnose an FMC position invalid fault on power-up.",
+      "fullObjective": "Recognize that GPS and IRS inputs must be verified when the CDU displays an FMC position invalid message at power-up.",
+      "targetSourceStem": "One CDU displays 'FMC POSITION INVALID' during power-up. What inputs should the technician verify?",
+      "flashcard": {
+        "term": "FMC POSITION INVALID",
+        "definition": "When the CDU annunciates FMC POSITION INVALID, start by verifying the GPS and IRS signals reaching the FMC.",
+        "analogy": "Like your phone showing no map fix until you confirm both Wi-Fi and GPS are actually turned on.",
+        "unit": "Flight Management Systems"
+      },
+      "jeopardy": {
+        "question": "These are the first inputs to verify when an FMC POSITION INVALID alert appears on the CDU at power-up.",
+        "choices": [
+          "Fuel quantity probe wiring continuity",
+          "Replace the CDU with a known good unit",
+          "GPS and IRS data reaching the FMC",
+          "Audio panel RF emissions from the headset bus"
+        ],
+        "correctIndex": 2,
+        "explanation": "Position validity depends on sensor inputs; swapping CDUs, checking audio RF, or testing fuel wiring would not address an FMC position issue."
+      },
+      "multipleChoice": {
+        "question": "A CDU displays 'FMC POSITION INVALID' at power-up. Which inputs should be verified first?",
+        "choices": [
+          "Audio panel RF emissions onto the comm bus",
+          "Swap the CDU for a known-good spare",
+          "The GPS and IRS signals arriving at the FMC",
+          "Fuel quantity probe wiring continuity"
+        ],
+        "correctIndex": 2,
+        "explanation": "Position invalid messages are triggered by missing or unhealthy position sensors; verify GPS and IRS first."
+      },
+      "practice": {
+        "question": "Scenario: At power-up, one CDU reads 'FMC POSITION INVALID' while the other CDU is normal. Which inputs should the technician check on the failing side?",
+        "choices": [
+          "Replace the CDU with a known-good unit",
+          "Audio panel RF emissions routing",
+          "The GPS and IRS data inputs into that FMC",
+          "Fuel quantity probe wiring integrity"
+        ],
+        "correctIndex": 2,
+        "explanation": "The message indicates the FMC has no valid position source; checking GPS and IRS inputs addresses the root cause."
+      },
+      "preassessment": {
+        "question": "CDU shows FMC POSITION INVALID. What to verify?",
+        "choices": [
+          "Audio panel RF emissions",
+          "Replace CDU with known-good unit",
+          "GPS and IRS inputs to the FMC",
+          "Fuel quantity probe wiring"
+        ],
+        "correctIndex": 2
+      }
+    },
+    {
+      "id": "ADV4-016",
+      "category": "adv4-flight-management-systems",
+      "difficulty": "medium",
+      "tags": [
+        "fms",
+        "memory",
+        "maintenance"
+      ],
+      "learningObjective": "Explain why stored flight plans are lost during a battery replacement.",
+      "fullObjective": "Recognize that the FMS memory lost its backup power during the battery change, clearing stored flight plans.",
+      "targetSourceStem": "After battery replacement, all saved flight plans in the FMS are lost. What caused the data loss?",
+      "flashcard": {
+        "term": "FMS data loss at battery swap",
+        "definition": "Stored flight plans disappear when the FMS memory loses power during a battery change because some units rely on backup power to retain volatile memory.",
+        "analogy": "Like unplugging a computer that hasn't saved your document yet.",
+        "unit": "Flight Management Systems"
+      },
+      "jeopardy": {
+        "question": "This condition during a battery replacement explains why stored FMS flight plans vanish.",
+        "choices": [
+          "Fuel quantity computer lost its calibration",
+          "VHF NAV radio was left in self-test mode",
+          "Pitot-static system needed recalibration",
+          "FMS memory lost backup power during the swap"
+        ],
+        "correctIndex": 3,
+        "explanation": "Volatile memory in the FMS depends on continuous power or a backup supply; the distractors have no connection to stored route data."
+      },
+      "multipleChoice": {
+        "question": "Following an aircraft battery change, all saved FMS flight plans are gone. What caused the loss?",
+        "choices": [
+          "The VHF NAV receiver was left in self-test mode",
+          "The pitot-static system required recalibration",
+          "The fuel quantity computer lost calibration",
+          "The FMS volatile memory lost power during the swap"
+        ],
+        "correctIndex": 3,
+        "explanation": "Without standby power, volatile memory in many FMCs clears stored plans; other listed items are unrelated to route storage."
+      },
+      "practice": {
+        "question": "Scenario: After a battery replacement, the pilot reports all stored company flight plans are gone from the FMS. What is the cause?",
+        "choices": [
+          "The pitot-static system needs recalibration",
+          "VHF NAV was left in self-test mode",
+          "The fuel computer lost calibration data",
+          "FMS memory lost power during the battery swap"
+        ],
+        "correctIndex": 3,
+        "explanation": "Volatile FMS memory requires continuous power; bypassing the battery without a ground power connection can clear stored plans."
+      },
+      "preassessment": {
+        "question": "Why would FMS stored plans be lost after battery change?",
+        "choices": [
+          "Pitot-static needs recalibration",
+          "VHF NAV was in self-test mode",
+          "Fuel computer lost calibration",
+          "FMS memory lost power during swap"
+        ],
+        "correctIndex": 3
+      }
+    },
+    {
+      "id": "ADV4-017",
+      "category": "adv4-flight-management-systems",
+      "difficulty": "hard",
+      "tags": [
+        "fms",
+        "vnav",
+        "adc",
+        "star"
+      ],
+      "learningObjective": "Identify the inputs to check when VNAV descent profiles are inaccurate.",
+      "fullObjective": "Recognize that ADC pressure data and aircraft performance data are the primary inputs affecting VNAV descent accuracy on a STAR.",
+      "targetSourceStem": "The pilot reports inaccurate VNAV descent profiles after loading a STAR. What system inputs should be checked?",
+      "flashcard": {
+        "term": "VNAV profile accuracy",
+        "definition": "VNAV descents rely on ADC pressure and performance data; inaccurate descents warrant checking air data inputs and the performance initialization.",
+        "analogy": "Like a cruise control that can't keep a steady speed if the tire pressure sensor is lying.",
+        "unit": "Flight Management Systems"
+      },
+      "jeopardy": {
+        "question": "These system inputs should be verified when VNAV descent profiles are inaccurate after loading a STAR.",
+        "choices": [
+          "ADC pressure data and performance initialization",
+          "HF radio antenna tuner settings",
+          "Passenger address amplifier output level",
+          "EGPWS terrain database currency"
+        ],
+        "correctIndex": 0,
+        "explanation": "Accurate VNAV requires correct air data and aircraft performance inputs; the distractors have no role in descent computation."
+      },
+      "multipleChoice": {
+        "question": "A pilot reports the aircraft is flying inaccurate VNAV descents on STARs. Which inputs should be checked?",
+        "choices": [
+          "ADC pressure data and FMS performance data",
+          "HF radio antenna coupler settings",
+          "Passenger address amplifier output levels",
+          "EGPWS terrain database currency status"
+        ],
+        "correctIndex": 0,
+        "explanation": "VNAV accuracy depends on pressure altitude and performance model data; the other systems have no influence on descent computations."
+      },
+      "practice": {
+        "question": "Scenario: After multiple STAR descents, the pilot reports the FMS is consistently early or late on crossing restrictions. Which inputs should the technician inspect?",
+        "choices": [
+          "ADC pressure data and FMS perf init",
+          "HF radio antenna tuner adjustments",
+          "Passenger address amplifier levels",
+          "EGPWS terrain database currency"
+        ],
+        "correctIndex": 0,
+        "explanation": "Descent path prediction uses air data pressures plus FMS performance initialization; errors in either source produce inaccurate crossing profiles. The distractors affect unrelated systems."
+      },
+      "preassessment": {
+        "question": "Inaccurate VNAV descent profiles on STAR. Check?",
+        "choices": [
+          "ADC pressure and performance data",
+          "HF radio antenna tuner settings",
+          "PA amplifier output levels",
+          "EGPWS terrain database currency"
+        ],
+        "correctIndex": 0
+      }
+    },
+    {
+      "id": "ADV4-018",
+      "category": "adv4-flight-management-systems",
+      "difficulty": "medium",
+      "tags": [
+        "fms",
+        "vnav",
+        "mode"
+      ],
+      "learningObjective": "Identify the FMS mode that computes vertical profiles to altitude restrictions.",
+      "fullObjective": "Recognize that the vertical navigation mode computes the optimum profile from cruise to a crossing altitude.",
+      "targetSourceStem": "Which FMS mode computes the optimum vertical path from cruise altitude to a crossing restriction?",
+      "flashcard": {
+        "term": "VNAV mode",
+        "definition": "Vertical navigation (VNAV) calculates the idle-optimum descent path from cruise altitude to a published crossing restriction.",
+        "analogy": "Like planning a bike descent so you coast and arrive at the bottom at a set speed.",
+        "unit": "Flight Management Systems"
+      },
+      "jeopardy": {
+        "question": "When the flight crew wants an automatic top-of-descent calculation to meet a crossing altitude, they engage this FMS mode.",
+        "choices": [
+          "Lateral navigation mode",
+          "Vertical navigation mode",
+          "Direct-to navigation mode",
+          "Holding pattern mode"
+        ],
+        "correctIndex": 1,
+        "explanation": "Vertical path optimization is the VNAV mode's defining role; LNAV handles lateral path, direct-to modifies routing, and holding manages loops."
+      },
+      "multipleChoice": {
+        "question": "When the FMS calculates an idealized top-of-descent profile to make a published crossing altitude, what navigation function is being used?",
+        "choices": [
+          "Lateral navigation (LNAV) mode",
+          "Vertical navigation (VNAV) mode",
+          "Direct-to navigation mode",
+          "Holding pattern mode"
+        ],
+        "correctIndex": 1,
+        "explanation": "VNAV produces the descent profile; LNAV manages lateral course, direct-to shortcuts routing, and holding manages race-track patterns."
+      },
+      "practice": {
+        "question": "Scenario: A pilot asks the technician which FMS mode is responsible for computing the idle descent path to a crossing altitude on a STAR. Which mode is correct?",
+        "choices": [
+          "The holding pattern mode of the FMS",
+          "The VNAV mode of the FMS",
+          "The direct-to mode of the FMS",
+          "The LNAV mode of the FMS"
+        ],
+        "correctIndex": 1,
+        "explanation": "VNAV is the dedicated vertical path planner in the FMS; other modes manage horizontal routing or holding."
+      },
+      "preassessment": {
+        "question": "Which FMS mode computes the vertical profile to a crossing restriction?",
+        "choices": [
+          "Lateral navigation mode",
+          "Vertical navigation mode",
+          "Direct-to navigation mode",
+          "Holding pattern mode"
+        ],
+        "correctIndex": 1
+      }
+    }
+  ]
+}

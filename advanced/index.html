@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CAET Advanced Practice | AEA</title>
+<link rel="icon" type="image/png" href="../shared/ace-sprites/ace-48-happy.png">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared/ace-theme.css">
+
+<style>
+body {
+  background: #080C1A;
+  color: var(--text-primary);
+  font-family: 'Inter', -apple-system, sans-serif;
+  margin: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Background grid + glow */
+.cyber-grid {
+  position: fixed; inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  transform: perspective(500px) rotateX(60deg) translateY(-100px) translateZ(-200px);
+  opacity: 0.3; z-index: -2; pointer-events: none;
+}
+.cyber-bg {
+  position: fixed; inset: 0;
+  background:
+    radial-gradient(circle at 15% 50%, rgba(212,168,83,0.08) 0%, transparent 40%),
+    radial-gradient(circle at 85% 30%, rgba(34,211,238,0.08) 0%, transparent 40%),
+    radial-gradient(circle at 50% 100%, rgba(45,189,137,0.05) 0%, transparent 50%);
+  z-index: -1; pointer-events: none;
+}
+
+/* Top bar */
+.topbar {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(8,12,26,0.85); backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 16px 32px;
+}
+.topbar-left { display: flex; align-items: center; gap: 16px; }
+.btn-back {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 13px; font-weight: 500; color: var(--text-secondary);
+  background: transparent; border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 8px; padding: 7px 14px; text-decoration: none;
+  transition: all 0.15s;
+}
+.btn-back:hover { border-color: var(--gold); color: white; }
+.topbar-title { font-size: 14px; color: var(--text-secondary); letter-spacing: 0.5px; text-transform: uppercase; }
+.topbar-logo img { height: 32px; filter: drop-shadow(0 0 8px rgba(212,168,83,0.4)); }
+
+/* Hero */
+.hero {
+  max-width: 1300px; margin: 0 auto; padding: 60px 24px 40px;
+  text-align: center;
+}
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 6px 14px;
+  background: rgba(212,168,83,0.1);
+  border: 1px solid rgba(212,168,83,0.3);
+  border-radius: 100px;
+  font-size: 12px;
+  color: var(--gold);
+  text-transform: uppercase; letter-spacing: 1.5px; font-weight: 600;
+  margin-bottom: 20px;
+}
+.hero h1 {
+  font-size: 56px; font-weight: 800; letter-spacing: -1.5px;
+  color: white; margin: 0 0 16px;
+  background: linear-gradient(180deg, white 0%, rgba(212,168,83,0.8) 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
+.hero-subtitle {
+  font-size: 18px; color: var(--text-muted);
+  max-width: 640px; margin: 0 auto 32px; line-height: 1.6;
+}
+.hero-stats {
+  display: flex; justify-content: center; gap: 40px;
+  font-size: 13px; color: var(--text-secondary); letter-spacing: 1px;
+}
+.hero-stat strong { color: var(--gold); font-size: 18px; font-weight: 700; display: block; }
+
+/* Module grid */
+.modules-section { max-width: 1300px; margin: 0 auto; padding: 40px 24px 100px; }
+.section-title {
+  font-size: 14px; text-transform: uppercase; letter-spacing: 2px;
+  color: var(--text-muted); margin-bottom: 24px; font-weight: 600;
+}
+.module-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+.module-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.2s;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+.module-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: var(--card-color, #58a6ff);
+  box-shadow: 0 0 20px var(--card-color, #58a6ff);
+}
+.module-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--card-color, #58a6ff);
+  background: rgba(255,255,255,0.05);
+}
+.module-card-abbr {
+  display: inline-block;
+  font-size: 11px; font-weight: 700;
+  color: var(--card-color, #58a6ff);
+  background: color-mix(in srgb, var(--card-color, #58a6ff) 15%, transparent);
+  border: 1px solid color-mix(in srgb, var(--card-color, #58a6ff) 40%, transparent);
+  padding: 4px 10px; border-radius: 6px;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+}
+.module-card h3 {
+  font-size: 18px; font-weight: 600; color: white;
+  margin: 0 0 8px; letter-spacing: -0.3px;
+}
+.module-card-meta {
+  font-size: 12px; color: var(--text-muted);
+  display: flex; gap: 12px; align-items: center;
+}
+.module-card-meta span { display: flex; align-items: center; gap: 4px; }
+.module-card-arrow {
+  position: absolute; bottom: 20px; right: 20px;
+  width: 28px; height: 28px; border-radius: 50%;
+  background: rgba(255,255,255,0.06);
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.2s;
+  color: var(--text-secondary);
+}
+.module-card:hover .module-card-arrow {
+  background: var(--card-color, #58a6ff);
+  color: black;
+  transform: translateX(3px);
+}
+
+/* Footer note */
+.footer-note {
+  max-width: 1300px; margin: 0 auto; padding: 0 24px 60px;
+  font-size: 12px; color: var(--text-muted); text-align: center;
+}
+</style>
+</head>
+<body>
+<div class="cyber-bg"></div>
+<div class="cyber-grid"></div>
+
+<div class="topbar">
+  <div class="topbar-left">
+    <a href="../index.html" class="btn-back">← CAET Practice</a>
+    <span class="topbar-title">Advanced Certification</span>
+  </div>
+  <a href="../index.html" class="topbar-logo">
+    <img src="../shared/logo.png" alt="AEA CAET">
+  </a>
+</div>
+
+<div class="hero">
+  <div class="hero-badge">🎓 AEA Advanced Certification</div>
+  <h1>CAET Advanced</h1>
+  <p class="hero-subtitle">
+    Practice bank for the next-level avionics technician certification.
+    Advanced systems, integration troubleshooting, and regulatory knowledge.
+  </p>
+  <div class="hero-stats">
+    <div class="hero-stat"><strong>15</strong>Modules</div>
+    <div class="hero-stat"><strong>193</strong>Real exam items mapped</div>
+    <div class="hero-stat"><strong>5</strong>Practice modes</div>
+  </div>
+</div>
+
+<section class="modules-section">
+  <div class="section-title">Select a Module</div>
+  <div class="module-grid" id="moduleGrid">
+    <!-- Populated by JS below -->
+  </div>
+</section>
+
+<div class="footer-note">
+  CAET Advanced practice bank · 1:1 coverage of every real exam stem · Paraphrased to avoid plagiarism · Position-shuffled for unbiased practice
+</div>
+
+<script>
+// Load modules manifest and render cards
+fetch('modules.json')
+  .then(r => r.json())
+  .then(data => {
+    const grid = document.getElementById('moduleGrid');
+    data.modules.forEach(m => {
+      const card = document.createElement('a');
+      card.className = 'module-card';
+      card.style.setProperty('--card-color', m.color);
+      card.href = `training/${m.slug}-${m.dir}/index.html`;
+      card.innerHTML = `
+        <div class="module-card-abbr">${m.abbr}</div>
+        <h3>${m.title}</h3>
+        <div class="module-card-meta">
+          <span>⏱ ~${m.est_min} min</span>
+          <span>📚 Drill · Flashcards · Battle Ace</span>
+        </div>
+        <div class="module-card-arrow">→</div>
+      `;
+      grid.appendChild(card);
+    });
+  })
+  .catch(err => {
+    document.getElementById('moduleGrid').innerHTML =
+      `<div style="color:#ef4444;">Failed to load modules: ${err.message}</div>`;
+  });
+</script>
+</body>
+</html>

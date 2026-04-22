@@ -1,0 +1,191 @@
+{
+  "metadata": {
+    "module": "adv9",
+    "title": "Smart Probes & Air Data"
+  },
+  "categories": {
+    "Smart Probes & Air Data": [
+      {
+        "id": "ADV9-J001",
+        "clue": "A pitot-static smart probe delivers these three core flight parameters to the air data system.",
+        "choices": [
+          "Airspeed, altitude, vertical speed",
+          "Outside air temperature only",
+          "Engine RPM and torque values",
+          "Autopilot command signals only"
+        ],
+        "correctIndex": 0,
+        "explanation": "From total and static pressures, the smart probe supplies airspeed, altitude, and vertical speed. OAT comes from a separate probe, engine data from engine instruments, and autopilot commands are AFCS outputs."
+      },
+      {
+        "id": "ADV9-J002",
+        "clue": "This defining feature sets a 'smart' pitot-static probe apart from a conventional pneumatic one.",
+        "choices": [
+          "A ceramic probe body material",
+          "A built-in digital processor",
+          "A manual calibration requirement",
+          "A self-adjusting heater element only"
+        ],
+        "correctIndex": 1,
+        "explanation": "The integrated digital processor converts pressure directly into digital air data, which is what makes it 'smart.' Body material, manual calibration, and a heater alone do not define the smart probe concept."
+      },
+      {
+        "id": "ADV9-J003",
+        "clue": "This installation advantage is the main reason manufacturers are replacing traditional pitot-static plumbing with smart probes.",
+        "choices": [
+          "Simpler cockpit instrumentation",
+          "Higher maintenance requirements",
+          "Reduced tubing runs and complexity",
+          "Lower overall system cost"
+        ],
+        "correctIndex": 2,
+        "explanation": "Smart probes replace long pneumatic tubing runs with short electrical wiring, reducing installation complexity. Maintenance is similar or reduced, cockpit displays are often unchanged, and lifecycle cost varies by program."
+      },
+      {
+        "id": "ADV9-J004",
+        "clue": "This is the pressure that the static port on a pitot-static probe samples from the airstream.",
+        "choices": [
+          "Exhaust gas temperature",
+          "Ram air dynamic pressure",
+          "Cabin pressurization level",
+          "Ambient atmospheric pressure"
+        ],
+        "correctIndex": 3,
+        "explanation": "The static port senses ambient atmospheric pressure independent of ram effect. Ram pressure is sensed by the pitot inlet, cabin pressure is measured separately, and EGT is a temperature, not a pressure."
+      },
+      {
+        "id": "ADV9-J005",
+        "clue": "Field data shows this failure mode is the dominant cause of pitot-static smart probe discrepancies.",
+        "choices": [
+          "Blockage of ports by ice or debris",
+          "Firmware corruption during power cycle",
+          "Heater element open from thermal stress",
+          "ARINC transmitter output stage failure"
+        ],
+        "correctIndex": 0,
+        "explanation": "Port blockage by ice, insects, or debris dominates smart probe discrepancy data. Firmware, heater, and output stage failures are less common and well detected by BIT."
+      },
+      {
+        "id": "ADV9-J006",
+        "clue": "The heating element inside a pitot probe draws heavy current for this specific reason.",
+        "choices": [
+          "To warm air for temperature sensing",
+          "To prevent ice from blocking the ports",
+          "To supply power to the processor chip",
+          "To stabilize the sensor temperature only"
+        ],
+        "correctIndex": 1,
+        "explanation": "Pitot heat prevents ice from forming over the ports at high altitude and in visible moisture. Sensor temperature is controlled by separate means, the processor has its own supply, and OAT sensing requires sampled air to be unheated."
+      },
+      {
+        "id": "ADV9-J007",
+        "clue": "This digital protocol is typically used by smart probes to transmit air data to the avionics suite.",
+        "choices": [
+          "Radio frequency telemetry link",
+          "Analog voltage proportional to pressure",
+          "ARINC 429 digital data words",
+          "Mechanical cable position signal"
+        ],
+        "correctIndex": 2,
+        "explanation": "ARINC 429 is the standard digital air data bus. Analog voltage is obsolete for air data, RF telemetry is inappropriate inside the airframe, and mechanical cables are not used."
+      },
+      {
+        "id": "ADV9-J008",
+        "clue": "Among all possible causes, this is the single most common source of inaccurate pitot-static smart probe readings.",
+        "choices": [
+          "A malfunction in the air data computer",
+          "Interference from the weather radar",
+          "A loss of GPS receiver signal lock",
+          "Blockage of the pressure sensing ports"
+        ],
+        "correctIndex": 3,
+        "explanation": "Port blockage from ice, insects, or debris is overwhelmingly the most common cause of inaccurate pitot-static readings. ADC faults, GPS loss, and radar interference are comparatively rare and have different symptoms."
+      },
+      {
+        "id": "ADV9-J009",
+        "clue": "Outside of deep-inspection intervals, this is the chief routine maintenance action performed on a pitot-static smart probe.",
+        "choices": [
+          "Visual inspection of ports for contamination",
+          "Monthly pressure sensor recalibration",
+          "Quarterly heater element replacement",
+          "Annual firmware update installation"
+        ],
+        "correctIndex": 0,
+        "explanation": "Routine visual inspection of the ports for contamination is the primary between-check task. Sensor recalibration is rare, heaters are not scheduled for replacement, and firmware updates occur on bulletin."
+      },
+      {
+        "id": "ADV9-J010",
+        "clue": "In a pitot-static smart probe, this is the specific pressure the pitot tube element senses.",
+        "choices": [
+          "Temperature-compensated pressure",
+          "Total pressure including ram air",
+          "Differential for vertical speed",
+          "Ambient static pressure only"
+        ],
+        "correctIndex": 1,
+        "explanation": "The pitot tube senses total pressure (ambient plus ram). Static ports sense ambient only, vertical speed is a rate of change, and there is no temperature-compensated cabin pressure in this context."
+      },
+      {
+        "id": "ADV9-J011",
+        "clue": "When a smart probe shows inconsistent preflight data, these two items should be inspected first.",
+        "choices": [
+          "The pressure sensor calibration date",
+          "The processor firmware version level",
+          "The wiring connections and the port condition",
+          "The power supply voltage regulation"
+        ],
+        "correctIndex": 2,
+        "explanation": "Wiring issues and port contamination are the most common causes of inconsistent data. Firmware version, calibration date, and power supply regulation are secondary checks reserved for deeper troubleshooting."
+      },
+      {
+        "id": "ADV9-J012",
+        "clue": "The microprocessor inside a smart probe offers this key capability to support maintenance actions.",
+        "choices": [
+          "Automatic probe weight reduction",
+          "Multiple pressure type sensing",
+          "Improved mechanical durability",
+          "Continuous self-test and fault detection"
+        ],
+        "correctIndex": 3,
+        "explanation": "Built-in test continuously monitors probe health and reports faults. Weight, mechanical durability, and multi-type sensing are not processor-driven benefits."
+      },
+      {
+        "id": "ADV9-J013",
+        "clue": "Should a smart pitot-static probe malfunction during cruise, this is the principal hazard it creates for the flight deck.",
+        "choices": [
+          "Erroneous airspeed and altitude data",
+          "Loss of radio communication ability",
+          "Navigation display blanking only",
+          "Increased fuel consumption rate"
+        ],
+        "correctIndex": 0,
+        "explanation": "A failed probe feeds wrong airspeed and altitude to pilots and autopilot, a well-known loss-of-control precursor. Comms, display blanking, and fuel burn are not direct consequences."
+      },
+      {
+        "id": "ADV9-J014",
+        "clue": "An ADC derives airspeed and altitude by processing this pair of incoming pressure signals.",
+        "choices": [
+          "Fuel tank quantity level signals",
+          "Pitot total and static ambient pressure",
+          "Engine manifold pressure only",
+          "GPS altitude and ground speed"
+        ],
+        "correctIndex": 1,
+        "explanation": "The ADC derives airspeed and altitude from pitot total pressure and static ambient pressure. GPS values are separate position/speed data, manifold pressure is an engine parameter, and fuel quantity is unrelated."
+      },
+      {
+        "id": "ADV9-J015",
+        "clue": "In an aircraft fitted with several pitot-static probes, this situation activates the 'unreliable airspeed' alert for the pilots.",
+        "choices": [
+          "Loss of GPS satellite signal lock",
+          "Partial blockage on a single probe only",
+          "Disagreement between air data sources",
+          "A manual disconnect of the autopilot"
+        ],
+        "correctIndex": 2,
+        "explanation": "Multi-probe systems compare independent sources and annunciate unreliable airspeed when they disagree beyond threshold. A single partial blockage may not exceed threshold, and GPS and autopilot events are unrelated to airspeed validity."
+      }
+    ]
+  },
+  "final": []
+}

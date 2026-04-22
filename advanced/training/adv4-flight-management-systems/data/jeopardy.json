@@ -1,0 +1,227 @@
+{
+  "metadata": {
+    "module": "adv4",
+    "title": "Flight Management Systems"
+  },
+  "categories": {
+    "Flight Management Systems": [
+      {
+        "id": "ADV4-J001",
+        "clue": "This is the main service an FMS delivers to the flight crew during normal operations.",
+        "choices": [
+          "Automated navigation and performance computations",
+          "Ground proximity and traffic collision alerting",
+          "Automatic engine start and FADEC sequencing",
+          "Direct manual reversion of flight controls"
+        ],
+        "correctIndex": 0,
+        "explanation": "The FMS automates navigation and performance; alerting, engine starts, and manual reversion belong to other systems."
+      },
+      {
+        "id": "ADV4-J002",
+        "clue": "These four sensor sources are blended by the FMC to produce a fused aircraft position.",
+        "choices": [
+          "Magnetometer and TCAS traffic processor",
+          "GPS, IRS, ADC, and VOR/DME",
+          "Weather radar feed and transponder reply",
+          "Pitot probe and radar altimeter pair"
+        ],
+        "correctIndex": 1,
+        "explanation": "The FMC fuses satellite, inertial, air data, and ground-based radio navigation inputs."
+      },
+      {
+        "id": "ADV4-J003",
+        "clue": "This set of LRUs forms the architecture of a conventional FMS installation.",
+        "choices": [
+          "FDR, CVR, and ELT recorder bundle",
+          "AHRS, ADC, and audio control panel units",
+          "CDU, FMC, navigation database, and sensors",
+          "MFD, VHF radio, and TAWS processor"
+        ],
+        "correctIndex": 2,
+        "explanation": "The FMS is defined by CDU entry, FMC computation, nav database storage, and sensor inputs."
+      },
+      {
+        "id": "ADV4-J004",
+        "clue": "This is where a published STAR procedure physically lives inside the avionics suite.",
+        "choices": [
+          "An ADS-B ground station database",
+          "A maintenance laptop storage drive",
+          "The aircraft configuration module",
+          "The FMS navigation database"
+        ],
+        "correctIndex": 3,
+        "explanation": "STARs, SIDs, and approaches are stored in the FMS nav database on a 28-day cycle."
+      },
+      {
+        "id": "ADV4-J005",
+        "clue": "This is the interface parameter that technicians must verify during FMS installation to ensure LRUs talk correctly.",
+        "choices": [
+          "ARINC 429 label mapping between LRUs",
+          "ADF loop antenna orientation angle",
+          "Cabin reading light dimmer setting",
+          "Intercom squelch threshold level"
+        ],
+        "correctIndex": 0,
+        "explanation": "Label mapping determines which data words each LRU exchanges with the FMS."
+      },
+      {
+        "id": "ADV4-J006",
+        "clue": "This digital data bus standard carries FMC output to cockpit display units.",
+        "choices": [
+          "RS-232 serial interface",
+          "ARINC 429 digital data bus",
+          "MIL-STD-1553 command bus",
+          "Controller area network bus"
+        ],
+        "correctIndex": 1,
+        "explanation": "ARINC 429 is the one-way civil aviation bus that dominates FMC-to-EFIS paths."
+      },
+      {
+        "id": "ADV4-J007",
+        "clue": "This is the device pilots use to type waypoints and flight plan data into the FMS.",
+        "choices": [
+          "The transponder code entry pad",
+          "The audio control panel selector",
+          "The CDU keyboard",
+          "The EFIS range and mode controller"
+        ],
+        "correctIndex": 2,
+        "explanation": "The Control Display Unit keyboard is the primary pilot interface for FMS data entry."
+      },
+      {
+        "id": "ADV4-J008",
+        "clue": "This is the coupling capability a technician must confirm when tying the FMS into the autopilot.",
+        "choices": [
+          "Weather radar overlay on the display",
+          "Autobrake arming and disarm logic",
+          "ADS-B transmit and receive function",
+          "Lateral and vertical guidance coupling"
+        ],
+        "correctIndex": 3,
+        "explanation": "Both LNAV and VNAV must command the autopilot correctly after FMS integration."
+      },
+      {
+        "id": "ADV4-J009",
+        "clue": "This is the test tool used to decode ARINC 429 data from an FMC.",
+        "choices": [
+          "A dedicated data bus protocol analyzer",
+          "A digital multimeter with frequency counter",
+          "A portable pitot-static test set",
+          "A fiber optic power level meter"
+        ],
+        "correctIndex": 0,
+        "explanation": "Only a protocol analyzer can parse ARINC 429 labels and SSM bits."
+      },
+      {
+        "id": "ADV4-J010",
+        "clue": "This is the FMC output a technician should inspect when LNAV is programmed correctly but the autopilot refuses to capture the route.",
+        "choices": [
+          "VOR receiver signal strength indication",
+          "ARINC 429 roll steering output to the autopilot",
+          "Pitot-static system leak test results",
+          "Audio panel transmit and receive routing"
+        ],
+        "correctIndex": 1,
+        "explanation": "Roll steering is the lateral command bus from FMC to autopilot."
+      },
+      {
+        "id": "ADV4-J011",
+        "clue": "This is the test that proves the FMS is accepting valid GPS position data.",
+        "choices": [
+          "An audio sidetone level measurement",
+          "A VHF standing wave ratio check",
+          "A sensor data validity and alignment test",
+          "A DC bus voltage under load test"
+        ],
+        "correctIndex": 2,
+        "explanation": "A validity/alignment test verifies the FMS is accepting the GPS position."
+      },
+      {
+        "id": "ADV4-J012",
+        "clue": "This change occurs in the active flight plan when a direct-to clearance is entered on the CDU.",
+        "choices": [
+          "The FMS drops into dead reckoning mode",
+          "VNAV is disabled for the remainder of the flight",
+          "The autopilot disconnects for manual flight",
+          "The active leg shifts to direct to the selected waypoint"
+        ],
+        "correctIndex": 3,
+        "explanation": "Direct-to simply retargets the active leg; other modes keep working."
+      },
+      {
+        "id": "ADV4-J013",
+        "clue": "This installation error best explains why LNAV is failing while VNAV works normally on a newly installed FMS.",
+        "choices": [
+          "Roll steering wiring or label assignment error",
+          "Vertical gyro power supply connection issue",
+          "Pitot-static plumbing to ADC inputs",
+          "GPS antenna coaxial cable routing error"
+        ],
+        "correctIndex": 0,
+        "explanation": "If VNAV works, air data and GPS are fine; the issue is on the lateral steering path."
+      },
+      {
+        "id": "ADV4-J014",
+        "clue": "This is the usual reason a correctly identified airport offers no selectable SID in the FMS.",
+        "choices": [
+          "The GPS receiver has insufficient satellite coverage",
+          "The navigation database is outdated or incomplete",
+          "The CDU display brightness is set too low",
+          "The FMS software is stuck in maintenance mode"
+        ],
+        "correctIndex": 1,
+        "explanation": "SID availability depends on nav database currency and coverage."
+      },
+      {
+        "id": "ADV4-J015",
+        "clue": "These are the first inputs to verify when an FMC POSITION INVALID alert appears on the CDU at power-up.",
+        "choices": [
+          "Fuel quantity probe wiring continuity",
+          "Replace the CDU with a known good unit",
+          "GPS and IRS data reaching the FMC",
+          "Audio panel RF emissions from the headset bus"
+        ],
+        "correctIndex": 2,
+        "explanation": "Position validity depends on GPS and IRS inputs to the FMC."
+      },
+      {
+        "id": "ADV4-J016",
+        "clue": "This condition during a battery replacement explains why stored FMS flight plans vanish.",
+        "choices": [
+          "Pitot-static system needed recalibration",
+          "VHF NAV radio was left in self-test mode",
+          "Fuel quantity computer lost its calibration",
+          "FMS memory lost backup power during the swap"
+        ],
+        "correctIndex": 3,
+        "explanation": "Volatile FMS memory clears when power is lost during a battery change."
+      },
+      {
+        "id": "ADV4-J017",
+        "clue": "These system inputs should be verified when VNAV descent profiles are inaccurate after loading a STAR.",
+        "choices": [
+          "ADC pressure data and performance initialization",
+          "HF radio antenna tuner settings",
+          "Passenger address amplifier output level",
+          "EGPWS terrain database currency"
+        ],
+        "correctIndex": 0,
+        "explanation": "VNAV relies on air data and performance data to compute the descent path."
+      },
+      {
+        "id": "ADV4-J018",
+        "clue": "When the flight crew wants an automatic top-of-descent calculation to meet a crossing altitude, they engage this FMS mode.",
+        "choices": [
+          "Lateral navigation mode",
+          "Vertical navigation mode",
+          "Direct-to navigation mode",
+          "Holding pattern mode"
+        ],
+        "correctIndex": 1,
+        "explanation": "VNAV is the dedicated vertical path optimizer in the FMS."
+      }
+    ]
+  },
+  "final": []
+}

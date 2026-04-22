@@ -1,0 +1,323 @@
+{
+  "metadata": {
+    "module": "adv14",
+    "title": "Software & Database Loading"
+  },
+  "questions": [
+    {
+      "id": "ADV14-001",
+      "category": "adv14-software-database-loading",
+      "difficulty": "advanced",
+      "tags": [
+        "AIRAC",
+        "nav-database",
+        "FMS"
+      ],
+      "learningObjective": "Verify AIRAC cycle currency before a navigation database load.",
+      "fullObjective": "Given an FMS navigation database update, identify the first verification the technician must perform before loading the database.",
+      "targetSourceStem": "Before loading a navigation database update into an FMS, what must the technician verify first?",
+      "flashcard": {
+        "front": "What must the technician verify first before loading a navigation database update into an FMS?",
+        "back": "That the database effective date matches the current AIRAC cycle for the intended service window.",
+        "explanation": "AIRAC effectivity is the threshold check. Flight recency, autopilot self-test, and display power-state are not prerequisites for a nav-database load."
+      },
+      "jeopardy": {
+        "category": "DATABASE LOADING",
+        "clue": "This is the first thing a technician verifies before loading an FMS navigation database update.",
+        "choices": [
+          "Aircraft has flown within the last 30 days",
+          "All cockpit displays are currently powered on",
+          "Autopilot servo self-test has passed",
+          "Database effective date matches current AIRAC cycle"
+        ],
+        "correctIndex": 3,
+        "explanation": "The effective date must match the current AIRAC cycle and cover the intended period of use."
+      },
+      "multipleChoice": {
+        "stem": "Before loading an FMS navigation database update, what must the technician verify first?",
+        "choices": [
+          "Every cockpit display is already powered on",
+          "The aircraft has flown within the last 30 days",
+          "The autopilot servo self-test has just passed",
+          "The database effective date matches the current AIRAC cycle"
+        ],
+        "correctIndex": 3,
+        "explanation": "AIRAC cycle currency is the first prerequisite for a nav-database load."
+      },
+      "practice": {
+        "stem": "A technician is about to load a nav database. What is the first verification?",
+        "choices": [
+          "All displays power up",
+          "Aircraft flew within 30 days",
+          "Autopilot servos self-test pass",
+          "AIRAC cycle is current"
+        ],
+        "correctIndex": 3,
+        "explanation": "Verify the database effective date matches the current AIRAC cycle before dispatch; a stale database fails IFR legality."
+      },
+      "preassessment": {
+        "stem": "First verification before an FMS nav-database load?",
+        "choices": [
+          "Displays powered",
+          "Recent flight activity",
+          "Autopilot self-test",
+          "AIRAC effective date match"
+        ],
+        "correctIndex": 3,
+        "explanation": "AIRAC effective date match."
+      }
+    },
+    {
+      "id": "ADV14-002",
+      "category": "adv14-software-database-loading",
+      "difficulty": "advanced",
+      "tags": [
+        "data-loader",
+        "recovery",
+        "failed-load"
+      ],
+      "learningObjective": "Recover from an avionics software load that fails at 80%.",
+      "fullObjective": "Given an avionics software load that fails at 80 percent and displays INVALID, identify the correct recovery action.",
+      "targetSourceStem": "A technician is updating avionics software using a data loader. The upload fails at 80% and the unit displays 'INVALID'. What is the correct recovery action?",
+      "flashcard": {
+        "front": "A software load fails at 80% with an INVALID message. What is the correct recovery action?",
+        "back": "Cycle the unit's power and attempt the load again per the maintenance manual.",
+        "explanation": "Power-cycle and retry is the documented recovery. Unit return, rollback, and flying with invalid software are not acceptable initial actions."
+      },
+      "jeopardy": {
+        "category": "LOAD RECOVERY",
+        "clue": "This is the correct action after a software load fails at 80% with INVALID displayed.",
+        "choices": [
+          "Cycle power and attempt the load again",
+          "Return the unit to the manufacturer",
+          "Install the previous software version",
+          "Continue flight operations and retry later"
+        ],
+        "correctIndex": 0,
+        "explanation": "Power-cycle and retry is the first recovery step per most avionics maintenance manuals."
+      },
+      "multipleChoice": {
+        "stem": "During a software update the loader fails at 80% and the unit shows INVALID. What is the correct recovery action?",
+        "choices": [
+          "Power cycle the unit and attempt the load again",
+          "Return the unit directly to the manufacturer",
+          "Roll back to the previous software version immediately",
+          "Release the aircraft and retry during next flight"
+        ],
+        "correctIndex": 0,
+        "explanation": "Cycle power and retry the load."
+      },
+      "practice": {
+        "stem": "Software load fails at 80%; display reads INVALID. What should the technician do next?",
+        "choices": [
+          "Cycle power and attempt the load again",
+          "Ship the unit to the manufacturer",
+          "Install the previous software version",
+          "Continue flight operations and retry later"
+        ],
+        "correctIndex": 0,
+        "explanation": "Power-cycle and retry is the first step."
+      },
+      "preassessment": {
+        "stem": "Recovery for software load fail at 80% INVALID?",
+        "choices": [
+          "Cycle power and retry",
+          "Return to manufacturer",
+          "Rollback software",
+          "Fly and retry later"
+        ],
+        "correctIndex": 0,
+        "explanation": "Cycle power and retry."
+      }
+    },
+    {
+      "id": "ADV14-003",
+      "category": "adv14-software-database-loading",
+      "difficulty": "advanced",
+      "tags": [
+        "configuration",
+        "backup",
+        "integrated-avionics"
+      ],
+      "learningObjective": "Save configuration before an integrated-avionics software load.",
+      "fullObjective": "Given an integrated avionics software load, identify the step taken before loading to prevent data loss.",
+      "targetSourceStem": "Before performing any software load on integrated avionics, what step should the technician always perform to prevent data loss?",
+      "flashcard": {
+        "front": "What pre-load step prevents data loss during integrated avionics software updates?",
+        "back": "Export and save the current configuration to an external medium before starting the load.",
+        "explanation": "Saving configuration protects pilot-entered preferences and aircraft-specific data if the load resets them. Battery disconnect and brightness-note are not appropriate steps."
+      },
+      "jeopardy": {
+        "category": "PRE-LOAD PROTECTION",
+        "clue": "This action should always precede a software load on integrated avionics to prevent data loss.",
+        "choices": [
+          "Reset all systems to factory defaults",
+          "Export and save current configuration",
+          "Disconnect the aircraft battery",
+          "Document the current display brightness settings"
+        ],
+        "correctIndex": 1,
+        "explanation": "Saving the configuration protects aircraft-specific data in case the update clears settings."
+      },
+      "multipleChoice": {
+        "stem": "Before any software load on integrated avionics, which pre-load step prevents data loss?",
+        "choices": [
+          "Reset the system to factory defaults",
+          "Export and save the current configuration",
+          "Disconnect the aircraft battery",
+          "Record the current brightness settings"
+        ],
+        "correctIndex": 1,
+        "explanation": "Saving the configuration allows restoration if the load resets it."
+      },
+      "practice": {
+        "stem": "A technician is about to load software on integrated avionics. What should be done first to prevent data loss?",
+        "choices": [
+          "Reset unit to factory defaults",
+          "Export and save configuration",
+          "Disconnect the aircraft battery",
+          "Record display brightness setting"
+        ],
+        "correctIndex": 1,
+        "explanation": "Export and save the current configuration before loading new software so settings can be restored if needed."
+      },
+      "preassessment": {
+        "stem": "Pre-load step that prevents data loss on integrated avionics?",
+        "choices": [
+          "Record brightness setting",
+          "Export configuration file",
+          "Perform factory reset",
+          "Disconnect the battery"
+        ],
+        "correctIndex": 1,
+        "explanation": "Exporting and saving the current configuration preserves settings before any load or software update."
+      }
+    },
+    {
+      "id": "ADV14-004",
+      "category": "adv14-software-database-loading",
+      "difficulty": "advanced",
+      "tags": [
+        "FMS",
+        "hardware-config",
+        "equipment-list"
+      ],
+      "learningObjective": "Locate the compatible hardware configuration part number for FMS software.",
+      "fullObjective": "Given an FMS software load requiring a compatible hardware configuration part number, identify where that part number is documented.",
+      "targetSourceStem": "An FMS software load requires 'compatible hardware configuration part number'. Where is this information found?",
+      "flashcard": {
+        "front": "Where is the FMS 'compatible hardware configuration part number' documented?",
+        "back": "In the aircraft equipment list or on the FMS data plate.",
+        "explanation": "Compatibility is aircraft-specific and lives on the equipment list or the LRU data plate. The operating manual, database header, and POH limitations do not carry this configuration number."
+      },
+      "jeopardy": {
+        "category": "HARDWARE COMPATIBILITY",
+        "clue": "This is where the FMS 'compatible hardware configuration part number' is documented.",
+        "choices": [
+          "Navigation database header file",
+          "FMS operating manual table of contents",
+          "Aircraft equipment list or FMS data plate",
+          "Pilot operating handbook limitations"
+        ],
+        "correctIndex": 2,
+        "explanation": "The compatible hardware part number lives on the aircraft equipment list or the LRU data plate."
+      },
+      "multipleChoice": {
+        "stem": "An FMS software load asks for the compatible hardware configuration part number. Where does the technician find it?",
+        "choices": [
+          "In the navigation database header file",
+          "In the FMS operating manual table of contents",
+          "On the aircraft equipment list or the FMS data plate",
+          "In the pilot operating handbook limitations"
+        ],
+        "correctIndex": 2,
+        "explanation": "Equipment list or data plate is the authoritative source."
+      },
+      "practice": {
+        "stem": "Before loading FMS software, the technician needs the compatible hardware configuration part number. Where is it located?",
+        "choices": [
+          "The navigation database header file",
+          "The FMS operating manual table of contents",
+          "The aircraft equipment list or the FMS data plate",
+          "The pilot operating handbook limitations"
+        ],
+        "correctIndex": 2,
+        "explanation": "Check the equipment list or data plate."
+      },
+      "preassessment": {
+        "stem": "Where is the FMS compatible hardware config PN?",
+        "choices": [
+          "Nav database header page",
+          "Operating manual TOC",
+          "Equipment list or data plate",
+          "POH limitations section"
+        ],
+        "correctIndex": 2,
+        "explanation": "Installed equipment is documented on the aircraft equipment list or data plate."
+      }
+    },
+    {
+      "id": "ADV14-005",
+      "category": "adv14-software-database-loading",
+      "difficulty": "advanced",
+      "tags": [
+        "display-unit",
+        "operational-test",
+        "RTS"
+      ],
+      "learningObjective": "Identify the verification required before returning a display unit to service after a software load.",
+      "fullObjective": "Given a completed display-unit software load, identify the verification required before the aircraft returns to service.",
+      "targetSourceStem": "After loading updated software on a display unit, what verification is required before returning to service?",
+      "flashcard": {
+        "front": "What verification must be completed before returning a display unit to service after a software update?",
+        "back": "An operational test performed in accordance with the maintenance manual procedures.",
+        "explanation": "The operational test in the maintenance manual is the required post-load verification. Flight test, manufacturer certification, and FSDO approval are not standard RTS steps."
+      },
+      "jeopardy": {
+        "category": "POST-LOAD VERIFICATION",
+        "clue": "This verification is required before returning a display unit to service after a software update.",
+        "choices": [
+          "Manufacturer certification of the software version",
+          "Flight test verifying every display function",
+          "FSDO inspector approval of the installation",
+          "Operational test per maintenance manual procedures"
+        ],
+        "correctIndex": 3,
+        "explanation": "An operational test per the maintenance manual is the required post-load verification."
+      },
+      "multipleChoice": {
+        "stem": "Following a display unit software load, which verification is required before returning to service?",
+        "choices": [
+          "Manufacturer certification of the software version",
+          "A flight test to verify all display functions",
+          "FSDO inspector approval of the installation",
+          "An operational test per the maintenance manual procedures"
+        ],
+        "correctIndex": 3,
+        "explanation": "The maintenance manual operational test is the required post-load verification."
+      },
+      "practice": {
+        "stem": "A display unit has just been reloaded with updated software. What verification is required before RTS?",
+        "choices": [
+          "FSDO inspector approval of the installation",
+          "Flight test verifying every display function",
+          "Manufacturer certification of the software version",
+          "Operational test per maintenance manual procedures"
+        ],
+        "correctIndex": 3,
+        "explanation": "An operational test per the maintenance manual is required before RTS."
+      },
+      "preassessment": {
+        "stem": "Post-software-load verification for a display unit?",
+        "choices": [
+          "FSDO field approval",
+          "Flight test of all functions",
+          "Manufacturer certification",
+          "Operational test per manual"
+        ],
+        "correctIndex": 3,
+        "explanation": "An operational test per the maintenance manual is the standard acceptance step for returning installed avionics to service."
+      }
+    }
+  ]
+}

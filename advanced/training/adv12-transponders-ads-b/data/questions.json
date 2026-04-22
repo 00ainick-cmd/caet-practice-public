@@ -1,0 +1,512 @@
+{
+  "metadata": {
+    "module": "adv12",
+    "title": "Transponders & ADS-B"
+  },
+  "questions": [
+    {
+      "id": "ADV12-001",
+      "category": "adv12-transponders-ads-b",
+      "difficulty": "advanced",
+      "tags": [
+        "ADS-B",
+        "GPS",
+        "fault-isolation"
+      ],
+      "learningObjective": "Diagnose an 'ADS-B FAIL' message when the transponder replies to interrogation.",
+      "fullObjective": "Given an ADS-B FAIL annunciation after engine start and a transponder that still replies to ground interrogation, identify the most likely root cause.",
+      "targetSourceStem": "An aircraft equipped with ADS-B Out shows 'ADS-B FAIL' after engine start. The transponder replies normally to ground interrogation. What is the most likely cause?",
+      "flashcard": {
+        "front": "ADS-B FAIL is shown but the transponder still replies to ground interrogation. What is the most likely cause?",
+        "back": "The GPS position source is invalid or not being received by the transponder.",
+        "explanation": "ADS-B Out requires a valid position source meeting NIC/NAC. A Mode S transponder can still reply to interrogation without GPS, which explains the asymmetry."
+      },
+      "jeopardy": {
+        "category": "ADS-B TROUBLESHOOTING",
+        "clue": "This is the most likely cause when ADS-B FAIL appears but the Mode S transponder still replies to ground interrogation.",
+        "choices": [
+          "Mode S transponder code has not been set",
+          "Transponder antenna has high SWR on the run",
+          "GPS position source is invalid or not received",
+          "TCAS processor has failed its self-test"
+        ],
+        "correctIndex": 2,
+        "explanation": "ADS-B Out needs valid GPS position; without it, the transponder still works but ADS-B fails."
+      },
+      "multipleChoice": {
+        "stem": "ADS-B FAIL appears after engine start while the Mode S transponder continues to answer interrogations. What is the most likely root cause?",
+        "choices": [
+          "The Mode S transponder code has not been set",
+          "The transponder antenna is showing high SWR",
+          "The GPS position source is invalid or not being received",
+          "The TCAS processor failed its self-test"
+        ],
+        "correctIndex": 2,
+        "explanation": "ADS-B Out depends on valid GPS; when GPS drops, ADS-B fails while the transponder still replies."
+      },
+      "practice": {
+        "stem": "The crew taxis out and sees ADS-B FAIL, yet the transponder is replying normally. What should the technician check first?",
+        "choices": [
+          "Mode S transponder squawk code entry",
+          "Transponder antenna SWR and coax integrity",
+          "GPS position source validity into the transponder",
+          "TCAS processor self-test status"
+        ],
+        "correctIndex": 2,
+        "explanation": "ADS-B failing while the transponder replies points at the GPS position source."
+      },
+      "preassessment": {
+        "stem": "ADS-B FAIL is displayed but the transponder replies normally. Most likely cause?",
+        "choices": [
+          "Mode S code not set",
+          "High SWR transponder antenna",
+          "Invalid GPS position source",
+          "TCAS processor failure"
+        ],
+        "correctIndex": 2,
+        "explanation": "GPS position source is invalid."
+      }
+    },
+    {
+      "id": "ADV12-002",
+      "category": "adv12-transponders-ads-b",
+      "difficulty": "advanced",
+      "tags": [
+        "TCAS",
+        "max-airspeed",
+        "resolution-advisory"
+      ],
+      "learningObjective": "Explain why maximum cruise speed is configured into a TCAS-equipped transponder.",
+      "fullObjective": "Given a TCAS installation, explain the role of the configured maximum cruise speed in collision avoidance advisories.",
+      "targetSourceStem": "During TCAS installation, the technician must configure the transponder for the aircraft's maximum cruise speed. Why is this parameter critical?",
+      "flashcard": {
+        "front": "Why must the aircraft's maximum cruise speed be configured during a TCAS installation?",
+        "back": "It sets the collision avoidance resolution advisory thresholds for that aircraft's closing rates.",
+        "explanation": "TCAS scales tau-based thresholds to aircraft performance. Wrong max speed skews RA timing, not reply timing or squawk code assignment."
+      },
+      "jeopardy": {
+        "category": "TCAS SETUP",
+        "clue": "This TCAS behavior depends directly on the maximum cruise speed configured during installation.",
+        "choices": [
+          "ADS-B position update rate",
+          "Interrogation reply delay timing",
+          "Squawk code assignment range",
+          "Resolution advisory thresholds"
+        ],
+        "correctIndex": 3,
+        "explanation": "TCAS uses configured max speed to scale RA thresholds appropriately."
+      },
+      "multipleChoice": {
+        "stem": "Why must a technician configure a TCAS installation with the aircraft's maximum cruise speed?",
+        "choices": [
+          "It establishes the ADS-B position update rate",
+          "It determines the reply delay for interrogations",
+          "It configures the squawk code assignment range",
+          "It sets the resolution advisory thresholds"
+        ],
+        "correctIndex": 3,
+        "explanation": "Max speed scales the tau-based RA thresholds TCAS uses."
+      },
+      "practice": {
+        "stem": "When setting up a TCAS, the technician enters the aircraft's max cruise speed. What does this parameter govern?",
+        "choices": [
+          "The ADS-B position update rate",
+          "The transponder reply delay timing",
+          "The squawk code assignment range",
+          "The resolution advisory thresholds"
+        ],
+        "correctIndex": 3,
+        "explanation": "Max speed drives RA threshold scaling."
+      },
+      "preassessment": {
+        "stem": "Why is max cruise speed configured during TCAS installation?",
+        "choices": [
+          "Sets ADS-B update rate",
+          "Sets reply delay",
+          "Sets squawk assignment",
+          "Sets RA thresholds"
+        ],
+        "correctIndex": 3,
+        "explanation": "It sets RA thresholds."
+      }
+    },
+    {
+      "id": "ADV12-003",
+      "category": "adv12-transponders-ads-b",
+      "difficulty": "advanced",
+      "tags": [
+        "TCAS",
+        "antenna",
+        "close-range"
+      ],
+      "learningObjective": "Diagnose loss of TCAS targets at close range when the transponder tests normal.",
+      "fullObjective": "Given a TCAS display that loses targets at close range while the transponder tests normally, identify the installation element to investigate.",
+      "targetSourceStem": "A pilot reports TCAS shows traffic but the targets disappear when the other aircraft gets within 5 miles. The transponder tests normal. What should the technician investigate?",
+      "flashcard": {
+        "front": "TCAS targets disappear inside 5 miles while the transponder tests normal. What should be investigated?",
+        "back": "The TCAS directional antenna pattern and its installation location on the airframe.",
+        "explanation": "Targets dropping out at close range typically indicate a null or shadowed region in the directional antenna pattern, often due to poor mounting or nearby structures."
+      },
+      "jeopardy": {
+        "category": "TCAS ANTENNAS",
+        "clue": "This is the first thing to investigate when TCAS loses targets inside 5 nautical miles while the transponder tests normal.",
+        "choices": [
+          "TCAS antenna pattern and installation location",
+          "Transponder reply frequency accuracy",
+          "ADS-B Out message format configuration",
+          "Mode C altitude encoder calibration"
+        ],
+        "correctIndex": 0,
+        "explanation": "Close-in target loss points to antenna pattern or shadowing issues at the TCAS directional antenna."
+      },
+      "multipleChoice": {
+        "stem": "TCAS shows traffic, then loses targets when they come inside about 5 miles, yet the transponder tests normal. What should the technician investigate?",
+        "choices": [
+          "The TCAS antenna pattern and installation location",
+          "The transponder reply frequency accuracy",
+          "The ADS-B Out message format configuration",
+          "The Mode C altitude encoder calibration"
+        ],
+        "correctIndex": 0,
+        "explanation": "Antenna pattern nulls near the airframe are the usual cause of close-in dropouts."
+      },
+      "practice": {
+        "stem": "Close-in TCAS targets vanish while the transponder tests normal. What is the most productive first check?",
+        "choices": [
+          "TCAS directional antenna pattern and mounting",
+          "Transponder reply frequency calibration",
+          "ADS-B Out message format configuration",
+          "Mode C altitude encoder calibration"
+        ],
+        "correctIndex": 0,
+        "explanation": "The TCAS directional antenna pattern and its location are the most likely cause."
+      },
+      "preassessment": {
+        "stem": "TCAS drops targets inside 5 miles, transponder tests normal. Investigate what?",
+        "choices": [
+          "TCAS antenna pattern and location",
+          "Transponder reply frequency",
+          "ADS-B message format",
+          "Mode C encoder calibration"
+        ],
+        "correctIndex": 0,
+        "explanation": "Antenna pattern and location."
+      }
+    },
+    {
+      "id": "ADV12-004",
+      "category": "adv12-transponders-ads-b",
+      "difficulty": "advanced",
+      "tags": [
+        "ADS-B-mandate",
+        "deviation",
+        "ATC"
+      ],
+      "learningObjective": "Identify the pilot's required action when ADS-B Out is inoperative in mandated airspace.",
+      "fullObjective": "Given an aircraft with inoperative ADS-B Out intending to operate in ADS-B mandated airspace, identify the regulatory requirement imposed on the pilot.",
+      "targetSourceStem": "What is the consequence of operating in ADS-B mandated airspace with ADS-B Out inoperative?",
+      "flashcard": {
+        "front": "What must a pilot do to operate in ADS-B mandated airspace with inoperative ADS-B Out?",
+        "back": "Request an ATC deviation authorization in advance and operate as authorized.",
+        "explanation": "ATC deviation requests are required for non-equipped or inoperative ADS-B Out operations in mandated airspace. Squawking 7600 is for lost communication, not ADS-B."
+      },
+      "jeopardy": {
+        "category": "ADS-B REGULATIONS",
+        "clue": "This is required of the pilot to operate in ADS-B mandated airspace with ADS-B Out inoperative.",
+        "choices": [
+          "Rely on TCAS for automatic separation",
+          "Request an ATC deviation authorization",
+          "Squawk 7600 to indicate equipment loss",
+          "Revert the transponder to Mode A only"
+        ],
+        "correctIndex": 1,
+        "explanation": "Pilots must request an ATC deviation for ADS-B inoperative operations in mandated airspace."
+      },
+      "multipleChoice": {
+        "stem": "An ADS-B Out system is inoperative and the pilot needs to operate in ADS-B mandated airspace. What must the pilot do?",
+        "choices": [
+          "Squawk 7600 for the duration of the flight",
+          "Request a deviation authorization from ATC",
+          "Rely on TCAS to provide separation automatically",
+          "Switch the transponder to Mode A only"
+        ],
+        "correctIndex": 1,
+        "explanation": "Pilots must coordinate a deviation from ATC before operating ADS-B inoperative in mandated airspace."
+      },
+      "practice": {
+        "stem": "With ADS-B Out inoperative, a pilot intends to enter ADS-B mandated airspace. What regulatory action is required?",
+        "choices": [
+          "Squawk 7600",
+          "Request a deviation from ATC",
+          "Rely on TCAS separation",
+          "Use Mode A only"
+        ],
+        "correctIndex": 1,
+        "explanation": "A deviation from ATC is required."
+      },
+      "preassessment": {
+        "stem": "With ADS-B Out inoperative, the pilot must do what to enter mandated airspace?",
+        "choices": [
+          "Squawk 7600 for radio",
+          "Request ATC deviation",
+          "Rely on TCAS alone",
+          "Use transponder Mode A"
+        ],
+        "correctIndex": 1,
+        "explanation": "Request a deviation from ATC when the equipment required by the airspace is inoperative."
+      }
+    },
+    {
+      "id": "ADV12-005",
+      "category": "adv12-transponders-ads-b",
+      "difficulty": "advanced",
+      "tags": [
+        "ADS-B",
+        "NACp",
+        "91-227"
+      ],
+      "learningObjective": "Identify the ADS-B parameter to verify when position accuracy fails 91.227.",
+      "fullObjective": "Given a GPS receiver replacement that causes ADS-B Out position accuracy to fail 14 CFR 91.227, identify the ADS-B parameter the technician must verify.",
+      "targetSourceStem": "After a GPS receiver replacement, ADS-B Out position accuracy fails the 14 CFR 91.227 requirement. What parameter must the technician verify?",
+      "flashcard": {
+        "front": "Which ADS-B parameter must be verified when a GPS replacement fails 14 CFR 91.227 position accuracy?",
+        "back": "The NACp (Navigation Accuracy Category for position) value reported by ADS-B Out.",
+        "explanation": "91.227 sets NACp, NIC, SIL, and SDA minimums. NACp is the metric for position accuracy and must be verified after a position-source change."
+      },
+      "jeopardy": {
+        "category": "ADS-B PARAMETERS",
+        "clue": "This ADS-B parameter, required by 14 CFR 91.227, captures position accuracy and must be verified after a GPS swap.",
+        "choices": [
+          "Altimeter encoding accuracy only",
+          "GPS satellite signal strength readings",
+          "NACp (Navigation Accuracy Category for position)",
+          "Transponder transmit power output level"
+        ],
+        "correctIndex": 2,
+        "explanation": "NACp is the 91.227 position accuracy metric and must be verified after a GPS change."
+      },
+      "multipleChoice": {
+        "stem": "A GPS receiver replacement causes ADS-B Out to fail the 14 CFR 91.227 position accuracy requirement. Which parameter must the technician verify?",
+        "choices": [
+          "Transponder transmit power output",
+          "Individual GPS satellite strength",
+          "ADS-B Navigation Accuracy (NACp)",
+          "Altimeter encoding accuracy alone"
+        ],
+        "correctIndex": 2,
+        "explanation": "NACp (Navigation Accuracy Category for position) is the ADS-B position accuracy metric called out in 14 CFR 91.227."
+      },
+      "practice": {
+        "stem": "After a GPS swap, an ADS-B Out test set shows a position-accuracy failure per 91.227. Which parameter does the technician verify?",
+        "choices": [
+          "Individual satellite signal strengths",
+          "Transponder transmit power",
+          "The NACp parameter",
+          "Altimeter encoding alone"
+        ],
+        "correctIndex": 2,
+        "explanation": "91.227 points at NACp for position accuracy."
+      },
+      "preassessment": {
+        "stem": "Which ADS-B parameter does 91.227 reference for position accuracy?",
+        "choices": [
+          "Altimeter encoding",
+          "GPS signal strength",
+          "NACp",
+          "Transponder power"
+        ],
+        "correctIndex": 2,
+        "explanation": "NACp is the position accuracy metric."
+      }
+    },
+    {
+      "id": "ADV12-006",
+      "category": "adv12-transponders-ads-b",
+      "difficulty": "advanced",
+      "tags": [
+        "TCAS-II",
+        "resolution-advisory",
+        "service-ceiling"
+      ],
+      "learningObjective": "State the pilot action when a TCAS II RA commands CLIMB at service ceiling.",
+      "fullObjective": "Given a TCAS II CLIMB Resolution Advisory when the aircraft is already at its service ceiling, identify the pilot's required action per TCAS procedures.",
+      "targetSourceStem": "A TCAS II system displays a Resolution Advisory commanding 'CLIMB' but the aircraft is already at its service ceiling. What should the pilot do?",
+      "flashcard": {
+        "front": "What is the pilot action when a TCAS II CLIMB RA is issued at the aircraft's service ceiling?",
+        "back": "Adjust the RA response to level flight if the aircraft cannot safely climb beyond service ceiling.",
+        "explanation": "TCAS procedures accept a reduced response when performance prevents compliance. Ignoring the RA or disconnecting TCAS is not correct."
+      },
+      "jeopardy": {
+        "category": "TCAS PROCEDURES",
+        "clue": "This is the required response when a TCAS II CLIMB RA is issued at the aircraft's service ceiling.",
+        "choices": [
+          "Follow the RA and exceed service ceiling",
+          "Disconnect TCAS and fly visually",
+          "Ignore the RA and maintain altitude",
+          "Adjust the RA response to level flight"
+        ],
+        "correctIndex": 3,
+        "explanation": "If performance cannot support a CLIMB, the pilot adjusts to a level-off response."
+      },
+      "multipleChoice": {
+        "stem": "A TCAS II CLIMB RA appears, but the aircraft is already at service ceiling. What is the correct pilot response?",
+        "choices": [
+          "Disconnect TCAS and continue visually",
+          "Follow the RA and exceed service ceiling",
+          "Ignore the RA and maintain altitude",
+          "Adjust the RA response to level flight"
+        ],
+        "correctIndex": 3,
+        "explanation": "When the aircraft cannot safely climb, the pilot adjusts the response to level flight per procedure."
+      },
+      "practice": {
+        "stem": "At service ceiling, the TCAS II issues a CLIMB RA. What response is correct?",
+        "choices": [
+          "Ignore the RA and maintain altitude",
+          "Climb beyond service ceiling anyway",
+          "Disconnect TCAS and fly visually",
+          "Adjust to a level-off response"
+        ],
+        "correctIndex": 3,
+        "explanation": "Level off when climb performance is not available."
+      },
+      "preassessment": {
+        "stem": "Pilot response to a CLIMB RA at service ceiling?",
+        "choices": [
+          "Disconnect TCAS system",
+          "Climb beyond ceiling",
+          "Ignore RA guidance",
+          "Adjust response to level"
+        ],
+        "correctIndex": 3,
+        "explanation": "Follow the RA by adjusting the response to level flight; never ignore an RA."
+      }
+    },
+    {
+      "id": "ADV12-007",
+      "category": "adv12-transponders-ads-b",
+      "difficulty": "advanced",
+      "tags": [
+        "ADS-B",
+        "altitude",
+        "ADC"
+      ],
+      "learningObjective": "Isolate an ADS-B altitude error of 300 feet when an ADC supplies the transponder.",
+      "fullObjective": "Given an ADS-B test-set report of a 300-ft altitude error while the transponder uses the air data computer, identify the subsystems that must be checked.",
+      "targetSourceStem": "During ADS-B ground test, the test set shows correct position but altitude is reading 300 feet high. The transponder altitude source is the air data computer. What should be checked?",
+      "flashcard": {
+        "front": "ADS-B shows correct position but altitude 300 ft high with an ADC altitude source. What should be checked?",
+        "back": "The ADC static source integrity and the encoding altimeter calibration feeding the transponder.",
+        "explanation": "Transponder altitude errors with good position isolate to the static system and altitude encoder, not the transmitter, GPS antenna, or TCAS orientation."
+      },
+      "jeopardy": {
+        "category": "ADS-B ALTITUDE",
+        "clue": "This pair of items should be checked when ADS-B altitude reads 300 ft high but position is correct.",
+        "choices": [
+          "ADC static source and encoding altimeter calibration",
+          "GPS receiver antenna installation height",
+          "Transponder transmitter output power level",
+          "TCAS directional antenna orientation"
+        ],
+        "correctIndex": 0,
+        "explanation": "Altitude errors with good position isolate to static-system and altitude-encoder calibration."
+      },
+      "multipleChoice": {
+        "stem": "ADS-B position is correct but altitude reads 300 feet high, with an ADC as the altitude source. What should be checked?",
+        "choices": [
+          "The ADC static source and encoding altimeter calibration",
+          "The GPS receiver antenna installation height",
+          "The transponder transmitter output power",
+          "The TCAS directional antenna orientation"
+        ],
+        "correctIndex": 0,
+        "explanation": "Altitude errors point at static-source integrity and altitude-encoder calibration."
+      },
+      "practice": {
+        "stem": "ADS-B position is correct but altitude is 300 ft high with an ADC feeding the transponder. What does the technician check?",
+        "choices": [
+          "ADC static source and altitude encoding calibration",
+          "GPS antenna installation height above ground",
+          "Transponder transmitter output power",
+          "TCAS directional antenna orientation"
+        ],
+        "correctIndex": 0,
+        "explanation": "Static-system and altitude-encoder calibration are the targets."
+      },
+      "preassessment": {
+        "stem": "ADS-B altitude 300 ft high, position correct, ADC source. Check what?",
+        "choices": [
+          "ADC static source and encoding",
+          "GPS antenna height",
+          "Transponder output power",
+          "TCAS antenna orientation"
+        ],
+        "correctIndex": 0,
+        "explanation": "ADC static source and encoding."
+      }
+    },
+    {
+      "id": "ADV12-008",
+      "category": "adv12-transponders-ads-b",
+      "difficulty": "advanced",
+      "tags": [
+        "TCAS",
+        "interrogation",
+        "bearing-range"
+      ],
+      "learningObjective": "Identify the TCAS traffic source for bearing and range.",
+      "fullObjective": "Given a TCAS traffic display, identify the signal source that provides bearing and range to the intruder aircraft.",
+      "targetSourceStem": "What traffic source provides TCAS with bearing and range to intruder aircraft?",
+      "flashcard": {
+        "front": "What traffic source provides TCAS with bearing and range to intruder aircraft?",
+        "back": "Active transponder interrogation and the reply timing and direction received by the TCAS processor.",
+        "explanation": "TCAS interrogates nearby transponders and uses reply timing for range and directional antenna data for bearing. ADS-B In and ground radar are supplemental, not TCAS core."
+      },
+      "jeopardy": {
+        "category": "TCAS SOURCES",
+        "clue": "This is the primary source TCAS uses to determine bearing and range to intruder aircraft.",
+        "choices": [
+          "ADS-B In receiver data messages",
+          "Transponder interrogation and reply timing",
+          "Ground radar surveillance data uplink",
+          "GPS multilateration from multiple receivers"
+        ],
+        "correctIndex": 1,
+        "explanation": "TCAS uses its own Mode S/C interrogations and reply timing to derive bearing and range."
+      },
+      "multipleChoice": {
+        "stem": "Which source gives a TCAS system the bearing and range to intruder aircraft?",
+        "choices": [
+          "Ground radar surveillance uplink data",
+          "Transponder interrogation and reply timing",
+          "ADS-B In receiver data messages",
+          "GPS multilateration from multiple receivers"
+        ],
+        "correctIndex": 1,
+        "explanation": "TCAS is an active-interrogation system; replies to its transmissions give range and bearing."
+      },
+      "practice": {
+        "stem": "A TCAS II display shows bearing and range to traffic. Which source provides this data?",
+        "choices": [
+          "ADS-B In receiver messages",
+          "Its own transponder interrogation and reply timing",
+          "Ground radar uplink data",
+          "GPS multilateration from multiple receivers"
+        ],
+        "correctIndex": 1,
+        "explanation": "TCAS interrogates other transponders and uses reply timing and antenna direction."
+      },
+      "preassessment": {
+        "stem": "What provides TCAS with bearing and range to traffic?",
+        "choices": [
+          "Ground radar uplink",
+          "Transponder reply timing",
+          "ADS-B In messages",
+          "GPS multilateration"
+        ],
+        "correctIndex": 1,
+        "explanation": "Secondary surveillance uses interrogation and reply timing between the ground sensor and the transponder."
+      }
+    }
+  ]
+}

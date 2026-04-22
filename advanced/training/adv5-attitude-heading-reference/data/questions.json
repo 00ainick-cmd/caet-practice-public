@@ -1,0 +1,1127 @@
+{
+  "metadata": {
+    "module": "adv5",
+    "title": "Attitude & Heading Reference"
+  },
+  "questions": [
+    {
+      "id": "ADV5-001",
+      "category": "adv5-attitude-heading-reference",
+      "difficulty": "medium",
+      "tags": [
+        "compass",
+        "deviation",
+        "heading"
+      ],
+      "learningObjective": "Identify the compass error caused by ferrous airframe materials.",
+      "fullObjective": "Recognize that magnetic deviation is the error caused by ferrous metals and aircraft electrical systems affecting the magnetic compass.",
+      "targetSourceStem": "Ferrous metals in the aircraft structure cause the magnetic compass to read differently than actual magnetic heading. What is this error called?",
+      "flashcard": {
+        "term": "Magnetic deviation",
+        "definition": "Deviation is the compass error induced by ferrous aircraft structure and installed electrical systems, corrected during compass swing.",
+        "analogy": "Like a kitchen compass that points wrong because of a refrigerator magnet nearby.",
+        "unit": "Attitude and Heading Reference"
+      },
+      "jeopardy": {
+        "question": "This compass error is introduced by ferrous metals and electrical systems in the aircraft itself.",
+        "choices": [
+          "Magnetic precession",
+          "Magnetic variation",
+          "Magnetic deviation",
+          "Magnetic dip error"
+        ],
+        "correctIndex": 2,
+        "explanation": "Deviation is aircraft-induced; variation is geographic, dip is latitude-based, and precession is a gyro property."
+      },
+      "multipleChoice": {
+        "question": "What is the name of the magnetic compass error produced by ferrous aircraft structure and electrical systems?",
+        "choices": [
+          "Magnetic variation",
+          "Magnetic dip error",
+          "Magnetic deviation",
+          "Magnetic precession"
+        ],
+        "correctIndex": 2,
+        "explanation": "Deviation is corrected by the compensator screws during a compass swing; the others describe geography, latitude, or gyroscopic effects."
+      },
+      "practice": {
+        "question": "Scenario: A pilot asks why the compass reads slightly off on certain headings after avionics were added. How should the technician label this aircraft-induced error?",
+        "choices": [
+          "Magnetic precession of the compass card",
+          "Magnetic variation between true and magnetic north",
+          "Magnetic deviation from the airframe",
+          "Magnetic dip caused by Earth's inclination"
+        ],
+        "correctIndex": 2,
+        "explanation": "Deviation is the correct term for aircraft-induced compass error; the other terms describe different phenomena."
+      },
+      "preassessment": {
+        "question": "What is the compass error from ferrous aircraft structure called?",
+        "choices": [
+          "Magnetic dip",
+          "Magnetic variation",
+          "Magnetic deviation",
+          "Magnetic precession"
+        ],
+        "correctIndex": 2
+      }
+    },
+    {
+      "id": "ADV5-002",
+      "category": "adv5-attitude-heading-reference",
+      "difficulty": "medium",
+      "tags": [
+        "compass",
+        "variation",
+        "heading"
+      ],
+      "learningObjective": "Identify the angular difference between true and magnetic north.",
+      "fullObjective": "Recognize that magnetic variation (declination) is the geographic angle between true north and magnetic north at a given location.",
+      "targetSourceStem": "During compass swing, the technician must account for the angular difference between true north and magnetic north at the aircraft location. What is this difference called?",
+      "flashcard": {
+        "term": "Magnetic variation",
+        "definition": "Variation, also called declination, is the geographic angle between true north and magnetic north, changing with location and time.",
+        "analogy": "Like the gap between 'where the map says north is' and 'where the planet's magnet actually points.'",
+        "unit": "Attitude and Heading Reference"
+      },
+      "jeopardy": {
+        "question": "This is the geographic angular difference between true north and magnetic north at a given location.",
+        "choices": [
+          "Gyroscopic precession error",
+          "Compass deviation from aircraft",
+          "Magnetic dip from inclination",
+          "Magnetic variation or declination"
+        ],
+        "correctIndex": 3,
+        "explanation": "Variation is purely a location-based angle; deviation is aircraft-caused, dip is a vertical effect, and precession is a gyro property."
+      },
+      "multipleChoice": {
+        "question": "What is the angular difference between true north and magnetic north at a given point on Earth called?",
+        "choices": [
+          "Magnetic dip from Earth's inclination",
+          "Compass deviation from the aircraft",
+          "Gyroscopic precession of a spinning rotor",
+          "Magnetic variation (declination)"
+        ],
+        "correctIndex": 3,
+        "explanation": "Variation is plotted on aeronautical charts as isogonic lines and must be applied when converting between true and magnetic headings."
+      },
+      "practice": {
+        "question": "Scenario: During compass swing, the technician notes the aircraft's location has a 7 degree east value on the chart. What is this 7 degree angle called?",
+        "choices": [
+          "Aircraft-induced compass deviation",
+          "Gyroscopic precession effect",
+          "Magnetic dip from inclination",
+          "Magnetic variation (declination)"
+        ],
+        "correctIndex": 3,
+        "explanation": "Chart-annotated angles between true and magnetic north are variation, not aircraft or gyro errors."
+      },
+      "preassessment": {
+        "question": "The angle between true and magnetic north is called?",
+        "choices": [
+          "Compass deviation error",
+          "Gyroscopic precession",
+          "Magnetic dip angle",
+          "Magnetic variation"
+        ],
+        "correctIndex": 3,
+        "explanation": "Magnetic variation, also called declination, is the angle between true north and magnetic north at a given location."
+      }
+    },
+    {
+      "id": "ADV5-003",
+      "category": "adv5-attitude-heading-reference",
+      "difficulty": "medium",
+      "tags": [
+        "compass",
+        "swing",
+        "maintenance"
+      ],
+      "learningObjective": "Identify the adjustment devices used during compass swing.",
+      "fullObjective": "Recognize that compass compensator adjustment screws are the small magnets used to null out deviation during a compass swing.",
+      "targetSourceStem": "After a compass swing, the technician adjusts small magnets to minimize the difference between compass reading and known heading. What are these devices?",
+      "flashcard": {
+        "term": "Compass compensator",
+        "definition": "Compass compensator adjustment screws hold small magnets that the technician turns to cancel aircraft-induced deviation during a compass swing.",
+        "analogy": "Like turning tuning knobs on a guitar until each string matches a reference pitch.",
+        "unit": "Attitude and Heading Reference"
+      },
+      "jeopardy": {
+        "question": "These small magnets are adjusted during compass swing to null out heading errors.",
+        "choices": [
+          "Compass compensator adjustment screws",
+          "Flux gate detector sensing coils",
+          "Directional gyro erection motors",
+          "Slaving amplifier gain controls"
+        ],
+        "correctIndex": 0,
+        "explanation": "The compensator screws are the adjustment mechanism on the compass itself; the distractors belong to flux gates, directional gyros, and slaving systems."
+      },
+      "multipleChoice": {
+        "question": "Which devices does a technician adjust during a compass swing to reduce heading error?",
+        "choices": [
+          "The compass compensator adjustment screws",
+          "The flux gate detector sensing coils",
+          "The directional gyro erection motors",
+          "The slaving amplifier gain controls"
+        ],
+        "correctIndex": 0,
+        "explanation": "Compass swings use small magnets (compensator screws) built into the compass; the distractors are elements of other heading systems."
+      },
+      "practice": {
+        "question": "Scenario: While performing a compass swing, the technician uses a non-ferrous screwdriver to adjust small magnets inside the compass housing. What are these devices called?",
+        "choices": [
+          "Compass compensator adjustment screws",
+          "Flux gate detector sensing coils",
+          "Directional gyro erection motors",
+          "Slaving amplifier gain controls"
+        ],
+        "correctIndex": 0,
+        "explanation": "Compensator screws are the adjustment mechanism inside a magnetic compass; none of the distractors are located inside the compass."
+      },
+      "preassessment": {
+        "question": "The small magnets adjusted during compass swing are called?",
+        "choices": [
+          "Compass compensator screws",
+          "Flux gate sensing coils",
+          "Directional gyro erection motors",
+          "Slaving amplifier gain controls"
+        ],
+        "correctIndex": 0
+      }
+    },
+    {
+      "id": "ADV5-004",
+      "category": "adv5-attitude-heading-reference",
+      "difficulty": "medium",
+      "tags": [
+        "gyro",
+        "rigidity",
+        "principles"
+      ],
+      "learningObjective": "Identify the gyroscopic property that stabilizes a spinning rotor.",
+      "fullObjective": "Recognize gyroscopic rigidity as the property by which a spinning rotor resists changes to its orientation.",
+      "targetSourceStem": "A directional gyro maintains its heading reference because the spinning rotor resists changes to its orientation. What is this property called?",
+      "flashcard": {
+        "term": "Gyroscopic rigidity",
+        "definition": "Rigidity in space is the gyroscopic property by which a spinning rotor resists changes to its axis orientation.",
+        "analogy": "Like a spinning bike wheel that refuses to tip over once it's up to speed.",
+        "unit": "Attitude and Heading Reference"
+      },
+      "jeopardy": {
+        "question": "This gyroscopic property lets a spinning rotor hold its orientation against applied forces.",
+        "choices": [
+          "Gyroscopic nutation",
+          "Gyroscopic rigidity",
+          "Gyroscopic precession",
+          "Gyroscopic torque"
+        ],
+        "correctIndex": 1,
+        "explanation": "Rigidity keeps the spin axis fixed in space; precession, nutation, and torque describe how the rotor responds to forces, not how it resists them."
+      },
+      "multipleChoice": {
+        "question": "Which gyroscopic property allows a directional gyro's rotor to resist changes in orientation?",
+        "choices": [
+          "Gyroscopic torque coupling",
+          "Gyroscopic rigidity in space",
+          "Gyroscopic nutation wobble",
+          "Gyroscopic precession reaction"
+        ],
+        "correctIndex": 1,
+        "explanation": "Rigidity is the resistance to motion; precession is the 90-degree force response, nutation is oscillation, and torque is the applied force itself."
+      },
+      "practice": {
+        "question": "Scenario: A trainee asks why a spinning directional gyro stays pointed in the same direction even as the aircraft maneuvers. Which property explains this?",
+        "choices": [
+          "Gyroscopic precession reaction",
+          "Gyroscopic rigidity in space",
+          "Gyroscopic nutation wobble",
+          "Gyroscopic torque coupling"
+        ],
+        "correctIndex": 1,
+        "explanation": "Rigidity is the property by which the rotor resists changes, which is exactly what the trainee is observing."
+      },
+      "preassessment": {
+        "question": "What property keeps a gyro rotor pointing the same direction?",
+        "choices": [
+          "Gyroscopic precession",
+          "Gyroscopic rigidity",
+          "Gyroscopic nutation",
+          "Gyroscopic torque"
+        ],
+        "correctIndex": 1
+      }
+    },
+    {
+      "id": "ADV5-005",
+      "category": "adv5-attitude-heading-reference",
+      "difficulty": "medium",
+      "tags": [
+        "gyro",
+        "drift",
+        "precession"
+      ],
+      "learningObjective": "Identify the causes of directional gyro drift.",
+      "fullObjective": "Recognize apparent precession and bearing friction as the primary causes of directional gyro drift over time.",
+      "targetSourceStem": "A vacuum-driven directional gyro gradually drifts from the correct heading over time. What causes this drift?",
+      "flashcard": {
+        "term": "DG drift",
+        "definition": "Directional gyros drift because Earth rotation produces apparent precession and bearing friction adds real precession.",
+        "analogy": "Like a top that slowly tilts because the table it sits on is rotating under it.",
+        "unit": "Attitude and Heading Reference"
+      },
+      "jeopardy": {
+        "question": "These two effects combine to make a vacuum-driven DG drift off heading over time.",
+        "choices": [
+          "Overheating from continuous operation",
+          "Loss of vacuum pump pressure",
+          "Apparent precession and bearing friction",
+          "RF interference from avionics"
+        ],
+        "correctIndex": 2,
+        "explanation": "Earth rotation and bearing friction are the classic drift causes; vacuum loss stops the gyro entirely, and RF or heat are not normal drift sources."
+      },
+      "multipleChoice": {
+        "question": "What causes a vacuum-driven directional gyro to drift slowly from correct heading during flight?",
+        "choices": [
+          "Overheating from continuous operation",
+          "A steady loss of vacuum pump pressure",
+          "Apparent precession and bearing friction",
+          "Radio frequency interference from avionics"
+        ],
+        "correctIndex": 2,
+        "explanation": "Drift stems from Earth rotation plus mechanical friction; vacuum failure would cause gyro tumble, not slow drift."
+      },
+      "practice": {
+        "question": "Scenario: A pilot reports the DG reading needs resetting against the compass about every 15 minutes. What is the cause of this drift?",
+        "choices": [
+          "Overheating caused by continuous operation",
+          "Gradual loss of vacuum pump pressure in flight",
+          "Apparent precession and bearing friction in the gyro",
+          "Radio frequency interference from avionics"
+        ],
+        "correctIndex": 2,
+        "explanation": "Regular slow drift is characteristic of apparent precession plus friction, which is why DGs must be periodically reset to the magnetic compass."
+      },
+      "preassessment": {
+        "question": "Why does a vacuum DG drift over time?",
+        "choices": [
+          "RF interference from avionics",
+          "Loss of vacuum pump pressure",
+          "Apparent precession and friction",
+          "Overheating from operation"
+        ],
+        "correctIndex": 2,
+        "explanation": "A vacuum directional gyro drifts because of apparent precession (earth rotation) and bearing friction in the gimbals."
+      }
+    },
+    {
+      "id": "ADV5-006",
+      "category": "adv5-attitude-heading-reference",
+      "difficulty": "easy",
+      "tags": [
+        "gyro",
+        "compass",
+        "correction"
+      ],
+      "learningObjective": "Identify the reference used to correct the DG periodically.",
+      "fullObjective": "Recognize the magnetic compass as the reference used to correct the directional gyro for drift during flight.",
+      "targetSourceStem": "The directional gyro reading is compared to another instrument and corrected periodically. What instrument provides the reference?",
+      "flashcard": {
+        "term": "DG reference",
+        "definition": "The magnetic compass serves as the heading reference used to periodically correct a directional gyro for drift.",
+        "analogy": "Like syncing a kitchen timer back to the wall clock every hour.",
+        "unit": "Attitude and Heading Reference"
+      },
+      "jeopardy": {
+        "question": "This instrument is used as the reference to periodically correct the DG for drift.",
+        "choices": [
+          "The turn coordinator",
+          "The vertical speed indicator",
+          "The attitude indicator",
+          "The magnetic compass"
+        ],
+        "correctIndex": 3,
+        "explanation": "Only the magnetic compass provides an absolute heading reference; the others display different parameters."
+      },
+      "multipleChoice": {
+        "question": "Which cockpit instrument provides the reference for periodic correction of a directional gyro?",
+        "choices": [
+          "The attitude indicator",
+          "The vertical speed indicator",
+          "The turn coordinator",
+          "The magnetic compass"
+        ],
+        "correctIndex": 3,
+        "explanation": "Only the magnetic compass measures heading; VSI indicates climb/descent, AI shows pitch/roll, and turn coordinator shows rate of turn."
+      },
+      "practice": {
+        "question": "Scenario: Every 15 minutes the pilot realigns the DG to match another instrument during straight and level flight. Which instrument is used?",
+        "choices": [
+          "The attitude indicator",
+          "The vertical speed indicator",
+          "The turn coordinator",
+          "The magnetic compass"
+        ],
+        "correctIndex": 3,
+        "explanation": "The compass provides the only absolute heading reference in a mechanical setup, so it is used to correct DG drift."
+      },
+      "preassessment": {
+        "question": "What instrument references DG heading corrections?",
+        "choices": [
+          "Turn coordinator",
+          "Vertical speed indicator",
+          "Attitude indicator",
+          "Magnetic compass"
+        ],
+        "correctIndex": 3
+      }
+    },
+    {
+      "id": "ADV5-007",
+      "category": "adv5-attitude-heading-reference",
+      "difficulty": "easy",
+      "tags": [
+        "ahrs",
+        "acronym",
+        "basics"
+      ],
+      "learningObjective": "Expand the AHRS acronym.",
+      "fullObjective": "Recognize AHRS as the Attitude Heading Reference System used in modern avionics.",
+      "targetSourceStem": "What does the acronym AHRS represent in modern avionics systems?",
+      "flashcard": {
+        "term": "AHRS",
+        "definition": "AHRS stands for Attitude Heading Reference System and replaces mechanical vertical and directional gyros with solid-state sensors.",
+        "analogy": "Like swapping a wristwatch with gears for a smartwatch with chips.",
+        "unit": "Attitude and Heading Reference"
+      },
+      "jeopardy": {
+        "question": "These words are the expansion of the acronym AHRS in avionics.",
+        "choices": [
+          "Attitude Heading Reference System",
+          "Automatic Heading Reset System",
+          "Augmented Hybrid Rate Sensor",
+          "Altitude Heading Regulation System"
+        ],
+        "correctIndex": 0,
+        "explanation": "AHRS always expands to Attitude Heading Reference System; the other choices are fabricated plausible-sounding terms."
+      },
+      "multipleChoice": {
+        "question": "What does the acronym AHRS stand for in modern avionics?",
+        "choices": [
+          "Attitude Heading Reference System",
+          "Automatic Heading Reset System",
+          "Augmented Hybrid Rate Sensor",
+          "Altitude Heading Regulation System"
+        ],
+        "correctIndex": 0,
+        "explanation": "AHRS is the industry-standard expansion and appears in all civil and military avionics documentation."
+      },
+      "practice": {
+        "question": "Scenario: A new technician asks what AHRS stands for when labeling a wiring diagram. Which answer is correct?",
+        "choices": [
+          "Attitude Heading Reference System",
+          "Automatic Heading Reset System",
+          "Augmented Hybrid Rate Sensor",
+          "Altitude Heading Regulation System"
+        ],
+        "correctIndex": 0,
+        "explanation": "Only Attitude Heading Reference System is the correct expansion of AHRS; the other choices are distractor acronyms."
+      },
+      "preassessment": {
+        "question": "AHRS stands for what?",
+        "choices": [
+          "Attitude Heading Reference System",
+          "Automatic Heading Reset System",
+          "Augmented Hybrid Rate Sensor",
+          "Altitude Heading Regulation System"
+        ],
+        "correctIndex": 0
+      }
+    },
+    {
+      "id": "ADV5-008",
+      "category": "adv5-attitude-heading-reference",
+      "difficulty": "medium",
+      "tags": [
+        "mems",
+        "gyro",
+        "coriolis"
+      ],
+      "learningObjective": "Explain how MEMS gyros sense rotation.",
+      "fullObjective": "Recognize that MEMS gyroscopes detect rotation through the Coriolis force acting on vibrating mass elements.",
+      "targetSourceStem": "Unlike traditional spinning-mass gyros, MEMS gyroscopes in modern AHRS units detect rotation using a different principle. How do MEMS gyros sense angular rate?",
+      "flashcard": {
+        "term": "MEMS gyro principle",
+        "definition": "MEMS gyroscopes sense angular rate by measuring how vibrating elements deflect under the Coriolis force.",
+        "analogy": "Like feeling a sideways push when you walk straight across a spinning carousel.",
+        "unit": "Attitude and Heading Reference"
+      },
+      "jeopardy": {
+        "question": "MEMS gyros sense angular rate through this physical principle instead of using a spinning mass.",
+        "choices": [
+          "Magnetic sensors detecting Earth field rotation",
+          "Vibrating elements deflected by the Coriolis force",
+          "Spinning rotors maintaining fixed orientation",
+          "Laser beams shifting phase in an optical cavity"
+        ],
+        "correctIndex": 1,
+        "explanation": "MEMS gyros rely on Coriolis deflection of a vibrating structure; laser and spinning rotor principles describe different gyro types, and Earth field is magnetometry."
+      },
+      "multipleChoice": {
+        "question": "How do MEMS gyroscopes used in modern AHRS sense angular rate?",
+        "choices": [
+          "Magnetometers detect Earth's rotating magnetic field",
+          "Vibrating elements are deflected by the Coriolis force",
+          "Spinning rotors maintain a fixed orientation",
+          "Laser beams shift phase in an optical cavity"
+        ],
+        "correctIndex": 1,
+        "explanation": "The vibrating-beam plus Coriolis-deflection model is the defining principle of MEMS rate sensors."
+      },
+      "practice": {
+        "question": "Scenario: A technician is studying an AHRS service manual. Which operating principle explains how the internal MEMS gyros sense aircraft rotation?",
+        "choices": [
+          "Laser beams phase-shifting in an optical cavity",
+          "Vibrating elements deflected by the Coriolis force",
+          "Spinning mechanical rotors holding orientation",
+          "Magnetometers sensing Earth-field rotation"
+        ],
+        "correctIndex": 1,
+        "explanation": "MEMS rate gyros use Coriolis deflection on a vibrating mass; the distractors describe RLG, mechanical gyro, and magnetometer principles."
+      },
+      "preassessment": {
+        "question": "MEMS gyros sense rotation by what principle?",
+        "choices": [
+          "Laser phase shift in optical cavity",
+          "Coriolis deflection of vibrating elements",
+          "Spinning rotor orientation",
+          "Magnetometer sensing Earth field"
+        ],
+        "correctIndex": 1
+      }
+    },
+    {
+      "id": "ADV5-009",
+      "category": "adv5-attitude-heading-reference",
+      "difficulty": "easy",
+      "tags": [
+        "ahrs",
+        "accelerometer",
+        "sensor"
+      ],
+      "learningObjective": "Identify the sensor that measures linear acceleration along each axis.",
+      "fullObjective": "Recognize the linear accelerometer as the AHRS sensor that measures straight-line motion.",
+      "targetSourceStem": "An AHRS contains sensors that measure straight-line motion along each axis. What type of sensor provides this measurement?",
+      "flashcard": {
+        "term": "AHRS accelerometer",
+        "definition": "Linear accelerometers inside an AHRS measure acceleration along each axis, supporting tilt and motion calculations.",
+        "analogy": "Like the sensor in your phone that knows when you're shaking it or flipping it flat.",
+        "unit": "Attitude and Heading Reference"
+      },
+      "jeopardy": {
+        "question": "This is the AHRS sensor type that measures straight-line acceleration along each axis.",
+        "choices": [
+          "A rate gyroscope",
+          "A flux gate magnetometer",
+          "A linear accelerometer",
+          "A barometric transducer"
+        ],
+        "correctIndex": 2,
+        "explanation": "Linear accelerometers measure acceleration; rate gyros measure rotation, magnetometers sense heading, and barometric transducers measure pressure."
+      },
+      "multipleChoice": {
+        "question": "Which AHRS sensor measures straight-line acceleration along each axis?",
+        "choices": [
+          "A flux gate magnetometer",
+          "A rate gyroscope",
+          "A linear accelerometer",
+          "A barometric pressure transducer"
+        ],
+        "correctIndex": 2,
+        "explanation": "Accelerometers alone measure linear motion; rate gyros, magnetometers, and pressure sensors measure rotation, heading, and altitude."
+      },
+      "practice": {
+        "question": "Scenario: During an AHRS teardown, the technician identifies a sensor that outputs a signal proportional to linear acceleration. What type of sensor is it?",
+        "choices": [
+          "A flux gate magnetometer",
+          "A rate gyroscope",
+          "A linear accelerometer",
+          "A barometric transducer"
+        ],
+        "correctIndex": 2,
+        "explanation": "A sensor output proportional to linear acceleration identifies it as an accelerometer; the distractors produce other outputs."
+      },
+      "preassessment": {
+        "question": "Which sensor measures linear acceleration in an AHRS?",
+        "choices": [
+          "Barometric transducer",
+          "Rate gyroscope",
+          "Linear accelerometer",
+          "Flux gate magnetometer"
+        ],
+        "correctIndex": 2
+      }
+    },
+    {
+      "id": "ADV5-010",
+      "category": "adv5-attitude-heading-reference",
+      "difficulty": "easy",
+      "tags": [
+        "magnetometer",
+        "ahrs",
+        "heading"
+      ],
+      "learningObjective": "Identify what the magnetometer provides to the AHRS.",
+      "fullObjective": "Recognize that the AHRS magnetometer measures Earth's magnetic field direction for heading computation.",
+      "targetSourceStem": "What measurement does the magnetometer provide to the AHRS for heading computation?",
+      "flashcard": {
+        "term": "AHRS magnetometer output",
+        "definition": "The magnetometer measures Earth's magnetic field direction, which the AHRS uses to compute magnetic heading.",
+        "analogy": "Like a tiny digital compass needle feeding the AHRS.",
+        "unit": "Attitude and Heading Reference"
+      },
+      "jeopardy": {
+        "question": "This is what the AHRS magnetometer provides to support heading computation.",
+        "choices": [
+          "Fuel tank quantity level",
+          "Aircraft electrical bus voltage",
+          "Cabin differential pressure",
+          "Earth magnetic field direction"
+        ],
+        "correctIndex": 3,
+        "explanation": "Magnetometers sense Earth's field; the distractors are voltages, pressures, and fuel levels handled by other sensors."
+      },
+      "multipleChoice": {
+        "question": "Which measurement does an AHRS magnetometer provide for heading calculation?",
+        "choices": [
+          "Fuel quantity inside each tank",
+          "Voltage level on the aircraft bus",
+          "Differential pressure in the cabin",
+          "Direction of Earth's magnetic field"
+        ],
+        "correctIndex": 3,
+        "explanation": "Only magnetic field direction supports heading computation; the other parameters are unrelated."
+      },
+      "practice": {
+        "question": "Scenario: A technician is tracing AHRS heading data back to its source sensor. Which measurement does the magnetometer supply?",
+        "choices": [
+          "Fuel quantity in each fuel tank",
+          "DC bus voltage level at the AHRS input",
+          "Differential pressure inside the cabin",
+          "Earth's magnetic field vector direction"
+        ],
+        "correctIndex": 3,
+        "explanation": "The AHRS uses the field direction from the magnetometer to compute magnetic heading."
+      },
+      "preassessment": {
+        "question": "What does the magnetometer give the AHRS?",
+        "choices": [
+          "Electrical bus voltage",
+          "Fuel tank quantity level",
+          "Cabin differential pressure",
+          "Earth magnetic field direction"
+        ],
+        "correctIndex": 3
+      }
+    },
+    {
+      "id": "ADV5-011",
+      "category": "adv5-attitude-heading-reference",
+      "difficulty": "medium",
+      "tags": [
+        "magnetometer",
+        "troubleshooting",
+        "installation"
+      ],
+      "learningObjective": "Identify installation-induced causes of magnetometer errors.",
+      "fullObjective": "Recognize that DC current wiring routed near the magnetometer is a common cause of heading errors in aircraft installations.",
+      "targetSourceStem": "A technician is troubleshooting erratic AHRS heading. What commonly causes magnetometer errors in aircraft installations?",
+      "flashcard": {
+        "term": "Magnetometer interference",
+        "definition": "DC current wiring run too close to the magnetometer generates local magnetic fields that disturb AHRS heading.",
+        "analogy": "Like holding a magnet near your phone's compass and watching it spin.",
+        "unit": "Attitude and Heading Reference"
+      },
+      "jeopardy": {
+        "question": "This installation issue commonly causes magnetometer errors and erratic AHRS heading.",
+        "choices": [
+          "DC current-carrying wiring near the sensor",
+          "Pitot tube blockage from insects",
+          "GPS satellite signal multipath",
+          "Low oxygen level in the flight deck"
+        ],
+        "correctIndex": 0,
+        "explanation": "Current-carrying DC wires create magnetic fields that couple into the magnetometer; the distractors affect other systems entirely."
+      },
+      "multipleChoice": {
+        "question": "Which installation factor most often causes magnetometer errors in an AHRS?",
+        "choices": [
+          "DC current-carrying wiring routed near the sensor",
+          "Pitot tube obstruction from insects or ice",
+          "Multipath interference on the GPS signal",
+          "Low oxygen concentration in the flight deck"
+        ],
+        "correctIndex": 0,
+        "explanation": "Magnetometers are sensitive to stray magnetic fields generated by nearby current flow; the other issues affect unrelated systems."
+      },
+      "practice": {
+        "question": "Scenario: An AHRS installation produces erratic heading that worsens with high landing light current. What is the likely cause?",
+        "choices": [
+          "DC current-carrying wiring is routed too close to the magnetometer",
+          "The pitot tube is partially blocked by insects",
+          "GPS satellite signal multipath is corrupting position",
+          "Low oxygen in the flight deck is affecting electronics"
+        ],
+        "correctIndex": 0,
+        "explanation": "Load-dependent heading error strongly implicates magnetic fields from nearby current flow, which is a wiring-routing issue."
+      },
+      "preassessment": {
+        "question": "Common magnetometer error cause in aircraft?",
+        "choices": [
+          "DC current wiring near the sensor",
+          "Pitot tube insect blockage",
+          "GPS satellite multipath",
+          "Low flight deck oxygen"
+        ],
+        "correctIndex": 0
+      }
+    },
+    {
+      "id": "ADV5-012",
+      "category": "adv5-attitude-heading-reference",
+      "difficulty": "easy",
+      "tags": [
+        "ahrs",
+        "rate-gyro",
+        "attitude"
+      ],
+      "learningObjective": "Identify the sensor that measures rotation rate inside an AHRS.",
+      "fullObjective": "Recognize the rate gyroscope assembly as the AHRS sensor that measures angular rate for attitude computation.",
+      "targetSourceStem": "What type of sensor in the AHRS measures rotation rate for attitude computation?",
+      "flashcard": {
+        "term": "AHRS rate gyro",
+        "definition": "A rate gyroscope assembly measures angular rate on each axis, feeding the AHRS attitude computation.",
+        "analogy": "Like the sensor in a VR headset that tracks how fast your head is turning.",
+        "unit": "Attitude and Heading Reference"
+      },
+      "jeopardy": {
+        "question": "This type of AHRS sensor measures angular rate to support attitude computation.",
+        "choices": [
+          "A thermocouple temperature probe",
+          "A rate gyroscope assembly",
+          "A barometric pressure sensor",
+          "A pitot pressure transducer"
+        ],
+        "correctIndex": 1,
+        "explanation": "Only rate gyros output angular rate; the distractors measure temperature, pressure, or airspeed."
+      },
+      "multipleChoice": {
+        "question": "Which sensor inside an AHRS measures angular rate for attitude calculation?",
+        "choices": [
+          "A pitot pressure transducer",
+          "A rate gyroscope assembly",
+          "A barometric pressure sensor",
+          "A thermocouple temperature probe"
+        ],
+        "correctIndex": 1,
+        "explanation": "Rate gyros provide the angular rate signal; temperature and pressure sensors do not contribute to attitude."
+      },
+      "practice": {
+        "question": "Scenario: A technician is reviewing an AHRS block diagram. Which sensor is the primary source of angular rate for attitude solutions?",
+        "choices": [
+          "The thermocouple temperature probe",
+          "The rate gyroscope assembly",
+          "The barometric pressure sensor",
+          "The pitot pressure transducer"
+        ],
+        "correctIndex": 1,
+        "explanation": "Angular rate is the defining output of a rate gyro; other listed sensors measure unrelated parameters."
+      },
+      "preassessment": {
+        "question": "Which sensor measures AHRS rotation rate?",
+        "choices": [
+          "Barometric pressure sensor",
+          "Rate gyroscope assembly",
+          "Thermocouple temperature probe",
+          "Pitot pressure transducer"
+        ],
+        "correctIndex": 1
+      }
+    },
+    {
+      "id": "ADV5-013",
+      "category": "adv5-attitude-heading-reference",
+      "difficulty": "medium",
+      "tags": [
+        "mems",
+        "bias",
+        "drift"
+      ],
+      "learningObjective": "Identify the error characteristic of MEMS gyros over time.",
+      "fullObjective": "Recognize bias instability drift as the MEMS gyro error that accumulates even when the aircraft is stationary.",
+      "targetSourceStem": "MEMS gyroscopes accumulate error over time even when stationary. What is this error characteristic called?",
+      "flashcard": {
+        "term": "Bias instability",
+        "definition": "Bias instability drift is a slow random walk in the zero-output level of a MEMS gyro, even when the sensor is stationary.",
+        "analogy": "Like a digital scale that slowly creeps upward even with nothing on it.",
+        "unit": "Attitude and Heading Reference"
+      },
+      "jeopardy": {
+        "question": "This error characteristic causes a stationary MEMS gyro to accumulate a slow random offset.",
+        "choices": [
+          "Atmospheric contamination",
+          "Optical beam decay",
+          "Bias instability drift",
+          "Barometric hysteresis lag"
+        ],
+        "correctIndex": 2,
+        "explanation": "Bias instability is a defining MEMS limitation; the distractors relate to fiber optic gyros, environment, or pressure sensors."
+      },
+      "multipleChoice": {
+        "question": "What is the name of the MEMS gyro error that grows over time even when the aircraft is stationary?",
+        "choices": [
+          "Atmospheric contamination",
+          "Optical beam decay",
+          "Bias instability drift",
+          "Barometric hysteresis lag"
+        ],
+        "correctIndex": 2,
+        "explanation": "Bias instability is the walk-off of the MEMS zero-rate output; other options describe unrelated phenomena."
+      },
+      "practice": {
+        "question": "Scenario: During a bench test, a stationary MEMS rate gyro slowly develops a non-zero output. How should the technician describe this error?",
+        "choices": [
+          "Optical beam decay inside the resonator",
+          "Atmospheric contamination of the sensor",
+          "Bias instability drift of the MEMS sensor",
+          "Barometric hysteresis lag of the transducer"
+        ],
+        "correctIndex": 2,
+        "explanation": "Slow drift at zero input is bias instability; the other terms do not apply to MEMS rate sensors."
+      },
+      "preassessment": {
+        "question": "MEMS gyro zero-error drift over time is called?",
+        "choices": [
+          "Atmospheric contamination",
+          "Optical beam decay",
+          "Bias instability drift",
+          "Barometric hysteresis lag"
+        ],
+        "correctIndex": 2
+      }
+    },
+    {
+      "id": "ADV5-014",
+      "category": "adv5-attitude-heading-reference",
+      "difficulty": "medium",
+      "tags": [
+        "ahrs",
+        "gps",
+        "heading",
+        "sensor-fusion"
+      ],
+      "learningObjective": "Explain how modern AHRS calibrates heading during flight.",
+      "fullObjective": "Recognize that modern AHRS fuses magnetometer data with GPS track to calibrate heading output in flight.",
+      "targetSourceStem": "How does a modern AHRS calibrate its heading output during flight operations?",
+      "flashcard": {
+        "term": "AHRS in-flight heading calibration",
+        "definition": "Modern AHRS fuses magnetometer field data with GPS ground track to continually calibrate and stabilize heading.",
+        "analogy": "Like a GPS that keeps pointing you in the right direction by blending compass and course-over-ground data.",
+        "unit": "Attitude and Heading Reference"
+      },
+      "jeopardy": {
+        "question": "This fusion strategy keeps a modern AHRS heading output calibrated in flight.",
+        "choices": [
+          "Reading the turn coordinator ball position",
+          "Referencing the onboard oxygen sensor output",
+          "Accepting manual pilot trim adjustments",
+          "Fusing magnetometer data with GPS track"
+        ],
+        "correctIndex": 3,
+        "explanation": "Sensor fusion with GPS track is the standard technique; the other options involve unrelated systems."
+      },
+      "multipleChoice": {
+        "question": "In the air, what mechanism keeps the heading solution inside a modern AHRS drifting-corrected and aligned?",
+        "choices": [
+          "It references the onboard oxygen sensor output",
+          "It reads the turn coordinator ball position",
+          "It accepts manual pilot trim corrections",
+          "It fuses magnetometer output with GPS ground track"
+        ],
+        "correctIndex": 3,
+        "explanation": "Magnetometer-plus-GPS fusion reduces magnetic errors and keeps heading accurate; the distractors do not inform heading."
+      },
+      "practice": {
+        "question": "Scenario: A technician must explain how a modern AHRS keeps heading accurate during flight. Which technique is used?",
+        "choices": [
+          "Applying manual pilot trim corrections",
+          "Sampling the onboard oxygen sensor output",
+          "Reading the turn coordinator ball position",
+          "Sensor fusion of magnetometer with GPS ground track"
+        ],
+        "correctIndex": 3,
+        "explanation": "Fusing magnetic heading with GPS track is how modern AHRS remain accurate despite magnetic disturbances."
+      },
+      "preassessment": {
+        "question": "How does a modern AHRS calibrate heading in flight?",
+        "choices": [
+          "Takes pilot trim corrections",
+          "Reads oxygen sensor output",
+          "Reads turn coordinator ball",
+          "Fuses magnetometer with GPS track"
+        ],
+        "correctIndex": 3
+      }
+    },
+    {
+      "id": "ADV5-015",
+      "category": "adv5-attitude-heading-reference",
+      "difficulty": "hard",
+      "tags": [
+        "ahrs",
+        "drift",
+        "alignment"
+      ],
+      "learningObjective": "Diagnose gradual attitude drift during a long flight.",
+      "fullObjective": "Recognize that gyro bias drift without a periodic alignment update is a likely cause of slow attitude drift on long flights.",
+      "targetSourceStem": "The pilot reports that displayed attitude gradually drifts from actual aircraft attitude over a long flight. What is the likely cause?",
+      "flashcard": {
+        "term": "Attitude drift cause",
+        "definition": "Without a periodic alignment update, gyro bias drift accumulates over long flights and pulls displayed attitude off of truth.",
+        "analogy": "Like a stopwatch that loses a second every minute and nobody resets it over an eight-hour race.",
+        "unit": "Attitude and Heading Reference"
+      },
+      "jeopardy": {
+        "question": "This is the likely cause when displayed attitude slowly drifts from actual aircraft attitude on a long flight.",
+        "choices": [
+          "Gyro bias drift, no update",
+          "ADC altitude output error",
+          "ADF needle bearing fault",
+          "Static port partial blockage"
+        ],
+        "correctIndex": 0,
+        "explanation": "Attitude is computed from rate gyros plus accelerometer references; without an alignment update, bias drift accumulates over a long flight."
+      },
+      "multipleChoice": {
+        "question": "During a long flight, displayed AHRS attitude gradually diverges from actual aircraft attitude. What is the most likely cause?",
+        "choices": [
+          "Gyro bias drift without alignment",
+          "An air data computer altitude error",
+          "An ADF needle bearing malfunction",
+          "A partial static port blockage"
+        ],
+        "correctIndex": 0,
+        "explanation": "Attitude computation integrates rate data and accumulates bias error; periodic alignment updates correct it. The distractors would not produce slow attitude drift."
+      },
+      "practice": {
+        "question": "Scenario: After a six-hour cruise, the pilot reports the attitude indication is 4 degrees nose-low compared to actual aircraft pitch. Which cause is most likely?",
+        "choices": [
+          "AHRS gyro bias drift without alignment update",
+          "An air data computer altitude calibration error",
+          "An ADF needle bearing malfunction",
+          "A partial blockage of the static port"
+        ],
+        "correctIndex": 0,
+        "explanation": "Slow, cumulative attitude error on long flights is characteristic of uncorrected gyro bias drift."
+      },
+      "preassessment": {
+        "question": "Gradual attitude drift on long flight. Likely cause?",
+        "choices": [
+          "Gyro bias drift without alignment update",
+          "Air data computer altitude error",
+          "ADF needle bearing fault",
+          "Partial static port blockage"
+        ],
+        "correctIndex": 0
+      }
+    },
+    {
+      "id": "ADV5-016",
+      "category": "adv5-attitude-heading-reference",
+      "difficulty": "medium",
+      "tags": [
+        "ahrs",
+        "memory",
+        "power"
+      ],
+      "learningObjective": "Identify the AHRS design feature enabling fast recovery after a power interruption.",
+      "fullObjective": "Recognize that non-volatile memory storage of alignment data lets an AHRS recover attitude quickly after a power loss.",
+      "targetSourceStem": "After a momentary power interruption, the AHRS quickly recovers valid attitude. What design feature enables this rapid recovery?",
+      "flashcard": {
+        "term": "AHRS fast recovery",
+        "definition": "Non-volatile memory preserves the latest alignment data so the AHRS can quickly resume valid attitude after a momentary power loss.",
+        "analogy": "Like a laptop resuming instantly from sleep because its state was saved to SSD.",
+        "unit": "Attitude and Heading Reference"
+      },
+      "jeopardy": {
+        "question": "This AHRS design feature supports rapid recovery of valid attitude after a power interruption.",
+        "choices": [
+          "Flight director recomputing alignment",
+          "Non-volatile memory storing alignment data",
+          "Barometric altimeter backing up attitude",
+          "Magnetometer providing complete attitude"
+        ],
+        "correctIndex": 1,
+        "explanation": "Non-volatile memory retains alignment data through power loss; the distractors cannot substitute for gyro alignment data."
+      },
+      "multipleChoice": {
+        "question": "Why does an AHRS recover valid attitude quickly after a momentary power interruption?",
+        "choices": [
+          "The flight director recomputes the alignment data",
+          "Non-volatile memory preserves alignment data",
+          "The barometric altimeter supplies backup attitude",
+          "The magnetometer provides complete attitude output"
+        ],
+        "correctIndex": 1,
+        "explanation": "Without non-volatile storage, the AHRS would require a full alignment; magnetometers, altimeters, and flight directors cannot replace this."
+      },
+      "practice": {
+        "question": "Scenario: After a brief bus transfer, the AHRS resumes valid attitude within seconds. Which design feature enabled that fast recovery?",
+        "choices": [
+          "The magnetometer computed complete attitude",
+          "Non-volatile memory retained alignment data",
+          "The barometric altimeter backed up attitude",
+          "The flight director recomputed the alignment"
+        ],
+        "correctIndex": 1,
+        "explanation": "Quick recovery after a power blip comes from saved alignment data in non-volatile memory."
+      },
+      "preassessment": {
+        "question": "Why does AHRS recover quickly after power interruption?",
+        "choices": [
+          "Magnetometer provides full attitude",
+          "Non-volatile memory stores alignment data",
+          "Altimeter backs up attitude",
+          "Flight director recomputes alignment"
+        ],
+        "correctIndex": 1
+      }
+    },
+    {
+      "id": "ADV5-017",
+      "category": "adv5-attitude-heading-reference",
+      "difficulty": "hard",
+      "tags": [
+        "slaving",
+        "compass",
+        "hsi"
+      ],
+      "learningObjective": "Diagnose a heading disagreement between the magnetic compass and a slaved HSI.",
+      "fullObjective": "Recognize that the flux detector and compass compensator are the first items to inspect when a slaved HSI disagrees with the magnetic compass.",
+      "targetSourceStem": "A pilot reports 5° disagreement between the magnetic compass and the slaved HSI in straight and level flight. What should the technician inspect?",
+      "flashcard": {
+        "term": "Slaved HSI disagreement",
+        "definition": "When the slaved HSI and magnetic compass disagree in level flight, inspect the flux detector and compass compensator first.",
+        "analogy": "Like checking the thermostat sensor and the thermometer on the wall when they disagree about room temperature.",
+        "unit": "Attitude and Heading Reference"
+      },
+      "jeopardy": {
+        "question": "These components should be inspected first when a slaved HSI disagrees with the magnetic compass by a steady 5 degrees.",
+        "choices": [
+          "The GPS antenna and cable connections",
+          "The pitot tube and static port condition",
+          "The flux detector and the compass compensator",
+          "The audio panel and headset wiring"
+        ],
+        "correctIndex": 2,
+        "explanation": "Heading accuracy depends on the flux detector feeding the slaving system and compensator correction; distractors relate to unrelated systems."
+      },
+      "multipleChoice": {
+        "question": "A slaved HSI differs from the magnetic compass by 5 degrees in level flight. Which components should be inspected first?",
+        "choices": [
+          "The audio panel and headset wiring",
+          "The pitot tube and static port condition",
+          "The flux detector and the compass compensator",
+          "The GPS antenna and cable connections"
+        ],
+        "correctIndex": 2,
+        "explanation": "Heading source and compensator adjustment are the most likely suspects; the distractors are unrelated to heading sensing."
+      },
+      "practice": {
+        "question": "Scenario: In straight and level flight, the pilot finds the slaved HSI reading 5 degrees off the whiskey compass. Where should the technician start inspection?",
+        "choices": [
+          "At the GPS antenna and its cable",
+          "At the pitot tube and the static port",
+          "At the flux detector and the compass compensator",
+          "At the audio panel and the headset wiring"
+        ],
+        "correctIndex": 2,
+        "explanation": "The flux detector provides heading data to the slaving amplifier, and the compensator fine-tunes heading accuracy; both are the right first check."
+      },
+      "preassessment": {
+        "question": "HSI disagrees with compass 5°. Inspect what?",
+        "choices": [
+          "Pitot tube and static port",
+          "GPS antenna and cable",
+          "Flux detector and compass compensator",
+          "Audio panel and headset wiring"
+        ],
+        "correctIndex": 2
+      }
+    },
+    {
+      "id": "ADV5-018",
+      "category": "adv5-attitude-heading-reference",
+      "difficulty": "medium",
+      "tags": [
+        "ahrs",
+        "installation",
+        "legacy"
+      ],
+      "learningObjective": "Identify which mechanical instruments AHRS replaces.",
+      "fullObjective": "Recognize that installing AHRS can eliminate the mechanical vertical gyro and directional gyro from the aircraft.",
+      "targetSourceStem": "When AHRS is installed, which traditional mechanical instruments can be removed from the aircraft?",
+      "flashcard": {
+        "term": "AHRS replaces",
+        "definition": "A certified AHRS installation supplies attitude and heading data that makes the traditional vertical gyro and directional gyro redundant.",
+        "analogy": "Like installing a GPS that makes the old paper map and compass case redundant for navigation.",
+        "unit": "Attitude and Heading Reference"
+      },
+      "jeopardy": {
+        "question": "These two traditional mechanical instruments are replaced when a certified AHRS is installed.",
+        "choices": [
+          "The airspeed indicator and the tachometer",
+          "The vertical speed and the sensitive altimeter",
+          "The sensitive altimeter and the compass",
+          "The vertical gyro and the directional gyro"
+        ],
+        "correctIndex": 3,
+        "explanation": "AHRS supplies attitude and heading data previously provided by the vertical and directional gyros; VSI, altimeter, airspeed, and tach serve other functions."
+      },
+      "multipleChoice": {
+        "question": "When an AHRS is installed, which legacy mechanical instruments are typically removed?",
+        "choices": [
+          "The airspeed indicator and the tachometer",
+          "The vertical speed indicator and sensitive altimeter",
+          "The sensitive altimeter and the standby compass",
+          "The vertical gyro and directional gyro"
+        ],
+        "correctIndex": 3,
+        "explanation": "AHRS provides attitude and heading, replacing VG and DG; the distractors cover air data or engine instruments unrelated to AHRS functions."
+      },
+      "practice": {
+        "question": "Scenario: A shop is installing a new AHRS with EFIS displays. Which mechanical instruments are eligible for removal per the STC?",
+        "choices": [
+          "The airspeed indicator and the tachometer",
+          "The vertical speed indicator and the altimeter",
+          "The sensitive altimeter and the standby compass",
+          "The vertical gyro and the directional gyro"
+        ],
+        "correctIndex": 3,
+        "explanation": "AHRS fulfills the attitude and heading roles previously served by the vertical gyro and directional gyro."
+      },
+      "preassessment": {
+        "question": "Which mechanical instruments does AHRS replace?",
+        "choices": [
+          "Sensitive altimeter and compass",
+          "VSI and sensitive altimeter",
+          "Airspeed indicator and tachometer",
+          "Vertical gyro and directional gyro"
+        ],
+        "correctIndex": 3
+      }
+    }
+  ]
+}

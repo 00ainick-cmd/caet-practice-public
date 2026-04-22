@@ -1,0 +1,107 @@
+{
+  "metadata": {
+    "module": "adv12",
+    "title": "Transponders & ADS-B"
+  },
+  "categories": {
+    "Transponders & ADS-B": [
+      {
+        "id": "ADV12-J001",
+        "clue": "This is the most likely cause when ADS-B FAIL appears but the Mode S transponder still replies to ground interrogation.",
+        "choices": [
+          "GPS position source is invalid or not received",
+          "Transponder antenna has high SWR on the run",
+          "Mode S transponder code has not been set",
+          "TCAS processor has failed its self-test"
+        ],
+        "correctIndex": 0,
+        "explanation": "The GPS position source is invalid."
+      },
+      {
+        "id": "ADV12-J002",
+        "clue": "This TCAS behavior depends directly on the maximum cruise speed configured during installation.",
+        "choices": [
+          "Squawk code assignment range",
+          "Resolution advisory thresholds",
+          "Interrogation reply delay timing",
+          "ADS-B position update rate"
+        ],
+        "correctIndex": 1,
+        "explanation": "RA thresholds scale with max speed."
+      },
+      {
+        "id": "ADV12-J003",
+        "clue": "This is the first thing to investigate when TCAS loses targets inside 5 nautical miles while the transponder tests normal.",
+        "choices": [
+          "Transponder reply frequency accuracy",
+          "ADS-B Out message format configuration",
+          "TCAS antenna pattern and installation location",
+          "Mode C altitude encoder calibration"
+        ],
+        "correctIndex": 2,
+        "explanation": "TCAS antenna pattern and location."
+      },
+      {
+        "id": "ADV12-J004",
+        "clue": "This is required of the pilot to operate in ADS-B mandated airspace with ADS-B Out inoperative.",
+        "choices": [
+          "Revert the transponder to Mode A only",
+          "Squawk 7600 to indicate equipment loss",
+          "Rely on TCAS for automatic separation",
+          "Request an ATC deviation authorization"
+        ],
+        "correctIndex": 3,
+        "explanation": "Request an ATC deviation."
+      },
+      {
+        "id": "ADV12-J005",
+        "clue": "This ADS-B parameter, required by 14 CFR 91.227, captures position accuracy and must be verified after a GPS swap.",
+        "choices": [
+          "NACp (Navigation Accuracy Category for position)",
+          "GPS satellite signal strength readings",
+          "Transponder transmit power output level",
+          "Altimeter encoding accuracy only"
+        ],
+        "correctIndex": 0,
+        "explanation": "NACp is the position accuracy metric."
+      },
+      {
+        "id": "ADV12-J006",
+        "clue": "This is the required response when a TCAS II CLIMB RA is issued at the aircraft's service ceiling.",
+        "choices": [
+          "Follow the RA and exceed service ceiling",
+          "Adjust the RA response to level flight",
+          "Ignore the RA and maintain altitude",
+          "Disconnect TCAS and fly visually"
+        ],
+        "correctIndex": 1,
+        "explanation": "Level off when climb performance is not available."
+      },
+      {
+        "id": "ADV12-J007",
+        "clue": "This pair of items should be checked when ADS-B altitude reads 300 ft high but position is correct.",
+        "choices": [
+          "Transponder transmitter output power level",
+          "GPS receiver antenna installation height",
+          "ADC static source and encoding altimeter calibration",
+          "TCAS directional antenna orientation"
+        ],
+        "correctIndex": 2,
+        "explanation": "Check static source and altitude encoding."
+      },
+      {
+        "id": "ADV12-J008",
+        "clue": "This is the primary source TCAS uses to determine bearing and range to intruder aircraft.",
+        "choices": [
+          "Ground radar surveillance data uplink",
+          "ADS-B In receiver data messages",
+          "GPS multilateration from multiple receivers",
+          "Transponder interrogation and reply timing"
+        ],
+        "correctIndex": 3,
+        "explanation": "TCAS interrogation and reply timing."
+      }
+    ]
+  },
+  "final": []
+}

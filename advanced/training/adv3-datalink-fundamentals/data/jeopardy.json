@@ -1,0 +1,191 @@
+{
+  "metadata": {
+    "module": "adv3",
+    "title": "Datalink Fundamentals"
+  },
+  "categories": {
+    "Datalink Fundamentals": [
+      {
+        "id": "ADV3-J001",
+        "clue": "These four core pieces of state data ride in every ADS-C report to oceanic ATC.",
+        "choices": [
+          "Position, altitude, speed, route intent",
+          "Cabin temperature and pressure",
+          "Engine parameters and fuel quantity",
+          "Weather radar returns and turbulence"
+        ],
+        "correctIndex": 0,
+        "explanation": "ADS-C transmits surveillance state and intent data: aircraft position, altitude, speed, and planned route."
+      },
+      {
+        "id": "ADV3-J002",
+        "clue": "This onboard datalink router juggles both CPDLC text and ADS-C contracts.",
+        "choices": [
+          "Attitude heading reference system",
+          "Communications management unit",
+          "Radio altimeter transceiver",
+          "Distance measuring equipment"
+        ],
+        "correctIndex": 1,
+        "explanation": "The CMU processes CPDLC messaging and ADS-C contract reports and routes them to the appropriate datalink radios."
+      },
+      {
+        "id": "ADV3-J003",
+        "clue": "Reach for this AC number when writing an installation data package for a FANS datalink retrofit.",
+        "choices": [
+          "Advisory Circular 20-160",
+          "RTCA Document DO-178C",
+          "Advisory Circular 20-140B",
+          "Advisory Circular 43.13-1B"
+        ],
+        "correctIndex": 2,
+        "explanation": "AC 20-140B provides FAA installation guidance specifically for FANS and CPDLC datalink systems."
+      },
+      {
+        "id": "ADV3-J004",
+        "clue": "Pair this chime with a lit annunciator and your CPDLC install meets the alerting requirement.",
+        "choices": [
+          "Automatic printout on a cockpit printer",
+          "Message appears on the CDU only",
+          "Voice announcement through the speakers",
+          "Aural tone with visual annunciator"
+        ],
+        "correctIndex": 3,
+        "explanation": "CPDLC alerting requires both an aural tone and a visual annunciator so the crew cannot miss an incoming controller message."
+      },
+      {
+        "id": "ADV3-J005",
+        "clue": "This is what ARINC 622 formatting buys you when messages must be parsed by ATC centers worldwide.",
+        "choices": [
+          "Worldwide ATC interoperability",
+          "Faster message transmission times",
+          "Encrypted data for security",
+          "Compressed data for bandwidth"
+        ],
+        "correctIndex": 0,
+        "explanation": "ARINC 622 standardizes datalink message formats so any ATC center can parse them, enabling worldwide interoperability."
+      },
+      {
+        "id": "ADV3-J006",
+        "clue": "This receiver tunes in the constellation overhead to supply ADS-C with its position fix.",
+        "choices": [
+          "Magnetic flux gate detector",
+          "GNSS or GPS satellite receiver",
+          "VOR/DME ground station receiver",
+          "Attitude heading reference system"
+        ],
+        "correctIndex": 1,
+        "explanation": "ADS-C depends on a GNSS or GPS receiver to generate the position data that goes into the surveillance report."
+      },
+      {
+        "id": "ADV3-J007",
+        "clue": "ADS-C contracts ride over this SatCom or VHF pipe on their way to oceanic ATC.",
+        "choices": [
+          "HF voice radio relay only",
+          "The magnetic compass circuit",
+          "SatCom or VHF data link contracts",
+          "The onboard Ethernet LAN"
+        ],
+        "correctIndex": 2,
+        "explanation": "ADS-C data is transmitted via SatCom or VHF datalink; the compass circuit and onboard Ethernet are not datalink media."
+      },
+      {
+        "id": "ADV3-J008",
+        "clue": "ADS-C will never carry these pictures home to ATC, no matter how bad the ride gets.",
+        "choices": [
+          "Estimated time over future waypoints",
+          "Current aircraft position coordinates",
+          "Next waypoint identifier and ETA",
+          "Weather radar return images"
+        ],
+        "correctIndex": 3,
+        "explanation": "ADS-C carries state and intent data; it does not carry weather radar imagery."
+      },
+      {
+        "id": "ADV3-J009",
+        "clue": "ADS-C fires off reports for these two kinds of triggers: either the controller's contract or a timer.",
+        "choices": [
+          "Contract-based events or periodic intervals",
+          "Continuous audio feedback detection",
+          "Routine voice communication checks",
+          "Transponder squawk code changes"
+        ],
+        "correctIndex": 0,
+        "explanation": "ADS-C uses demand, event, and periodic contracts; reports are triggered by contract conditions or time intervals."
+      },
+      {
+        "id": "ADV3-J010",
+        "clue": "This service level on the SatCom side is the baseline for FANS 1/A data compliance.",
+        "choices": [
+          "ACARS-only text capability",
+          "Level D data-capable SatCom",
+          "Non-TSO uncertified system",
+          "Level C basic voice service"
+        ],
+        "correctIndex": 1,
+        "explanation": "FANS 1/A operational compliance requires Level D data-capable SatCom service; voice-only service does not qualify."
+      },
+      {
+        "id": "ADV3-J011",
+        "clue": "That small lit cube on the glareshield does this specific FANS job.",
+        "choices": [
+          "Shows current METAR weather data",
+          "Displays the GPS signal quality status",
+          "Provides a visual alert for CPDLC message receipt",
+          "Indicates transponder squawk code changes"
+        ],
+        "correctIndex": 2,
+        "explanation": "The external annunciator cube lights to alert the crew that a CPDLC message has been received."
+      },
+      {
+        "id": "ADV3-J012",
+        "clue": "This FAA AC is your go-to for how CPDLC messages must be recorded onboard.",
+        "choices": [
+          "RTCA DO-260 transponder standard",
+          "RTCA DO-178C software standard",
+          "TSO-C132 traffic advisory standard",
+          "FAA Advisory Circular 20-160"
+        ],
+        "correctIndex": 3,
+        "explanation": "AC 20-160 governs the onboard recording requirements for CPDLC communications."
+      },
+      {
+        "id": "ADV3-J013",
+        "clue": "This surveillance broadcast is its own mandate and does not feed FANS 1/A datalink directly.",
+        "choices": [
+          "ADS-B Out position broadcast",
+          "FMS flight intent data output",
+          "CMU CPDLC messaging function",
+          "SatCom signal quality verification"
+        ],
+        "correctIndex": 0,
+        "explanation": "ADS-B Out is a separate surveillance mandate; FANS 1/A requires FMS intent, CMU CPDLC, and SatCom quality, not ADS-B."
+      },
+      {
+        "id": "ADV3-J014",
+        "clue": "For a U.S. operator, this agency signs the Letter of Authorization that clears the crew for FANS operations.",
+        "choices": [
+          "Original equipment manufacturer",
+          "Federal Aviation Administration",
+          "Eurocontrol air traffic management",
+          "International Civil Aviation Organization"
+        ],
+        "correctIndex": 1,
+        "explanation": "U.S. FANS operational approval LOAs are issued by the FAA, not ICAO, Eurocontrol, or the OEM."
+      },
+      {
+        "id": "ADV3-J015",
+        "clue": "This is what the FMS hands off to ADS-C so oceanic ATC knows where you plan to be and when.",
+        "choices": [
+          "VOR receiver signal strength readings",
+          "Transponder Mode S address codes",
+          "Planned route waypoints and timing",
+          "Air data computer pressure values"
+        ],
+        "correctIndex": 2,
+        "explanation": "The FMS provides route waypoints and projected times as flight intent data for ADS-C reports."
+      }
+    ]
+  },
+  "final": []
+}

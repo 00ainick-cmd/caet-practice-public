@@ -1,0 +1,143 @@
+{
+  "metadata": {
+    "module": "adv15",
+    "title": "Emergency Autoland"
+  },
+  "categories": {
+    "Emergency Autoland": [
+      {
+        "id": "ADV15-J001",
+        "clue": "Total servo count in a Garmin Emergency Autoland system.",
+        "choices": [
+          "Four",
+          "Two",
+          "Six",
+          "Eight"
+        ],
+        "correctIndex": 0,
+        "explanation": "Garmin Autoland uses four total servos."
+      },
+      {
+        "id": "ADV15-J002",
+        "clue": "These two events can start an Emergency Autoland sequence.",
+        "choices": [
+          "Bad weather and low fuel",
+          "Inactivity or button press",
+          "High stress and rough air",
+          "Engine failure and shutdown"
+        ],
+        "correctIndex": 1,
+        "explanation": "EAL starts on pilot inactivity detection or when the Autoland button is pressed manually."
+      },
+      {
+        "id": "ADV15-J003",
+        "clue": "Autoland weighs these four factors when choosing a landing airport.",
+        "choices": [
+          "Closest airport only",
+          "Runway length/width only",
+          "Traffic, weather, fuel, landing distance",
+          "Only instrument-approach airports"
+        ],
+        "correctIndex": 2,
+        "explanation": "The system considers traffic, weather, fuel, and landing distance."
+      },
+      {
+        "id": "ADV15-J004",
+        "clue": "This panel configures the aircraft systems during an Autoland event.",
+        "choices": [
+          "Autoland disengage switch",
+          "Pilot-calming module",
+          "Passenger-communication unit",
+          "EAL relay interface panel"
+        ],
+        "correctIndex": 3,
+        "explanation": "The relay interface panel orchestrates aircraft system setup."
+      },
+      {
+        "id": "ADV15-J005",
+        "clue": "EAL brake servos stop the aircraft by driving these hydraulic components.",
+        "choices": [
+          "Brake master cylinders",
+          "Emergency-brake modulators",
+          "Caliper clamps",
+          "Engine reversers"
+        ],
+        "correctIndex": 0,
+        "explanation": "Brake servos mechanically drive the hydraulic brake master cylinders."
+      },
+      {
+        "id": "ADV15-J006",
+        "clue": "After stopping on the runway, Autoland does this next.",
+        "choices": [
+          "Taxis off the runway then stops",
+          "Shuts down the engines",
+          "Taxis to a safe area",
+          "Holds position with engines running"
+        ],
+        "correctIndex": 1,
+        "explanation": "The final action is engine shutdown on the runway."
+      },
+      {
+        "id": "ADV15-J007",
+        "clue": "EAL configures this full set of systems to prepare for autonomous landing.",
+        "choices": [
+          "Only gear and flaps",
+          "Only nav and comm systems",
+          "Gear, flaps, deice, air data",
+          "Only autopilot and flight director"
+        ],
+        "correctIndex": 2,
+        "explanation": "EAL sets up the full landing configuration: gear, flaps, deice, firewall shutoff, and air data."
+      },
+      {
+        "id": "ADV15-J008",
+        "clue": "Location of the EAL throttle servos — mechanically tied to the throttle levers.",
+        "choices": [
+          "Engine nacelles",
+          "Avionics bay",
+          "Wing roots",
+          "The pedestal"
+        ],
+        "correctIndex": 3,
+        "explanation": "Throttle servos mount in the pedestal and drive the existing throttle levers."
+      },
+      {
+        "id": "ADV15-J009",
+        "clue": "The required Garmin avionics platform for Emergency Autoland.",
+        "choices": [
+          "G1000 NXi with GFC 700",
+          "TXi with GFC 600",
+          "GTN navigators alone",
+          "Any Garmin autopilot"
+        ],
+        "correctIndex": 0,
+        "explanation": "EAL is certified on G1000 NXi flight deck with GFC 700 autopilot."
+      },
+      {
+        "id": "ADV15-J010",
+        "clue": "This is when a pilot may use Emergency Autoland.",
+        "choices": [
+          "Anytime for any reason",
+          "Emergencies only",
+          "When copilot seat is empty",
+          "Only for practice approaches"
+        ],
+        "correctIndex": 1,
+        "explanation": "EAL is approved for genuine emergency use only."
+      },
+      {
+        "id": "ADV15-J011",
+        "clue": "EAL announces the emergency via these two channels.",
+        "choices": [
+          "Only airport tower voice",
+          "Only emergency squawk code",
+          "ATC voice plus emergency squawk",
+          "Only ELT activation"
+        ],
+        "correctIndex": 2,
+        "explanation": "EAL speaks to ATC and simultaneously sets the emergency transponder code."
+      }
+    ]
+  },
+  "final": []
+}

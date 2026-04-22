@@ -1,0 +1,821 @@
+{
+  "metadata": {
+    "module": "adv6",
+    "title": "Audio Panels"
+  },
+  "questions": [
+    {
+      "id": "ADV6-001",
+      "category": "adv6-audio-panels",
+      "difficulty": "advanced",
+      "tags": [
+        "audio-panel",
+        "function",
+        "crew-interface"
+      ],
+      "learningObjective": "Identify the primary function of an aircraft audio panel.",
+      "fullObjective": "Given a description of cockpit avionics, the technician shall identify that the audio panel's primary service is selecting and routing communication audio among the installed radios and crew stations.",
+      "targetSourceStem": "What primary service does an aircraft audio panel provide to the flight crew?",
+      "flashcard": {
+        "front": "What core service does an aircraft audio panel deliver to the pilots?",
+        "back": "It selects and routes communication audio between installed radios and crew headset stations.",
+        "correctIndex": 0
+      },
+      "jeopardy": {
+        "clue": "This cockpit unit gives the flight crew selection and routing of communication audio among installed radios.",
+        "choices": [
+          "The aircraft audio panel",
+          "The ADS-B transponder",
+          "The emergency locator beacon",
+          "The cabin entertainment head unit"
+        ],
+        "correctIndex": 0
+      },
+      "multipleChoice": {
+        "stem": "The primary role of the cockpit audio panel is to provide the flight crew with which capability?",
+        "choices": [
+          "Selection and routing of communication audio across installed radios",
+          "Amplification of engine acoustic signatures into the flight deck",
+          "Generation of the emergency locator distress carrier",
+          "Interfacing with the cabin passenger entertainment system"
+        ],
+        "correctIndex": 0
+      },
+      "practice": {
+        "stem": "A technician is briefing a new apprentice on cockpit avionics. Which statement best describes the primary service the audio panel provides to the flight crew?",
+        "choices": [
+          "It handles selection and routing of communication audio across the installed radios.",
+          "It amplifies engine mechanical noise into the cockpit for crew monitoring.",
+          "It generates the distress carrier used by the emergency locator transmitter.",
+          "It acts as the interface to the cabin passenger entertainment equipment."
+        ],
+        "correctIndex": 0
+      },
+      "preassessment": {
+        "stem": "Which primary service does a cockpit audio panel provide to the flight crew during normal operation?",
+        "choices": [
+          "Communication audio selection and routing among the installed radios",
+          "Cockpit amplification of engine compartment mechanical sounds",
+          "Generation of the emergency locator distress transmission",
+          "Interface into the cabin passenger entertainment head unit"
+        ],
+        "correctIndex": 0
+      }
+    },
+    {
+      "id": "ADV6-002",
+      "category": "adv6-audio-panels",
+      "difficulty": "advanced",
+      "tags": [
+        "audio-panel",
+        "isolation",
+        "intercom"
+      ],
+      "learningObjective": "Identify the audio panel feature that keeps intercom speech off the transmitted radio signal.",
+      "fullObjective": "Given an audio panel description, the technician shall identify the intercom-to-radio isolation circuit as the feature that prevents crew intercom conversation from being keyed onto the transmitted radio carrier.",
+      "targetSourceStem": "The audio panel contains circuits that prevent intercom conversation from being broadcast on the radio. What is this feature called?",
+      "flashcard": {
+        "front": "What audio panel feature stops crew intercom chatter from being keyed out on the transmitted radio?",
+        "back": "Intercom-to-radio isolation, which separates the intercom bus from the transmit audio path.",
+        "correctIndex": 0
+      },
+      "jeopardy": {
+        "clue": "This audio panel circuit keeps crew-to-crew intercom speech off the outgoing radio transmission.",
+        "choices": [
+          "Transmit power amplification stage",
+          "Intercom to radio isolation",
+          "VHF interference notch filter",
+          "Standby power consumption trim"
+        ],
+        "correctIndex": 1
+      },
+      "multipleChoice": {
+        "stem": "An audio panel keeps crew intercom speech from being transmitted over the radio. This feature is known as:",
+        "choices": [
+          "Power consumption reduction",
+          "Intercom-to-radio isolation",
+          "VHF interference filtering",
+          "Transmit power amplification"
+        ],
+        "correctIndex": 1
+      },
+      "practice": {
+        "stem": "During a systems briefing, a student asks what keeps the copilot's intercom remarks from being heard by ATC when the pilot transmits. The correct answer is that the audio panel provides which function?",
+        "choices": [
+          "VHF interference filtering on the receiver front end only",
+          "Intercom-to-radio isolation within the transmit audio path",
+          "Transmit power amplification between the exciter and antenna",
+          "Standby power consumption reduction on the audio bus"
+        ],
+        "correctIndex": 1
+      },
+      "preassessment": {
+        "stem": "What feature inside an audio panel keeps crew intercom conversation from being broadcast over the radio?",
+        "choices": [
+          "Transmit stage power amplification",
+          "Intercom-to-radio isolation",
+          "VHF receiver interference filtering",
+          "Panel standby power consumption reduction"
+        ],
+        "correctIndex": 1
+      }
+    },
+    {
+      "id": "ADV6-003",
+      "category": "adv6-audio-panels",
+      "difficulty": "advanced",
+      "tags": [
+        "sidetone",
+        "transmit",
+        "troubleshooting"
+      ],
+      "learningObjective": "Diagnose loss of transmit sidetone to the pilot's headset.",
+      "fullObjective": "Given a report of a pilot unable to hear their own voice while keying the radio, the technician shall identify the transmit sidetone circuit as the most likely faulty audio panel circuit.",
+      "targetSourceStem": "A pilot cannot hear their own voice when transmitting on the radio. What audio panel circuit is likely faulty?",
+      "flashcard": {
+        "front": "Which audio panel circuit is suspect when a pilot cannot hear himself while keying the transmit radio?",
+        "back": "The transmit sidetone circuit, which feeds mic audio back to the headset during transmit.",
+        "correctIndex": 0
+      },
+      "jeopardy": {
+        "clue": "When a pilot cannot hear their own voice on the headset during transmit, this audio panel circuit is almost always the cause.",
+        "choices": [
+          "Marker beacon decoding circuit",
+          "Receiver squelch gating circuit",
+          "Transmit sidetone circuit",
+          "Music input muting circuit"
+        ],
+        "correctIndex": 2
+      },
+      "multipleChoice": {
+        "stem": "A pilot reports hearing no self-voice feedback while keying the COM radio. Which audio panel circuit is most likely faulty?",
+        "choices": [
+          "Music input muting circuit",
+          "Receiver squelch circuit",
+          "Transmit sidetone circuit",
+          "Marker beacon circuit"
+        ],
+        "correctIndex": 2
+      },
+      "practice": {
+        "stem": "After an audio panel replacement, the captain reports that mic audio appears absent in the headset whenever the PTT is pressed, though ATC can hear the transmission clearly. Which circuit is the technician's first suspect?",
+        "choices": [
+          "Marker beacon decoding circuit that identifies inner and middle markers",
+          "Receiver squelch circuit that gates received audio during idle",
+          "Transmit sidetone circuit that feeds mic audio back to the headset",
+          "Music input muting circuit that silences entertainment on transmit"
+        ],
+        "correctIndex": 2
+      },
+      "preassessment": {
+        "stem": "If a pilot cannot hear their own voice in the headset when keying the radio, which audio panel circuit is most likely defective?",
+        "choices": [
+          "Marker beacon tone decoder",
+          "Receiver squelch threshold circuit",
+          "Transmit sidetone circuit",
+          "Music input mute circuit"
+        ],
+        "correctIndex": 2
+      }
+    },
+    {
+      "id": "ADV6-004",
+      "category": "adv6-audio-panels",
+      "difficulty": "advanced",
+      "tags": [
+        "squelch",
+        "receiver",
+        "threshold"
+      ],
+      "learningObjective": "Describe what the squelch control sets on an audio panel.",
+      "fullObjective": "Given an audio panel with a squelch control, the technician shall describe that the control adjusts the noise threshold at which the receiver audio is muted.",
+      "targetSourceStem": "What does the squelch control on an audio panel adjust?",
+      "flashcard": {
+        "front": "What parameter does the squelch knob on a communication audio panel set?",
+        "back": "It sets the noise threshold below which receiver audio is muted from the headset.",
+        "correctIndex": 0
+      },
+      "jeopardy": {
+        "clue": "On a COM audio panel, this knob sets the signal-to-noise threshold that mutes receiver output until a valid carrier appears.",
+        "choices": [
+          "The headset balance control",
+          "The microphone sensitivity trim",
+          "The marker beacon volume knob",
+          "The squelch control"
+        ],
+        "correctIndex": 3
+      },
+      "multipleChoice": {
+        "stem": "The squelch control on an audio panel is used to set:",
+        "choices": [
+          "Marker beacon audio playback volume",
+          "Microphone input sensitivity level",
+          "Left-right balance of the headset",
+          "Noise threshold that mutes audio"
+        ],
+        "correctIndex": 3,
+        "explanation": "The squelch control sets the noise threshold below which the receiver audio is muted."
+      },
+      "practice": {
+        "stem": "A pilot asks which adjustment the squelch knob on the audio panel actually affects. Which response is correct?",
+        "choices": [
+          "It adjusts the audio level of the marker beacon tones only.",
+          "It adjusts the microphone sensitivity of the pilot's boom mic.",
+          "It adjusts the left-right balance heard in the pilot's headset.",
+          "It adjusts the noise threshold used to mute the receiver output."
+        ],
+        "correctIndex": 3
+      },
+      "preassessment": {
+        "stem": "What function is adjusted by the squelch control on an audio panel?",
+        "choices": [
+          "Headset left-right audio balance",
+          "Microphone input sensitivity for the boom mic",
+          "Marker beacon audio playback volume",
+          "Receiver noise threshold for muting weak signals"
+        ],
+        "correctIndex": 3
+      }
+    },
+    {
+      "id": "ADV6-005",
+      "category": "adv6-audio-panels",
+      "difficulty": "advanced",
+      "tags": [
+        "isolation",
+        "fault",
+        "troubleshooting"
+      ],
+      "learningObjective": "Diagnose unwanted copilot audio on the transmit signal.",
+      "fullObjective": "Given a symptom of the copilot's voice being broadcast over the radio while the pilot transmits, the technician shall identify failed intercom isolation within the audio panel as the fault.",
+      "targetSourceStem": "During a radio check, ATC hears the copilot's voice on the frequency even though only the pilot is transmitting. What is the fault?",
+      "flashcard": {
+        "front": "ATC hears the copilot's voice when the pilot transmits alone. Which audio panel fault is indicated?",
+        "back": "Failure of the intercom-to-radio isolation circuit so the intercom bus bleeds into transmit audio.",
+        "correctIndex": 0
+      },
+      "jeopardy": {
+        "clue": "When ATC receives the copilot's voice while the pilot alone is keying the radio, this internal audio panel fault is the cause.",
+        "choices": [
+          "Intercom isolation circuit failure",
+          "Antenna impedance mismatch fault",
+          "Push-to-talk switch jammed closed",
+          "Mic element internal short circuit"
+        ],
+        "correctIndex": 0
+      },
+      "multipleChoice": {
+        "stem": "ATC reports hearing the copilot's voice on the radio while only the pilot is keying the PTT. Which fault in the audio panel explains this symptom?",
+        "choices": [
+          "Intercom isolation circuit has failed",
+          "Antenna impedance is mismatched",
+          "Pilot PTT switch is stuck closed",
+          "Pilot microphone element is shorted"
+        ],
+        "correctIndex": 0
+      },
+      "practice": {
+        "stem": "During a ground radio check, ATC can hear the copilot chatting in the cockpit even though only the pilot is pressing the PTT. What is the most likely fault?",
+        "choices": [
+          "The intercom isolation circuit in the audio panel has failed.",
+          "The antenna feedline has a severe impedance mismatch.",
+          "The pilot's PTT switch is mechanically stuck in the closed position.",
+          "The pilot's microphone element has developed an internal short."
+        ],
+        "correctIndex": 0
+      },
+      "preassessment": {
+        "stem": "ATC hears the copilot speaking on the radio when only the pilot is keying. The fault most likely lies in:",
+        "choices": [
+          "Failure of the intercom-to-radio isolation circuit",
+          "Mismatched impedance at the COM antenna",
+          "A PTT switch stuck in the closed position",
+          "An internal short in the mic element"
+        ],
+        "correctIndex": 0
+      }
+    },
+    {
+      "id": "ADV6-006",
+      "category": "adv6-audio-panels",
+      "difficulty": "advanced",
+      "tags": [
+        "troubleshooting",
+        "mic-routing",
+        "carrier"
+      ],
+      "learningObjective": "Isolate a no-voice-carrier-present fault to the audio panel mic routing.",
+      "fullObjective": "Given that a radio keys a carrier but passes no voice, and a mic connected directly to the radio works, the technician shall isolate the fault to the audio panel microphone routing circuit.",
+      "targetSourceStem": "ATC hears carrier but no voice when the pilot transmits. A test microphone connected directly to the radio works normally. Where is the fault?",
+      "flashcard": {
+        "front": "Radio keys carrier with no voice, but a direct-connected test mic works. Where is the fault?",
+        "back": "Inside the audio panel's microphone routing circuit between the pilot station and the COM radio.",
+        "correctIndex": 0
+      },
+      "jeopardy": {
+        "clue": "When the radio shows carrier but no modulated voice, and bypassing this unit with a direct mic clears the fault, this is where the break lives.",
+        "choices": [
+          "The COM radio transmitter amplifier",
+          "The audio panel mic routing circuit",
+          "The antenna coaxial cable connector",
+          "The aircraft main battery charger"
+        ],
+        "correctIndex": 1
+      },
+      "multipleChoice": {
+        "stem": "ATC hears a keyed carrier but no voice from the pilot. A jack-plugged test microphone wired directly into the COM radio transmits normally. The fault is in:",
+        "choices": [
+          "The COM radio transmitter final amplifier",
+          "The audio panel microphone routing circuit",
+          "The antenna coaxial cable connector",
+          "The aircraft main battery charging bus"
+        ],
+        "correctIndex": 1
+      },
+      "practice": {
+        "stem": "A pilot reports that ATC hears an open carrier but no speech when he transmits. The technician bypasses the installation by plugging a test mic directly into the COM radio and the transmission comes through clearly. Where is the fault?",
+        "choices": [
+          "At the antenna coaxial cable connector at the airframe",
+          "Inside the audio panel's microphone routing circuit",
+          "Inside the COM radio's transmitter final amplifier",
+          "Inside the main battery charging regulator circuit"
+        ],
+        "correctIndex": 1
+      },
+      "preassessment": {
+        "stem": "If ATC hears a keyed carrier but no voice, and a mic directly connected to the radio works, the defective element is:",
+        "choices": [
+          "The battery charger regulator on the main bus",
+          "The mic routing circuit inside the audio panel",
+          "The coaxial connector at the COM antenna",
+          "The final amplifier inside the COM radio"
+        ],
+        "correctIndex": 1
+      }
+    },
+    {
+      "id": "ADV6-007",
+      "category": "adv6-audio-panels",
+      "difficulty": "advanced",
+      "tags": [
+        "headset",
+        "impedance",
+        "installation"
+      ],
+      "learningObjective": "Predict the audio symptom of a low-impedance headset on a high-impedance output.",
+      "fullObjective": "Given a headset with lower impedance than the audio panel output expects, the technician shall predict that the pilot will hear very low volume even with the volume control at maximum.",
+      "targetSourceStem": "A technician connects a low-impedance headset to an audio output designed for high-impedance headsets. What symptom will the pilot report?",
+      "flashcard": {
+        "front": "What symptom results when a low-impedance headset is plugged into a high-impedance audio output?",
+        "back": "Very low perceived volume even with the headset volume turned to its maximum setting.",
+        "correctIndex": 0
+      },
+      "jeopardy": {
+        "clue": "When a low-impedance headset is plugged into a jack expecting a high-impedance load, this is the symptom the pilot reports.",
+        "choices": [
+          "Excessive volume that cannot be reduced",
+          "Loud squealing feedback oscillation",
+          "Very low volume even at maximum setting",
+          "Intermittent audio cutting in and out"
+        ],
+        "correctIndex": 2
+      },
+      "multipleChoice": {
+        "stem": "A low-impedance headset is connected to an audio output designed for a high-impedance load. The pilot will most likely report:",
+        "choices": [
+          "Intermittent audio that cuts in and out during flight",
+          "Excessively loud volume that cannot be attenuated",
+          "Very low audio level at maximum volume setting",
+          "Loud squealing feedback oscillation in the headset"
+        ],
+        "correctIndex": 2
+      },
+      "practice": {
+        "stem": "While troubleshooting a crew complaint, you find the left-seat headset is a low-impedance model plugged into a jack wired for the high-impedance standard. What symptom should the pilot have reported?",
+        "choices": [
+          "Headset produces a loud squealing feedback oscillation.",
+          "Audio is painfully loud and cannot be turned down at all.",
+          "Audio is very faint even with the volume knob fully up.",
+          "Audio cuts in and out intermittently during the flight."
+        ],
+        "correctIndex": 2
+      },
+      "preassessment": {
+        "stem": "If a low-impedance headset is plugged into an output sized for a high-impedance headset, the pilot will most likely hear:",
+        "choices": [
+          "A loud feedback squeal from the earcups",
+          "Uncontrollably loud audio at every setting",
+          "Very low volume even with the control at maximum",
+          "Intermittent dropouts during flight"
+        ],
+        "correctIndex": 2
+      }
+    },
+    {
+      "id": "ADV6-008",
+      "category": "adv6-audio-panels",
+      "difficulty": "advanced",
+      "tags": [
+        "marker-beacon",
+        "ils",
+        "routing"
+      ],
+      "learningObjective": "Locate the fault for marker lights working without audio.",
+      "fullObjective": "Given marker beacon lights that illuminate normally without audio tones during an ILS approach, the technician shall identify the audio panel marker beacon routing as the most likely fault location.",
+      "targetSourceStem": "During an ILS approach, marker beacon lights illuminate but the pilot hears no audio tones. What is the most likely fault location?",
+      "flashcard": {
+        "front": "Marker lights illuminate during an ILS pass but no tones are heard. Where is the fault?",
+        "back": "The marker beacon audio routing inside the audio panel, since the receiver is clearly detecting the signal.",
+        "correctIndex": 0
+      },
+      "jeopardy": {
+        "clue": "When the outer marker lamp flashes correctly but no Morse tone reaches the headset, this part of the audio panel is suspect.",
+        "choices": [
+          "The marker antenna cable connection",
+          "The marker receiver RF sensitivity stage",
+          "The ILS receiver glideslope decoder",
+          "The audio panel marker beacon routing"
+        ],
+        "correctIndex": 3
+      },
+      "multipleChoice": {
+        "stem": "Marker beacon annunciators illuminate normally on an ILS approach, but the pilot reports no audio tone. The most likely fault is:",
+        "choices": [
+          "A defective glideslope decoder in the ILS receiver",
+          "Reduced RF sensitivity in the marker receiver front end",
+          "A loose marker antenna cable connection at the fuselage",
+          "Marker beacon audio routing inside the audio panel"
+        ],
+        "correctIndex": 3
+      },
+      "practice": {
+        "stem": "On an ILS approach the outer and middle marker lamps flash at the correct times, but the pilot hears none of the usual Morse-coded tones in the headset. What is the most likely fault location?",
+        "choices": [
+          "A failure in the ILS glideslope decoder circuit",
+          "RF sensitivity loss in the marker receiver itself",
+          "A cable break at the marker antenna feedline",
+          "The marker beacon audio routing inside the audio panel"
+        ],
+        "correctIndex": 3
+      },
+      "preassessment": {
+        "stem": "If marker lights illuminate but no marker tone reaches the crew during an ILS approach, the most likely fault is in:",
+        "choices": [
+          "The marker antenna cable connection",
+          "The marker receiver RF sensitivity circuit",
+          "The ILS glideslope decoder",
+          "The audio panel's marker beacon routing"
+        ],
+        "correctIndex": 3
+      }
+    },
+    {
+      "id": "ADV6-009",
+      "category": "adv6-audio-panels",
+      "difficulty": "advanced",
+      "tags": [
+        "vox",
+        "intercom",
+        "troubleshooting"
+      ],
+      "learningObjective": "Diagnose a hot mic condition without PTT press.",
+      "fullObjective": "Given an intercom microphone that transmits continuously without the PTT being pressed, the technician shall identify that VOX voice activation is the most likely cause.",
+      "targetSourceStem": "A pilot reports the intercom microphone transmits continuously without pressing the PTT switch. What is the most likely cause?",
+      "flashcard": {
+        "front": "A mic keys the intercom continuously without a PTT press. What is the most likely cause?",
+        "back": "VOX voice activation is enabled, so cockpit noise keys the mic without any PTT input.",
+        "correctIndex": 0
+      },
+      "jeopardy": {
+        "clue": "When a mic appears to transmit continuously on the intercom without any PTT input, this audio panel setting is the first thing to check.",
+        "choices": [
+          "VOX voice activation is enabled",
+          "The COM radio is stuck in transmit",
+          "The microphone element is shorted",
+          "The audio panel volume is too high"
+        ],
+        "correctIndex": 0
+      },
+      "multipleChoice": {
+        "stem": "The intercom microphone transmits continuously with no PTT press. The most likely cause is:",
+        "choices": [
+          "VOX voice activation is enabled on the audio panel",
+          "The COM radio is stuck in the transmit mode",
+          "The microphone cartridge element is shorted",
+          "The audio panel overall volume is set too high"
+        ],
+        "correctIndex": 0
+      },
+      "practice": {
+        "stem": "The crew reports that the intercom mic seems to key up every time there is cockpit noise, even without touching the PTT. Before condemning any hardware, the technician should verify which possibility first?",
+        "choices": [
+          "That VOX voice-activation mode is enabled on the audio panel",
+          "That the COM radio transmit stage is not stuck in the on state",
+          "That the microphone element does not have an internal short",
+          "That the audio panel master volume is not adjusted too high"
+        ],
+        "correctIndex": 0
+      },
+      "preassessment": {
+        "stem": "When the intercom mic transmits continuously without any PTT press, the most likely cause is:",
+        "choices": [
+          "VOX voice activation mode is enabled",
+          "The COM radio is stuck in transmit",
+          "The microphone element has shorted",
+          "The audio panel volume is excessive"
+        ],
+        "correctIndex": 0
+      }
+    },
+    {
+      "id": "ADV6-010",
+      "category": "adv6-audio-panels",
+      "difficulty": "advanced",
+      "tags": [
+        "ground-loop",
+        "hum",
+        "installation"
+      ],
+      "learningObjective": "Diagnose a 400 Hz hum in crew headsets after installation.",
+      "fullObjective": "Given a 400 Hz hum in the crew headsets after an audio panel installation, the technician shall identify a poor ground connection to aircraft structure as the most likely installation error.",
+      "targetSourceStem": "After an installation, the crew reports a 400 Hz hum in their headsets. What installation error causes this symptom?",
+      "flashcard": {
+        "front": "What installation defect most commonly produces a 400 Hz hum in the headsets?",
+        "back": "A poor (high-resistance) ground connection between the audio panel and aircraft structure.",
+        "correctIndex": 0
+      },
+      "jeopardy": {
+        "clue": "When a freshly installed audio panel produces a 400 Hz hum in the crew's headsets, this installation defect is the most common cause.",
+        "choices": [
+          "A ground wire with corroded terminal lug",
+          "A poor ground connection to aircraft structure",
+          "A ground wire bundled inside a power conduit",
+          "A ground wire routed to the battery post"
+        ],
+        "correctIndex": 1
+      },
+      "multipleChoice": {
+        "stem": "Following an audio panel installation, the crew hears a steady 400 Hz hum in their headsets. The most likely installation error is:",
+        "choices": [
+          "A ground wire terminated at the battery post",
+          "A poor ground connection to aircraft structure",
+          "A ground wire routed inside a power conduit",
+          "A ground wire with corroded ring terminal"
+        ],
+        "correctIndex": 1
+      },
+      "practice": {
+        "stem": "After installing a new audio panel, the crew complains of a persistent 400 Hz hum in every headset. Which installation defect should the technician suspect first?",
+        "choices": [
+          "A ground lead terminated directly at the aircraft battery post",
+          "A poor ground connection from the audio panel to aircraft structure",
+          "A ground lead bundled in the same conduit as power wiring",
+          "A ground wire with corroded lug hardware at the terminal strip"
+        ],
+        "correctIndex": 1
+      },
+      "preassessment": {
+        "stem": "A 400 Hz hum appearing in every headset after installation is most commonly caused by:",
+        "choices": [
+          "A ground wire tied to the battery terminal",
+          "A poor ground to aircraft structure",
+          "A ground wire run inside a power conduit",
+          "A corroded lug on the ground wire terminal"
+        ],
+        "correctIndex": 1
+      }
+    },
+    {
+      "id": "ADV6-011",
+      "category": "adv6-audio-panels",
+      "difficulty": "advanced",
+      "tags": [
+        "emergency-mode",
+        "failsafe",
+        "redundancy"
+      ],
+      "learningObjective": "Describe the minimum capability of audio panel emergency mode.",
+      "fullObjective": "Given a completely failed audio panel, the technician shall describe the emergency mode as providing a direct hardwired path from the pilot headset to COM1.",
+      "targetSourceStem": "If the audio panel fails completely, the emergency mode provides what minimum capability?",
+      "flashcard": {
+        "front": "In emergency mode after a full audio panel failure, what minimum path is available?",
+        "back": "A direct hardwired path from the pilot's headset to COM1, bypassing the failed panel.",
+        "correctIndex": 0
+      },
+      "jeopardy": {
+        "clue": "When a total audio panel failure occurs, this hardwired fallback path is what emergency mode guarantees.",
+        "choices": [
+          "An automatic ELT activation signal",
+          "An increased transmit power output",
+          "A direct pilot headset to COM1 path",
+          "An automatic cockpit voice recording"
+        ],
+        "correctIndex": 2
+      },
+      "multipleChoice": {
+        "stem": "After complete loss of audio panel processing, emergency mode provides which minimum capability?",
+        "choices": [
+          "Automatic activation of the emergency locator transmitter",
+          "Increased transmit power from the primary COM radio",
+          "A hardwired direct path from the pilot headset to COM1",
+          "Automatic start of a cockpit voice recording function"
+        ],
+        "correctIndex": 2
+      },
+      "practice": {
+        "stem": "During a training flight, the audio panel fails completely and the crew reverts to its emergency mode. What minimum communication capability is still guaranteed?",
+        "choices": [
+          "An automatic activation signal sent to the ELT transmitter",
+          "An increase in transmit power to the primary COM radio",
+          "A direct hardwired path from the pilot's headset to COM1",
+          "An automatic start of the cockpit voice recorder system"
+        ],
+        "correctIndex": 2
+      },
+      "preassessment": {
+        "stem": "The minimum capability provided by an audio panel's emergency mode is:",
+        "choices": [
+          "Higher transmitter output power",
+          "Automatic ELT activation",
+          "A direct pilot-headset-to-COM1 path",
+          "Automatic cockpit voice recording"
+        ],
+        "correctIndex": 2
+      }
+    },
+    {
+      "id": "ADV6-012",
+      "category": "adv6-audio-panels",
+      "difficulty": "advanced",
+      "tags": [
+        "stuck-mic",
+        "alert",
+        "monitoring"
+      ],
+      "learningObjective": "Describe how modern audio panels alert the crew to a stuck mic.",
+      "fullObjective": "Given a stuck transmit condition on a modern audio panel, the technician shall describe the alerting method as a flashing indicator accompanied by a warning tone.",
+      "targetSourceStem": "How do modern audio panels alert the crew when a microphone is stuck in the transmit position?",
+      "flashcard": {
+        "front": "How does a modern audio panel notify the crew of a stuck transmit condition?",
+        "back": "It provides a flashing annunciator combined with an audible warning tone.",
+        "correctIndex": 0
+      },
+      "jeopardy": {
+        "clue": "Modern audio panels use this combined visual and aural method to warn the crew of a stuck mic condition.",
+        "choices": [
+          "An automatic disconnect after 30 seconds",
+          "An automatic reduction of antenna power",
+          "An emergency broadcast on guard frequency",
+          "A flashing indicator with a warning tone"
+        ],
+        "correctIndex": 3
+      },
+      "multipleChoice": {
+        "stem": "When a mic stays keyed in the transmit position, a modern audio panel alerts the crew by:",
+        "choices": [
+          "Automatically disconnecting the mic after 30 seconds",
+          "Reducing antenna transmit power below licensed output",
+          "Broadcasting a message on the 121.5 MHz guard frequency",
+          "Flashing a dedicated indicator and sounding a warning tone"
+        ],
+        "correctIndex": 3
+      },
+      "practice": {
+        "stem": "A designer is explaining how a modern digital audio panel handles a stuck PTT. Which behavior should he describe as the crew alert?",
+        "choices": [
+          "An automatic reduction of transmit antenna output power",
+          "Automatic mic disconnect after a fixed 30 second timer",
+          "An automatic broadcast on the guard frequency at 121.5",
+          "A flashing indicator paired with an audible warning tone"
+        ],
+        "correctIndex": 3
+      },
+      "preassessment": {
+        "stem": "Modern audio panels alert the flight crew to a stuck mic by:",
+        "choices": [
+          "Reducing antenna transmit output power",
+          "Disconnecting the mic after thirty seconds",
+          "Broadcasting on guard frequency automatically",
+          "Flashing an indicator and sounding a warning tone"
+        ],
+        "correctIndex": 3
+      }
+    },
+    {
+      "id": "ADV6-013",
+      "category": "adv6-audio-panels",
+      "difficulty": "advanced",
+      "tags": [
+        "split-audio",
+        "crew",
+        "independent"
+      ],
+      "learningObjective": "Explain the function of split audio mode on a dual-crew audio panel.",
+      "fullObjective": "Given a dual-crew audio panel configured for split audio mode, the technician shall explain that the mode allows the pilot and copilot to monitor separate radios independently.",
+      "targetSourceStem": "What does split audio mode allow the pilot and copilot to do?",
+      "flashcard": {
+        "front": "What capability does split audio mode give the pilot and copilot?",
+        "back": "Each crewmember can monitor different radios independently from their own station.",
+        "correctIndex": 0
+      },
+      "jeopardy": {
+        "clue": "This audio panel mode lets pilot and copilot listen to separate radios at the same time from their own headsets.",
+        "choices": [
+          "Split audio mode",
+          "Divided transmit power mode",
+          "Entertainment separation mode",
+          "Dual-frequency transmit mode"
+        ],
+        "correctIndex": 0
+      },
+      "multipleChoice": {
+        "stem": "Split audio mode on a dual-crew audio panel allows the pilot and copilot to:",
+        "choices": [
+          "Monitor different radios independently of each other",
+          "Divide the transmit power between two antennas",
+          "Separate entertainment audio from communication audio",
+          "Transmit on two different frequencies simultaneously"
+        ],
+        "correctIndex": 0
+      },
+      "practice": {
+        "stem": "A captain is showing a new first officer how to use the audio panel during a busy terminal arrival. When he selects split audio, what capability has he just enabled for the pair?",
+        "choices": [
+          "Each crewmember can monitor a different radio independently.",
+          "Transmit power is divided between two separate antennas.",
+          "Entertainment audio is separated from communication audio.",
+          "The aircraft can transmit on two frequencies simultaneously."
+        ],
+        "correctIndex": 0
+      },
+      "preassessment": {
+        "stem": "Split audio mode on a dual-crew audio panel provides the ability to:",
+        "choices": [
+          "Monitor different radios independently at each station",
+          "Divide transmit power between two COM antennas",
+          "Isolate entertainment audio from communication audio",
+          "Transmit on two radio frequencies at the same time"
+        ],
+        "correctIndex": 0
+      }
+    },
+    {
+      "id": "ADV6-014",
+      "category": "adv6-audio-panels",
+      "difficulty": "advanced",
+      "tags": [
+        "digital-bus",
+        "arinc-429",
+        "integration"
+      ],
+      "learningObjective": "Identify the data bus used by a digital audio panel in an integrated avionics suite.",
+      "fullObjective": "Given a digital audio panel integrated into a modern avionics suite, the technician shall identify ARINC 429 as the typical data bus protocol used for communication with the other LRUs.",
+      "targetSourceStem": "A new digital audio panel connects to the integrated avionics suite. What data bus protocol is typically used?",
+      "flashcard": {
+        "front": "Which data bus does a digital audio panel typically use to talk to an integrated avionics suite?",
+        "back": "ARINC 429, the unidirectional serial data bus common on business and transport aircraft.",
+        "correctIndex": 0
+      },
+      "jeopardy": {
+        "clue": "This unidirectional serial bus is the protocol most often used between a digital audio panel and the integrated avionics suite on a business jet.",
+        "choices": [
+          "The RS-232 serial port",
+          "The ARINC 429 data bus",
+          "The MIL-STD-1553 bus",
+          "The automotive CAN bus"
+        ],
+        "correctIndex": 1
+      },
+      "multipleChoice": {
+        "stem": "A digital audio panel interfacing with an integrated avionics suite typically uses which data bus protocol?",
+        "choices": [
+          "RS-232",
+          "ARINC 429",
+          "MIL-STD-1553",
+          "Automotive CAN"
+        ],
+        "correctIndex": 1
+      },
+      "practice": {
+        "stem": "A technician installing a replacement digital audio panel into a Pro Line Fusion suite needs to know the expected integration data bus. Which protocol should he plan to wire?",
+        "choices": [
+          "RS-232 serial port connection",
+          "ARINC 429 serial data bus",
+          "MIL-STD-1553 multiplex bus",
+          "Automotive CAN network bus"
+        ],
+        "correctIndex": 1
+      },
+      "preassessment": {
+        "stem": "The data bus protocol typically used between a digital audio panel and an integrated avionics suite is:",
+        "choices": [
+          "RS-232",
+          "ARINC 429",
+          "MIL-STD-1553",
+          "CAN bus"
+        ],
+        "correctIndex": 1
+      }
+    }
+  ]
+}

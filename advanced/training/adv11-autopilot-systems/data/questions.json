@@ -1,0 +1,1567 @@
+{
+  "metadata": {
+    "module": "adv11",
+    "title": "Autopilot Systems"
+  },
+  "questions": [
+    {
+      "id": "ADV11-001",
+      "category": "adv11-autopilot-systems",
+      "difficulty": "standard",
+      "tags": [
+        "autopilot",
+        "flight-controls",
+        "classification"
+      ],
+      "learningObjective": "Classify aileron, elevator, and rudder as primary flight control surfaces driven by autopilot servos.",
+      "fullObjective": "Given an autopilot system that commands ailerons, elevator, and rudder, the technician classifies these surfaces as primary flight controls and distinguishes them from secondary, trim, or high-lift devices.",
+      "targetSourceStem": "An autopilot system moves the ailerons, elevator, and rudder through servo actuators. What classification applies to these control surfaces?",
+      "flashcard": {
+        "term": "Primary flight control surfaces",
+        "definition": "The aileron, elevator, and rudder, which are driven by autopilot servos to control roll, pitch, and yaw respectively.",
+        "analogy": "Think of them as the steering wheel, gas, and brake of an aircraft — the three inputs that directly maneuver the plane in flight.",
+        "unit": "adv11-autopilot-systems"
+      },
+      "jeopardy": {
+        "question": "This category of control surfaces — aileron, elevator, and rudder — is what the autopilot servos actually move.",
+        "choices": [
+          "Trim tab surfaces",
+          "Primary flight controls",
+          "Secondary flight controls",
+          "High-lift devices"
+        ],
+        "correctIndex": 1,
+        "explanation": "Aileron, elevator, and rudder are classified as primary flight controls because they directly produce roll, pitch, and yaw moments."
+      },
+      "multipleChoice": {
+        "question": "Autopilot servos in a conventional aircraft drive the ailerons, elevator, and rudder. How are these surfaces categorized?",
+        "choices": [
+          "Auxiliary lift devices",
+          "Primary flight controls",
+          "Trim tab surfaces",
+          "Secondary flight controls"
+        ],
+        "correctIndex": 1,
+        "explanation": "Ailerons, elevator, and rudder provide roll, pitch, and yaw control and are the primary flight control surfaces."
+      },
+      "practice": {
+        "question": "A technician identifies the three surfaces actuated by autopilot servos on a 3-axis system. What category do they belong to?",
+        "choices": [
+          "Trim tab surfaces",
+          "Primary flight controls",
+          "Secondary flight controls",
+          "Lift augmentation surfaces"
+        ],
+        "correctIndex": 1,
+        "explanation": "These three surfaces are the primary flight controls; flaps and trim tabs fall into other categories."
+      },
+      "preassessment": {
+        "question": "Which category includes the ailerons, elevator, and rudder driven by autopilot servos?",
+        "choices": [
+          "High-lift devices",
+          "Primary flight controls",
+          "Trim tab surfaces",
+          "Secondary flight controls"
+        ],
+        "correctIndex": 1
+      }
+    },
+    {
+      "id": "ADV11-002",
+      "category": "adv11-autopilot-systems",
+      "difficulty": "standard",
+      "tags": [
+        "flight-controls",
+        "secondary-controls",
+        "classification"
+      ],
+      "learningObjective": "Classify flaps, slats, and spoilers as secondary or auxiliary flight controls.",
+      "fullObjective": "Given a list of surfaces including flaps, slats, and spoilers, the technician identifies them as secondary or auxiliary flight controls used for lift augmentation and drag modulation rather than direct roll, pitch, or yaw control.",
+      "targetSourceStem": "During approach, the pilot extends flaps, slats, and deploys spoilers after landing. What classification applies to these surfaces?",
+      "flashcard": {
+        "term": "Secondary (auxiliary) flight controls",
+        "definition": "Surfaces such as flaps, slats, and spoilers that modify lift or drag but do not directly produce roll, pitch, or yaw.",
+        "analogy": "Like adjusting the seat or mirrors in a car — they change how the vehicle performs but are not the steering wheel itself.",
+        "unit": "adv11-autopilot-systems"
+      },
+      "jeopardy": {
+        "question": "Flaps, slats, and spoilers all fall under this class of flight control.",
+        "choices": [
+          "Primary flight controls",
+          "Emergency backup controls",
+          "Secondary or auxiliary controls",
+          "Trim system controls"
+        ],
+        "correctIndex": 2,
+        "explanation": "Flaps, slats, and spoilers modify lift and drag; they are categorized as secondary or auxiliary flight controls."
+      },
+      "multipleChoice": {
+        "question": "Flaps are extended for approach and spoilers are deployed after touchdown. What category do these surfaces belong to?",
+        "choices": [
+          "Emergency backup controls",
+          "Primary flight controls",
+          "Secondary or auxiliary controls",
+          "Trim system controls"
+        ],
+        "correctIndex": 2,
+        "explanation": "These high-lift and drag-producing surfaces are secondary or auxiliary controls."
+      },
+      "practice": {
+        "question": "A technician lists flaps, slats, and spoilers on a control-surface diagram. How should they be labeled?",
+        "choices": [
+          "Primary flight controls",
+          "Emergency backup surfaces",
+          "Secondary/auxiliary controls",
+          "Trim system surfaces"
+        ],
+        "correctIndex": 2,
+        "explanation": "Flaps, slats, and spoilers modify lift and drag and are classified as secondary or auxiliary flight controls."
+      },
+      "preassessment": {
+        "question": "Flaps, slats, and spoilers are examples of which type of flight control?",
+        "choices": [
+          "Primary controls",
+          "Emergency backup",
+          "Secondary controls",
+          "Trim surfaces"
+        ],
+        "correctIndex": 2,
+        "explanation": "Flaps, slats, and spoilers are secondary or auxiliary flight controls that modify lift and drag."
+      }
+    },
+    {
+      "id": "ADV11-003",
+      "category": "adv11-autopilot-systems",
+      "difficulty": "advanced",
+      "tags": [
+        "autopilot",
+        "troubleshooting",
+        "pitch-servo",
+        "bridle-cable"
+      ],
+      "learningObjective": "Diagnose porpoising oscillation following pitch servo maintenance as caused by incorrect bridle cable tension.",
+      "fullObjective": "Given a post-maintenance report of repetitive nose-up and nose-down pitch oscillation in altitude hold, the technician recognizes this as porpoising and attributes it to improper bridle cable tension on the pitch servo.",
+      "targetSourceStem": "After pitch servo maintenance, the pilot reports the aircraft repeatedly pitches nose-up then nose-down during altitude hold. What is this oscillation called and what causes it?",
+      "flashcard": {
+        "term": "Porpoising",
+        "definition": "A repetitive nose-up/nose-down pitch oscillation caused by incorrect bridle cable tension on the pitch servo after maintenance.",
+        "analogy": "Like a dolphin leaping in and out of the water — the airplane bobs because the servo cable is too loose or too tight to hold a steady pitch.",
+        "unit": "adv11-autopilot-systems"
+      },
+      "jeopardy": {
+        "question": "The rhythmic nose-up, nose-down oscillation seen after pitch servo work, caused by improper bridle tension.",
+        "choices": [
+          "Flutter from resonance",
+          "Dutch roll from yaw coupling",
+          "Phugoid from airspeed change",
+          "Porpoising from bridle tension error"
+        ],
+        "correctIndex": 3,
+        "explanation": "Porpoising is the classic symptom of incorrect bridle cable tension at the pitch servo."
+      },
+      "multipleChoice": {
+        "question": "Following recent pitch servo work, the aircraft cycles nose-up and nose-down while altitude hold is engaged. What is the name and cause?",
+        "choices": [
+          "Flutter caused by structural resonance",
+          "Dutch roll caused by yaw-roll coupling",
+          "Phugoid caused by long-period airspeed variation",
+          "Porpoising caused by bridle cable tension error"
+        ],
+        "correctIndex": 3,
+        "explanation": "Post-maintenance porpoising almost always traces to improperly set bridle cable tension."
+      },
+      "practice": {
+        "question": "After a pitch-axis servo rig, the aircraft begins a slow up-down pitch cycle in altitude hold. What should the technician suspect?",
+        "choices": [
+          "Phugoid from energy exchange",
+          "Dutch roll from swept-wing damping loss",
+          "Flutter from control-surface resonance",
+          "Porpoising from incorrect bridle tension"
+        ],
+        "correctIndex": 3,
+        "explanation": "The symptom is porpoising and points to bridle cable tension that was not set to spec."
+      },
+      "preassessment": {
+        "question": "A nose-up/nose-down pitch cycle appearing after pitch servo maintenance is called what, and what causes it?",
+        "choices": [
+          "Dutch roll from yaw coupling",
+          "Flutter from resonance",
+          "Phugoid from airspeed change",
+          "Porpoising from bridle tension error"
+        ],
+        "correctIndex": 3
+      }
+    },
+    {
+      "id": "ADV11-004",
+      "category": "adv11-autopilot-systems",
+      "difficulty": "standard",
+      "tags": [
+        "flight-director",
+        "pfd",
+        "command-bars"
+      ],
+      "learningObjective": "Identify the flight director computer as the source of command bars displayed on the attitude indicator.",
+      "fullObjective": "Given a PFD presentation of pitch and roll command bars that the pilot follows manually, the technician identifies the flight director computer as the source of those command cues.",
+      "targetSourceStem": "The pilot hand-flies while following pitch and roll commands shown as bars on the attitude indicator. What system generates these command cues?",
+      "flashcard": {
+        "term": "Flight director (FD) computer",
+        "definition": "The subsystem that computes pitch and roll steering commands and displays them as bars on the attitude indicator for the pilot to follow manually.",
+        "analogy": "Like a GPS with turn-by-turn arrows — the FD tells the pilot where to steer, but the pilot still holds the wheel.",
+        "unit": "adv11-autopilot-systems"
+      },
+      "jeopardy": {
+        "question": "This computer paints the pitch and roll command bars on the attitude indicator for the pilot to follow.",
+        "choices": [
+          "Flight director computer",
+          "Autopilot servo system",
+          "Attitude indicator gyro",
+          "Flight management system"
+        ],
+        "correctIndex": 0,
+        "explanation": "The flight director computes steering commands and displays them as command bars."
+      },
+      "multipleChoice": {
+        "question": "A pilot hand-flies the aircraft by following bars displayed on the attitude indicator. Which unit generates those bars?",
+        "choices": [
+          "Flight director computer",
+          "Autopilot servo system",
+          "Attitude indicator gyro",
+          "Flight management system"
+        ],
+        "correctIndex": 0,
+        "explanation": "The FD computer generates the command cues; the autopilot would physically move the controls."
+      },
+      "practice": {
+        "question": "On a PFD, pink V-bars steer the pilot in pitch and roll. What produces these bars?",
+        "choices": [
+          "Flight director computer",
+          "Autopilot roll servo",
+          "Attitude heading reference gyro",
+          "Flight management system waypoint logic"
+        ],
+        "correctIndex": 0,
+        "explanation": "The flight director computes steering solutions displayed as command bars."
+      },
+      "preassessment": {
+        "question": "Which system produces the pitch and roll command bars shown on the attitude indicator?",
+        "choices": [
+          "Flight director computer",
+          "Autopilot servo system",
+          "Attitude gyro",
+          "FMS"
+        ],
+        "correctIndex": 0
+      }
+    },
+    {
+      "id": "ADV11-005",
+      "category": "adv11-autopilot-systems",
+      "difficulty": "standard",
+      "tags": [
+        "yaw-damper",
+        "stability-augmentation"
+      ],
+      "learningObjective": "Identify the yaw damper as the autopilot subsystem that damps yaw-axis oscillations.",
+      "fullObjective": "Given a description of oscillation damping about the yaw (vertical) axis, the technician identifies the yaw damper as the responsible autopilot subsystem.",
+      "targetSourceStem": "What autopilot system provides damping about the vertical (yaw) axis to prevent oscillation?",
+      "flashcard": {
+        "term": "Yaw damper",
+        "definition": "The autopilot subsystem that applies rudder inputs to damp oscillation about the yaw (vertical) axis.",
+        "analogy": "Like a shock absorber on a car — it doesn't steer, it just smooths out the wiggle.",
+        "unit": "adv11-autopilot-systems"
+      },
+      "jeopardy": {
+        "question": "This autopilot subsystem quiets oscillations about the vertical axis.",
+        "choices": [
+          "Altitude hold",
+          "Yaw damper",
+          "Pitch trim",
+          "Roll servo"
+        ],
+        "correctIndex": 1,
+        "explanation": "The yaw damper dedicates rudder commands to damp yaw-axis oscillation."
+      },
+      "multipleChoice": {
+        "question": "Which autopilot component damps oscillations about the aircraft's vertical axis?",
+        "choices": [
+          "Roll servo",
+          "Yaw damper",
+          "Pitch trim servo",
+          "Altitude hold computer"
+        ],
+        "correctIndex": 1,
+        "explanation": "The yaw damper is purpose-built for yaw-axis oscillation suppression."
+      },
+      "practice": {
+        "question": "Swept-wing aircraft rely on a subsystem to stabilize yaw oscillations. What is it called?",
+        "choices": [
+          "Pitch trim actuator",
+          "Yaw damper",
+          "Roll rate limiter",
+          "Altitude capture module"
+        ],
+        "correctIndex": 1,
+        "explanation": "The yaw damper controls yaw oscillations through rudder inputs."
+      },
+      "preassessment": {
+        "question": "Which subsystem damps oscillation about the vertical axis?",
+        "choices": [
+          "Pitch trim",
+          "Yaw damper",
+          "Roll servo",
+          "Altitude hold"
+        ],
+        "correctIndex": 1
+      }
+    },
+    {
+      "id": "ADV11-006",
+      "category": "adv11-autopilot-systems",
+      "difficulty": "standard",
+      "tags": [
+        "3-axis-autopilot",
+        "control-surfaces"
+      ],
+      "learningObjective": "Identify the three primary surfaces commanded by a 3-axis autopilot: elevator, ailerons, and rudder.",
+      "fullObjective": "Given a 3-axis autopilot installation, the technician correctly lists the commanded surfaces as elevator, ailerons, and rudder and excludes secondary or trim surfaces.",
+      "targetSourceStem": "An aircraft has a 3-axis autopilot installed. Which control surfaces does this system command?",
+      "flashcard": {
+        "term": "3-axis autopilot",
+        "definition": "An autopilot that drives the elevator, ailerons, and rudder to command pitch, roll, and yaw.",
+        "analogy": "Like a tripod — three legs for pitch, roll, and yaw holding the aircraft steady.",
+        "unit": "adv11-autopilot-systems"
+      },
+      "jeopardy": {
+        "question": "These are the three surfaces a 3-axis autopilot moves.",
+        "choices": [
+          "Elevator, rudder, trim tabs",
+          "Elevator and ailerons only",
+          "Elevator, ailerons, rudder",
+          "Ailerons, flaps, spoilers"
+        ],
+        "correctIndex": 2,
+        "explanation": "Pitch, roll, and yaw axes correspond to elevator, aileron, and rudder."
+      },
+      "multipleChoice": {
+        "question": "Which combination of surfaces does a 3-axis autopilot actively drive?",
+        "choices": [
+          "Elevator, rudder, and trim tabs",
+          "Elevator and ailerons only",
+          "Elevator, ailerons, and rudder",
+          "Ailerons, flaps, and spoilers"
+        ],
+        "correctIndex": 2,
+        "explanation": "Three-axis means pitch, roll, and yaw — elevator, ailerons, and rudder."
+      },
+      "practice": {
+        "question": "A 3-axis autopilot drives which primary flight controls?",
+        "choices": [
+          "Elevator and ailerons",
+          "Ailerons, flaps, spoilers",
+          "Elevator, ailerons, rudder",
+          "Elevator, rudder, trim tabs"
+        ],
+        "correctIndex": 2,
+        "explanation": "All three primary flight controls are driven by a 3-axis autopilot."
+      },
+      "preassessment": {
+        "question": "A 3-axis autopilot commands which surfaces?",
+        "choices": [
+          "Elevator, rudder, trim",
+          "Elevator, ailerons",
+          "Elevator, ailerons, rudder",
+          "Ailerons, flaps, spoilers"
+        ],
+        "correctIndex": 2
+      }
+    },
+    {
+      "id": "ADV11-007",
+      "category": "adv11-autopilot-systems",
+      "difficulty": "standard",
+      "tags": [
+        "autopilot-modes",
+        "annunciator",
+        "abbreviations"
+      ],
+      "learningObjective": "Interpret the abbreviation IAS on an autopilot mode annunciator as Indicated Airspeed.",
+      "fullObjective": "Given the abbreviation IAS displayed on an autopilot mode annunciator, the technician identifies it as Indicated Airspeed and distinguishes it from distractor expansions.",
+      "targetSourceStem": "The abbreviation IAS appears on the autopilot mode annunciator. What parameter does this abbreviation represent?",
+      "flashcard": {
+        "term": "IAS (Indicated Airspeed)",
+        "definition": "An autopilot mode that commands pitch to hold the airspeed read directly from the pitot-static airspeed indicator.",
+        "analogy": "Like cruise control that holds the speedometer needle steady instead of a fixed altitude.",
+        "unit": "adv11-autopilot-systems"
+      },
+      "jeopardy": {
+        "question": "On an autopilot annunciator, these three letters stand for this airspeed parameter.",
+        "choices": [
+          "Indicated Aileron Speed",
+          "Inertial Attitude System",
+          "Indicated Altitude Setting",
+          "Indicated Airspeed"
+        ],
+        "correctIndex": 3,
+        "explanation": "IAS expands to Indicated Airspeed, the speed shown on the ASI."
+      },
+      "multipleChoice": {
+        "question": "The letters IAS illuminate on the autopilot mode annunciator. What does the abbreviation stand for?",
+        "choices": [
+          "Indicated Aileron Speed",
+          "Inertial Attitude System",
+          "Indicated Altitude Setting",
+          "Indicated Airspeed"
+        ],
+        "correctIndex": 3,
+        "explanation": "IAS means Indicated Airspeed and denotes an airspeed-hold pitch mode."
+      },
+      "practice": {
+        "question": "An autopilot annunciator displays IAS. How should the technician interpret this label?",
+        "choices": [
+          "Inertial Attitude System",
+          "Indicated Aileron Speed",
+          "Indicated Altitude Setting",
+          "Indicated Airspeed"
+        ],
+        "correctIndex": 3,
+        "explanation": "IAS universally refers to Indicated Airspeed on flight-deck annunciators."
+      },
+      "preassessment": {
+        "question": "What does IAS mean on an autopilot annunciator?",
+        "choices": [
+          "Indicated Altitude Setting",
+          "Indicated Aileron Speed",
+          "Inertial Attitude System",
+          "Indicated Airspeed"
+        ],
+        "correctIndex": 3
+      }
+    },
+    {
+      "id": "ADV11-008",
+      "category": "adv11-autopilot-systems",
+      "difficulty": "standard",
+      "tags": [
+        "autopilot-modes",
+        "vertical-lateral-decoupling"
+      ],
+      "learningObjective": "Recognize that lateral mode changes (heading select) do not affect the active vertical mode (altitude hold).",
+      "fullObjective": "Given an autopilot holding altitude while the pilot rotates the heading knob, the technician states that the vertical mode remains engaged because lateral and vertical channels operate independently.",
+      "targetSourceStem": "With the autopilot in altitude hold, the pilot rotates the heading knob. What effect does this have on the vertical mode?",
+      "flashcard": {
+        "term": "Lateral/vertical mode independence",
+        "definition": "Autopilot lateral and vertical channels operate separately, so changing a heading bug does not disturb altitude hold.",
+        "analogy": "Like changing the radio station while cruise control is on — the speed setting isn't affected.",
+        "unit": "adv11-autopilot-systems"
+      },
+      "jeopardy": {
+        "question": "Twisting the heading bug while altitude hold is engaged has this effect on the vertical channel.",
+        "choices": [
+          "No effect on vertical mode",
+          "Vertical mode disconnects",
+          "Both axes disconnect",
+          "Aircraft descends automatically"
+        ],
+        "correctIndex": 0,
+        "explanation": "The lateral and vertical channels are independent; altitude hold is preserved."
+      },
+      "multipleChoice": {
+        "question": "While altitude hold is active, the pilot turns the heading selector. What happens to the vertical mode?",
+        "choices": [
+          "It remains unaffected",
+          "It disengages automatically",
+          "Both channels disconnect",
+          "The aircraft starts a descent"
+        ],
+        "correctIndex": 0,
+        "explanation": "Changing the lateral command does not interrupt the vertical mode."
+      },
+      "practice": {
+        "question": "An autopilot holding altitude receives a heading-bug input. What should the technician expect of the vertical mode?",
+        "choices": [
+          "It stays engaged",
+          "It disconnects automatically",
+          "Both axes disconnect together",
+          "The aircraft begins descending"
+        ],
+        "correctIndex": 0,
+        "explanation": "Vertical and lateral channels are decoupled in typical autopilot architectures."
+      },
+      "preassessment": {
+        "question": "When the heading knob is rotated during altitude hold, what occurs in vertical mode?",
+        "choices": [
+          "Nothing changes",
+          "It disconnects",
+          "Both axes disconnect",
+          "A descent begins"
+        ],
+        "correctIndex": 0
+      }
+    },
+    {
+      "id": "ADV11-009",
+      "category": "adv11-autopilot-systems",
+      "difficulty": "standard",
+      "tags": [
+        "control-theory",
+        "feedback",
+        "closed-loop"
+      ],
+      "learningObjective": "Identify a closed-loop feedback system as one that compares actual output to commanded position and corrects error.",
+      "fullObjective": "Given a description of continuous output measurement and error correction, the technician identifies the architecture as a closed-loop feedback control system.",
+      "targetSourceStem": "What type of control system continuously measures output and corrects errors by comparing actual to commanded position?",
+      "flashcard": {
+        "term": "Closed-loop feedback system",
+        "definition": "A control architecture that continuously senses actual output, compares it to the command, and drives the error to zero.",
+        "analogy": "Like a thermostat — it reads the room temperature, compares to the setpoint, and fires the furnace until they match.",
+        "unit": "adv11-autopilot-systems"
+      },
+      "jeopardy": {
+        "question": "This type of control system measures its output and adjusts to close any command-versus-actual error.",
+        "choices": [
+          "Proportional-only system",
+          "Closed-loop feedback system",
+          "Open-loop command system",
+          "Feed-forward system"
+        ],
+        "correctIndex": 1,
+        "explanation": "Closed-loop systems use feedback to zero out error."
+      },
+      "multipleChoice": {
+        "question": "A control system monitors actual output and nulls any difference from the commanded position. What architecture is this?",
+        "choices": [
+          "Proportional-only system",
+          "Closed-loop feedback system",
+          "Open-loop command system",
+          "Feed-forward system"
+        ],
+        "correctIndex": 1,
+        "explanation": "Closed-loop feedback matches measured output to the command."
+      },
+      "practice": {
+        "question": "An autopilot servo uses a position sensor to confirm surface deflection against the commanded value. What type of system is this?",
+        "choices": [
+          "Open-loop command",
+          "Closed-loop feedback",
+          "Proportional-only",
+          "Feed-forward"
+        ],
+        "correctIndex": 1,
+        "explanation": "Feedback of actual surface position characterizes a closed-loop system."
+      },
+      "preassessment": {
+        "question": "Which control system continuously corrects error using feedback?",
+        "choices": [
+          "Proportional-only",
+          "Closed-loop",
+          "Open-loop",
+          "Feed-forward"
+        ],
+        "correctIndex": 1
+      }
+    },
+    {
+      "id": "ADV11-010",
+      "category": "adv11-autopilot-systems",
+      "difficulty": "standard",
+      "tags": [
+        "attitude-reference",
+        "ahrs",
+        "vertical-gyro"
+      ],
+      "learningObjective": "Identify vertical gyro or AHRS output as the source of pitch and roll attitude reference to the autopilot.",
+      "fullObjective": "Given a requirement for pitch and roll attitude reference, the technician selects the vertical gyro or AHRS output as the autopilot's primary attitude source.",
+      "targetSourceStem": "What sensor provides the pitch and roll attitude reference signals to the autopilot computer?",
+      "flashcard": {
+        "term": "Vertical gyro / AHRS",
+        "definition": "The sensor unit that supplies pitch and roll attitude data to the autopilot computer.",
+        "analogy": "Like the carpenter's level that tells you if the floor is tilting — the AHRS tells the autopilot which way is up.",
+        "unit": "adv11-autopilot-systems"
+      },
+      "jeopardy": {
+        "question": "This sensor package delivers pitch and roll reference to the autopilot.",
+        "choices": [
+          "Electric trim actuator",
+          "Accelerometer only",
+          "Vertical gyro or AHRS",
+          "Pitot-static transducer"
+        ],
+        "correctIndex": 2,
+        "explanation": "Attitude reference comes from a vertical gyro or a modern AHRS."
+      },
+      "multipleChoice": {
+        "question": "Which sensor output feeds pitch and roll attitude data to the autopilot computer?",
+        "choices": [
+          "The electric trim actuator",
+          "An accelerometer alone",
+          "Vertical gyro or AHRS output",
+          "A pitot-static transducer"
+        ],
+        "correctIndex": 2,
+        "explanation": "Vertical gyro or AHRS supplies pitch and roll attitude."
+      },
+      "practice": {
+        "question": "A technician traces pitch/roll attitude signals into the autopilot. Which source should be verified first?",
+        "choices": [
+          "Accelerometer only",
+          "Pitot-static transducer",
+          "Vertical gyro or AHRS",
+          "Trim actuator feedback"
+        ],
+        "correctIndex": 2,
+        "explanation": "Attitude signal originates from the vertical gyro/AHRS."
+      },
+      "preassessment": {
+        "question": "Which sensor provides pitch and roll attitude to the autopilot?",
+        "choices": [
+          "Linear accelerometer",
+          "Pitot-static system",
+          "Vertical gyro / AHRS",
+          "Trim actuator pot"
+        ],
+        "correctIndex": 2,
+        "explanation": "The vertical gyro or AHRS supplies pitch and roll attitude to the autopilot; the other items serve different functions."
+      }
+    },
+    {
+      "id": "ADV11-011",
+      "category": "adv11-autopilot-systems",
+      "difficulty": "advanced",
+      "tags": [
+        "yaw-damper",
+        "dutch-roll",
+        "swept-wing"
+      ],
+      "learningObjective": "Identify Dutch roll as the coupled yaw-roll oscillation that a yaw damper is designed to suppress in swept-wing aircraft.",
+      "fullObjective": "Given a description of yaw-roll coupled oscillation in swept-wing aircraft, the technician names Dutch roll as the phenomenon the yaw damper suppresses.",
+      "targetSourceStem": "The yaw damper is designed to suppress an oscillation that couples yaw and roll motions in swept-wing aircraft. What is this oscillation called?",
+      "flashcard": {
+        "term": "Dutch roll",
+        "definition": "A coupled yaw-and-roll oscillation common to swept-wing aircraft with weak natural yaw damping, suppressed by the yaw damper.",
+        "analogy": "Like a pendulum that swings side-to-side while also tilting — the two motions reinforce each other.",
+        "unit": "adv11-autopilot-systems"
+      },
+      "jeopardy": {
+        "question": "This yaw-and-roll coupled oscillation of swept-wing jets is exactly what the yaw damper is built to kill.",
+        "choices": [
+          "Porpoising",
+          "Phugoid",
+          "Aileron flutter",
+          "Dutch roll"
+        ],
+        "correctIndex": 3,
+        "explanation": "Dutch roll couples yaw and roll and is damped by the yaw damper."
+      },
+      "multipleChoice": {
+        "question": "Which aerodynamic oscillation couples yaw and roll motions and is targeted by the yaw damper?",
+        "choices": [
+          "Aileron flutter from resonance",
+          "Phugoid from pitch coupling",
+          "Porpoising from servo gain",
+          "Dutch roll from weak damping"
+        ],
+        "correctIndex": 3,
+        "explanation": "Dutch roll is the classic yaw/roll coupling issue on swept-wing aircraft."
+      },
+      "practice": {
+        "question": "An airline jet exhibits combined yaw and roll oscillation with yaw damper inoperative. What is the oscillation called?",
+        "choices": [
+          "Porpoising",
+          "Phugoid",
+          "Aileron flutter",
+          "Dutch roll"
+        ],
+        "correctIndex": 3,
+        "explanation": "Dutch roll appears when the yaw damper is not active to suppress it."
+      },
+      "preassessment": {
+        "question": "What is the yaw-roll coupled oscillation called?",
+        "choices": [
+          "Phugoid",
+          "Porpoising",
+          "Flutter",
+          "Dutch roll"
+        ],
+        "correctIndex": 3
+      }
+    },
+    {
+      "id": "ADV11-012",
+      "category": "adv11-autopilot-systems",
+      "difficulty": "standard",
+      "tags": [
+        "yaw-damper",
+        "rate-gyro",
+        "sensors"
+      ],
+      "learningObjective": "Identify yaw rate from a rate gyro as the sensor input the yaw damper uses to counter Dutch roll.",
+      "fullObjective": "Given a yaw damper architecture, the technician identifies yaw rate (from a rate gyro) as the primary input driving rudder commands to oppose Dutch roll.",
+      "targetSourceStem": "What sensor input does the yaw damper use to detect and counter Dutch roll oscillation?",
+      "flashcard": {
+        "term": "Yaw rate input",
+        "definition": "Angular yaw-rate data from a rate gyro used by the yaw damper to drive opposing rudder commands.",
+        "analogy": "Like a car's stability control using the yaw-rate sensor to nudge a brake and straighten a skid.",
+        "unit": "adv11-autopilot-systems"
+      },
+      "jeopardy": {
+        "question": "This sensor signal tells the yaw damper how fast the nose is swinging left or right.",
+        "choices": [
+          "Yaw rate from rate gyro",
+          "Pitch trim position",
+          "Static port pressure",
+          "Turn coordinator output"
+        ],
+        "correctIndex": 0,
+        "explanation": "The yaw damper uses yaw-rate data to command opposing rudder."
+      },
+      "multipleChoice": {
+        "question": "Which sensor signal drives the yaw damper's rudder command during Dutch roll?",
+        "choices": [
+          "Yaw rate from a rate gyro",
+          "Pitch trim position feedback",
+          "Static port pressure",
+          "Turn coordinator output"
+        ],
+        "correctIndex": 0,
+        "explanation": "Yaw-rate sensing is the classical yaw damper input."
+      },
+      "practice": {
+        "question": "A yaw damper continuously applies small rudder inputs based on an angular-rate measurement. What provides that measurement?",
+        "choices": [
+          "Rate gyro yaw signal",
+          "Pitch trim pickoff",
+          "Static pressure tap",
+          "Turn coordinator needle"
+        ],
+        "correctIndex": 0,
+        "explanation": "A dedicated rate gyro provides yaw-rate data to the damper."
+      },
+      "preassessment": {
+        "question": "Which input does the yaw damper rely on?",
+        "choices": [
+          "Yaw rate from rate gyro",
+          "Pitch trim position",
+          "Static pressure",
+          "Turn coordinator"
+        ],
+        "correctIndex": 0
+      }
+    },
+    {
+      "id": "ADV11-013",
+      "category": "adv11-autopilot-systems",
+      "difficulty": "standard",
+      "tags": [
+        "servo",
+        "pitch-axis",
+        "actuator"
+      ],
+      "learningObjective": "Describe the pitch servo as the actuator that applies force to move the elevator when commanded.",
+      "fullObjective": "Given a pitch command from the autopilot computer, the technician describes the pitch servo as the device that converts that command into elevator movement.",
+      "targetSourceStem": "When the autopilot computer commands a pitch change, what does the pitch servo do?",
+      "flashcard": {
+        "term": "Pitch servo",
+        "definition": "The electromechanical actuator that applies force to the elevator cable/quadrant when commanded by the autopilot computer.",
+        "analogy": "Like a motorized arm pulling the control column — the servo does the muscle work for the autopilot's brain.",
+        "unit": "adv11-autopilot-systems"
+      },
+      "jeopardy": {
+        "question": "This actuator supplies the muscle that moves the elevator on command.",
+        "choices": [
+          "Generates the command signal",
+          "Applies force to move the elevator",
+          "Monitors control wheel force",
+          "Senses elevator position only"
+        ],
+        "correctIndex": 1,
+        "explanation": "The pitch servo is an actuator, not a sensor or signal generator."
+      },
+      "multipleChoice": {
+        "question": "On receiving a pitch command, what action does the pitch servo take?",
+        "choices": [
+          "It generates the pitch command signal",
+          "It applies force to move the elevator",
+          "It monitors pilot control force",
+          "It senses current elevator position"
+        ],
+        "correctIndex": 1,
+        "explanation": "Servos are actuators — they apply torque/force to the control run."
+      },
+      "practice": {
+        "question": "A technician traces the autopilot pitch loop. What is the servo's role?",
+        "choices": [
+          "To sense elevator position only",
+          "To apply force that moves the elevator",
+          "To monitor pilot wheel force",
+          "To produce the command signal"
+        ],
+        "correctIndex": 1,
+        "explanation": "The pitch servo actuates the elevator; sensing and command generation occur elsewhere."
+      },
+      "preassessment": {
+        "question": "What does the pitch servo do on command?",
+        "choices": [
+          "Senses elevator position",
+          "Applies force to elevator",
+          "Monitors pilot force",
+          "Generates command signal"
+        ],
+        "correctIndex": 1
+      }
+    },
+    {
+      "id": "ADV11-014",
+      "category": "adv11-autopilot-systems",
+      "difficulty": "standard",
+      "tags": [
+        "autopilot-modes",
+        "attitude-hold",
+        "wings-level"
+      ],
+      "learningObjective": "Identify attitude hold as the autopilot mode that maintains wings-level flight absent pilot input.",
+      "fullObjective": "Given a requirement to keep the aircraft wings-level without pilot control wheel input, the technician selects attitude hold as the correct mode.",
+      "targetSourceStem": "Which autopilot mode maintains wings-level flight without pilot input on the control wheel?",
+      "flashcard": {
+        "term": "Attitude hold",
+        "definition": "An autopilot mode that maintains the pitch and roll attitude existing at engagement, typically wings-level cruise.",
+        "analogy": "Like letting go of a bicycle's handlebars while pressing a 'keep it straight' button — the machine preserves current attitude.",
+        "unit": "adv11-autopilot-systems"
+      },
+      "jeopardy": {
+        "question": "This basic autopilot mode keeps the wings level with no wheel input.",
+        "choices": [
+          "Heading select",
+          "Altitude capture",
+          "Attitude hold",
+          "Vertical speed"
+        ],
+        "correctIndex": 2,
+        "explanation": "Attitude hold maintains the roll attitude, typically wings level."
+      },
+      "multipleChoice": {
+        "question": "Which autopilot mode is used to keep the wings level without active pilot input?",
+        "choices": [
+          "Vertical speed",
+          "Altitude capture",
+          "Attitude hold",
+          "Heading select"
+        ],
+        "correctIndex": 2,
+        "explanation": "Attitude hold preserves the roll attitude existing when engaged."
+      },
+      "practice": {
+        "question": "A pilot releases the control wheel and wants the autopilot to keep the wings level. Which mode is appropriate?",
+        "choices": [
+          "Altitude capture",
+          "Heading select",
+          "Attitude hold",
+          "Vertical speed"
+        ],
+        "correctIndex": 2,
+        "explanation": "Attitude hold maintains wings level without further pilot input."
+      },
+      "preassessment": {
+        "question": "Which mode holds wings level with no pilot input?",
+        "choices": [
+          "Altitude capture",
+          "Heading select",
+          "Attitude hold",
+          "Vertical speed"
+        ],
+        "correctIndex": 2
+      }
+    },
+    {
+      "id": "ADV11-015",
+      "category": "adv11-autopilot-systems",
+      "difficulty": "standard",
+      "tags": [
+        "preflight",
+        "self-test",
+        "warning-lights"
+      ],
+      "learningObjective": "Identify the items verified during an autopilot self-test: servo motion and warning lights.",
+      "fullObjective": "Given a preflight autopilot self-test sequence, the technician lists servo motion and warning-light operation as the verified functions.",
+      "targetSourceStem": "What functions are verified during a preflight autopilot self-test sequence?",
+      "flashcard": {
+        "term": "Autopilot self-test",
+        "definition": "A built-in test that confirms servo motion and warning-light operation before flight.",
+        "analogy": "Like a car's ignition check that runs the wipers and lights once to prove the circuits work.",
+        "unit": "adv11-autopilot-systems"
+      },
+      "jeopardy": {
+        "question": "These two items are exercised every time you press the autopilot self-test.",
+        "choices": [
+          "FMS initialization time",
+          "VOR deviation accuracy",
+          "Battery voltage under load",
+          "Servo motion and warning lights"
+        ],
+        "correctIndex": 3,
+        "explanation": "Self-tests confirm servos move and warning annunciators illuminate."
+      },
+      "multipleChoice": {
+        "question": "A preflight autopilot self-test checks which pair of items?",
+        "choices": [
+          "VOR deviation accuracy",
+          "FMS initialization time",
+          "Battery voltage under load",
+          "Servo motion and warning lights"
+        ],
+        "correctIndex": 3,
+        "explanation": "Self-tests are designed to verify servo response and fault annunciation."
+      },
+      "practice": {
+        "question": "During a preflight, the autopilot runs an automatic test. What functions are verified?",
+        "choices": [
+          "Battery voltage sag",
+          "VOR signal deviation",
+          "FMS boot time check",
+          "Servo motion and lights"
+        ],
+        "correctIndex": 3,
+        "explanation": "The preflight self-test exercises each servo and runs the annunciator-light sequence."
+      },
+      "preassessment": {
+        "question": "What does the autopilot self-test verify?",
+        "choices": [
+          "FMS boot time",
+          "VOR signal deviation",
+          "Battery voltage level",
+          "Servo motion and lights"
+        ],
+        "correctIndex": 3,
+        "explanation": "The preflight self-test exercises the servos and cycles the warning annunciator lights."
+      }
+    },
+    {
+      "id": "ADV11-016",
+      "category": "adv11-autopilot-systems",
+      "difficulty": "standard",
+      "tags": [
+        "air-data-computer",
+        "altitude-hold",
+        "barometric"
+      ],
+      "learningObjective": "Identify the air data computer (ADC) as the source of barometric altitude data for autopilot altitude hold.",
+      "fullObjective": "Given an autopilot altitude-hold mode, the technician identifies the ADC as the barometric altitude source.",
+      "targetSourceStem": "What system provides barometric altitude data to the autopilot for altitude hold mode?",
+      "flashcard": {
+        "term": "Air data computer (ADC)",
+        "definition": "The unit that processes pitot-static inputs and outputs barometric altitude, airspeed, and vertical speed to the autopilot.",
+        "analogy": "Like a smart weather station — it converts raw pressure into the numbers the autopilot can use.",
+        "unit": "adv11-autopilot-systems"
+      },
+      "jeopardy": {
+        "question": "This computer feeds barometric altitude into the autopilot so altitude hold can work.",
+        "choices": [
+          "Air data computer",
+          "Pitot tube alone",
+          "Inertial reference unit",
+          "Magnetic compass"
+        ],
+        "correctIndex": 0,
+        "explanation": "The ADC processes static pressure into altitude data for the autopilot."
+      },
+      "multipleChoice": {
+        "question": "Which component supplies barometric altitude to the autopilot altitude-hold mode?",
+        "choices": [
+          "Air data computer",
+          "Pitot tube alone",
+          "Inertial reference unit",
+          "Magnetic compass"
+        ],
+        "correctIndex": 0,
+        "explanation": "The ADC processes static pressure and supplies altitude data."
+      },
+      "practice": {
+        "question": "A technician verifies the altitude input to the autopilot. Which box should be checked?",
+        "choices": [
+          "Air data computer output",
+          "Pitot tube output",
+          "Inertial reference unit",
+          "Magnetic compass heading"
+        ],
+        "correctIndex": 0,
+        "explanation": "Altitude data originates at the ADC before feeding the autopilot."
+      },
+      "preassessment": {
+        "question": "Where does the autopilot get barometric altitude?",
+        "choices": [
+          "Air data computer",
+          "Pitot tube",
+          "Inertial reference unit",
+          "Magnetic compass"
+        ],
+        "correctIndex": 0
+      }
+    },
+    {
+      "id": "ADV11-017",
+      "category": "adv11-autopilot-systems",
+      "difficulty": "standard",
+      "tags": [
+        "auto-trim",
+        "servo-loading",
+        "pitch"
+      ],
+      "learningObjective": "Explain that the autopilot pitch trim system reduces elevator servo loading during prolonged climbs or descents.",
+      "fullObjective": "Given an extended climb or descent with autopilot engaged, the technician explains that pitch auto-trim offloads the elevator servo by moving the trim surface.",
+      "targetSourceStem": "What does the autopilot pitch trim system do during extended climbs or descents?",
+      "flashcard": {
+        "term": "Autopilot pitch trim",
+        "definition": "A subsystem that moves the trim surface to offload the elevator servo during sustained pitch changes.",
+        "analogy": "Like adjusting the seat height so you don't have to keep holding yourself up — reduces the sustained load.",
+        "unit": "adv11-autopilot-systems"
+      },
+      "jeopardy": {
+        "question": "During long climbs or descents, auto-trim does this to the elevator servo.",
+        "choices": [
+          "Moves the wing flaps",
+          "Reduces its sustained loading",
+          "Stabilizes the rudder",
+          "Synchronizes engine RPM"
+        ],
+        "correctIndex": 1,
+        "explanation": "Auto-trim offloads steady-state force from the elevator servo."
+      },
+      "multipleChoice": {
+        "question": "How does the autopilot pitch trim system assist the elevator servo during sustained pitch changes?",
+        "choices": [
+          "It moves the wing flaps",
+          "It reduces elevator servo loading",
+          "It stabilizes the rudder",
+          "It synchronizes engine RPM"
+        ],
+        "correctIndex": 1,
+        "explanation": "Auto-trim shifts the steady load from the servo to the trim surface."
+      },
+      "practice": {
+        "question": "During an autopilot-commanded 5,000-foot climb, what role does pitch trim play?",
+        "choices": [
+          "It stabilizes the rudder",
+          "It reduces elevator servo load",
+          "It extends the wing flaps",
+          "It syncs the engine RPM"
+        ],
+        "correctIndex": 1,
+        "explanation": "Auto-trim offloads sustained elevator force from the servo during long climbs, preventing servo saturation."
+      },
+      "preassessment": {
+        "question": "What does autopilot pitch trim do during long climbs/descents?",
+        "choices": [
+          "Stabilizes rudder",
+          "Reduces servo load",
+          "Moves flaps",
+          "Syncs RPM"
+        ],
+        "correctIndex": 1
+      }
+    },
+    {
+      "id": "ADV11-018",
+      "category": "adv11-autopilot-systems",
+      "difficulty": "advanced",
+      "tags": [
+        "trim-runaway",
+        "safety",
+        "monitoring"
+      ],
+      "learningObjective": "Explain that autopilot pitch trim should auto-disconnect when trim runs beyond a time or position limit.",
+      "fullObjective": "Given pitch-trim monitoring logic, the technician explains that exceeding a time or position limit triggers automatic disconnect as a runaway-prevention feature.",
+      "targetSourceStem": "Under what condition should the autopilot pitch trim automatically disconnect?",
+      "flashcard": {
+        "term": "Pitch trim monitor",
+        "definition": "Logic that disconnects pitch trim when it runs beyond an allowed time or position limit, preventing runaway trim.",
+        "analogy": "Like a circuit breaker that trips if a motor runs too long — it prevents damage before it compounds.",
+        "unit": "adv11-autopilot-systems"
+      },
+      "jeopardy": {
+        "question": "This is the trigger that disconnects autopilot pitch trim automatically.",
+        "choices": [
+          "Heading error exceeds 5 degrees",
+          "Airspeed decreases below stall speed",
+          "Trim runs beyond time or position limit",
+          "Altitude exceeds 10,000 feet"
+        ],
+        "correctIndex": 2,
+        "explanation": "Trim monitors disconnect when time or position limits are exceeded."
+      },
+      "multipleChoice": {
+        "question": "Which scenario causes the autopilot pitch trim to auto-disconnect?",
+        "choices": [
+          "Altitude exceeds 10,000 feet",
+          "Airspeed decreases below stall speed",
+          "Trim runs beyond its time or position limit",
+          "Heading error exceeds 5 degrees"
+        ],
+        "correctIndex": 2,
+        "explanation": "Runaway-trim protection disconnects when time/position thresholds are crossed."
+      },
+      "practice": {
+        "question": "A trim monitor circuit watches the pitch trim for which fault before disconnecting?",
+        "choices": [
+          "Stall-speed airspeed decay",
+          "Heading error over 5 degrees",
+          "Runaway past time/position limit",
+          "Altitude above 10,000 feet MSL"
+        ],
+        "correctIndex": 2,
+        "explanation": "The trim monitor watches for a runaway that exceeds the allowed time or position envelope, then disconnects before the trim reaches an unrecoverable position."
+      },
+      "preassessment": {
+        "question": "When should pitch trim auto-disconnect?",
+        "choices": [
+          "Airspeed drops below stall",
+          "Heading error over 5 deg",
+          "Trim past time/position",
+          "Altitude above 10,000 ft"
+        ],
+        "correctIndex": 2,
+        "explanation": "Pitch-trim auto-disconnect fires when the trim runs past its allowed time or position envelope, signaling runaway."
+      }
+    },
+    {
+      "id": "ADV11-019",
+      "category": "adv11-autopilot-systems",
+      "difficulty": "standard",
+      "tags": [
+        "flight-director",
+        "autopilot",
+        "operation"
+      ],
+      "learningObjective": "Distinguish the flight director (which displays steering commands) from the autopilot (which physically moves controls).",
+      "fullObjective": "Given a comparison between FD and autopilot operation, the technician states that the FD displays command cues while the autopilot actuates the control surfaces.",
+      "targetSourceStem": "What is the fundamental difference between flight director and autopilot operation?",
+      "flashcard": {
+        "term": "FD vs. autopilot",
+        "definition": "The flight director displays steering commands for the pilot to follow; the autopilot uses servos to move the controls automatically.",
+        "analogy": "The FD is like GPS turn arrows; the autopilot is like the car actually steering itself.",
+        "unit": "adv11-autopilot-systems"
+      },
+      "jeopardy": {
+        "question": "This is the core operational difference between FD and autopilot.",
+        "choices": [
+          "FD uses GPS; AP uses inertial",
+          "FD runs pitch; AP runs roll",
+          "FD works climb; AP works cruise",
+          "FD shows commands; AP actuates controls"
+        ],
+        "correctIndex": 3,
+        "explanation": "The FD is advisory; the autopilot is active."
+      },
+      "multipleChoice": {
+        "question": "Which statement best captures how flight director operation differs from autopilot operation?",
+        "choices": [
+          "The FD uses GPS and the autopilot uses inertial data",
+          "The FD controls pitch while the autopilot controls roll",
+          "The FD is used in climb and the autopilot in cruise",
+          "The FD displays commands while the autopilot moves controls"
+        ],
+        "correctIndex": 3,
+        "explanation": "The FD shows steering cues; the autopilot actuates the servos."
+      },
+      "practice": {
+        "question": "A pilot engages the FD without coupling the autopilot. What happens?",
+        "choices": [
+          "Only pitch is controlled, not roll",
+          "Servos drive the controls automatically",
+          "Only cruise modes are available",
+          "Command bars appear; the pilot hand-flies"
+        ],
+        "correctIndex": 3,
+        "explanation": "FD alone displays commands; the pilot supplies the muscle."
+      },
+      "preassessment": {
+        "question": "What distinguishes FD from autopilot operation?",
+        "choices": [
+          "FD is GPS; AP inertial",
+          "FD pitch only; AP roll",
+          "FD climb; AP cruise mode",
+          "FD displays; AP moves"
+        ],
+        "correctIndex": 3,
+        "explanation": "The flight director displays command bars; the autopilot engages servos to move the flight controls."
+      }
+    },
+    {
+      "id": "ADV11-020",
+      "category": "adv11-autopilot-systems",
+      "difficulty": "advanced",
+      "tags": [
+        "troubleshooting",
+        "pitch-axis",
+        "servo-clutch"
+      ],
+      "learningObjective": "Diagnose a nonresponsive pitch axis as likely caused by a servo clutch jam or feedback failure.",
+      "fullObjective": "Given a pitch axis that fails to respond to autopilot commands, the technician identifies servo clutch jam or feedback failure as the most probable cause.",
+      "targetSourceStem": "During troubleshooting, the pitch axis will not respond to commands. What is the likely cause?",
+      "flashcard": {
+        "term": "Pitch servo clutch jam / feedback fail",
+        "definition": "A stuck servo clutch or loss of feedback signal that prevents the pitch axis from responding to commands.",
+        "analogy": "Like a steering wheel that turns without moving the tires — the command is there, but the connection is broken.",
+        "unit": "adv11-autopilot-systems"
+      },
+      "jeopardy": {
+        "question": "A pitch axis that won't move on command usually has this wrong with it.",
+        "choices": [
+          "Servo clutch or feedback fault",
+          "FMS data validity fault",
+          "Fuel quantity imbalance",
+          "Altimeter calibration error"
+        ],
+        "correctIndex": 0,
+        "explanation": "A pitch axis that won't move on command is caused by a mechanical clutch jam or loss of position feedback at the servo."
+      },
+      "multipleChoice": {
+        "question": "What is the most probable cause of an unresponsive autopilot pitch axis?",
+        "choices": [
+          "Servo clutch jam or feedback failure",
+          "Flight management system fault",
+          "Fuel quantity imbalance",
+          "Altimeter calibration error"
+        ],
+        "correctIndex": 0,
+        "explanation": "Pitch-axis non-response points first to servo clutch or feedback issues."
+      },
+      "practice": {
+        "question": "A technician finds the pitch servo powered but the elevator will not move. What is the likely fault?",
+        "choices": [
+          "Clutch jam or feedback failure",
+          "FMS flight-plan error",
+          "Fuel imbalance",
+          "Altimeter miscalibration"
+        ],
+        "correctIndex": 0,
+        "explanation": "Servo clutch/feedback faults best match the observed behavior."
+      },
+      "preassessment": {
+        "question": "Pitch axis won't respond — likely cause?",
+        "choices": [
+          "Servo clutch failure",
+          "FMS data validity fault",
+          "Fuel quantity imbalance",
+          "Altimeter calibration error"
+        ],
+        "correctIndex": 0,
+        "explanation": "A servo clutch jam or feedback failure disables pitch response."
+      }
+    },
+    {
+      "id": "ADV11-021",
+      "category": "adv11-autopilot-systems",
+      "difficulty": "advanced",
+      "tags": [
+        "troubleshooting",
+        "engage-disconnect",
+        "sync"
+      ],
+      "learningObjective": "Diagnose instant autopilot disconnect on engagement as most likely caused by a sensor mismatch or sync failure.",
+      "fullObjective": "Given immediate autopilot disconnect after pressing engage, the technician attributes this to a sensor mismatch or synchronization failure at engagement.",
+      "targetSourceStem": "The autopilot disconnects immediately after the pilot presses the engage button. What is the most likely cause?",
+      "flashcard": {
+        "term": "Engage sensor-sync failure",
+        "definition": "A mismatch between commanded and measured reference values that aborts autopilot engagement.",
+        "analogy": "Like cruise control refusing to set because the car doesn't know its own speed — the system aborts to prevent a bad command.",
+        "unit": "adv11-autopilot-systems"
+      },
+      "jeopardy": {
+        "question": "The autopilot disconnects the instant you press engage — this is the top suspect.",
+        "choices": [
+          "Wrong barometric setting",
+          "Sensor mismatch or sync failure",
+          "Small static port leak",
+          "Correctly aligned DG"
+        ],
+        "correctIndex": 1,
+        "explanation": "Immediate disconnect indicates an internal sensor sync check failed."
+      },
+      "multipleChoice": {
+        "question": "What is the most probable cause of an autopilot that disconnects the moment it is engaged?",
+        "choices": [
+          "Barometric setting is incorrect",
+          "Sensor mismatch or sync failure",
+          "Static port has a small leak",
+          "Directional gyro is properly aligned"
+        ],
+        "correctIndex": 1,
+        "explanation": "Sensor cross-check failures at engagement abort the mode immediately."
+      },
+      "practice": {
+        "question": "A pilot presses the autopilot engage button and it drops off within a second. What should the technician investigate first?",
+        "choices": [
+          "DG alignment accuracy",
+          "Sensor mismatch or sync",
+          "Static port leak",
+          "Baro altimeter setting"
+        ],
+        "correctIndex": 1,
+        "explanation": "An engage-and-drop within a second points to a sensor mismatch or sync fault between the reference sensors and the autopilot."
+      },
+      "preassessment": {
+        "question": "Autopilot disconnects on engage — likely cause?",
+        "choices": [
+          "Aligned DG reference",
+          "Sensor sync fault",
+          "Static port leak",
+          "Wrong baro setting"
+        ],
+        "correctIndex": 1,
+        "explanation": "Instant disconnect on engage points to a sensor mismatch or sync fault between the reference sensors and the autopilot."
+      }
+    },
+    {
+      "id": "ADV11-022",
+      "category": "adv11-autopilot-systems",
+      "difficulty": "advanced",
+      "tags": [
+        "troubleshooting",
+        "heading-mode",
+        "roll-gain"
+      ],
+      "learningObjective": "Diagnose persistent roll oscillation in heading mode as caused by excessive roll gain or a roll-feedback fault.",
+      "fullObjective": "Given an aircraft that oscillates left/right in heading mode without stabilizing, the technician attributes the behavior to high roll gain or a roll-axis feedback fault.",
+      "targetSourceStem": "After engaging heading mode, the aircraft continuously rolls left then right, never stabilizing on the selected heading. What is the likely cause?",
+      "flashcard": {
+        "term": "Roll-gain/feedback fault",
+        "definition": "An overly high roll gain or corrupted roll feedback causes sustained oscillation around the target heading.",
+        "analogy": "Like over-corrective steering on a bicycle — the more you wobble, the worse it gets when the gain is too high.",
+        "unit": "adv11-autopilot-systems"
+      },
+      "jeopardy": {
+        "question": "Endless left-right roll chasing a heading usually means this is wrong.",
+        "choices": [
+          "GPS lost satellite lock",
+          "Heading bug sync error on engage",
+          "Roll gain too high or feedback fault",
+          "Airspeed below minimum"
+        ],
+        "correctIndex": 2,
+        "explanation": "Sustained oscillation points to gain or feedback issues on the roll axis."
+      },
+      "multipleChoice": {
+        "question": "An aircraft in heading mode rolls left then right without settling on the selected heading. What is the likely cause?",
+        "choices": [
+          "GPS receiver lost satellite lock",
+          "Heading bug sync error at engagement",
+          "Excess roll gain or a roll-feedback fault",
+          "Airspeed is below minimum for mode"
+        ],
+        "correctIndex": 2,
+        "explanation": "Oscillation in a servo loop indicates gain or feedback problems."
+      },
+      "practice": {
+        "question": "The pilot selects heading mode and the aircraft cycles through left/right roll indefinitely. Root cause?",
+        "choices": [
+          "GPS satellite signal drop",
+          "Heading bug sync at engage",
+          "Excess roll gain or feedback",
+          "Low airspeed limit reached"
+        ],
+        "correctIndex": 2,
+        "explanation": "Persistent left/right oscillation in heading mode points to excessive roll gain or a bad feedback signal."
+      },
+      "preassessment": {
+        "question": "Unending left/right roll in heading mode — cause?",
+        "choices": [
+          "GPS lock lost",
+          "Heading bug sync",
+          "Roll gain fault",
+          "Low airspeed mode"
+        ],
+        "correctIndex": 2,
+        "explanation": "Continuous left-right rolling in heading mode is caused by excessive roll gain or a bad feedback signal."
+      }
+    },
+    {
+      "id": "ADV11-023",
+      "category": "adv11-autopilot-systems",
+      "difficulty": "advanced",
+      "tags": [
+        "troubleshooting",
+        "flight-director",
+        "ahrs",
+        "adc"
+      ],
+      "learningObjective": "Identify AHRS and ADC data inputs as the first items to verify when flight director command bars are missing.",
+      "fullObjective": "Given missing FD bars with FD selected ON, the technician verifies AHRS and ADC data inputs to the FD computer before deeper diagnosis.",
+      "targetSourceStem": "The flight director command bars are missing from the PFD even with FD selected ON. What should the technician verify first?",
+      "flashcard": {
+        "term": "FD data inputs",
+        "definition": "AHRS (attitude) and ADC (air data) signals are required for the FD to produce command bars.",
+        "analogy": "Like a car's GPS needing both a satellite fix and speed data — missing either input leaves the route arrows blank.",
+        "unit": "adv11-autopilot-systems"
+      },
+      "jeopardy": {
+        "question": "Missing FD bars send you first to this pair of input signals.",
+        "choices": [
+          "FD software revision",
+          "Autopilot servo power",
+          "PFD brightness setting",
+          "AHRS and ADC data to the FD"
+        ],
+        "correctIndex": 3,
+        "explanation": "AHRS and ADC data are prerequisites for FD command generation."
+      },
+      "multipleChoice": {
+        "question": "The FD is selected ON but command bars are absent. What should be verified first?",
+        "choices": [
+          "FD software revision level",
+          "Autopilot servo power state",
+          "PFD brightness setting",
+          "AHRS and ADC data inputs to FD"
+        ],
+        "correctIndex": 3,
+        "explanation": "Without valid attitude/air data, the FD cannot draw command bars."
+      },
+      "practice": {
+        "question": "A technician investigates missing FD bars. What is the first check?",
+        "choices": [
+          "Display brightness",
+          "FD software update",
+          "Servo power",
+          "AHRS and ADC inputs"
+        ],
+        "correctIndex": 3,
+        "explanation": "Validate AHRS/ADC inputs before software or power troubleshooting."
+      },
+      "preassessment": {
+        "question": "Missing FD bars — first check?",
+        "choices": [
+          "Servo power",
+          "FD software",
+          "PFD brightness",
+          "AHRS/ADC inputs"
+        ],
+        "correctIndex": 3
+      }
+    },
+    {
+      "id": "ADV11-024",
+      "category": "adv11-autopilot-systems",
+      "difficulty": "advanced",
+      "tags": [
+        "troubleshooting",
+        "yaw-rate",
+        "heading-reference"
+      ],
+      "learningObjective": "Diagnose combined roll/yaw instability with heading wander as a degraded yaw-rate or heading reference signal.",
+      "fullObjective": "Given unstable roll and yaw with heading wander while engaged, the technician identifies a degraded yaw-rate or heading reference signal as the likely root cause.",
+      "targetSourceStem": "With autopilot engaged, both roll and yaw control are unstable—the aircraft wanders instead of holding heading. What signal is likely degraded?",
+      "flashcard": {
+        "term": "Yaw-rate / heading reference",
+        "definition": "Signals used to stabilize yaw and maintain heading; degradation causes wander and unstable roll/yaw.",
+        "analogy": "Like a compass needle that jitters — the autopilot can't lock on if its reference is noisy.",
+        "unit": "adv11-autopilot-systems"
+      },
+      "jeopardy": {
+        "question": "This signal, when degraded, causes both roll and yaw instability and heading wander.",
+        "choices": [
+          "Yaw rate or heading reference",
+          "Pitch attitude reference",
+          "Barometric altitude",
+          "Localizer deviation"
+        ],
+        "correctIndex": 0,
+        "explanation": "Heading and yaw-rate signal health drives roll/yaw stability."
+      },
+      "multipleChoice": {
+        "question": "Roll and yaw both hunt and the aircraft wanders off heading. Which signal is most likely degraded?",
+        "choices": [
+          "Yaw rate or heading reference signal",
+          "Pitch attitude reference signal",
+          "Barometric altitude signal",
+          "Localizer deviation signal"
+        ],
+        "correctIndex": 0,
+        "explanation": "Yaw-rate/heading reference problems produce exactly these symptoms."
+      },
+      "practice": {
+        "question": "A technician observes both roll/yaw instability and heading drift. What input should be examined?",
+        "choices": [
+          "Yaw-rate or heading reference",
+          "Pitch attitude reference",
+          "Barometric altitude",
+          "Localizer deviation"
+        ],
+        "correctIndex": 0,
+        "explanation": "Heading reference degradation explains the combined roll/yaw symptoms."
+      },
+      "preassessment": {
+        "question": "Unstable roll/yaw with heading wander — degraded signal?",
+        "choices": [
+          "Yaw/heading signal",
+          "Pitch attitude",
+          "Baro altitude",
+          "Localizer signal"
+        ],
+        "correctIndex": 0,
+        "explanation": "Unstable roll/yaw with heading wander points to a degraded yaw rate or heading reference feeding the autopilot."
+      }
+    },
+    {
+      "id": "ADV11-025",
+      "category": "adv11-autopilot-systems",
+      "difficulty": "advanced",
+      "tags": [
+        "troubleshooting",
+        "altitude-hold",
+        "pitch-gain"
+      ],
+      "learningObjective": "Diagnose altitude-hold pitch hunting during descent as pitch-gain error or an altitude input fault.",
+      "fullObjective": "Given pitch hunting around target altitude during descent in altitude hold, the technician identifies pitch gain error or an altitude input fault as the most likely cause.",
+      "targetSourceStem": "During descent in altitude hold, the aircraft pitch hunts up and down around the target altitude without capturing. What is the most likely cause?",
+      "flashcard": {
+        "term": "Pitch-gain / altitude-input fault",
+        "definition": "Excessive pitch gain or a noisy altitude input prevents stable capture, causing pitch hunt around the target altitude.",
+        "analogy": "Like trying to park a car with over-sensitive brakes and a flickering speedometer — you overshoot back and forth.",
+        "unit": "adv11-autopilot-systems"
+      },
+      "jeopardy": {
+        "question": "If the aircraft porpoises around the target altitude instead of capturing, this is the primary suspect.",
+        "choices": [
+          "FMS wrong descent path",
+          "Pitch gain error or altitude input fault",
+          "Pilot bumping the column",
+          "Trim motor running continuously"
+        ],
+        "correctIndex": 1,
+        "explanation": "Hunting during altitude capture points to gain or altitude signal issues."
+      },
+      "multipleChoice": {
+        "question": "What is the most likely cause of altitude-hold hunting during a descent capture?",
+        "choices": [
+          "Pilot bumping the control column",
+          "Pitch gain error or altitude input fault",
+          "FMS computing wrong descent path",
+          "Trim motor running continuously"
+        ],
+        "correctIndex": 1,
+        "explanation": "Pitch gain or altitude data quality control whether capture is clean."
+      },
+      "practice": {
+        "question": "On a descent, the aircraft can't settle on target altitude — it oscillates vertically. What is the top suspect?",
+        "choices": [
+          "Pilot touching the column",
+          "Pitch gain or altitude fault",
+          "FMS descent path error",
+          "Runaway pitch trim motor"
+        ],
+        "correctIndex": 1,
+        "explanation": "Oscillation on target altitude during descent is caused by a pitch gain error or a bad altitude input to the pitch loop."
+      },
+      "preassessment": {
+        "question": "Altitude-hold hunting during descent — cause?",
+        "choices": [
+          "Pilot column bump",
+          "Pitch gain/input fault",
+          "FMS descent path error",
+          "Trim motor runaway"
+        ],
+        "correctIndex": 1,
+        "explanation": "Altitude-hold hunting during descent traces to a pitch gain error or a bad altitude input to the pitch loop."
+      }
+    }
+  ]
+}
