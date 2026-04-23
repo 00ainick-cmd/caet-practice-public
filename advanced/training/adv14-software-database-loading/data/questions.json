@@ -17,9 +17,10 @@
       "fullObjective": "Given an FMS navigation database update, identify the first verification the technician must perform before loading the database.",
       "targetSourceStem": "Before loading a navigation database update into an FMS, what must the technician verify first?",
       "flashcard": {
-        "front": "What must the technician verify first before loading a navigation database update into an FMS?",
-        "back": "That the database effective date matches the current AIRAC cycle for the intended service window.",
-        "explanation": "AIRAC effectivity is the threshold check. Flight recency, autopilot self-test, and display power-state are not prerequisites for a nav-database load."
+        "term": "The database effective date matches the current AIRAC cycle",
+        "definition": "That the database effective date matches the current AIRAC cycle for the intended service window.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "category": "DATABASE LOADING",
@@ -80,9 +81,10 @@
       "fullObjective": "Given an avionics software load that fails at 80 percent and displays INVALID, identify the correct recovery action.",
       "targetSourceStem": "A technician is updating avionics software using a data loader. The upload fails at 80% and the unit displays 'INVALID'. What is the correct recovery action?",
       "flashcard": {
-        "front": "A software load fails at 80% with an INVALID message. What is the correct recovery action?",
-        "back": "Cycle the unit's power and attempt the load again per the maintenance manual.",
-        "explanation": "Power-cycle and retry is the documented recovery. Unit return, rollback, and flying with invalid software are not acceptable initial actions."
+        "term": "Power cycle the unit and attempt the load again",
+        "definition": "Cycle the unit's power and attempt the load again per the maintenance manual.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "category": "LOAD RECOVERY",
@@ -143,9 +145,10 @@
       "fullObjective": "Given an integrated avionics software load, identify the step taken before loading to prevent data loss.",
       "targetSourceStem": "Before performing any software load on integrated avionics, what step should the technician always perform to prevent data loss?",
       "flashcard": {
-        "front": "What pre-load step prevents data loss during integrated avionics software updates?",
-        "back": "Export and save the current configuration to an external medium before starting the load.",
-        "explanation": "Saving configuration protects pilot-entered preferences and aircraft-specific data if the load resets them. Battery disconnect and brightness-note are not appropriate steps."
+        "term": "Export and save the current configuration",
+        "definition": "Export and save the current configuration to an external medium before starting the load.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "category": "PRE-LOAD PROTECTION",
@@ -206,9 +209,10 @@
       "fullObjective": "Given an FMS software load requiring a compatible hardware configuration part number, identify where that part number is documented.",
       "targetSourceStem": "An FMS software load requires 'compatible hardware configuration part number'. Where is this information found?",
       "flashcard": {
-        "front": "Where is the FMS 'compatible hardware configuration part number' documented?",
-        "back": "In the aircraft equipment list or on the FMS data plate.",
-        "explanation": "Compatibility is aircraft-specific and lives on the equipment list or the LRU data plate. The operating manual, database header, and POH limitations do not carry this configuration number."
+        "term": "On the aircraft equipment list or the FMS data plate",
+        "definition": "In the aircraft equipment list or on the FMS data plate.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "category": "HARDWARE COMPATIBILITY",
@@ -269,9 +273,10 @@
       "fullObjective": "Given a completed display-unit software load, identify the verification required before the aircraft returns to service.",
       "targetSourceStem": "After loading updated software on a display unit, what verification is required before returning to service?",
       "flashcard": {
-        "front": "What verification must be completed before returning a display unit to service after a software update?",
-        "back": "An operational test performed in accordance with the maintenance manual procedures.",
-        "explanation": "The operational test in the maintenance manual is the required post-load verification. Flight test, manufacturer certification, and FSDO approval are not standard RTS steps."
+        "term": "An operational test per the maintenance manual procedures",
+        "definition": "An operational test performed in accordance with the maintenance manual procedures.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "category": "POST-LOAD VERIFICATION",

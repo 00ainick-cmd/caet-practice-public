@@ -18,8 +18,10 @@
       "fullObjective": "Given a list of aircraft equipment, identify which item belongs to the aircraft electrical system rather than the cabin management system.",
       "targetSourceStem": "ADV1-001",
       "flashcard": {
-        "front": "A shop tech lists items installed in a business jet cabin. Which one belongs to the electrical system, not the CMS?",
-        "back": "The generator control unit is electrical power infrastructure, not CMS equipment."
+        "term": "The generator control unit regulates bus power.",
+        "definition": "The generator control unit is electrical power infrastructure, not CMS equipment.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "clue": "This power-regulation LRU lives in the electrical system, even though a tech may mistake it for a CMS box.",
@@ -77,8 +79,10 @@
       "fullObjective": "Given an IFE troubleshooting scenario, select the action that violates systematic fault-isolation principles.",
       "targetSourceStem": "ADV1-002",
       "flashcard": {
-        "front": "Which IFE troubleshooting action violates systematic fault-isolation principles?",
-        "back": "Swapping LRUs before diagnosing the fault; replacement happens after isolation, not before."
+        "term": "Swapping LRUs before the fault is diagnosed wastes parts.",
+        "definition": "Swapping LRUs before diagnosing the fault; replacement happens after isolation, not before.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "clue": "Doing this before actually diagnosing an IFE fault turns troubleshooting into parts roulette.",
@@ -136,8 +140,10 @@
       "fullObjective": "Given a CMS software-update scenario, identify which shortcut creates risk of permanent loss of customer configuration.",
       "targetSourceStem": "ADV1-003",
       "flashcard": {
-        "front": "During a quick-turn CMS software update, which shortcut risks permanent loss of the customer configuration?",
-        "back": "Skipping the configuration backup step; without a backup, restoring settings after a failed load is impossible."
+        "term": "Skipping the configuration backup step removes any restore path.",
+        "definition": "Skipping the configuration backup step; without a backup, restoring settings after a failed load is impossible.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "clue": "Skipping this save step before a CMS load can erase the owner's cabin settings for good.",
@@ -195,8 +201,10 @@
       "fullObjective": "Given a CMS EMI complaint, identify which technician action would increase rather than reduce the interference.",
       "targetSourceStem": "ADV1-004",
       "flashcard": {
-        "front": "A crew reports EMI on CMS displays. Which technician action would likely make the interference worse?",
-        "back": "Routing data cables near relay junction boxes; switching transients inject noise onto nearby conductors."
+        "term": "Routing CMS cables close to relay junction boxes adds noise coupling.",
+        "definition": "Routing data cables near relay junction boxes; switching transients inject noise onto nearby conductors.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "clue": "Running CMS cabling right next to these switching boxes bathes data lines in transient EMI.",
@@ -254,8 +262,10 @@
       "fullObjective": "Given a partial CMS diagnostic routine, explain why running BIT on only one subsystem fails to validate the entire CMS.",
       "targetSourceStem": "ADV1-005",
       "flashcard": {
-        "front": "A tech runs BIT only on CMS lighting. Why is this approach incomplete?",
-        "back": "The other CMS subsystems (IFE, A/V, seat, climate) stay untested and may still harbor faults."
+        "term": "The other CMS subsystems remain untested and potentially faulted.",
+        "definition": "The other CMS subsystems (IFE, A/V, seat, climate) stay untested and may still harbor faults.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "clue": "Running BIT on only cabin lighting leaves these other CMS areas still in the dark.",
@@ -313,8 +323,10 @@
       "fullObjective": "Given a CMS wireless-security setup, identify which configuration choice creates an attack surface.",
       "targetSourceStem": "ADV1-006",
       "flashcard": {
-        "front": "Which CMS wireless setting creates a security vulnerability?",
-        "back": "Enabling unused wireless features; unused radios expand the attack surface without adding cabin value."
+        "term": "Enabling unused wireless features expands the attack surface.",
+        "definition": "Enabling unused wireless features; unused radios expand the attack surface without adding cabin value.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "clue": "Leaving these radios turned on even though no one uses them quietly widens the attack surface.",
@@ -372,8 +384,10 @@
       "fullObjective": "Given a list of possible failure causes for a blank CMS display, select the item that is unrelated to CMS display operation.",
       "targetSourceStem": "ADV1-007",
       "flashcard": {
-        "front": "Which item on the list is unrelated to a blank CMS display?",
-        "back": "Navigation database cycle expiration; the nav database drives the FMS, not the cabin display."
+        "term": "Navigation database cycle expiration has no effect on CMS displays.",
+        "definition": "Navigation database cycle expiration; the nav database drives the FMS, not the cabin display.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "clue": "An expired one of these affects the FMS, not a blank CMS screen.",
@@ -431,8 +445,10 @@
       "fullObjective": "Given a blank CMS touchscreen with the circuit breaker engaged, determine the first electrical measurement a technician should take.",
       "targetSourceStem": "ADV1-008",
       "flashcard": {
-        "front": "A CMS touchscreen is blank with its CB in. What measurement should the tech take first?",
-        "back": "Bus voltage at the display power connector; confirm the display is actually receiving power before checking data or software."
+        "term": "Bus voltage at the display power connector should be measured first.",
+        "definition": "Bus voltage at the display power connector; confirm the display is actually receiving power before checking data or software.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "clue": "With the breaker set and the screen dark, you grab a DMM and read this first.",

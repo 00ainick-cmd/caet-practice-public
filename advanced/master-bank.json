@@ -1,5 +1,101 @@
 {
-  "_note": "CAET Advanced practice bank. 193 items 1:1 to real exam stems, paraphrased + position-shuffled + length-balanced.",
+  "metadata": {
+    "bank": "CAET Advanced",
+    "version": "v1.0",
+    "note": "CAET Advanced practice bank. 193 items 1:1 to real exam stems, paraphrased + position-shuffled + length-balanced."
+  },
+  "categories": [
+    {
+      "id": "adv1-cabin-management-systems",
+      "name": "Cabin Management Systems",
+      "icon": "🎮",
+      "iconColor": "#58a6ff"
+    },
+    {
+      "id": "adv2-connectivity",
+      "name": "Connectivity",
+      "icon": "🛰️",
+      "iconColor": "#22d3ee"
+    },
+    {
+      "id": "adv3-datalink-fundamentals",
+      "name": "Datalink Fundamentals",
+      "icon": "📡",
+      "iconColor": "#34d399"
+    },
+    {
+      "id": "adv4-flight-management-systems",
+      "name": "Flight Management Systems",
+      "icon": "🗺️",
+      "iconColor": "#f472b6"
+    },
+    {
+      "id": "adv5-attitude-heading-reference",
+      "name": "Attitude & Heading Reference",
+      "icon": "🧭",
+      "iconColor": "#a78bfa"
+    },
+    {
+      "id": "adv6-audio-panels",
+      "name": "Audio Panels",
+      "icon": "🎧",
+      "iconColor": "#fb923c"
+    },
+    {
+      "id": "adv7-nav-com-systems",
+      "name": "NAV/COM Systems",
+      "icon": "📻",
+      "iconColor": "#facc15"
+    },
+    {
+      "id": "adv8-14-cfr-65-91",
+      "name": "14 CFR 65.91 Regulations",
+      "icon": "📋",
+      "iconColor": "#ef4444"
+    },
+    {
+      "id": "adv9-smart-probes-air-data",
+      "name": "Smart Probes & Air Data",
+      "icon": "💨",
+      "iconColor": "#06b6d4"
+    },
+    {
+      "id": "adv10-wire-harness-fabrication",
+      "name": "Wire Harness Fabrication",
+      "icon": "🔌",
+      "iconColor": "#84cc16"
+    },
+    {
+      "id": "adv11-autopilot-systems",
+      "name": "Autopilot Systems",
+      "icon": "✈️",
+      "iconColor": "#D4A853"
+    },
+    {
+      "id": "adv12-transponders-ads-b",
+      "name": "Transponders & ADS-B",
+      "icon": "📍",
+      "iconColor": "#c084fc"
+    },
+    {
+      "id": "adv13-documentation",
+      "name": "Documentation",
+      "icon": "📝",
+      "iconColor": "#94a3b8"
+    },
+    {
+      "id": "adv14-software-database-loading",
+      "name": "Software & Database Loading",
+      "icon": "💾",
+      "iconColor": "#14b8a6"
+    },
+    {
+      "id": "adv15-emergency-autoland",
+      "name": "Emergency Autoland",
+      "icon": "🛬",
+      "iconColor": "#f59e0b"
+    }
+  ],
   "questions": [
     {
       "id": "ADV4-001",
@@ -4502,8 +4598,10 @@
       "fullObjective": "Given a list of aircraft equipment, identify which item belongs to the aircraft electrical system rather than the cabin management system.",
       "targetSourceStem": "ADV1-001",
       "flashcard": {
-        "front": "A shop tech lists items installed in a business jet cabin. Which one belongs to the electrical system, not the CMS?",
-        "back": "The generator control unit is electrical power infrastructure, not CMS equipment."
+        "term": "The generator control unit regulates bus power.",
+        "definition": "The generator control unit is electrical power infrastructure, not CMS equipment.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "clue": "This power-regulation LRU lives in the electrical system, even though a tech may mistake it for a CMS box.",
@@ -4561,8 +4659,10 @@
       "fullObjective": "Given an IFE troubleshooting scenario, select the action that violates systematic fault-isolation principles.",
       "targetSourceStem": "ADV1-002",
       "flashcard": {
-        "front": "Which IFE troubleshooting action violates systematic fault-isolation principles?",
-        "back": "Swapping LRUs before diagnosing the fault; replacement happens after isolation, not before."
+        "term": "Swapping LRUs before the fault is diagnosed wastes parts.",
+        "definition": "Swapping LRUs before diagnosing the fault; replacement happens after isolation, not before.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "clue": "Doing this before actually diagnosing an IFE fault turns troubleshooting into parts roulette.",
@@ -4620,8 +4720,10 @@
       "fullObjective": "Given a CMS software-update scenario, identify which shortcut creates risk of permanent loss of customer configuration.",
       "targetSourceStem": "ADV1-003",
       "flashcard": {
-        "front": "During a quick-turn CMS software update, which shortcut risks permanent loss of the customer configuration?",
-        "back": "Skipping the configuration backup step; without a backup, restoring settings after a failed load is impossible."
+        "term": "Skipping the configuration backup step removes any restore path.",
+        "definition": "Skipping the configuration backup step; without a backup, restoring settings after a failed load is impossible.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "clue": "Skipping this save step before a CMS load can erase the owner's cabin settings for good.",
@@ -4679,8 +4781,10 @@
       "fullObjective": "Given a CMS EMI complaint, identify which technician action would increase rather than reduce the interference.",
       "targetSourceStem": "ADV1-004",
       "flashcard": {
-        "front": "A crew reports EMI on CMS displays. Which technician action would likely make the interference worse?",
-        "back": "Routing data cables near relay junction boxes; switching transients inject noise onto nearby conductors."
+        "term": "Routing CMS cables close to relay junction boxes adds noise coupling.",
+        "definition": "Routing data cables near relay junction boxes; switching transients inject noise onto nearby conductors.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "clue": "Running CMS cabling right next to these switching boxes bathes data lines in transient EMI.",
@@ -4738,8 +4842,10 @@
       "fullObjective": "Given a partial CMS diagnostic routine, explain why running BIT on only one subsystem fails to validate the entire CMS.",
       "targetSourceStem": "ADV1-005",
       "flashcard": {
-        "front": "A tech runs BIT only on CMS lighting. Why is this approach incomplete?",
-        "back": "The other CMS subsystems (IFE, A/V, seat, climate) stay untested and may still harbor faults."
+        "term": "The other CMS subsystems remain untested and potentially faulted.",
+        "definition": "The other CMS subsystems (IFE, A/V, seat, climate) stay untested and may still harbor faults.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "clue": "Running BIT on only cabin lighting leaves these other CMS areas still in the dark.",
@@ -4797,8 +4903,10 @@
       "fullObjective": "Given a CMS wireless-security setup, identify which configuration choice creates an attack surface.",
       "targetSourceStem": "ADV1-006",
       "flashcard": {
-        "front": "Which CMS wireless setting creates a security vulnerability?",
-        "back": "Enabling unused wireless features; unused radios expand the attack surface without adding cabin value."
+        "term": "Enabling unused wireless features expands the attack surface.",
+        "definition": "Enabling unused wireless features; unused radios expand the attack surface without adding cabin value.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "clue": "Leaving these radios turned on even though no one uses them quietly widens the attack surface.",
@@ -4856,8 +4964,10 @@
       "fullObjective": "Given a list of possible failure causes for a blank CMS display, select the item that is unrelated to CMS display operation.",
       "targetSourceStem": "ADV1-007",
       "flashcard": {
-        "front": "Which item on the list is unrelated to a blank CMS display?",
-        "back": "Navigation database cycle expiration; the nav database drives the FMS, not the cabin display."
+        "term": "Navigation database cycle expiration has no effect on CMS displays.",
+        "definition": "Navigation database cycle expiration; the nav database drives the FMS, not the cabin display.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "clue": "An expired one of these affects the FMS, not a blank CMS screen.",
@@ -4915,8 +5025,10 @@
       "fullObjective": "Given a blank CMS touchscreen with the circuit breaker engaged, determine the first electrical measurement a technician should take.",
       "targetSourceStem": "ADV1-008",
       "flashcard": {
-        "front": "A CMS touchscreen is blank with its CB in. What measurement should the tech take first?",
-        "back": "Bus voltage at the display power connector; confirm the display is actually receiving power before checking data or software."
+        "term": "Bus voltage at the display power connector should be measured first.",
+        "definition": "Bus voltage at the display power connector; confirm the display is actually receiving power before checking data or software.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "clue": "With the breaker set and the screen dark, you grab a DMM and read this first.",
@@ -4974,8 +5086,10 @@
       "fullObjective": "Given a list of possible services, identify those provided to passengers and crew by a business aircraft connectivity system.",
       "targetSourceStem": "ADV2-001",
       "flashcard": {
-        "front": "What service does a business aircraft connectivity system provide to passengers and crew?",
-        "back": "Internet access and voice communications for cabin users."
+        "term": "Internet access and voice communications are the primary services.",
+        "definition": "Internet access and voice communications for cabin users.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "clue": "The two core cabin offerings from a business jet connectivity system.",
@@ -5033,8 +5147,10 @@
       "fullObjective": "Given a list of data bus options, identify the protocol modern cabin management systems use for high-speed device-to-device transfer.",
       "targetSourceStem": "ADV2-002",
       "flashcard": {
-        "front": "Which protocol do modern CMSs use for high-speed data transfer between cabin devices?",
-        "back": "Ethernet-based networking, which provides the bandwidth needed for streaming A/V and control traffic."
+        "term": "Ethernet-based networking carries high-speed cabin data.",
+        "definition": "Ethernet-based networking, which provides the bandwidth needed for streaming A/V and control traffic.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "clue": "This IEEE networking technology gives modern cabins the bandwidth to stream HD video between devices.",
@@ -5092,8 +5208,10 @@
       "fullObjective": "Given a connectivity architecture, identify which component handles routing between passenger devices and the satellite communication system.",
       "targetSourceStem": "ADV2-003",
       "flashcard": {
-        "front": "Which component manages data routing between passenger devices and the SatCom system?",
-        "back": "The cabin network router; it sits between cabin Wi-Fi clients and the SDU/modem path to the satellite."
+        "term": "The cabin network router handles routing to the SatCom path.",
+        "definition": "The cabin network router; it sits between cabin Wi-Fi clients and the SDU/modem path to the satellite.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "clue": "This cabin LRU is the traffic cop between passenger tablets and the satellite modem.",
@@ -5151,8 +5269,10 @@
       "fullObjective": "Given antenna options, identify which type tracks a satellite electronically during aircraft maneuvers.",
       "targetSourceStem": "ADV2-004",
       "flashcard": {
-        "front": "Which antenna type tracks a satellite electronically during maneuvers?",
-        "back": "An electronically steered phased array; beam direction is controlled by phase, not mechanical motion."
+        "term": "An electronically steered phased array tracks via phase control.",
+        "definition": "An electronically steered phased array; beam direction is controlled by phase, not mechanical motion.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "clue": "This antenna technology shifts its beam via phase control rather than a gimbal motor.",
@@ -5210,8 +5330,10 @@
       "fullObjective": "Given a list of aviation organizations, identify which publishes the interface standards that allow avionics from different manufacturers to communicate.",
       "targetSourceStem": "ADV2-005",
       "flashcard": {
-        "front": "Which organization publishes the standards that let avionics from different manufacturers talk to each other?",
-        "back": "The Airlines Electronic Engineering Committee (AEEC), which produces the ARINC specifications."
+        "term": "The Airlines Electronic Engineering Committee publishes ARINC standards.",
+        "definition": "The Airlines Electronic Engineering Committee (AEEC), which produces the ARINC specifications.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "clue": "This AEEC-led body is the reason a Honeywell box can exchange data with a Collins box without drama.",
@@ -5269,8 +5391,10 @@
       "fullObjective": "Given a list of satellite and navigation networks, identify which provides broadband connectivity services designed for aviation.",
       "targetSourceStem": "ADV2-006",
       "flashcard": {
-        "front": "Which satellite network provides broadband connectivity designed for aviation?",
-        "back": "The Inmarsat satellite network, whose aeronautical services include SwiftBroadband and Jet ConneX."
+        "term": "The Inmarsat satellite network provides aviation broadband.",
+        "definition": "The Inmarsat satellite network, whose aeronautical services include SwiftBroadband and Jet ConneX.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "clue": "This L-band and Ka-band satellite operator runs aviation services like SwiftBroadband and Jet ConneX.",
@@ -5328,8 +5452,10 @@
       "fullObjective": "Given a list of radio frequency bands, identify which provides the highest data throughput for satellite-based in-flight connectivity.",
       "targetSourceStem": "ADV2-007",
       "flashcard": {
-        "front": "Which frequency band provides the highest throughput for satellite in-flight connectivity?",
-        "back": "Ka-band (roughly 26.5 to 40 GHz); higher bandwidth yields higher data rates than VHF, HF, or UHF options."
+        "term": "Ka-band at 26.5 to 40 GHz delivers the highest throughput.",
+        "definition": "Ka-band (roughly 26.5 to 40 GHz); higher bandwidth yields higher data rates than VHF, HF, or UHF options.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "clue": "Operating from about 26.5 to 40 GHz, this band leads the pack for in-flight broadband throughput.",
@@ -5387,8 +5513,10 @@
       "fullObjective": "Given a list of connectivity systems, identify which uses ground-based towers to provide internet service to aircraft over land.",
       "targetSourceStem": "ADV2-008",
       "flashcard": {
-        "front": "Which air-to-ground connectivity system uses ground-based towers to serve aircraft over land?",
-        "back": "The Gogo Air-to-Ground system; a network of cell-like towers provides coverage in the contiguous U.S. and parts of Canada."
+        "term": "The Gogo Air-to-Ground system uses ground towers.",
+        "definition": "The Gogo Air-to-Ground system; a network of cell-like towers provides coverage in the contiguous U.S. and parts of Canada.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "clue": "A network of cellular-style towers in the continental U.S. makes this air-to-ground service possible.",
@@ -5446,8 +5574,10 @@
       "fullObjective": "Given several candidate issues, identify which is a primary technical challenge of satellite-based connectivity in business aircraft.",
       "targetSourceStem": "ADV2-009",
       "flashcard": {
-        "front": "What is a primary technical challenge of satellite-based connectivity in business aircraft?",
-        "back": "High latency caused by the long satellite signal path; round-trip delay affects interactive applications."
+        "term": "High latency from the satellite signal path is a primary challenge.",
+        "definition": "High latency caused by the long satellite signal path; round-trip delay affects interactive applications.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "clue": "The long trip up to orbit and back gives satellite internet this unavoidable timing penalty.",
@@ -5505,8 +5635,10 @@
       "fullObjective": "Given interface standard options, identify which ensures cabin SatCom equipment communicates properly with the aircraft network.",
       "targetSourceStem": "ADV2-010",
       "flashcard": {
-        "front": "Which interface standard ensures that cabin SatCom equipment integrates with the aircraft network?",
-        "back": "ARINC published interface standards; these define the electrical and data rules for avionics integration."
+        "term": "ARINC published interface standards define the integration.",
+        "definition": "ARINC published interface standards; these define the electrical and data rules for avionics integration.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "clue": "Follow these AEEC-published interface specifications and your SatCom LRU will shake hands with the aircraft network.",
@@ -5564,8 +5696,10 @@
       "fullObjective": "Given an ADS-C transmission, identify what surveillance information is contained in the report.",
       "targetSourceStem": "ADV3-001",
       "flashcard": {
-        "front": "What information is included in ADS-C surveillance reports to oceanic ATC?",
-        "back": "Aircraft position, altitude, speed, and route intent; ADS-C delivers a contracted surveillance snapshot."
+        "term": "Position, altitude, speed, and route intent appear in the report.",
+        "definition": "Aircraft position, altitude, speed, and route intent; ADS-C delivers a contracted surveillance snapshot.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "clue": "These four core pieces of state data ride in every ADS-C report to oceanic ATC.",
@@ -5623,8 +5757,10 @@
       "fullObjective": "Given a list of avionics units, identify which processes CPDLC text messages and ADS-C position reports.",
       "targetSourceStem": "ADV3-002",
       "flashcard": {
-        "front": "Which avionics unit processes both CPDLC messages and ADS-C position reports?",
-        "back": "The Communications Management Unit (CMU); it is the datalink router on board."
+        "term": "The communications management unit processes both.",
+        "definition": "The Communications Management Unit (CMU); it is the datalink router on board.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "clue": "This onboard datalink router juggles both CPDLC text and ADS-C contracts.",
@@ -5682,8 +5818,10 @@
       "fullObjective": "Given a FANS datalink installation, identify which FAA Advisory Circular provides installation guidance.",
       "targetSourceStem": "ADV3-003",
       "flashcard": {
-        "front": "Which FAA document provides installation guidance for FANS datalink systems?",
-        "back": "FAA Advisory Circular 20-140B, the installation guidance document for FANS and CPDLC systems."
+        "term": "Advisory Circular 20-140B provides FANS install guidance.",
+        "definition": "FAA Advisory Circular 20-140B, the installation guidance document for FANS and CPDLC systems.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "clue": "Reach for this AC number when writing an installation data package for a FANS datalink retrofit.",
@@ -5741,8 +5879,10 @@
       "fullObjective": "Given CPDLC installation requirements, identify which alerting method satisfies the incoming-message alert requirement.",
       "targetSourceStem": "ADV3-004",
       "flashcard": {
-        "front": "What alerting method satisfies the incoming-CPDLC-message alert requirement?",
-        "back": "An aural tone paired with a visual annunciator; both are required for pilot awareness."
+        "term": "An aural tone paired with a visual annunciator satisfies it.",
+        "definition": "An aural tone paired with a visual annunciator; both are required for pilot awareness.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "clue": "Pair this chime with a lit annunciator and your CPDLC install meets the alerting requirement.",
@@ -5800,8 +5940,10 @@
       "fullObjective": "Given datalink formatting requirements, explain why ARINC 622 compliance is required for datalink messages.",
       "targetSourceStem": "ADV3-005",
       "flashcard": {
-        "front": "Why must datalink equipment format messages to ARINC 622 standards?",
-        "back": "To ensure worldwide ATC interoperability, so any ground center can parse the messages consistently."
+        "term": "To ensure worldwide ATC interoperability is the purpose.",
+        "definition": "To ensure worldwide ATC interoperability, so any ground center can parse the messages consistently.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "clue": "This is what ARINC 622 formatting buys you when messages must be parsed by ATC centers worldwide.",
@@ -5859,8 +6001,10 @@
       "fullObjective": "Given ADS-C system architecture, identify which component generates the GPS position used in surveillance reports.",
       "targetSourceStem": "ADV3-006",
       "flashcard": {
-        "front": "Which component generates the GPS position data for ADS-C surveillance reports?",
-        "back": "A GNSS or GPS satellite receiver; it provides the position fix the CMU uses to build the report."
+        "term": "A GNSS or GPS satellite receiver generates the position.",
+        "definition": "A GNSS or GPS satellite receiver; it provides the position fix the CMU uses to build the report.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "clue": "This receiver tunes in the constellation overhead to supply ADS-C with its position fix.",
@@ -5918,8 +6062,10 @@
       "fullObjective": "Given transmission options, identify how ADS-C surveillance data reaches the oceanic ATC facility.",
       "targetSourceStem": "ADV3-007",
       "flashcard": {
-        "front": "How is ADS-C surveillance data transmitted from aircraft to oceanic ATC?",
-        "back": "Via SatCom or VHF data link contracts, which route the report to the ground network."
+        "term": "It is sent via SatCom or VHF data link contracts.",
+        "definition": "Via SatCom or VHF data link contracts, which route the report to the ground network.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "clue": "ADS-C contracts ride over this SatCom or VHF pipe on their way to oceanic ATC.",
@@ -5977,8 +6123,10 @@
       "fullObjective": "Given candidate data elements, identify which item is NOT part of a standard ADS-C position report.",
       "targetSourceStem": "ADV3-008",
       "flashcard": {
-        "front": "Which item is NOT a standard data element in an ADS-C report?",
-        "back": "Weather radar return images; ADS-C carries state and intent data, not radar imagery."
+        "term": "Weather radar return images are not a standard element.",
+        "definition": "Weather radar return images; ADS-C carries state and intent data, not radar imagery.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "clue": "ADS-C will never carry these pictures home to ATC, no matter how bad the ride gets.",
@@ -6036,8 +6184,10 @@
       "fullObjective": "Given ADS-C operating behavior, identify what triggers position reports to be sent from the aircraft.",
       "targetSourceStem": "ADV3-009",
       "flashcard": {
-        "front": "What event triggers ADS-C position reports to be transmitted?",
-        "back": "Contract-based events or periodic intervals; demand, event, and periodic contracts drive the reports."
+        "term": "Contract-based events or periodic intervals trigger reports.",
+        "definition": "Contract-based events or periodic intervals; demand, event, and periodic contracts drive the reports.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "clue": "ADS-C fires off reports for these two kinds of triggers: either the controller's contract or a timer.",
@@ -6095,8 +6245,10 @@
       "fullObjective": "Given FANS compliance requirements, identify which SatCom service level is required for FANS 1/A operations.",
       "targetSourceStem": "ADV3-010",
       "flashcard": {
-        "front": "Which SatCom level is required for FANS 1/A operational compliance?",
-        "back": "Level D data-capable SatCom service, which meets FANS 1/A data requirements."
+        "term": "Level D data-capable SatCom is required.",
+        "definition": "Level D data-capable SatCom service, which meets FANS 1/A data requirements.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "clue": "This service level on the SatCom side is the baseline for FANS 1/A data compliance.",
@@ -6154,8 +6306,10 @@
       "fullObjective": "Given a FANS installation, identify the purpose of the external annunciator cube.",
       "targetSourceStem": "ADV3-011",
       "flashcard": {
-        "front": "What is the purpose of the external annunciator cube installed with FANS equipment?",
-        "back": "It provides a visual alert for CPDLC message receipt so the crew sees when controller text arrives."
+        "term": "It provides a visual alert for CPDLC message receipt.",
+        "definition": "It provides a visual alert for CPDLC message receipt so the crew sees when controller text arrives.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "clue": "That small lit cube on the glareshield does this specific FANS job.",
@@ -6213,8 +6367,10 @@
       "fullObjective": "Given regulatory references, identify which FAA document governs the onboard recording requirements for CPDLC communications.",
       "targetSourceStem": "ADV3-012",
       "flashcard": {
-        "front": "Which FAA document governs onboard recording requirements for CPDLC communications?",
-        "back": "FAA Advisory Circular 20-160, which addresses CPDLC recording."
+        "term": "FAA Advisory Circular 20-160 governs CPDLC recording.",
+        "definition": "FAA Advisory Circular 20-160, which addresses CPDLC recording.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "clue": "This FAA AC is your go-to for how CPDLC messages must be recorded onboard.",
@@ -6273,8 +6429,10 @@
       "fullObjective": "Given parameters, identify which is NOT directly required for successful FANS 1/A data communication.",
       "targetSourceStem": "ADV3-013",
       "flashcard": {
-        "front": "Which parameter is NOT directly required for successful FANS 1/A data communication?",
-        "back": "ADS-B Out position broadcast; it is a separate surveillance mandate, not a FANS 1/A datalink requirement."
+        "term": "ADS-B Out position broadcast is not directly required.",
+        "definition": "ADS-B Out position broadcast; it is a separate surveillance mandate, not a FANS 1/A datalink requirement.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "clue": "This surveillance broadcast is its own mandate and does not feed FANS 1/A datalink directly.",
@@ -6332,8 +6490,10 @@
       "fullObjective": "Given FANS operational approval requirements, identify which authority issues the Letter of Authorization.",
       "targetSourceStem": "ADV3-014",
       "flashcard": {
-        "front": "Which authority issues the Letter of Authorization required for FANS operational approval?",
-        "back": "The Federal Aviation Administration, which issues the LOA for U.S. operators."
+        "term": "The Federal Aviation Administration issues the LOA.",
+        "definition": "The Federal Aviation Administration, which issues the LOA for U.S. operators.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "clue": "For a U.S. operator, this agency signs the Letter of Authorization that clears the crew for FANS operations.",
@@ -6391,8 +6551,10 @@
       "fullObjective": "Given an ADS-C architecture, identify what information the FMS provides as flight intent data.",
       "targetSourceStem": "ADV3-015",
       "flashcard": {
-        "front": "The FMS provides flight intent data to ADS-C. What information does this include?",
-        "back": "Planned route waypoints and timing; the FMS forecasts the intended path and ETAs that ADS-C reports."
+        "term": "Planned route waypoints and timing are provided.",
+        "definition": "Planned route waypoints and timing; the FMS forecasts the intended path and ETAs that ADS-C reports.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "clue": "This is what the FMS hands off to ADS-C so oceanic ATC knows where you plan to be and when.",
@@ -6449,9 +6611,10 @@
       "fullObjective": "Given a description of cockpit avionics, the technician shall identify that the audio panel's primary service is selecting and routing communication audio among the installed radios and crew stations.",
       "targetSourceStem": "What primary service does an aircraft audio panel provide to the flight crew?",
       "flashcard": {
-        "front": "What core service does an aircraft audio panel deliver to the pilots?",
-        "back": "It selects and routes communication audio between installed radios and crew headset stations.",
-        "correctIndex": 0
+        "term": "Selection and routing of communication audio across installed radios",
+        "definition": "It selects and routes communication audio between installed radios and crew headset stations.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "clue": "This cockpit unit gives the flight crew selection and routing of communication audio among installed radios.",
@@ -6507,9 +6670,10 @@
       "fullObjective": "Given an audio panel description, the technician shall identify the intercom-to-radio isolation circuit as the feature that prevents crew intercom conversation from being keyed onto the transmitted radio carrier.",
       "targetSourceStem": "The audio panel contains circuits that prevent intercom conversation from being broadcast on the radio. What is this feature called?",
       "flashcard": {
-        "front": "What audio panel feature stops crew intercom chatter from being keyed out on the transmitted radio?",
-        "back": "Intercom-to-radio isolation, which separates the intercom bus from the transmit audio path.",
-        "correctIndex": 0
+        "term": "Intercom-to-radio isolation",
+        "definition": "Intercom-to-radio isolation, which separates the intercom bus from the transmit audio path.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "clue": "This audio panel circuit keeps crew-to-crew intercom speech off the outgoing radio transmission.",
@@ -6565,9 +6729,10 @@
       "fullObjective": "Given a report of a pilot unable to hear their own voice while keying the radio, the technician shall identify the transmit sidetone circuit as the most likely faulty audio panel circuit.",
       "targetSourceStem": "A pilot cannot hear their own voice when transmitting on the radio. What audio panel circuit is likely faulty?",
       "flashcard": {
-        "front": "Which audio panel circuit is suspect when a pilot cannot hear himself while keying the transmit radio?",
-        "back": "The transmit sidetone circuit, which feeds mic audio back to the headset during transmit.",
-        "correctIndex": 0
+        "term": "Transmit sidetone circuit",
+        "definition": "The transmit sidetone circuit, which feeds mic audio back to the headset during transmit.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "clue": "When a pilot cannot hear their own voice on the headset during transmit, this audio panel circuit is almost always the cause.",
@@ -6623,9 +6788,10 @@
       "fullObjective": "Given an audio panel with a squelch control, the technician shall describe that the control adjusts the noise threshold at which the receiver audio is muted.",
       "targetSourceStem": "What does the squelch control on an audio panel adjust?",
       "flashcard": {
-        "front": "What parameter does the squelch knob on a communication audio panel set?",
-        "back": "It sets the noise threshold below which receiver audio is muted from the headset.",
-        "correctIndex": 0
+        "term": "Noise threshold that mutes audio",
+        "definition": "It sets the noise threshold below which receiver audio is muted from the headset.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "clue": "On a COM audio panel, this knob sets the signal-to-noise threshold that mutes receiver output until a valid carrier appears.",
@@ -6682,9 +6848,10 @@
       "fullObjective": "Given a symptom of the copilot's voice being broadcast over the radio while the pilot transmits, the technician shall identify failed intercom isolation within the audio panel as the fault.",
       "targetSourceStem": "During a radio check, ATC hears the copilot's voice on the frequency even though only the pilot is transmitting. What is the fault?",
       "flashcard": {
-        "front": "ATC hears the copilot's voice when the pilot transmits alone. Which audio panel fault is indicated?",
-        "back": "Failure of the intercom-to-radio isolation circuit so the intercom bus bleeds into transmit audio.",
-        "correctIndex": 0
+        "term": "Intercom isolation circuit has failed",
+        "definition": "Failure of the intercom-to-radio isolation circuit so the intercom bus bleeds into transmit audio.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "clue": "When ATC receives the copilot's voice while the pilot alone is keying the radio, this internal audio panel fault is the cause.",
@@ -6740,9 +6907,10 @@
       "fullObjective": "Given that a radio keys a carrier but passes no voice, and a mic connected directly to the radio works, the technician shall isolate the fault to the audio panel microphone routing circuit.",
       "targetSourceStem": "ATC hears carrier but no voice when the pilot transmits. A test microphone connected directly to the radio works normally. Where is the fault?",
       "flashcard": {
-        "front": "Radio keys carrier with no voice, but a direct-connected test mic works. Where is the fault?",
-        "back": "Inside the audio panel's microphone routing circuit between the pilot station and the COM radio.",
-        "correctIndex": 0
+        "term": "The audio panel microphone routing circuit",
+        "definition": "Inside the audio panel's microphone routing circuit between the pilot station and the COM radio.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "clue": "When the radio shows carrier but no modulated voice, and bypassing this unit with a direct mic clears the fault, this is where the break lives.",
@@ -6798,9 +6966,10 @@
       "fullObjective": "Given a headset with lower impedance than the audio panel output expects, the technician shall predict that the pilot will hear very low volume even with the volume control at maximum.",
       "targetSourceStem": "A technician connects a low-impedance headset to an audio output designed for high-impedance headsets. What symptom will the pilot report?",
       "flashcard": {
-        "front": "What symptom results when a low-impedance headset is plugged into a high-impedance audio output?",
-        "back": "Very low perceived volume even with the headset volume turned to its maximum setting.",
-        "correctIndex": 0
+        "term": "Very low audio level at maximum volume setting",
+        "definition": "Very low perceived volume even with the headset volume turned to its maximum setting.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "clue": "When a low-impedance headset is plugged into a jack expecting a high-impedance load, this is the symptom the pilot reports.",
@@ -6856,9 +7025,10 @@
       "fullObjective": "Given marker beacon lights that illuminate normally without audio tones during an ILS approach, the technician shall identify the audio panel marker beacon routing as the most likely fault location.",
       "targetSourceStem": "During an ILS approach, marker beacon lights illuminate but the pilot hears no audio tones. What is the most likely fault location?",
       "flashcard": {
-        "front": "Marker lights illuminate during an ILS pass but no tones are heard. Where is the fault?",
-        "back": "The marker beacon audio routing inside the audio panel, since the receiver is clearly detecting the signal.",
-        "correctIndex": 0
+        "term": "Marker beacon audio routing inside the audio panel",
+        "definition": "The marker beacon audio routing inside the audio panel, since the receiver is clearly detecting the signal.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "clue": "When the outer marker lamp flashes correctly but no Morse tone reaches the headset, this part of the audio panel is suspect.",
@@ -6914,9 +7084,10 @@
       "fullObjective": "Given an intercom microphone that transmits continuously without the PTT being pressed, the technician shall identify that VOX voice activation is the most likely cause.",
       "targetSourceStem": "A pilot reports the intercom microphone transmits continuously without pressing the PTT switch. What is the most likely cause?",
       "flashcard": {
-        "front": "A mic keys the intercom continuously without a PTT press. What is the most likely cause?",
-        "back": "VOX voice activation is enabled, so cockpit noise keys the mic without any PTT input.",
-        "correctIndex": 0
+        "term": "VOX voice activation is enabled on the audio panel",
+        "definition": "VOX voice activation is enabled, so cockpit noise keys the mic without any PTT input.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "clue": "When a mic appears to transmit continuously on the intercom without any PTT input, this audio panel setting is the first thing to check.",
@@ -6972,9 +7143,10 @@
       "fullObjective": "Given a 400 Hz hum in the crew headsets after an audio panel installation, the technician shall identify a poor ground connection to aircraft structure as the most likely installation error.",
       "targetSourceStem": "After an installation, the crew reports a 400 Hz hum in their headsets. What installation error causes this symptom?",
       "flashcard": {
-        "front": "What installation defect most commonly produces a 400 Hz hum in the headsets?",
-        "back": "A poor (high-resistance) ground connection between the audio panel and aircraft structure.",
-        "correctIndex": 0
+        "term": "A poor ground connection to aircraft structure",
+        "definition": "A poor (high-resistance) ground connection between the audio panel and aircraft structure.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "clue": "When a freshly installed audio panel produces a 400 Hz hum in the crew's headsets, this installation defect is the most common cause.",
@@ -7030,9 +7202,10 @@
       "fullObjective": "Given a completely failed audio panel, the technician shall describe the emergency mode as providing a direct hardwired path from the pilot headset to COM1.",
       "targetSourceStem": "If the audio panel fails completely, the emergency mode provides what minimum capability?",
       "flashcard": {
-        "front": "In emergency mode after a full audio panel failure, what minimum path is available?",
-        "back": "A direct hardwired path from the pilot's headset to COM1, bypassing the failed panel.",
-        "correctIndex": 0
+        "term": "A hardwired direct path from the pilot headset to COM1",
+        "definition": "A direct hardwired path from the pilot's headset to COM1, bypassing the failed panel.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "clue": "When a total audio panel failure occurs, this hardwired fallback path is what emergency mode guarantees.",
@@ -7088,9 +7261,10 @@
       "fullObjective": "Given a stuck transmit condition on a modern audio panel, the technician shall describe the alerting method as a flashing indicator accompanied by a warning tone.",
       "targetSourceStem": "How do modern audio panels alert the crew when a microphone is stuck in the transmit position?",
       "flashcard": {
-        "front": "How does a modern audio panel notify the crew of a stuck transmit condition?",
-        "back": "It provides a flashing annunciator combined with an audible warning tone.",
-        "correctIndex": 0
+        "term": "Flashing a dedicated indicator and sounding a warning tone",
+        "definition": "It provides a flashing annunciator combined with an audible warning tone.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "clue": "Modern audio panels use this combined visual and aural method to warn the crew of a stuck mic condition.",
@@ -7146,9 +7320,10 @@
       "fullObjective": "Given a dual-crew audio panel configured for split audio mode, the technician shall explain that the mode allows the pilot and copilot to monitor separate radios independently.",
       "targetSourceStem": "What does split audio mode allow the pilot and copilot to do?",
       "flashcard": {
-        "front": "What capability does split audio mode give the pilot and copilot?",
-        "back": "Each crewmember can monitor different radios independently from their own station.",
-        "correctIndex": 0
+        "term": "Monitor different radios independently of each other",
+        "definition": "Each crewmember can monitor different radios independently from their own station.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "clue": "This audio panel mode lets pilot and copilot listen to separate radios at the same time from their own headsets.",
@@ -7204,9 +7379,10 @@
       "fullObjective": "Given a digital audio panel integrated into a modern avionics suite, the technician shall identify ARINC 429 as the typical data bus protocol used for communication with the other LRUs.",
       "targetSourceStem": "A new digital audio panel connects to the integrated avionics suite. What data bus protocol is typically used?",
       "flashcard": {
-        "front": "Which data bus does a digital audio panel typically use to talk to an integrated avionics suite?",
-        "back": "ARINC 429, the unidirectional serial data bus common on business and transport aircraft.",
-        "correctIndex": 0
+        "term": "ARINC 429",
+        "definition": "ARINC 429, the unidirectional serial data bus common on business and transport aircraft.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "clue": "This unidirectional serial bus is the protocol most often used between a digital audio panel and the integrated avionics suite on a business jet.",
@@ -7262,9 +7438,10 @@
       "fullObjective": "Given a list of radio systems including VOR, ILS, localizer, glideslope, and GPS, the technician shall classify them collectively as navigation guidance systems.",
       "targetSourceStem": "VOR, ILS, localizer, glideslope, and GPS are components of what aircraft system category?",
       "flashcard": {
-        "front": "Under what system category do VOR, ILS, localizer, glideslope, and GPS all belong?",
-        "back": "They are all navigation guidance systems used to direct the aircraft along a desired course.",
-        "correctIndex": 0
+        "term": "Navigation guidance systems",
+        "definition": "They are all navigation guidance systems used to direct the aircraft along a desired course.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "clue": "VOR, ILS, localizer, glideslope, and GPS all fall under this single aircraft system category.",
@@ -7320,9 +7497,10 @@
       "fullObjective": "Given a question about VHF aircraft COM radios, the technician shall identify the operating band as 118.000 MHz to 136.975 MHz.",
       "targetSourceStem": "VHF aircraft communication radios operate in what frequency range?",
       "flashcard": {
-        "front": "Over what frequency range do VHF aircraft COM radios operate?",
-        "back": "118.000 MHz through 136.975 MHz, in 8.33 kHz or 25 kHz channel steps.",
-        "correctIndex": 0
+        "term": "118.000 to 136.975 MHz",
+        "definition": "118.000 MHz through 136.975 MHz, in 8.33 kHz or 25 kHz channel steps.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "clue": "VHF aircraft communication radios operate in this specific allocated band.",
@@ -7378,9 +7556,10 @@
       "fullObjective": "Given a question about VOR and localizer receivers, the technician shall identify the operating band as 108.0 MHz to 117.95 MHz.",
       "targetSourceStem": "VOR and localizer navigation receivers operate in what frequency range?",
       "flashcard": {
-        "front": "Over what frequency range do VOR and localizer receivers operate?",
-        "back": "108.0 MHz to 117.95 MHz, with odd tenths reserved for localizer channels.",
-        "correctIndex": 0
+        "term": "108.0 to 117.95 MHz",
+        "definition": "108.0 MHz to 117.95 MHz, with odd tenths reserved for localizer channels.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "clue": "This is the allocated frequency band for VOR and localizer receivers on civil aircraft.",
@@ -7436,9 +7615,10 @@
       "fullObjective": "Given a question about marker beacon ground transmitters, the technician shall identify 75 MHz as the single fixed broadcast frequency used by inner, middle, and outer markers.",
       "targetSourceStem": "All marker beacon ground transmitters broadcast on what frequency?",
       "flashcard": {
-        "front": "On what frequency do every marker beacon ground transmitter broadcast?",
-        "back": "75 MHz, common to outer, middle, and inner markers, distinguished only by modulation tone.",
-        "correctIndex": 0
+        "term": "75 MHz",
+        "definition": "75 MHz, common to outer, middle, and inner markers, distinguished only by modulation tone.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "clue": "Every marker beacon ground transmitter in the national airspace broadcasts on this single fixed frequency.",
@@ -7494,9 +7674,10 @@
       "fullObjective": "Given an HF radio after a frequency selection, the technician shall describe that keying the transmitter commands the antenna coupler to tune to the newly selected frequency.",
       "targetSourceStem": "After selecting a frequency on an HF radio, the pilot must key the transmitter before speaking. What does this keying accomplish?",
       "flashcard": {
-        "front": "Why must a pilot key an HF radio transmitter after selecting a new frequency before speaking?",
-        "back": "The keying commands the HF antenna coupler to tune itself for a low-SWR match on the new frequency.",
-        "correctIndex": 0
+        "term": "Commands the antenna coupler to tune for low SWR",
+        "definition": "The keying commands the HF antenna coupler to tune itself for a low-SWR match on the new frequency.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "clue": "This is what the pilot accomplishes by briefly keying an HF transmitter after selecting a new frequency.",
@@ -7552,9 +7733,10 @@
       "fullObjective": "Given a task to measure the standing wave ratio of a communication antenna system, the technician shall select an inline directional wattmeter as the correct test equipment.",
       "targetSourceStem": "What test equipment measures the standing wave ratio of a communication antenna system?",
       "flashcard": {
-        "front": "Which piece of test equipment is used to measure SWR on a COM antenna system?",
-        "back": "An inline directional wattmeter, measuring forward and reflected power between radio and antenna.",
-        "correctIndex": 0
+        "term": "An inline directional wattmeter",
+        "definition": "An inline directional wattmeter, measuring forward and reflected power between radio and antenna.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "clue": "This piece of test equipment measures forward and reflected power to yield the standing wave ratio of a COM antenna.",
@@ -7610,9 +7792,10 @@
       "fullObjective": "Given a VHF COM that transmits normally but receives nothing even at maximum volume, the technician shall first check that the squelch is not set too high.",
       "targetSourceStem": "A VHF COM transmits normally but the pilot hears nothing on receive even at maximum volume. What should the technician check first?",
       "flashcard": {
-        "front": "A VHF COM transmits fine but produces no receive audio at full volume. What should you check first?",
-        "back": "The squelch control; if it is set too high, the receiver remains muted for all valid signals.",
-        "correctIndex": 0
+        "term": "Whether the squelch is adjusted too tight",
+        "definition": "The squelch control; if it is set too high, the receiver remains muted for all valid signals.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "clue": "When a COM radio transmits normally but produces no receive audio even at full volume, this is the first setting to check.",
@@ -7668,9 +7851,10 @@
       "fullObjective": "Given a VOR receiver displaying the NAV flag while within published range of the tuned station, the technician shall interpret this indication as the received signal being below usable threshold.",
       "targetSourceStem": "The VOR receiver displays a NAV flag even though the aircraft is within range of the station. What does this indicate?",
       "flashcard": {
-        "front": "Why does a VOR display a NAV flag when the aircraft is clearly within station range?",
-        "back": "The received VOR signal level has dropped below the usable threshold required for reliable guidance.",
-        "correctIndex": 0
+        "term": "Signal has fallen below the usable threshold",
+        "definition": "The received VOR signal level has dropped below the usable threshold required for reliable guidance.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "clue": "When a VOR shows this flag while the aircraft is within published station range, the signal has dropped below the usable threshold.",
@@ -7726,9 +7910,10 @@
       "fullObjective": "Given an ILS approach, the technician shall identify side lobes above the correct glidepath as the part of the signal that causes false glideslope indications.",
       "targetSourceStem": "During an ILS approach, a false glideslope indication can occur when flying through what part of the signal?",
       "flashcard": {
-        "front": "Which part of the glideslope radiation pattern can produce a false indication on an ILS approach?",
-        "back": "Side lobes radiated above the correct 3-degree path can capture the receiver and display a false on-path.",
-        "correctIndex": 0
+        "term": "Upper side lobes of the glideslope radiation pattern",
+        "definition": "Side lobes radiated above the correct 3-degree path can capture the receiver and display a false on-path.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "clue": "False glideslope captures on ILS approaches come from this part of the transmitted signal.",
@@ -7784,9 +7969,10 @@
       "fullObjective": "Given a DME interrogator and transponder pair, the technician shall explain that DME calculates distance by timing the round-trip delay of interrogation and reply pulses.",
       "targetSourceStem": "How does distance measuring equipment calculate the distance to the ground station?",
       "flashcard": {
-        "front": "How does DME determine the slant range to the ground station?",
-        "back": "It times the round-trip delay of its interrogation pulse and the ground transponder's reply pulse.",
-        "correctIndex": 0
+        "term": "Timing the round-trip delay of its interrogation pulses",
+        "definition": "It times the round-trip delay of its interrogation pulse and the ground transponder's reply pulse.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "clue": "DME computes slant range using this timing measurement between the airborne interrogator and the ground transponder.",
@@ -7843,9 +8029,10 @@
       "fullObjective": "Given a pitot-static smart probe installation, the technician shall identify airspeed, altitude, and vertical speed as the flight parameters supplied to the air data system.",
       "targetSourceStem": "What flight parameters does a pitot-static smart probe measure for the air data system?",
       "flashcard": {
-        "front": "Which flight parameters does a pitot-static smart probe supply to the air data system?",
-        "back": "Airspeed, altitude, and vertical speed, derived from the probe's total and static pressures.",
-        "correctIndex": 0
+        "term": "Airspeed, altitude, and vertical speed",
+        "definition": "Airspeed, altitude, and vertical speed, derived from the probe's total and static pressures.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "clue": "A pitot-static smart probe delivers these three core flight parameters to the air data system.",
@@ -7903,9 +8090,10 @@
       "fullObjective": "Given a comparison of traditional and smart pitot-static probes, the technician shall describe the defining feature as an integrated digital processor that converts pressures into digital data.",
       "targetSourceStem": "What makes a pitot-static probe a 'smart' probe compared to traditional pneumatic probes?",
       "flashcard": {
-        "front": "What design feature earns a pitot-static probe the label 'smart'?",
-        "back": "An integrated digital processor that converts pressure into digital air data onboard the probe.",
-        "correctIndex": 0
+        "term": "Integrated digital processor producing air data output",
+        "definition": "An integrated digital processor that converts pressure into digital air data onboard the probe.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "clue": "This defining feature sets a 'smart' pitot-static probe apart from a conventional pneumatic one.",
@@ -7961,9 +8149,10 @@
       "fullObjective": "Given a comparison between smart probes and traditional pitot-static plumbing, the technician shall explain that smart probes reduce tubing runs and overall system complexity.",
       "targetSourceStem": "What advantage does a smart probe installation provide compared to traditional pitot-static plumbing?",
       "flashcard": {
-        "front": "What is a primary installation advantage of smart probes over traditional pitot-static plumbing?",
-        "back": "They sharply reduce pneumatic tubing runs and the mechanical complexity of the installation.",
-        "correctIndex": 0
+        "term": "Reduced tubing runs and overall installation complexity",
+        "definition": "They sharply reduce pneumatic tubing runs and the mechanical complexity of the installation.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "clue": "This installation advantage is the main reason manufacturers are replacing traditional pitot-static plumbing with smart probes.",
@@ -8019,9 +8208,10 @@
       "fullObjective": "Given a pitot-static probe, the technician shall identify that the static port measures the ambient atmospheric pressure surrounding the aircraft.",
       "targetSourceStem": "What does the static pressure port on a pitot-static probe measure?",
       "flashcard": {
-        "front": "What pressure does the static port on a pitot-static probe sense?",
-        "back": "The ambient atmospheric pressure surrounding the aircraft, independent of ram air effects.",
-        "correctIndex": 0
+        "term": "Ambient atmospheric pressure around the aircraft",
+        "definition": "The ambient atmospheric pressure surrounding the aircraft, independent of ram air effects.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "clue": "This is the pressure that the static port on a pitot-static probe samples from the airstream.",
@@ -8077,9 +8267,10 @@
       "fullObjective": "Given historical smart probe failure data, the technician shall identify port blockage by ice or debris as the dominant failure mode causing pitot-static probe discrepancies.",
       "targetSourceStem": "A technician is reviewing smart probe failure data. What failure mode causes the majority of pitot-static probe discrepancies?",
       "flashcard": {
-        "front": "Which failure mode drives the majority of pitot-static smart probe discrepancies in service?",
-        "back": "Blockage of the pressure ports by ice accretion or foreign debris.",
-        "correctIndex": 0
+        "term": "Blockage of pressure ports by ice or foreign debris",
+        "definition": "Blockage of the pressure ports by ice accretion or foreign debris.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "clue": "Field data shows this failure mode is the dominant cause of pitot-static smart probe discrepancies.",
@@ -8135,9 +8326,10 @@
       "fullObjective": "Given a pitot probe with a current-drawing heater, the technician shall explain that the heater's purpose is to prevent ice from blocking the probe's pressure ports.",
       "targetSourceStem": "Pitot probes contain heating elements that draw significant electrical current. What is the purpose of these heaters?",
       "flashcard": {
-        "front": "Why do pitot probes include heating elements that draw substantial current?",
-        "back": "The heaters prevent ice from forming over and blocking the pressure ports in flight.",
-        "correctIndex": 0
+        "term": "Prevent ice from blocking the pressure ports in flight",
+        "definition": "The heaters prevent ice from forming over and blocking the pressure ports in flight.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "clue": "The heating element inside a pitot probe draws heavy current for this specific reason.",
@@ -8193,9 +8385,10 @@
       "fullObjective": "Given a smart probe installation, the technician shall identify ARINC 429 digital data words as the typical transmission protocol for air data to the avionics.",
       "targetSourceStem": "What data transmission protocol do smart probes typically use to send air data to the avionics?",
       "flashcard": {
-        "front": "Which digital protocol do smart probes typically use to transmit air data to the avionics?",
-        "back": "ARINC 429 digital data words on a unidirectional twisted-shielded pair bus.",
-        "correctIndex": 0
+        "term": "ARINC 429 digital data words",
+        "definition": "ARINC 429 digital data words on a unidirectional twisted-shielded pair bus.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "clue": "This digital protocol is typically used by smart probes to transmit air data to the avionics suite.",
@@ -8251,9 +8444,10 @@
       "fullObjective": "Given inaccurate readings from a pitot-static smart probe, the technician shall identify blockage of the pressure sensing ports as the most common root cause.",
       "targetSourceStem": "What is the most common cause of inaccurate readings from a pitot-static smart probe?",
       "flashcard": {
-        "front": "What is the most common cause of inaccurate pitot-static smart probe readings?",
-        "back": "Physical blockage of the pressure sensing ports by ice, debris, or insects.",
-        "correctIndex": 0
+        "term": "Blockage of the pressure sensing ports",
+        "definition": "Physical blockage of the pressure sensing ports by ice, debris, or insects.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "clue": "Among all possible causes, this is the single most common source of inaccurate pitot-static smart probe readings.",
@@ -8309,9 +8503,10 @@
       "fullObjective": "Given a pitot-static smart probe between major inspections, the technician shall identify the primary scheduled maintenance task as a visual inspection of the ports for contamination.",
       "targetSourceStem": "What is the primary scheduled maintenance task for pitot-static smart probes between major inspections?",
       "flashcard": {
-        "front": "What is the primary scheduled maintenance task for a smart probe between heavy checks?",
-        "back": "A visual inspection of the pressure ports for contamination, cracks, or obstruction.",
-        "correctIndex": 0
+        "term": "Visual inspection of the pressure ports for contamination",
+        "definition": "A visual inspection of the pressure ports for contamination, cracks, or obstruction.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "clue": "Between heavy inspections, this is the primary scheduled maintenance task performed on pitot-static smart probes.",
@@ -8367,9 +8562,10 @@
       "fullObjective": "Given a smart probe containing both pitot and static elements, the technician shall identify the pitot tube as measuring total pressure, which includes ram air contribution.",
       "targetSourceStem": "A smart probe contains both pitot and static sensing elements. What specific pressure does the pitot tube measure?",
       "flashcard": {
-        "front": "Within a smart probe, what pressure does the pitot tube itself measure?",
-        "back": "Total pressure, which is the sum of ambient static pressure and ram air dynamic pressure.",
-        "correctIndex": 0
+        "term": "Total pressure, which includes ram air contribution",
+        "definition": "Total pressure, which is the sum of ambient static pressure and ram air dynamic pressure.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "clue": "In a pitot-static smart probe, this is the specific pressure the pitot tube element senses.",
@@ -8425,9 +8621,10 @@
       "fullObjective": "Given inconsistent smart probe data during preflight checks, the technician shall prioritize inspecting the wiring connections and port condition first.",
       "targetSourceStem": "A smart probe shows inconsistent data during preflight checks. What should the technician inspect first?",
       "flashcard": {
-        "front": "A smart probe produces inconsistent preflight data. What should be inspected first?",
-        "back": "Wiring connections and the physical condition of the pressure ports on the probe body.",
-        "correctIndex": 0
+        "term": "Wiring connections and port condition on the probe",
+        "definition": "Wiring connections and the physical condition of the pressure ports on the probe body.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "clue": "When a smart probe shows inconsistent preflight data, these two items should be inspected first.",
@@ -8483,9 +8680,10 @@
       "fullObjective": "Given a smart probe with an embedded microprocessor, the technician shall describe the maintenance benefit as continuous self-test and fault detection capability.",
       "targetSourceStem": "What capability does the microprocessor in a smart probe provide for maintenance?",
       "flashcard": {
-        "front": "What maintenance capability does the microprocessor inside a smart probe provide?",
-        "back": "Continuous self-test and fault detection that reports internal health to the air data system.",
-        "correctIndex": 0
+        "term": "Continuous self-test and fault detection output",
+        "definition": "Continuous self-test and fault detection that reports internal health to the air data system.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "clue": "The microprocessor inside a smart probe offers this key capability to support maintenance actions.",
@@ -8541,9 +8739,10 @@
       "fullObjective": "Given a pitot-static smart probe failure in flight, the technician shall identify erroneous airspeed and altitude data as the primary flight safety consequence.",
       "targetSourceStem": "What is the primary flight safety consequence if a pitot-static smart probe fails during flight?",
       "flashcard": {
-        "front": "What is the primary flight safety consequence of a pitot-static smart probe failure in flight?",
-        "back": "Erroneous airspeed and altitude data presented to the flight crew and autopilot.",
-        "correctIndex": 0
+        "term": "Erroneous airspeed and altitude data",
+        "definition": "Erroneous airspeed and altitude data presented to the flight crew and autopilot.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "clue": "This is the primary flight safety consequence when a pitot-static smart probe fails in flight.",
@@ -8599,9 +8798,10 @@
       "fullObjective": "Given an air data computer, the technician shall identify pitot (total) pressure and static (ambient) pressure as the two pressure inputs required to compute flight parameters.",
       "targetSourceStem": "What pressure inputs does the air data computer require to compute flight parameters?",
       "flashcard": {
-        "front": "Which two pressure inputs does an air data computer require to derive flight parameters?",
-        "back": "Pitot total pressure and static ambient pressure from the pitot-static system.",
-        "correctIndex": 0
+        "term": "Pitot total and static ambient pressure",
+        "definition": "Pitot total pressure and static ambient pressure from the pitot-static system.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "clue": "These two pressure inputs are required by the air data computer to compute flight parameters.",
@@ -8657,9 +8857,10 @@
       "fullObjective": "Given a multi-probe aircraft, the technician shall identify disagreement between air data sources as the condition that triggers an unreliable airspeed warning.",
       "targetSourceStem": "What condition triggers an 'unreliable airspeed' warning on a multi-probe aircraft?",
       "flashcard": {
-        "front": "What condition triggers an unreliable airspeed warning on an aircraft with multiple probes?",
-        "back": "Disagreement between independent air data sources beyond the system's comparison threshold.",
-        "correctIndex": 0
+        "term": "Disagreement between independent air data sources",
+        "definition": "Disagreement between independent air data sources beyond the system's comparison threshold.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "clue": "On a multi-probe aircraft, this condition trips the 'unreliable airspeed' warning to the crew.",
@@ -8716,9 +8917,10 @@
       "fullObjective": "Given an altimeter inspection requirement, identify the Federal Aviation Regulation appendix that contains the detailed test procedures and tolerances used to certify altimeters for return to service.",
       "targetSourceStem": "What document contains the detailed test procedures and tolerances for altimeter inspections?",
       "flashcard": {
-        "front": "Which regulatory appendix specifies the test procedures and tolerances for altimeter inspections?",
-        "back": "14 CFR Part 43 Appendix E contains the altimeter system and altitude reporting equipment inspection procedures and tolerances.",
-        "explanation": "Appendix E to Part 43 lists scale error, hysteresis, after-effect, friction, and case leak tolerances at specific altitudes. Appendix F covers ATC transponder tests, and AC 43.13-1B is advisory only."
+        "term": "14 CFR Part 43 Appendix E",
+        "definition": "14 CFR Part 43 Appendix E contains the altimeter system and altitude reporting equipment inspection procedures and tolerances.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "category": "REGULATORY REFERENCES",
@@ -8780,9 +8982,10 @@
       "fullObjective": "Given a pitot-static certification workload, identify the FAA certificate and rating required for a facility to legally perform and return the tests to service.",
       "targetSourceStem": "What authorization is required for a facility to perform pitot-static system certification tests?",
       "flashcard": {
-        "front": "What facility authorization is required to perform pitot-static system certification tests?",
-        "back": "A Part 145 repair station certificate with an appropriate instrument class rating is required.",
-        "explanation": "An individual A&P cannot sign off a pitot-static certification unless operating under a certificated repair station with the correct rating. The test is an approval for return to service event."
+        "term": "A Part 145 repair station certificate with an appropriate instrument rating",
+        "definition": "A Part 145 repair station certificate with an appropriate instrument class rating is required.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "category": "FACILITY CERTIFICATION",
@@ -8843,9 +9046,10 @@
       "fullObjective": "Given a pitot-static leak-rate question, identify the Federal Aviation Regulation that establishes the maximum allowable leak rate for an aircraft's pitot-static system.",
       "targetSourceStem": "Which Federal Aviation Regulation defines the maximum allowable leak rate for aircraft pitot-static systems?",
       "flashcard": {
-        "front": "Which Federal Aviation Regulation defines the maximum allowable leak rate for a pitot-static system?",
-        "back": "14 CFR 23.1325 (small airplanes) or 25.1325 (transport airplanes) establish the type-certification leak rate limits.",
-        "explanation": "The airworthiness standards in Parts 23 and 25 set the static system leak limits. 91.411 requires the test; 91.413 covers transponders."
+        "term": "14 CFR 23.1325 or 25.1325, depending on type certification",
+        "definition": "14 CFR 23.1325 (small airplanes) or 25.1325 (transport airplanes) establish the type-certification leak rate limits.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "category": "LEAK RATES",
@@ -8907,9 +9111,10 @@
       "fullObjective": "Given a pressurized aircraft undergoing static-system testing, state the maximum allowable leak rate expressed in both percentage and feet terms.",
       "targetSourceStem": "What is the maximum allowable static system leak rate for a pressurized aircraft?",
       "flashcard": {
-        "front": "What is the maximum allowable static-system leak rate for a pressurized aircraft?",
-        "back": "2% of the test pressure or 100 feet per minute, whichever is greater.",
-        "explanation": "Per Part 23/25 airworthiness data and Part 43 Appendix E, the pressurized aircraft limit is expressed as 2% or 100 feet, whichever is greater, tested over one minute."
+        "term": "2% of the test pressure or 100 feet, whichever is greater",
+        "definition": "2% of the test pressure or 100 feet per minute, whichever is greater.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "category": "PITOT-STATIC LIMITS",
@@ -8970,9 +9175,10 @@
       "fullObjective": "Given the altimeter case leak test procedure in Part 43 Appendix E, identify the indicated altitude at which the case leak check is conducted.",
       "targetSourceStem": "At what indicated altitude is the altimeter case leak test performed?",
       "flashcard": {
-        "front": "At what indicated altitude is the altimeter case leak test performed?",
-        "back": "18,000 feet MSL, following the procedure in Part 43 Appendix E.",
-        "explanation": "The case leak is checked by holding the altimeter indication at 18,000 feet MSL for one minute and verifying the drift stays within tolerance."
+        "term": "18,000 feet MSL",
+        "definition": "18,000 feet MSL, following the procedure in Part 43 Appendix E.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "category": "TEST PROCEDURES",
@@ -9033,9 +9239,10 @@
       "fullObjective": "Given a completed altimeter case leak test, state the maximum allowable altitude drift rate per minute that keeps the altimeter within tolerance.",
       "targetSourceStem": "What is the maximum allowable leak rate for an altimeter case leak test?",
       "flashcard": {
-        "front": "What is the maximum allowable leak rate for an altimeter case leak test?",
-        "back": "Plus or minus 100 feet per minute at 18,000 feet indicated altitude.",
-        "explanation": "Appendix E to Part 43 limits altimeter case leakage to 100 feet per minute in either direction during the one-minute hold."
+        "term": "Plus or minus 100 feet per minute",
+        "definition": "Plus or minus 100 feet per minute at 18,000 feet indicated altitude.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "category": "TEST TOLERANCES",
@@ -9097,9 +9304,10 @@
       "fullObjective": "Given an RVSM-certified aircraft undergoing an RVSM inspection, identify the document that specifies the procedures and tolerances applied during that inspection.",
       "targetSourceStem": "When performing an RVSM inspection, which document specifies the test procedures and tolerances?",
       "flashcard": {
-        "front": "Which document specifies the test procedures and tolerances for an RVSM inspection?",
-        "back": "The OEM or STC holder's RVSM maintenance data package approved by the FAA.",
-        "explanation": "RVSM tolerances are aircraft-specific. They appear in the type certificate holder's or STC holder's RVSM MEL and maintenance manual, not in 91.411 or 91.413."
+        "term": "The OEM or STC holder data package for RVSM maintenance",
+        "definition": "The OEM or STC holder's RVSM maintenance data package approved by the FAA.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "category": "RVSM INSPECTIONS",
@@ -9160,9 +9368,10 @@
       "fullObjective": "Given an RVSM-certified aircraft, identify which test tolerance (RVSM or standard) is applied to the standby altimeter during inspection.",
       "targetSourceStem": "During RVSM inspection, which standard is used to test the standby altimeter?",
       "flashcard": {
-        "front": "During an RVSM inspection, which tolerance standard is used to test the standby altimeter?",
-        "back": "Standard 91.411 tolerances only; RVSM tolerances apply only to the primary altimeters used for altitude hold.",
-        "explanation": "The standby is not used to maintain altitude in RVSM airspace, so it is tested to 91.411 tolerances rather than the tighter RVSM limits."
+        "term": "Standard 91.411 altimeter tolerances only",
+        "definition": "Standard 91.411 tolerances only; RVSM tolerances apply only to the primary altimeters used for altitude hold.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "category": "RVSM VS STANDARD",
@@ -9223,9 +9432,10 @@
       "fullObjective": "Given a question about 1,000-foot vertical separation, identify the flight level band within which RVSM operations are authorized.",
       "targetSourceStem": "What flight level range defines RVSM airspace where 1000-foot separation is used?",
       "flashcard": {
-        "front": "What flight level range defines RVSM airspace in which 1,000-foot separation is applied?",
-        "back": "FL290 through FL410, inclusive.",
-        "explanation": "Reduced Vertical Separation Minimums apply in the band from FL290 to FL410, enabling 1,000 ft separation between aircraft."
+        "term": "FL290 through FL410",
+        "definition": "FL290 through FL410, inclusive.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "category": "RVSM AIRSPACE",
@@ -9286,9 +9496,10 @@
       "fullObjective": "Given an RVSM-certified aircraft, identify the maximum total vertical error the aircraft must maintain to remain authorized for RVSM operation.",
       "targetSourceStem": "What is the maximum total vertical error allowed for an aircraft operating in RVSM airspace?",
       "flashcard": {
-        "front": "What is the maximum total vertical error (TVE) allowed for an aircraft in RVSM airspace?",
-        "back": "Plus or minus 245 feet.",
-        "explanation": "RVSM-approved aircraft must maintain TVE within +/-245 ft. Exceeding that triggers a system inspection before returning to RVSM."
+        "term": "Plus or minus 245 feet",
+        "definition": "Plus or minus 245 feet.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "category": "RVSM TOLERANCES",
@@ -9349,9 +9560,10 @@
       "fullObjective": "Given a properly equipped and tested RVSM aircraft, identify the additional FAA authorization required before the operator may fly in RVSM airspace.",
       "targetSourceStem": "An aircraft owner wants to operate in RVSM airspace. The required equipment is installed and passes testing. What additional authorization is required?",
       "flashcard": {
-        "front": "What additional authorization is required to operate an RVSM-equipped aircraft in RVSM airspace?",
-        "back": "An aircraft-specific RVSM Letter of Authorization (LOA) issued by the FAA, or equivalent automatic authorization program enrollment.",
-        "explanation": "Equipment and testing alone are not sufficient; the operator needs an FAA LOA, and for part 91 aircraft with ADS-B Out compliance the current automatic authorization may apply."
+        "term": "An aircraft-specific RVSM Letter of Authorization",
+        "definition": "An aircraft-specific RVSM Letter of Authorization (LOA) issued by the FAA, or equivalent automatic authorization program enrollment.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "category": "RVSM AUTHORIZATION",
@@ -9412,9 +9624,10 @@
       "fullObjective": "Given a reported RVSM altitude deviation, identify the required corrective action before the aircraft is returned to RVSM operations.",
       "targetSourceStem": "A pilot reports an altitude deviation while operating in RVSM airspace. What is required before returning to RVSM operations?",
       "flashcard": {
-        "front": "What maintenance action is required after an RVSM altitude deviation before returning to RVSM operations?",
-        "back": "A system inspection performed in accordance with the approved RVSM maintenance data.",
-        "explanation": "An altitude deviation invalidates RVSM airworthiness until a system inspection per approved data confirms the altimetry system is within tolerance again."
+        "term": "A system inspection performed per the approved RVSM data",
+        "definition": "A system inspection performed in accordance with the approved RVSM maintenance data.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "category": "RVSM MAINTENANCE",
@@ -9475,9 +9688,10 @@
       "fullObjective": "Given an RVSM-certified aircraft, identify the source and typical interval for recurring RVSM certification testing.",
       "targetSourceStem": "How frequently must RVSM certification testing be performed?",
       "flashcard": {
-        "front": "How frequently must RVSM certification testing be performed?",
-        "back": "Per the OEM or STC holder RVSM maintenance data; the interval is typically 12 or 24 months.",
-        "explanation": "The aircraft-specific RVSM data package sets the interval, which may be 12 or 24 months depending on the design. 91.411 alone does not govern RVSM testing."
+        "term": "OEM or STC holder data, typically 12 or 24 months",
+        "definition": "Per the OEM or STC holder RVSM maintenance data; the interval is typically 12 or 24 months.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "category": "RVSM INTERVALS",
@@ -9538,9 +9752,10 @@
       "fullObjective": "Given both RVSM and standard 91.411 tolerance sets, identify which imposes tighter altimeter performance limits.",
       "targetSourceStem": "How do RVSM altimeter tolerances compare to standard 91.411 tolerances?",
       "flashcard": {
-        "front": "How do RVSM altimeter tolerances compare to standard 91.411 tolerances?",
-        "back": "RVSM tolerances are tighter than the standard 91.411 tolerances because 1,000-foot separation demands more precise altitude-keeping.",
-        "explanation": "RVSM was created on the basis that certified systems could maintain tighter altitude error than basic 91.411 systems, enabling 1,000 ft separation at altitude."
+        "term": "RVSM tolerances are tighter than 91.411 tolerances",
+        "definition": "RVSM tolerances are tighter than the standard 91.411 tolerances because 1,000-foot separation demands more precise altitude-keeping.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "category": "TOLERANCE COMPARISON",
@@ -9601,9 +9816,10 @@
       "fullObjective": "Given a wire gauge specification, identify the conductor physical property that the American Wire Gauge number represents.",
       "targetSourceStem": "The American Wire Gauge system assigns numbers to wire sizes. What physical property determines the AWG number?",
       "flashcard": {
-        "front": "What physical property of a conductor does the American Wire Gauge number represent?",
-        "back": "The conductor's cross-sectional area (circular-mil area).",
-        "explanation": "AWG is a dimensional standard tied to circular-mil cross-sectional area. Current capacity and resistance are consequences of the area, insulation, and length, not the defining property."
+        "term": "The cross-sectional area of the conductor",
+        "definition": "The conductor's cross-sectional area (circular-mil area).",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "category": "WIRE SIZING",
@@ -9664,9 +9880,10 @@
       "fullObjective": "Given a wire preparation task inside a crowded connector backshell, select the stripping tool that provides the most precise and damage-free insulation removal.",
       "targetSourceStem": "A technician needs to strip insulation for a termination inside a crowded connector backshell. Which tool provides the best precision?",
       "flashcard": {
-        "front": "Which stripping tool provides the best precision when stripping insulation inside a crowded connector backshell?",
-        "back": "A calibrated manual stripper with the correct die for the wire's gauge and insulation.",
-        "explanation": "Calibrated dies match AWG and insulation thickness, removing insulation cleanly without nicking strands. Self-adjusting and pliers-type strippers lack that precision for connector work."
+        "term": "A calibrated manual stripper with correct dies",
+        "definition": "A calibrated manual stripper with the correct die for the wire's gauge and insulation.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "category": "STRIPPING TOOLS",
@@ -9727,9 +9944,10 @@
       "fullObjective": "Given a new wire bundle routed near flight controls, identify the most critical pre-release verification to prevent interference.",
       "targetSourceStem": "Before securing a new wire bundle near flight controls, what is the most critical verification?",
       "flashcard": {
-        "front": "Before securing a wire bundle near flight controls, what is the most critical verification?",
-        "back": "Cycle the controls through their full range of travel and confirm the bundle never contacts moving surfaces.",
-        "explanation": "Clamp hardware, 1/2-inch spacing, and drip loops are all important, but none replace the regulatory requirement to prove no interference across the full control travel."
+        "term": "Cycle controls through full range with no bundle contact",
+        "definition": "Cycle the controls through their full range of travel and confirm the bundle never contacts moving surfaces.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "category": "INSTALLATION SAFETY",
@@ -9790,9 +10008,10 @@
       "fullObjective": "Given a bonding-jumper installation and a milliohm resistance reading, state the maximum acceptable resistance between a component and aircraft structure.",
       "targetSourceStem": "After installing a bonding jumper, the technician measures resistance from the component to aircraft structure. What is the maximum acceptable reading?",
       "flashcard": {
-        "front": "What is the maximum acceptable DC bonding resistance from a component to aircraft structure?",
-        "back": "0.003 ohm (3 milliohms).",
-        "explanation": "Industry practice and AC 43.13-1B specify bonding resistance of no more than 3 milliohms (0.003 ohm) to minimize voltage drops and lightning currents."
+        "term": "0.003 ohm (3 milliohms)",
+        "definition": "0.003 ohm (3 milliohms).",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "category": "BONDING",
@@ -9853,9 +10072,10 @@
       "fullObjective": "Given an LRU tray mounted on non-conductive rubber shock mounts, explain the electrical purpose served by the bonding jumper to structure.",
       "targetSourceStem": "An LRU tray is mounted on non-conductive rubber shock mounts. Why is a bonding jumper required between the tray and airframe?",
       "flashcard": {
-        "front": "Why is a bonding jumper required when an LRU tray uses non-conductive rubber shock mounts?",
-        "back": "The jumper completes the electrical ground path from the LRU chassis to the airframe.",
-        "explanation": "Rubber mounts electrically isolate the tray, so without a jumper the chassis has no ground reference and EMI/fault currents have no return path."
+        "term": "It completes the chassis ground path to the airframe",
+        "definition": "The jumper completes the electrical ground path from the LRU chassis to the airframe.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "category": "GROUNDING",
@@ -9916,9 +10136,10 @@
       "fullObjective": "Given a drawing prohibiting hot-stamp marking on Kapton-insulated wire, identify the failure mode the prohibition is intended to prevent.",
       "targetSourceStem": "The engineering drawing prohibits hot-stamp marking on Kapton insulated wire. What hazard does hot-stamping create on this material?",
       "flashcard": {
-        "front": "What hazard does hot-stamp marking create on Kapton-insulated wire?",
-        "back": "Micro-cracks in the polyimide insulation that can later propagate into arc tracking.",
-        "explanation": "Kapton polyimide is susceptible to arc tracking along micro-cracks. Drawings prohibit hot-stamping, relying on laser or ink-jet methods instead."
+        "term": "It creates micro-cracks that can lead to arc tracking",
+        "definition": "Micro-cracks in the polyimide insulation that can later propagate into arc tracking.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "category": "KAPTON HAZARDS",
@@ -9979,9 +10200,10 @@
       "fullObjective": "Given a COM-radio audio installation, select the wire type that best prevents hum and noise pickup on microphone and headphone lines.",
       "targetSourceStem": "What type of wire should be used for audio signals in a COM radio installation to prevent hum and noise?",
       "flashcard": {
-        "front": "What wire type should be used for COM-radio audio signals to prevent hum and noise?",
-        "back": "Shielded audio cable, with the shield grounded at a single point per drawing.",
-        "explanation": "Shielded audio cable rejects electric-field coupling that causes hum. Coax is used for RF, not audio. Unshielded pairs are vulnerable to aircraft EMI sources."
+        "term": "Shielded audio cable",
+        "definition": "Shielded audio cable, with the shield grounded at a single point per drawing.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "category": "AUDIO WIRING",
@@ -10042,9 +10264,10 @@
       "fullObjective": "Given a wire bundle that requires multiple in-line splices, apply the correct positioning rule to prevent bulges and mechanical stress.",
       "targetSourceStem": "A wire harness requires multiple splices due to wire length limitations. How should the splice locations be arranged within the bundle?",
       "flashcard": {
-        "front": "How should multiple in-bundle splices be positioned along a harness?",
-        "back": "Staggered along the run so no two splices line up at the same cross-section.",
-        "explanation": "Staggered splices avoid a thick hump in the bundle, keep clamping and sleeving easier, and reduce chafe risk. Grouping or centering splices creates stress concentrations."
+        "term": "Staggered along the run to prevent a bulge",
+        "definition": "Staggered along the run so no two splices line up at the same cross-section.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "category": "SPLICE LAYOUT",
@@ -10105,9 +10328,10 @@
       "fullObjective": "Given a wire marking requirement from AC 43.13-1B, state the maximum allowable distance between identification markings on a continuous wire run.",
       "targetSourceStem": "According to AC 43.13-1B, what is the maximum distance between wire identification markings along a wire run?",
       "flashcard": {
-        "front": "Per AC 43.13-1B, what is the maximum interval between wire identification markings?",
-        "back": "15 inches between consecutive markings.",
-        "explanation": "AC 43.13-1B recommends markings at intervals not greater than 15 inches along a wire run, ensuring positive identification during maintenance."
+        "term": "15 inches between markings",
+        "definition": "15 inches between consecutive markings.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "category": "WIRE MARKING",
@@ -10168,9 +10392,10 @@
       "fullObjective": "Given a wire harness that must pass through a pressurized bulkhead, select the connector type that preserves cabin pressure at the penetration.",
       "targetSourceStem": "A wire harness passes through a pressurized bulkhead. What type of connector maintains cabin pressure at the penetration?",
       "flashcard": {
-        "front": "What type of connector maintains cabin pressure when a wire harness passes through a pressurized bulkhead?",
-        "back": "A pressure-seal feedthrough connector, often with hermetic seals around each contact.",
-        "explanation": "Ring terminals, butt splices, and D-sub connectors do not seal against pressure. A pressure-seal feedthrough is specifically rated for the pressure differential."
+        "term": "A pressure-seal feedthrough connector",
+        "definition": "A pressure-seal feedthrough connector, often with hermetic seals around each contact.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "category": "PRESSURIZED BULKHEADS",
@@ -10231,9 +10456,10 @@
       "fullObjective": "Given a description of aircraft configuration data stored in an EEPROM device integrated into the wiring harness, identify the industry name for this device.",
       "targetSourceStem": "Aircraft configuration data is stored in an EEPROM device in the wiring harness. What is this device called?",
       "flashcard": {
-        "front": "What is the harness-mounted EEPROM device that stores aircraft configuration data called?",
-        "back": "A configuration module.",
-        "explanation": "The configuration module holds aircraft-unique data so LRUs can be swapped without reprogramming. It is a passive EEPROM in the harness, often near an LRU connector."
+        "term": "A configuration module",
+        "definition": "A configuration module.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "category": "HARNESS COMPONENTS",
@@ -10294,9 +10520,10 @@
       "fullObjective": "Given a list of aircraft locations, identify the one classified as a SWAMP area requiring special wire and harness protection against moisture and contaminants.",
       "targetSourceStem": "Which aircraft location is designated as a SWAMP area requiring special wire protection?",
       "flashcard": {
-        "front": "Which aircraft location is classified as a SWAMP area requiring special wire protection?",
-        "back": "The main wheel well area, due to water, mud, hydraulic fluid, and de-ice residue.",
-        "explanation": "SWAMP areas are Severely exposed to Water, chemicals, and Mechanical damage. Wheel wells and bilges qualify; pressurized avionics bays do not."
+        "term": "The main wheel well area",
+        "definition": "The main wheel well area, due to water, mud, hydraulic fluid, and de-ice residue.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "category": "SWAMP AREAS",
@@ -10357,9 +10584,10 @@
       "fullObjective": "Given a magnetometer installation near other aircraft harnesses, select the wiring technique that best minimizes magnetic interference coupling into the sensor.",
       "targetSourceStem": "What wiring technique minimizes magnetic interference near a magnetometer installation?",
       "flashcard": {
-        "front": "Which wiring technique minimizes magnetic interference near a magnetometer?",
-        "back": "Configure the sensor and power wires as shielded twisted pairs.",
-        "explanation": "Twisted pairs cancel magnetic fields; shielding adds electric-field rejection. Rigid conduit can introduce ferrous distortion, and same-gauge rules do not address the issue."
+        "term": "Use shielded twisted pair wires",
+        "definition": "Configure the sensor and power wires as shielded twisted pairs.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "category": "MAGNETIC INTERFERENCE",
@@ -10420,9 +10648,10 @@
       "fullObjective": "Given a circuit with voltage present at the breaker output but not at the LRU connector, identify the most likely installation error.",
       "targetSourceStem": "After harness installation, no voltage is present at the LRU connector with the circuit breaker engaged. Voltage is correct at the breaker output. What is the likely error?",
       "flashcard": {
-        "front": "Voltage is correct at the breaker output but missing at the LRU connector. What is the most likely installation error?",
-        "back": "A connector pin that is not seated, or the wire inserted into the wrong cavity.",
-        "explanation": "Pin-seating and wrong-cavity errors are the most common harness fabrication issues that break continuity when breaker-side voltage is correct."
+        "term": "The connector pin is not seated or is in the wrong cavity",
+        "definition": "A connector pin that is not seated, or the wire inserted into the wrong cavity.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "category": "TROUBLESHOOTING",
@@ -10483,9 +10712,10 @@
       "fullObjective": "Given the choice between stranded and solid conductors of the same gauge, identify the primary reason stranded is specified in aircraft installations.",
       "targetSourceStem": "Aircraft power wires use stranded construction rather than solid conductors of the same gauge. What is the primary reason for using stranded wire?",
       "flashcard": {
-        "front": "Why is stranded wire specified for aircraft power circuits instead of solid wire?",
-        "back": "Stranded construction provides flexibility for routing and tolerates aircraft vibration without fatigue failures.",
-        "explanation": "At the same AWG, stranded and solid have similar DC resistance and ampacity, but stranded survives flex and vibration. Solid wire work-hardens and fails."
+        "term": "To provide flexibility for routing and vibration tolerance",
+        "definition": "Stranded construction provides flexibility for routing and tolerates aircraft vibration without fatigue failures.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "category": "CONDUCTOR CONSTRUCTION",
@@ -10546,9 +10776,10 @@
       "fullObjective": "Given a bonding-jumper installation to aircraft structure, identify the surface preparation step that is most critical to achieve low resistance.",
       "targetSourceStem": "What is the most important surface preparation step before installing a bonding jumper to aircraft structure?",
       "flashcard": {
-        "front": "What is the most important surface preparation step before installing a bonding jumper to structure?",
-        "back": "Remove all paint and primer down to bare metal at the contact area.",
-        "explanation": "Paint and primer are insulators. Bonding works only on bright, bare metal. Grease, roughening, and hole-drilling do not replace paint removal."
+        "term": "Remove all paint and primer at the contact area",
+        "definition": "Remove all paint and primer down to bare metal at the contact area.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "category": "BONDING PREP",
@@ -10609,9 +10840,10 @@
       "fullObjective": "Given a wiring diagram symbol consisting of a downward-pointing triangle with a horizontal line, identify the type of electrical connection the symbol represents.",
       "targetSourceStem": "On an aircraft wiring diagram, a triangle pointing down with a horizontal line represents what type of electrical connection?",
       "flashcard": {
-        "front": "On an aircraft wiring diagram, what does a downward triangle with a horizontal line represent?",
-        "back": "An airframe structure ground point.",
-        "explanation": "The triangle-and-bar symbol is the airframe chassis ground. Signal references and battery negative points use distinct symbols."
+        "term": "Airframe structure ground point",
+        "definition": "An airframe structure ground point.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "category": "WIRING DIAGRAMS",
@@ -10672,9 +10904,10 @@
       "fullObjective": "Given an ADS-B FAIL annunciation after engine start and a transponder that still replies to ground interrogation, identify the most likely root cause.",
       "targetSourceStem": "An aircraft equipped with ADS-B Out shows 'ADS-B FAIL' after engine start. The transponder replies normally to ground interrogation. What is the most likely cause?",
       "flashcard": {
-        "front": "ADS-B FAIL is shown but the transponder still replies to ground interrogation. What is the most likely cause?",
-        "back": "The GPS position source is invalid or not being received by the transponder.",
-        "explanation": "ADS-B Out requires a valid position source meeting NIC/NAC. A Mode S transponder can still reply to interrogation without GPS, which explains the asymmetry."
+        "term": "The GPS position source is invalid or not being received",
+        "definition": "The GPS position source is invalid or not being received by the transponder.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "category": "ADS-B TROUBLESHOOTING",
@@ -10735,9 +10968,10 @@
       "fullObjective": "Given a TCAS installation, explain the role of the configured maximum cruise speed in collision avoidance advisories.",
       "targetSourceStem": "During TCAS installation, the technician must configure the transponder for the aircraft's maximum cruise speed. Why is this parameter critical?",
       "flashcard": {
-        "front": "Why must the aircraft's maximum cruise speed be configured during a TCAS installation?",
-        "back": "It sets the collision avoidance resolution advisory thresholds for that aircraft's closing rates.",
-        "explanation": "TCAS scales tau-based thresholds to aircraft performance. Wrong max speed skews RA timing, not reply timing or squawk code assignment."
+        "term": "It sets the resolution advisory thresholds",
+        "definition": "It sets the collision avoidance resolution advisory thresholds for that aircraft's closing rates.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "category": "TCAS SETUP",
@@ -10798,9 +11032,10 @@
       "fullObjective": "Given a TCAS display that loses targets at close range while the transponder tests normally, identify the installation element to investigate.",
       "targetSourceStem": "A pilot reports TCAS shows traffic but the targets disappear when the other aircraft gets within 5 miles. The transponder tests normal. What should the technician investigate?",
       "flashcard": {
-        "front": "TCAS targets disappear inside 5 miles while the transponder tests normal. What should be investigated?",
-        "back": "The TCAS directional antenna pattern and its installation location on the airframe.",
-        "explanation": "Targets dropping out at close range typically indicate a null or shadowed region in the directional antenna pattern, often due to poor mounting or nearby structures."
+        "term": "The TCAS antenna pattern and installation location",
+        "definition": "The TCAS directional antenna pattern and its installation location on the airframe.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "category": "TCAS ANTENNAS",
@@ -10861,9 +11096,10 @@
       "fullObjective": "Given an aircraft with inoperative ADS-B Out intending to operate in ADS-B mandated airspace, identify the regulatory requirement imposed on the pilot.",
       "targetSourceStem": "What is the consequence of operating in ADS-B mandated airspace with ADS-B Out inoperative?",
       "flashcard": {
-        "front": "What must a pilot do to operate in ADS-B mandated airspace with inoperative ADS-B Out?",
-        "back": "Request an ATC deviation authorization in advance and operate as authorized.",
-        "explanation": "ATC deviation requests are required for non-equipped or inoperative ADS-B Out operations in mandated airspace. Squawking 7600 is for lost communication, not ADS-B."
+        "term": "Request a deviation authorization from ATC",
+        "definition": "Request an ATC deviation authorization in advance and operate as authorized.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "category": "ADS-B REGULATIONS",
@@ -10924,9 +11160,10 @@
       "fullObjective": "Given a GPS receiver replacement that causes ADS-B Out position accuracy to fail 14 CFR 91.227, identify the ADS-B parameter the technician must verify.",
       "targetSourceStem": "After a GPS receiver replacement, ADS-B Out position accuracy fails the 14 CFR 91.227 requirement. What parameter must the technician verify?",
       "flashcard": {
-        "front": "Which ADS-B parameter must be verified when a GPS replacement fails 14 CFR 91.227 position accuracy?",
-        "back": "The NACp (Navigation Accuracy Category for position) value reported by ADS-B Out.",
-        "explanation": "91.227 sets NACp, NIC, SIL, and SDA minimums. NACp is the metric for position accuracy and must be verified after a position-source change."
+        "term": "ADS-B Navigation Accuracy (NACp)",
+        "definition": "The NACp (Navigation Accuracy Category for position) value reported by ADS-B Out.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "category": "ADS-B PARAMETERS",
@@ -10987,9 +11224,10 @@
       "fullObjective": "Given a TCAS II CLIMB Resolution Advisory when the aircraft is already at its service ceiling, identify the pilot's required action per TCAS procedures.",
       "targetSourceStem": "A TCAS II system displays a Resolution Advisory commanding 'CLIMB' but the aircraft is already at its service ceiling. What should the pilot do?",
       "flashcard": {
-        "front": "What is the pilot action when a TCAS II CLIMB RA is issued at the aircraft's service ceiling?",
-        "back": "Adjust the RA response to level flight if the aircraft cannot safely climb beyond service ceiling.",
-        "explanation": "TCAS procedures accept a reduced response when performance prevents compliance. Ignoring the RA or disconnecting TCAS is not correct."
+        "term": "Adjust the RA response to level flight",
+        "definition": "Adjust the RA response to level flight if the aircraft cannot safely climb beyond service ceiling.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "category": "TCAS PROCEDURES",
@@ -11050,9 +11288,10 @@
       "fullObjective": "Given an ADS-B test-set report of a 300-ft altitude error while the transponder uses the air data computer, identify the subsystems that must be checked.",
       "targetSourceStem": "During ADS-B ground test, the test set shows correct position but altitude is reading 300 feet high. The transponder altitude source is the air data computer. What should be checked?",
       "flashcard": {
-        "front": "ADS-B shows correct position but altitude 300 ft high with an ADC altitude source. What should be checked?",
-        "back": "The ADC static source integrity and the encoding altimeter calibration feeding the transponder.",
-        "explanation": "Transponder altitude errors with good position isolate to the static system and altitude encoder, not the transmitter, GPS antenna, or TCAS orientation."
+        "term": "The ADC static source and encoding altimeter calibration",
+        "definition": "The ADC static source integrity and the encoding altimeter calibration feeding the transponder.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "category": "ADS-B ALTITUDE",
@@ -11113,9 +11352,10 @@
       "fullObjective": "Given a TCAS traffic display, identify the signal source that provides bearing and range to the intruder aircraft.",
       "targetSourceStem": "What traffic source provides TCAS with bearing and range to intruder aircraft?",
       "flashcard": {
-        "front": "What traffic source provides TCAS with bearing and range to intruder aircraft?",
-        "back": "Active transponder interrogation and the reply timing and direction received by the TCAS processor.",
-        "explanation": "TCAS interrogates nearby transponders and uses reply timing for range and directional antenna data for bearing. ADS-B In and ground radar are supplemental, not TCAS core."
+        "term": "Transponder interrogation and reply timing",
+        "definition": "Active transponder interrogation and the reply timing and direction received by the TCAS processor.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "category": "TCAS SOURCES",
@@ -11176,9 +11416,10 @@
       "fullObjective": "Given a completed pitot-static certification test, identify the aircraft document that must be completed to return the aircraft to service.",
       "targetSourceStem": "After completing a pitot-static system certification test, which document must the technician complete to return the aircraft to service?",
       "flashcard": {
-        "front": "Which document returns an aircraft to service after pitot-static certification?",
-        "back": "An aircraft logbook entry containing the test data and the RTS approval signature.",
-        "explanation": "Pitot-static certification is not a major alteration; it is returned to service with a maintenance logbook entry per Part 43, not Form 337."
+        "term": "A logbook entry with test data and approval",
+        "definition": "An aircraft logbook entry containing the test data and the RTS approval signature.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "category": "RTS DOCUMENTATION",
@@ -11239,9 +11480,10 @@
       "fullObjective": "Given an identical VHF COM radio replacement, identify the documentation required to return the aircraft to service.",
       "targetSourceStem": "A technician replaces a VHF COM radio with an identical part number unit. What documentation is required?",
       "flashcard": {
-        "front": "What documentation is required when a VHF COM radio is replaced with an identical part number unit?",
-        "back": "A maintenance logbook entry for the work performed under Part 43.",
-        "explanation": "Identical part-number replacement is maintenance, not a major alteration; Form 337 is not required. STC holder approval and FSDO sign-off are not applicable."
+        "term": "A maintenance logbook entry for the work",
+        "definition": "A maintenance logbook entry for the work performed under Part 43.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "category": "AVIONICS REPLACEMENT",
@@ -11302,9 +11544,10 @@
       "fullObjective": "Given avionics maintenance scenarios, identify the condition that triggers the requirement to complete an FAA Form 337.",
       "targetSourceStem": "When must an FAA Form 337 be completed for avionics work?",
       "flashcard": {
-        "front": "When must an FAA Form 337 be completed for avionics work?",
-        "back": "When the work constitutes a major alteration to aircraft type design.",
-        "explanation": "Form 337 is required for major alterations and major repairs. Radio swaps, Part 145 maintenance, and component repairs do not automatically require a 337."
+        "term": "When it is a major alteration to aircraft type design",
+        "definition": "When the work constitutes a major alteration to aircraft type design.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "category": "FAA FORMS",
@@ -11365,9 +11608,10 @@
       "fullObjective": "Given a completed STC autopilot installation where all paperwork is correct, identify who signs the aircraft logbook returning the aircraft to service.",
       "targetSourceStem": "A technician completes installation of a new autopilot under an STC. The work order references the STC number and all documents are complete. Who signs the aircraft logbook returning it to service?",
       "flashcard": {
-        "front": "Who signs the logbook returning the aircraft to service after an STC autopilot installation?",
-        "back": "The technician who performed the work, with proper authorization (A&P or Part 145 certifying staff).",
-        "explanation": "Under Part 43, the certifying technician signs the RTS. An IA is not required simply because an STC was used; major alterations do need IA sign-off on Form 337, not the logbook RTS."
+        "term": "The technician who performed the work",
+        "definition": "The technician who performed the work, with proper authorization (A&P or Part 145 certifying staff).",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "category": "RTS SIGNATURES",
@@ -11428,9 +11672,10 @@
       "fullObjective": "Given a troubleshooting effort that replaced three LRUs before finding the fault, identify the correct documentation practice in the work order.",
       "targetSourceStem": "During troubleshooting, a technician replaces three LRUs before finding the fault. How should this be documented in the work order?",
       "flashcard": {
-        "front": "A technician replaced three LRUs before finding the real fault. How should this be documented in the work order?",
-        "back": "List all replaced components and the troubleshooting steps taken during the process.",
-        "explanation": "Complete documentation supports traceability, warranty, and future troubleshooting. Hiding interim replacements is not acceptable."
+        "term": "List every component replaced and the troubleshooting steps taken",
+        "definition": "List all replaced components and the troubleshooting steps taken during the process.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "category": "WORK ORDERS",
@@ -11491,9 +11736,10 @@
       "fullObjective": "Given an FMS navigation database update, identify the first verification the technician must perform before loading the database.",
       "targetSourceStem": "Before loading a navigation database update into an FMS, what must the technician verify first?",
       "flashcard": {
-        "front": "What must the technician verify first before loading a navigation database update into an FMS?",
-        "back": "That the database effective date matches the current AIRAC cycle for the intended service window.",
-        "explanation": "AIRAC effectivity is the threshold check. Flight recency, autopilot self-test, and display power-state are not prerequisites for a nav-database load."
+        "term": "The database effective date matches the current AIRAC cycle",
+        "definition": "That the database effective date matches the current AIRAC cycle for the intended service window.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "category": "DATABASE LOADING",
@@ -11554,9 +11800,10 @@
       "fullObjective": "Given an avionics software load that fails at 80 percent and displays INVALID, identify the correct recovery action.",
       "targetSourceStem": "A technician is updating avionics software using a data loader. The upload fails at 80% and the unit displays 'INVALID'. What is the correct recovery action?",
       "flashcard": {
-        "front": "A software load fails at 80% with an INVALID message. What is the correct recovery action?",
-        "back": "Cycle the unit's power and attempt the load again per the maintenance manual.",
-        "explanation": "Power-cycle and retry is the documented recovery. Unit return, rollback, and flying with invalid software are not acceptable initial actions."
+        "term": "Power cycle the unit and attempt the load again",
+        "definition": "Cycle the unit's power and attempt the load again per the maintenance manual.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "category": "LOAD RECOVERY",
@@ -11617,9 +11864,10 @@
       "fullObjective": "Given an integrated avionics software load, identify the step taken before loading to prevent data loss.",
       "targetSourceStem": "Before performing any software load on integrated avionics, what step should the technician always perform to prevent data loss?",
       "flashcard": {
-        "front": "What pre-load step prevents data loss during integrated avionics software updates?",
-        "back": "Export and save the current configuration to an external medium before starting the load.",
-        "explanation": "Saving configuration protects pilot-entered preferences and aircraft-specific data if the load resets them. Battery disconnect and brightness-note are not appropriate steps."
+        "term": "Export and save the current configuration",
+        "definition": "Export and save the current configuration to an external medium before starting the load.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "category": "PRE-LOAD PROTECTION",
@@ -11680,9 +11928,10 @@
       "fullObjective": "Given an FMS software load requiring a compatible hardware configuration part number, identify where that part number is documented.",
       "targetSourceStem": "An FMS software load requires 'compatible hardware configuration part number'. Where is this information found?",
       "flashcard": {
-        "front": "Where is the FMS 'compatible hardware configuration part number' documented?",
-        "back": "In the aircraft equipment list or on the FMS data plate.",
-        "explanation": "Compatibility is aircraft-specific and lives on the equipment list or the LRU data plate. The operating manual, database header, and POH limitations do not carry this configuration number."
+        "term": "On the aircraft equipment list or the FMS data plate",
+        "definition": "In the aircraft equipment list or on the FMS data plate.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "category": "HARDWARE COMPATIBILITY",
@@ -11743,9 +11992,10 @@
       "fullObjective": "Given a completed display-unit software load, identify the verification required before the aircraft returns to service.",
       "targetSourceStem": "After loading updated software on a display unit, what verification is required before returning to service?",
       "flashcard": {
-        "front": "What verification must be completed before returning a display unit to service after a software update?",
-        "back": "An operational test performed in accordance with the maintenance manual procedures.",
-        "explanation": "The operational test in the maintenance manual is the required post-load verification. Flight test, manufacturer certification, and FSDO approval are not standard RTS steps."
+        "term": "An operational test per the maintenance manual procedures",
+        "definition": "An operational test performed in accordance with the maintenance manual procedures.",
+        "analogy": "",
+        "unit": ""
       },
       "jeopardy": {
         "category": "POST-LOAD VERIFICATION",
