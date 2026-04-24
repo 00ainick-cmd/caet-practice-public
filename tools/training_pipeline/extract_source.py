@@ -24,9 +24,12 @@ def extract(docx_path):
 
         # Identify major sections
         if "Heading 1" in style:
-            if text.startswith("Section"):
+            if text.startswith("Section") or text.startswith("Exam Study Module"):
                 result["title"] = text
-                section = "intro"
+                # PQS Training modules have explicit "Knowledge Requirements" / "Task Preparation"
+                # sub-H1s later. Exam Study Modules have a flat structure with just H2 topical
+                # subsections — default them into knowledge so H2 bodies get captured.
+                section = "knowledge" if "Exam Study Module" in text else "intro"
             elif "Knowledge Requirements" in text:
                 section = "knowledge"
             elif "Task Preparation" in text:
