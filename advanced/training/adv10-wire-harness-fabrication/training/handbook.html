@@ -1,90 +1,652 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Section 4: Wire Harness Fabrication & Testing | CAET Advanced Handbook</title>
-<link rel="stylesheet" href="../../../../shared/ace-theme.css">
 <style>
-body { font-family: 'Inter', sans-serif; max-width: 880px; margin: 0 auto;
-       padding: 40px 24px; background: #080C1A; color: var(--text-primary); line-height: 1.6; }
-h1 { color: var(--gold); border-bottom: 2px solid var(--gold); padding-bottom: 8px; }
-h2 { color: #22d3ee; margin-top: 2em; }
-.callout { background: rgba(212,168,83,0.1); border-left: 4px solid var(--gold);
-           padding: 16px 20px; margin: 20px 0; border-radius: 6px; }
-.mistakes { background: rgba(239,68,68,0.08); border-left: 4px solid #ef4444;
-            padding: 16px 20px; margin: 20px 0; border-radius: 6px; }
-.quiz { background: rgba(34,211,238,0.08); border-left: 4px solid #22d3ee;
-        padding: 20px 24px; margin: 24px 0; border-radius: 6px; }
-.toc { background: rgba(255,255,255,0.05); padding: 20px 24px; border-radius: 8px; }
-.page-break { page-break-after: always; }
-@media print { body { background: white; color: black; } }
+  /* Light-theme study document — optimized for reading on screen AND print. */
+  :root {
+    --ink: #1a2332;
+    --ink-soft: #4a5568;
+    --paper: #fbfaf5;
+    --paper-accent: #f5f2e8;
+    --rule: #d8d3c3;
+    --navy: #0a2540;
+    --gold: #8b6914;
+    --gold-soft: #f4ead0;
+    --red: #8b1a1a;
+    --red-soft: #fbe9e7;
+    --green: #1b4332;
+    --green-soft: #e7f0e5;
+    --cyan: #0e4a6e;
+    --cyan-soft: #e4f1f8;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--ink);
+    background: var(--paper);
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 56px 48px 80px;
+  }
+  header.cover {
+    border-bottom: 3px double var(--navy);
+    padding-bottom: 24px;
+    margin-bottom: 40px;
+  }
+  .eyebrow {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    letter-spacing: 3px;
+    font-size: 11px;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 700;
+  }
+  h1 {
+    font-family: Georgia, serif;
+    font-size: 34px;
+    line-height: 1.2;
+    color: var(--navy);
+    margin: 8px 0 12px;
+    font-weight: 700;
+  }
+  .subtitle {
+    font-size: 15px;
+    color: var(--ink-soft);
+    font-style: italic;
+    margin: 0;
+  }
+  h2 {
+    font-family: Georgia, serif;
+    font-size: 24px;
+    color: var(--navy);
+    margin: 56px 0 12px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--rule);
+  }
+  h3 {
+    font-family: Georgia, serif;
+    font-size: 19px;
+    color: var(--navy);
+    margin: 32px 0 10px;
+  }
+  h4 {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin: 20px 0 8px;
+    font-weight: 700;
+  }
+  p { margin: 0 0 16px; }
+  ul, ol { margin: 0 0 18px; padding-left: 24px; }
+  li { margin-bottom: 8px; }
+  .toc {
+    background: var(--paper-accent);
+    border-left: 4px solid var(--gold);
+    padding: 24px 32px;
+    border-radius: 2px;
+    margin: 24px 0 40px;
+  }
+  .toc h2 { margin-top: 0; border: none; font-size: 18px; color: var(--gold); letter-spacing: 2px; text-transform: uppercase; font-family: 'Helvetica Neue', Arial, sans-serif; }
+  .toc ol { columns: 2; column-gap: 32px; font-size: 14px; }
+  .toc li { margin-bottom: 4px; break-inside: avoid; }
+  .toc a { color: var(--navy); text-decoration: none; }
+  .toc a:hover { text-decoration: underline; color: var(--gold); }
+  blockquote.why {
+    font-size: 17px;
+    font-family: Georgia, serif;
+    font-style: italic;
+    color: var(--navy);
+    background: var(--gold-soft);
+    border-left: 4px solid var(--gold);
+    padding: 24px 32px;
+    margin: 24px 0;
+    border-radius: 2px;
+  }
+  blockquote.why p { margin: 0 0 12px; }
+  blockquote.why p:last-child { margin-bottom: 0; }
+  .callout {
+    padding: 16px 22px;
+    margin: 18px 0;
+    border-left: 4px solid var(--cyan);
+    background: var(--cyan-soft);
+    border-radius: 2px;
+    font-size: 15px;
+  }
+  .callout.watching { border-left-color: var(--green); background: var(--green-soft); }
+  .callout.mistakes { border-left-color: var(--red); background: var(--red-soft); }
+  .callout.theory   { border-left-color: var(--gold); background: var(--gold-soft); }
+  .callout strong { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 6px; }
+  .callout.watching strong { color: var(--green); }
+  .callout.mistakes strong { color: var(--red); }
+  .callout.theory   strong { color: var(--gold); }
+  .callout.info     strong { color: var(--cyan); }
+  .key-points { margin: 12px 0 20px; padding-left: 20px; }
+  .key-points li { margin-bottom: 10px; line-height: 1.55; }
+  dl.glossary { margin: 20px 0; }
+  dl.glossary dt { font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 700; color: var(--navy); margin-top: 14px; font-size: 15px; }
+  dl.glossary dd { margin: 4px 0 0 0; padding-left: 0; font-size: 14.5px; line-height: 1.55; color: var(--ink); }
+  .steps { counter-reset: step; padding-left: 0; list-style: none; }
+  .steps li { counter-increment: step; padding-left: 44px; position: relative; margin-bottom: 14px; line-height: 1.55; }
+  .steps li::before {
+    content: counter(step);
+    position: absolute; left: 0; top: -2px;
+    width: 30px; height: 30px; border-radius: 50%;
+    background: var(--navy); color: white;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 700; font-size: 13px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .quiz {
+    background: var(--cyan-soft);
+    border-left: 4px solid var(--cyan);
+    padding: 24px 32px;
+    margin: 24px 0;
+    border-radius: 2px;
+  }
+  .quiz h3 { margin-top: 0; color: var(--cyan); }
+  .quiz ol { margin: 12px 0 0 0; padding-left: 22px; }
+  .quiz li { margin-bottom: 14px; }
+  .answer-key details {
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    padding: 12px 18px;
+    margin-bottom: 10px;
+    background: var(--paper);
+  }
+  .answer-key summary { font-weight: 700; cursor: pointer; color: var(--navy); font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 14px; }
+  .answer-key details[open] summary { margin-bottom: 10px; border-bottom: 1px solid var(--rule); padding-bottom: 6px; }
+  .answer-key p { margin-top: 10px; font-size: 14.5px; line-height: 1.6; }
+  .crosswalk {
+    background: var(--paper-accent);
+    padding: 18px 24px;
+    border-radius: 2px;
+    border: 1px solid var(--rule);
+    margin: 24px 0;
+    font-size: 14.5px;
+    color: var(--ink-soft);
+  }
+  footer {
+    margin-top: 64px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 12px;
+    color: var(--ink-soft);
+    text-align: center;
+  }
+  .section-marker {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--gold); font-weight: 700;
+    margin: 48px 0 0;
+  }
+  @media print {
+    body { padding: 0.6in 0.75in; background: white; font-size: 11pt; max-width: none; }
+    h1 { font-size: 24pt; }
+    h2 { font-size: 16pt; page-break-after: avoid; }
+    h3 { page-break-after: avoid; }
+    .callout, blockquote.why { page-break-inside: avoid; }
+    .toc { page-break-after: always; }
+    details { page-break-inside: avoid; }
+    details[open] > summary ~ * { display: block !important; }
+    .answer-key details { border: none; }
+    a { color: var(--navy); text-decoration: none; }
+  }
 </style>
 </head>
 <body>
-<h1>Section 4: Wire Harness Fabrication & Testing</h1>
-<p><em>CAET Advanced Certification — Student Handbook</em></p>
 
-<div class="toc">
-<h2>Table of Contents</h2>
-<ol>
-<li>Why This Matters</li>
-<li>4.2.1 — Wire Types</li><li>4.2.2–4.2.3 — Crimp and Shield Termination</li><li>4.2.8–4.2.9 — Multimeter and Megohmmeter</li>
-<li>Task 4.4.1 — Harness Fabrication</li><li>Task 4.4.2 — Crimp Technique</li><li>Task 4.4.3 — Wire Bundling</li><li>Task 4.4.4 — Continuity Check</li><li>Task 4.4.5 — Insulation Resistance (Megger) Test</li><li>Task 4.4.6 — Fault Finding</li>
-<li>Self-Check Quick Quiz</li>
-</ol>
-</div>
+<header class="cover">
+  <div class="eyebrow">CAET Advanced Certification · Student Handbook</div>
+  <h1>Section 4: Wire Harness Fabrication & Testing</h1>
+  <p class="subtitle">Aircraft Electronics Association · Workforce Development Division</p>
+</header>
 
-<div class="page-break"></div>
+<nav class="toc">
+  <h2>Contents</h2>
+  <ol>
+    <li><a href="#why">Why This Matters</a></li>
+    <li><a href="#terms">Key Terms &amp; Definitions</a></li>
+    <li><a href="#kr-1">4.2.1 — Wire Types</a></li><li><a href="#kr-2">4.2.2–4.2.3 — Crimp and Shield Termination</a></li><li><a href="#kr-3">4.2.8–4.2.9 — Multimeter and Megohmmeter</a></li>
+    <li><a href="#task-1">Task 4.4.1 — Harness Fabrication</a></li><li><a href="#task-2">Task 4.4.2 — Crimp Technique</a></li><li><a href="#task-3">Task 4.4.3 — Wire Bundling</a></li><li><a href="#task-4">Task 4.4.4 — Continuity Check</a></li><li><a href="#task-5">Task 4.4.5 — Insulation Resistance (Megger) Test</a></li><li><a href="#task-6">Task 4.4.6 — Fault Finding</a></li>
+    <li><a href="#quiz">Self-Check &amp; Oral Board Practice</a></li>
+    <li><a href="#crosswalk">Written Exam Crosswalk</a></li>
+  </ol>
+</nav>
 
-<h2>1. Why This Matters</h2>
-<p>This is the most hands-on section of the CAET Advanced PQS. Your evaluator watches you build, crimp, terminate, bundle, and test. There is no way to talk your way through this one—you either have the bench skills or you do not. The six tasks progress from fabrication through testing to fault-finding, and each must meet AC 43.13-1B standards under evaluator observation.</p>
+<section id="why">
+  <div class="section-marker">Part I — Orientation</div>
+  <h2>Why This Matters</h2>
+  
+  <blockquote class="why"><p>Wire harnesses are the central nervous system of an aircraft. Every control signal, every engine parameter, every navigation fix, and every warning light depends on current flowing through a bundle of copper conductors you built with your own hands. When an avionics technician builds a harness incorrectly, the aircraft does not fail loudly on the first flight. It fails quietly, intermittently, on the forty-seventh flight, at night, in weather, when the crew is already task-saturated. That is the cost of a chafed wire, a cold crimp, or a shield that was never bonded.</p></blockquote>
+  
+  <blockquote class="why"><p>The NTSB docket is full of accidents traced back to wiring workmanship. Swissair 111 (1998) lost control of the cabin due to arcing from an in-flight entertainment wiring bundle that was not properly separated, clamped, or fused. TWA 800 (1996) center-fuel-tank explosion investigations identified cracked and chafed wires that allowed a spark into a fuel-vapor environment. Every one of these accidents started with a harness built by a technician who thought "close enough" was good enough. It never is.</p></blockquote>
+  
+  <blockquote class="why"><p>Your work on this module is not about memorizing steps. It is about developing the discipline of a craftsperson: the right die for the right terminal, the right strip length for the right gauge, the right tie spacing for the right application, and the right test instrument for the right fault. The evaluator is not grading your speed. The evaluator is grading whether you can be trusted to build a harness that will still be working when the aircraft is thirty years old.</p></blockquote>
+  
+  
+  <h4>From the PQS Source</h4>
+  <p>This is the most hands-on section of the CAET Advanced PQS. Your evaluator watches you build, crimp, terminate, bundle, and test. There is no way to talk your way through this one—you either have the bench skills or you do not. The six tasks progress from fabrication through testing to fault-finding, and each must meet AC 43.13-1B standards under evaluator observation.</p>
+  
+</section>
+
+<section id="terms">
+  <h2>Key Terms &amp; Definitions</h2>
+  <p>Master this vocabulary before continuing. The evaluator expects you to use these terms correctly in the oral board.</p>
+  <dl class="glossary">
+    
+    <dt>Ampacity</dt>
+    <dd>The maximum current a conductor can carry continuously without exceeding its temperature rating. Determined by wire gauge, insulation type, and bundle density. A 22-gauge wire alone is rated ~5 A; the same wire in a tight bundle of 15 conductors derates to ~3 A.</dd>
+    
+    <dt>Bonding</dt>
+    <dd>The intentional electrical connection between two metallic objects to ensure they remain at the same potential, preventing static buildup and providing a low-impedance return path for fault current. Bonding straps use braided copper and are never painted over.</dd>
+    
+    <dt>Chafe</dt>
+    <dd>Abrasion of wire insulation caused by contact with a structure, another wire, or a moving component. Chafe is the leading cause of in-flight arc faults. Prevent with proper clamping, grommets, and service loops.</dd>
+    
+    <dt>Cold Crimp</dt>
+    <dd>A crimp that appears complete visually but has not fully compressed the terminal barrel around the wire strands, resulting in a high-resistance connection. Usually caused by undersized die or ratchet not fully cycling. Detectable by pull test and resistance measurement.</dd>
+    
+    <dt>Continuity</dt>
+    <dd>An unbroken electrical path from one point to another. Measured in ohms; a continuous wire shows a resistance equal to its DC resistance (typically 0.01–0.5 Ω for aircraft harness runs). "OL" or infinite resistance indicates an open conductor.</dd>
+    
+    <dt>EMI (Electromagnetic Interference)</dt>
+    <dd>Unwanted electrical noise coupled into signal wires from nearby radiating sources (alternator, ignition, radio transmitters). Mitigated by shielded cable, twisted pairs, proper routing, and correct shield termination.</dd>
+    
+    <dt>Megger (Megohmmeter)</dt>
+    <dd>A high-voltage insulation resistance tester that applies 100–1000 V DC across insulation to detect breakdown paths invisible to a standard multimeter. Used to verify insulation integrity before energizing a circuit. Never use on live circuits or sensitive avionics.</dd>
+    
+    <dt>Pigtail Termination</dt>
+    <dd>A length of braided shield pulled out and terminated separately to a ground point, forming a pigtail. Acceptable for audio frequencies below 100 kHz. Unacceptable for high-frequency digital signals, where 360° shield termination is required.</dd>
+    
+    <dt>Service Loop</dt>
+    <dd>Extra wire length intentionally left at connectors and splice points to allow a small number of future re-terminations without running new wire. Typically 6–8 inches at connectors, coiled neatly and secured.</dd>
+    
+    <dt>Shield</dt>
+    <dd>A metallic braid or foil surrounding one or more conductors to intercept electromagnetic interference before it couples to the signal. Must be grounded to be effective. How and where you ground it depends on signal frequency and system type.</dd>
+    
+    <dt>Tie Spacing</dt>
+    <dd>The distance between adjacent lacing ties or cable ties along a bundle. Typical specification: 4–6 inches in straight runs, tighter near connectors and at direction changes. Too loose allows bundle sag; too tight deforms insulation and changes impedance.</dd>
+    
+  </dl>
+</section>
+
+<div class="section-marker">Part II — Knowledge Requirements</div>
 
 
-<h2>2. 4.2.1 — Wire Types</h2>
-<p></p>
-
-<h2>3. 4.2.2–4.2.3 — Crimp and Shield Termination</h2>
-<p>Crimping and shield termination are the two skills that define a competent avionics technician. Your evaluator will watch for: correct terminal selection for wire gauge, correct tool and positioner selection, full ratchet cycle completion, visual inspection quality, and pull test. For shield termination, they will check that you ground at the correct end (source end for audio, both ends for RF) and that the connection is mechanically sound.</p>
-
-<h2>4. 4.2.8–4.2.9 — Multimeter and Megohmmeter</h2>
-<p>Two test instruments serve different purposes in harness verification:</p>
 
 
-<h2>5. Procedures</h2>
+<section id="kr-1">
+  <h2>4.2.1 — Wire Types</h2>
 
-<h3>Task 4.4.1 — Harness Fabrication</h3>
-<p>How to demonstrate: Build a small harness from a provided diagram. The evaluator checks: correct wire types selected, clean stripping with no nicked strands, shield properly terminated (drain wire soldered and heat-shrunk at grounded end, insulated at the other end), coax connector properly installed (center contact crimped, ferrule crimped, VSWR acceptable), all runs neatly bundled and labeled.</p>
-<div class="callout"><strong>Evaluator is watching for:</strong> See practical rubric for accept/reject criteria.</div>
+  
+  <p>Aircraft wire is specified by military standard (MIL-W) or aerospace standard (SAE AS). The specification you select governs temperature rating, voltage rating, abrasion resistance, flammability behavior, and mechanical flexibility. Using "general-purpose" hardware-store wire in an aircraft is not merely non-compliant — it is a direct contributor to fatal accidents.</p>
+  
 
-<h3>Task 4.4.2 — Crimp Technique</h3>
-<p>How to demonstrate: Select the correct terminal for the wire gauge (match color code: red=22–18, blue=16–14, yellow=12–10 for standard terminals; match positioner for D-Sub contacts). Strip wire to specification. Insert fully. Crimp with calibrated ratcheting tool—full cycle. Pull test. Visual check under magnification: bellmouth present, indent centered, no barrel cracks, insulation grip engaged.</p>
-<div class="callout"><strong>Evaluator is watching for:</strong> See practical rubric for accept/reject criteria.</div>
+  
 
-<h3>Task 4.4.3 — Wire Bundling</h3>
-<p>How to demonstrate: Install ties at 4–6 inch intervals along the harness. Each tie should be snug but not deforming insulation (you should be able to slide a tie sideways slightly). Trim tails flush—no sharp edges. Evaluator will check by trying to rotate ties and inspecting for insulation marks.</p>
-<div class="callout"><strong>Evaluator is watching for:</strong> See practical rubric for accept/reject criteria.</div>
-
-<h3>Task 4.4.4 — Continuity Check</h3>
-<p>How to demonstrate: Set meter to continuity or low ohms. Place probes on each end of the wire (pin to pin). Good continuity = less than 1 ohm and audible tone. State that you are verifying the wire is continuous end-to-end with no opens. Wiggle the wire during the test to check for intermittent connections.</p>
-<div class="callout"><strong>Evaluator is watching for:</strong> See practical rubric for accept/reject criteria.</div>
-
-<h3>Task 4.4.5 — Insulation Resistance (Megger) Test</h3>
-<p>How to demonstrate: The evaluator is specifically watching for safety compliance: (1) Verify all equipment disconnected from the wire. (2) Announce to area personnel that megger test is in progress. (3) Connect one lead to wire, one to ground/shield. (4) Select correct test voltage (typically 500V DC). (5) Apply voltage, read result (must exceed 20 MΩ per maintenance manual). (6) After test, discharge the cable by shorting conductor to ground. (7) Announce test complete.</p>
-<div class="callout"><strong>Evaluator is watching for:</strong> See practical rubric for accept/reject criteria.</div>
-
-<h3>Task 4.4.6 — Fault Finding</h3>
-<p>How to demonstrate: Your evaluator inserts a fault—an open wire or a short between two conductors. Using a multimeter, systematically isolate the fault location. For an open: check continuity pin-to-pin; no tone = open on that wire; then halve the wire run and test each half to pinpoint the break location. For a short: check resistance between conductors; low reading indicates a short; disconnect sections to isolate. You have 10 minutes.</p>
-<div class="callout"><strong>Evaluator is watching for:</strong> See practical rubric for accept/reject criteria.</div>
+  
+  <h4>Key Points</h4>
+  <ul class="key-points">
+    <li>MIL-W-22759/16 (PTFE/Tefzel insulation, tin-coated copper) is the most common modern aircraft hookup wire. Rated − 65 °C to +150 °C, 600 V, self-extinguishing.</li><li>MIL-W-22759/32 and /87 are used in engine compartments where temperatures exceed 200 °C. Do not use /16 in these zones.</li><li>Kapton (MIL-W-81381) was widely used in older aircraft but is prone to dry-arc tracking when chafed. It is being removed from most platforms.</li><li>Wire gauge (AWG) determines ampacity. In a bundle, derate per AC 43.13-1B Table 11-6 — a 20-gauge wire alone carries 11 A but only 6.5 A in a 15-conductor bundle at 60 °C ambient.</li><li>Shielded cable (twisted pair + braid) is mandatory for audio intercom, data buses (ARINC 429, CAN), and low-level signals. Coaxial is mandatory above 30 MHz.</li><li>Color coding follows MIL-STD or OEM wire list. Solid colors identify the conductor; tracer stripes identify the circuit. Do not substitute colors — the wire list is the legal record.</li>
+  </ul>
+  
+</section>
 
 
-<h2>6. Self-Check Quick Quiz</h2>
-<div class="quiz">
-<p>1. Q1: Walk me through how you would fabricate a shielded audio cable with the shield grounded at one end. What end gets the ground and why?</p><p>2. Q2: You are about to perform a megger test on a wire harness. Walk me through every safety step you take before, during, and after the test.</p><p>3. Q3: A wire shows 0.5 ohms on a continuity check. Is this acceptable? What about 50 ohms? What about OL?</p><p>4. Q4: You find a crimp where the indent is off-center on the barrel. Is this acceptable? What caused it?</p><p>5. Q5: A harness has a short between two wires somewhere in a 15-foot run that goes through two bulkhead connectors. Describe your fault-isolation approach.</p>
-<p><em>Answers in handbook appendix.</em></p>
-</div>
 
-<hr>
-<p><small>© 2026 Aircraft Electronics Association. Derived from CAET Advanced PQS Training Module.</small></p>
+<section id="kr-2">
+  <h2>4.2.2–4.2.3 — Crimp and Shield Termination</h2>
+
+  
+  <p>A crimp is a gas-tight metal-to-metal connection formed by compressing a terminal barrel around a stripped wire with calibrated force. When done correctly, a crimp is stronger than the wire itself and will outlast soldered joints in a vibration environment. When done incorrectly, it is the single most common source of harness failure.</p>
+  
+
+  
+  <h4>From the PQS Source</h4>
+  <p>Crimping and shield termination are the two skills that define a competent avionics technician. Your evaluator will watch for: correct terminal selection for wire gauge, correct tool and positioner selection, full ratchet cycle completion, visual inspection quality, and pull test. For shield termination, they will check that you ground at the correct end (source end for audio, both ends for RF) and that the connection is mechanically sound.</p>
+  
+
+  
+  <h4>Key Points</h4>
+  <ul class="key-points">
+    <li>Match the die to the terminal, not the wire: red die for 22–18 AWG terminals, blue for 16–14, yellow for 12–10. Dies are color-coded on the tool head.</li><li>Use a ratcheting crimper (MS3191 class) that will not release until the full compression cycle completes. Plier-type crimpers are prohibited for aircraft work.</li><li>Strip length matters: too short and strands do not enter the barrel; too long and bare strands extend past the terminal, risking a short. Follow the terminal manufacturer's strip chart — usually printed on the terminal package.</li><li>A proper crimp shows the insulation butted against the insulation grip with strands visible through the inspection hole. The conductor barrel should show a clean hex impression with no cracks.</li><li>Shield termination for analog audio (below 30 kHz): ground one end only, typically at the source (radio/intercom), to prevent ground loops.</li><li>Shield termination for digital/data (ARINC 429, CAN, Ethernet): 360° bond at both ends. Pigtails longer than 1 inch degrade EMI performance by 10–20 dB and are not acceptable on these systems.</li><li>Solder-sleeve shield terminations (Raychem SolderSleeve or equivalent) are acceptable when installed with a calibrated heat gun. A smoke-blue shrink ring and wetted solder are the visual accept criteria.</li>
+  </ul>
+  
+</section>
+
+
+
+<section id="kr-3">
+  <h2>4.2.8–4.2.9 — Multimeter and Megohmmeter</h2>
+
+  
+  <p>Two instruments verify a harness is good. They measure different things and are not interchangeable. A multimeter finds opens and shorts at low voltage. A megger finds insulation breakdown paths that only appear at operating voltage or higher. Both are required before a harness is released to service.</p>
+  
+
+  
+  <h4>From the PQS Source</h4>
+  <p>Two test instruments serve different purposes in harness verification:</p>
+  
+
+  
+  <h4>Key Points</h4>
+  <ul class="key-points">
+    <li>Digital multimeter (DMM) in continuity/low-ohm mode applies < 1 V across the conductor. Acceptable readings for aircraft runs are < 0.5 Ω end-to-end; anything above 1 Ω on a short run indicates a bad crimp or corroded terminal.</li><li>Use the DMM's 4-wire (Kelvin) mode for low-resistance measurements when available, to eliminate test-lead resistance from the reading.</li><li>A megohmmeter applies 250–1000 V DC across insulation while measuring leakage current. Typical aircraft acceptance: > 100 MΩ between any two conductors and between any conductor and ground.</li><li>Before meggering: disconnect both ends of the harness from any avionics. A 500 V megger WILL destroy most transistorized equipment. This is the single most common way technicians create additional write-ups.</li><li>Megger voltage selection: use 500 V DC for 28 V aircraft systems, 1000 V DC for 115 V AC systems. Using a higher voltage than necessary can cause false failures in humid conditions.</li><li>A megger reading that climbs slowly from 10 MΩ to 100 MΩ over 30 seconds indicates absorbed moisture in the insulation. Dry the harness with low-heat air and retest.</li>
+  </ul>
+  
+</section>
+
+
+<div class="section-marker">Part III — Task Preparation</div>
+
+
+
+
+<section id="task-1">
+  <h2>Task 4.4.1 — Harness Fabrication</h2>
+
+  
+  <p>How to demonstrate: Build a small harness from a provided diagram. The evaluator checks: correct wire types selected, clean stripping with no nicked strands, shield properly terminated (drain wire soldered and heat-shrunk at grounded end, insulated at the other end), coax connector properly installed (center contact crimped, ferrule crimped, VSWR acceptable), all runs neatly bundled and labeled.</p>
+  
+
+  
+  <h4>Step-by-Step Procedure</h4>
+  <ol class="steps">
+    <li>Read the wire list and routing diagram before you cut anything. Verify you have the correct wire gauges, terminals, and connectors staged at your bench.</li><li>Measure the routing path using a mock-up harness, a string, or a measuring tape following the actual routing. Add 10–15% for bend radius and service loops.</li><li>Cut each wire to length. Label both ends immediately with a heat-shrink wire marker showing the wire number from the diagram. Never cut multiple wires and label later — you will cross them up.</li><li>Strip each end to the terminal manufacturer's specified length. Inspect for nicked strands (more than 3 nicked strands = re-strip).</li><li>Terminate each end with the correct terminal and correct-color die. Inspect each crimp visually and with a pull test (4 lb minimum for 22 AWG, 8 lb for 20 AWG, 16 lb for 18 AWG).</li><li>Lay the wires in the harness form (pegboard or nail jig). Route according to the diagram — do NOT improvise routing.</li><li>Lace or tie the bundle with 4–6 inch tie spacing. Snug but not deforming insulation.</li><li>Install any required shields, grounding lugs, and service loops per the diagram.</li><li>Perform continuity and megger testing (see Task 4.4.4 and 4.4.5).</li>
+  </ol>
+  
+
+  
+  <div class="callout watching">
+    <strong>Evaluator is watching for</strong>
+    <ul>
+      <li>Correct wire type pulled from stock (MIL-W-22759/16 vs. /32 for engine zone — ask the candidate why they picked it).</li><li>Both ends of every wire labeled, legible, and matching the diagram.</li><li>Routing exactly matches the diagram, including any separation from control cables or hot air ducts.</li><li>Service loops at connectors (6–8 inches, coiled).</li><li>Consistent tie spacing with no deformed insulation.</li><li>No nicked conductors, no cold crimps, no bare shield pigtails longer than 1 inch on data circuits.</li>
+    </ul>
+  </div>
+  
+
+  
+  <div class="callout mistakes">
+    <strong>Common mistakes</strong>
+    <ul>
+      <li>Improvising routing when the diagram seems awkward. The diagram reflects separation-distance rules you may not see. Route exactly as drawn.</li><li>Measuring wire lengths in straight lines instead of along the routing path. Results in harness too short to close connectors.</li><li>Labeling wires "later" after cutting multiple at once. Always label as you cut.</li><li>Using the wrong terminal color because the one you need is not in the drawer. Stop and get the correct terminal — never substitute.</li><li>Over-tightening ties. You can see insulation pinch; that is a failure.</li>
+    </ul>
+  </div>
+  
+</section>
+
+
+
+<section id="task-2">
+  <h2>Task 4.4.2 — Crimp Technique</h2>
+
+  
+  <p>How to demonstrate: Select the correct terminal for the wire gauge (match color code: red=22–18, blue=16–14, yellow=12–10 for standard terminals; match positioner for D-Sub contacts). Strip wire to specification. Insert fully. Crimp with calibrated ratcheting tool—full cycle. Pull test. Visual check under magnification: bellmouth present, indent centered, no barrel cracks, insulation grip engaged.</p>
+  
+
+  
+  <h4>Step-by-Step Procedure</h4>
+  <ol class="steps">
+    <li>Identify the wire gauge from the insulation stripe or the wire list.</li><li>Select the matching terminal. Verify the color band on the terminal matches the expected color for that gauge (red/blue/yellow).</li><li>Select the crimping tool and die that match the terminal color. Confirm the die is fully seated in the tool and the ratchet is engaged.</li><li>Strip the wire to the length specified on the terminal package (typically 3/16" to 1/4" for 22–18 AWG).</li><li>Insert the stripped wire fully into the terminal barrel. Verify strands are visible through the inspection window. Insulation butts against the insulation grip.</li><li>Close the crimper fully. The ratchet will release when the crimp cycle is complete.</li><li>Inspect: terminal bell-mouth unchanged, barrel shows a clean hex or indent, strands visible through inspection window, insulation properly gripped with no exposed strands past the grip.</li><li>Perform a pull test at minimum specified force. A proper crimp will break the wire before the crimp fails.</li>
+  </ol>
+  
+
+  
+  <div class="callout watching">
+    <strong>Evaluator is watching for</strong>
+    <ul>
+      <li>Candidate reads the terminal package or chart — does not guess the strip length.</li><li>Correct die color selected without prompting.</li><li>Full ratchet cycle — the crimper is not released early.</li><li>Visual inspection performed on EVERY crimp, not just the first one.</li><li>Pull test performed before the harness moves to the next step.</li>
+    </ul>
+  </div>
+  
+
+  
+  <div class="callout mistakes">
+    <strong>Common mistakes</strong>
+    <ul>
+      <li>Using an uncalibrated plier-type crimper instead of a ratcheting tool. Prohibited for aircraft work — automatic fail.</li><li>Guessing at strip length. Too short = cold crimp; too long = strands outside the terminal (FOD hazard and potential short).</li><li>Nicking strands with a dull or misadjusted stripper. More than 3 nicks = re-strip. If you can see copper before stripping, you went too deep.</li><li>Crimping without fully seating the wire — conductor barrel crimps on air, insulation barrel crimps on conductor. Both are failures.</li><li>Skipping the pull test because "it looked good." The pull test is the only mechanical verification of crimp integrity.</li>
+    </ul>
+  </div>
+  
+</section>
+
+
+
+<section id="task-3">
+  <h2>Task 4.4.3 — Wire Bundling</h2>
+
+  
+  <p>How to demonstrate: Install ties at 4–6 inch intervals along the harness. Each tie should be snug but not deforming insulation (you should be able to slide a tie sideways slightly). Trim tails flush—no sharp edges. Evaluator will check by trying to rotate ties and inspecting for insulation marks.</p>
+  
+
+  
+  <h4>Step-by-Step Procedure</h4>
+  <ol class="steps">
+    <li>Gather the wires in the order shown on the harness diagram, not in the order convenient at your bench.</li><li>Lay the bundle flat on the harness board. Large wires typically go in the center; shielded and signal wires around the outside (check your diagram).</li><li>Pre-form any branches so they exit the main bundle at the correct angle.</li><li>Install the first tie near an end. Pull snug but not deforming. The tie-gun should be set to a tension appropriate for 22–18 AWG bundles; over-tension deforms insulation.</li><li>Work along the bundle installing ties at 4–6 inch intervals on straight runs, 2–3 inches near connectors or changes in direction.</li><li>Cut tie tails flush with the buckle using flush-cut pliers. Sharp tails cause injury during maintenance.</li><li>Install any clamps, standoffs, or P-clips called for in the diagram with correct torque on the mounting hardware.</li>
+  </ol>
+  
+
+  
+  <div class="callout watching">
+    <strong>Evaluator is watching for</strong>
+    <ul>
+      <li>Bundle order matches the diagram (not invented).</li><li>Tie spacing is consistent and within spec (not "wherever looks good").</li><li>No deformed insulation at any tie (evaluator will squeeze the bundle at a few ties to check).</li><li>Tie tails flush-cut, not protruding.</li><li>Correct orientation of P-clips (cushion side against wire, open side accessible for inspection).</li>
+    </ul>
+  </div>
+  
+
+  
+  <div class="callout mistakes">
+    <strong>Common mistakes</strong>
+    <ul>
+      <li>Over-tightening ties until insulation is visibly pinched. Changes impedance on data lines and creates future chafe points.</li><li>Missing ties around branches, letting the branch pull out of the bundle with movement.</li><li>Using tie-wraps where lacing is specified (and vice versa) — check the diagram.</li><li>Cutting tie tails with side-cutters leaving sharp edges. Always flush-cut.</li>
+    </ul>
+  </div>
+  
+</section>
+
+
+
+<section id="task-4">
+  <h2>Task 4.4.4 — Continuity Check</h2>
+
+  
+  <p>How to demonstrate: Set meter to continuity or low ohms. Place probes on each end of the wire (pin to pin). Good continuity = less than 1 ohm and audible tone. State that you are verifying the wire is continuous end-to-end with no opens. Wiggle the wire during the test to check for intermittent connections.</p>
+  
+
+  
+  <h4>Step-by-Step Procedure</h4>
+  <ol class="steps">
+    <li>Disconnect the harness from any connected equipment at both ends.</li><li>Set the DMM to continuity or low-ohm (200 Ω) range. Short the probes together and note the baseline lead resistance (typically 0.1–0.3 Ω) — subtract this from your reading.</li><li>Place one probe on a known pin at End A, the other on the corresponding pin at End B per the wire list.</li><li>Read the resistance. Acceptance: corrected reading < 0.5 Ω for typical aircraft runs, < 0.1 Ω for current-carrying feeders.</li><li>Repeat for every conductor in the harness, checking off each wire number on a printed wire list as you go.</li><li>Perform an isolation check: measure resistance between each pin and every OTHER pin at End A. Expected result: OL (open/infinite) on every pair. Any reading below 10 MΩ indicates a short or leakage.</li>
+  </ol>
+  
+
+  
+  <div class="callout watching">
+    <strong>Evaluator is watching for</strong>
+    <ul>
+      <li>Candidate shorts probes to establish baseline lead resistance before measuring.</li><li>Systematic approach: works down the wire list in order, not random pins.</li><li>Both continuity AND isolation are checked — not just continuity.</li><li>Readings written down on the wire list, not trusted to memory.</li><li>Any out-of-tolerance reading is investigated, not hand-waved as "close enough."</li>
+    </ul>
+  </div>
+  
+
+  
+  <div class="callout mistakes">
+    <strong>Common mistakes</strong>
+    <ul>
+      <li>Forgetting to subtract test-lead resistance. A 0.3 Ω lead resistance on a 0.2 Ω wire looks like 0.5 Ω — ambiguous accept/reject.</li><li>Only checking continuity, not isolation. A wire that is both continuous AND shorted to another wire still passes a continuity check. The isolation check is what catches it.</li><li>Using a DMM to check high-resistance insulation. The 9 V source in a DMM is not enough to detect partial insulation breakdown. That is what a megger is for.</li><li>Probes slipping off small pins. Use pin-grabber test leads or correct-size probes.</li>
+    </ul>
+  </div>
+  
+</section>
+
+
+
+<section id="task-5">
+  <h2>Task 4.4.5 — Insulation Resistance (Megger) Test</h2>
+
+  
+  <p>How to demonstrate: The evaluator is specifically watching for safety compliance: (1) Verify all equipment disconnected from the wire. (2) Announce to area personnel that megger test is in progress. (3) Connect one lead to wire, one to ground/shield. (4) Select correct test voltage (typically 500V DC). (5) Apply voltage, read result (must exceed 20 MΩ per maintenance manual). (6) After test, discharge the cable by shorting conductor to ground. (7) Announce test complete.</p>
+  
+
+  
+  <h4>Step-by-Step Procedure</h4>
+  <ol class="steps">
+    <li>VERIFY both ends of the harness are fully disconnected from every piece of equipment. Walk both ends. This is not a step to hurry.</li><li>Ground every pin at End B (twist a bus wire around them all or use a shorting bar).</li><li>Connect the megger's negative lead to ground / aircraft structure.</li><li>Connect the megger's positive lead to the first pin at End A.</li><li>Select the correct test voltage: 500 V DC for 28 V systems, 1000 V DC for 115 V AC systems.</li><li>Press test. Read resistance at 60 seconds (typical specification). Acceptance: > 100 MΩ.</li><li>Release the test button. Discharge the harness by briefly shorting the pin to ground before touching any conductor.</li><li>Repeat for every conductor. On large harnesses, a bus-bar testing jig speeds this up.</li><li>After testing, remove the shorting bar at End B before reconnecting equipment.</li>
+  </ol>
+  
+
+  
+  <div class="callout watching">
+    <strong>Evaluator is watching for</strong>
+    <ul>
+      <li>Candidate verifies equipment disconnection at both ends, with verbal or written confirmation.</li><li>Grounding/shorting arrangement at End B is correct — all pins at the same potential, not a random subset.</li><li>Correct test voltage selected for the circuit rating (candidate can articulate WHY 500 V vs 1000 V).</li><li>Discharge step performed between readings (touches probe to ground before handling the wire).</li><li>Wearing voltage-rated gloves. A 1000 V megger can hurt you.</li>
+    </ul>
+  </div>
+  
+
+  
+  <div class="callout mistakes">
+    <strong>Common mistakes</strong>
+    <ul>
+      <li>Testing with equipment still connected. The megger will destroy solid-state avionics, immediately or latently. This is the most expensive mistake in harness testing.</li><li>Over-voltaging the insulation: using 2500 V on a wire rated 600 V may create a breakdown path that was not there before.</li><li>Not discharging between readings. The harness holds a charge at test voltage. A surprise shock during reconnection is painful and may drop tools.</li><li>Misinterpreting a slowly-rising reading as a bad harness. Slow rise = absorbed moisture; dry and retest.</li><li>Skipping the megger entirely because "continuity passed." Insulation breakdown is invisible to a DMM.</li>
+    </ul>
+  </div>
+  
+</section>
+
+
+
+<section id="task-6">
+  <h2>Task 4.4.6 — Fault Finding</h2>
+
+  
+  <p>How to demonstrate: Your evaluator inserts a fault—an open wire or a short between two conductors. Using a multimeter, systematically isolate the fault location. For an open: check continuity pin-to-pin; no tone = open on that wire; then halve the wire run and test each half to pinpoint the break location. For a short: check resistance between conductors; low reading indicates a short; disconnect sections to isolate. You have 10 minutes.</p>
+  
+
+  
+  <h4>Step-by-Step Procedure</h4>
+  <ol class="steps">
+    <li>Hear the fault description. Ask clarifying questions: when did it start, what symptom, does it come and go, is it temperature- or motion-dependent?</li><li>Divide and conquer: split the suspect wire run at its nearest accessible midpoint (connector, junction, splice). Measure each half separately. The fault is in whichever half fails the test.</li><li>For an open: use DMM continuity. Walk from end toward midpoint until you find the break.</li><li>For a short to ground: open the far end; measure from near end to ground. Any reading below 10 MΩ = short somewhere in this segment. Halve and retest.</li><li>For a short between two conductors: open both far ends; measure from one near end to the other. Halve and retest.</li><li>For an intermittent: flex and wiggle the suspect area while watching a live DMM. A jumping reading localizes the fault.</li><li>Repair per the approved data (splice, replacement section, or full wire replacement). Document the repair in the maintenance record.</li><li>Retest the entire circuit with continuity AND megger after repair.</li>
+  </ol>
+  
+
+  
+  <div class="callout watching">
+    <strong>Evaluator is watching for</strong>
+    <ul>
+      <li>Systematic troubleshooting, not random probing.</li><li>Understanding of half-split technique — candidate can articulate why it finds the fault in log₂(N) steps rather than linear search.</li><li>Correct choice of test instrument for the suspected fault type.</li><li>Safe test setup — equipment disconnected, no live probing on energized circuits without a current-limiting path.</li><li>Post-repair testing that is as thorough as pre-install testing.</li>
+    </ul>
+  </div>
+  
+
+  
+  <div class="callout mistakes">
+    <strong>Common mistakes</strong>
+    <ul>
+      <li>Eyeballing a harness and declaring a section "probably fine" without testing. Avionics gremlins live in sections techs skipped.</li><li>Repairing without understanding the root cause. A chafe you repair by adding tape will re-chafe; find the clamp that needs to move.</li><li>Splicing with twist-and-tape or butt-connectors from the hardware store. Only approved splices (PIDG, solder-sleeve, or certified environmental splice) per AC 43.13.</li><li>Omitting post-repair megger. A repair that looks good on continuity can still have a hidden insulation defect near the splice heat zone.</li>
+    </ul>
+  </div>
+  
+</section>
+
+
+
+<div class="section-marker">Part IV — Background Theory</div>
+<section id="theory">
+  <h2>The Science Behind the Procedures</h2>
+  <p>When the oral board examiner asks <em>why</em>, these are the explanations they expect to hear.</p>
+  
+  <div class="callout theory">
+    <strong>Why Crimps Work</strong>
+    <p style="margin-top:8px;">A proper crimp creates a gas-tight, cold-welded joint. During the crimp cycle, the metal of the terminal and the metal of the wire strands are compressed beyond their yield point. The asperities (microscopic bumps) on each surface deform and interlock, and residual oxide layers are broken up and extruded from the interface. The result is metal-to-metal contact over a large effective area with no path for oxygen to reach the interface. Properly crimped, the joint has lower resistance than the wire itself and will survive vibration, temperature cycling, and humidity for the life of the aircraft. This is why aircraft maintenance has largely abandoned soldered field splices in favor of crimped terminations — solder joints fail in vibration, crimps do not.</p>
+  </div>
+  
+  <div class="callout theory">
+    <strong>Why Shielding Works</strong>
+    <p style="margin-top:8px;">A shield is a Faraday cage wrapped around your signal conductor. Electromagnetic fields from nearby wires induce currents in the shield instead of in the signal conductor. For the shield to do its job, it must provide a low-impedance path to ground at the correct frequency. At audio frequencies (below 30 kHz), a single ground at the source end is sufficient and avoids ground loops. At higher frequencies, the shield must be grounded at both ends with a full 360° bond because the signal's return current naturally distributes along the shield at RF; a pigtail creates an inductive interruption that drops the shielding effectiveness by 20–40 dB. This is why digital buses like ARINC 429 and CAN require 360° backshell terminations.</p>
+  </div>
+  
+  <div class="callout theory">
+    <strong>Why Insulation Fails</strong>
+    <p style="margin-top:8px;">Insulation does not fail instantly; it degrades. Thermal cycling expands and contracts the insulator, creating microcracks. Moisture absorbs into those cracks, particularly with aged Kapton or sun-aged PVC. Contamination (hydraulic fluid, Skydrol, battery acid) attacks specific polymer families. Chafe creates discrete damage at mechanical contact points. Over time, a leakage path forms from conductor to conductor or conductor to ground. The path is invisible at low voltage but conducts heavily at operating voltage. A megger applies sufficient voltage to detect the path before it becomes an in-service arc fault. This is why insulation resistance testing is not optional — it catches damage that continuity testing cannot see.</p>
+  </div>
+  
+</section>
+
+
+<div class="section-marker">Part V — Self-Check</div>
+
+<section id="quiz">
+  <h2>Oral Board Practice Questions</h2>
+  <p>Answer each aloud before opening the answer key. Mastery means you can explain it to a non-technical person, not just recite a definition.</p>
+  <div class="quiz">
+    <h3>Questions</h3>
+    <ol>
+      <li>Q1: Walk me through how you would fabricate a shielded audio cable with the shield grounded at one end. What end gets the ground and why?</li><li>Q2: You are about to perform a megger test on a wire harness. Walk me through every safety step you take before, during, and after the test.</li><li>Q3: A wire shows 0.5 ohms on a continuity check. Is this acceptable? What about 50 ohms? What about OL?</li><li>Q4: You find a crimp where the indent is off-center on the barrel. Is this acceptable? What caused it?</li><li>Q5: A harness has a short between two wires somewhere in a 15-foot run that goes through two bulkhead connectors. Describe your fault-isolation approach.</li>
+    </ol>
+  </div>
+
+  <h3>Answer Key</h3>
+  <div class="answer-key">
+    
+    
+    
+    <details>
+      <summary>Q1: Walk me through how you would fabricate a shielded audio cable with the shield grounded at one end. What end gets the ground and why?</summary>
+      <p>Shielded audio cables use one-end shield grounding to prevent ground loops that would inject hum. The shield is grounded at the source end — typically the radio or intercom amplifier — because that is where the signal reference is established. The destination end (headset jack or speaker) leaves the shield open (isolated) at the connector, with heat-shrink over the unterminated braid. Inside the connector, the shield pigtail is kept under 1 inch. If you ground both ends, the two ground potentials (which differ slightly due to structure current flow) drive a 50/60 Hz or 400 Hz current through the shield, which couples capacitively into the signal conductors and you hear it as hum.</p>
+    </details>
+    
+    
+    
+    <details>
+      <summary>Q2: You are about to perform a megger test on a wire harness. Walk me through every safety step you take before, during, and after the test.</summary>
+      <p>Safety steps for a megger test: (1) VERIFY equipment disconnected at both ends, walk both ends, do not take anyone's word for it. (2) Short all pins at the far end to establish a common test point. (3) Post a "DO NOT ENERGIZE" or test-in-progress sign at any panel that connects to this harness. (4) Verify megger battery and calibration date. (5) Select correct test voltage for the system rating (500 V for 28 V systems, 1000 V for 115 V AC). (6) Wear voltage-rated gloves. (7) Connect negative to aircraft ground, then positive to the first pin. (8) Warn any nearby personnel. (9) Apply test voltage for the specified duration (typically 60 seconds). (10) Release test button. (11) Discharge harness to ground with a grounding stick or by shorting probe to ground. (12) Do not touch conductors until discharge is confirmed. After the test: remove the shorting bar at the far end before reconnecting equipment.</p>
+    </details>
+    
+    
+    
+    <details>
+      <summary>Q3: A wire shows 0.5 ohms on a continuity check. Is this acceptable? What about 50 ohms? What about OL?</summary>
+      <p>0.5 Ω is acceptable for a short harness run (< 10 feet) but borderline for a longer one. You have to know the expected DC resistance for the gauge and length: 22 AWG is about 16 Ω per 1000 feet, so a 10-foot run should read about 0.16 Ω. A reading of 0.5 Ω on a 10-foot run means approximately 0.34 Ω of excess resistance — likely a marginal crimp. 50 Ω is definitely wrong; that is a cold crimp or a corroded terminal. OL (open) means an open conductor somewhere in the run — a broken wire or a crimp that failed completely. For any of these except the obviously good reading, I would disassemble and inspect the crimps at both ends before concluding the wire itself is bad.</p>
+    </details>
+    
+    
+    
+    <details>
+      <summary>Q4: You find a crimp where the indent is off-center on the barrel. Is this acceptable? What caused it?</summary>
+      <p>An off-center crimp indent tells me the terminal was not properly seated in the crimp die when the cycle was started. The crimp is probably not gas-tight, which means over time oxygen will reach the conductor-terminal interface, oxidation will form, resistance will rise, and the connection will eventually fail — often intermittently, often in flight. Causes: (1) terminal not inserted to the die stop before crimping; (2) wrong die size for the terminal; (3) wire not fully inserted into the barrel, causing the barrel to flex during crimp; (4) worn die. This crimp is not acceptable. Cut it off and re-terminate.</p>
+    </details>
+    
+    
+    
+    <details>
+      <summary>Q5: A harness has a short between two wires somewhere in a 15-foot run that goes through two bulkhead connectors. Describe your fault-isolation approach.</summary>
+      <p>For a short between two wires in a 15-foot run through two bulkhead connectors, I would use the half-split method. First, open the harness at the intermediate bulkhead connector. Now I have two 7.5-foot segments, each independently testable. Measure resistance between the two faulted wires on each segment. Whichever segment shows the short, the fault is there. Repeat on that segment: find a midpoint (splice, junction, or accessible break-out), divide again. This reduces the search from 15 feet linear to log₂(180 inches) ≈ 8 splits of about 2 inches each. If there is no convenient midpoint, use a TDR (time-domain reflectometer) to get the distance to the fault from one end — read the distance in feet, open the harness at the nearest access point past that distance, and continue.</p>
+    </details>
+    
+  </div>
+</section>
+
+
+<section id="crosswalk">
+  <h2>Written Exam Crosswalk</h2>
+  <div class="crosswalk">This section maps directly to Module 10 (Wire Harness Fabrication) on the written exam, Q111–127. Key exam topics: crimp technique and defect identification, wire type selection, bundling standards, continuity and insulation resistance testing procedures, and fault-finding methodology. This is one of the most heavily tested exam areas with 17 questions. End of Section 4 — Wire Harness Fabrication & Testing</div>
+</section>
+
+
+<footer>
+  © 2026 Aircraft Electronics Association · Workforce Development Division.<br>
+  Derived from CAET Advanced PQS Training Module with supplementary teaching content authored for instructor use.
+</footer>
+
 </body>
 </html>

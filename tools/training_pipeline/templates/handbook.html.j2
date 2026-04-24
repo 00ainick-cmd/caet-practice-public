@@ -1,64 +1,364 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{{ title }} | CAET Advanced Handbook</title>
-<link rel="stylesheet" href="../../../../shared/ace-theme.css">
 <style>
-body { font-family: 'Inter', sans-serif; max-width: 880px; margin: 0 auto;
-       padding: 40px 24px; background: #080C1A; color: var(--text-primary); line-height: 1.6; }
-h1 { color: var(--gold); border-bottom: 2px solid var(--gold); padding-bottom: 8px; }
-h2 { color: #22d3ee; margin-top: 2em; }
-.callout { background: rgba(212,168,83,0.1); border-left: 4px solid var(--gold);
-           padding: 16px 20px; margin: 20px 0; border-radius: 6px; }
-.mistakes { background: rgba(239,68,68,0.08); border-left: 4px solid #ef4444;
-            padding: 16px 20px; margin: 20px 0; border-radius: 6px; }
-.quiz { background: rgba(34,211,238,0.08); border-left: 4px solid #22d3ee;
-        padding: 20px 24px; margin: 24px 0; border-radius: 6px; }
-.toc { background: rgba(255,255,255,0.05); padding: 20px 24px; border-radius: 8px; }
-.page-break { page-break-after: always; }
-@media print { body { background: white; color: black; } }
+  /* Light-theme study document — optimized for reading on screen AND print. */
+  :root {
+    --ink: #1a2332;
+    --ink-soft: #4a5568;
+    --paper: #fbfaf5;
+    --paper-accent: #f5f2e8;
+    --rule: #d8d3c3;
+    --navy: #0a2540;
+    --gold: #8b6914;
+    --gold-soft: #f4ead0;
+    --red: #8b1a1a;
+    --red-soft: #fbe9e7;
+    --green: #1b4332;
+    --green-soft: #e7f0e5;
+    --cyan: #0e4a6e;
+    --cyan-soft: #e4f1f8;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--ink);
+    background: var(--paper);
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 56px 48px 80px;
+  }
+  header.cover {
+    border-bottom: 3px double var(--navy);
+    padding-bottom: 24px;
+    margin-bottom: 40px;
+  }
+  .eyebrow {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    letter-spacing: 3px;
+    font-size: 11px;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 700;
+  }
+  h1 {
+    font-family: Georgia, serif;
+    font-size: 34px;
+    line-height: 1.2;
+    color: var(--navy);
+    margin: 8px 0 12px;
+    font-weight: 700;
+  }
+  .subtitle {
+    font-size: 15px;
+    color: var(--ink-soft);
+    font-style: italic;
+    margin: 0;
+  }
+  h2 {
+    font-family: Georgia, serif;
+    font-size: 24px;
+    color: var(--navy);
+    margin: 56px 0 12px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--rule);
+  }
+  h3 {
+    font-family: Georgia, serif;
+    font-size: 19px;
+    color: var(--navy);
+    margin: 32px 0 10px;
+  }
+  h4 {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin: 20px 0 8px;
+    font-weight: 700;
+  }
+  p { margin: 0 0 16px; }
+  ul, ol { margin: 0 0 18px; padding-left: 24px; }
+  li { margin-bottom: 8px; }
+  .toc {
+    background: var(--paper-accent);
+    border-left: 4px solid var(--gold);
+    padding: 24px 32px;
+    border-radius: 2px;
+    margin: 24px 0 40px;
+  }
+  .toc h2 { margin-top: 0; border: none; font-size: 18px; color: var(--gold); letter-spacing: 2px; text-transform: uppercase; font-family: 'Helvetica Neue', Arial, sans-serif; }
+  .toc ol { columns: 2; column-gap: 32px; font-size: 14px; }
+  .toc li { margin-bottom: 4px; break-inside: avoid; }
+  .toc a { color: var(--navy); text-decoration: none; }
+  .toc a:hover { text-decoration: underline; color: var(--gold); }
+  blockquote.why {
+    font-size: 17px;
+    font-family: Georgia, serif;
+    font-style: italic;
+    color: var(--navy);
+    background: var(--gold-soft);
+    border-left: 4px solid var(--gold);
+    padding: 24px 32px;
+    margin: 24px 0;
+    border-radius: 2px;
+  }
+  blockquote.why p { margin: 0 0 12px; }
+  blockquote.why p:last-child { margin-bottom: 0; }
+  .callout {
+    padding: 16px 22px;
+    margin: 18px 0;
+    border-left: 4px solid var(--cyan);
+    background: var(--cyan-soft);
+    border-radius: 2px;
+    font-size: 15px;
+  }
+  .callout.watching { border-left-color: var(--green); background: var(--green-soft); }
+  .callout.mistakes { border-left-color: var(--red); background: var(--red-soft); }
+  .callout.theory   { border-left-color: var(--gold); background: var(--gold-soft); }
+  .callout strong { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 6px; }
+  .callout.watching strong { color: var(--green); }
+  .callout.mistakes strong { color: var(--red); }
+  .callout.theory   strong { color: var(--gold); }
+  .callout.info     strong { color: var(--cyan); }
+  .key-points { margin: 12px 0 20px; padding-left: 20px; }
+  .key-points li { margin-bottom: 10px; line-height: 1.55; }
+  dl.glossary { margin: 20px 0; }
+  dl.glossary dt { font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 700; color: var(--navy); margin-top: 14px; font-size: 15px; }
+  dl.glossary dd { margin: 4px 0 0 0; padding-left: 0; font-size: 14.5px; line-height: 1.55; color: var(--ink); }
+  .steps { counter-reset: step; padding-left: 0; list-style: none; }
+  .steps li { counter-increment: step; padding-left: 44px; position: relative; margin-bottom: 14px; line-height: 1.55; }
+  .steps li::before {
+    content: counter(step);
+    position: absolute; left: 0; top: -2px;
+    width: 30px; height: 30px; border-radius: 50%;
+    background: var(--navy); color: white;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 700; font-size: 13px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .quiz {
+    background: var(--cyan-soft);
+    border-left: 4px solid var(--cyan);
+    padding: 24px 32px;
+    margin: 24px 0;
+    border-radius: 2px;
+  }
+  .quiz h3 { margin-top: 0; color: var(--cyan); }
+  .quiz ol { margin: 12px 0 0 0; padding-left: 22px; }
+  .quiz li { margin-bottom: 14px; }
+  .answer-key details {
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    padding: 12px 18px;
+    margin-bottom: 10px;
+    background: var(--paper);
+  }
+  .answer-key summary { font-weight: 700; cursor: pointer; color: var(--navy); font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 14px; }
+  .answer-key details[open] summary { margin-bottom: 10px; border-bottom: 1px solid var(--rule); padding-bottom: 6px; }
+  .answer-key p { margin-top: 10px; font-size: 14.5px; line-height: 1.6; }
+  .crosswalk {
+    background: var(--paper-accent);
+    padding: 18px 24px;
+    border-radius: 2px;
+    border: 1px solid var(--rule);
+    margin: 24px 0;
+    font-size: 14.5px;
+    color: var(--ink-soft);
+  }
+  footer {
+    margin-top: 64px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 12px;
+    color: var(--ink-soft);
+    text-align: center;
+  }
+  .section-marker {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--gold); font-weight: 700;
+    margin: 48px 0 0;
+  }
+  @media print {
+    body { padding: 0.6in 0.75in; background: white; font-size: 11pt; max-width: none; }
+    h1 { font-size: 24pt; }
+    h2 { font-size: 16pt; page-break-after: avoid; }
+    h3 { page-break-after: avoid; }
+    .callout, blockquote.why { page-break-inside: avoid; }
+    .toc { page-break-after: always; }
+    details { page-break-inside: avoid; }
+    details[open] > summary ~ * { display: block !important; }
+    .answer-key details { border: none; }
+    a { color: var(--navy); text-decoration: none; }
+  }
 </style>
 </head>
 <body>
-<h1>{{ title }}</h1>
-<p><em>CAET Advanced Certification — Student Handbook</em></p>
 
-<div class="toc">
-<h2>Table of Contents</h2>
-<ol>
-<li>Why This Matters</li>
-{% for kr in knowledge %}<li>{{ kr.heading }}</li>{% endfor %}
-{% for t in tasks %}<li>{{ t.heading }}</li>{% endfor %}
-<li>Self-Check Quick Quiz</li>
-</ol>
-</div>
+<header class="cover">
+  <div class="eyebrow">CAET Advanced Certification · Student Handbook</div>
+  <h1>{{ title }}</h1>
+  <p class="subtitle">Aircraft Electronics Association · Workforce Development Division</p>
+</header>
 
-<div class="page-break"></div>
+<nav class="toc">
+  <h2>Contents</h2>
+  <ol>
+    <li><a href="#why">Why This Matters</a></li>
+    <li><a href="#terms">Key Terms &amp; Definitions</a></li>
+    {% for kr in knowledge %}<li><a href="#kr-{{ loop.index }}">{{ kr.heading }}</a></li>{% endfor %}
+    {% for t in tasks %}<li><a href="#task-{{ loop.index }}">{{ t.heading }}</a></li>{% endfor %}
+    <li><a href="#quiz">Self-Check &amp; Oral Board Practice</a></li>
+    {% if written_exam_crosswalk %}<li><a href="#crosswalk">Written Exam Crosswalk</a></li>{% endif %}
+  </ol>
+</nav>
 
-<h2>1. Why This Matters</h2>
-{% for para in intro %}<p>{{ para }}</p>{% endfor %}
+<section id="why">
+  <div class="section-marker">Part I — Orientation</div>
+  <h2>Why This Matters</h2>
+  {% for para in enrichment.why_this_matters %}
+  <blockquote class="why"><p>{{ para }}</p></blockquote>
+  {% endfor %}
+  {% if intro %}
+  <h4>From the PQS Source</h4>
+  {% for para in intro %}<p>{{ para }}</p>{% endfor %}
+  {% endif %}
+</section>
+
+<section id="terms">
+  <h2>Key Terms &amp; Definitions</h2>
+  <p>Master this vocabulary before continuing. The evaluator expects you to use these terms correctly in the oral board.</p>
+  <dl class="glossary">
+    {% for kt in enrichment.key_terms %}
+    <dt>{{ kt.term }}</dt>
+    <dd>{{ kt.definition }}</dd>
+    {% endfor %}
+  </dl>
+</section>
+
+<div class="section-marker">Part II — Knowledge Requirements</div>
 
 {% for kr in knowledge %}
-<h2>{{ loop.index + 1 }}. {{ kr.heading }}</h2>
-<p>{{ kr.body }}</p>
+{% set kr_key = kr.heading.split('—')[0].split('–')[0].strip().split(' ')[-1] if kr.heading else '' %}
+{% set enrich = enrichment.knowledge_enrichment.get(kr_key, {}) %}
+<section id="kr-{{ loop.index }}">
+  <h2>{{ kr.heading }}</h2>
+
+  {% if enrich.overview %}
+  <p>{{ enrich.overview }}</p>
+  {% endif %}
+
+  {% if kr.body %}
+  <h4>From the PQS Source</h4>
+  <p>{{ kr.body }}</p>
+  {% endif %}
+
+  {% if enrich.key_points %}
+  <h4>Key Points</h4>
+  <ul class="key-points">
+    {% for pt in enrich.key_points %}<li>{{ pt }}</li>{% endfor %}
+  </ul>
+  {% endif %}
+</section>
 {% endfor %}
 
-<h2>{{ knowledge|length + 2 }}. Procedures</h2>
+<div class="section-marker">Part III — Task Preparation</div>
+
 {% for t in tasks %}
-<h3>{{ t.heading }}</h3>
-<p>{{ t.body }}</p>
-<div class="callout"><strong>Evaluator is watching for:</strong> See practical rubric for accept/reject criteria.</div>
+{% set task_key = t.heading.split('—')[0].split('–')[0].strip().split(' ')[-1] if t.heading else '' %}
+{% set enrich = enrichment.task_enrichment.get(task_key, {}) %}
+<section id="task-{{ loop.index }}">
+  <h2>{{ t.heading }}</h2>
+
+  {% if t.body %}
+  <p>{{ t.body }}</p>
+  {% endif %}
+
+  {% if enrich.step_by_step %}
+  <h4>Step-by-Step Procedure</h4>
+  <ol class="steps">
+    {% for step in enrich.step_by_step %}<li>{{ step }}</li>{% endfor %}
+  </ol>
+  {% endif %}
+
+  {% if enrich.evaluator_watching_for %}
+  <div class="callout watching">
+    <strong>Evaluator is watching for</strong>
+    <ul>
+      {% for item in enrich.evaluator_watching_for %}<li>{{ item }}</li>{% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+
+  {% if enrich.common_mistakes %}
+  <div class="callout mistakes">
+    <strong>Common mistakes</strong>
+    <ul>
+      {% for item in enrich.common_mistakes %}<li>{{ item }}</li>{% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+</section>
 {% endfor %}
 
-<h2>{{ knowledge|length + 3 }}. Self-Check Quick Quiz</h2>
-<div class="quiz">
-{% for q in oral %}<p>{{ loop.index }}. {{ q }}</p>{% endfor %}
-<p><em>Answers in handbook appendix.</em></p>
-</div>
+{% if enrichment.background_theory %}
+<div class="section-marker">Part IV — Background Theory</div>
+<section id="theory">
+  <h2>The Science Behind the Procedures</h2>
+  <p>When the oral board examiner asks <em>why</em>, these are the explanations they expect to hear.</p>
+  {% for key, text in enrichment.background_theory.items() %}
+  <div class="callout theory">
+    <strong>{{ key.replace('_', ' ').replace('why ', 'Why ')|title }}</strong>
+    <p style="margin-top:8px;">{{ text }}</p>
+  </div>
+  {% endfor %}
+</section>
+{% endif %}
 
-<hr>
-<p><small>© 2026 Aircraft Electronics Association. Derived from CAET Advanced PQS Training Module.</small></p>
+<div class="section-marker">Part V — Self-Check</div>
+
+<section id="quiz">
+  <h2>Oral Board Practice Questions</h2>
+  <p>Answer each aloud before opening the answer key. Mastery means you can explain it to a non-technical person, not just recite a definition.</p>
+  <div class="quiz">
+    <h3>Questions</h3>
+    <ol>
+      {% for q in oral %}<li>{{ q }}</li>{% endfor %}
+    </ol>
+  </div>
+
+  <h3>Answer Key</h3>
+  <div class="answer-key">
+    {% for q in oral %}
+    {% set qnum = q.split(':')[0].strip() %}
+    {% set answer = enrichment.oral_board_answers.get(qnum) %}
+    <details>
+      <summary>{{ q }}</summary>
+      {% if answer %}<p>{{ answer }}</p>{% else %}<p><em>Study the corresponding section of this handbook. Practice articulating the answer aloud.</em></p>{% endif %}
+    </details>
+    {% endfor %}
+  </div>
+</section>
+
+{% if written_exam_crosswalk %}
+<section id="crosswalk">
+  <h2>Written Exam Crosswalk</h2>
+  <div class="crosswalk">{{ written_exam_crosswalk }}</div>
+</section>
+{% endif %}
+
+<footer>
+  © 2026 Aircraft Electronics Association · Workforce Development Division.<br>
+  Derived from CAET Advanced PQS Training Module with supplementary teaching content authored for instructor use.
+</footer>
+
 </body>
 </html>
