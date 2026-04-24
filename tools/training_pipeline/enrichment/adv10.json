@@ -1,0 +1,234 @@
+{
+  "slug": "adv10",
+  "module_name": "Wire Harness Fabrication & Testing",
+  "why_this_matters": [
+    "Wire harnesses are the central nervous system of an aircraft. Every control signal, every engine parameter, every navigation fix, and every warning light depends on current flowing through a bundle of copper conductors you built with your own hands. When an avionics technician builds a harness incorrectly, the aircraft does not fail loudly on the first flight. It fails quietly, intermittently, on the forty-seventh flight, at night, in weather, when the crew is already task-saturated. That is the cost of a chafed wire, a cold crimp, or a shield that was never bonded.",
+    "The NTSB docket is full of accidents traced back to wiring workmanship. Swissair 111 (1998) lost control of the cabin due to arcing from an in-flight entertainment wiring bundle that was not properly separated, clamped, or fused. TWA 800 (1996) center-fuel-tank explosion investigations identified cracked and chafed wires that allowed a spark into a fuel-vapor environment. Every one of these accidents started with a harness built by a technician who thought \"close enough\" was good enough. It never is.",
+    "Your work on this module is not about memorizing steps. It is about developing the discipline of a craftsperson: the right die for the right terminal, the right strip length for the right gauge, the right tie spacing for the right application, and the right test instrument for the right fault. The evaluator is not grading your speed. The evaluator is grading whether you can be trusted to build a harness that will still be working when the aircraft is thirty years old."
+  ],
+  "key_terms": [
+    {"term": "Ampacity", "definition": "The maximum current a conductor can carry continuously without exceeding its temperature rating. Determined by wire gauge, insulation type, and bundle density. A 22-gauge wire alone is rated ~5 A; the same wire in a tight bundle of 15 conductors derates to ~3 A."},
+    {"term": "Bonding", "definition": "The intentional electrical connection between two metallic objects to ensure they remain at the same potential, preventing static buildup and providing a low-impedance return path for fault current. Bonding straps use braided copper and are never painted over."},
+    {"term": "Chafe", "definition": "Abrasion of wire insulation caused by contact with a structure, another wire, or a moving component. Chafe is the leading cause of in-flight arc faults. Prevent with proper clamping, grommets, and service loops."},
+    {"term": "Cold Crimp", "definition": "A crimp that appears complete visually but has not fully compressed the terminal barrel around the wire strands, resulting in a high-resistance connection. Usually caused by undersized die or ratchet not fully cycling. Detectable by pull test and resistance measurement."},
+    {"term": "Continuity", "definition": "An unbroken electrical path from one point to another. Measured in ohms; a continuous wire shows a resistance equal to its DC resistance (typically 0.01\u20130.5 \u03a9 for aircraft harness runs). \"OL\" or infinite resistance indicates an open conductor."},
+    {"term": "EMI (Electromagnetic Interference)", "definition": "Unwanted electrical noise coupled into signal wires from nearby radiating sources (alternator, ignition, radio transmitters). Mitigated by shielded cable, twisted pairs, proper routing, and correct shield termination."},
+    {"term": "Megger (Megohmmeter)", "definition": "A high-voltage insulation resistance tester that applies 100\u20131000 V DC across insulation to detect breakdown paths invisible to a standard multimeter. Used to verify insulation integrity before energizing a circuit. Never use on live circuits or sensitive avionics."},
+    {"term": "Pigtail Termination", "definition": "A length of braided shield pulled out and terminated separately to a ground point, forming a pigtail. Acceptable for audio frequencies below 100 kHz. Unacceptable for high-frequency digital signals, where 360\u00b0 shield termination is required."},
+    {"term": "Service Loop", "definition": "Extra wire length intentionally left at connectors and splice points to allow a small number of future re-terminations without running new wire. Typically 6\u20138 inches at connectors, coiled neatly and secured."},
+    {"term": "Shield", "definition": "A metallic braid or foil surrounding one or more conductors to intercept electromagnetic interference before it couples to the signal. Must be grounded to be effective. How and where you ground it depends on signal frequency and system type."},
+    {"term": "Tie Spacing", "definition": "The distance between adjacent lacing ties or cable ties along a bundle. Typical specification: 4\u20136 inches in straight runs, tighter near connectors and at direction changes. Too loose allows bundle sag; too tight deforms insulation and changes impedance."}
+  ],
+  "knowledge_enrichment": {
+    "4.2.1": {
+      "title": "Wire Types",
+      "overview": "Aircraft wire is specified by military standard (MIL-W) or aerospace standard (SAE AS). The specification you select governs temperature rating, voltage rating, abrasion resistance, flammability behavior, and mechanical flexibility. Using \"general-purpose\" hardware-store wire in an aircraft is not merely non-compliant \u2014 it is a direct contributor to fatal accidents.",
+      "key_points": [
+        "MIL-W-22759/16 (PTFE/Tefzel insulation, tin-coated copper) is the most common modern aircraft hookup wire. Rated \u2212 65 \u00b0C to +150 \u00b0C, 600 V, self-extinguishing.",
+        "MIL-W-22759/32 and /87 are used in engine compartments where temperatures exceed 200 \u00b0C. Do not use /16 in these zones.",
+        "Kapton (MIL-W-81381) was widely used in older aircraft but is prone to dry-arc tracking when chafed. It is being removed from most platforms.",
+        "Wire gauge (AWG) determines ampacity. In a bundle, derate per AC 43.13-1B Table 11-6 \u2014 a 20-gauge wire alone carries 11 A but only 6.5 A in a 15-conductor bundle at 60 \u00b0C ambient.",
+        "Shielded cable (twisted pair + braid) is mandatory for audio intercom, data buses (ARINC 429, CAN), and low-level signals. Coaxial is mandatory above 30 MHz.",
+        "Color coding follows MIL-STD or OEM wire list. Solid colors identify the conductor; tracer stripes identify the circuit. Do not substitute colors \u2014 the wire list is the legal record."
+      ]
+    },
+    "4.2.2": {
+      "title": "Crimp and Shield Termination",
+      "overview": "A crimp is a gas-tight metal-to-metal connection formed by compressing a terminal barrel around a stripped wire with calibrated force. When done correctly, a crimp is stronger than the wire itself and will outlast soldered joints in a vibration environment. When done incorrectly, it is the single most common source of harness failure.",
+      "key_points": [
+        "Match the die to the terminal, not the wire: red die for 22\u201318 AWG terminals, blue for 16\u201314, yellow for 12\u201310. Dies are color-coded on the tool head.",
+        "Use a ratcheting crimper (MS3191 class) that will not release until the full compression cycle completes. Plier-type crimpers are prohibited for aircraft work.",
+        "Strip length matters: too short and strands do not enter the barrel; too long and bare strands extend past the terminal, risking a short. Follow the terminal manufacturer's strip chart \u2014 usually printed on the terminal package.",
+        "A proper crimp shows the insulation butted against the insulation grip with strands visible through the inspection hole. The conductor barrel should show a clean hex impression with no cracks.",
+        "Shield termination for analog audio (below 30 kHz): ground one end only, typically at the source (radio/intercom), to prevent ground loops.",
+        "Shield termination for digital/data (ARINC 429, CAN, Ethernet): 360\u00b0 bond at both ends. Pigtails longer than 1 inch degrade EMI performance by 10\u201320 dB and are not acceptable on these systems.",
+        "Solder-sleeve shield terminations (Raychem SolderSleeve or equivalent) are acceptable when installed with a calibrated heat gun. A smoke-blue shrink ring and wetted solder are the visual accept criteria."
+      ]
+    },
+    "4.2.8": {
+      "title": "Multimeter and Megohmmeter Testing",
+      "overview": "Two instruments verify a harness is good. They measure different things and are not interchangeable. A multimeter finds opens and shorts at low voltage. A megger finds insulation breakdown paths that only appear at operating voltage or higher. Both are required before a harness is released to service.",
+      "key_points": [
+        "Digital multimeter (DMM) in continuity/low-ohm mode applies < 1 V across the conductor. Acceptable readings for aircraft runs are < 0.5 \u03a9 end-to-end; anything above 1 \u03a9 on a short run indicates a bad crimp or corroded terminal.",
+        "Use the DMM's 4-wire (Kelvin) mode for low-resistance measurements when available, to eliminate test-lead resistance from the reading.",
+        "A megohmmeter applies 250\u20131000 V DC across insulation while measuring leakage current. Typical aircraft acceptance: > 100 M\u03a9 between any two conductors and between any conductor and ground.",
+        "Before meggering: disconnect both ends of the harness from any avionics. A 500 V megger WILL destroy most transistorized equipment. This is the single most common way technicians create additional write-ups.",
+        "Megger voltage selection: use 500 V DC for 28 V aircraft systems, 1000 V DC for 115 V AC systems. Using a higher voltage than necessary can cause false failures in humid conditions.",
+        "A megger reading that climbs slowly from 10 M\u03a9 to 100 M\u03a9 over 30 seconds indicates absorbed moisture in the insulation. Dry the harness with low-heat air and retest."
+      ]
+    }
+  },
+  "task_enrichment": {
+    "4.4.1": {
+      "title": "Harness Fabrication",
+      "step_by_step": [
+        "Read the wire list and routing diagram before you cut anything. Verify you have the correct wire gauges, terminals, and connectors staged at your bench.",
+        "Measure the routing path using a mock-up harness, a string, or a measuring tape following the actual routing. Add 10\u201315% for bend radius and service loops.",
+        "Cut each wire to length. Label both ends immediately with a heat-shrink wire marker showing the wire number from the diagram. Never cut multiple wires and label later \u2014 you will cross them up.",
+        "Strip each end to the terminal manufacturer's specified length. Inspect for nicked strands (more than 3 nicked strands = re-strip).",
+        "Terminate each end with the correct terminal and correct-color die. Inspect each crimp visually and with a pull test (4 lb minimum for 22 AWG, 8 lb for 20 AWG, 16 lb for 18 AWG).",
+        "Lay the wires in the harness form (pegboard or nail jig). Route according to the diagram \u2014 do NOT improvise routing.",
+        "Lace or tie the bundle with 4\u20136 inch tie spacing. Snug but not deforming insulation.",
+        "Install any required shields, grounding lugs, and service loops per the diagram.",
+        "Perform continuity and megger testing (see Task 4.4.4 and 4.4.5)."
+      ],
+      "evaluator_watching_for": [
+        "Correct wire type pulled from stock (MIL-W-22759/16 vs. /32 for engine zone \u2014 ask the candidate why they picked it).",
+        "Both ends of every wire labeled, legible, and matching the diagram.",
+        "Routing exactly matches the diagram, including any separation from control cables or hot air ducts.",
+        "Service loops at connectors (6\u20138 inches, coiled).",
+        "Consistent tie spacing with no deformed insulation.",
+        "No nicked conductors, no cold crimps, no bare shield pigtails longer than 1 inch on data circuits."
+      ],
+      "common_mistakes": [
+        "Improvising routing when the diagram seems awkward. The diagram reflects separation-distance rules you may not see. Route exactly as drawn.",
+        "Measuring wire lengths in straight lines instead of along the routing path. Results in harness too short to close connectors.",
+        "Labeling wires \"later\" after cutting multiple at once. Always label as you cut.",
+        "Using the wrong terminal color because the one you need is not in the drawer. Stop and get the correct terminal \u2014 never substitute.",
+        "Over-tightening ties. You can see insulation pinch; that is a failure."
+      ]
+    },
+    "4.4.2": {
+      "title": "Crimp Technique",
+      "step_by_step": [
+        "Identify the wire gauge from the insulation stripe or the wire list.",
+        "Select the matching terminal. Verify the color band on the terminal matches the expected color for that gauge (red/blue/yellow).",
+        "Select the crimping tool and die that match the terminal color. Confirm the die is fully seated in the tool and the ratchet is engaged.",
+        "Strip the wire to the length specified on the terminal package (typically 3/16\" to 1/4\" for 22\u201318 AWG).",
+        "Insert the stripped wire fully into the terminal barrel. Verify strands are visible through the inspection window. Insulation butts against the insulation grip.",
+        "Close the crimper fully. The ratchet will release when the crimp cycle is complete.",
+        "Inspect: terminal bell-mouth unchanged, barrel shows a clean hex or indent, strands visible through inspection window, insulation properly gripped with no exposed strands past the grip.",
+        "Perform a pull test at minimum specified force. A proper crimp will break the wire before the crimp fails."
+      ],
+      "evaluator_watching_for": [
+        "Candidate reads the terminal package or chart \u2014 does not guess the strip length.",
+        "Correct die color selected without prompting.",
+        "Full ratchet cycle \u2014 the crimper is not released early.",
+        "Visual inspection performed on EVERY crimp, not just the first one.",
+        "Pull test performed before the harness moves to the next step."
+      ],
+      "common_mistakes": [
+        "Using an uncalibrated plier-type crimper instead of a ratcheting tool. Prohibited for aircraft work \u2014 automatic fail.",
+        "Guessing at strip length. Too short = cold crimp; too long = strands outside the terminal (FOD hazard and potential short).",
+        "Nicking strands with a dull or misadjusted stripper. More than 3 nicks = re-strip. If you can see copper before stripping, you went too deep.",
+        "Crimping without fully seating the wire \u2014 conductor barrel crimps on air, insulation barrel crimps on conductor. Both are failures.",
+        "Skipping the pull test because \"it looked good.\" The pull test is the only mechanical verification of crimp integrity."
+      ]
+    },
+    "4.4.3": {
+      "title": "Wire Bundling",
+      "step_by_step": [
+        "Gather the wires in the order shown on the harness diagram, not in the order convenient at your bench.",
+        "Lay the bundle flat on the harness board. Large wires typically go in the center; shielded and signal wires around the outside (check your diagram).",
+        "Pre-form any branches so they exit the main bundle at the correct angle.",
+        "Install the first tie near an end. Pull snug but not deforming. The tie-gun should be set to a tension appropriate for 22\u201318 AWG bundles; over-tension deforms insulation.",
+        "Work along the bundle installing ties at 4\u20136 inch intervals on straight runs, 2\u20133 inches near connectors or changes in direction.",
+        "Cut tie tails flush with the buckle using flush-cut pliers. Sharp tails cause injury during maintenance.",
+        "Install any clamps, standoffs, or P-clips called for in the diagram with correct torque on the mounting hardware."
+      ],
+      "evaluator_watching_for": [
+        "Bundle order matches the diagram (not invented).",
+        "Tie spacing is consistent and within spec (not \"wherever looks good\").",
+        "No deformed insulation at any tie (evaluator will squeeze the bundle at a few ties to check).",
+        "Tie tails flush-cut, not protruding.",
+        "Correct orientation of P-clips (cushion side against wire, open side accessible for inspection)."
+      ],
+      "common_mistakes": [
+        "Over-tightening ties until insulation is visibly pinched. Changes impedance on data lines and creates future chafe points.",
+        "Missing ties around branches, letting the branch pull out of the bundle with movement.",
+        "Using tie-wraps where lacing is specified (and vice versa) \u2014 check the diagram.",
+        "Cutting tie tails with side-cutters leaving sharp edges. Always flush-cut."
+      ]
+    },
+    "4.4.4": {
+      "title": "Continuity Check",
+      "step_by_step": [
+        "Disconnect the harness from any connected equipment at both ends.",
+        "Set the DMM to continuity or low-ohm (200 \u03a9) range. Short the probes together and note the baseline lead resistance (typically 0.1\u20130.3 \u03a9) \u2014 subtract this from your reading.",
+        "Place one probe on a known pin at End A, the other on the corresponding pin at End B per the wire list.",
+        "Read the resistance. Acceptance: corrected reading < 0.5 \u03a9 for typical aircraft runs, < 0.1 \u03a9 for current-carrying feeders.",
+        "Repeat for every conductor in the harness, checking off each wire number on a printed wire list as you go.",
+        "Perform an isolation check: measure resistance between each pin and every OTHER pin at End A. Expected result: OL (open/infinite) on every pair. Any reading below 10 M\u03a9 indicates a short or leakage."
+      ],
+      "evaluator_watching_for": [
+        "Candidate shorts probes to establish baseline lead resistance before measuring.",
+        "Systematic approach: works down the wire list in order, not random pins.",
+        "Both continuity AND isolation are checked \u2014 not just continuity.",
+        "Readings written down on the wire list, not trusted to memory.",
+        "Any out-of-tolerance reading is investigated, not hand-waved as \"close enough.\""
+      ],
+      "common_mistakes": [
+        "Forgetting to subtract test-lead resistance. A 0.3 \u03a9 lead resistance on a 0.2 \u03a9 wire looks like 0.5 \u03a9 \u2014 ambiguous accept/reject.",
+        "Only checking continuity, not isolation. A wire that is both continuous AND shorted to another wire still passes a continuity check. The isolation check is what catches it.",
+        "Using a DMM to check high-resistance insulation. The 9 V source in a DMM is not enough to detect partial insulation breakdown. That is what a megger is for.",
+        "Probes slipping off small pins. Use pin-grabber test leads or correct-size probes."
+      ]
+    },
+    "4.4.5": {
+      "title": "Insulation Resistance (Megger) Test",
+      "step_by_step": [
+        "VERIFY both ends of the harness are fully disconnected from every piece of equipment. Walk both ends. This is not a step to hurry.",
+        "Ground every pin at End B (twist a bus wire around them all or use a shorting bar).",
+        "Connect the megger's negative lead to ground / aircraft structure.",
+        "Connect the megger's positive lead to the first pin at End A.",
+        "Select the correct test voltage: 500 V DC for 28 V systems, 1000 V DC for 115 V AC systems.",
+        "Press test. Read resistance at 60 seconds (typical specification). Acceptance: > 100 M\u03a9.",
+        "Release the test button. Discharge the harness by briefly shorting the pin to ground before touching any conductor.",
+        "Repeat for every conductor. On large harnesses, a bus-bar testing jig speeds this up.",
+        "After testing, remove the shorting bar at End B before reconnecting equipment."
+      ],
+      "evaluator_watching_for": [
+        "Candidate verifies equipment disconnection at both ends, with verbal or written confirmation.",
+        "Grounding/shorting arrangement at End B is correct \u2014 all pins at the same potential, not a random subset.",
+        "Correct test voltage selected for the circuit rating (candidate can articulate WHY 500 V vs 1000 V).",
+        "Discharge step performed between readings (touches probe to ground before handling the wire).",
+        "Wearing voltage-rated gloves. A 1000 V megger can hurt you."
+      ],
+      "common_mistakes": [
+        "Testing with equipment still connected. The megger will destroy solid-state avionics, immediately or latently. This is the most expensive mistake in harness testing.",
+        "Over-voltaging the insulation: using 2500 V on a wire rated 600 V may create a breakdown path that was not there before.",
+        "Not discharging between readings. The harness holds a charge at test voltage. A surprise shock during reconnection is painful and may drop tools.",
+        "Misinterpreting a slowly-rising reading as a bad harness. Slow rise = absorbed moisture; dry and retest.",
+        "Skipping the megger entirely because \"continuity passed.\" Insulation breakdown is invisible to a DMM."
+      ]
+    },
+    "4.4.6": {
+      "title": "Fault Finding",
+      "step_by_step": [
+        "Hear the fault description. Ask clarifying questions: when did it start, what symptom, does it come and go, is it temperature- or motion-dependent?",
+        "Divide and conquer: split the suspect wire run at its nearest accessible midpoint (connector, junction, splice). Measure each half separately. The fault is in whichever half fails the test.",
+        "For an open: use DMM continuity. Walk from end toward midpoint until you find the break.",
+        "For a short to ground: open the far end; measure from near end to ground. Any reading below 10 M\u03a9 = short somewhere in this segment. Halve and retest.",
+        "For a short between two conductors: open both far ends; measure from one near end to the other. Halve and retest.",
+        "For an intermittent: flex and wiggle the suspect area while watching a live DMM. A jumping reading localizes the fault.",
+        "Repair per the approved data (splice, replacement section, or full wire replacement). Document the repair in the maintenance record.",
+        "Retest the entire circuit with continuity AND megger after repair."
+      ],
+      "evaluator_watching_for": [
+        "Systematic troubleshooting, not random probing.",
+        "Understanding of half-split technique \u2014 candidate can articulate why it finds the fault in log\u2082(N) steps rather than linear search.",
+        "Correct choice of test instrument for the suspected fault type.",
+        "Safe test setup \u2014 equipment disconnected, no live probing on energized circuits without a current-limiting path.",
+        "Post-repair testing that is as thorough as pre-install testing."
+      ],
+      "common_mistakes": [
+        "Eyeballing a harness and declaring a section \"probably fine\" without testing. Avionics gremlins live in sections techs skipped.",
+        "Repairing without understanding the root cause. A chafe you repair by adding tape will re-chafe; find the clamp that needs to move.",
+        "Splicing with twist-and-tape or butt-connectors from the hardware store. Only approved splices (PIDG, solder-sleeve, or certified environmental splice) per AC 43.13.",
+        "Omitting post-repair megger. A repair that looks good on continuity can still have a hidden insulation defect near the splice heat zone."
+      ]
+    }
+  },
+  "oral_board_answers": {
+    "Q1": "Shielded audio cables use one-end shield grounding to prevent ground loops that would inject hum. The shield is grounded at the source end \u2014 typically the radio or intercom amplifier \u2014 because that is where the signal reference is established. The destination end (headset jack or speaker) leaves the shield open (isolated) at the connector, with heat-shrink over the unterminated braid. Inside the connector, the shield pigtail is kept under 1 inch. If you ground both ends, the two ground potentials (which differ slightly due to structure current flow) drive a 50/60 Hz or 400 Hz current through the shield, which couples capacitively into the signal conductors and you hear it as hum.",
+    "Q2": "Safety steps for a megger test: (1) VERIFY equipment disconnected at both ends, walk both ends, do not take anyone's word for it. (2) Short all pins at the far end to establish a common test point. (3) Post a \"DO NOT ENERGIZE\" or test-in-progress sign at any panel that connects to this harness. (4) Verify megger battery and calibration date. (5) Select correct test voltage for the system rating (500 V for 28 V systems, 1000 V for 115 V AC). (6) Wear voltage-rated gloves. (7) Connect negative to aircraft ground, then positive to the first pin. (8) Warn any nearby personnel. (9) Apply test voltage for the specified duration (typically 60 seconds). (10) Release test button. (11) Discharge harness to ground with a grounding stick or by shorting probe to ground. (12) Do not touch conductors until discharge is confirmed. After the test: remove the shorting bar at the far end before reconnecting equipment.",
+    "Q3": "0.5 \u03a9 is acceptable for a short harness run (< 10 feet) but borderline for a longer one. You have to know the expected DC resistance for the gauge and length: 22 AWG is about 16 \u03a9 per 1000 feet, so a 10-foot run should read about 0.16 \u03a9. A reading of 0.5 \u03a9 on a 10-foot run means approximately 0.34 \u03a9 of excess resistance \u2014 likely a marginal crimp. 50 \u03a9 is definitely wrong; that is a cold crimp or a corroded terminal. OL (open) means an open conductor somewhere in the run \u2014 a broken wire or a crimp that failed completely. For any of these except the obviously good reading, I would disassemble and inspect the crimps at both ends before concluding the wire itself is bad.",
+    "Q4": "An off-center crimp indent tells me the terminal was not properly seated in the crimp die when the cycle was started. The crimp is probably not gas-tight, which means over time oxygen will reach the conductor-terminal interface, oxidation will form, resistance will rise, and the connection will eventually fail \u2014 often intermittently, often in flight. Causes: (1) terminal not inserted to the die stop before crimping; (2) wrong die size for the terminal; (3) wire not fully inserted into the barrel, causing the barrel to flex during crimp; (4) worn die. This crimp is not acceptable. Cut it off and re-terminate.",
+    "Q5": "For a short between two wires in a 15-foot run through two bulkhead connectors, I would use the half-split method. First, open the harness at the intermediate bulkhead connector. Now I have two 7.5-foot segments, each independently testable. Measure resistance between the two faulted wires on each segment. Whichever segment shows the short, the fault is there. Repeat on that segment: find a midpoint (splice, junction, or accessible break-out), divide again. This reduces the search from 15 feet linear to log\u2082(180 inches) \u2248 8 splits of about 2 inches each. If there is no convenient midpoint, use a TDR (time-domain reflectometer) to get the distance to the fault from one end \u2014 read the distance in feet, open the harness at the nearest access point past that distance, and continue."
+  },
+  "background_theory": {
+    "why_crimps_work": "A proper crimp creates a gas-tight, cold-welded joint. During the crimp cycle, the metal of the terminal and the metal of the wire strands are compressed beyond their yield point. The asperities (microscopic bumps) on each surface deform and interlock, and residual oxide layers are broken up and extruded from the interface. The result is metal-to-metal contact over a large effective area with no path for oxygen to reach the interface. Properly crimped, the joint has lower resistance than the wire itself and will survive vibration, temperature cycling, and humidity for the life of the aircraft. This is why aircraft maintenance has largely abandoned soldered field splices in favor of crimped terminations \u2014 solder joints fail in vibration, crimps do not.",
+    "why_shielding_works": "A shield is a Faraday cage wrapped around your signal conductor. Electromagnetic fields from nearby wires induce currents in the shield instead of in the signal conductor. For the shield to do its job, it must provide a low-impedance path to ground at the correct frequency. At audio frequencies (below 30 kHz), a single ground at the source end is sufficient and avoids ground loops. At higher frequencies, the shield must be grounded at both ends with a full 360\u00b0 bond because the signal's return current naturally distributes along the shield at RF; a pigtail creates an inductive interruption that drops the shielding effectiveness by 20\u201340 dB. This is why digital buses like ARINC 429 and CAN require 360\u00b0 backshell terminations.",
+    "why_insulation_fails": "Insulation does not fail instantly; it degrades. Thermal cycling expands and contracts the insulator, creating microcracks. Moisture absorbs into those cracks, particularly with aged Kapton or sun-aged PVC. Contamination (hydraulic fluid, Skydrol, battery acid) attacks specific polymer families. Chafe creates discrete damage at mechanical contact points. Over time, a leakage path forms from conductor to conductor or conductor to ground. The path is invisible at low voltage but conducts heavily at operating voltage. A megger applies sufficient voltage to detect the path before it becomes an in-service arc fault. This is why insulation resistance testing is not optional \u2014 it catches damage that continuity testing cannot see."
+  }
+}
