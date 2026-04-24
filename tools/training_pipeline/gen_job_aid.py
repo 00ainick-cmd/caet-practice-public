@@ -12,6 +12,10 @@ from reportlab.lib.units import inch
 from reportlab.lib import colors
 
 SCRIPT_DIR = Path(__file__).parent
+import sys as _sys
+_sys.path.insert(0, str(SCRIPT_DIR))
+from merge import effective_tasks
+
 NAVY = colors.HexColor("#0a2540")
 GOLD = colors.HexColor("#8b6914")
 PAPER_ACCENT = colors.HexColor("#f5f2e8")
@@ -43,6 +47,7 @@ def main():
 
     src = json.load(src_path.open("r", encoding="utf-8"))
     enr = load_enrichment(slug)
+    tasks = effective_tasks(src, enr)
 
     base = getSampleStyleSheet()
     h1 = ParagraphStyle('H1', parent=base['Title'], textColor=NAVY, fontName='Helvetica-Bold',
@@ -94,7 +99,7 @@ def main():
 
     # Per-task: pair evaluator-watching with common-mistakes in side-by-side tables
     story.append(Paragraph("TASK CHECKLIST — WHAT EVALUATOR WATCHES / WHAT TO AVOID", h2))
-    for task in src["tasks"]:
+    for task in tasks:
         k = match_key(task["heading"])
         e = enr.get("task_enrichment", {}).get(k, {})
         watch = e.get("evaluator_watching_for", [])[:3]

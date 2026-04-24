@@ -4,6 +4,8 @@ from pathlib import Path
 from jinja2 import Environment, FileSystemLoader
 
 SCRIPT_DIR = Path(__file__).parent
+sys.path.insert(0, str(SCRIPT_DIR))
+from merge import effective_tasks, effective_oral, effective_intro
 
 def load_enrichment(slug):
     f = SCRIPT_DIR / "enrichment" / f"{slug}.json"
@@ -40,10 +42,10 @@ def main():
     tpl = env.get_template("lesson.html.j2")
     html = tpl.render(
         title=src["title"],
-        intro=src["intro"],
+        intro=effective_intro(src, enrichment),
         knowledge=src["knowledge_requirements"],
-        tasks=src["tasks"],
-        oral=src["oral_board_questions"],
+        tasks=effective_tasks(src, enrichment),
+        oral=effective_oral(src, enrichment),
         enrichment=enrichment,
     )
     out_path.parent.mkdir(parents=True, exist_ok=True)

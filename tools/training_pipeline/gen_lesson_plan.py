@@ -16,6 +16,10 @@ from reportlab.lib.units import inch
 from reportlab.lib import colors
 
 SCRIPT_DIR = Path(__file__).parent
+import sys as _sys
+_sys.path.insert(0, str(SCRIPT_DIR))
+from merge import effective_tasks, effective_oral
+
 NAVY = colors.HexColor("#0a2540")
 GOLD = colors.HexColor("#8b6914")
 PAPER = colors.HexColor("#fbfaf5")
@@ -51,6 +55,8 @@ def main():
 
     src = json.load(src_path.open("r", encoding="utf-8"))
     enr = load_enrichment(slug)
+    tasks = effective_tasks(src, enr)
+    oral_questions = effective_oral(src, enr)
 
     base = getSampleStyleSheet()
     h1 = ParagraphStyle('H1', parent=base['Title'], textColor=NAVY, fontName='Helvetica-Bold',
@@ -163,7 +169,7 @@ def main():
     # Task-by-task instructor notes
     story.append(PageBreak())
     story.append(Paragraph("Task-by-Task Instructor Notes", h2))
-    for task in src["tasks"]:
+    for task in tasks:
         k = match_key(task["heading"])
         e = enr.get("task_enrichment", {}).get(k, {})
         story.append(Paragraph(task["heading"], h3))
@@ -191,7 +197,7 @@ def main():
     # Oral board Q&A prep
     story.append(PageBreak())
     story.append(Paragraph("Oral Board Practice — Ask Students These", h2))
-    for q in src["oral_board_questions"]:
+    for q in oral_questions:
         qnum = q.split(":")[0].strip()
         answer = enr.get("oral_board_answers", {}).get(qnum)
         story.append(Paragraph(q, h4))

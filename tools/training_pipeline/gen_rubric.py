@@ -12,6 +12,10 @@ from reportlab.lib.units import inch
 from reportlab.lib import colors
 
 SCRIPT_DIR = Path(__file__).parent
+import sys as _sys
+_sys.path.insert(0, str(SCRIPT_DIR))
+from merge import effective_tasks
+
 NAVY = colors.HexColor("#0a2540")
 GOLD = colors.HexColor("#8b6914")
 GREEN_SOFT = colors.HexColor("#e7f0e5")
@@ -44,6 +48,7 @@ def main():
 
     src = json.load(src_path.open("r", encoding="utf-8"))
     enr = load_enrichment(slug)
+    tasks = effective_tasks(src, enr)
 
     base = getSampleStyleSheet()
     h1 = ParagraphStyle('H1', parent=base['Title'], textColor=NAVY, fontName='Helvetica-Bold',
@@ -99,7 +104,7 @@ def main():
     story.append(Spacer(1, 0.1*inch))
 
     # One table per task with real accept/reject criteria from enrichment
-    for task in src["tasks"]:
+    for task in tasks:
         k = match_key(task["heading"])
         e = enr.get("task_enrichment", {}).get(k, {})
         accept = e.get("evaluator_watching_for", [])
@@ -170,7 +175,7 @@ def main():
     # Final scoring summary
     story.append(PageBreak())
     story.append(Paragraph("Overall Scoring", h2))
-    total = len(src["tasks"])
+    total = len(tasks)
     summary_rows = [
         ["Tasks PASSED", "Result", "Remediation"],
         [f"{total}/{total}", "PASS — candidate is qualified", "None"],

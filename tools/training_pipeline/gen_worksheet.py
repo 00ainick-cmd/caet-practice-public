@@ -8,6 +8,10 @@ from reportlab.lib.units import inch
 from reportlab.lib import colors
 
 SCRIPT_DIR = Path(__file__).parent
+import sys as _sys
+_sys.path.insert(0, str(SCRIPT_DIR))
+from merge import effective_tasks, effective_oral
+
 NAVY = colors.HexColor("#0a2540")
 GOLD = colors.HexColor("#8b6914")
 PAPER_ACCENT = colors.HexColor("#f5f2e8")
@@ -37,6 +41,8 @@ def main():
 
     src = json.load(src_path.open("r", encoding="utf-8"))
     enr = load_enrichment(slug)
+    tasks = effective_tasks(src, enr)
+    oral_questions = effective_oral(src, enr)
 
     base = getSampleStyleSheet()
     h1 = ParagraphStyle('H1', parent=base['Title'], textColor=NAVY, fontName='Helvetica-Bold',
@@ -71,7 +77,7 @@ def main():
     story.append(Paragraph("SECTION 1 · Oral Board Scenarios", h2))
     story.append(Paragraph("Answer each in 2–3 sentences. Imagine you are speaking to an evaluator.", italic))
     problems_idx = 1
-    for q in src["oral_board_questions"]:
+    for q in oral_questions:
         story.append(Paragraph(f"Problem {problems_idx}", q_label))
         story.append(Paragraph(q, body))
         for _ in range(3):
@@ -79,7 +85,7 @@ def main():
         problems_idx += 1
 
     # Section 2: Procedure recall from task enrichment
-    tasks_with_steps = [t for t in src["tasks"] if enr.get("task_enrichment", {}).get(match_key(t["heading"]), {}).get("step_by_step")]
+    tasks_with_steps = [t for t in tasks if enr.get("task_enrichment", {}).get(match_key(t["heading"]), {}).get("step_by_step")]
     if tasks_with_steps:
         story.append(PageBreak())
         story.append(Paragraph("SECTION 2 · Procedure Recall", h2))
@@ -101,7 +107,7 @@ def main():
     story.append(Paragraph("For each scenario, name the specific mistake and explain the correct approach.", italic))
     scenario_probs = []
     # Build from common_mistakes across tasks
-    for task in src["tasks"]:
+    for task in tasks:
         k = match_key(task["heading"])
         e = enr.get("task_enrichment", {}).get(k, {})
         for m in e.get("common_mistakes", [])[:1]:  # First mistake per task
@@ -126,7 +132,7 @@ def main():
     # Oral board answers from enrichment
     story.append(Paragraph("SECTION 1 · Oral Board", h2))
     idx = 1
-    for q in src["oral_board_questions"]:
+    for q in oral_questions:
         qnum = q.split(":")[0].strip()
         ans = enr.get("oral_board_answers", {}).get(qnum)
         story.append(Paragraph(f"Problem {idx}: {qnum}", q_label))
