@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ title }} | CAET Advanced Handbook</title>
+<link rel="stylesheet" href="../../../../shared/ace-theme.css">
+<style>
+body { font-family: 'Inter', sans-serif; max-width: 880px; margin: 0 auto;
+       padding: 40px 24px; background: #080C1A; color: var(--text-primary); line-height: 1.6; }
+h1 { color: var(--gold); border-bottom: 2px solid var(--gold); padding-bottom: 8px; }
+h2 { color: #22d3ee; margin-top: 2em; }
+.callout { background: rgba(212,168,83,0.1); border-left: 4px solid var(--gold);
+           padding: 16px 20px; margin: 20px 0; border-radius: 6px; }
+.mistakes { background: rgba(239,68,68,0.08); border-left: 4px solid #ef4444;
+            padding: 16px 20px; margin: 20px 0; border-radius: 6px; }
+.quiz { background: rgba(34,211,238,0.08); border-left: 4px solid #22d3ee;
+        padding: 20px 24px; margin: 24px 0; border-radius: 6px; }
+.toc { background: rgba(255,255,255,0.05); padding: 20px 24px; border-radius: 8px; }
+.page-break { page-break-after: always; }
+@media print { body { background: white; color: black; } }
+</style>
+</head>
+<body>
+<h1>{{ title }}</h1>
+<p><em>CAET Advanced Certification — Student Handbook</em></p>
+
+<div class="toc">
+<h2>Table of Contents</h2>
+<ol>
+<li>Why This Matters</li>
+{% for kr in knowledge %}<li>{{ kr.heading }}</li>{% endfor %}
+{% for t in tasks %}<li>{{ t.heading }}</li>{% endfor %}
+<li>Self-Check Quick Quiz</li>
+</ol>
+</div>
+
+<div class="page-break"></div>
+
+<h2>1. Why This Matters</h2>
+{% for para in intro %}<p>{{ para }}</p>{% endfor %}
+
+{% for kr in knowledge %}
+<h2>{{ loop.index + 1 }}. {{ kr.heading }}</h2>
+<p>{{ kr.body }}</p>
+{% endfor %}
+
+<h2>{{ knowledge|length + 2 }}. Procedures</h2>
+{% for t in tasks %}
+<h3>{{ t.heading }}</h3>
+<p>{{ t.body }}</p>
+<div class="callout"><strong>Evaluator is watching for:</strong> See practical rubric for accept/reject criteria.</div>
+{% endfor %}
+
+<h2>{{ knowledge|length + 3 }}. Self-Check Quick Quiz</h2>
+<div class="quiz">
+{% for q in oral %}<p>{{ loop.index }}. {{ q }}</p>{% endfor %}
+<p><em>Answers in handbook appendix.</em></p>
+</div>
+
+<hr>
+<p><small>© 2026 Aircraft Electronics Association. Derived from CAET Advanced PQS Training Module.</small></p>
+</body>
+</html>

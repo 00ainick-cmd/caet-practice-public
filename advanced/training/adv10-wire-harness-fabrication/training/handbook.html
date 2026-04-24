@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Section 4: Wire Harness Fabrication & Testing | CAET Advanced Handbook</title>
+<link rel="stylesheet" href="../../../../shared/ace-theme.css">
+<style>
+body { font-family: 'Inter', sans-serif; max-width: 880px; margin: 0 auto;
+       padding: 40px 24px; background: #080C1A; color: var(--text-primary); line-height: 1.6; }
+h1 { color: var(--gold); border-bottom: 2px solid var(--gold); padding-bottom: 8px; }
+h2 { color: #22d3ee; margin-top: 2em; }
+.callout { background: rgba(212,168,83,0.1); border-left: 4px solid var(--gold);
+           padding: 16px 20px; margin: 20px 0; border-radius: 6px; }
+.mistakes { background: rgba(239,68,68,0.08); border-left: 4px solid #ef4444;
+            padding: 16px 20px; margin: 20px 0; border-radius: 6px; }
+.quiz { background: rgba(34,211,238,0.08); border-left: 4px solid #22d3ee;
+        padding: 20px 24px; margin: 24px 0; border-radius: 6px; }
+.toc { background: rgba(255,255,255,0.05); padding: 20px 24px; border-radius: 8px; }
+.page-break { page-break-after: always; }
+@media print { body { background: white; color: black; } }
+</style>
+</head>
+<body>
+<h1>Section 4: Wire Harness Fabrication & Testing</h1>
+<p><em>CAET Advanced Certification — Student Handbook</em></p>
+
+<div class="toc">
+<h2>Table of Contents</h2>
+<ol>
+<li>Why This Matters</li>
+<li>4.2.1 — Wire Types</li><li>4.2.2–4.2.3 — Crimp and Shield Termination</li><li>4.2.8–4.2.9 — Multimeter and Megohmmeter</li>
+<li>Task 4.4.1 — Harness Fabrication</li><li>Task 4.4.2 — Crimp Technique</li><li>Task 4.4.3 — Wire Bundling</li><li>Task 4.4.4 — Continuity Check</li><li>Task 4.4.5 — Insulation Resistance (Megger) Test</li><li>Task 4.4.6 — Fault Finding</li>
+<li>Self-Check Quick Quiz</li>
+</ol>
+</div>
+
+<div class="page-break"></div>
+
+<h2>1. Why This Matters</h2>
+<p>This is the most hands-on section of the CAET Advanced PQS. Your evaluator watches you build, crimp, terminate, bundle, and test. There is no way to talk your way through this one—you either have the bench skills or you do not. The six tasks progress from fabrication through testing to fault-finding, and each must meet AC 43.13-1B standards under evaluator observation.</p>
+
+
+<h2>2. 4.2.1 — Wire Types</h2>
+<p></p>
+
+<h2>3. 4.2.2–4.2.3 — Crimp and Shield Termination</h2>
+<p>Crimping and shield termination are the two skills that define a competent avionics technician. Your evaluator will watch for: correct terminal selection for wire gauge, correct tool and positioner selection, full ratchet cycle completion, visual inspection quality, and pull test. For shield termination, they will check that you ground at the correct end (source end for audio, both ends for RF) and that the connection is mechanically sound.</p>
+
+<h2>4. 4.2.8–4.2.9 — Multimeter and Megohmmeter</h2>
+<p>Two test instruments serve different purposes in harness verification:</p>
+
+
+<h2>5. Procedures</h2>
+
+<h3>Task 4.4.1 — Harness Fabrication</h3>
+<p>How to demonstrate: Build a small harness from a provided diagram. The evaluator checks: correct wire types selected, clean stripping with no nicked strands, shield properly terminated (drain wire soldered and heat-shrunk at grounded end, insulated at the other end), coax connector properly installed (center contact crimped, ferrule crimped, VSWR acceptable), all runs neatly bundled and labeled.</p>
+<div class="callout"><strong>Evaluator is watching for:</strong> See practical rubric for accept/reject criteria.</div>
+
+<h3>Task 4.4.2 — Crimp Technique</h3>
+<p>How to demonstrate: Select the correct terminal for the wire gauge (match color code: red=22–18, blue=16–14, yellow=12–10 for standard terminals; match positioner for D-Sub contacts). Strip wire to specification. Insert fully. Crimp with calibrated ratcheting tool—full cycle. Pull test. Visual check under magnification: bellmouth present, indent centered, no barrel cracks, insulation grip engaged.</p>
+<div class="callout"><strong>Evaluator is watching for:</strong> See practical rubric for accept/reject criteria.</div>
+
+<h3>Task 4.4.3 — Wire Bundling</h3>
+<p>How to demonstrate: Install ties at 4–6 inch intervals along the harness. Each tie should be snug but not deforming insulation (you should be able to slide a tie sideways slightly). Trim tails flush—no sharp edges. Evaluator will check by trying to rotate ties and inspecting for insulation marks.</p>
+<div class="callout"><strong>Evaluator is watching for:</strong> See practical rubric for accept/reject criteria.</div>
+
+<h3>Task 4.4.4 — Continuity Check</h3>
+<p>How to demonstrate: Set meter to continuity or low ohms. Place probes on each end of the wire (pin to pin). Good continuity = less than 1 ohm and audible tone. State that you are verifying the wire is continuous end-to-end with no opens. Wiggle the wire during the test to check for intermittent connections.</p>
+<div class="callout"><strong>Evaluator is watching for:</strong> See practical rubric for accept/reject criteria.</div>
+
+<h3>Task 4.4.5 — Insulation Resistance (Megger) Test</h3>
+<p>How to demonstrate: The evaluator is specifically watching for safety compliance: (1) Verify all equipment disconnected from the wire. (2) Announce to area personnel that megger test is in progress. (3) Connect one lead to wire, one to ground/shield. (4) Select correct test voltage (typically 500V DC). (5) Apply voltage, read result (must exceed 20 MΩ per maintenance manual). (6) After test, discharge the cable by shorting conductor to ground. (7) Announce test complete.</p>
+<div class="callout"><strong>Evaluator is watching for:</strong> See practical rubric for accept/reject criteria.</div>
+
+<h3>Task 4.4.6 — Fault Finding</h3>
+<p>How to demonstrate: Your evaluator inserts a fault—an open wire or a short between two conductors. Using a multimeter, systematically isolate the fault location. For an open: check continuity pin-to-pin; no tone = open on that wire; then halve the wire run and test each half to pinpoint the break location. For a short: check resistance between conductors; low reading indicates a short; disconnect sections to isolate. You have 10 minutes.</p>
+<div class="callout"><strong>Evaluator is watching for:</strong> See practical rubric for accept/reject criteria.</div>
+
+
+<h2>6. Self-Check Quick Quiz</h2>
+<div class="quiz">
+<p>1. Q1: Walk me through how you would fabricate a shielded audio cable with the shield grounded at one end. What end gets the ground and why?</p><p>2. Q2: You are about to perform a megger test on a wire harness. Walk me through every safety step you take before, during, and after the test.</p><p>3. Q3: A wire shows 0.5 ohms on a continuity check. Is this acceptable? What about 50 ohms? What about OL?</p><p>4. Q4: You find a crimp where the indent is off-center on the barrel. Is this acceptable? What caused it?</p><p>5. Q5: A harness has a short between two wires somewhere in a 15-foot run that goes through two bulkhead connectors. Describe your fault-isolation approach.</p>
+<p><em>Answers in handbook appendix.</em></p>
+</div>
+
+<hr>
+<p><small>© 2026 Aircraft Electronics Association. Derived from CAET Advanced PQS Training Module.</small></p>
+</body>
+</html>
