@@ -1,25 +1,54 @@
-"""Render the 5E interactive lesson.html for one module."""
+"""Render the 5E interactive lesson.html for one module, merging enrichment content."""
 import json, sys
 from pathlib import Path
 from jinja2 import Environment, FileSystemLoader
 
-tpl_dir = Path(__file__).parent / "templates"
-env = Environment(loader=FileSystemLoader(tpl_dir))
-tpl = env.get_template("lesson.html.j2")
+SCRIPT_DIR = Path(__file__).parent
 
-src_path, out_path = Path(sys.argv[1]), Path(sys.argv[2])
-src = json.load(src_path.open("r", encoding="utf-8"))
+def load_enrichment(slug):
+    f = SCRIPT_DIR / "enrichment" / f"{slug}.json"
+    if f.exists():
+        return json.load(f.open("r", encoding="utf-8"))
+    return {
+        "why_this_matters": [],
+        "key_terms": [],
+        "knowledge_enrichment": {},
+        "task_enrichment": {},
+        "background_theory": {},
+    }
 
-engage = "Before we start, think about this: What's the single most common mistake a new technician makes in this module's tasks?"
-explore = "Read through the first two task preparation guides below. Notice how the evaluator is watching for specific physical evidence of correct technique."
+def infer_slug(src_path):
+    name = src_path.stem
+    if "_" in name:
+        return name.split("_")[0]
+    return name
 
-html = tpl.render(
-    title=src["title"],
-    engage_prompt=engage,
-    explore_prompt=explore,
-    knowledge=src["knowledge_requirements"],
-    tasks=src["tasks"],
-)
-out_path.parent.mkdir(parents=True, exist_ok=True)
-out_path.write_text(html, encoding="utf-8")
-print(f"Wrote {out_path}")
+def main():
+    src_path = Path(sys.argv[1])
+    out_path = Path(sys.argv[2])
+    slug = None
+    for arg in sys.argv[3:]:
+        if arg.startswith("--slug="):
+            slug = arg.split("=", 1)[1]
+    if slug is None:
+        slug = infer_slug(src_path)
+
+    src = json.load(src_path.open("r", encoding="utf-8"))
+    enrichment = load_enrichment(slug)
+
+    env = Environment(loader=FileSystemLoader(SCRIPT_DIR / "templates"))
+    tpl = env.get_template("lesson.html.j2")
+    html = tpl.render(
+        title=src["title"],
+        intro=src["intro"],
+        knowledge=src["knowledge_requirements"],
+        tasks=src["tasks"],
+        oral=src["oral_board_questions"],
+        enrichment=enrichment,
+    )
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    out_path.write_text(html, encoding="utf-8")
+    print(f"Wrote {out_path}")
+
+if __name__ == "__main__":
+    main()
