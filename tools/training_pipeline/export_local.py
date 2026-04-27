@@ -1,7 +1,10 @@
 """Copy all 15 module training/ folders to a flat browsable structure on the local disk.
 
+Default destination: OneDrive CAET Advanced folder (cloud-synced, alongside source docs).
+Override with: python export_local.py --to=<path>
+
 Layout produced:
-  C:/Users/nickb/Downloads/CAET-Advanced-Training-Materials/
+  <EXPORT_ROOT>/
     README.md
     adv1-cabin-management-systems/
       handbook.html
@@ -29,7 +32,12 @@ ALL_MODULES = [{"slug": "adv10", "dir": "wire-harness-fabrication", "topic": "Wi
 # Sort by adv number for human-friendly ordering
 ALL_MODULES.sort(key=lambda m: int(m["slug"].replace("adv", "")))
 
-EXPORT_ROOT = Path("C:/Users/nickb/Downloads/CAET-Advanced-Training-Materials")
+# Export to OneDrive so the materials sync to cloud and live alongside other
+# CAET program documents. Override with --to=<path> if you want elsewhere.
+import sys as _sys
+_default_export = r"C:\Users\nickb\OneDrive - Aircraft Electronics Association\Desktop\CAET\CAET Advanced\CAET-Advanced-Training-Materials"
+_export_override = next((a.split("=", 1)[1] for a in _sys.argv[1:] if a.startswith("--to=")), None)
+EXPORT_ROOT = Path(_export_override or _default_export)
 EXPORT_ROOT.mkdir(parents=True, exist_ok=True)
 
 # Copy each module's training/ contents
