@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Section 2: Maintenance Documentation — Interactive Lesson</title>
+<style>
+  :root {
+    --ink: #1a2332;
+    --ink-soft: #4a5568;
+    --paper: #fbfaf5;
+    --paper-accent: #f5f2e8;
+    --rule: #d8d3c3;
+    --navy: #0a2540;
+    --gold: #8b6914;
+    --gold-soft: #f4ead0;
+    --cyan: #0e4a6e;
+    --cyan-soft: #e4f1f8;
+    --green: #1b4332;
+    --green-soft: #e7f0e5;
+    --red: #8b1a1a;
+    --red-soft: #fbe9e7;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 16px; line-height: 1.65;
+    color: var(--ink); background: var(--paper);
+    max-width: 900px; margin: 0 auto;
+    padding: 40px 32px 80px;
+  }
+  header.lesson-cover {
+    border-bottom: 3px double var(--navy);
+    padding-bottom: 20px; margin-bottom: 32px;
+  }
+  .eyebrow {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    letter-spacing: 3px; font-size: 11px;
+    text-transform: uppercase; color: var(--gold); font-weight: 700;
+  }
+  h1 {
+    font-family: Georgia, serif; font-size: 30px; line-height: 1.2;
+    color: var(--navy); margin: 8px 0 6px;
+  }
+  .lesson-meta {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 13px; color: var(--ink-soft);
+    display: flex; gap: 20px; flex-wrap: wrap;
+  }
+  .lesson-meta span { background: var(--paper-accent); padding: 4px 12px; border-radius: 12px; }
+
+  .progress-bar {
+    height: 6px; background: var(--rule); border-radius: 3px;
+    overflow: hidden; margin: 24px 0 40px;
+  }
+  .progress-fill { height: 100%; background: var(--gold); width: 0; transition: width .4s; }
+
+  .phase {
+    background: white; border: 1px solid var(--rule); border-radius: 6px;
+    padding: 28px 32px; margin: 20px 0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+  .phase-header {
+    display: flex; align-items: baseline; justify-content: space-between;
+    gap: 16px; flex-wrap: wrap;
+    border-bottom: 1px solid var(--rule); padding-bottom: 10px; margin-bottom: 18px;
+  }
+  .phase-label {
+    display: inline-block;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    letter-spacing: 2px; font-size: 11px; text-transform: uppercase;
+    color: white; font-weight: 700;
+    padding: 4px 12px; border-radius: 3px;
+  }
+  .phase-engage    .phase-label { background: #8b6914; }
+  .phase-explore   .phase-label { background: #0e4a6e; }
+  .phase-explain   .phase-label { background: #1b4332; }
+  .phase-elaborate .phase-label { background: #6b2c91; }
+  .phase-evaluate  .phase-label { background: #8b1a1a; }
+
+  .phase h2 { font-family: Georgia, serif; font-size: 22px; color: var(--navy); margin: 4px 0 0; }
+  .timing { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 13px; color: var(--ink-soft); }
+
+  p { margin: 0 0 14px; }
+  ul, ol { padding-left: 22px; margin: 0 0 16px; }
+  li { margin-bottom: 6px; }
+
+  .scenario {
+    background: var(--gold-soft); border-left: 4px solid var(--gold);
+    padding: 18px 24px; margin: 18px 0;
+    border-radius: 2px;
+    font-style: italic;
+  }
+  .think-prompt {
+    background: var(--cyan-soft); border-left: 4px solid var(--cyan);
+    padding: 14px 20px; margin: 12px 0;
+    border-radius: 2px;
+  }
+  .think-prompt strong {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase;
+    color: var(--cyan); display: block; margin-bottom: 6px;
+  }
+  .card-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 14px; margin: 16px 0;
+  }
+  .card {
+    background: var(--paper-accent); border: 1px solid var(--rule);
+    border-radius: 4px; padding: 18px 22px;
+  }
+  .card h3 { margin: 0 0 10px; font-size: 16px; color: var(--navy); font-family: Georgia, serif; }
+  .card p { font-size: 14px; margin: 0; line-height: 1.55; }
+
+  .evaluate-cta {
+    background: var(--navy); color: white;
+    display: inline-block; text-decoration: none;
+    padding: 14px 28px; border-radius: 4px;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 700; font-size: 14px; letter-spacing: 1px; text-transform: uppercase;
+    border: none; cursor: pointer; transition: all .2s;
+  }
+  .evaluate-cta:hover { background: var(--gold); color: var(--navy); }
+  .evaluate-cta.secondary { background: white; color: var(--navy); border: 2px solid var(--navy); margin-left: 8px; }
+  .evaluate-cta.secondary:hover { background: var(--navy); color: white; }
+
+  .reflection {
+    border: 2px solid var(--rule); border-radius: 4px;
+    padding: 18px 22px; margin: 20px 0; background: white;
+  }
+  .reflection h4 { margin: 0 0 10px; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold); }
+  .reflection textarea {
+    width: 100%; min-height: 90px;
+    padding: 10px 14px;
+    font-family: inherit; font-size: 14px; line-height: 1.5;
+    border: 1px solid var(--rule); border-radius: 3px;
+    background: var(--paper); color: var(--ink); resize: vertical;
+  }
+
+  footer { margin-top: 60px; padding-top: 20px; border-top: 1px solid var(--rule);
+           font-size: 12px; color: var(--ink-soft); text-align: center; }
+
+  @media print {
+    body { background: white; padding: 0.6in 0.75in; max-width: none; font-size: 11pt; }
+    .phase { page-break-inside: avoid; box-shadow: none; }
+    .evaluate-cta { border: 1px solid var(--navy); color: var(--navy); background: white; }
+  }
+</style>
+</head>
+<body>
+
+<header class="lesson-cover">
+  <div class="eyebrow">CAET Advanced · Interactive 5E Lesson</div>
+  <h1>Section 2: Maintenance Documentation</h1>
+  <div class="lesson-meta">
+    <span>⏱ ~45 minutes</span>
+    <span>📖 Engage → Explore → Explain → Elaborate → Evaluate</span>
+    <span>🛠 Hands-on + drill</span>
+  </div>
+</header>
+
+<div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
+
+<!-- ENGAGE -->
+<section class="phase phase-engage" data-phase="1">
+  <div class="phase-header">
+    <div>
+      <div class="phase-label">Engage</div>
+      <h2>Why should you care about this?</h2>
+    </div>
+    <div class="timing">~4 min</div>
+  </div>
+
+  
+  <p>Incomplete and inaccurate maintenance records are consistently cited as one of the leading findings in FAA Part 145 repair station surveillance audits and FSDO enforcement actions. When an inspector opens an investigation, the first thing requested is rarely the aircraft itself; it is the maintenance records. The aircraft's airworthiness is established not by the quality of the work performed, but by the quality of the documentation that proves the work was performed, was performed correctly, and was performed by an authorized person using approved data. An undocumented repair is, in the eyes of 14 CFR 43.9 and 14 CFR 91.417, an unapproved repair — regardless of how technically perfect the craftsmanship may have been.</p>
+  <p>The maintenance record is also the single largest source of personal legal liability an avionics technician accepts during their career. Every return-to-service signature is a sworn attestation: the work complies with 14 CFR Part 43, approved data was used, and the aircraft is airworthy for return to service. That signature follows the technician, cross-referenced to a mechanic or repairman certificate number, for the life of the aircraft and beyond. In post-accident investigations, the NTSB and FAA reconstruct the maintenance history from the logbooks and Form 337 records on file. Entries that are vague, out of sequence, missing required elements, or signed by unauthorized personnel become the focal point of enforcement action. 14 CFR 43.12 makes it a violation to knowingly make a false or fraudulent entry, punishable by certificate suspension or revocation.</p>
+  
+
+  <div class="think-prompt">
+    <strong>Pause &amp; Think</strong>
+    Before you continue — what is the single most common workmanship mistake a newly-qualified technician makes on this kind of task? Write one sentence in the reflection box below. You'll come back to it at the end.
+  </div>
+
+  <div class="reflection">
+    <h4>Your prediction</h4>
+    <textarea id="engage-reflection" placeholder="What do you think the #1 mistake is, and why?"></textarea>
+  </div>
+</section>
+
+<!-- EXPLORE -->
+<section class="phase phase-explore" data-phase="2">
+  <div class="phase-header">
+    <div>
+      <div class="phase-label">Explore</div>
+      <h2>Discover the terminology</h2>
+    </div>
+    <div class="timing">~8 min</div>
+  </div>
+
+  <p>Avionics work has its own vocabulary. Master these terms before procedures, because the oral-board examiner expects precision, not approximations.</p>
+
+  <div class="card-grid">
+    
+    <div class="card">
+      <h3>Maintenance Record</h3>
+      <p>Any document that records maintenance, preventive maintenance, rebuilding, or alteration performed on an aircraft, engine, propeller, or appliance. Required content is specified in 14 CFR 43.9 and 43.11; retention is governed by 14 CFR 91.417.</p>
+    </div>
+    
+    <div class="card">
+      <h3>Aircraft Logbook</h3>
+      <p>The primary maintenance record for the airframe. Contains chronological entries for all airframe maintenance, inspections, alterations, AD compliance, and equipment installations. Maintained by the owner/operator per 14 CFR 91.417(a).</p>
+    </div>
+    
+    <div class="card">
+      <h3>Engine Logbook</h3>
+      <p>A separate maintenance record for each engine, including total time, time since overhaul (TSOH), cycles when applicable, AD compliance specific to the engine, and modifications. Required because engines are frequently removed and installed on different airframes.</p>
+    </div>
+    
+    <div class="card">
+      <h3>Propeller Logbook</h3>
+      <p>A separate maintenance record for each propeller, tracking total time, time since overhaul, prop-specific ADs and SBs, dynamic balancing, and blade repairs. Follows the propeller from aircraft to aircraft.</p>
+    </div>
+    
+    <div class="card">
+      <h3>Appliance Record</h3>
+      <p>Maintenance records for removable appliances (radios, instruments, emergency equipment, rotable components) that follow the appliance rather than the airframe. Required by 14 CFR 43.9 and maintained by the operator per 91.417(a)(2).</p>
+    </div>
+    
+    <div class="card">
+      <h3>FAA Form 337</h3>
+      <p>Major Repair and Alteration form. Documents any major repair or major alteration as defined in 14 CFR Part 43 Appendix A. Executed by the certificated person performing the work; the original stays with aircraft records and a copy is filed with the local FSDO within 48 hours per 14 CFR 43.9(d).</p>
+    </div>
+    
+  </div>
+
+  
+  <p style="font-size:13px; color:var(--ink-soft);"><em>+ 10 more terms in the full handbook glossary.</em></p>
+  
+
+  <div class="think-prompt">
+    <strong>Self-check</strong>
+    Close your browser tab for 30 seconds. Re-open and list 4 of the 6 terms above from memory, each with a one-sentence definition. If you can't, re-read before continuing.
+  </div>
+</section>
+
+<!-- EXPLAIN -->
+<section class="phase phase-explain" data-phase="3">
+  <div class="phase-header">
+    <div>
+      <div class="phase-label">Explain</div>
+      <h2>The theory you need</h2>
+    </div>
+    <div class="timing">~12 min</div>
+  </div>
+
+  <p>Memorizing steps isn't enough. The evaluator asks <em>why</em>. Here is what you need to understand.</p>
+
+  
+    
+    
+    
+    <h3 style="font-family:Georgia,serif; color:var(--navy); margin-top:28px;">2.2.1 — Logbook Entry Requirements (43.9 and 43.11)</h3>
+    <p>Two regulations govern the written record of work performed on a civil aircraft. 14 CFR 43.9 controls entries for maintenance, preventive maintenance, rebuilding, and alterations. 14 CFR 43.11 controls entries for inspections — annual, 100-hour, and progressive. For avionics work performed in a Part 145 station or by an individually certificated technician, 43.9 is the governing standard the evaluator will hold you to. Missing any of the five required elements is not a technicality; it is a regulatory violation and it invalidates the entry.</p>
+    
+    <ul>
+      <li>14 CFR 43.9(a) requires five elements in every maintenance entry: (1) a description of the work performed (or reference to acceptable data); (2) the date of completion; (3) the name of the person performing the work if other than the person signing; (4) if the work is approved for return to service, a signature and certificate number of the person approving the work; (5) the kind of certificate held by that person (A&P, IA, repair station, repairman).</li><li>14 CFR 43.11 adds additional elements for inspection entries: type of inspection, total time in service, aircraft total time, the statement "I certify that this aircraft has been inspected in accordance with a (type) inspection and was determined to be in an airworthy condition," and the signature, certificate number, and kind of certificate.</li><li>Descriptions must be specific enough that another mechanic, reading the entry five years from now, can identify what was done and what data was used. "Installed GPS per STC" is not sufficient; "Installed Garmin GTN 650Xi GPS/NAV/COM per STC SA01933LA, Revision 3, Installation Manual P/N 190-01007-A4 Revision 10" is sufficient.</li><li>Corrections: never erase or obliterate an entry. Draw a single line through the error, initial it, and enter the correct information as a new entry. Obliteration can be prosecuted as falsification under 14 CFR 43.12.</li>
+    </ul>
+    
+    
+  
+    
+    
+    
+    <h3 style="font-family:Georgia,serif; color:var(--navy); margin-top:28px;">2.2.3 — FAA Form 337</h3>
+    <p>Form 337 documents any major repair or major alteration as defined in 14 CFR Part 43 Appendix A. In avionics, the most common trigger is installation of equipment under a Supplemental Type Certificate (STC), though certain non-STC installations (antenna structural modifications, panel cutouts affecting primary structure, weight and balance shifts beyond limits) also require a 337. The form has legal weight beyond the logbook entry: it is the permanent record that a major change to the aircraft occurred, who approved it, and what data authorized it.</p>
+    
+    <ul>
+      <li>Appendix A to Part 43 lists what constitutes a major alteration (Paragraph (a)) and a major repair (Paragraph (b)). For avionics technicians, the most commonly cited triggers are: installation of previously uncertified equipment, changes to instrument panels affecting primary structure, changes to the electrical system beyond the original type design, and changes that affect weight and balance.</li><li>The form has two sides. Block 1 identifies the aircraft (make, model, serial, N-number). Block 2 identifies the owner. Block 3 captures what was done (repair or alteration). Block 4 captures the applicable approved data. Block 5 is the signoff by the certificated person performing the work. Block 6 is the approval for return to service — for major alterations, this requires an IA (Inspection Authorization) signature unless performed under an approved organization's procedures.</li><li>Back side (Block 8): detailed description of the work. This is where reference to approved data is made with specificity: STC number, installation manual revision, DER-approved data (8110-3), AC 43.13-1B paragraphs. "See attached" is acceptable when the description exceeds the space provided; attached pages must be signed and dated to travel with the form.</li><li>Filing: 14 CFR 43.9(d) requires the completed 337 to be submitted to the local FSDO within 48 hours of aircraft return to service. The original (or a copy with the installer's attestation) stays with aircraft records permanently per 91.417(b)(2). A copy is provided to the aircraft owner.</li>
+    </ul>
+    
+    
+  
+    
+    
+    
+    <h3 style="font-family:Georgia,serif; color:var(--navy); margin-top:28px;">2.2.4 — Return-to-Service Statements</h3>
+    <p>A return-to-service statement is the single most legally significant sentence an avionics technician writes. Beneath the administrative formality, it is a sworn attestation: the work was performed in accordance with 14 CFR Part 43, approved data was used, and the aircraft (or component) is airworthy for return to service. Who is permitted to sign and under what authority is strictly defined — signing outside your authority is a 14 CFR 43.12 violation regardless of how skilled the work was.</p>
+    
+    <ul>
+      <li>For maintenance and minor alterations: an appropriately rated mechanic (A&P) can sign per 14 CFR 65.85 and 43.7. A repairman with employer authorization can sign per 14 CFR 65.103. An authorized Part 145 repair station employee signs under 14 CFR 145.157 on behalf of the station's repair station certificate.</li><li>For major repairs and major alterations: the work may be performed by an A&P, but the approval for return to service requires an IA (Inspection Authorization) per 14 CFR 65.95 unless performed under an approved Part 145, 121, or 135 program.</li><li>The signature carries personal legal liability. If the FAA later determines the work was non-conforming, the signer — not the shop, not the owner — is the certificated person whose certificate is subject to action. This is true even if a supervisor pressured the signoff. An order to sign off defective work is not a defense.</li><li>Pressure to sign work you did not personally perform or directly supervise is one of the most common paths to certificate revocation in avionics. 14 CFR 65.20 prohibits a certificate holder from performing duties under that certificate when they know the certificate is suspended or revoked; 43.12 prohibits knowingly making a false entry. "Help me out — sign this, I'll owe you" is the opening move of a scenario that ends with two technicians losing their certificates.</li>
+    </ul>
+    
+    
+  
+
+  
+  <div class="think-prompt">
+    <strong>Deep dive</strong>
+    The full <em>Background Theory</em> section in the handbook explains the physics: why crimps create gas-tight joints, why shielding works as a Faraday cage, and why insulation fails gradually before it arcs. Read it when you want the oral-board answer that makes the examiner smile.
+  </div>
+  
+</section>
+
+<!-- ELABORATE -->
+<section class="phase phase-elaborate" data-phase="4">
+  <div class="phase-header">
+    <div>
+      <div class="phase-label">Elaborate</div>
+      <h2>Apply it to a scenario</h2>
+    </div>
+    <div class="timing">~15 min</div>
+  </div>
+
+  
+  
+  
+  
+
+  <div class="scenario">
+    <strong>Scenario:</strong> You're on day one of your practical exam. The evaluator hands you a wire list and says, <em>"Build me a three-conductor shielded harness, 24 inches long, ring-terminated on both ends. You have 45 minutes. Questions before you start?"</em> What do you ask — and then what do you do?
+  </div>
+
+  <h3>Task focus: Task 2.4.1 — 91.413 Transponder Test Logbook Entry</h3>
+
+  
+  <p>Read the procedure once all the way through before you touch a tool. Note how each step has a <em>verification</em> built in — the procedure is self-checking.</p>
+  <ol>
+    <li>Confirm the test was performed within the last 30 days by a certificated test facility or appropriately rated technician per 14 CFR 91.413(b) — either Part 145 with Class 3 rating, an authorized manufacturer, or an appropriately rated mechanic with approved test equipment.</li><li>Record the date of test completion (not the date you are writing the entry if different).</li><li>Identify the aircraft precisely: make, model, serial number, N-number. Omitting serial number is a common discrepancy on audit.</li><li>State the work performed in regulatory language: "Performed ATC transponder test and inspection in accordance with 14 CFR 91.413 and 14 CFR Part 43 Appendix F."</li><li>Identify the unit tested by make, model, and serial number. If multiple transponders are installed, test and document each separately.</li>
+  </ol>
+  <p style="font-size:13px; color:var(--ink-soft);"><em>(9 steps total — see handbook for complete procedure.)</em></p>
+  
+
+  
+  <div class="think-prompt">
+    <strong>Trap to avoid</strong>
+    Citing 91.413 but omitting Appendix F — the Appendix is the actual test standard; 91.413 is only the requirement.
+  </div>
+  
+
+  <div class="reflection">
+    <h4>Now reflect</h4>
+    <p style="font-size:14px; margin-bottom:8px;">Go back up to your Engage-phase reflection. Was your predicted #1 mistake in the <em>Common Mistakes</em> list? Update your answer with what you now know.</p>
+    <textarea id="elaborate-reflection" placeholder="What changed in your understanding?"></textarea>
+  </div>
+  
+</section>
+
+<!-- EVALUATE -->
+<section class="phase phase-evaluate" data-phase="5">
+  <div class="phase-header">
+    <div>
+      <div class="phase-label">Evaluate</div>
+      <h2>Prove you know it</h2>
+    </div>
+    <div class="timing">~6 min</div>
+  </div>
+
+  <p>You've read, explored, and reflected. Now test yourself.</p>
+
+  <ul>
+    <li><strong>Drill</strong> — answer every question in the practice bank (~20 questions). Aim for ≥80%.</li>
+    <li><strong>Oral-board practice</strong> — the handbook has 5 example questions with full answer explanations. Practice answering them aloud, unaided, until each takes &lt;90 seconds.</li>
+    <li><strong>Worksheet</strong> — complete the printable worksheet, then self-grade against the answer key.</li>
+  </ul>
+
+  <div style="margin:28px 0;">
+    <a href="../drill.html" class="evaluate-cta">Start Drill →</a>
+    <a href="handbook.html#quiz" class="evaluate-cta secondary">Practice Oral Board →</a>
+  </div>
+
+  <div class="think-prompt">
+    <strong>Gate criterion</strong>
+    You are ready for the practical when you can: (1) score ≥80% on the drill, (2) answer every oral-board question in under 90 seconds without looking, and (3) complete the worksheet with zero wrong answers.
+  </div>
+</section>
+
+<footer>
+  © 2026 Aircraft Electronics Association · This lesson is one of six study artifacts for Section 2: Maintenance Documentation. Return to the module hub for the full library.
+</footer>
+
+<script>
+  // Simple progress bar driven by scroll position.
+  const progress = document.getElementById('progress');
+  window.addEventListener('scroll', () => {
+    const pct = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+    progress.style.width = Math.min(100, Math.max(0, pct)) + '%';
+  });
+</script>
+
+</body>
+</html>

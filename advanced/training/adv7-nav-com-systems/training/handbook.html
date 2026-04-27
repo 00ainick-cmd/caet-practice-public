@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Section 6: Navigation Systems | CAET Advanced Handbook</title>
+<style>
+  /* Light-theme study document — optimized for reading on screen AND print. */
+  :root {
+    --ink: #1a2332;
+    --ink-soft: #4a5568;
+    --paper: #fbfaf5;
+    --paper-accent: #f5f2e8;
+    --rule: #d8d3c3;
+    --navy: #0a2540;
+    --gold: #8b6914;
+    --gold-soft: #f4ead0;
+    --red: #8b1a1a;
+    --red-soft: #fbe9e7;
+    --green: #1b4332;
+    --green-soft: #e7f0e5;
+    --cyan: #0e4a6e;
+    --cyan-soft: #e4f1f8;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--ink);
+    background: var(--paper);
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 56px 48px 80px;
+  }
+  header.cover {
+    border-bottom: 3px double var(--navy);
+    padding-bottom: 24px;
+    margin-bottom: 40px;
+  }
+  .eyebrow {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    letter-spacing: 3px;
+    font-size: 11px;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 700;
+  }
+  h1 {
+    font-family: Georgia, serif;
+    font-size: 34px;
+    line-height: 1.2;
+    color: var(--navy);
+    margin: 8px 0 12px;
+    font-weight: 700;
+  }
+  .subtitle {
+    font-size: 15px;
+    color: var(--ink-soft);
+    font-style: italic;
+    margin: 0;
+  }
+  h2 {
+    font-family: Georgia, serif;
+    font-size: 24px;
+    color: var(--navy);
+    margin: 56px 0 12px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--rule);
+  }
+  h3 {
+    font-family: Georgia, serif;
+    font-size: 19px;
+    color: var(--navy);
+    margin: 32px 0 10px;
+  }
+  h4 {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin: 20px 0 8px;
+    font-weight: 700;
+  }
+  p { margin: 0 0 16px; }
+  ul, ol { margin: 0 0 18px; padding-left: 24px; }
+  li { margin-bottom: 8px; }
+  .toc {
+    background: var(--paper-accent);
+    border-left: 4px solid var(--gold);
+    padding: 24px 32px;
+    border-radius: 2px;
+    margin: 24px 0 40px;
+  }
+  .toc h2 { margin-top: 0; border: none; font-size: 18px; color: var(--gold); letter-spacing: 2px; text-transform: uppercase; font-family: 'Helvetica Neue', Arial, sans-serif; }
+  .toc ol { columns: 2; column-gap: 32px; font-size: 14px; }
+  .toc li { margin-bottom: 4px; break-inside: avoid; }
+  .toc a { color: var(--navy); text-decoration: none; }
+  .toc a:hover { text-decoration: underline; color: var(--gold); }
+  blockquote.why {
+    font-size: 17px;
+    font-family: Georgia, serif;
+    font-style: italic;
+    color: var(--navy);
+    background: var(--gold-soft);
+    border-left: 4px solid var(--gold);
+    padding: 24px 32px;
+    margin: 24px 0;
+    border-radius: 2px;
+  }
+  blockquote.why p { margin: 0 0 12px; }
+  blockquote.why p:last-child { margin-bottom: 0; }
+  .callout {
+    padding: 16px 22px;
+    margin: 18px 0;
+    border-left: 4px solid var(--cyan);
+    background: var(--cyan-soft);
+    border-radius: 2px;
+    font-size: 15px;
+  }
+  .callout.watching { border-left-color: var(--green); background: var(--green-soft); }
+  .callout.mistakes { border-left-color: var(--red); background: var(--red-soft); }
+  .callout.theory   { border-left-color: var(--gold); background: var(--gold-soft); }
+  .callout strong { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 6px; }
+  .callout.watching strong { color: var(--green); }
+  .callout.mistakes strong { color: var(--red); }
+  .callout.theory   strong { color: var(--gold); }
+  .callout.info     strong { color: var(--cyan); }
+  .key-points { margin: 12px 0 20px; padding-left: 20px; }
+  .key-points li { margin-bottom: 10px; line-height: 1.55; }
+  dl.glossary { margin: 20px 0; }
+  dl.glossary dt { font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 700; color: var(--navy); margin-top: 14px; font-size: 15px; }
+  dl.glossary dd { margin: 4px 0 0 0; padding-left: 0; font-size: 14.5px; line-height: 1.55; color: var(--ink); }
+  .steps { counter-reset: step; padding-left: 0; list-style: none; }
+  .steps li { counter-increment: step; padding-left: 44px; position: relative; margin-bottom: 14px; line-height: 1.55; }
+  .steps li::before {
+    content: counter(step);
+    position: absolute; left: 0; top: -2px;
+    width: 30px; height: 30px; border-radius: 50%;
+    background: var(--navy); color: white;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 700; font-size: 13px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .quiz {
+    background: var(--cyan-soft);
+    border-left: 4px solid var(--cyan);
+    padding: 24px 32px;
+    margin: 24px 0;
+    border-radius: 2px;
+  }
+  .quiz h3 { margin-top: 0; color: var(--cyan); }
+  .quiz ol { margin: 12px 0 0 0; padding-left: 22px; }
+  .quiz li { margin-bottom: 14px; }
+  .answer-key details {
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    padding: 12px 18px;
+    margin-bottom: 10px;
+    background: var(--paper);
+  }
+  .answer-key summary { font-weight: 700; cursor: pointer; color: var(--navy); font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 14px; }
+  .answer-key details[open] summary { margin-bottom: 10px; border-bottom: 1px solid var(--rule); padding-bottom: 6px; }
+  .answer-key p { margin-top: 10px; font-size: 14.5px; line-height: 1.6; }
+  .crosswalk {
+    background: var(--paper-accent);
+    padding: 18px 24px;
+    border-radius: 2px;
+    border: 1px solid var(--rule);
+    margin: 24px 0;
+    font-size: 14.5px;
+    color: var(--ink-soft);
+  }
+  footer {
+    margin-top: 64px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 12px;
+    color: var(--ink-soft);
+    text-align: center;
+  }
+  .section-marker {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--gold); font-weight: 700;
+    margin: 48px 0 0;
+  }
+  @media print {
+    body { padding: 0.6in 0.75in; background: white; font-size: 11pt; max-width: none; }
+    h1 { font-size: 24pt; }
+    h2 { font-size: 16pt; page-break-after: avoid; }
+    h3 { page-break-after: avoid; }
+    .callout, blockquote.why { page-break-inside: avoid; }
+    .toc { page-break-after: always; }
+    details { page-break-inside: avoid; }
+    details[open] > summary ~ * { display: block !important; }
+    .answer-key details { border: none; }
+    a { color: var(--navy); text-decoration: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="cover">
+  <div class="eyebrow">CAET Advanced Certification · Student Handbook</div>
+  <h1>Section 6: Navigation Systems</h1>
+  <p class="subtitle">Aircraft Electronics Association · Workforce Development Division</p>
+</header>
+
+<nav class="toc">
+  <h2>Contents</h2>
+  <ol>
+    <li><a href="#why">Why This Matters</a></li>
+    <li><a href="#terms">Key Terms &amp; Definitions</a></li>
+    <li><a href="#kr-1">6.2.1 — VOR Operation</a></li><li><a href="#kr-2">6.2.2 — ILS Operation</a></li><li><a href="#kr-3">6.2.3 — GPS/GNSS and WAAS</a></li><li><a href="#kr-4">6.2.4 — CDI Scaling Differences</a></li>
+    <li><a href="#task-1">Task 6.4.1 — VOR Tuning and Interpretation</a></li><li><a href="#task-2">Task 6.4.2 — ILS Tuning and Explanation</a></li><li><a href="#task-3">Task 6.4.3 — GPS Database Currency</a></li><li><a href="#task-4">Task 6.4.4 — Antenna Identification</a></li><li><a href="#task-5">Task 6.4.5 — WAAS Explanation</a></li><li><a href="#task-6">Task 6.4.6 — VOR Accuracy Check</a></li>
+    <li><a href="#quiz">Self-Check &amp; Oral Board Practice</a></li>
+    <li><a href="#crosswalk">Written Exam Crosswalk</a></li>
+  </ol>
+</nav>
+
+<section id="why">
+  <div class="section-marker">Part I — Orientation</div>
+  <h2>Why This Matters</h2>
+  
+  <blockquote class="why"><p>Navigation accuracy is not a convenience feature; it is a safety system. A pilot trusts the needle because they have to. In IMC at minimums, with 200 feet of ceiling and half a mile of visibility, the glideslope indicator and the localizer centerline are the only things between a controlled arrival on pavement and a CFIT accident in the trees short of the threshold. When an avionics technician signs off a VOR check, tunes in an ILS, or installs a GPS/SBAS navigator, they are guaranteeing — in writing — that the needle the pilot follows actually points where the aircraft is going. That is not a paperwork exercise. That is a life-safety promise.</p></blockquote>
+  
+  <blockquote class="why"><p>The NTSB and ICAO accident record is unambiguous on this point. Korean Air 801 (Guam, 1997) flew a serviceable airplane into Nimitz Hill at night because the crew believed they were tracking a functioning glideslope; the ground-based glideslope transmitter was actually out of service for maintenance, a fact that was NOTAM'd but missed, and the captain's mental model of their vertical position was wrong. American Airlines 965 (Cali, 1995) descended into terrain after an FMS waypoint selection error — the crew entered 'R' expecting Rozo NDB and the FMS autoselected Romeo, 132 nautical miles away, turning the aircraft toward mountains. More recently, GPS spoofing incidents in the Middle East (2023–2024) have demonstrated that pilots cannot blindly trust a single nav source, even a modern WAAS-equipped one. In every case, the avionics worked exactly as designed; the chain broke somewhere between the ground station, the antenna, the receiver, and the pilot's understanding of what the needle meant.</p></blockquote>
+  
+  <blockquote class="why"><p>Your work on this module is not just about making boxes display the right numbers. It is about developing the judgment of a technician who can look at a nav indicator and know whether it is trustworthy — who can tune an ILS and verify the ident before the pilot taxis, who can explain to an owner why a GPS database expiring at 0901Z on the 28th means no IFR approaches after that moment, who can walk out with a calibrated ramp test set and prove the VOR is within 4 degrees on a known radial. The evaluator is not grading your ability to recite numbers. The evaluator is grading whether you can be trusted to tell a pilot 'yes, that needle is good' when the weather closes in.</p></blockquote>
+  
+  
+  <h4>From the PQS Source</h4>
+  <p>Navigation systems tell the pilot where the aircraft is and where it is going. As an avionics technician, you need to understand how these systems work well enough to configure them, verify they are functioning correctly, and explain their operation to pilots who ask questions during post-installation checkouts. This section focuses on the three nav systems you will encounter most often in GA/BA: VOR, ILS, and GPS/GNSS.</p>
+  
+</section>
+
+<section id="terms">
+  <h2>Key Terms &amp; Definitions</h2>
+  <p>Master this vocabulary before continuing. The evaluator expects you to use these terms correctly in the oral board.</p>
+  <dl class="glossary">
+    
+    <dt>VOR (VHF Omni-Directional Range)</dt>
+    <dd>Ground-based nav aid transmitting on 108.00–117.95 MHz (even 100 kHz for ILS localizer, odd 50 kHz carriers for VOR in the 108–112 band, and continuous 50 kHz spacing above 112 MHz). Provides magnetic bearing FROM the station in 360 radials. Standard VOR uses a rotating directional cardioid plus omni reference; Doppler VOR (DVOR) synthesizes the same phase relationship electronically to reduce siting errors near terrain.</dd>
+    
+    <dt>Localizer (LOC)</dt>
+    <dd>Lateral component of ILS. Transmits a dual-sideband signal on 108.10–111.95 MHz (odd-tenths only, e.g., 110.30, not 110.20). A 90 Hz modulation dominates on one side of the runway centerline, 150 Hz on the other. The aircraft receiver produces a difference-in-depth-of-modulation (DDM) signal that drives the CDI. Full-scale deflection is approximately ±2.5° at the threshold, ±700 feet at the outer marker.</dd>
+    
+    <dt>Glideslope (GS)</dt>
+    <dd>Vertical component of ILS. Transmits on 329.3–335.0 MHz in UHF, paired automatically with the localizer frequency in a tuning table (the pilot tunes only the LOC). Typical glidepath angle is 3.00°. Full-scale deflection is ±0.7°, or about ±485 feet at the outer marker. TSO-C36 governs airborne glideslope receivers.</dd>
+    
+    <dt>Marker Beacons (OM/MM/IM)</dt>
+    <dd>75 MHz vertical fan markers defining fixes along the ILS final approach course. Outer Marker (OM) at ~4–7 nm, blue light, 400 Hz tone, 2 dashes/sec. Middle Marker (MM) at ~0.5–0.8 nm, amber light, 1300 Hz tone, alternating dots/dashes. Inner Marker (IM) for Cat II/III only, white light, 3000 Hz tone, 6 dots/sec. Largely being replaced by DME or GPS fixes but still present on legacy approaches.</dd>
+    
+    <dt>GPS L1/L2/L5</dt>
+    <dd>GPS operates on multiple frequencies. L1 = 1575.42 MHz, carries the C/A civilian code and P(Y) military code, used by all civil receivers. L2 = 1227.60 MHz, military P(Y) and civil L2C. L5 = 1176.45 MHz, protected aviation-safety band, used by modern dual-frequency SBAS receivers to resist interference and ionospheric error.</dd>
+    
+    <dt>WAAS / SBAS</dt>
+    <dd>Wide Area Augmentation System (U.S.) is one implementation of SBAS (Satellite-Based Augmentation System, ICAO term). Ground reference stations measure GPS errors, a master station computes differential corrections and integrity data, and geostationary satellites broadcast those corrections to airborne receivers on L1 (and L5 in newer installations). RTCA DO-229D specifies latency <6 seconds end-to-end. Improves GPS horizontal accuracy from ~3–7 m to ~1–2 m with vertical integrity sufficient for LPV approaches.</dd>
+    
+    <dt>EGNOS</dt>
+    <dd>European Geostationary Navigation Overlay Service — the European SBAS, operationally equivalent to WAAS. Other regional SBAS systems: MSAS (Japan), GAGAN (India), SDCM (Russia), BDSBAS (China). An SBAS-capable receiver certified to TSO-C145d/C146d will generally use whichever SBAS it sees, depending on geographic position and manufacturer implementation.</dd>
+    
+    <dt>GBAS / LAAS</dt>
+    <dd>Ground-Based Augmentation System (ICAO) / Local Area Augmentation System (FAA legacy term). VHF data-link broadcast (108–118 MHz) from an airport-local reference station provides corrections accurate enough for CAT I, II, and III precision approaches. A limited number of airports (KEWR, KIAH, KSFO, Frankfurt, Sydney) have GBAS stations; Honeywell SmartPath is the dominant product.</dd>
+    
+    <dt>RAIM (Receiver Autonomous Integrity Monitoring)</dt>
+    <dd>A self-check the GPS receiver performs using redundant satellite measurements. With five satellites in view, the receiver can detect if one is providing bad data (pseudorange residual outlier). With six, it can exclude the bad satellite and continue navigating — that exclusion capability is called FDE. Required for IFR GPS operations under TSO-C129a; SBAS receivers (C145/C146) use SBAS integrity data instead but still fall back to RAIM if SBAS is unavailable.</dd>
+    
+    <dt>Fault Detection and Exclusion (FDE)</dt>
+    <dd>The enhanced integrity function of an IFR GPS receiver that both detects and isolates a faulty satellite, allowing continued navigation without pilot intervention. Required for oceanic/remote navigation (AC 90-105A). A RAIM prediction tool (on the receiver, or via ForeFlight/Garmin Pilot) checks FDE availability before departure for the planned arrival time.</dd>
+    
+    <dt>LPV / LNAV+VNAV / LNAV / LP</dt>
+    <dd>GPS approach minima lines, in decreasing order of capability: LPV (Localizer Performance with Vertical guidance) — SBAS-based, angular guidance, minima as low as 200-1/2, effectively equivalent to ILS Cat I. LNAV/VNAV — baro-aided or SBAS vertical, linear cross-track, typical minima 350–400 HAT. LP (Localizer Performance) — SBAS lateral-only, no vertical, used where terrain or obstacles preclude vertical path. LNAV — non-precision, baseline GPS, typical minima 400–600 HAT.</dd>
+    
+    <dt>Precision vs Non-Precision Approach</dt>
+    <dd>A precision approach (ILS, LPV, GLS) provides both lateral and vertical electronic guidance with published DH (decision height). A non-precision approach (VOR, NDB, LOC-only, LNAV, LP) provides lateral guidance only with an MDA (minimum descent altitude); vertical path if any is advisory (Baro-VNAV or dive-and-drive). LPV blurs the definition — legally still 'APV' (approach with vertical guidance), not precision — but operationally flown to DH like ILS.</dd>
+    
+    <dt>CDI Sensitivity Scaling</dt>
+    <dd>The angular or linear sensitivity of the course deviation indicator changes with flight phase. En-route GPS: ±2 nm full-scale (or ±5° angular on VOR). Terminal: ±1 nm. Approach (GPS LNAV): ±0.3 nm at the FAF, tapering. LPV approach: angular, similar to ILS. VOR is always angular at ±10° full-scale. The technician must verify CDI behavior matches the installed receiver's TSO and the installation's AFMS.</dd>
+    
+    <dt>VOT (VOR Test Signal)</dt>
+    <dd>Ground-based test transmitter at specific airports (found in the Chart Supplement / A/FD). A VOT transmits an omnidirectional 360° radial. With the OBS set to 0°, the CDI should center with a FROM indication; with OBS at 180°, centered with TO. 14 CFR 91.171 allows ±4° tolerance for IFR use. A VOT check every 30 days, logged per 91.171, is one of four acceptable VOR checks (VOT, ground checkpoint, airborne checkpoint, dual VOR).</dd>
+    
+  </dl>
+</section>
+
+<div class="section-marker">Part II — Knowledge Requirements</div>
+
+
+
+
+<section id="kr-1">
+  <h2>6.2.1 — VOR Operation</h2>
+
+  
+  <p>A VOR station radiates two signals on the same carrier: a 30 Hz FM reference that is the same in every direction, and a 30 Hz AM variable whose phase rotates at 30 revolutions per second (the cardioid pattern sweeping around). The aircraft's receiver compares the phase of the two signals. At magnetic north of the station, they are in phase. Everywhere else, the phase difference equals the magnetic bearing from the station. The receiver converts that phase difference into a radial readout, drives the CDI relative to the pilot-selected OBS course, and sets the TO/FROM flag based on whether the aircraft is closer to the reciprocal or the selected course. The technician's job is to understand this well enough to explain why a VOR is more susceptible to siting errors than DVOR, why CDI deflection is angular rather than linear, and why the published accuracy (±4°) translates to larger and larger lateral errors the farther you fly from the station.</p>
+  
+
+  
+  <h4>From the PQS Source</h4>
+  <p>VOR (VHF Omni-Directional Range) provides magnetic bearing information from a ground station to the aircraft. The station transmits on a frequency between 108.0 and 117.95 MHz. The aircraft receiver determines which radial it is on by comparing two signals: a reference signal (omnidirectional) and a variable signal (rotating). The difference in phase between these signals equals the magnetic bearing from the station.</p>
+  
+
+  
+  <h4>Key Points</h4>
+  <ul class="key-points">
+    <li>Frequency band 108.00–117.95 MHz VHF. In the 108.00–111.95 portion, even-tenth frequencies are ILS localizers and odd-tenth are VORs; above 112.00, all are VORs.</li><li>TSO-C34 (conventional VOR receiver) and TSO-C40 (airborne VOR) are the governing airworthiness standards; modern combined nav receivers are certified under later integrated TSOs but the underlying VOR function still traces to C34/C40 performance.</li><li>Standard VOR has a cardioid radiation pattern that rotates mechanically or electrically at 30 Hz. Doppler VOR (DVOR) uses a ring of ~50 Alford-loop antennas switched electronically to synthesize Doppler shift, reducing siting error over uneven terrain. To the airborne receiver, both look identical.</li><li>Accuracy specification: the ground station is held to ±1° at the antenna. The airborne receiver has its own error (±4° typical). The total system budget for IFR use per 14 CFR 91.171 is ±4° from a VOT or ground checkpoint, ±6° airborne, or ±4° between two VORs on a dual check.</li><li>CDI deflection is angular — full scale is ±10°. This means at 60 nm from the station, one dot (2°) represents about 2 nm of lateral offset; at 5 nm, one dot is only 0.17 nm. Pilots must be taught (and the installer verified the CDI behavior) that 'same dot' means very different distance depending on range to station.</li><li>Voice-over-VOR: the station may broadcast weather or ATIS on the VOR frequency. Morse ident must still be audible; if the ident is missing or replaced by 'TEST,' the VOR is unmonitored and may not be used for IFR navigation.</li><li>Service volumes: Terminal (T) 25 nm/12,000 ft AGL, Low (L) 40 nm/18,000 ft, High (H) 100–130 nm/FL450. Flight outside the published service volume may still receive signal but is not guaranteed by the FAA to meet accuracy specs.</li>
+  </ul>
+  
+</section>
+
+
+
+<section id="kr-2">
+  <h2>6.2.2 — ILS Operation</h2>
+
+  
+  <p>The Instrument Landing System is the classical precision approach aid — three independent signals that together define a 3-dimensional path to the runway. The localizer provides lateral guidance via two overlapping VHF lobes modulated at 90 Hz and 150 Hz; the receiver computes Difference in Depth of Modulation (DDM) and deflects the CDI left or right. The glideslope works identically in UHF for the vertical path. Marker beacons (75 MHz) define along-track fixes; many ILS approaches now use DME or RNAV-derived fixes instead. The technician must understand the signal structure well enough to troubleshoot a flag indication, verify proper frequency pairing, confirm antenna installation (particularly the glideslope antenna's clear radome path), and explain to a pilot why a tailwind on a Cat I ILS is managed differently than on an RNAV LPV. ICAO Annex 10 Vol 1 and FAA Order 8260 series define the ground-system specs; TSO-C34 (LOC) and TSO-C36 (GS) govern the airborne receivers.</p>
+  
+
+  
+  <h4>From the PQS Source</h4>
+  <p>The Instrument Landing System provides precision approach guidance. The localizer (108.10–111.95 MHz) provides left/right guidance. The glideslope (329.9–335 MHz) provides up/down guidance. Together they define a precise path to the runway. The CDI shows localizer deviation; a separate needle or diamond shows glideslope deviation.
+ILS is significantly more sensitive than VOR. Full-scale CDI deflection on an ILS localizer is approximately ±2.5° (compared to ±10° for VOR). This means small navigation errors produce large needle movements—which is exactly the precision needed for instrument approaches to minimums.</p>
+  
+
+  
+  <h4>Key Points</h4>
+  <ul class="key-points">
+    <li>Localizer: 108.10–111.95 MHz, odd-tenth frequencies only (110.10, 110.30, 110.50… never 110.20). Forty channels total in the band.</li><li>Glideslope: 329.3–335.0 MHz UHF. Paired automatically — tuning the localizer frequency also tunes the glideslope; the pilot never tunes GS separately. The pairing table is part of the receiver firmware and must survive software updates.</li><li>Localizer CDI: full-scale ±2.5° at the runway threshold (roughly ±350 ft at threshold; ±700 ft at the OM about 5 nm out). This is four times more sensitive than VOR (±10°). Installers must verify CDI scaling changes correctly when the LOC frequency is tuned — a nav radio stuck in VOR sensitivity on an ILS frequency is a classic installation failure.</li><li>Glideslope angle: typically 3.00°, occasionally 2.50° (flat approach for terrain) or up to 6° (LDA with GS or special steep approach). Full-scale GS deflection ±0.7°; one dot = ~0.35°. At 200 ft DH on a 3° GS, one dot high/low = ~50 ft vertical error.</li><li>Morse ident for ILS begins with 'I' (e.g., I-AVQ for Avoca PA ILS 04). If the ident is absent or does not start with I, the ILS is not usable for an approach. The glideslope is monitored via the localizer ident; losing the localizer ident means the glideslope is also unreliable.</li><li>Marker beacons at 75 MHz: Outer Marker at the FAF (blue lamp, 400 Hz, dashes), Middle Marker near DH (amber, 1300 Hz, dot-dash), Inner Marker for Cat II/III only (white, 3000 Hz, dots). Most GA installations use a single three-lamp annunciator driven by a marker receiver.</li><li>Critical area protection: at Category I ILS airports in low visibility (below 800 RVR on loc or 2 nm visibility on GS), aircraft and vehicles must be held outside published critical areas or the signal can be reflected and the airborne needle can show a wildly false indication while still appearing to work. The technician does not control this, but must understand it when a pilot reports an ILS that 'went hard-over on short final.'</li>
+  </ul>
+  
+</section>
+
+
+
+<section id="kr-3">
+  <h2>6.2.3 — GPS/GNSS and WAAS</h2>
+
+  
+  <p>GPS receivers have gone through three certification generations that a working technician must distinguish. TSO-C129a (legacy panel-mount GPS, mid-1990s through early 2000s: Garmin GNS 430/530, KLN 94, GX-60) provides en-route, terminal, and non-precision approach LNAV capability with RAIM for integrity. TSO-C145d/C146d (modern SBAS receivers: Garmin GTN 650/750/Xi, GNX 375, GNC-355, Avidyne IFD, most G1000/G3000/Pro Line panels) adds WAAS/SBAS corrections enabling LPV and LNAV/VNAV approaches down to 200-ft DH. The newest TSO-C196 and C199 cover dual-frequency L1/L5 receivers designed to resist ionospheric error and GPS interference. For the technician, the certification generation of the installed box determines what approaches the aircraft is legal to fly, what database is required, what antenna is compatible, and what RAIM/SBAS prediction the pilot must perform before IFR flight. That is not paperwork trivia; getting it wrong means signing off an aircraft to fly an approach it was never certified for.</p>
+  
+
+  
+  <h4>From the PQS Source</h4>
+  <p>GPS navigation has largely supplemented VOR for en-route and terminal navigation. WAAS (Wide Area Augmentation System) enhances GPS accuracy to support precision approaches (LPV) that rival ILS performance. Key concepts for the technician:</p>
+  
+
+  
+  <h4>Key Points</h4>
+  <ul class="key-points">
+    <li>GPS L1 C/A: 1575.42 MHz, 1.023 Mbps code, civilian. L2C: 1227.60 MHz, civilian (second frequency, not available on most GA installations). L5: 1176.45 MHz, protected aviation band, in TSO-C196 dual-frequency receivers. Galileo, GLONASS, BeiDou broadcast on overlapping bands and modern multi-constellation receivers (GTN Xi, GNX series) use them all.</li><li>GPS requires four satellites for a 3D position fix: three to solve for latitude/longitude/altitude, one more to solve for receiver clock bias. With five, RAIM is possible; with six, FDE.</li><li>SBAS broadcast comes from geostationary satellites (GPS PRN 131, 133, 135, 138 are WAAS; similar slots for EGNOS, MSAS, etc.). Corrections are encoded per RTCA DO-229D with end-to-end latency under 6 seconds. A modern WAAS receiver uses SBAS data to compute an 'HPL' and 'VPL' (horizontal/vertical protection level) that must stay below the approach-phase 'HAL/VAL' alarm limits or the approach is downgraded in real time.</li><li>The aviation databases: Jeppesen NavData, Garmin Aviation Database, LIDO — published on a 28-day AIRAC cycle. An IFR-certified GPS under AC 90-100A (RNAV) and AC 90-107 (LPV) requires a current database for enroute, terminal, and approach operations. VFR use with expired database is legal but cautioned.</li><li>RAIM availability prediction: the receiver, ForeFlight, Garmin Pilot, or the FAA RAIM service (via Flight Service 1-800-WX-BRIEF) can predict whether RAIM will be available at the arrival airport for the approach time. Required for oceanic/remote per AC 90-105A; prudent for any IFR GPS approach.</li><li>WAAS vs non-WAAS antenna: WAAS-capable GPS installations require a TSO-C190 antenna with improved L1 L-band filtering and typically a low-noise amplifier. Swapping a non-WAAS antenna onto a WAAS receiver will usually reduce satellite tracking and may prevent SBAS lock.</li><li>GPS interference and spoofing: legitimate and hostile interference has become a real operational issue since 2022. Modern FMS and GPS navigators will annunciate 'GPS LOST' or 'DR' (dead reckoning) when they detect inconsistent data. The technician does not fix spoofing, but must verify the installation alerts the crew correctly when integrity is lost.</li>
+  </ul>
+  
+</section>
+
+
+
+<section id="kr-4">
+  <h2>6.2.4 — CDI Scaling Differences</h2>
+
+  
+  <p>One CDI needle. Three different sensitivities. The same one-dot deflection means very different real-world lateral errors depending on what the nav radio is tracking. This is the single most common source of pilot confusion and one of the most common installation sign-off items the technician must verify: the CDI changes sensitivity automatically and correctly when the nav source changes. If you install a GPS/NAV/COM without verifying the CDI transitions from ±5° en-route GPS to ±1° terminal to angular LPV scaling, you have handed the pilot a needle that lies at exactly the wrong moment.</p>
+  
+
+  
+  <h4>From the PQS Source</h4>
+  <p>This is critical knowledge that trips up technicians and pilots alike:</p>
+  
+
+  
+  <h4>Key Points</h4>
+  <ul class="key-points">
+    <li>VOR: angular, ±10° full scale, 5 dots each side, 2° per dot. Full-scale deflection at 60 nm is about 10 nm of linear offset; at 10 nm is 1.7 nm.</li><li>ILS localizer: angular, ±2.5° full scale, 5 dots each side, 0.5° per dot. One dot at the OM (5 nm out) = ~140 ft lateral; at threshold = ~35 ft. Four times more sensitive than VOR.</li><li>GPS en-route mode: linear, ±5 nm full scale (older TSO-C129a) or ±2 nm (typical modern C145 default). Sensitivity transitions to terminal (±1 nm) within 30 nm of destination airport.</li><li>GPS approach mode (LNAV): linear, ±0.3 nm at the FAF, tapering along the approach. Transitions automatically when the receiver detects the procedure is active and the aircraft is within the FAF turn.</li><li>LPV approach: angular, similar to ILS (wider at FAF, narrowing to the runway). This is why LPV minima can match Cat I ILS — the receiver is producing an angular deviation comparable in magnitude to a localizer.</li><li>Installation verification: bench-test using a ramp tester (IFR-4000, S-TEC 6000 series) that can drive the nav inputs in VOR, LOC, GS, and GPS modes. Verify the CDI shows correct full-scale deflection in each mode and that mode changes auto-select correctly with receiver source.</li><li>Pilot checkout: after installation, demonstrate the CDI scaling transitions to the pilot using the GPS simulator mode or a ramp-test approach. The time you spend here prevents the classic post-install squawk 'the CDI is way more sensitive now' — which is not a defect, it is the installation finally working correctly.</li>
+  </ul>
+  
+</section>
+
+
+<div class="section-marker">Part III — Task Preparation</div>
+
+
+
+
+<section id="task-1">
+  <h2>Task 6.4.1 — VOR Tuning and Interpretation</h2>
+
+  
+  <p>How to demonstrate: Tune a VOR frequency on the nav radio. Set the OBS to a specific radial. Explain what the CDI shows: centered = on the selected radial; deflected left = the radial is to your left (fly left to intercept); deflected right = the radial is to your right. Explain TO/FROM: TO means the selected course takes you toward the station; FROM means it takes you away. Demonstrate by rotating the OBS 180° and showing the TO/FROM flag reverses.</p>
+  
+
+  
+  <h4>Step-by-Step Procedure</h4>
+  <ol class="steps">
+    <li>Verify the nav radio is powered and self-test completed (no red X or flag on the CDI and HSI).</li><li>Select a published VOR from the sectional or IFR chart. Confirm frequency, location, and service volume.</li><li>Tune the VOR frequency on the nav radio. On combined boxes (GTN 650/750, GNC-255, KX-155), use the nav-side frequency knob and verify the active frequency display.</li><li>Identify the station: listen for the Morse code ident on the audio panel's NAV monitor. Three letters, continuous repetition. If you hear 'TEST' or no ident at all, the station is unmonitored and unusable for IFR.</li><li>Rotate the OBS (Omni-Bearing Selector) until the CDI needle centers and the TO/FROM flag shows 'TO' (or 'FROM'). Read the selected course from the OBS index.</li><li>Explain TO/FROM to the evaluator: TO = the selected course takes you toward the station; FROM = the selected course takes you away. If you rotate the OBS 180°, the flag reverses but the needle stays centered.</li><li>Demonstrate intercept logic: with needle deflected left, the selected radial is to the left of the aircraft's present position (fly left to intercept). Right deflection = radial is to the right.</li><li>Discuss angular sensitivity: ±10° full-scale, 2° per dot. At 60 nm one dot is about 2 nm of lateral offset; at 10 nm, only about 0.35 nm.</li><li>Discuss VOR check requirements under 14 CFR 91.171: for IFR flight, one of four checks every 30 days (VOT, ground checkpoint, airborne checkpoint, or dual VOR cross-check) logged with date, place, error, and signature.</li>
+  </ol>
+  
+
+  
+  <div class="callout watching">
+    <strong>Evaluator is watching for</strong>
+    <ul>
+      <li>Candidate verifies the ident before trusting the needle — this is the non-negotiable first step.</li><li>OBS rotation is smooth and the candidate can articulate why the needle centers at two OBS positions 180° apart.</li><li>TO/FROM explanation is correct (the common failure is saying TO means 'the station is in front of you,' which is wrong — it means the selected course will take you to the station).</li><li>Candidate can explain angular vs linear deflection and why a ½-scale deflection 80 nm from the station is a much larger error than at 5 nm.</li><li>Candidate correctly identifies the 30-day IFR check requirement and the tolerances (±4° VOT, ±6° airborne).</li>
+    </ul>
+  </div>
+  
+
+  
+  <div class="callout mistakes">
+    <strong>Common mistakes</strong>
+    <ul>
+      <li>Skipping the ident and trusting a signal from a station that is actually out of service or on test transmission. Missing ident = unusable signal.</li><li>Confusing radial (the bearing FROM the station) with course (the direction you intend to fly). A 090 radial can be flown as 090 outbound or 270 inbound — they're the same radial, different courses.</li><li>Forgetting that the TO/FROM flag has nothing to do with nose heading; the aircraft can be heading any direction and the flag reflects only the relationship between the selected course and the station.</li><li>Treating ½-scale deflection as a fixed error distance — it depends on range to station.</li>
+    </ul>
+  </div>
+  
+</section>
+
+
+
+<section id="task-2">
+  <h2>Task 6.4.2 — ILS Tuning and Explanation</h2>
+
+  
+  <p>How to demonstrate: Tune the ILS frequency on the nav radio. Explain: the localizer needle shows left/right deviation from runway centerline (fly toward the needle). The glideslope needle shows above/below the glidepath (fly toward the needle). The ILS is identified by a Morse code ident that begins with 'I' (e.g., I-ORL for Orlando ILS 36). If you hear only the localizer ident without the 'I' prefix, glideslope is unreliable.</p>
+  
+
+  
+  <h4>Step-by-Step Procedure</h4>
+  <ol class="steps">
+    <li>Pull the published ILS approach plate and verify localizer frequency, runway, glidepath angle, and DH.</li><li>Tune the localizer frequency on the nav radio. Verify the glideslope paired frequency displays automatically (most panels show GS: xxx.xx below the LOC frequency).</li><li>Identify the localizer: Morse ident must begin with 'I' followed by three letters (e.g., I-AVQ, I-ORL). If there is no 'I' or the ident is missing, the ILS is unusable for the approach.</li><li>Verify CDI scaling has transitioned to ILS sensitivity: full-scale deflection is now ±2.5°, which means about 4x finer than VOR. On an HSI, the course pointer snaps to the localizer front-course inbound.</li><li>Confirm glideslope indicator is active: a separate vertical scale or diamond pointer above/below center. GS full-scale deflection is ±0.7°.</li><li>Explain 'fly the needle': localizer needle deflected left means fly left to capture; glideslope needle low means fly down (the aircraft is above the glidepath).</li><li>Discuss the decision height (DH) shown on the plate. At DH, if the pilot has visual reference to the runway environment per 91.175, they can continue; otherwise missed approach.</li><li>Explain that losing the localizer ident means the glideslope is also unreliable — both are monitored together at the facility.</li><li>Walk the evaluator through the antenna locations on the aircraft: LOC antenna typically dual blade or V-dipole on the vertical stabilizer or tail; GS antenna on the nose near the radome; marker beacon (if installed) flush on the belly.</li>
+  </ol>
+  
+
+  
+  <div class="callout watching">
+    <strong>Evaluator is watching for</strong>
+    <ul>
+      <li>Candidate verifies the 'I' prefix ident — this is the single most important gate for an ILS.</li><li>Candidate knows the LOC band is 108.10–111.95 MHz odd-tenth only, and GS is paired automatically (never tuned separately).</li><li>CDI sensitivity is explained correctly — ±2.5° full-scale vs VOR ±10°.</li><li>Glideslope deflection interpretation is correct (low needle = aircraft is high, fly down).</li><li>Candidate mentions that LOC monitoring also monitors GS, so ident loss affects both.</li>
+    </ul>
+  </div>
+  
+
+  
+  <div class="callout mistakes">
+    <strong>Common mistakes</strong>
+    <ul>
+      <li>Not verifying the 'I' prefix on the ident — a test tone or a LOC-only facility may look tuned but be unusable.</li><li>Trying to tune the glideslope frequency separately (it is automatically paired and cannot be changed independently).</li><li>Forgetting that ILS localizer sensitivity is not the same as VOR. A pilot accustomed to VOR may fly through the localizer centerline on first intercept.</li><li>Confusing back-course behavior: on a localizer back-course (BC), the needle sensing is reversed unless the HSI has a BC function — a classic installation gotcha that the technician must verify for aircraft with back-course approaches in the area.</li><li>Claiming marker beacons are required for ILS — they are not, many ILS approaches use DME or GPS-derived fixes to replace markers.</li>
+    </ul>
+  </div>
+  
+</section>
+
+
+
+<section id="task-3">
+  <h2>Task 6.4.3 — GPS Database Currency</h2>
+
+  
+  <p>How to demonstrate: Power up the GPS (GTN, G1000, or similar). Navigate to the database status page. Identify the current AIRAC cycle number and effective/expiration dates. Explain: if the database expires, the pilot cannot use GPS for IFR navigation. Approaches, airways, and procedures may be inaccurate. VFR GPS navigation may still be usable, but IFR flight requires a current database. The 28-day cycle means databases expire monthly.</p>
+  
+
+  
+  <h4>Step-by-Step Procedure</h4>
+  <ol class="steps">
+    <li>Power up the GPS navigator (GTN 650/750/Xi, GNX 375, GNC-355, G1000 MFD, IFD 540/550). Allow the self-test and database load to complete.</li><li>Navigate to the database status page: on GTN, System → System Status → Database; on G1000, AUX → System Status; on IFD, System → DATABASES.</li><li>Read the current AIRAC cycle number (format: YYCC, e.g., 2604 = April 2026 cycle) and the effective / expiration dates. AIRAC cycles change every 28 days at 0901Z on a Thursday.</li><li>Verify the installed database is the current or next cycle. An expired database annunciates at power-up with a confirmation page the pilot must acknowledge.</li><li>Distinguish nav database (waypoints, airways, approaches — required current for IFR) from obstacle, terrain, and chart databases (advisory, recommended current but not legally required for IFR approach use).</li><li>Explain the legal requirement: AC 90-100A and AC 90-107 require current nav data for IFR enroute, terminal, and approach operations. 14 CFR 91.103 (preflight) and 91.175 (instrument approaches) together require the pilot to use current information.</li><li>Discuss update mechanics: Garmin FlyGarmin or Garmin Pilot desktop app; Jeppesen JSUM; direct USB stick loads. Subscription costs $300–$900/year for typical GA IFR databases.</li><li>Explain the 28-day AIRAC cycle and why both 'even' and 'odd' cycle approaches may need currency (a VFR flight may still use expired data; an IFR flight legally cannot).</li><li>Document the database cycle in the maintenance log for 337/installation compliance, and brief the pilot on how to verify currency themselves.</li>
+  </ol>
+  
+
+  
+  <div class="callout watching">
+    <strong>Evaluator is watching for</strong>
+    <ul>
+      <li>Candidate can navigate to the database status page without prompting.</li><li>Candidate distinguishes navigation database (IFR-required) from obstacle/terrain/chart databases (advisory).</li><li>Correct explanation of the 28-day AIRAC cycle and legal basis under AC 90-100A / 90-107.</li><li>Candidate can articulate the technical consequence of expired data: approaches, airways, intersection coordinates may be superseded, leading to path errors.</li><li>Understanding that VFR flight is legal with expired data but the pilot should be advised.</li>
+    </ul>
+  </div>
+  
+
+  
+  <div class="callout mistakes">
+    <strong>Common mistakes</strong>
+    <ul>
+      <li>Confusing nav database currency with operating system / software version currency — they are different things.</li><li>Assuming all databases have the same currency requirement — only nav data is legally required for IFR; obstacle and terrain are advisory.</li><li>Missing that the AIRAC cycle rollover is at 0901Z on a Thursday, not midnight local — a 6 AM departure on the rollover day may be legal; a 10 AM departure may not.</li><li>Not understanding that the database inside the unit is separate from the USB stick used to install it; verifying the USB stick alone does not prove the unit has been updated.</li>
+    </ul>
+  </div>
+  
+</section>
+
+
+
+<section id="task-4">
+  <h2>Task 6.4.4 — Antenna Identification</h2>
+
+  
+  <p>How to demonstrate: Walk around the aircraft and point to each antenna: VOR antenna (typically a V-shaped dipole on the tail or a blade on the fuselage top), GPS antenna (small puck or blade on the fuselage top, often near the windshield), glideslope antenna (small blade or flush-mount on the nose, often near the radome). Explain that antenna location affects reception quality and that GPS antennas need clear sky view.</p>
+  
+
+  
+  <h4>Step-by-Step Procedure</h4>
+  <ol class="steps">
+    <li>Brief the evaluator on which antennas the aircraft is equipped with (from the avionics inventory / Form 337s).</li><li>Walk the airframe in an organized pattern (nose → starboard → empennage → port → belly is a common flow).</li><li>VOR/LOC antenna: typically a V-shaped dipole on the vertical stabilizer (cat-whiskers), or a dual-blade on the tail, or a flush-mount 'towel bar' on the fuselage top. On newer business aircraft, may be integrated into a composite structure.</li><li>Glideslope antenna: small blade or flush-mount on the nose, typically in the radome area or just aft on the fuselage top. Requires clear forward-looking radiation pattern.</li><li>GPS/WAAS antenna: small 'puck' (2–3 inches diameter, flat top) or low-profile blade on the fuselage top, often just aft of the windshield or above the avionics bay. Requires unobstructed upward sky view.</li><li>DME antenna: blade, typically belly-mounted, 1 GHz band.</li><li>Transponder antenna: short stub, belly-mounted, 1090 MHz.</li><li>Marker beacon antenna (if installed): small boat-shape or flush-mount on the belly near the center of lift.</li><li>Explain antenna co-location rules: GPS antennas must be separated from SATCOM and other L-band transmitters per AC 20-138D to prevent receiver desense; GS and LOC have specific ground-plane requirements in the installation manual.</li>
+  </ol>
+  
+
+  
+  <div class="callout watching">
+    <strong>Evaluator is watching for</strong>
+    <ul>
+      <li>Candidate identifies antennas by sight without referring to a placard, but confirms against the maintenance records.</li><li>Candidate understands that antenna location reflects the signal's physics — GPS up, GS forward, LOC aft, DME/XPDR belly.</li><li>Awareness of co-location constraints (GPS away from SATCOM; GS clear of radome obstructions).</li><li>Ability to distinguish superficially similar antennas: a GPS puck vs a Mode-S blade vs a TCAS directional antenna.</li><li>Explanation that corrosion, paint, and water intrusion at the antenna base are common failure modes.</li>
+    </ul>
+  </div>
+  
+
+  
+  <div class="callout mistakes">
+    <strong>Common mistakes</strong>
+    <ul>
+      <li>Confusing the VHF COM antenna with the VOR — both are in the same band, but VOR is horizontally polarized (V-dipole or cat-whiskers) while VHF COM is vertically polarized (whip).</li><li>Missing that the GS antenna needs a clear forward-looking path and is often blocked by aftermarket deice boots, radome paint, or satellite phone antennas.</li><li>Confusing a TCAS directional antenna (four-element, flush, sometimes called a 'TCAS mushroom') with a GPS puck.</li><li>Not knowing that paint applied over an antenna voids the installation — antennas must be bonded bare-metal-to-airframe with specified bonding resistance (typically <2.5 mΩ).</li>
+    </ul>
+  </div>
+  
+</section>
+
+
+
+<section id="task-5">
+  <h2>Task 6.4.5 — WAAS Explanation</h2>
+
+  
+  <p>How to demonstrate: WAAS provides differential GPS corrections that improve position accuracy from ~5 meters to ~1 meter. Verify WAAS is working by checking the GPS status page—it should show 'WAAS' or 'SBAS' status active with correction data being received. LPV (Localizer Performance with Vertical guidance) is the most precise GPS approach type, providing guidance similar to ILS Category I. LPV requires a WAAS-capable GPS with current database and adequate satellite coverage.</p>
+  
+
+  
+  <h4>Step-by-Step Procedure</h4>
+  <ol class="steps">
+    <li>Define SBAS (Satellite-Based Augmentation System) as the ICAO umbrella term; WAAS is the U.S. implementation. Other regional systems include EGNOS (Europe), MSAS (Japan), GAGAN (India), SDCM (Russia), BDSBAS (China).</li><li>Explain the architecture: WAAS has about 38 ground reference stations across North America measuring live GPS errors; two master stations compute differential corrections plus integrity data; three geostationary satellites (SBAS PRNs) broadcast corrections to aircraft receivers on the GPS L1 frequency (and L5 in dual-frequency installations).</li><li>Describe the improvement: raw GPS horizontal accuracy is about 3–7 m (95%); with WAAS corrections, 1–2 m horizontal and about 1.5 m vertical, with integrity bounds sufficient for LPV approaches.</li><li>Verify WAAS reception on the installed receiver: navigate to GPS status (GTN: System → GPS Status; IFD: GPS Diagnostics). Confirm 'SBAS' or 'WAAS' annunciates, SBAS PRNs (131, 133, 135, or 138) are received, and 'HPL/VPL' values are below approach alarm limits.</li><li>Discuss TSO-C145d (WAAS sensor interfacing to other avionics) and TSO-C146d (WAAS standalone navigator) as the certification basis for LPV-capable receivers.</li><li>Explain LPV approaches: 'Localizer Performance with Vertical guidance.' Angular lateral sensitivity equivalent to a localizer, WAAS-derived vertical path, minima as low as 200-1/2 at qualifying runways. The approach looks and flies like an ILS Cat I.</li><li>Discuss the RTCA DO-229D performance standard: WAAS end-to-end latency under 6 seconds, integrity alarm within 6 seconds, and time-to-alert specifications for approach use.</li><li>Explain what happens if WAAS becomes unavailable during an approach: the receiver downgrades from LPV → LNAV/VNAV → LNAV, and the pilot must fly the new minima or go missed.</li><li>Note GPS spoofing risk and the value of dual-frequency L1/L5 SBAS (TSO-C196) for resilience, as seen in current multi-constellation, multi-frequency navigators.</li>
+  </ol>
+  
+
+  
+  <div class="callout watching">
+    <strong>Evaluator is watching for</strong>
+    <ul>
+      <li>Candidate uses the term 'SBAS' when asked about WAAS-equivalents abroad — shows they understand it's not a U.S.-only thing.</li><li>Correct verification steps on the actual installed unit, not just a textbook answer.</li><li>Knows the SBAS PRN numbers for North America (131, 133, 135, 138).</li><li>Distinguishes LPV (WAAS, angular, ILS-like) from LNAV/VNAV (baro- or SBAS-aided, linear) from LNAV (baseline GPS).</li><li>Can articulate what happens during an in-progress approach if SBAS is lost.</li>
+    </ul>
+  </div>
+  
+
+  
+  <div class="callout mistakes">
+    <strong>Common mistakes</strong>
+    <ul>
+      <li>Calling LPV a 'precision approach' — legally it is APV (Approach with Vertical guidance), not a precision approach. It has LPV minima, not Cat I precision minima.</li><li>Thinking WAAS requires a ground station near the airport — it does not. WAAS is wide-area, broadcast from geostationary satellites. That is LAAS/GBAS (local) you may be confusing it with.</li><li>Assuming any GPS is WAAS-capable — TSO-C129a legacy receivers are not. You must verify the TSO designation and the antenna.</li><li>Missing that WAAS antenna and non-WAAS antenna are different hardware (TSO-C190 for WAAS) and a mismatch causes poor SBAS lock.</li><li>Forgetting that HPL/VPL (Protection Levels) are the integrity measurements — not HFOM/VFOM (accuracy). Confusing these on an oral exam is a common failure.</li>
+    </ul>
+  </div>
+  
+</section>
+
+
+
+<section id="task-6">
+  <h2>Task 6.4.6 — VOR Accuracy Check</h2>
+
+  
+  <p>How to demonstrate: Using a flight line test set or VOR test signal (VOT where available), generate a known VOR bearing. Set the OBS until the CDI centers and note the radial indicated. Compare to the known bearing. The difference is the receiver error. A VOT should read 0° FROM or 180° TO (±4°). A ground checkpoint should agree within ±4° of the published value. Document the test: date, frequency, known bearing, indicated bearing, error, pass/fail.</p>
+  
+
+  
+  <h4>Step-by-Step Procedure</h4>
+  <ol class="steps">
+    <li>Choose the appropriate check per 14 CFR 91.171: VOT (most accurate, ±4°), ground checkpoint (±4°), airborne checkpoint (±6°), dual VOR (±4° between the two).</li><li>If using a ramp test set (IFR-4000, S-TEC 6000, Aeroflex): set it up per the manufacturer's instructions. Couple to the VOR antenna (usually via a coupling sleeve or radiating loop).</li><li>Select the VOT mode or a known VOR radial on the tester. Standard VOT transmits a pseudo-360° radial; tuneable testers can simulate any radial.</li><li>Tune the aircraft VOR to the VOT frequency (108.00 MHz is a common VOT frequency, check Chart Supplement for the specific airport).</li><li>Rotate the OBS. With OBS at 0°, the CDI should center with a 'FROM' indication. With OBS at 180°, CDI centers with 'TO.' Note the actual OBS reading at each centering.</li><li>Compute the error: difference between indicated and expected (0° or 180°). Error must be ≤ ±4° for IFR use.</li><li>For dual VOR: tune both receivers to the same VOR, center each OBS to the same radial on both, and compare. They must agree within ±4°.</li><li>Document in the aircraft log per 91.171(d): date, place (VOT location or checkpoint name), bearing error(s), and signature. Unsigned or incomplete entries are common FAA surveillance findings.</li><li>If the VOR fails the check, do not release the aircraft for IFR until corrective action: recalibrate the nav receiver per the installation manual, check antenna coax for water/corrosion, verify bonding, or remove-and-replace the receiver.</li>
+  </ol>
+  
+
+  
+  <div class="callout watching">
+    <strong>Evaluator is watching for</strong>
+    <ul>
+      <li>Candidate chooses an appropriate check method for the facilities available (VOT, ground checkpoint, etc.).</li><li>Proper ramp-tester setup, including correct coupling and frequency selection.</li><li>Log entry contains all four required elements per 91.171(d): date, place, bearing error, signature.</li><li>Candidate knows the tolerances without looking up: ±4° VOT/ground/dual, ±6° airborne.</li><li>If failure: candidate follows a systematic troubleshooting path rather than 'recycling power and trying again.'</li>
+    </ul>
+  </div>
+  
+
+  
+  <div class="callout mistakes">
+    <strong>Common mistakes</strong>
+    <ul>
+      <li>Confusing 91.171 (VOR check for IFR) with 91.411 (altimeter/static 24-month) or 91.413 (transponder 24-month) — they are all different regulations with different intervals.</li><li>Forgetting that the check is every 30 days for IFR, not annually. A VOR not checked in 31 days is not IFR-legal even if otherwise airworthy.</li><li>Documenting only pass/fail without the actual error value — the reg requires the bearing error number.</li><li>Using an untested coupling on the ramp tester — the coupling itself can introduce error; verify tester calibration and coupling condition per the tester manual.</li><li>Accepting a 'close enough' reading in humid or icing conditions. A VOR that barely passes ±4° should be investigated before it fails in service.</li>
+    </ul>
+  </div>
+  
+</section>
+
+
+
+<div class="section-marker">Part IV — Background Theory</div>
+<section id="theory">
+  <h2>The Science Behind the Procedures</h2>
+  <p>When the oral board examiner asks <em>why</em>, these are the explanations they expect to hear.</p>
+  
+  <div class="callout theory">
+    <strong>Why Vor Bearings Use Cardioid Pattern</strong>
+    <p style="margin-top:8px;">A VOR station makes a rotating cardioid radiation pattern that, to an observer at any given radial, looks like a 30 Hz amplitude modulation. The station simultaneously broadcasts a 30 Hz FM subcarrier that is the same phase in every direction — the reference signal. Airborne, the receiver demodulates both the AM (variable) and the FM (reference) and compares their phase. The phase difference in degrees equals the magnetic bearing from the station. This works because the cardioid pattern rotates exactly once per FM cycle: at magnetic north of the station, AM peak and FM peak coincide (0° phase difference = 0° radial); 90° around, AM peak lags FM peak by 90° (090 radial); and so on around the circle. Conventional VORs do this with a mechanically or electrically rotating directional antenna plus an omni reference — any asymmetry in the rotation or siting (terrain reflections, buildings) shows up as a bearing error. Doppler VOR (DVOR) achieves the same phase relationship by electronically commutating a ring of antennas to synthesize the Doppler shift that a rotating source would produce; because the synthesis is geometric rather than mechanical, DVOR is far less sensitive to siting imperfections and is the modern standard. Either way, the airborne receiver cannot tell the difference — it just sees the phase relationship and derives the bearing. Understanding this explains why VOR accuracy is specified at the ground station (±1°) separately from the airborne receiver (±4° typical), and why you check both using VOTs and checkpoints.</p>
+  </div>
+  
+  <div class="callout theory">
+    <strong>Why Gps Needs Four Satellites For 3d Fix</strong>
+    <p style="margin-top:8px;">GPS works by measuring the time a signal takes to travel from a satellite (whose position in ECEF coordinates is known from the broadcast ephemeris) to the receiver. Each measurement defines a sphere of possible receiver positions, with the satellite at its center. The intersection of two spheres is a circle; three spheres narrow to two points (one in space, one near the earth's surface, easy to disambiguate); so in principle three satellites give a 3D position. Except — the receiver's clock is not perfectly synchronized with the satellite clock. Atomic clocks on the satellites cost millions of dollars and are stable to 10^-13; your GPS receiver has a quartz crystal oscillator. The receiver's clock error translates directly into a pseudorange error (hence the name pseudorange, as opposed to true range) of roughly 300,000 m per second of clock error, which is enormous. So the GPS receiver solves for four unknowns: x, y, z (position), and the clock bias t. Four unknowns require four equations, which means four satellites. With only three satellites, the receiver can produce a 2D position (using assumed altitude from a barometric altimeter or last known value) but not a 3D fix. With five satellites, the receiver has one redundant measurement and can compute RAIM — detecting whether any one satellite is reporting an inconsistent value. With six, it can exclude the bad satellite and keep navigating, which is FDE. Modern multi-constellation receivers (GPS + Galileo + GLONASS + BeiDou) can have 20+ satellites in view at once, which is why SBAS integrity monitoring can be much tighter than classical GPS alone.</p>
+  </div>
+  
+  <div class="callout theory">
+    <strong>How Sbas Improves Gps Accuracy With Differential Corrections</strong>
+    <p style="margin-top:8px;">Raw GPS error comes from a few main sources: satellite clock drift, orbital ephemeris inaccuracy, ionospheric delay (which varies by time of day, solar activity, and elevation angle), and tropospheric delay. These errors are largely common to all receivers in a wide geographic area — if satellite 12 is running 3 meters late at noon over Ohio, it is also 3 meters late over Indiana. SBAS exploits this spatial correlation. Ground reference stations at precisely surveyed locations continuously measure the actual pseudorange to every visible satellite and compare to the expected pseudorange (which they can compute exactly because they know their own position). The difference is the error for that satellite at that time. A master station collects measurements from the whole reference-station network, computes best-estimate corrections for each satellite's clock and orbit, and also builds a grid model of ionospheric delays across the service region. These corrections — encoded per RTCA DO-229D — are uplinked to geostationary satellites and broadcast on the GPS L1 frequency (same band as GPS, so a single antenna receives both). Your airborne receiver, knowing its rough position from raw GPS, looks up the corrections for its location and applies them. End-to-end latency is under 6 seconds, which means a correction generated when the aircraft is 1 mile short of the FAF is applied before the aircraft reaches the FAF. The result: typical horizontal error drops from 3–7 m to 1–2 m, and the receiver also gets an integrity bound (HPL/VPL) that tells it how confident to be — enabling LPV approaches down to 200-ft DH because the SBAS integrity budget supports the safe-operations calculation. SBAS is wide-area; GBAS (LAAS) does the same thing but from a ground station at one airport, broadcast on VHF, with higher accuracy for Cat II/III but limited to that one airport's coverage area.</p>
+  </div>
+  
+</section>
+
+
+<div class="section-marker">Part V — Self-Check</div>
+
+<section id="quiz">
+  <h2>Oral Board Practice Questions</h2>
+  <p>Answer each aloud before opening the answer key. Mastery means you can explain it to a non-technical person, not just recite a definition.</p>
+  <div class="quiz">
+    <h3>Questions</h3>
+    <ol>
+      <li>Q1: A pilot reports the CDI is 'way more sensitive' after you installed a new GPS navigator. Is the installation defective? Explain.</li><li>Q2: What happens if a pilot tries to fly an IFR GPS approach with an expired navigation database?</li><li>Q3: Explain the difference between a VOR radial and a VOR course. What does TO/FROM tell you?</li><li>Q4: Where is the glideslope antenna on a typical Cessna or Beechcraft? Why does its location matter?</li><li>Q5: A GPS shows 'RAIM not available' on the approach page. What does this mean and what should the pilot do?</li>
+    </ol>
+  </div>
+
+  <h3>Answer Key</h3>
+  <div class="answer-key">
+    
+    
+    
+    <details>
+      <summary>Q1: A pilot reports the CDI is 'way more sensitive' after you installed a new GPS navigator. Is the installation defective? Explain.</summary>
+      <p>The installation is almost certainly not defective. The 'way more sensitive' observation describes a CDI that is behaving correctly on an ILS or LPV approach where sensitivity is naturally four to ten times finer than VOR. VOR full-scale deflection is ±10°, with about 2° per dot. Localizer full-scale is ±2.5°, so a half-dot on localizer is roughly the same angular error as four dots on VOR. GPS LPV approaches use angular scaling similar to localizer. What the pilot experienced is the nav radio correctly auto-transitioning from VOR scaling to ILS or LPV scaling as they tuned an ILS frequency or activated a GPS approach. The old installation may have had a broken auto-scaling function, or may have been a legacy TSO-C129a receiver that used coarser approach sensitivity. What I would do to confirm: run the aircraft through a ramp-test cycle with an IFR-4000 or equivalent, driving the inputs in VOR, LOC, GS, and GPS-approach modes, and verify the CDI shows correct full-scale deflection in each mode per the installation manual and the HSI/CDI specification. If everything matches spec, educate the pilot on the new sensitivity and demonstrate CDI behavior on a simulated approach. If something does not match spec, troubleshoot the nav source annunciator logic and the GPS/NAV switchover relay. But assume correct first; this is a feature, not a bug.</p>
+    </details>
+    
+    
+    
+    <details>
+      <summary>Q2: What happens if a pilot tries to fly an IFR GPS approach with an expired navigation database?</summary>
+      <p>Flying an IFR GPS approach with an expired database is both illegal and unsafe. Legally, AC 90-100A (U.S. Terminal and En Route Area Navigation) and AC 90-107 (LPV operations) require a current nav database for IFR RNAV operations. 14 CFR 91.175 requires the pilot to use current information for instrument approaches; an expired database is by definition not current. The receiver itself will annunciate an 'EXPIRED DATABASE' warning at power-up that the pilot must acknowledge, and on approach selection the annunciation persists. Technically, what might be wrong: waypoints that have moved since the cycle (fix coordinates are revised all the time as the NAS evolves), approach procedures that have been amended (new minima, new transitions, moved fixes), obstacles that have been added to the terrain or obstacle database, or airways that have been renamed or resegmented. Even a single stale waypoint coordinate can put the aircraft hundreds of feet off the published path — exactly the kind of error that leads to controlled flight into terrain, as in the American Airlines 965 accident at Cali in 1995 where an FMS selection took the aircraft 132 nm off course into mountains. In practice, the pilot has two legal options: do not fly the IFR GPS approach, or divert to an alternative that uses a different approach (ILS, VOR) that does not require current GPS data. VFR flight with expired database is technically legal but I would advise the pilot against it for the same accuracy reasons.</p>
+    </details>
+    
+    
+    
+    <details>
+      <summary>Q3: Explain the difference between a VOR radial and a VOR course. What does TO/FROM tell you?</summary>
+      <p>A radial is a specific magnetic bearing FROM a VOR station, expressed in degrees. The 090 radial is a line extending due east from the station, regardless of which direction the aircraft is flying or which direction the aircraft is from the station. A course is the direction the pilot intends to fly, which may or may not align with a radial. A pilot flying inbound to a VOR on the 090 radial is flying the 270 course — same geographic line, different direction of travel. Pilots set the course in the OBS; the airplane then tells them whether they are left or right of that course. TO/FROM does not depend on aircraft heading at all. TO means 'the selected course takes you toward the station' — that is, the station is on the side of the aircraft that lies ahead along the selected course. FROM means 'the selected course takes you away from the station.' A concrete example: aircraft 30 nm east of a VOR. If the pilot selects 270 in the OBS, the indicator shows TO (because 270 heading will take them to the station). If they select 090, it shows FROM. If they are heading south but still east of the station, the flag is based on the OBS selection, not on the airplane's nose direction. This is a frequent source of confusion because pilots sometimes mentally equate TO with 'station is ahead of the nose' — which is only coincidentally true when the aircraft happens to be on or near the selected course.</p>
+    </details>
+    
+    
+    
+    <details>
+      <summary>Q4: Where is the glideslope antenna on a typical Cessna or Beechcraft? Why does its location matter?</summary>
+      <p>On a typical Cessna (172, 182, 206) or Beechcraft (Bonanza, Baron, King Air), the glideslope antenna is a small blade or flush-mount element on the nose, often just aft of the propeller on the fuselage top or integrated into the radome. It needs a forward-looking, relatively clear radiation path because the UHF glideslope signal (329.3–335 MHz) is received from the transmitter at the far end of the runway as the aircraft is on final approach. The location matters for several practical reasons. First, anything that obstructs the forward path degrades reception — aftermarket radomes, re-painted composite structure, deice boots with water under them, or satellite phone antennas mounted too close. Second, the ground plane under the antenna matters; on an aluminum airframe, the skin serves as ground plane, but if the antenna is installed with non-conductive sealant or the mounting has corroded, the radiation pattern changes. Third, co-location constraints with other antennas — AC 20-138D specifies minimum separations from other L-band and nearby UHF equipment. Fourth, the antenna gain pattern is tuned to the installation: moving it to a non-standard location without a TSO/STC approval voids the installation. A failure mode I have seen in the field: water intrusion through the radome or around the antenna base, condensing on the feedline connector, causing intermittent glideslope reception most evident in damp weather. The fix is to pull the antenna, dry everything, re-seal with the appropriate compound, and verify continuity and insulation resistance on the feedline.</p>
+    </details>
+    
+    
+    
+    <details>
+      <summary>Q5: A GPS shows 'RAIM not available' on the approach page. What does this mean and what should the pilot do?</summary>
+      <p>RAIM-not-available means the receiver cannot guarantee the required integrity bound for the current flight phase, because either not enough satellites are in view (fewer than five for RAIM detection, six for FDE exclusion) or the predicted geometry is poor. On the approach page specifically, it means the predicted or actual RAIM at the approach fix does not meet the C129a or C145/C146 approach integrity requirement, and the receiver is warning the pilot before they commit to the approach. What the pilot should do: first, verify this is RAIM, not SBAS. If the aircraft is WAAS-capable and the approach is LPV or LNAV/VNAV (SBAS-aided), losing RAIM but having SBAS is fine — SBAS integrity supersedes RAIM on SBAS approaches. Check the SBAS annunciation. If it is truly RAIM-unavailable and there is no SBAS backup, the options are: switch to a different approach type (ILS, VOR, or LNAV if the receiver can still navigate laterally), divert to an alternate, delay and re-try (GPS constellation geometry changes with time, so RAIM may be available in an hour), or use a RAIM prediction tool (the on-board prediction page, ForeFlight, or FAA Flight Service) to find a time window when RAIM will be available at the destination. Per AC 90-100A, RAIM prediction before IFR GPS flight is a prudent practice; for oceanic/remote per AC 90-105A it is required. From my side as the technician: if the pilot reports frequent RAIM unavailability that does not match published outages, I would check the antenna installation (dirty, painted over, water-damaged), verify the GPS antenna is the correct TSO-C190 for WAAS installations, check coax connector torque and insulation, and review recent satellite health data. A bad antenna or a water-intruded feedline is a classic cause of intermittent GPS integrity issues.</p>
+    </details>
+    
+  </div>
+</section>
+
+
+<section id="crosswalk">
+  <h2>Written Exam Crosswalk</h2>
+  <div class="crosswalk">This section maps to Module 7 (NAV/COM Systems) Q69–78. Ten questions covering VOR interpretation, ILS components, GPS/WAAS operation, CDI scaling, antenna identification, and database currency. The navigation knowledge here also supports Module 4 (FMS) questions about GPS-coupled flight management. End of Section 6 — Navigation Systems</div>
+</section>
+
+
+<footer>
+  © 2026 Aircraft Electronics Association · Workforce Development Division.<br>
+  Derived from CAET Advanced PQS Training Module with supplementary teaching content authored for instructor use.
+</footer>
+
+</body>
+</html>

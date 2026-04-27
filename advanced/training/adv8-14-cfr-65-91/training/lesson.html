@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Section 1: Regulatory Compliance & Approved Data — Interactive Lesson</title>
+<style>
+  :root {
+    --ink: #1a2332;
+    --ink-soft: #4a5568;
+    --paper: #fbfaf5;
+    --paper-accent: #f5f2e8;
+    --rule: #d8d3c3;
+    --navy: #0a2540;
+    --gold: #8b6914;
+    --gold-soft: #f4ead0;
+    --cyan: #0e4a6e;
+    --cyan-soft: #e4f1f8;
+    --green: #1b4332;
+    --green-soft: #e7f0e5;
+    --red: #8b1a1a;
+    --red-soft: #fbe9e7;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 16px; line-height: 1.65;
+    color: var(--ink); background: var(--paper);
+    max-width: 900px; margin: 0 auto;
+    padding: 40px 32px 80px;
+  }
+  header.lesson-cover {
+    border-bottom: 3px double var(--navy);
+    padding-bottom: 20px; margin-bottom: 32px;
+  }
+  .eyebrow {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    letter-spacing: 3px; font-size: 11px;
+    text-transform: uppercase; color: var(--gold); font-weight: 700;
+  }
+  h1 {
+    font-family: Georgia, serif; font-size: 30px; line-height: 1.2;
+    color: var(--navy); margin: 8px 0 6px;
+  }
+  .lesson-meta {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 13px; color: var(--ink-soft);
+    display: flex; gap: 20px; flex-wrap: wrap;
+  }
+  .lesson-meta span { background: var(--paper-accent); padding: 4px 12px; border-radius: 12px; }
+
+  .progress-bar {
+    height: 6px; background: var(--rule); border-radius: 3px;
+    overflow: hidden; margin: 24px 0 40px;
+  }
+  .progress-fill { height: 100%; background: var(--gold); width: 0; transition: width .4s; }
+
+  .phase {
+    background: white; border: 1px solid var(--rule); border-radius: 6px;
+    padding: 28px 32px; margin: 20px 0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+  .phase-header {
+    display: flex; align-items: baseline; justify-content: space-between;
+    gap: 16px; flex-wrap: wrap;
+    border-bottom: 1px solid var(--rule); padding-bottom: 10px; margin-bottom: 18px;
+  }
+  .phase-label {
+    display: inline-block;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    letter-spacing: 2px; font-size: 11px; text-transform: uppercase;
+    color: white; font-weight: 700;
+    padding: 4px 12px; border-radius: 3px;
+  }
+  .phase-engage    .phase-label { background: #8b6914; }
+  .phase-explore   .phase-label { background: #0e4a6e; }
+  .phase-explain   .phase-label { background: #1b4332; }
+  .phase-elaborate .phase-label { background: #6b2c91; }
+  .phase-evaluate  .phase-label { background: #8b1a1a; }
+
+  .phase h2 { font-family: Georgia, serif; font-size: 22px; color: var(--navy); margin: 4px 0 0; }
+  .timing { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 13px; color: var(--ink-soft); }
+
+  p { margin: 0 0 14px; }
+  ul, ol { padding-left: 22px; margin: 0 0 16px; }
+  li { margin-bottom: 6px; }
+
+  .scenario {
+    background: var(--gold-soft); border-left: 4px solid var(--gold);
+    padding: 18px 24px; margin: 18px 0;
+    border-radius: 2px;
+    font-style: italic;
+  }
+  .think-prompt {
+    background: var(--cyan-soft); border-left: 4px solid var(--cyan);
+    padding: 14px 20px; margin: 12px 0;
+    border-radius: 2px;
+  }
+  .think-prompt strong {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase;
+    color: var(--cyan); display: block; margin-bottom: 6px;
+  }
+  .card-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 14px; margin: 16px 0;
+  }
+  .card {
+    background: var(--paper-accent); border: 1px solid var(--rule);
+    border-radius: 4px; padding: 18px 22px;
+  }
+  .card h3 { margin: 0 0 10px; font-size: 16px; color: var(--navy); font-family: Georgia, serif; }
+  .card p { font-size: 14px; margin: 0; line-height: 1.55; }
+
+  .evaluate-cta {
+    background: var(--navy); color: white;
+    display: inline-block; text-decoration: none;
+    padding: 14px 28px; border-radius: 4px;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 700; font-size: 14px; letter-spacing: 1px; text-transform: uppercase;
+    border: none; cursor: pointer; transition: all .2s;
+  }
+  .evaluate-cta:hover { background: var(--gold); color: var(--navy); }
+  .evaluate-cta.secondary { background: white; color: var(--navy); border: 2px solid var(--navy); margin-left: 8px; }
+  .evaluate-cta.secondary:hover { background: var(--navy); color: white; }
+
+  .reflection {
+    border: 2px solid var(--rule); border-radius: 4px;
+    padding: 18px 22px; margin: 20px 0; background: white;
+  }
+  .reflection h4 { margin: 0 0 10px; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold); }
+  .reflection textarea {
+    width: 100%; min-height: 90px;
+    padding: 10px 14px;
+    font-family: inherit; font-size: 14px; line-height: 1.5;
+    border: 1px solid var(--rule); border-radius: 3px;
+    background: var(--paper); color: var(--ink); resize: vertical;
+  }
+
+  footer { margin-top: 60px; padding-top: 20px; border-top: 1px solid var(--rule);
+           font-size: 12px; color: var(--ink-soft); text-align: center; }
+
+  @media print {
+    body { background: white; padding: 0.6in 0.75in; max-width: none; font-size: 11pt; }
+    .phase { page-break-inside: avoid; box-shadow: none; }
+    .evaluate-cta { border: 1px solid var(--navy); color: var(--navy); background: white; }
+  }
+</style>
+</head>
+<body>
+
+<header class="lesson-cover">
+  <div class="eyebrow">CAET Advanced · Interactive 5E Lesson</div>
+  <h1>Section 1: Regulatory Compliance & Approved Data</h1>
+  <div class="lesson-meta">
+    <span>⏱ ~45 minutes</span>
+    <span>📖 Engage → Explore → Explain → Elaborate → Evaluate</span>
+    <span>🛠 Hands-on + drill</span>
+  </div>
+</header>
+
+<div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
+
+<!-- ENGAGE -->
+<section class="phase phase-engage" data-phase="1">
+  <div class="phase-header">
+    <div>
+      <div class="phase-label">Engage</div>
+      <h2>Why should you care about this?</h2>
+    </div>
+    <div class="timing">~4 min</div>
+  </div>
+
+  
+  <p>Every federal aviation regulation in Title 14 of the Code of Federal Regulations is written in response to something that killed people. Part 43 was not drafted by bureaucrats who wanted to make paperwork; it was drafted after decades of accident investigation showing that aircraft built without controlled data, repaired without approved methods, and released to service without accountable signatures kill passengers at rates the public refuses to tolerate. When you sign a logbook entry under 14 CFR 43.9 or return an aircraft to service under 43.7, you are not filling out a form. You are invoking the full force of federal law to certify that your work meets the performance rules of 14 CFR 43.13 and was accomplished with approved data. That signature is the contract between you and the flight crew, the passengers, and the people on the ground beneath the flight path.</p>
+  <p>The CAET technician who installs a new GPS navigator without an STC, who substitutes non-PMA parts to meet a deadline, or who signs a 337 without actually inspecting the work has not committed a paperwork error. They have committed a federal offense under 14 CFR 43.12 (falsification of records) and 49 USC 44709 (certificate actions). The FAA's enforcement history is filled with cases where a single falsified logbook entry or a single unapproved repair led to certificate revocation, civil penalties exceeding $100,000, and in fatal cases, criminal prosecution under 18 USC 38 (fraud involving aircraft parts). Revocation under 14 CFR 65.20 is not a suspension you wait out. It is permanent. A technician whose A&P is revoked for falsification will never hold another mechanic certificate, and most Part 145 repair stations are barred by their ops specs from employing anyone who has been denied or revoked under 65.12.</p>
+  
+
+  <div class="think-prompt">
+    <strong>Pause &amp; Think</strong>
+    Before you continue — what is the single most common workmanship mistake a newly-qualified technician makes on this kind of task? Write one sentence in the reflection box below. You'll come back to it at the end.
+  </div>
+
+  <div class="reflection">
+    <h4>Your prediction</h4>
+    <textarea id="engage-reflection" placeholder="What do you think the #1 mistake is, and why?"></textarea>
+  </div>
+</section>
+
+<!-- EXPLORE -->
+<section class="phase phase-explore" data-phase="2">
+  <div class="phase-header">
+    <div>
+      <div class="phase-label">Explore</div>
+      <h2>Discover the terminology</h2>
+    </div>
+    <div class="timing">~8 min</div>
+  </div>
+
+  <p>Avionics work has its own vocabulary. Master these terms before procedures, because the oral-board examiner expects precision, not approximations.</p>
+
+  <div class="card-grid">
+    
+    <div class="card">
+      <h3>Repair Station (Part 145)</h3>
+      <p>An organizational certificate issued under 14 CFR Part 145 that authorizes a facility to perform maintenance, preventive maintenance, and alterations on aircraft, engines, propellers, appliances, or components. Ratings are defined in 14 CFR 145.59 (Airframe, Powerplant, Radio, Instrument, Accessory, Limited) and the specific work authority is spelled out in the Operations Specifications (OpSpecs).</p>
+    </div>
+    
+    <div class="card">
+      <h3>AMT / A&P Mechanic</h3>
+      <p>An Aviation Maintenance Technician holding a mechanic certificate under 14 CFR Part 65 Subpart D. The Airframe and Powerplant (A&P) rating is a combination of two individual ratings issued under 14 CFR 65.77. Privileges are defined in 14 CFR 65.81 (general) and 65.85/65.87 (airframe/powerplant specifically).</p>
+    </div>
+    
+    <div class="card">
+      <h3>Repairman Certificate</h3>
+      <p>A certificate issued under 14 CFR 65.101 that authorizes an individual to perform specific maintenance tasks for a specific employer (typically a Part 145 station or Part 121/135 operator). Unlike an A&P, a repairman certificate is not portable — it is valid only for the named employer and the specific work listed on the certificate under 14 CFR 65.103.</p>
+    </div>
+    
+    <div class="card">
+      <h3>14 CFR Part 43 (Maintenance)</h3>
+      <p>The regulation governing maintenance, preventive maintenance, rebuilding, and alteration of US-registered aircraft. Key sections: 43.3 (authorized persons), 43.5 (required recordkeeping to release to service), 43.7 (approval for return to service), 43.9 (content, form, and disposition of records), 43.11 (annual/100-hour content), 43.13 (performance rules — methods/techniques/practices), 43.15 (additional performance rules), Appendix A (major alterations/repairs), Appendix B (Form 337 and recording of major repairs/alterations), Appendix D (annual/100-hour inspection scope).</p>
+    </div>
+    
+    <div class="card">
+      <h3>14 CFR Part 65 (Airmen Other Than Flight Crew)</h3>
+      <p>Governs certification of mechanics, repairmen, parachute riggers, dispatchers, and inspection authorization holders. Subpart D covers mechanics (65.71-65.95); Subpart E covers repairmen (65.101-65.104); Subpart G covers inspection authorization (65.91-65.95). Key enforcement sections: 65.12 (offenses involving controlled substances), 65.15 (duration of certificates), 65.20 (making or causing false records).</p>
+    </div>
+    
+    <div class="card">
+      <h3>14 CFR Part 91 (General Operating Rules)</h3>
+      <p>The general operating and flight rules applicable to all civil aircraft in the United States. Maintenance-relevant sections: 91.403 (owner/operator responsibility for airworthiness), 91.405 (maintenance required), 91.407 (operation after maintenance/repair/alteration), 91.409 (inspections — annual, 100-hour, progressive, AAIP), 91.411/91.413 (altimeter/transponder/static system checks), 91.417 (maintenance records retention), 91.421 (rebuilt engine records).</p>
+    </div>
+    
+  </div>
+
+  
+  <p style="font-size:13px; color:var(--ink-soft);"><em>+ 15 more terms in the full handbook glossary.</em></p>
+  
+
+  <div class="think-prompt">
+    <strong>Self-check</strong>
+    Close your browser tab for 30 seconds. Re-open and list 4 of the 6 terms above from memory, each with a one-sentence definition. If you can't, re-read before continuing.
+  </div>
+</section>
+
+<!-- EXPLAIN -->
+<section class="phase phase-explain" data-phase="3">
+  <div class="phase-header">
+    <div>
+      <div class="phase-label">Explain</div>
+      <h2>The theory you need</h2>
+    </div>
+    <div class="timing">~12 min</div>
+  </div>
+
+  <p>Memorizing steps isn't enough. The evaluator asks <em>why</em>. Here is what you need to understand.</p>
+
+  
+    
+    
+    
+    <h3 style="font-family:Georgia,serif; color:var(--navy); margin-top:28px;">1.2.1 — 14 CFR Part 43: Who Can Perform Maintenance</h3>
+    <p>14 CFR Part 43 is the legal foundation for all maintenance on US-registered civil aircraft (except Part 121/135 aircraft, which operate under additional rules). Part 43 defines what maintenance is (43.1-43.2), who may perform it (43.3), what records are required (43.9, 43.11), and how the work must be performed (43.13). For the avionics technician working inside a Part 145 station, your personal authority is extended through the repair station's certificate — but you remain accountable to Part 43's performance rules as an individual.</p>
+    
+    <ul>
+      <li>14 CFR 43.3(a)-(d) enumerates who may perform maintenance: certificated mechanic (A&P), repairman, holder of an air carrier operating certificate, certificated repair station, pilot (limited preventive maintenance per 43.3(g) and Appendix A(c)), and manufacturer (43.3(j)).</li><li>14 CFR 43.3(d) specifically authorizes a certificated repair station to perform maintenance according to Part 145 — this is how a Part 145 station derives its work authority, and it is why your shop's OpSpecs are legally binding on you when you work there.</li><li>14 CFR 43.7(a)-(f) defines who may approve an aircraft for return to service. For major repairs and major alterations, only an A&P with IA (65.95), a repair station (145.201(c)), or the manufacturer may approve RTS. An A&P without IA can return to service after routine maintenance but cannot sign off on a major alteration.</li><li>14 CFR 43.13(a) requires that 'each person performing maintenance, alteration, or preventive maintenance on an aircraft, engine, propeller, or appliance shall use the methods, techniques, and practices prescribed in the current manufacturer's maintenance manual or Instructions for Continued Airworthiness prepared by its manufacturer, or other methods, techniques, and practices acceptable to the Administrator.'</li>
+    </ul>
+    
+    
+  
+    
+    
+    
+    <h3 style="font-family:Georgia,serif; color:var(--navy); margin-top:28px;">1.2.2 — 14 CFR 91.403: Owner/Operator Responsibility</h3>
+    <p>14 CFR 91.403(a) places the owner or operator at the apex of the airworthiness chain: 'The owner or operator of an aircraft is primarily responsible for maintaining that aircraft in an airworthy condition, including compliance with Part 39 (Airworthiness Directives).' Technicians enable compliance; owners are ultimately accountable. This distinction shapes how you document work and how you handle customer authorization.</p>
+    
+    <ul>
+      <li>91.403(a): The owner/operator is primarily responsible for airworthiness, including AD compliance under Part 39.</li><li>91.403(b): No person may perform maintenance on a civil aircraft other than as prescribed in Part 43 and other applicable regulations — this is the hook that applies Part 43 to all civil aircraft maintenance.</li><li>91.403(c): No person may operate an aircraft for which a manufacturer's maintenance manual or ICA has been issued that contains an Airworthiness Limitations Section unless the mandatory replacement times, inspection intervals, and related procedures have been complied with.</li><li>91.405 requires the owner/operator to have inspections performed in accordance with Part 91 Subpart E and to ensure maintenance personnel make appropriate entries in the aircraft's maintenance records.</li>
+    </ul>
+    
+    
+  
+    
+    
+    
+    <h3 style="font-family:Georgia,serif; color:var(--navy); margin-top:28px;">1.2.3 — Approved Data Hierarchy</h3>
+    <p>Not all technical documents carry the same regulatory weight. When you plan a major repair or major alteration, you must select Approved Data from a specific, legally defined hierarchy. Using the wrong data source — even if technically correct — is a violation of 14 CFR 43.13 and a ground for enforcement action.</p>
+    
+    <ul>
+      <li>Tier 1 (Type Design Data): The Type Certificate Data Sheet (TCDS), the manufacturer's maintenance manual, the component maintenance manual (CMM), and the Instructions for Continued Airworthiness (ICA) required by 14 CFR 21.50. When the manufacturer's data covers your work, it is always the first source.</li><li>Tier 2 (STC Data): A Supplemental Type Certificate package, including the STC Approval Letter, the Approved Model List (AML), the installation drawings, the master drawing list, and the STC's ICA. STC data is Approved Data only for aircraft on the AML and only when installed per the instructions — deviation invalidates the approval.</li><li>Tier 3 (DER-Approved Data): FAA Form 8110-3 signed by a Designated Engineering Representative whose delegation matches the work. Per 14 CFR 183.29 and FAA Order 8110.37, DER 8110-3 data is binding for the specific aircraft and modification described — it is not a generic approval.</li><li>Tier 4 (FSDO Field Approval): FAA Form 337 with Block 3 signed by an FAA Airworthiness Safety Inspector approving AC 43.13-1B/2B data or other acceptable data as Approved Data for a specific one-off major repair or alteration, per FAA Order 8300.10, Volume 3, Chapter 1.</li>
+    </ul>
+    
+    
+  
+    
+    
+    
+    <h3 style="font-family:Georgia,serif; color:var(--navy); margin-top:28px;">1.2.4 — STC vs. AC 43.13-1B: When Each Applies</h3>
+    <p>Deciding whether AC 43.13-1B is sufficient or whether an STC is required depends on whether the work is a major alteration (per 14 CFR 1.1 and Part 43 Appendix A) and whether it changes the aircraft's type design. The classification drives the data source, the documentation (337 vs. 43.9), and the approval authority. Getting this wrong is one of the most common and most consequential errors an avionics shop can make.</p>
+    
+    <ul>
+      <li>Repair with like-for-like replacement (e.g., swapping a failed comm radio with an identical unit per the wire list): AC 43.13-1B methods are acceptable; work is recorded as a 43.9 logbook entry. No 337 required because the type design is not changed.</li><li>Minor alteration not changing type design (e.g., adding a USB charging port powered by an existing accessory bus, a reading light, a simple audio jack splitter): AC 43.13-1B/2B methods are acceptable as Acceptable Data for minor alterations. Logbook entry per 43.9 — no 337.</li><li>Major alteration (e.g., installing a new IFR GPS navigator, adding a digital autopilot, upgrading from analog CDI to an EFIS): STC or field-approved 337 required. This changes type design and falls under Part 43 Appendix A(a) criteria (appreciably affects performance or flight characteristics). Always a 337.</li><li>Major repair (e.g., repair of a pressure vessel, repair of a control surface, splicing a flight-critical wire bundle where AC 43.13-1B methods alone are insufficient): Must use Approved Data — manufacturer's CMM/ICA, STC/DER data, or field-approved 337. Always a 337.</li>
+    </ul>
+    
+    
+  
+    
+    
+    
+    <h3 style="font-family:Georgia,serif; color:var(--navy); margin-top:28px;">1.2.5 — Part 145 Repair Station Privileges</h3>
+    <p>14 CFR Part 145 is the regulatory framework that governs your shop's legal identity as a certified repair station. Your personal authority to perform maintenance inside the shop flows from the repair station certificate — not from your A&P certificate alone. Understanding the shop's OpSpecs, ratings, and quality control system is essential to knowing exactly what you can and cannot sign off on.</p>
+    
+    <ul>
+      <li>14 CFR 145.51 governs certificate application; 145.53 governs issuance. The shop's certificate is accompanied by Operations Specifications (OpSpecs) that spell out the specific articles, ratings, and locations the shop is authorized to work on.</li><li>14 CFR 145.59 defines six ratings: Airframe (class 1-4), Powerplant (class 1-3), Propeller (class 1-2), Radio (class 1-3), Instrument (class 1-4), Accessory (class 1-3). A shop's Radio class 1 covers communications/navigation/pulse equipment; class 2 covers radar; class 3 covers radio navigation aids including ILS/VOR/DME/GPS.</li><li>14 CFR 145.109 requires the repair station to have the equipment, tools, materials, and data necessary to perform the ratings issued. This is why your shop maintains current STC libraries, manufacturer technical publications, AC 43.13-1B, and calibrated test equipment.</li><li>14 CFR 145.201(a) grants privileges: perform maintenance, preventive maintenance, and alterations per the station's ratings and OpSpecs; approve for return to service per 43.7(c).</li>
+    </ul>
+    
+    
+  
+    
+    
+    
+    <h3 style="font-family:Georgia,serif; color:var(--navy); margin-top:28px;">1.2.6 — Airworthiness Directives</h3>
+    <p>Airworthiness Directives are the FAA's mechanism for mandating correction of unsafe conditions identified after type certification. AD compliance is not optional, not a 'best practice,' and not a customer service preference — it is federal law under 14 CFR Part 39. Every installation and every annual requires an AD check, and failure to identify and comply with an applicable AD is a direct 91.403 violation against the owner and a competence-and-diligence issue against the technician.</p>
+    
+    <ul>
+      <li>14 CFR 39.3: 'The FAA's airworthiness directives are legally enforceable rules that apply to the following products: aircraft, aircraft engines, propellers, and appliances.' ADs apply to products regardless of where they are installed or who owns them.</li><li>14 CFR 39.7: 'Anyone who operates a product that does not meet the requirements of an applicable airworthiness directive is in violation of this section.' Compliance is the operator's legal duty under 91.403(a); enabling compliance is the technician's professional duty.</li><li>14 CFR 39.19 allows an Alternative Method of Compliance (AMOC) to be approved by the FAA when the operator demonstrates equivalent level of safety. AMOCs must be formally approved — you cannot unilaterally substitute a different procedure.</li><li>AD research sources: FAA Dynamic Regulatory System (drs.faa.gov) is the current authoritative source (having replaced rgl.faa.gov). Search by aircraft make/model, engine, propeller, and appliance. Always document the search date, database queried, search terms, and results.</li>
+    </ul>
+    
+    
+  
+
+  
+  <div class="think-prompt">
+    <strong>Deep dive</strong>
+    The full <em>Background Theory</em> section in the handbook explains the physics: why crimps create gas-tight joints, why shielding works as a Faraday cage, and why insulation fails gradually before it arcs. Read it when you want the oral-board answer that makes the examiner smile.
+  </div>
+  
+</section>
+
+<!-- ELABORATE -->
+<section class="phase phase-elaborate" data-phase="4">
+  <div class="phase-header">
+    <div>
+      <div class="phase-label">Elaborate</div>
+      <h2>Apply it to a scenario</h2>
+    </div>
+    <div class="timing">~15 min</div>
+  </div>
+
+  
+  
+  
+  
+
+  <div class="scenario">
+    <strong>Scenario:</strong> You're on day one of your practical exam. The evaluator hands you a wire list and says, <em>"Build me a three-conductor shielded harness, 24 inches long, ring-terminated on both ends. You have 45 minutes. Questions before you start?"</em> What do you ask — and then what do you do?
+  </div>
+
+  <h3>Task focus: Task 1.4.1 — Determine Required Approved Data</h3>
+
+  
+  <p>Read the procedure once all the way through before you touch a tool. Note how each step has a <em>verification</em> built in — the procedure is self-checking.</p>
+  <ol>
+    <li>Read the work order or customer request and identify exactly what is being done — removal, replacement, repair, or alteration. Be specific: 'replace a failed KX-155 comm radio with an identical refurbished KX-155' is a repair; 'replace a KX-155 comm with a Garmin GTN-650Xi' is an alteration.</li><li>Classify the work against 14 CFR 1.1 and Part 43 Appendix A. Ask: Does this appreciably affect weight, balance, structural strength, performance, powerplant operation, or flight characteristics? Does it change the type design? If yes to either, it is a major alteration.</li><li>If repair, classify against Appendix A(b): Is it one of the listed major repairs (control surface, pressure vessel, flight-critical wiring)? If yes, major repair. If no, minor repair.</li><li>Select the data tier: Tier 1 (manufacturer ICA/CMM) for repairs within type design; Tier 2 (STC) for major alterations; Tier 3 (DER 8110-3) for one-off engineering approvals; Tier 4 (AC 43.13-1B via field-approved 337) when no STC exists; Tier 5 (DOA/ODA) when OEM delegation covers the scope.</li><li>Verify aircraft eligibility: Cross-check the STC's Approved Model List against the aircraft's make, model, and serial number. AML is on page 1 or 2 of the STC package — if the aircraft is not on the list, the STC is not approved data for this installation.</li>
+  </ol>
+  <p style="font-size:13px; color:var(--ink-soft);"><em>(9 steps total — see handbook for complete procedure.)</em></p>
+  
+
+  
+  <div class="think-prompt">
+    <strong>Trap to avoid</strong>
+    Assuming 'the manufacturer's install manual is enough.' Manufacturer data authorizes the physical installation but does not replace the STC/337 requirement for a major alteration.
+  </div>
+  
+
+  <div class="reflection">
+    <h4>Now reflect</h4>
+    <p style="font-size:14px; margin-bottom:8px;">Go back up to your Engage-phase reflection. Was your predicted #1 mistake in the <em>Common Mistakes</em> list? Update your answer with what you now know.</p>
+    <textarea id="elaborate-reflection" placeholder="What changed in your understanding?"></textarea>
+  </div>
+  
+</section>
+
+<!-- EVALUATE -->
+<section class="phase phase-evaluate" data-phase="5">
+  <div class="phase-header">
+    <div>
+      <div class="phase-label">Evaluate</div>
+      <h2>Prove you know it</h2>
+    </div>
+    <div class="timing">~6 min</div>
+  </div>
+
+  <p>You've read, explored, and reflected. Now test yourself.</p>
+
+  <ul>
+    <li><strong>Drill</strong> — answer every question in the practice bank (~20 questions). Aim for ≥80%.</li>
+    <li><strong>Oral-board practice</strong> — the handbook has 6 example questions with full answer explanations. Practice answering them aloud, unaided, until each takes &lt;90 seconds.</li>
+    <li><strong>Worksheet</strong> — complete the printable worksheet, then self-grade against the answer key.</li>
+  </ul>
+
+  <div style="margin:28px 0;">
+    <a href="../drill.html" class="evaluate-cta">Start Drill →</a>
+    <a href="handbook.html#quiz" class="evaluate-cta secondary">Practice Oral Board →</a>
+  </div>
+
+  <div class="think-prompt">
+    <strong>Gate criterion</strong>
+    You are ready for the practical when you can: (1) score ≥80% on the drill, (2) answer every oral-board question in under 90 seconds without looking, and (3) complete the worksheet with zero wrong answers.
+  </div>
+</section>
+
+<footer>
+  © 2026 Aircraft Electronics Association · This lesson is one of six study artifacts for Section 1: Regulatory Compliance & Approved Data. Return to the module hub for the full library.
+</footer>
+
+<script>
+  // Simple progress bar driven by scroll position.
+  const progress = document.getElementById('progress');
+  window.addEventListener('scroll', () => {
+    const pct = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+    progress.style.width = Math.min(100, Math.max(0, pct)) + '%';
+  });
+</script>
+
+</body>
+</html>

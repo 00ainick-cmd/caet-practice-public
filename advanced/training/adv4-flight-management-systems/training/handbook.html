@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Section 13: Flight Management Systems | CAET Advanced Handbook</title>
+<style>
+  /* Light-theme study document — optimized for reading on screen AND print. */
+  :root {
+    --ink: #1a2332;
+    --ink-soft: #4a5568;
+    --paper: #fbfaf5;
+    --paper-accent: #f5f2e8;
+    --rule: #d8d3c3;
+    --navy: #0a2540;
+    --gold: #8b6914;
+    --gold-soft: #f4ead0;
+    --red: #8b1a1a;
+    --red-soft: #fbe9e7;
+    --green: #1b4332;
+    --green-soft: #e7f0e5;
+    --cyan: #0e4a6e;
+    --cyan-soft: #e4f1f8;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--ink);
+    background: var(--paper);
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 56px 48px 80px;
+  }
+  header.cover {
+    border-bottom: 3px double var(--navy);
+    padding-bottom: 24px;
+    margin-bottom: 40px;
+  }
+  .eyebrow {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    letter-spacing: 3px;
+    font-size: 11px;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 700;
+  }
+  h1 {
+    font-family: Georgia, serif;
+    font-size: 34px;
+    line-height: 1.2;
+    color: var(--navy);
+    margin: 8px 0 12px;
+    font-weight: 700;
+  }
+  .subtitle {
+    font-size: 15px;
+    color: var(--ink-soft);
+    font-style: italic;
+    margin: 0;
+  }
+  h2 {
+    font-family: Georgia, serif;
+    font-size: 24px;
+    color: var(--navy);
+    margin: 56px 0 12px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--rule);
+  }
+  h3 {
+    font-family: Georgia, serif;
+    font-size: 19px;
+    color: var(--navy);
+    margin: 32px 0 10px;
+  }
+  h4 {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin: 20px 0 8px;
+    font-weight: 700;
+  }
+  p { margin: 0 0 16px; }
+  ul, ol { margin: 0 0 18px; padding-left: 24px; }
+  li { margin-bottom: 8px; }
+  .toc {
+    background: var(--paper-accent);
+    border-left: 4px solid var(--gold);
+    padding: 24px 32px;
+    border-radius: 2px;
+    margin: 24px 0 40px;
+  }
+  .toc h2 { margin-top: 0; border: none; font-size: 18px; color: var(--gold); letter-spacing: 2px; text-transform: uppercase; font-family: 'Helvetica Neue', Arial, sans-serif; }
+  .toc ol { columns: 2; column-gap: 32px; font-size: 14px; }
+  .toc li { margin-bottom: 4px; break-inside: avoid; }
+  .toc a { color: var(--navy); text-decoration: none; }
+  .toc a:hover { text-decoration: underline; color: var(--gold); }
+  blockquote.why {
+    font-size: 17px;
+    font-family: Georgia, serif;
+    font-style: italic;
+    color: var(--navy);
+    background: var(--gold-soft);
+    border-left: 4px solid var(--gold);
+    padding: 24px 32px;
+    margin: 24px 0;
+    border-radius: 2px;
+  }
+  blockquote.why p { margin: 0 0 12px; }
+  blockquote.why p:last-child { margin-bottom: 0; }
+  .callout {
+    padding: 16px 22px;
+    margin: 18px 0;
+    border-left: 4px solid var(--cyan);
+    background: var(--cyan-soft);
+    border-radius: 2px;
+    font-size: 15px;
+  }
+  .callout.watching { border-left-color: var(--green); background: var(--green-soft); }
+  .callout.mistakes { border-left-color: var(--red); background: var(--red-soft); }
+  .callout.theory   { border-left-color: var(--gold); background: var(--gold-soft); }
+  .callout strong { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 6px; }
+  .callout.watching strong { color: var(--green); }
+  .callout.mistakes strong { color: var(--red); }
+  .callout.theory   strong { color: var(--gold); }
+  .callout.info     strong { color: var(--cyan); }
+  .key-points { margin: 12px 0 20px; padding-left: 20px; }
+  .key-points li { margin-bottom: 10px; line-height: 1.55; }
+  dl.glossary { margin: 20px 0; }
+  dl.glossary dt { font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 700; color: var(--navy); margin-top: 14px; font-size: 15px; }
+  dl.glossary dd { margin: 4px 0 0 0; padding-left: 0; font-size: 14.5px; line-height: 1.55; color: var(--ink); }
+  .steps { counter-reset: step; padding-left: 0; list-style: none; }
+  .steps li { counter-increment: step; padding-left: 44px; position: relative; margin-bottom: 14px; line-height: 1.55; }
+  .steps li::before {
+    content: counter(step);
+    position: absolute; left: 0; top: -2px;
+    width: 30px; height: 30px; border-radius: 50%;
+    background: var(--navy); color: white;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 700; font-size: 13px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .quiz {
+    background: var(--cyan-soft);
+    border-left: 4px solid var(--cyan);
+    padding: 24px 32px;
+    margin: 24px 0;
+    border-radius: 2px;
+  }
+  .quiz h3 { margin-top: 0; color: var(--cyan); }
+  .quiz ol { margin: 12px 0 0 0; padding-left: 22px; }
+  .quiz li { margin-bottom: 14px; }
+  .answer-key details {
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    padding: 12px 18px;
+    margin-bottom: 10px;
+    background: var(--paper);
+  }
+  .answer-key summary { font-weight: 700; cursor: pointer; color: var(--navy); font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 14px; }
+  .answer-key details[open] summary { margin-bottom: 10px; border-bottom: 1px solid var(--rule); padding-bottom: 6px; }
+  .answer-key p { margin-top: 10px; font-size: 14.5px; line-height: 1.6; }
+  .crosswalk {
+    background: var(--paper-accent);
+    padding: 18px 24px;
+    border-radius: 2px;
+    border: 1px solid var(--rule);
+    margin: 24px 0;
+    font-size: 14.5px;
+    color: var(--ink-soft);
+  }
+  footer {
+    margin-top: 64px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 12px;
+    color: var(--ink-soft);
+    text-align: center;
+  }
+  .section-marker {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--gold); font-weight: 700;
+    margin: 48px 0 0;
+  }
+  @media print {
+    body { padding: 0.6in 0.75in; background: white; font-size: 11pt; max-width: none; }
+    h1 { font-size: 24pt; }
+    h2 { font-size: 16pt; page-break-after: avoid; }
+    h3 { page-break-after: avoid; }
+    .callout, blockquote.why { page-break-inside: avoid; }
+    .toc { page-break-after: always; }
+    details { page-break-inside: avoid; }
+    details[open] > summary ~ * { display: block !important; }
+    .answer-key details { border: none; }
+    a { color: var(--navy); text-decoration: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="cover">
+  <div class="eyebrow">CAET Advanced Certification · Student Handbook</div>
+  <h1>Section 13: Flight Management Systems</h1>
+  <p class="subtitle">Aircraft Electronics Association · Workforce Development Division</p>
+</header>
+
+<nav class="toc">
+  <h2>Contents</h2>
+  <ol>
+    <li><a href="#why">Why This Matters</a></li>
+    <li><a href="#terms">Key Terms &amp; Definitions</a></li>
+    <li><a href="#kr-1">13.2.1 — FMS Architecture</a></li><li><a href="#kr-2">13.2.2 — Navigation Database</a></li><li><a href="#kr-3">13.2.3–13.2.4 — Flight Plan and Procedures</a></li><li><a href="#kr-4">13.2.5 — FMS-to-Autopilot Interface</a></li><li><a href="#kr-5">13.2.6 — FMS Messages and Alerts</a></li>
+    <li><a href="#task-1">Task 13.4.1 — Database Currency Check</a></li><li><a href="#task-2">Task 13.4.2 — Database Update</a></li><li><a href="#task-3">Task 13.4.3 — Flight Plan Entry</a></li><li><a href="#task-4">Task 13.4.4 — SID and STAR Selection</a></li><li><a href="#task-5">Task 13.4.5 — Approach Loading</a></li><li><a href="#task-6">Task 13.4.6 — Route Discontinuity</a></li><li><a href="#task-7">Task 13.4.7 — FMS-to-Autopilot Verification</a></li><li><a href="#task-8">Task 13.4.8 — Database Error Troubleshooting</a></li>
+    <li><a href="#quiz">Self-Check &amp; Oral Board Practice</a></li>
+    <li><a href="#crosswalk">Written Exam Crosswalk</a></li>
+  </ol>
+</nav>
+
+<section id="why">
+  <div class="section-marker">Part I — Orientation</div>
+  <h2>Why This Matters</h2>
+  
+  <blockquote class="why"><p>The FMS is the brain that ties every other avionics system on the flight deck together. It knows where the airplane is, where it is going, what procedure it is flying, how to sequence the legs, how to steer the autopilot to each waypoint, and how to manage the vertical profile so the airplane descends at the right place and the right speed. When the FMS is right, the airplane flies the clearance. When the FMS is wrong — wrong waypoint, wrong procedure, wrong database cycle, wrong altitude constraint — the airplane flies a lie, and the crew is often the last to know. A technician who treats the FMS as just another box on the panel has not yet understood what they are working on.</p></blockquote>
+  
+  <blockquote class="why"><p>The accident record is unambiguous. American Airlines Flight 965, a 757 that flew into Cerro El Deluge near Cali, Colombia in December 1995, is the most-cited FMS accident in training. The crew selected a waypoint identifier — 'R' — and the FMS computed a course to Romeo, a fix near Bogotá, rather than Rozo, the intended fix near Cali. The airplane turned east, away from the valley, and struck terrain. 159 people died. The lesson is not that FMSes are dangerous; the lesson is that an FMS executes exactly what was entered, and the integrity of the entered data and the loaded procedures is the entire safety margin. Similar events — Air New Zealand 901 (Erebus, database coordinate error, 1979), Korean Air Cargo 8509, and numerous CFIT events on RNP approaches — share the same root cause: the box was trusted past the point at which the data going into it could be trusted.</p></blockquote>
+  
+  <blockquote class="why"><p>Your job as the technician is not to program the box in flight — that is the pilot's job. Your job is to make sure the box is fit to be programmed: current AIRAC cycle, valid database integrity, correct configuration strapping, functional data card slot, healthy GPS/SBAS inputs, correct interface to the autopilot and PFDs, and an accurate position-initialization path. Every line of this module is about a failure mode that has killed people. Learn it as if the next crew depends on you — because they do.</p></blockquote>
+  
+  
+  <h4>From the PQS Source</h4>
+  <p>The FMS is the brain of the modern cockpit. It integrates GPS navigation, flight planning, approach procedures, autopilot steering, and fuel management into a single system. In GA/BA, this typically means a Garmin GTN series, G1000/G3000 system, or similar integrated navigator. This section has eight tasks—the second-most of any PQS section—because FMS operation touches every other avionics system on the aircraft.</p><p>You are not expected to be a pilot-level FMS operator. You are expected to verify the system is functioning correctly, update databases, configure settings per the installation manual, and troubleshoot common issues. The pilot flies the box; you make sure the box works.</p>
+  
+</section>
+
+<section id="terms">
+  <h2>Key Terms &amp; Definitions</h2>
+  <p>Master this vocabulary before continuing. The evaluator expects you to use these terms correctly in the oral board.</p>
+  <dl class="glossary">
+    
+    <dt>LNAV (Lateral Navigation)</dt>
+    <dd>The FMS function that steers the aircraft along the programmed lateral path — the magenta line. LNAV commands are output to the autopilot as roll steering (analog ARINC 407) or digital ARINC 429 Label 121 'lateral beam sensor deviation.' Scale changes automatically by phase of flight: ±5 NM en route, ±1 NM terminal, ±0.3 NM approach.</dd>
+    
+    <dt>VNAV (Vertical Navigation)</dt>
+    <dd>The FMS function that computes and commands a vertical path through altitude constraints in the flight plan. VNAV PATH follows a calculated descent angle (typically 3.0° on arrivals); VNAV SPEED holds a target airspeed. Requires valid performance initialization (weight, wind, ISA deviation) to compute a usable profile.</dd>
+    
+    <dt>RNP (Required Navigation Performance)</dt>
+    <dd>The navigational accuracy required for a phase of flight, expressed in nautical miles: RNP 2 for oceanic, RNP 1 or 2 for arrival/departure, RNP 0.3 for approach, RNP 0.1 to 0.3 for RNP AR approaches. The FMS must continuously compute Actual Navigation Performance (ANP) and alert the crew if ANP exceeds the currently required RNP.</dd>
+    
+    <dt>Waypoint (Fly-By vs Fly-Over)</dt>
+    <dd>A fly-by waypoint is sequenced as the aircraft begins its turn so the path never overshoots; a fly-over waypoint must be crossed before the turn begins — typically used at missed approach points, hold entry fixes, and departure turns with obstacle constraints. The ARINC 424 leg terminator code tells the FMS which behavior to use; substituting one for the other breaks the obstacle clearance assumption behind the procedure.</dd>
+    
+    <dt>ARINC 424</dt>
+    <dd>The industry standard that defines the format of navigation database records: airports, runways, waypoints, navaids, airways, SIDs, STARs, approach procedures, holds, and companies. Every FMS nav database on every aircraft, from GA to transport, is built from ARINC 424 source data supplied by Jeppesen, Lido, or NavBlue. Leg types (IF, TF, CF, DF, CA, FA, HA/HM/HF, VA, RF) come from this standard.</dd>
+    
+    <dt>AIRAC (Aeronautical Information Regulation and Control)</dt>
+    <dd>ICAO-defined 28-day cycle that governs when navigation data changes become effective worldwide. Each cycle has a 4-digit number (YYCC) — e.g., 2604 is the 4th cycle of 2026. Effective dates fall on a Thursday. Flying IFR requires a current database (14 CFR 91.205(d)(3) for IFR, plus AC 90-100A and AC 20-138D language for RNAV/RNP operations).</dd>
+    
+    <dt>Leg Types</dt>
+    <dd>Codes that describe how the FMS should fly between waypoints. TF (Track-to-Fix) — direct track to a coordinate; CF (Course-to-Fix) — intercept a specific course terminating at a fix; DF (Direct-to-Fix) — from present position direct; HA/HM/HF (hold to altitude/manual/fix); VA (heading-to-altitude); RF (radius-to-fix, used on RNP AR). Mis-coded leg types have been root cause in multiple procedure errors.</dd>
+    
+    <dt>Nav Database / Cycle Integrity</dt>
+    <dd>The full dataset loaded into the FMS, signed with a cyclic-redundancy check (CRC-32 under ARINC 424-20 and later DO-200A/B). The FMS compares the CRC in the header to the CRC computed on load; a mismatch halts the load. An FMS will not operate IFR with a failed CRC — this is why interrupted database loads must be restarted, not 'finished later.'</dd>
+    
+    <dt>Performance Initialization</dt>
+    <dd>The weight, fuel, wind, temperature, and takeoff/landing performance data the FMS needs before it can compute VNAV profiles, fuel burn estimates, and speed schedules. On transport FMSes (Honeywell, Collins, Thales), performance init is mandatory before engine start; on GA systems (Garmin GTN/G1000), it is lighter but still affects VNAV accuracy.</dd>
+    
+    <dt>CDU / MCDU</dt>
+    <dd>Control Display Unit (Collins, Garmin) or Multifunction Control Display Unit (Honeywell, Thales) — the text-and-keys interface to the FMS. Typical layout: alphanumeric keypad, line-select keys (LSKs) down each side of a page, and function keys (INIT, RTE, DEP/ARR, LEGS, VNAV, PROG, FIX). Some modern systems (Garmin G3000/G5000, Fusion) replace the MCDU with a touchscreen GTC.</dd>
+    
+    <dt>Flight Plan: Active vs Secondary</dt>
+    <dd>The Active flight plan is what the FMS is currently flying; the Secondary (or Modified) flight plan is a pending edit that does not affect guidance until the crew executes it. Transport FMSes require an EXEC press to promote a modification; many GA FMSes show a 'modified' indicator instead. Understanding this distinction is central to not 'bumping the course' while the crew is in a busy phase.</dd>
+    
+    <dt>SBAS (WAAS/EGNOS/MSAS)</dt>
+    <dd>Satellite-Based Augmentation System — geostationary broadcasts of GPS correction data. WAAS (US), EGNOS (Europe), MSAS (Japan). SBAS enables LPV and LP approach minima with 1–2 m lateral and 1.5–4 m vertical accuracy at the airplane. Required for LPV minima under TSO-C145/C146 receivers; referenced in AC 20-138D.</dd>
+    
+    <dt>Magnetic Variation Model</dt>
+    <dd>The FMS uses an internal model of Earth's magnetic field (usually World Magnetic Model, updated every 5 years) to convert between true and magnetic reference. Because magnetic variation drifts, runways are periodically renumbered and the nav database reflects the updated magnetic reference. A stale magvar model can cause a 1–3° heading/track error at high latitudes.</dd>
+    
+    <dt>Discontinuity</dt>
+    <dd>A gap in the FMS leg sequence where the system cannot construct a continuous path between two legs — commonly after loading a STAR or approach whose initial fix does not match the end of the prior leg. The FMS displays 'DISCONTINUITY' (or ---- ---- on Honeywell) and will not sequence past it. Must be resolved on the ground; in flight, it becomes a heading-select event.</dd>
+    
+    <dt>FMS–AFCS Interface</dt>
+    <dd>The data path from the FMS to the Autopilot Flight Control System. Typically ARINC 429 labels for lateral deviation (Label 121), vertical deviation (Label 123), flight director roll/pitch commands, and selected/computed airspeed. On older analog installations, it is an analog ±150 mV 'GPS resolver' signal. Loss of this interface means the autopilot cannot fly the FMS path — approach minima downgrade to non-precision or VMC only.</dd>
+    
+  </dl>
+</section>
+
+<div class="section-marker">Part II — Knowledge Requirements</div>
+
+
+
+
+<section id="kr-1">
+  <h2>13.2.1 — FMS Architecture</h2>
+
+  
+  <p>An FMS is not a single box. It is a system — a position-computing function, a flight-planning function, a performance function, and an autopilot-steering function — integrated with sensor inputs (GPS, IRS/AHRS, air data, fuel totalizer) and outputs to displays, autopilot, and the FDAU/FDR. In large aircraft, the FMS is packaged as a dedicated LRU (Honeywell Pegasus, Thales TopFlight, Collins FMS-6000). In GA/BA, the same functions live inside an integrated cockpit (Garmin G1000/G3000/G5000, Avidyne IFD, Collins Pro Line Fusion). The box count is different; the architecture is the same.</p>
+  
+
+  
+
+  
+  <h4>Key Points</h4>
+  <ul class="key-points">
+    <li>Position solution: the FMS blends GPS (accuracy), IRS/AHRS (smoothing and short-term integrity), and sometimes DME-DME or VOR-DME (fallback) through a Kalman filter. On GA, the 'IRS' is often a solid-state AHRS; the filter is simpler but the principle is the same.</li><li>Flight-plan engine: reads the nav database (ARINC 424 records), constructs legs using leg types (TF/CF/DF/HM/HA/HF/VA/RF), and presents them to LNAV and VNAV.</li><li>Performance engine: computes V-speeds, climb/cruise/descent targets, and fuel estimates using weight, wind, and ISA deviation inputs. Drives the FMS speed page and any VNAV SPEED commands.</li><li>Outputs: ARINC 429 labels to the autopilot (121 lateral dev, 123 vertical dev, 100 selected course, 102 selected altitude), to the PFD (magenta bug positions), to the MFD (map and legs), and to the FDR (all of the above plus mode annunciations).</li><li>Redundancy model: transport aircraft have dual FMSes that cross-talk on an ARINC 429 bus; one is master, one is slave, and the slave takes over on master failure. In GA, one FMS is typical — the redundancy is a standby VOR/ILS plus pilot airmanship.</li><li>Key standards: ARINC 702A (FMS functional specification), ARINC 424 (nav data), DO-178C (software), DO-254 (hardware), TSO-C115c (area navigation equipment), TSO-C146c (GPS/SBAS sensor), TSO-C145c (GPS sensor without position output).</li>
+  </ul>
+  
+</section>
+
+
+
+<section id="kr-2">
+  <h2>13.2.2 — Navigation Database</h2>
+
+  
+  <p>The nav database is the FMS's knowledge of the airspace system. It is not a map — it is a relational database of records that the flight-plan engine queries. Jeppesen supplies the vast majority of world data (rebranded as NavData, JeppView, NavDataPro); Lido and NavBlue supply transport-focused alternatives. The data is delivered on the ARINC 424 format, converted by the vendor into the FMS's proprietary binary format, cryptographically signed, and delivered on data card, USB, or via WiFi upload. Every record has a cycle tag; the whole database has a header with a CRC and effective/expiration dates.</p>
+  
+
+  
+  <h4>From the PQS Source</h4>
+  <p>The navigation database is the FMS’s knowledge of the airspace system. It contains every airport, waypoint, airway, SID, STAR, instrument approach procedure, and navigational aid in the coverage area. The database follows the AIRAC (Aeronautical Information Regulation and Control) cycle—a new database is released every 28 days. An expired database means the FMS may contain outdated procedures, renamed waypoints, or missing new approaches.</p>
+  
+
+  
+  <h4>Key Points</h4>
+  <ul class="key-points">
+    <li>AIRAC cycle: 28-day cadence defined by ICAO Annex 15. A new cycle is published every fourth Thursday. A database labeled 2604 became effective on cycle 4 of 2026 and expires on the cycle-5 effective date.</li><li>Typical size and content: a worldwide database has on the order of ~1.5 million waypoint, navaid, airway, and procedure records; a regional (Americas, Europe) subset is smaller. A GTN 750Xi database is roughly 300–500 MB compressed depending on coverage; a Honeywell NZ2000 database can exceed 1 GB.</li><li>Integrity: DO-200A/B governs data quality. The vendor signs each package with a CRC-32; the FMS checks the CRC on load. A mismatch = load rejection. Never try to 'skip' a CRC error — that is how corrupted data ends up flying approaches.</li><li>Currency for IFR: 14 CFR 91.205(d) does not mention 'current database' by name, but AC 90-100A (RNAV), AC 90-105A (RNP), AC 20-138D (GPS), and individual AFMS supplements do. An expired database means you cannot fly IFR unless each procedure is verified against an independent current source — which is rarely practical.</li><li>User waypoints: stored separately from the nav database on most FMSes (Garmin keeps them in a separate flash region; Honeywell in the FMS 'user data' page). A database update should NOT delete user waypoints, but a factory reset or software reinstall can. Document user waypoint lists before any major service.</li><li>Custom SIDs/STARs/Approaches: some operators add company routes. On Pro Line Fusion and G3000/G5000, these live in a 'Company Route' database separate from the Jeppesen cycle and must be maintained by the operator.</li>
+  </ul>
+  
+</section>
+
+
+
+<section id="kr-3">
+  <h2>13.2.3–13.2.4 — Flight Plan and Procedures</h2>
+
+  
+
+  
+  <h4>From the PQS Source</h4>
+  <p>Basic FMS operation that the technician must understand for verification and troubleshooting:</p>
+  
+
+  
+</section>
+
+
+
+<section id="kr-4">
+  <h2>13.2.5 — FMS-to-Autopilot Interface</h2>
+
+  
+  <p>The FMS does not fly the airplane. The autopilot flies the airplane, and the FMS tells it where to go. This handoff is a bus: ARINC 429 on modern systems, analog on legacy installations. If the handoff breaks — bus wire chafed, connector corroded, label mis-decoded — the airplane follows whatever default the autopilot has (often heading hold or level flight) while the FMS continues to compute the correct path internally. The crew sees the magenta line on the MFD and assumes the airplane is following it. It is not. This is a quiet failure, and it has contributed to multiple excursions.</p>
+  
+
+  
+  <h4>From the PQS Source</h4>
+  <p>The FMS sends lateral steering commands (LNAV—Lateral Navigation) and, on equipped aircraft, vertical commands (VNAV—Vertical Navigation) to the autopilot. When the pilot engages GPS/NAV mode on the autopilot, the AP follows the FMS course. This interface is critical—if the FMS and autopilot are not communicating correctly, the aircraft will not track the flight plan, will not fly approaches correctly, and may deviate from ATC-assigned routes.</p>
+  
+
+  
+  <h4>Key Points</h4>
+  <ul class="key-points">
+    <li>ARINC 429 is the dominant bus: 12.5 or 100 kbit/s serial, differential ±10 V, point-to-point (one transmitter, up to 20 receivers). A single pair carries many labels; the receiver filters by label number.</li><li>Key labels on the FMS-to-AFCS path: Label 100 (selected course), Label 102 (selected altitude), Label 121 (cross-track deviation), Label 123 (vertical deviation), Label 251 (distance to waypoint), Label 261 (ground speed).</li><li>Analog resolver interface (older GA): FMS outputs a ±150 mV signal representing cross-track deviation, proportional to ±1 NM or ±5 NM depending on phase of flight. Autopilot interprets this like a VOR/LOC signal.</li><li>When the interface fails: autopilot reverts to basic lateral mode (HDG or ROL). FMS continues to show the magenta line. Crew must catch the mode annunciator mismatch — which is why post-install ground tests include verifying mode annunciation changes when GPS/NAV is selected.</li><li>AP/FD source switching: in integrated cockpits, the crew selects which FMS feeds the autopilot ('FMS 1' vs 'FMS 2'). The ground technician must verify both sources drive the AP correctly.</li><li>Strapping and configuration: FMS installation manuals include configuration pages (Garmin GTN: Config Mode accessed by holding the HOME button on power-up; Collins Pro Line: Config Strapping Module). Wrong strapping = wrong output labels = autopilot gets data it does not understand. This is the most common cause of 'the AP won't follow the FMS' squawks on post-installation test flights.</li>
+  </ul>
+  
+</section>
+
+
+
+<section id="kr-5">
+  <h2>13.2.6 — FMS Messages and Alerts</h2>
+
+  
+  <p>The FMS communicates with the crew through a hierarchy of annunciations: caution advisories (amber), warning advisories (red on transport, amber/red on GA), and scratchpad messages on the CDU/MCDU. The technician must know what drives the common ones because they fall into three categories: normal operational alerts the crew expects, configuration or data errors the tech created (recently), and system faults the tech must diagnose.</p>
+  
+
+  
+
+  
+  <h4>Key Points</h4>
+  <ul class="key-points">
+    <li>UNABLE RNP / UNABLE RNP APPROACH: the FMS detected ANP > RNP for the current phase. Usually a loss of GPS integrity (RAIM failure or SBAS loss). Tech response: verify GPS antenna, coax, SBAS satellite reception (use a ramp tester like IFR 6000 or Aeroflex 6000 series).</li><li>INSUFFICIENT FUEL / INSUFFICIENT FUEL AT DEST: performance computation shows arrival fuel below reserve. Usually a performance-init error (wrong fuel, wrong wind), not a system fault. If persistent with correct data, check fuel totalizer input.</li><li>POSITION DIFF FMS1/FMS2 (transport) or LOSS OF GPS INTEGRITY (GA): position solutions differ by more than the allowed threshold (typically 0.1–0.5 NM). Check for blocked antenna, coax fault, or one system on a degraded IRS.</li><li>DISCONTINUITY: flight-plan leg sequencing has a gap. Almost always crew-visible during flight-plan build; becomes a technician issue when custom procedures or company routes have bad coding.</li><li>DATABASE OUT OF DATE: expired AIRAC cycle. The FMS will still operate but will annunciate; IFR dispatch requires current data.</li><li>CHECK AIRSPEED / PERF DATA INVALID: loss of ADC or AHRS data. Check the air-data and heading-source inputs to the FMS on its configuration page.</li><li>Latching vs transient: some messages self-clear when the condition resolves; others latch and require a CLR press. Knowing which is which tells you whether the fault was a transient or is still present.</li>
+  </ul>
+  
+</section>
+
+
+<div class="section-marker">Part III — Task Preparation</div>
+
+
+
+
+<section id="task-1">
+  <h2>Task 13.4.1 — Database Currency Check</h2>
+
+  
+  <p>How to demonstrate: Power up the FMS. Navigate to the System Status or Database page (varies by manufacturer: on Garmin GTN, it is under System > Database; on G1000, it is under AUX > System Status). Identify: the current AIRAC cycle number (e.g., 2607), the effective date, and the expiration date. State whether the database is current or expired.</p>
+  
+
+  
+  <h4>Step-by-Step Procedure</h4>
+  <ol class="steps">
+    <li>Power up the FMS through normal aircraft power or external ground power. Wait for the initialization sequence to complete — do not touch any controls during self-test.</li><li>On a Garmin GTN, press HOME, then System > System Status > Database. On a G1000/G3000, press the AUX softkey and select System Status > Database Status. On a Honeywell Primus Epic or Pro Line Fusion, select the DATABASE page from the maintenance menu.</li><li>Read and record the AIRAC cycle number (4 digits, e.g., 2604), the effective date, and the expiration date. Photograph or write both — do not trust memory, especially across multiple units on a single aircraft.</li><li>Compare the effective date to today's date. If today falls between effective and expiration dates, the database is current. If today is past expiration, the database is expired.</li><li>If the aircraft has multiple FMSes, GPSes, or standby navigators, repeat the check on every unit. Aircraft can have FMS 1 current and FMS 2 expired — and the mismatch is a dispatch issue.</li><li>Check the obstacle database, terrain database (TAWS), and chart database (ChartView) cycles separately. These are independent products with their own cycles, and a current nav database does not imply current terrain.</li><li>Record findings on the aircraft logbook or maintenance status sheet. Note cycle number, effective dates, and unit serial numbers. This creates the paper trail the operator needs for IFR dispatch proof.</li><li>If any database is expired, coordinate with the operator before returning the aircraft to service. An expired database in an IFR-dispatched aircraft is a regulatory issue (91.205/91.171 compliance) — not just a write-up.</li>
+  </ol>
+  
+
+  
+  <div class="callout watching">
+    <strong>Evaluator is watching for</strong>
+    <ul>
+      <li>Candidate reads the cycle number AND the effective dates — not just one or the other.</li><li>Checks every FMS/GPS unit on the aircraft, not only the pilot-side unit.</li><li>Knows the difference between nav database, obstacle database, terrain database, and chart database cycles.</li><li>Records findings in a way that supports the logbook entry (photo, written note, or direct logbook).</li><li>Articulates what 'current' and 'expired' mean in regulatory terms (91.205, AC 20-138D, AC 90-100A).</li>
+    </ul>
+  </div>
+  
+
+  
+  <div class="callout mistakes">
+    <strong>Common mistakes</strong>
+    <ul>
+      <li>Reading only the cycle number (e.g., '2604') without checking effective/expiration dates. A cycle number alone does not tell you if it is current today.</li><li>Checking only FMS 1 and assuming FMS 2 matches. On dual-FMS aircraft the two are updated separately and can drift apart after a failed load.</li><li>Confusing the software version with the database cycle. The software version identifies the FMS operating code; the cycle identifies the nav data. Both matter, but they are different fields.</li><li>Failing to check the obstacle/terrain/chart databases. A current nav database does not authorize LPV approaches if the SBAS database is expired.</li><li>Signing off database currency without recording it in the logbook. 'I looked at it' is not a maintenance record.</li>
+    </ul>
+  </div>
+  
+</section>
+
+
+
+<section id="task-2">
+  <h2>Task 13.4.2 — Database Update</h2>
+
+  
+  <p>How to demonstrate: Obtain the current database from the appropriate source (Garmin/Jeppesen data card, USB drive, or WiFi download). Follow the manufacturer’s update procedure: insert the data card, navigate to the database update page, initiate the transfer, and wait for completion. After the update, verify the new cycle number and effective dates on the database status page. Some systems require a power cycle after the update.</p>
+  
+
+  
+  <h4>Step-by-Step Procedure</h4>
+  <ol class="steps">
+    <li>Before anything: document the existing database cycle and user waypoints. Photograph the database page and export user waypoints if the unit supports it. This is the rollback baseline.</li><li>Obtain the new database from the approved source — Jeppesen Distribution Manager, Garmin FlyGarmin, Collins Data Services, or Honeywell GoDirect Services. Verify the subscription covers the correct coverage area and the current cycle.</li><li>Prepare the delivery media: Jeppesen data card properly formatted, USB drive with correct files in the correct folders, or WiFi unit connected to the shop network. Some systems require a specific FAT32 or FAT16 format — check the AMM.</li><li>Apply appropriate aircraft power. Database updates draw sustained power for 10–40 minutes depending on size; a battery can deplete. Use external power or maintain engine-driven power per the AMM.</li><li>Enter the manufacturer's database-update mode. Garmin GTN: insert the data card and the unit prompts on power-up. G1000: navigate to AUX > System Status > Database and press UPDATE. Honeywell MCDU: MAINT menu > DATABASE LOAD. Follow the exact sequence in the installation/maintenance manual — do not improvise.</li><li>Monitor the load. Do not remove power. Do not remove the media. Do not press buttons unless prompted. Interrupted loads corrupt the database and often require a factory-level recovery.</li><li>On completion, power cycle the unit if the AMM requires it (most do). Re-verify the new cycle number and effective dates on the database page.</li><li>Verify user waypoints are intact. If any are missing, restore from the backup captured in step 1 — this is why step 1 matters.</li><li>Make the logbook entry: cycle number, effective dates, unit serial number, date of load, and technician signature. Reference the AMM section used.</li>
+  </ol>
+  
+
+  
+  <div class="callout watching">
+    <strong>Evaluator is watching for</strong>
+    <ul>
+      <li>Candidate documents the existing cycle and user waypoints BEFORE starting the load — not after.</li><li>Uses a power source that will not drop during the load (external power or engine-driven with known load).</li><li>Follows the AMM sequence exactly — does not skip to 'what worked last time.'</li><li>Does not remove media or power during the load, even when progress appears stuck.</li><li>Verifies post-load: cycle correct, user waypoints present, and any configuration strapping preserved.</li><li>Makes a complete logbook entry referencing the AMM.</li>
+    </ul>
+  </div>
+  
+
+  
+  <div class="callout mistakes">
+    <strong>Common mistakes</strong>
+    <ul>
+      <li>Starting a load on battery power. The load takes longer than the battery lasts, especially on a cold airplane.</li><li>Not backing up user waypoints. They can be lost in a factory-reset recovery or on certain software transitions.</li><li>Pulling the data card mid-load because 'it looks stuck.' This usually corrupts the partition and turns a 30-minute job into a 4-hour recovery.</li><li>Loading a cycle that is not yet effective — the FMS may accept the file but refuse to activate until the effective date. This is not a fault; it is expected.</li><li>Missing the obstacle/terrain/chart databases. Nav, obstacle, terrain, and chart are four independent updates and four separate subscriptions — technicians regularly update one and forget the others.</li>
+    </ul>
+  </div>
+  
+</section>
+
+
+
+<section id="task-3">
+  <h2>Task 13.4.3 — Flight Plan Entry</h2>
+
+  
+  <p>How to demonstrate: On the FMS, create a new flight plan. Enter the origin airport identifier (e.g., KICT). Add one intermediate waypoint (e.g., a VOR or named fix). Enter the destination airport (e.g., KMCI). Verify the route displays correctly on the map page—a magenta line connecting the three points. Verify the distance and bearing to the first waypoint are reasonable.</p>
+  
+
+  
+  <h4>Step-by-Step Procedure</h4>
+  <ol class="steps">
+    <li>From the FMS main page, select Flight Plan or press the FPL/RTE key. Clear any residual flight plan from the previous test using the Erase or Delete function per the AMM.</li><li>Enter the origin airport identifier using the ICAO code (KICT, not ICT) on most FMSes. Some will accept the 3-letter IATA code but ICAO is universal and the safer habit.</li><li>Add an intermediate waypoint. Choose a named fix (e.g., a VOR) rather than a user-entered lat/long for the verification exercise — it exercises the nav database lookup.</li><li>Enter the destination airport identifier (KMCI for this example).</li><li>Verify the route appears on the moving map as a magenta line connecting origin, intermediate, and destination. If the line is white or absent, the flight plan is loaded but not active — press ACTIVATE or Direct-To.</li><li>Verify reasonableness: total distance approximately 300 NM for KICT–KMCI, bearing from KICT to the intermediate waypoint should match the published chart.</li><li>Check that CDI scaling is en-route (±5 NM or ±2 NM on some GPS units). Scale change is automatic; verifying it exposes a sensor or configuration fault if it does not occur.</li><li>Photograph the map page and the flight plan list for the post-test record.</li>
+  </ol>
+  
+
+  
+  <div class="callout watching">
+    <strong>Evaluator is watching for</strong>
+    <ul>
+      <li>Uses ICAO identifiers, not ad-hoc abbreviations.</li><li>Clears any residual plan before entering the new one (avoids sequencing confusion).</li><li>Activates the flight plan explicitly — knows the difference between 'loaded' and 'active.'</li><li>Sanity-checks the total distance and bearing against a known reference.</li><li>Notices CDI scaling change as an independent check that the GPS is providing an SBAS-qualified solution.</li>
+    </ul>
+  </div>
+  
+
+  
+  <div class="callout mistakes">
+    <strong>Common mistakes</strong>
+    <ul>
+      <li>Entering a runway or instrument-approach-specific identifier in place of an airport ICAO — e.g., RW19 instead of KMCI. The FMS may accept it and build a nonsensical route.</li><li>Not activating the flight plan and wondering why the AP will not track it. 'Modified' ≠ active.</li><li>Typing lat/long when a published fix exists. User waypoints don't carry the nav-database integrity guarantee.</li><li>Accepting a visibly unreasonable distance without investigation. A typo in the destination (KMKI vs KMCI) will build a route to Michigan — the total distance check catches this.</li><li>Leaving the flight plan in the active memory after the test and returning the aircraft to service with a ground-test route loaded.</li>
+    </ul>
+  </div>
+  
+</section>
+
+
+
+<section id="task-4">
+  <h2>Task 13.4.4 — SID and STAR Selection</h2>
+
+  
+  <p>How to demonstrate: In the flight plan, select a departure procedure from the origin airport. Choose the appropriate SID or ODP for the departure runway. Then select an arrival procedure for the destination airport—choose a STAR and the appropriate transition. Verify both procedures load correctly and the route on the map shows the complete path from departure through en-route through arrival.</p>
+  
+
+  
+  <h4>Step-by-Step Procedure</h4>
+  <ol class="steps">
+    <li>With the origin and destination already entered, press the DEP ARR key (or select Procedures from the flight plan menu).</li><li>Select the Departure page for the origin. The FMS presents a list of SIDs and ODPs available from the nav database for that airport. Choose one that matches a realistic departure runway (e.g., ICT3 off KICT).</li><li>Select the runway transition if prompted (often just the departure runway). Select the en-route transition that matches the filed route.</li><li>Return to the main flight plan view and verify the SID legs appear between origin and the first en-route fix. Legs should show correct altitude and speed constraints from the procedure.</li><li>Press DEP ARR again and select the Arrival page for the destination. Choose an appropriate STAR (e.g., ONSET5 into KMCI) and transition.</li><li>Select the arrival runway if the FMS prompts. Return to flight plan view and verify STAR legs appear between the last en-route fix and the destination.</li><li>Check for discontinuities between the en-route segment and the STAR. A common pattern: the STAR's IAF is not the same waypoint as the last en-route fix. Resolve any discontinuity per task 13.4.6.</li><li>Verify the complete route on the moving map: origin → SID → en-route → STAR → destination. A single continuous magenta path with appropriate altitude constraints at each fix.</li>
+  </ol>
+  
+
+  
+  <div class="callout watching">
+    <strong>Evaluator is watching for</strong>
+    <ul>
+      <li>Picks a realistic runway/transition combination, not the first item in the list.</li><li>Verifies altitude and speed constraints loaded correctly — not just the lateral path.</li><li>Checks for discontinuities after each procedure load and understands they are normal in many STAR-to-enroute transitions.</li><li>Articulates why SID vs ODP selection matters (obstacle protection, noise abatement).</li><li>Handles runway changes without re-entering the whole plan (uses the FMS's runway-change function).</li>
+    </ul>
+  </div>
+  
+
+  
+  <div class="callout mistakes">
+    <strong>Common mistakes</strong>
+    <ul>
+      <li>Selecting any SID without confirming it matches the departure runway. The FMS will offer SIDs from any runway; only some are valid for today's conditions.</li><li>Ignoring altitude constraints that load with the procedure and then wondering why VNAV commands an unexpected descent.</li><li>Loading a STAR whose initial transition does not match the filed route, creating a discontinuity that the crew will have to fix in busy airspace.</li><li>Mixing runway transitions and en-route transitions — some FMSes present both in the same menu and the wrong selection builds nonsensical legs.</li><li>Forgetting to verify the map view after procedure load. Text-only verification hides lateral path errors that show up visually immediately.</li>
+    </ul>
+  </div>
+  
+</section>
+
+
+
+<section id="task-5">
+  <h2>Task 13.4.5 — Approach Loading</h2>
+
+  
+  <p>How to demonstrate: Select an instrument approach for the destination airport (e.g., ILS RWY 19, RNAV GPS RWY 1). Select the approach transition (or vectors-to-final if the approach will be flown from ATC vectors). Activate the approach. Verify the FMS displays the inbound course, the CDI sensitivity increases (from en-route to approach scaling), and the map shows the approach procedure including the final approach fix, missed approach point, and missed approach procedure.</p>
+  
+
+  
+  <h4>Step-by-Step Procedure</h4>
+  <ol class="steps">
+    <li>From the flight plan, press PROC (Garmin), select Approach from the DEP ARR page (Collins), or use the APPR key (Honeywell). The FMS filters the approach list to the destination airport.</li><li>Choose the approach type and runway (ILS RWY 19L, RNAV (GPS) RWY 1R, LPV RWY 36). Note the LPV vs LNAV/VNAV vs LNAV-only distinction — LPV requires SBAS, LNAV/VNAV requires baro-VNAV capability, LNAV-only is always available.</li><li>Select the transition: a named IAF, a feeder route, or 'Vectors-to-Final.' Vectors-to-Final removes all transition legs and leaves only the final approach segment; use it only when ATC is vectoring.</li><li>Activate the approach using the ACTIVATE APPROACH function. This arms the approach in the FMS — it does not yet transfer guidance; that happens when the aircraft crosses the appropriate point (typically the final approach fix or when the crew presses APR on the autopilot).</li><li>Verify the FMS displays the published inbound course on the CDI / HSI. The course should match the charted final approach course within 1–2° (differences here usually indicate a magvar issue).</li><li>Verify CDI sensitivity increases (scale changes) at the appropriate distance. Typical sequence: en-route ±5 NM → terminal ±1 NM → approach ±0.3 NM. On an LPV, the lateral scaling narrows further inside the FAF.</li><li>Verify the map shows the full approach: initial, intermediate, final, missed approach point, and the missed approach procedure. A missing missed-approach segment is a loading error — do not accept it.</li><li>If the aircraft has VNAV and the approach supports a vertical path (LNAV/VNAV, LPV), verify the vertical deviation indicator appears on the PFD with the glidepath angle shown (usually 3.0°).</li>
+  </ol>
+  
+
+  
+  <div class="callout watching">
+    <strong>Evaluator is watching for</strong>
+    <ul>
+      <li>Selects the correct approach type for the aircraft's certification (does not load LPV on a non-SBAS aircraft).</li><li>Distinguishes IAF transition from Vectors-to-Final and knows when each is appropriate.</li><li>Verifies the inbound course against the chart, not just the magenta line on the map.</li><li>Observes CDI scaling changes at the expected distances.</li><li>Confirms the missed-approach segment loaded — a surprising number of technicians miss this.</li>
+    </ul>
+  </div>
+  
+
+  
+  <div class="callout mistakes">
+    <strong>Common mistakes</strong>
+    <ul>
+      <li>Loading LPV on an aircraft that does not have a compliant SBAS receiver. The FMS may accept the load; the approach minima will not be legally flyable.</li><li>Selecting Vectors-to-Final for a full-procedure approach and then wondering where the IAF legs went.</li><li>Accepting a 3–5° inbound course mismatch as 'close enough.' It never is — this is a magvar or database cycle issue that must be resolved on the ground.</li><li>Not verifying CDI scaling changes. If the scale does not tighten, the CDI will be insensitive inside the FAF, and a small deviation can look on-course.</li><li>Missing the missed-approach procedure in the map view — a partial approach load can pass a quick glance and fail in flight.</li>
+    </ul>
+  </div>
+  
+</section>
+
+
+
+<section id="task-6">
+  <h2>Task 13.4.6 — Route Discontinuity</h2>
+
+  
+  <p>How to demonstrate: Explain: a route discontinuity is a gap in the flight plan where the FMS cannot compute a path between two legs—it shows as a 'DISCONTINUITY' entry in the flight plan list. It typically appears when a STAR or approach is loaded that doesn’t connect smoothly to the preceding leg. Resolution: select the discontinuity entry and either delete it (the FMS connects the legs with a direct segment) or insert a waypoint that bridges the gap. Discontinuities must be resolved before flight—the FMS will not sequence past a discontinuity.</p>
+  
+
+  
+  <h4>Step-by-Step Procedure</h4>
+  <ol class="steps">
+    <li>Understand the source: a discontinuity appears when the FMS cannot construct a continuous path between two consecutive legs — typically at the junction of en-route to STAR, STAR to approach, or approach to missed approach segments.</li><li>Identify the discontinuity in the flight plan list. Garmin shows it as a blank line with 'NO CONNECT' or a dashed line; Honeywell shows '---- ----'; Collins shows 'DISCONTINUITY.'</li><li>Determine which legs bracket the gap. The leg above the discontinuity ends at some fix; the leg below begins at some other fix. The FMS cannot connect them because the two fixes are far apart or not in the database.</li><li>Option 1 — Delete the discontinuity: select the discontinuity entry, press CLR or DELETE. The FMS will construct a direct leg between the preceding leg's terminator and the following leg's first fix. Acceptable when the gap is geometrically reasonable (both fixes in the same area).</li><li>Option 2 — Insert a bridging waypoint: enter a known fix that is on both the preceding and following published procedures. Used when the gap is large and a direct line would cross restricted airspace or terrain.</li><li>Option 3 — Rebuild the procedure: sometimes the discontinuity indicates the wrong transition was selected. Go back to DEP ARR and pick a transition that matches the en-route segment.</li><li>Verify resolution: no discontinuity entry remains in the flight plan list. The map shows a single continuous magenta path.</li><li>Never launch IFR with a discontinuity. The FMS will not sequence past one — LNAV will drop at the discontinuity, the autopilot will revert to heading-hold or roll mode, and the crew may not notice until they are well off course.</li>
+  </ol>
+  
+
+  
+  <div class="callout watching">
+    <strong>Evaluator is watching for</strong>
+    <ul>
+      <li>Articulates WHY discontinuities occur (leg terminator mismatch) — not just 'because the FMS did it.'</li><li>Considers all three resolution options before choosing one.</li><li>Avoids the 'just delete it' reflex when the two bracketing legs are geographically far apart.</li><li>Verifies the map view after resolution, not just the text flight plan list.</li><li>Understands the in-flight consequence (LNAV drop, AP reversion, crew workload).</li>
+    </ul>
+  </div>
+  
+
+  
+  <div class="callout mistakes">
+    <strong>Common mistakes</strong>
+    <ul>
+      <li>Deleting every discontinuity without checking what the resulting direct leg looks like. A direct leg can cross terrain, restricted airspace, or active military ops.</li><li>Inserting a lat/long as a bridging waypoint instead of a named fix. Named fixes carry nav database integrity; lat/long does not.</li><li>Assuming a discontinuity means 'the database is wrong.' Usually it means the procedure was loaded with the wrong transition.</li><li>Resolving a discontinuity in the departure phase, then ignoring one in the arrival phase because 'the pilot will handle it.' The pilot will be busy when they hit it.</li><li>Returning the aircraft to service with a discontinuity in the test flight plan — the next crew will load their real plan on top of a broken template.</li>
+    </ul>
+  </div>
+  
+</section>
+
+
+
+<section id="task-7">
+  <h2>Task 13.4.7 — FMS-to-Autopilot Verification</h2>
+
+  
+  <p>How to demonstrate: With a flight plan loaded and the aircraft on the ground (or in a test configuration): engage the autopilot in GPS/NAV mode. Verify the autopilot annunciator shows GPS or LNAV mode active. Observe that the autopilot commands a turn toward the first waypoint (you should see the aileron servo deflect in the correct direction). If the aircraft has VNAV, verify the autopilot tracks a vertical profile when commanded.</p>
+  
+
+  
+  <h4>Step-by-Step Procedure</h4>
+  <ol class="steps">
+    <li>With the aircraft safely in a ground-test configuration (parking brake set, engines off or idle per the AMM, flight controls clear of obstacles, control yoke/stick unattended area marked), load a test flight plan with a first waypoint bearing 30–60° off the current aircraft heading.</li><li>Apply hydraulic or electric power sufficient to move the flight control surfaces — on most aircraft this means the main hydraulic system engaged or electric trim/autopilot servos powered per the AMM test procedure.</li><li>Engage the autopilot per the AMM: typically press AP ENGAGE with the FD/AFCS on. The AP should hold current attitude (or ground-test pitch/roll references) — do not engage in an unstable condition.</li><li>Select GPS/NAV mode on the autopilot. Observe the annunciator: it should change from HDG or ROL to GPS, LNAV, or FMS (product-specific). If it reverts or flashes, the FMS is not providing a valid steering signal.</li><li>Observe control surface response. The aileron servo should deflect in the direction of the first waypoint — if the waypoint is left of current heading, the ailerons roll left. Verify using a control-surface position indicator or visual inspection per AMM.</li><li>If the aircraft has VNAV and a vertical profile in the test flight plan, engage VNAV. Confirm the pitch annunciator shows VNAV PATH or VNAV SPEED. The elevator/stab should drive toward the target profile — verify magnitude and direction are reasonable.</li><li>Switch FMS source (FMS 1 to FMS 2) on dual-FMS aircraft. Verify the AP annunciator re-acquires and the command surfaces respond. Both sources must drive the AP correctly; intermittent behavior on one side is a wiring or configuration fault.</li><li>Disengage the autopilot, return the aircraft to safe ground configuration, and record the test result in the logbook with the AMM reference.</li>
+  </ol>
+  
+
+  
+  <div class="callout watching">
+    <strong>Evaluator is watching for</strong>
+    <ul>
+      <li>Plans the ground test with attention to safety (control clearance, engine state, hydraulic/electrical state) before engaging the AP.</li><li>Verifies mode annunciation change, not just that 'something moved.'</li><li>Observes control surface direction matches the computed turn direction — catches reversed wiring.</li><li>Tests both FMS sources on dual-FMS installations.</li><li>Returns the aircraft to a safe and known state after the test (AP off, test flight plan cleared, logbook entered).</li>
+    </ul>
+  </div>
+  
+
+  
+  <div class="callout mistakes">
+    <strong>Common mistakes</strong>
+    <ul>
+      <li>Engaging the AP without verifying control clearance. Servos drive with authority; a jammed yoke or an unexpected surface movement is how bystanders get hurt.</li><li>Declaring success because 'the AP took GPS' without verifying the aileron actually moved in the correct direction. Reversed lateral wiring has entered service on ground tests that checked only annunciation.</li><li>Testing only the pilot-side FMS on a dual-FMS aircraft.</li><li>Leaving the test flight plan active when returning the aircraft to service.</li><li>Not recording the test in the logbook. If the AP later misbehaves, the paper trail of a ground test is the first thing the next technician looks for.</li>
+    </ul>
+  </div>
+  
+</section>
+
+
+
+<section id="task-8">
+  <h2>Task 13.4.8 — Database Error Troubleshooting</h2>
+
+  
+  <p>How to demonstrate: Systematic approach: (1) Check the data card—is it fully seated? Correct card for this unit? Not corrupted? (2) Power cycle the unit—some database errors are cleared by restart. (3) Re-download and reload the database—the file may be corrupted. (4) Check for compatible hardware/software version—database requires specific software version to load. (5) Verify the data card slot and reader are functional—try a known-good card. (6) If persistent, the unit may need a software update or manufacturer service.</p>
+  
+
+  
+  <h4>Step-by-Step Procedure</h4>
+  <ol class="steps">
+    <li>Capture the exact error message verbatim. 'DATABASE ERROR' alone is not enough — is it CRC FAIL, CYCLE MISMATCH, CARD UNREADABLE, or SIGNATURE INVALID? The specific text narrows the fault tree dramatically.</li><li>Check the data card or media: is it fully seated? Is it the correct card/type for this unit (Garmin uses specific Class 10 SD cards; Honeywell uses PC Card or CF)? Any visible damage, bent pins, or contamination?</li><li>Power cycle the unit following the AMM. Some transient database errors clear on restart; a persistent error after a full cold start is a real fault.</li><li>Re-download the database from the source. The file may have corrupted during the prior download. Verify file sizes match the vendor's stated size and the CRC/MD5 matches if the vendor publishes one.</li><li>Check software version compatibility. A database cycle may require a minimum FMS software version; an older software version will reject a newer database format. Reference the vendor's software/database compatibility matrix.</li><li>Try a known-good card in the target unit: isolates whether the card is bad or the unit's reader is bad.</li><li>Try the suspect card in a known-good unit (shop mule or another aircraft): isolates whether the data is bad or the reader is bad.</li><li>If the error persists after media, software, and reader are all ruled good, the unit may have a hardware fault (internal database storage corruption). Contact manufacturer service — do not attempt internal flash recovery.</li><li>Document every step and every finding in the logbook. The next technician — or the manufacturer support desk — will ask what you tried.</li>
+  </ol>
+  
+
+  
+  <div class="callout watching">
+    <strong>Evaluator is watching for</strong>
+    <ul>
+      <li>Reads the exact error message and uses it to narrow the troubleshooting path.</li><li>Follows a systematic tree (media → power cycle → re-download → software compatibility → swap test → escalate), not random attempts.</li><li>Preserves evidence — does not format the card or wipe the database without establishing a baseline.</li><li>Knows the difference between software version and database cycle, and can diagnose a compatibility fault.</li><li>Escalates to manufacturer service at the right time rather than chasing an internal hardware fault with customer hardware.</li>
+    </ul>
+  </div>
+  
+
+  
+  <div class="callout mistakes">
+    <strong>Common mistakes</strong>
+    <ul>
+      <li>Reformatting the data card as the first troubleshooting step — destroys the evidence needed to diagnose the fault.</li><li>Assuming 'database error' means 'bad database.' Often it is bad media, bad reader, or wrong software version.</li><li>Trying the same card with the same data multiple times hoping for a different result.</li><li>Not checking the vendor's published compatibility matrix before assuming a hardware fault.</li><li>Pulling the unit for bench service without documenting the troubleshooting already performed — the depot will repeat every step the technician skipped.</li>
+    </ul>
+  </div>
+  
+</section>
+
+
+
+<div class="section-marker">Part IV — Background Theory</div>
+<section id="theory">
+  <h2>The Science Behind the Procedures</h2>
+  <p>When the oral board examiner asks <em>why</em>, these are the explanations they expect to hear.</p>
+  
+  <div class="callout theory">
+    <strong>Why The Fms Needs Both Ins And Gps</strong>
+    <p style="margin-top:8px;">GPS gives you absolute accuracy: a few meters with SBAS, typically 5–10 meters without. But GPS updates only 1–5 times per second and can drop out entirely under jamming, canyon shadowing, or antenna failure. IRS (or AHRS in GA) gives you the opposite: high update rates (50–200 Hz), no external dependency, smooth derivatives (you can compute acceleration and rate cleanly), but it drifts — a typical high-grade IRS drifts about 1 NM per hour; a lower-grade AHRS drifts faster. Neither sensor alone is fit for area navigation at RNP 1 or tighter. The FMS blends them through a Kalman filter: the IRS provides the short-term smoothness and continuity, the GPS provides long-term accuracy and keeps the IRS from drifting. When GPS drops out, the Kalman filter 'coasts' on the IRS with a known error budget — the FMS annunciates the degradation and alerts the crew if the coasting error will exceed the RNP for the current phase. This blended architecture is why modern RNP AR approaches can be flown to 0.1 NM accuracy: the filter gives you the best of both sensors and provides integrity monitoring for when either fails.</p>
+  </div>
+  
+  <div class="callout theory">
+    <strong>Why The Nav Database Has A Cycle Instead Of Continuous Updates</strong>
+    <p style="margin-top:8px;">You could, in principle, have a nav database that continuously updates over the internet. Nobody does, for three reasons. First, integrity: every FMS nav database is cryptographically signed and CRC-checked on load. A continuous update would require a continuously-verified channel between an authoritative source and the aircraft — that channel does not exist at the assurance level DO-200A/B requires. The 28-day cycle pushes integrity responsibility onto a single vendor (Jeppesen, Lido, NavBlue) who can produce and sign a complete package. Second, synchronization: an IFR crew needs to know, without ambiguity, that the procedure they briefed on the ground is the procedure the FMS will fly. If the database updated mid-flight, the crew's briefing and the FMS's behavior could diverge. The 28-day cycle aligns with the aeronautical chart publication cycle — the crew's paper or electronic chart and the FMS database change together. Third, regulatory: the AIRAC cycle is an ICAO Annex 15 requirement; it is the global standard for when data becomes effective. National aviation authorities, procedure designers, and the chart vendors all sync to the same cycle. A non-cycled FMS database would be out of step with the rest of the aeronautical information system. The cost of cycling is the maintenance burden (every 28 days, someone loads the new data) and the risk of an expired database on a dispatched aircraft — both of which are deliberately designed to be technician and operator responsibilities rather than automated processes.</p>
+  </div>
+  
+  <div class="callout theory">
+    <strong>Why Performance Depends On Weight Temp And Altitude Tables</strong>
+    <p style="margin-top:8px;">The FMS computes takeoff, climb, cruise, descent, and landing performance from an aircraft-specific performance database — tables and polynomials derived from flight-test data during certification. Lift depends on true airspeed, which depends on indicated airspeed and density; density depends on pressure altitude and temperature. Thrust available depends on temperature (jet engines lose thrust at high ISA deviations), altitude (thrust drops with density), and bleed state (air conditioning, anti-ice). Drag depends on weight (higher weight = higher induced drag at a given speed), configuration (flaps, gear), and Mach number. Fuel burn depends on thrust, which depends on all of the above. This is why performance initialization is mandatory before the FMS can compute a VNAV descent path: without weight, the FMS does not know your idle-descent glide ratio; without ISA deviation, it does not know your thrust at altitude; without wind, it does not know your ground speed, and therefore when to start the descent to cross a fix at a constrained altitude. The FMS solves this by interpolating across certification tables (typical format: altitude × temperature × weight, with thrust and fuel flow as the lookup outputs) and then integrating the equations of motion forward or backward in time to produce the VNAV profile. Bad inputs produce bad profiles, which is why so many 'VNAV not following the path' write-ups turn out to be performance-init errors rather than FMS faults. The technician's job is to make sure the interface delivers clean inputs (accurate weight from FMS entry, correct ISA deviation from the air-data computer, correct wind from uplink or crew entry) and that the performance database on the FMS matches the aircraft's certification configuration.</p>
+  </div>
+  
+</section>
+
+
+<div class="section-marker">Part V — Self-Check</div>
+
+<section id="quiz">
+  <h2>Oral Board Practice Questions</h2>
+  <p>Answer each aloud before opening the answer key. Mastery means you can explain it to a non-technical person, not just recite a definition.</p>
+  <div class="quiz">
+    <h3>Questions</h3>
+    <ol>
+      <li>Q1: The pilot says the GPS won’t load an approach that he flew last month. What are the most likely causes?</li><li>Q2: Explain what a route discontinuity is and why it matters for flight safety.</li><li>Q3: After a database update, the pilot reports that all his user waypoints are gone. What happened and how do you prevent it?</li><li>Q4: How does the FMS communicate steering commands to the autopilot? What happens if this interface fails?</li><li>Q5: What is the AIRAC cycle, how long does a database last, and what are the consequences of flying IFR with an expired database?</li><li>Q6: You install a new GTN 750Xi. What FMS-related checks must you perform before returning the aircraft to service?</li>
+    </ol>
+  </div>
+
+  <h3>Answer Key</h3>
+  <div class="answer-key">
+    
+    
+    
+    <details>
+      <summary>Q1: The pilot says the GPS won’t load an approach that he flew last month. What are the most likely causes?</summary>
+      <p>Most likely causes, from most to least common: (1) Database cycle change — the approach identifier, transition name, or procedure itself changed in the new AIRAC cycle and the old name no longer exists. Verify by comparing the current cycle's published approach chart to the identifier the pilot is using. (2) Approach was recently amended or canceled — FDC NOTAM or permanent change. Check NOTAMs before assuming a hardware fault. (3) Wrong destination airport in the flight plan — some approaches are only available when the flight plan destination matches; selecting the approach outside that context yields 'procedure not available.' (4) GPS receiver certification mismatch — a new LPV approach requires SBAS, and if the unit is GPS-only (TSO-C129 legacy) it will filter LPV out of the list. (5) Runway identifier change — runway magnetic renumbering periodically renames approaches (e.g., 18R becomes 17R after a magvar shift). Start by confirming the current approach identifier against the Jeppesen or FAA chart for the active cycle, then walk back through database currency, NOTAMs, and equipment certification.</p>
+    </details>
+    
+    
+    
+    <details>
+      <summary>Q2: Explain what a route discontinuity is and why it matters for flight safety.</summary>
+      <p>A route discontinuity is a gap in the FMS flight plan where two legs cannot be connected — the leg above ends at one fix, the leg below begins at a different fix, and there is no constructed path between them. It typically shows up as 'DISCONTINUITY,' a blank line with 'NO CONNECT,' or a dashed entry depending on the FMS product. It matters for flight safety because the FMS will NOT sequence past a discontinuity in flight. LNAV drops out when the aircraft reaches the end of the leg above the discontinuity — the autopilot reverts to HDG hold or roll mode, and unless the crew is watching the mode annunciator closely, the airplane quietly stops following the programmed path. You now have an aircraft flying whatever heading it had at dropout, in potentially busy airspace, with the crew believing they are on an FMS route. Compounding the risk, if the discontinuity was in the arrival or approach segment, the aircraft drops LNAV on a charted procedure and may stray into terrain-limited airspace. This is why discontinuities must be resolved before flight, not 'handled when we get there.' On the ground, resolution is a 30-second task; in flight, at night, in weather, with ATC giving vectors, it is a dangerous distraction.</p>
+    </details>
+    
+    
+    
+    <details>
+      <summary>Q3: After a database update, the pilot reports that all his user waypoints are gone. What happened and how do you prevent it?</summary>
+      <p>What happened: most FMSes store user waypoints in the same flash region as some portions of the nav database, and certain kinds of database updates — factory reset, full reinstall, or cycle transitions across major software boundaries — can wipe that region. The update procedure for most modern units (Garmin GTN, G1000, Honeywell) does NOT touch user waypoints, but a 'corrective action' like a factory reset or a software upgrade combined with a database load absolutely can. Also, some updates move user waypoints from the old memory structure to a new one and lose those that used legacy formats. How to prevent it: before every database update, export or document the user waypoints. Garmin units have an 'Export User Waypoints' function to an SD card; Honeywell and Collins have MCDU pages that can be photographed or printed. Record name, coordinates, and any altitude or use-type metadata. After the update, verify the waypoints are present; if not, re-import from the backup. Also, warn the operator any time a factory reset or software transition is planned so they can decide whether to expect the reset.</p>
+    </details>
+    
+    
+    
+    <details>
+      <summary>Q4: How does the FMS communicate steering commands to the autopilot? What happens if this interface fails?</summary>
+      <p>The FMS communicates steering commands to the autopilot primarily through ARINC 429 serial bus on modern installations, or through an analog resolver interface on legacy GA aircraft. On ARINC 429, the FMS transmits Label 121 (cross-track deviation), Label 123 (vertical deviation), Label 100 (selected course), Label 102 (selected altitude), and flight-director roll/pitch commands. The autopilot receives these labels, compares them to the current aircraft state, and commands the servos to null the deviation. On older installations, the FMS outputs an analog ±150 mV signal proportional to cross-track deviation, scaled to ±1 or ±5 NM depending on phase of flight; the autopilot treats this exactly like a VOR or LOC signal. If this interface fails — wire chafed, connector corroded, bus transmitter failed, configuration strapping wrong — the autopilot can no longer decode FMS guidance. It typically reverts to a basic lateral mode: heading hold on ARINC 429 installations (the autopilot annunciator changes from GPS/LNAV to HDG), or the CDI flags on analog installations and the AP drops the NAV capture. The airplane now flies whatever the autopilot's fallback logic is, while the FMS continues to compute and display the correct magenta path. This is the quiet failure mode that catches crews off guard — the MFD still shows the intended route, but the airplane is no longer following it. Post-install ground tests must verify both that GPS/NAV engages correctly AND that mode annunciation changes happen as expected.</p>
+    </details>
+    
+    
+    
+    <details>
+      <summary>Q5: What is the AIRAC cycle, how long does a database last, and what are the consequences of flying IFR with an expired database?</summary>
+      <p>AIRAC — Aeronautical Information Regulation and Control — is an ICAO-defined schedule under Annex 15 that governs when navigation data becomes effective worldwide. It operates on a 28-day cycle; a new cycle becomes effective every fourth Thursday. Cycles are numbered by year and cycle-in-year (e.g., 2604 is the fourth cycle of 2026). A database loaded on one cycle remains current until the next cycle's effective date — exactly 28 days, no more. The consequences of flying IFR with an expired database depend on the operation. For RNAV and RNP operations under AC 90-100A, AC 90-105A, and AC 20-138D, current data is required — the operator's OpSpecs and AFMS supplements generally prohibit dispatch with expired data. For GPS approaches, the same applies: TSO-C129/C145/C146 equipment certifications assume current data, and the approach plates themselves note that a current database is required for LPV and LNAV/VNAV minima. Operationally, expired data can mean missing newly published approaches, flying procedures that have been amended (wrong altitude constraints, wrong missed-approach segment), using waypoints that have been renamed or relocated, or computing magnetic courses with stale magvar. The American Airlines 965 Cali accident was not caused by an expired database — but it is the textbook example of why nav data integrity matters. Expired data compounds the same kind of risk: the crew enters a procedure they expect to be correct, and the FMS silently flies a different one. Regulation aside, an expired database is a dispatchability issue that the technician should flag to the operator, and IFR release with expired data is almost always prohibited by OpSpecs.</p>
+    </details>
+    
+    
+    
+    <details>
+      <summary>Q6: You install a new GTN 750Xi. What FMS-related checks must you perform before returning the aircraft to service?</summary>
+      <p>FMS-related checks after a GTN 750Xi install, before return to service: (1) Verify configuration strapping in Config Mode (accessed by holding HOME on power-up). Confirm aircraft-specific settings: CDI type, autopilot interface (GPSS vs analog), data input/output wiring, serial port assignments, and the lighting bus configuration. (2) Database currency check on nav, obstacle, terrain (TAWS), and ChartView databases. Record cycle numbers in the logbook. (3) GPS and SBAS integrity test using a ramp simulator (IFR 6000 or Aeroflex 6000). Verify position solution, RAIM availability, SBAS satellite lock, and HDOP/VDOP values are within spec. (4) Antenna and coax verification — VSWR check, connector torque, routing per AC 43.13 for separation from transmitters and structural grounding at the antenna base. (5) FMS-to-autopilot interface test per task 13.4.7: engage GPS/NAV mode, verify annunciation, observe aileron direction corresponds to computed turn direction, verify VNAV engages and commands correct pitch direction if equipped. (6) PFD and MFD integration: verify magenta course pointer, distance-to-waypoint, and flight plan list display correctly on both pilot and copilot sides. (7) CDI scaling transitions — load a test approach, verify scale changes from en-route to terminal to approach at the appropriate distances. (8) Instrument approach demonstration: load an LPV approach, verify lateral and vertical deviation indicators, verify approach-armed and approach-active annunciations. (9) Logbook entries with STC data, AMM reference, software and database cycles, configuration strapping record, and technician signature. (10) Weight and balance update for the new equipment. All of these are required by the STC installation instructions and the aircraft AMM — skipping any is the kind of shortcut that creates squawks on the delivery flight.</p>
+    </details>
+    
+  </div>
+</section>
+
+
+<section id="crosswalk">
+  <h2>Written Exam Crosswalk</h2>
+  <div class="crosswalk">This section maps to Module 4 (Flight Management Systems) Q19–36 on the written exam. Eighteen questions covering FMS architecture, database management (AIRAC cycle, update procedures, currency), flight plan entry and editing, SID/STAR/approach procedures, route discontinuities, LNAV/VNAV concepts, and FMS-autopilot integration. Also connects to Module 14 (Software/Database Loading) Q166–170 for database update procedures and pre/post-load verification. End of Section 13 — Flight Management Systems</div>
+</section>
+
+
+<footer>
+  © 2026 Aircraft Electronics Association · Workforce Development Division.<br>
+  Derived from CAET Advanced PQS Training Module with supplementary teaching content authored for instructor use.
+</footer>
+
+</body>
+</html>
