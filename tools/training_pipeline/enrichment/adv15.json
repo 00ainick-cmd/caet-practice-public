@@ -1,0 +1,279 @@
+{
+  "slug": "adv15",
+  "module_name": "Emergency Autoland Systems",
+  "why_this_matters": [
+    "Emergency Autoland is the first certified aviation system designed to act without pilot intervention and still deliver a safe outcome. A single button press on the cabin headliner — pressed by a passenger who has never touched a yoke — is expected to result in a successful runway landing. This has never been true of any avionics system before. The regulatory burden that comes with that capability is enormous. As the technician responsible for periodic inspection, software currency, and post-repair verification of these systems, you are now part of a trust chain that did not exist five years ago: passenger → panel → system you maintained.",
+    "The failure modes matter. If Autoland selects a runway that turns out to be closed (NOTAM data stale), or flies an approach through weather the onboard radar didn't detect (weather subscription lapsed), or executes a flare without a valid radar altimeter input (calibration drift), the system does not fail gracefully — it fails terminally. Every scheduled task on these systems has someone's life attached to it. The M600 HomeSafe, Cirrus Safe Return, and Daher HomeSafe certifications all include mandatory inspection intervals specifically because the certification data assumed those inspections would be performed. Skipping one breaks the safety argument the system was certified against.",
+    "Your role is not glamorous: verifying sensor calibration, checking database cycles, exercising the activation button, confirming aural alerts, logging results on Form 337-adjacent documentation. But the chain from your work to a passenger pressing a button on a bad day is direct. The evaluator is looking for someone who understands exactly that — that the paperwork matters, the cycle dates matter, and the post-repair functional test on a system that may never activate in the aircraft's life still has to be done correctly. If the day comes when it is needed, there will be no second chance."
+  ],
+  "key_terms": [
+    {"term": "Emergency Autoland", "definition": "A certified avionics system that, on activation by a passenger or via automatic pilot-incapacitation detection, takes control of the aircraft, selects a destination airport, flies an approach, lands, and shuts down without further input. First STC: Garmin Autoland on Piper M600 SLS, FAA approval May 2020."},
+    {"term": "Garmin Autoland", "definition": "Garmin's commercial implementation of Emergency Autoland, built on the G3000 integrated flight deck. Deployed on Piper M600 HomeSafe, Daher TBM 940 HomeSafe, and Beechcraft King Air 260 (category expansion). Requires specific G3000 software part numbers and additional GSA autopilot servos."},
+    {"term": "Safe Return", "definition": "Cirrus Aircraft's implementation of Emergency Autoland on the Vision Jet SF50, developed in cooperation with Garmin. Adds jet-specific logic: autothrottle management, thrust-lever detent, and VTAS-based approach speed calculation. Separate STC from M600 HomeSafe."},
+    {"term": "HomeSafe", "definition": "Trade name used by both Piper (M600) and Daher (TBM 940/960) for their Autoland offering. Same core Garmin Autoland engine, but with airframe-specific certification data: max landing weight, minimum runway length, approach profile, and post-landing sequence."},
+    {"term": "Activation Button", "definition": "A physical button mounted on the cabin headliner or overhead panel, protected by a guard, labeled clearly with emergency instructions. One press starts an activation countdown (typically 15 seconds) with audible warning and passenger prompt before engagement. The button is tested at each 100-hour/annual inspection per AMM."},
+    {"term": "Pilot Incapacitation Detection", "definition": "An automatic trigger mode that monitors flight-control inputs, attitude, and altitude. If the aircraft deviates from commanded flight path without corrective pilot input for a specified duration (platform-specific, often 30-60 seconds), the system issues aural warnings then engages Autoland if no response. Relies on autopilot engagement state and sensor inputs — technician must verify during maintenance."},
+    {"term": "Destination Selection Algorithm", "definition": "The runtime logic that selects the optimal landing airport from nearby candidates. Evaluates: fuel remaining vs distance, runway length vs aircraft minimums, current weather at destination (ceiling/visibility from onboard + datalink), approach type availability (LPV/LNAV+V preferred), crosswind component, surrounding terrain, ATC facility availability. Continuously refreshes during flight toward destination."},
+    {"term": "Autothrottle (AT)", "definition": "Required for jet Autoland (Safe Return on Vision Jet). Commands thrust lever position via electric servo on the quadrant. Computes target thrust from flight phase, wind, weight, and altitude. Verification during maintenance requires checking servo travel limits, thrust-lever force feedback, and emergency-disconnect switch response."},
+    {"term": "Radar Altimeter (RA)", "definition": "Provides precise height-above-terrain input needed for the landing flare. Autoland requires RA operational and calibrated; a failed RA will inhibit activation or trigger go-around. Typical accuracy ±2 feet below 200 AGL. Calibration verified against known aircraft height on a level ramp, per manufacturer AMM."},
+    {"term": "LPV Approach", "definition": "Localizer Performance with Vertical guidance, a WAAS/SBAS approach category providing ILS-equivalent minima (typically 200 ft HAT) without ground-based equipment. Preferred by Autoland because it is available at 4000+ US airports vs ILS coverage. Autoland will select LPV if both LPV and non-precision are available at a candidate airport."},
+    {"term": "Aural Emergency Announcement", "definition": "The synthesized voice message the system plays during Autoland — announcing destination, ETA, altitude, and approach. Broadcasts over cockpit audio AND over 121.5 MHz emergency frequency, and cycles transponder to 7700. Maintenance verifies by running the activation self-test (not a full activation) and confirming the expected audio and transponder behavior."},
+    {"term": "Certification Intervals", "definition": "Mandatory inspection and test schedule defined in the STC Airworthiness Limitations section (ALS). Typical items: button-press self-test (100-hour), servo torque verification (annual), radar altimeter functional test (annual), weather-database currency (30 days), detailed Autoland activation simulation (24 months). Deferral is NOT authorized — the system's certification depends on these intervals."},
+    {"term": "Post-Activation Data Log", "definition": "Non-volatile memory that records system state during and after any Autoland activation. Required for NTSB investigation under 49 CFR 830. Includes: activation trigger, destination selection rationale, trajectory, control inputs, aural announcements, post-landing sequence timing. Technician does NOT erase this log — it is legal evidence."},
+    {"term": "Go-Around Logic", "definition": "Autoland's automatic go-around decision if the approach becomes unsafe: RA not updating, glidepath deviation beyond limits, traffic intrusion detected by ADS-B, runway incursion detected (if equipped with surface traffic). System climbs, re-sequences to the next best destination, and resumes. Technician tests go-around logic using simulator stimuli during 24-month detailed validation."}
+  ],
+  "knowledge_enrichment": {
+    "Architecture": {
+      "title": "Autoland System Architecture",
+      "overview": "Autoland is not a single LRU — it is a coordinated behavior across existing flight-deck computers with additional hardware and software layers. Understanding which box does what is prerequisite to troubleshooting.",
+      "key_points": [
+        "The core is the existing integrated flight deck (Garmin G3000/G5000). Autoland adds software in the Garmin Autopilot Computer (GSA 81/87 servos + GCU/GTC controllers), a dedicated Autoland module in the flight management processor, and the aural announcement synthesizer.",
+        "Hardware additions per aircraft: activation button with CAN-bus harness to the flight deck, backup radar altimeter where redundancy is required (single RA not always acceptable to STC), autothrottle servo on jet platforms.",
+        "Data inputs Autoland requires: WAAS/SBAS GPS position (for LPV approach), ADS-B In traffic, datalink weather (XM or FIS-B on UAT), terrain database (TAWS-B minimum), obstacle database, ADAHRS attitude/heading, radar altimeter below 200 AGL, ARINC 429 bus for engine parameters.",
+        "Autopilot authority is escalated during Autoland: normal-mode override forces apply, but Autoland has full authority within certified envelope. Pilot can still disconnect via red Autopilot Disconnect button — this is by design because a pilot who regains consciousness must be able to take over instantly.",
+        "The Autoland software is DAL A per DO-178C — the highest design assurance level. Revisions require full re-certification. The technician does NOT field-modify this software."
+      ]
+    },
+    "Framework": {
+      "title": "Certification and Regulatory Framework",
+      "overview": "Emergency Autoland is certified under 14 CFR Part 23 Amendment 64 (normal-category small airplanes) with novel-feature guidance from the FAA Small Airplane Directorate. Each airframe installation is a separate STC with its own Airworthiness Limitations section.",
+      "key_points": [
+        "The baseline regulatory challenge was showing compliance with 23.1309 (equipment, systems, and installations) and 23.1329 (automatic pilot system) for a system that operates with NO pilot. FAA issued specific issue papers addressing this.",
+        "Novel certification approaches: (1) simulation-based verification showing landing performance across environmental envelope, (2) mandatory pilot incapacitation detection with high-integrity sensors, (3) Airworthiness Limitations section with inspection intervals enforced by Type Certificate Holder.",
+        "STC list as of 2026: Piper M600 SLS HomeSafe (first, May 2020), Cirrus Vision Jet Safe Return, Daher TBM 940/960 HomeSafe, Beechcraft King Air 260 HomeSafe. Expansions to Piper M500, Vision Jet G2+ and other airframes in progress.",
+        "The STC package includes: AFMS supplement (pilot procedures), maintenance manual supplement (technician procedures), Airworthiness Limitations section (inspection intervals — LEGALLY REQUIRED), Instructions for Continued Airworthiness per 14 CFR 21.50.",
+        "No one is authorized to maintain Autoland equipment without specific training: manufacturer-provided coursework is required before signing off inspections. An A&P/IA without specific Autoland training is NOT authorized even though they are authorized for the rest of the avionics."
+      ]
+    },
+    "Logic": {
+      "title": "Activation and Decision Logic",
+      "overview": "From button press to touchdown, Autoland runs a deterministic state machine. Every transition is logged. Understanding the state machine helps you interpret post-event data logs during investigation.",
+      "key_points": [
+        "Activation countdown: after button press, 15-second audible countdown (passenger or pilot may cancel by pressing a second time). After countdown, system engages and transitions to DESTINATION_SELECT state.",
+        "Destination selection runs every 10 seconds until committed to approach. Re-evaluates based on changing weather, fuel, wind. Final commit at Initial Approach Fix (IAF) — thereafter system flies the commit approach unless abort criteria trigger.",
+        "Transponder behavior during Autoland: automatically squawks 7700 (emergency), Flight ID is set to 'AUTOLAND' (or similar, depends on platform), emergency-broadcast message over 1090ES includes Autoland-specific NACp claim.",
+        "ATC communication: system transmits a pre-recorded voice message on 121.5 MHz describing the situation, selected airport, and ETA. Does NOT engage in two-way conversation — ATC coordinates with controllers at destination via landline.",
+        "Landing sequence: RA-based flare at 50 ft, main-gear touchdown, nosewheel lowering, full braking, engine shutdown (piston: mixture to idle-cutoff; turbine: throttle to fuel-off). No automatic door unlock — intentional to avoid passenger egress onto an active runway without verification.",
+        "Abort/go-around triggers during approach: RA invalid, glidepath deviation >0.5° at 500 AGL, traffic within protected volume, commanded airspeed out of tolerance ±5 kt for >10 sec, engine anomaly."
+      ]
+    },
+    "Detection": {
+      "title": "Pilot Incapacitation Detection",
+      "overview": "The automatic incapacitation trigger is the most consequential piece of the system because it engages Autoland without passenger knowledge. False negatives mean passenger intervention doesn't work; false positives mean Autoland engages on a conscious pilot.",
+      "key_points": [
+        "Trigger conditions vary by platform; all use flight-path deviation as primary input. Typical: aircraft deviates from commanded track/altitude by more than a calibrated envelope for 30-60 seconds with no control inputs.",
+        "Pre-activation alert: aural 'ARE YOU THERE?' cycling for 30 seconds before engagement. Pilot response (any control-input deflection, button press, radio transmission) cancels the trigger.",
+        "Some platforms monitor CO (carbon monoxide) level in cockpit as secondary trigger — above alarm threshold plus deviation will trigger earlier. Requires CO sensor calibration.",
+        "Technician verification: use manufacturer's simulation stimulus (an RS-232/CAN test harness that injects fake attitude-deviation into the ADAHRS bus). Verify alert timing, audio, and button-cancel logic. NEVER exercise the trigger with real aircraft in flight state.",
+        "False-trigger cases to document: inadvertent engagement during simulated-IMC training, during ferry flight with autopilot disconnected and turbulence, during maintenance ground runs (power system on with aircraft parked)."
+      ]
+    },
+    "Sequence": {
+      "title": "Post-Landing Sequence",
+      "overview": "Once main gear touches down, Autoland continues controlling the aircraft for ~60 seconds. Understanding this sequence tells you what to expect when servicing an aircraft that activated Autoland.",
+      "key_points": [
+        "Rollout phase: automatic nosewheel-down, progressive braking to target deceleration (typically 0.25 g), rudder-based runway-centerline tracking via nose-wheel steering.",
+        "Stop: brakes held at full after aircraft stops. Parking brake commanded on platforms where equipped. Autoland does NOT release brakes automatically.",
+        "Engine shutdown: piston — mixture control to idle-cutoff; turbine — condition lever/start lever to cutoff (platform-specific). Ignition off. Electrical kept on to sustain emergency radio and strobe.",
+        "Emergency broadcasting continues for 60 seconds on 121.5 MHz with new message: 'Aircraft has landed at [airport]. Emergency services required.'",
+        "Data log finalization: NVRAM writes of full sequence, timing, sensor values. Separate maintenance-action-required flag is set — aircraft MUST have full inspection per STC before next flight.",
+        "Technician handoff: when the aircraft is returned to service, technician downloads the log (via manufacturer-specific dataload procedure), retains copy, and submits incident report per 14 CFR 830 (preliminary within 10 days)."
+      ]
+    }
+  },
+  "synthesized_tasks": [
+    {"heading": "Task 15.1 — Activation Button Self-Test", "body": "Perform the 100-hour Autoland activation-button self-test per AMM. Verifies button electrical continuity, audio alert playback, countdown behavior, and abort-by-second-press. Does NOT engage Autoland — the test mode stops before state-machine transition."},
+    {"heading": "Task 15.2 — Radar Altimeter Calibration Check", "body": "Confirm RA readings on a known-height ramp against manufacturer tolerance. RA is used for the landing flare; errors here land the aircraft early or late. Annual inspection task per STC Airworthiness Limitations."},
+    {"heading": "Task 15.3 — Incapacitation Detection Simulation", "body": "Use manufacturer-supplied simulation harness to inject attitude-deviation stimuli and verify pilot-incapacitation trigger timing, aural-alert playback, and pilot-cancel response. 24-month interval task per STC ALS."},
+    {"heading": "Task 15.4 — Weather and Navigation Database Currency", "body": "Verify nav DB (AIRAC), terrain DB, obstacle DB, and weather subscription are all current before returning the aircraft to service. Autoland destination-selection depends on all four; any stale DB is an airworthiness discrepancy."},
+    {"heading": "Task 15.5 — Post-Activation Download and Reset", "body": "After any Autoland activation (emergency or inadvertent), download the NVRAM data log, retain a copy for records, submit NTSB preliminary report, then perform full STC return-to-service inspection before next flight. Aircraft is grounded until complete."},
+    {"heading": "Task 15.6 — Autothrottle Servo Verification (Jet Platforms)", "body": "On Vision Jet Safe Return and similar: verify autothrottle servo travel limits, thrust-lever force calibration, and emergency-disconnect switch. Incorrect autothrottle limits during Autoland cause over-/under-shoot of commanded thrust and approach-speed errors."}
+  ],
+  "task_enrichment": {
+    "Self-Test": {
+      "title": "Activation Button Self-Test",
+      "step_by_step": [
+        "Verify aircraft is on the ground, parking brake set, no occupants in the aircraft except required test personnel. Activation button self-test must NEVER be performed in flight.",
+        "Power the aircraft to the Autoland system — both main bus and backup (essential) bus. Confirm all flight-deck displays show ready state.",
+        "Disable the autopilot master switch so that even if the state machine tries to transition, no control-surface movement occurs. This is a required safety step per AMM.",
+        "On flight-deck configuration page, enter the SELF-TEST mode via manufacturer-specific key sequence (not the actual Autoland activation button). This primes the test harness.",
+        "Press the activation button. The 15-second countdown begins with the aural alert. Verify audio is present on both cockpit and cabin speakers.",
+        "Before the countdown completes, press the button a second time to cancel. Confirm abort message plays and the system returns to ready state.",
+        "Repeat without aborting. At countdown end, the system should declare ENGAGED in test mode but NOT command servos (because autopilot master is off).",
+        "Read the test report on the flight deck. All checks should show PASS. Print or export log to removable media per AMM.",
+        "Return switches to normal configuration, make the maintenance logbook entry citing the AMM task and result."
+      ],
+      "evaluator_watching_for": [
+        "Candidate verifies aircraft state and autopilot master OFF before starting.",
+        "Test mode is entered via the correct key sequence, not the actual activation button press.",
+        "Abort-by-second-press test is performed before the full engagement test.",
+        "Log is downloaded and retained — not just viewed on screen.",
+        "Maintenance logbook entry cites the AMM task number and the self-test result.",
+        "Candidate does NOT discuss performing this test in flight under any circumstances."
+      ],
+      "common_mistakes": [
+        "Leaving the autopilot master ON during self-test. Even in test mode, this creates a risk of inadvertent servo command if the state machine misbehaves. Always OFF.",
+        "Skipping the abort-by-second-press test because the activation test is 'more important.' Both tests are required; the abort logic is what a panicked passenger relies on.",
+        "Performing the self-test with ground power only and ungrounded avionics cooling. Some systems run warm during test; insufficient cooling can trigger false failures.",
+        "Not downloading the log. The self-test produces the same data-log format as a real activation; the log is a regulatory record, not optional."
+      ]
+    },
+    "Check": {
+      "title": "Radar Altimeter Calibration Check",
+      "step_by_step": [
+        "Position the aircraft on a known-level ramp. Use a laser level or manufacturer-supplied jig to confirm ramp flatness within tolerance.",
+        "Measure actual distance from RA antenna face to the concrete. A tape measure is acceptable to nearest 1 inch; for STC compliance, use the manufacturer's calibration stand/measurement.",
+        "Power the aircraft and allow the RA to stabilize for at least 2 minutes. A cold RA reads high for the first minute.",
+        "Read the RA display value. Compare to measured actual height. Tolerance: typical ±2 feet below 50 AGL, ±1% above (manufacturer-specific — verify against AMM).",
+        "If out of tolerance, attempt the RA self-calibration procedure (manufacturer-specific; some require a DME bench instead of in-aircraft).",
+        "If calibration cannot correct, remove and replace the RA per AMM. Affected RA goes to repair station for bench verification.",
+        "After calibration or replacement, re-measure as in step 4. Verify in tolerance.",
+        "Test the Autoland inhibit logic: simulate an RA fault (disconnect the ARINC 429 data line per AMM procedure) and confirm Autoland inhibit message appears on the flight deck. Reconnect and verify Autoland ready state returns.",
+        "Logbook entry: cite the AMM task, measured vs displayed values, and the Autoland-inhibit test result."
+      ],
+      "evaluator_watching_for": [
+        "Candidate uses a manufacturer-approved measurement method, not a tape measure from the cowl line.",
+        "RA stabilization time is respected before reading.",
+        "Autoland-inhibit test is performed — not skipped. Verifying the INHIBIT is what proves the safety interlock works.",
+        "Logbook entry includes actual measured values, not just 'passed.'",
+        "Candidate does NOT adjust any internal RA pot via non-manufacturer means."
+      ],
+      "common_mistakes": [
+        "Measuring from the cowl or belly line instead of the actual RA antenna face. RA antennas are often set back; this introduces a 12-24 inch error.",
+        "Reading the RA before stabilization. Creates false out-of-tolerance reports and triggers unnecessary R&R.",
+        "Skipping the Autoland-inhibit test. The RA may be in tolerance but the Autoland inhibit logic may be broken; without testing both, you don't know the system is safe.",
+        "Field-replacing the RA without checking the antenna cable and connector first. Most 'RA failed' findings are actually cable/connector, not the RA LRU itself."
+      ]
+    },
+    "Simulation": {
+      "title": "Incapacitation Detection Simulation",
+      "step_by_step": [
+        "Schedule this task during the 24-month detailed validation window per STC ALS. Requires specific training certification from the manufacturer.",
+        "Aircraft on ground, autopilot master OFF, simulation test harness installed per manufacturer procedures (connects to ADAHRS CAN bus and autopilot control bus).",
+        "Configure harness to inject attitude-deviation profile matching the STC test scenario: pitch excursion 15°, roll excursion 30°, sustained for 45 seconds.",
+        "Initiate harness stimulus. Start stopwatch from beginning of deviation.",
+        "Verify the aural 'ARE YOU THERE?' alert begins within the STC-specified window (typical 30 seconds after onset).",
+        "Verify the alert repeats according to the STC schedule (typical every 10 seconds).",
+        "Stop the stimulus at the expected activation time. Verify Autoland would have engaged (state-machine transition shown in test display) but no servo command occurs because autopilot master is OFF.",
+        "Re-run the stimulus with a pilot-cancel input (yoke deflection) after the first alert. Verify the system returns to ready state and clears the counter.",
+        "Download detailed simulation log. Compare against STC-required tolerances for all timings and logic transitions.",
+        "Logbook entry includes test date, next-due date (+24 months), download hash/timestamp, and PASS/FAIL for each STC criterion."
+      ],
+      "evaluator_watching_for": [
+        "Candidate cites manufacturer training certification before starting.",
+        "Autopilot master is OFF throughout the test.",
+        "Both the TRIGGER test and the PILOT-CANCEL test are performed.",
+        "Log is downloaded and timestamps/hashes are recorded in the logbook.",
+        "Test is performed on the STC ALS schedule — not deferred, not accelerated.",
+        "Candidate does not discuss testing the automatic trigger during actual flight."
+      ],
+      "common_mistakes": [
+        "Skipping the pilot-cancel test because the trigger test passed. A working trigger with broken cancel logic will engage Autoland on a fully-conscious pilot during turbulence or training maneuvers.",
+        "Recording only PASS/FAIL without specific timing values. The STC requires timing data; absence of it invalidates the return-to-service.",
+        "Performing this without the simulation harness by 'creating deviation with the autopilot disengaged.' Real-deviation tests create risk of unintended servo activation and are prohibited.",
+        "Treating this as annual instead of 24-month, or vice versa. Over-testing wastes hours; under-testing violates the STC ALS. Read the ALS."
+      ]
+    },
+    "Currency": {
+      "title": "Weather and Navigation Database Currency",
+      "step_by_step": [
+        "Before any scheduled inspection or return-to-service, check all four Autoland-dependent databases: nav (AIRAC), terrain, obstacle, and weather subscription.",
+        "Nav database: verify AIRAC cycle is current OR within the grace period specified in STC (typically 28 days from cycle effective date).",
+        "Terrain database: verify issue date against manufacturer-specified refresh cycle (typically 180 days).",
+        "Obstacle database: same as terrain.",
+        "Weather subscription (XM/FIS-B): verify active subscription and most recent receive time <24 hours before taxi.",
+        "If any database is out of cycle, perform the dataload procedure (SD card or ARINC 615A) using manufacturer-approved data.",
+        "Verify post-load integrity via the CRC or checksum report on the flight deck. A CRC failure means the load is incomplete — re-load before continuing.",
+        "Verify Autoland ready-state returns after all loads complete. A system with one stale database may show ready but will inhibit activation at runtime.",
+        "Logbook entry cites each database, cycle number loaded, load method, and result."
+      ],
+      "evaluator_watching_for": [
+        "Candidate checks ALL four databases, not just the nav DB.",
+        "Grace-period rules are applied correctly (they vary by platform; read the AMM).",
+        "Post-load CRC is verified — not just 'load complete' message.",
+        "Autoland ready-state is confirmed after load — not just assumed.",
+        "Each load is logged separately in the logbook with the cycle/issue number, not a single 'databases updated' entry."
+      ],
+      "common_mistakes": [
+        "Loading the nav DB and forgetting terrain/obstacle/weather. Autoland will inhibit at runtime when it discovers a stale terrain DB — by then, the passenger is pressing the button.",
+        "Using data from the wrong provider or wrong platform. A Garmin nav DB on a Vision Jet is not interchangeable with one on an M600; each airframe STC specifies the exact data source.",
+        "Not verifying post-load. A failed CRC is common with aged SD cards; re-seating the card and reloading usually fixes it, but only if you check.",
+        "Overriding the 'database expired' warning by acknowledging it on the flight deck without actually loading. This is recorded in the nonvolatile log and will appear in any NTSB investigation."
+      ]
+    },
+    "Reset": {
+      "title": "Post-Activation Download and Reset",
+      "step_by_step": [
+        "Aircraft is grounded immediately after any Autoland activation (emergency or inadvertent) per STC ALS. No taxi, no takeoff until return-to-service is complete.",
+        "Photograph the cockpit state as found: any warning annunciators, the logbook, any relevant switches. This is evidence, not just documentation.",
+        "Perform the NVRAM data download per manufacturer procedure. Retain a copy locally AND provide a copy to the operator and their legal representative.",
+        "Submit the NTSB preliminary report within 10 days per 49 CFR 830. Some activations are NTSB-notifiable immediately under 830.5; verify applicability based on the activation cause.",
+        "Inspect all Autoland-relevant systems per the STC post-activation checklist: servos (for over-travel damage), autopilot computer (self-test), RA, autothrottle (jet), databases, activation button.",
+        "Any discrepancies found: address them before continuing. The activation itself is NOT a discrepancy, but it may have revealed pre-existing conditions.",
+        "Perform the full STC return-to-service test sequence (not abbreviated). This typically takes 4-8 hours.",
+        "Reset the Autoland activation flag only after all above is complete. Reset procedure varies by platform — some require manufacturer authorization.",
+        "Comprehensive logbook entry: activation date/time/trigger, download hash, NTSB report number, inspection findings, RTS test results, reset date. This is a legal record that will be reviewed for years."
+      ],
+      "evaluator_watching_for": [
+        "Candidate understands the aircraft is GROUNDED, not 'sortable,' after activation.",
+        "Photo documentation is performed before any switches are moved.",
+        "NVRAM download precedes any troubleshooting or component removal.",
+        "NTSB notification is submitted on the correct timeline.",
+        "Full STC RTS test is performed — not abbreviated because 'it just landed successfully.'",
+        "Reset is the last step, not the first. Resetting the flag before inspection destroys the evidence chain."
+      ],
+      "common_mistakes": [
+        "Treating a benign-outcome activation (successful landing) as a non-event. Every activation is a maintenance action with regulatory implications.",
+        "Resetting the Autoland flag to 'get the aircraft flying again' before full inspection. This is both a violation and a safety hazard — pre-existing conditions go undetected.",
+        "Submitting a generic NTSB report without the required data elements (activation cause, trajectory, outcome). Rejected reports delay the process and may trigger additional investigation.",
+        "Not retaining the data log. The technician's copy is the only independent record; manufacturer and operator copies may be subject to legal discovery and modification."
+      ]
+    },
+    "Platforms": {
+      "title": "Autothrottle Servo Verification (Jet Platforms)",
+      "step_by_step": [
+        "Aircraft on ground, engine shut down, chocks installed, autothrottle master OFF, autothrottle circuit breaker pulled per AMM.",
+        "Inspect servo mounting: bolt torque, bonding strap, cable clearance from adjacent structure. Log any findings.",
+        "Reinstall CB, power the aircraft. Enter autothrottle test mode via manufacturer procedure.",
+        "Command the servo to idle stop. Verify physical thrust-lever position matches commanded idle within tolerance (typically ±0.25 inches at the lever grip).",
+        "Command the servo to takeoff stop. Verify matching position at max thrust detent.",
+        "Exercise the thrust-lever emergency disconnect switch. Servo should release immediately and lever should move freely under hand force.",
+        "Command intermediate positions (climb, cruise) and verify tracking.",
+        "Perform servo force-feedback test: apply 10-20 lb opposing force at the lever; servo should override without clutching or stall-current.",
+        "Return all switches to normal, reset CBs, and make the logbook entry with measured values for idle/takeoff positions, force-feedback result, and disconnect response time."
+      ],
+      "evaluator_watching_for": [
+        "Servo mounting inspection is performed — not just electrical test.",
+        "Both idle and takeoff physical stops are verified against commanded position.",
+        "Emergency-disconnect test is performed and confirmed.",
+        "Force-feedback test is performed with a calibrated force (hand-measured is NOT acceptable for STC compliance).",
+        "Measured values are logged, not just PASS/FAIL."
+      ],
+      "common_mistakes": [
+        "Skipping the mounting inspection because 'the electrical test passed.' Loose mounting creates vibration-induced cable wear that shows up in flight as erratic autothrottle behavior.",
+        "Not pulling the CB before inspection. The servo can self-command if the autothrottle thinks the engine is running; pulling the CB is non-negotiable.",
+        "Relying on 'hand force' for the feedback test. Autoland approach speed is sensitive to autothrottle force-curve shape; without calibrated force, the test result isn't meaningful.",
+        "Assuming servo issues are electrical. About half of field autothrottle failures are mechanical (rigging, detent, cable friction) — inspect those first."
+      ]
+    }
+  },
+  "synthesized_oral_board": [
+    "Q1: A passenger has just pressed the Autoland button. Walk me through what the system does in the first 60 seconds, from button press to committed approach.",
+    "Q2: The STC Airworthiness Limitations section requires a 24-month incapacitation-detection simulation test. Why is this test scheduled at 24 months specifically rather than annually? What's the hazard of deferring it?",
+    "Q3: An aircraft just had an inadvertent Autoland activation during a ferry flight — the automatic pilot-incapacitation detection triggered when the pilot was fully conscious but hands-off during cruise with autopilot disengaged. The aircraft landed safely. What are your maintenance actions?",
+    "Q4: You're inspecting a Piper M600 with HomeSafe. The owner says the nav database is two cycles out because they missed the last AIRAC. Can they fly the aircraft? Can they use Autoland in emergency? What's the technician's action?",
+    "Q5: During the activation button self-test, the aural alert plays on the cockpit speakers but NOT on the cabin speakers. Everything else checks out. Is the aircraft airworthy for Autoland? Defend your answer with specific references."
+  ],
+  "oral_board_answers": {
+    "Q1": "Button press triggers the 15-second activation countdown with audible 'Autoland activating in 15 seconds, press again to cancel' alert. Countdown ends with engagement: transponder to 7700, flight ID to Autoland-specific string, 1090ES NACp set to emergency. Voice message broadcasts on 121.5 MHz: 'This is an Emergency Autoland. Aircraft is en route to a safe landing.' System transitions to DESTINATION_SELECT state and runs the algorithm: evaluates candidate airports within fuel endurance for runway length, weather, approach availability, crosswind. Announces selection: 'Autoland selected [airport name]. Estimated landing in [N] minutes.' Begins flying toward the destination on a route that avoids terrain and weather. Over the next minutes, re-evaluates destination every 10 seconds in case weather changes. Until the Initial Approach Fix, destination can still be changed. At IAF, commits to the approach. From commit, the system will fly the approach, flare using RA, touch down, rollout, brake to a stop, and shut down the engine. Total duration button-to-stop is typically 15-45 minutes depending on destination proximity.",
+    "Q2": "The 24-month interval reflects the certification assumption: the manufacturer demonstrated to FAA that incapacitation-detection sensors (attitude, flight-path deviation, optional CO) have a failure mode time-to-discovery that is acceptable when combined with 24-monthly testing. A shorter interval would be over-engineering; annual would duplicate the testing at the autopilot system level. A longer interval would exceed the certification data's demonstrated reliability window. Deferring the test means the STC's safety argument no longer holds — legally, the aircraft is out of compliance with 14 CFR 91.409 (inspection requirements) because the ALS is part of the airworthiness limitations that must be complied with. The hazard: a sensor drift or latent fault in the detection logic that would have been caught by the simulation test remains undetected. If the real incapacitation event occurs with that latent fault present, the system may fail to trigger or may trigger inappropriately. The 24-month cadence is not arbitrary — it's load-bearing.",
+    "Q3": "Treat it as a full activation event. The fact that the pilot was conscious does not change the regulatory or safety posture. Actions: (1) Ground the aircraft — no taxi, no further flight. (2) Photograph cockpit state as found. (3) Download the NVRAM data log before touching anything. (4) File NTSB preliminary report per 49 CFR 830 — an Autoland activation is a notifiable event regardless of outcome. (5) Inspect incapacitation-detection inputs: review ADAHRS attitude and CAN-bus traffic during the pre-trigger window to understand why the trigger fired. Likely root cause: autopilot disengaged during cruise plus turbulence plus no control inputs met the detection criteria. (6) Perform the full STC return-to-service test sequence. (7) Reset the Autoland flag only after all inspections and tests pass. (8) Counsel the operator: flying hands-off with autopilot disengaged is a known false-trigger condition; the ALS or Pilot Operating Handbook describes this. A POH amendment may be indicated; coordinate with the TCH. Logbook entries: full event description, NTSB report number, inspection findings, RTS test results, operator counseling.",
+    "Q4": "The aircraft may be flyable for non-precision operations — depends on what the MEL says and whether the owner is willing to fly without RNAV/GPS approach capability. But for Autoland specifically: no. The STC and the ALS require current nav database for the destination-selection algorithm. Two cycles out means approximately 42-56 days expired. That falls outside the grace period of any current HomeSafe STC. Autoland would inhibit activation at runtime because the internal self-check finds a stale DB. Even if activation were forced, the system cannot guarantee a valid LPV approach at the selected destination because waypoint data may be incorrect. Technician actions: (1) Inform the owner the aircraft is NOT Autoland-capable until the DB is current. (2) Offer to perform the database load immediately — 30 minutes of work vs days of rescheduled operations. (3) Logbook entry noting the DB was out of currency and has been updated. If the owner declines the update, they still cannot legally operate to minimums the DB would have covered — that is an MEL/airworthiness issue separate from Autoland.",
+    "Q5": "The aircraft is NOT airworthy for Autoland. The cabin-speaker alert is the passenger's primary notification that Autoland is activating; without it, a passenger who just pressed the button has no confirmation the system received the press, and may press again repeatedly or panic. The Autoland STC certification data assumes the cabin-announcement system is functional; this is specified in the AMM and in the STC functional description. References: (1) AMM Chapter X (Autoland — varies by platform) specifies the cabin-speaker requirement. (2) STC ALS lists the cabin-speaker functional check as part of the 100-hour self-test with PASS being required for Autoland capability. (3) 14 CFR 91.7 prohibits operating in an unairworthy condition; 91.405 requires the owner to assure airworthiness; 91.213 governs deferral. Autoland does not have MEL entries that allow deferral of the cabin audio — it is Required Equipment. Technician action: discrepancy write-up, aircraft is NOT authorized for Autoland until the cabin audio is repaired and retested. The rest of the aircraft can fly if all other airworthiness conditions are met, but the POH supplement for Autoland must be marked as INOP. This is not a matter of judgment — the ALS is explicit."
+  },
+  "background_theory": {
+    "why_autoland_is_dal_a": "DO-178C Design Assurance Level A is reserved for software whose failure would cause or contribute to a catastrophic failure condition — loss of aircraft or multiple fatalities. Emergency Autoland software commands control surfaces, engine, and brakes without pilot override during an emergency; a software fault during engagement would be catastrophic. DAL A requires: formal methods for requirements capture, independent verification of every requirement, structural coverage including MCDC (modified condition / decision coverage) at the object-code level, traceability from requirement to code to test, and independent audit. Development typically costs 10-30x compared to DAL C. This is why Autoland software is not field-modifiable and why software revisions trigger full STC re-certification — the DAL A evidence base must be refreshed.",
+    "why_pilot_incapacitation_uses_flight_path_deviation": "Direct physiological monitoring (heart rate, respiration, EEG) was considered during Autoland development but rejected because: (1) requires pilot-worn sensors which are prohibited equipment for most operators, (2) false-positive rate for a sick pilot is too high for an action with such consequential outcome, (3) sensor drift and attachment issues make the signal unreliable. Flight-path deviation as a proxy is stronger because it responds to the REAL safety concern: the aircraft is not being flown. A pilot who is conscious but not flying should intervene when the 'Are you there?' alert sounds; if they don't, the outcome of Autoland engagement (safe landing) is still the desired outcome whether the cause is unconsciousness, impairment, or distraction. The design choice is therefore aligned with the safety goal rather than the root cause.",
+    "why_autoland_selects_lpv_over_ils": "Autoland prefers LPV (Localizer Performance with Vertical) approaches over ILS for three reasons. First: availability — LPV is published at 4000+ US airports vs ILS at 1400, so the probability of a close-in, weather-compatible destination is much higher. Second: signal reliability — LPV is space-based (SBAS correction of GPS) and does not depend on ground transmitters that may have NOTAM outages the onboard database can't verify. Third: autopilot integration — Autoland's autopilot software is certified to track LPV lateral and vertical guidance via the same ARINC 429 data bus as the other approach types; no special handling is needed. ILS requires localizer-tracking logic that responds differently to noise (signal bent by taxiway traffic, vehicle interference) than LPV's steady SBAS-corrected GPS. For an unmanned approach, steadiness beats precision — and LPV provides both to 200 ft AGL."
+  }
+}

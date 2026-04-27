@@ -1,0 +1,284 @@
+{
+  "slug": "adv1",
+  "module_name": "Cabin Management Systems (CMS)",
+  "why_this_matters": [
+    "A modern business aviation Cabin Management System is not a luxury feature — it is a federated network of embedded computers, PoE-powered endpoints, shielded Ethernet runs, wireless access points, and passenger-facing displays that shares the pressure vessel, the 28 V DC bus, and the structural bond network with flight-critical avionics. When a CMS designer, installer, or maintainer treats the system as 'just entertainment,' the aircraft ends up with Cat 5e runs chafing against flight control bundles, unbonded IFE chassis injecting conducted noise into the 400 Hz bus, and Wi-Fi access points radiating in frequency bands that couple into the passenger's hearing-aid loops. 14 CFR 25.1301 still applies to every wire you pull for the CMS. 14 CFR 25.1309 still applies to the failure analysis of every box you install. The craftsperson treats a passenger-service wire the same way they treat a primary-flight-control wire — because the aircraft does.",
+    "The accident record has made this lesson expensive. Swissair Flight 111 (MD-11, 1998) originated from arcing in an in-flight entertainment network that was installed under a supplemental type certificate without adequate attention to wire separation, circuit protection, and material flammability. The Transportation Safety Board of Canada traced the fire propagation to metallized Mylar insulation ignited by arcing in the IFE wiring above the cockpit ceiling. One hundred and twenty-nine people died because installers, inspectors, and approval engineers did not treat the cabin network with the discipline that flight-critical wiring demands. Every CMS wire you route, every backshell you torque, every circuit breaker you size, and every software load you validate is a response to that accident. The FAA's subsequent enhanced airworthiness program — EAPAS, now integrated into 14 CFR Part 26 and Advisory Circular 25-27 — exists because the industry learned the hard way that cabin wiring is not a second-class citizen.",
+    "Your job on a CMS is to be the person who understands what the box actually does, where its data flows, and how it fails. The passenger sees a touchscreen; you see an ARINC 628-defined passenger service unit talking to a central server over a switched Ethernet fabric, drawing PoE+ power budgeted against a PSE controller, with audio streams encoded and distributed under a licensed media pipeline, and a wireless access point enforcing WPA2-Enterprise authentication. When the passenger reports 'the movie won't play in seat 2B,' the amateur technician swaps the seat display. The CAET-certified technician pings the switch port, checks the PoE budget, verifies the DHCP lease, confirms the content is available on the distribution server, and only then — if every network test is clean — touches the hardware. That discipline is what this module is training you to demonstrate."
+  ],
+  "key_terms": [
+    {"term": "ARINC 628", "definition": "The ARINC industry standard defining the Cabin Equipment Interfaces specification — seat electronics, passenger control units, reading lights, and attendant call systems. Parts 1-9 cover everything from PSU wiring to in-seat power outlets. This is the primary ARINC reference for cabin electronics architecture and is required reading for any CMS retrofit STC."},
+    {"term": "ARINC 763", "definition": "The standard defining Network Server Systems (NSS) for aircraft — the servers hosting cabin content, EFB ground-link services, and crew information. ARINC 763 specifies the hardware form factor, Ethernet interfaces, and airworthiness requirements for on-aircraft servers, including DO-160 environmental qualification for RTCA categories."},
+    {"term": "ARINC 664 (AFDX)", "definition": "Avionics Full-Duplex Switched Ethernet — the deterministic Ethernet variant used on Boeing 787, Airbus A380/A350, and most modern transport-category aircraft for avionics data networks. CMS networks are typically isolated from AFDX but may share physical routing and must maintain the physical separation mandated by the Systems Safety Assessment."},
+    {"term": "PoE+ (Power over Ethernet, IEEE 802.3at)", "definition": "Standard delivering up to 30 W per port at 48-54 V DC over Cat 5e or better twisted pair, powering endpoint devices (seat displays, Wi-Fi access points, cabin cameras) from the network switch. PoE++ (802.3bt) extends to 60-90 W. Budget planning is critical: a 24-port switch rated 370 W cannot run 24 full-load PoE+ ports."},
+    {"term": "PSU (Passenger Service Unit)", "definition": "The overhead panel containing reading light, attendant call button, air gasper, and 'fasten seatbelt / no smoking' indicators, defined by ARINC 628. PSUs connect to the CMS via CAN bus or Ethernet and receive both power and control through a common backshell harness. A failed PSU is a common write-up and a common CAET practical task."},
+    {"term": "IFE (In-Flight Entertainment)", "definition": "The audio/video distribution portion of the CMS. Modern IFE is IP-based: content stored on an ARINC 763 server, delivered as streaming H.264 or H.265 over the switched Ethernet network, decoded at each seat endpoint. Legacy IFE used RF distribution over coaxial cable — you will still see this on older aircraft and must know both architectures."},
+    {"term": "Cat 5e / Cat 6A Ethernet", "definition": "Twisted-pair cable carrying data and PoE. Cat 5e supports 1 Gbps to 100 m; Cat 6A supports 10 Gbps to 100 m with improved alien-crosstalk performance. Aircraft installations use aerospace-grade variants qualified to RTCA DO-160 with tin-coated conductors and flame-resistant jackets. The 100 m limit includes patch cables at both ends."},
+    {"term": "DO-160 (RTCA)", "definition": "Environmental Conditions and Test Procedures for Airborne Equipment. Every CMS LRU must carry a DO-160 qualification statement covering the relevant sections: Section 16 (power input), 17 (voltage spike), 20 (radiated emissions), 21 (RF susceptibility), 22 (lightning induced transients). A CMS box without a current DO-160 sign-off cannot be installed, regardless of how well it works on the bench."},
+    {"term": "Zone (Cabin Zone)", "definition": "A logically grouped cabin region (galley, forward cabin, aft cabin, lavatory) addressable as a unit by the CMS for lighting, audio, and environmental control. Zones correspond to physical network switches or switch VLANs. Zone isolation is the design principle that a fault in one zone does not propagate — a failed switch in the aft zone must not darken the forward cabin."},
+    {"term": "Central CMS Processor", "definition": "The head-end computer running the CMS application, maintaining the configuration database, hosting the web-based crew interface, and orchestrating zone commands. Often called the 'Cabin Server' or 'Head End Server,' it is typically a DO-160 qualified rackmount unit in the equipment bay. Loss of the head end darkens the entire cabin unless a redundant unit is fitted."},
+    {"term": "Crew Control Panel / Master Control", "definition": "The flight attendant's touchscreen interface to the CMS — usually mounted at the forward and aft galleys. Allows selection of lighting scenes, PA announcements, IFE content, temperature setpoints per zone. A CMS troubleshooting task often begins here: reproduce the symptom from the master control before touching any LRU."},
+    {"term": "Configuration Backup", "definition": "A snapshot of the CMS software configuration (seat map, lighting presets, audio channel assignments, Wi-Fi SSIDs and keys, user accounts) captured to a file before any software load or hardware change. The exam tests this as a non-negotiable step — loading software without a configuration backup risks losing custom settings that take hours or days to rebuild."},
+    {"term": "BIT (Built-In Test)", "definition": "The CMS self-diagnostic routine executed at power-up (PBIT) and continuously during operation (CBIT). BIT checks network connectivity to each endpoint, PoE voltages at each port, and content server responsiveness. Reading the BIT log is the first step in any CMS fault isolation — it often points directly at the failed component."},
+    {"term": "VLAN (Virtual LAN, IEEE 802.1Q)", "definition": "A method of logically segmenting a single physical Ethernet network into isolated broadcast domains. CMS networks use VLANs to keep passenger Wi-Fi traffic separate from crew control traffic, and both separate from flight-deck connected gateway interfaces. A VLAN misconfiguration can make one zone 'invisible' to the head end while the physical network tests fine."},
+    {"term": "TSO-C157a", "definition": "Technical Standard Order covering Aircraft Passenger Address Entertainment Systems. Defines minimum performance for passenger announcement audio: intelligibility, volume, and priority override by the flight deck PA. CMS audio must preserve crew-PA priority even when the IFE is running — a requirement the evaluator will test by asking what happens when the pilot keys the PA during a movie."}
+  ],
+  "knowledge_enrichment": {
+    "Architecture": {
+      "title": "CMS Architecture and Cabin Network",
+      "overview": "A modern business aviation CMS is a federated system: a central processor orchestrates subsystems distributed across the cabin over a switched Ethernet fabric. Understanding the architecture means knowing what data flows over which medium, what power flows over which bus, and which failures propagate where. CMS networks are logically and physically isolated from flight-critical avionics — ARINC 664 AFDX or ARINC 429 buses do not carry cabin data, and the Systems Safety Assessment documents the isolation.",
+      "key_points": [
+        "Head-end architecture: a Central CMS Processor (ARINC 763 Network Server System) hosts the application, configuration database, and content library. On larger aircraft the head end is dual-redundant with automatic failover; on smaller platforms a single head end is typical and its failure darkens the cabin.",
+        "Distribution: an Ethernet switching fabric (typically managed Layer 2 switches with 802.1Q VLANs) carries both IFE streams and CMS control traffic. Zone switches are placed in avionics bays forward and aft; seat-group switches sit under the cabin floor in IDUs (Integrated Distribution Units).",
+        "Endpoints: PSUs, seat displays, reading lights, attendant call buttons, cabin speakers, Wi-Fi access points. Each endpoint is a network node with a MAC address, often receiving PoE+ power from its upstream switch port per IEEE 802.3at (up to 30 W).",
+        "Control: the cabin crew control panels are thin clients — the UI runs locally, but all state lives on the head-end server. A crew control panel reboot does not disrupt the cabin; a head-end reboot does.",
+        "Separation from flight-critical networks is mandatory per 14 CFR 25.1309 and is documented in the STC's Systems Safety Assessment. The Gateway (if present, for flight-deck moving map data) is a one-way read-only diode or a firewalled appliance, never a routed path.",
+        "Physical wiring: Cat 5e or Cat 6A Ethernet from switches to endpoints, 100 m maximum including patch cords. Runs longer than 100 m require a repeater or fiber. Coaxial RF distribution still exists on legacy IFE and requires 75 Ω match and proper terminators.",
+        "Wireless: 802.11ac/ax access points on the 2.4 GHz and 5 GHz bands. Channel planning matters — two access points on the same channel in adjacent zones interfere. Passenger Wi-Fi is firewalled from the control network via VLAN and Layer 3 separation."
+      ]
+    },
+    "CMS": {
+      "title": "Systematic Troubleshooting for CMS",
+      "overview": "CMS troubleshooting follows the same systematic method as any avionics system — observe, isolate, verify, repair, retest — but with the added complexity that multiple interconnected subsystems can produce the same symptom. The exam and the evaluator both test that you do NOT skip steps. Swapping an LRU before verifying cabling, power, and configuration is the single most common failure mode at the practical qualification.",
+      "key_points": [
+        "Step 1 — Reproduce the fault from the crew control panel. If the crew cannot reproduce it, the crew cannot operate around it, and you have no repeatable test point.",
+        "Step 2 — Read the BIT log. Modern CMS head ends log PoE faults, network link drops, DHCP failures, and content server errors. The log often points directly at the LRU, port, or software fault.",
+        "Step 3 — Verify power at the suspect endpoint. Use a PoE tester at the RJ45 to confirm the switch is sourcing voltage and the endpoint is in the correct PoE class. A dead endpoint without PoE voltage is a switch or cable problem, not the endpoint.",
+        "Step 4 — Verify network connectivity. Ping the endpoint by IP from the head end or from a maintenance laptop on the same VLAN. A device that responds to ping but not to CMS commands is a software or configuration problem, not a hardware problem.",
+        "Step 5 — Only after 1-4 pass do you touch hardware. Swap the endpoint, cable, or switch port. Document what you changed and why. If the symptom moves with the swap, you found it; if it stays, you did not.",
+        "Step 6 — Retest at the crew control panel under the same conditions that produced the original report. A fix that only works from the maintenance laptop is not a fix.",
+        "Common evaluator trap: candidate replaces an IDU because one seat display is dark. Evaluator expects you to recognize the IDU serves multiple seats and all the other seats are fine — so the IDU cannot be the fault. The cable, the port, or the endpoint is."
+      ]
+    },
+    "Configuration": {
+      "title": "Software Updates and Configuration Management",
+      "overview": "CMS software updates touch flight attendants' daily workflow — seat maps, lighting presets, playlist structures, Wi-Fi keys — and an update done wrong can wipe hours of customization. The exam tests the backup-before-update principle as a universal avionics rule, not a CMS quirk. It applies to FMS databases, engine monitor configurations, and GPS nav databases just the same. The method you learn here is the method you will use for every software load of your career.",
+      "key_points": [
+        "Before any update: capture a configuration backup to the maintenance laptop. The CMS maintenance interface typically exposes a 'Save Configuration' function that writes a signed archive file. Label it with aircraft tail number, date, and 'pre-update' in the filename.",
+        "Verify the software load file is the correct version for this aircraft per the service bulletin or manufacturer release notes. A CMS head end and a CMS zone switch may require different software parts — do not cross-load.",
+        "Disable passenger access during the update. Some updates reboot the head end and kill Wi-Fi and IFE mid-procedure — doing this with passengers watching a movie generates complaints you do not need.",
+        "Verify software integrity after load: check sum or cryptographic hash matches the release notes. Modern CMS head ends verify this automatically and refuse to boot a corrupted image, but older systems will happily run a half-loaded file.",
+        "Post-update verification: walk every zone. Confirm every display powers on, every PSU reading light and attendant call works, every Wi-Fi SSID is broadcasting, every audio channel plays. Do not trust a BIT-only check; physically verify.",
+        "Restore the backup only if the update failed or introduced a regression. An update that works but changes a cosmetic default is not a reason to restore — restoring will overwrite the new software with the old and may trigger an out-of-currency warning.",
+        "Document the software part numbers pre- and post-update in the maintenance record per 14 CFR 43.9. The aircraft's software configuration is part of its airworthiness state."
+      ]
+    },
+    "Topics": {
+      "title": "Key Exam Topics and Written Crosswalk",
+      "overview": "The written exam for the CAET Advanced CMS module focuses on architectural understanding and troubleshooting discipline, not manufacturer-specific procedures. Questions test whether you can identify CMS components vs. aircraft system components, whether you know the order of the troubleshooting steps, and whether you understand why zone isolation and network separation exist. Preparing means reviewing the architecture diagrams from ARINC 628, the generic network topology, and the backup-before-update principle from every angle.",
+      "key_points": [
+        "Component identification: given a photograph or schematic, identify which boxes are CMS (head end, zone switch, PSU, seat display) vs. aircraft system (IRS, FMS, transponder, engine EEC). Overlapping form factors in the equipment bay make this a real test.",
+        "Troubleshooting sequence: questions present a symptom and a list of actions — select the correct ORDER. Skipping the BIT log or swapping hardware before verifying power are distractor answers that will trap candidates who have not internalized the method.",
+        "Zone architecture: understand that a failed zone switch takes down one zone, not the whole cabin. Understand that a failed head end takes down the whole cabin unless redundant. Expect questions drawn from real block diagrams.",
+        "Software update method: backup first, update, verify, document. Expect questions on what to do when a step is skipped and something breaks. The correct answer is usually 'restore from backup,' not 'call the OEM.'",
+        "Diagnostic interface: the maintenance laptop connects to a dedicated port, typically in an avionics bay. It uses the aircraft's internal IP addressing and requires credentials. Passenger-facing ports are never maintenance ports — mixing them is a security finding.",
+        "IFE content management: legal content licensing, encoding formats (H.264/H.265), and distribution (streaming vs. local cache at each seat) are testable. Understand that an IFE that will not play a movie at one seat but will at others is almost never a content problem.",
+        "Cabin lighting: zones, presets, emergency reversion. 14 CFR 25.812 governs emergency lighting; the CMS cabin lighting system must never interfere with emergency illumination path lighting, which has its own independent battery and bypass logic.",
+        "Power distribution: CMS components are 28 V DC or 115 V 400 Hz AC depending on the LRU; PoE+ endpoints are 48 V DC supplied by the switch. Each LRU has its own circuit breaker sized per AC 43.13-1B Chapter 11."
+      ]
+    }
+  },
+  "synthesized_tasks": [
+    {"heading": "Task 1 — CMS Power-Up and Built-In Test", "body": "Apply aircraft power (external cart or APU bus), bring up the CMS head end, observe the power-on BIT sequence to completion, and verify every zone, endpoint, and peripheral reports healthy in the BIT log. This is the baseline task every CMS technician performs before any other work on the system."},
+    {"heading": "Task 2 — CMS Software Update with Configuration Backup", "body": "Connect the maintenance laptop to the CMS diagnostic port, capture a full configuration backup, install the specified software load per the service bulletin, verify the software integrity check passes, and perform a post-load cabin walkdown to confirm every function restored. Document the software part numbers in the maintenance record."},
+    {"heading": "Task 3 — Seat-Level Audio/Video Fault Isolation", "body": "Given a write-up that 'seat 4B has no audio in the headset jack,' systematically isolate the fault using the BIT log, PoE voltage verification, IP connectivity test, and headset-jack substitution. Do NOT swap the seat display first. Document the actual root cause and correct at the lowest possible level of repair."},
+    {"heading": "Task 4 — Passenger Wi-Fi Association and Device Pairing", "body": "Verify the passenger Wi-Fi access point is broadcasting the correct SSID on the correct band and channel, authenticate a test device with the captive portal or passphrase, confirm the device receives a DHCP lease, and verify the device can reach the intended content (local IFE server and/or external internet through the satcom link, per STC)."},
+    {"heading": "Task 5 — CMS LRU Replacement and Return-to-Service", "body": "Remove and replace a failed CMS line-replaceable unit (head end, zone switch, or PSU) following the approved removal and installation procedure. Verify grounding, bonding, and configuration loading after installation. Perform a full BIT check and a cabin walkdown prior to returning the aircraft to service. Complete the 14 CFR 43.9 maintenance record entry."},
+    {"heading": "Task 6 — IFE Content Load and Zone Distribution Check", "body": "Load the latest licensed IFE content package to the ARINC 763 network server, verify content integrity, and confirm playback at a representative endpoint in each cabin zone (forward, aft, lav monitor if fitted). Validate that zone-specific audio language selections route correctly and that the crew PA priority interrupts IFE playback per TSO-C157a."}
+  ],
+  "task_enrichment": {
+    "Test": {
+      "title": "CMS Power-Up and Built-In Test",
+      "step_by_step": [
+        "Verify aircraft ground power or APU bus is within tolerance: 28 V DC +/-0.5 V, 115 V AC 400 Hz +/-2 Hz at the avionics bus. An under-voltage power-up can cause a partial boot and false BIT faults.",
+        "Apply the CMS Master power switch on the crew control panel or the equipment-bay circuit breaker per the maintenance manual. Start a timer — a healthy CMS head end reaches operational state in 60-120 seconds.",
+        "Observe the head-end indicator LEDs during boot: power, network, storage, application. Any LED that does not follow the expected sequence is a flagged item for the BIT log.",
+        "Once the crew control panel presents the operational UI, navigate to the Maintenance or BIT page. This page is typically password-protected — use the maintenance credentials, not the crew credentials.",
+        "Read the BIT log from top to bottom. Separate faults (hard failures) from warnings (marginal conditions). Record both in your worksheet with timestamp and subsystem.",
+        "For any flagged endpoint, cross-reference the seat map: a fault in 'Seat 12A display' must be verified physically at seat 12A before the log is trusted. Occasionally a seat is relocated and the log is stale.",
+        "Check PoE status per switch port — modern CMS exposes per-port voltage and current draw. A port sourcing 0 V to a device that should be present indicates a cable or endpoint failure, not the switch.",
+        "Confirm the cabin network link status: all zone switches show 'up' with the expected port speed (typically 1 Gbps on the trunk, 100 Mbps or 1 Gbps on endpoints).",
+        "Document the BIT state in the discrepancy log. If the BIT is clean, so state; do not omit the entry."
+      ],
+      "evaluator_watching_for": [
+        "Candidate verifies power quality at the bus before applying CMS master power — does not assume the cart is stable.",
+        "Candidate uses maintenance credentials, not crew credentials, to access the BIT page.",
+        "BIT log is read systematically top to bottom, faults and warnings separated.",
+        "Any flagged endpoint is verified physically, not trusted blindly.",
+        "PoE per-port voltages are checked, not just link status.",
+        "Discrepancy log entry is made whether or not faults are found."
+      ],
+      "common_mistakes": [
+        "Starting the CMS on a weak ground cart. The head end boots partially, produces spurious BIT faults, candidate chases ghosts for two hours. Always verify bus voltage first.",
+        "Reading only the top of the BIT log. Critical faults in a 50-entry log are often deep — read the whole thing.",
+        "Trusting the BIT log without physical verification. BIT logs can be stale after a seat relocation or zone-switch swap; if the log says seat 12A is bad but 12A has been moved to 13A in the latest cabin layout, you will chase the wrong seat.",
+        "Using crew credentials on the maintenance interface — typically you do not even have access to the full BIT page with those credentials and will miss the detail you need.",
+        "Skipping the discrepancy log entry because 'nothing was wrong.' The evaluator expects a BIT-clean entry with date, time, and initial — absence of documentation is a finding."
+      ]
+    },
+    "Backup": {
+      "title": "CMS Software Update with Configuration Backup",
+      "step_by_step": [
+        "Read the service bulletin or update release notes end to end before connecting any cable. Note the target software part number, the prerequisite version, and any special-case steps (reboots, credential changes, re-license activation).",
+        "Stage the update files on the maintenance laptop. Verify the file integrity hash (SHA-256 or MD5) matches the release notes — a download can corrupt silently.",
+        "Connect the maintenance laptop to the CMS diagnostic port. This is a dedicated RJ45 in the forward avionics bay, not a passenger-facing port. Authenticate with the maintenance credentials.",
+        "Capture a full configuration backup. The CMS maintenance UI will produce a signed archive file (.cmsbackup, .tgz, or similar). Name it with tail number, date, and 'pre-update-{version}' prefix. Copy it to a second location (USB drive) before proceeding.",
+        "Notify any crew or passenger present that the CMS is going offline. Disable passenger-facing services (Wi-Fi SSID, IFE) cleanly through the UI if the update includes a head-end reboot.",
+        "Initiate the software load. Monitor progress — a typical CMS head-end load is 5-20 minutes. Do not disconnect the laptop or cycle aircraft power during this phase.",
+        "After the load completes, the head end reboots automatically. Observe the power-on BIT and verify the software part number on the 'About' or 'System Info' page matches the target.",
+        "Perform a full post-update cabin walkdown: every zone, every endpoint, every function. Do not trust the BIT alone — physically verify each reading light, PSU button, seat display, and Wi-Fi SSID.",
+        "Enter the maintenance record per 14 CFR 43.9: pre-update and post-update software part numbers, date, technician signature. The aircraft's software configuration is part of its airworthiness state and this entry is legally required."
+      ],
+      "evaluator_watching_for": [
+        "Candidate reads the release notes completely before touching the aircraft.",
+        "Configuration backup is captured AND copied to a second location before the update starts.",
+        "Passenger-facing services are disabled cleanly — no mid-movie head-end reboot.",
+        "Software integrity is verified by hash match, not just by 'it downloaded.'",
+        "Post-update physical walkdown, not BIT-only.",
+        "Maintenance record entry with both pre- and post- software part numbers."
+      ],
+      "common_mistakes": [
+        "Skipping the backup because 'the update has never gone wrong.' It will, eventually, and you will not have a recovery path. Backup every time.",
+        "Keeping the backup only on the maintenance laptop. If the laptop drive corrupts, the backup is gone too. Second copy on removable media.",
+        "Cross-loading: using a software part intended for a different CMS variant (head end vs. zone switch, 12-seat vs. 18-seat cabin). Part number must match the aircraft configuration exactly.",
+        "Assuming the BIT-clean state means the update is good. A BIT-clean head end can still have a broken playlist, a dropped SSID, or a zone-light preset wiped — catch those with the walkdown.",
+        "Missing the maintenance record entry. An un-logged software change is a discrepancy at the next audit and may be grounds for a finding at the DER review."
+      ]
+    },
+    "Isolation": {
+      "title": "Seat-Level Audio/Video Fault Isolation",
+      "step_by_step": [
+        "Interview the write-up: which seat, which function, when did it start, is it reproducible or intermittent, does it happen on every headset or only a specific one.",
+        "Reproduce at the seat. Insert a known-good headset in the jack, navigate the IFE menu, attempt to play content. Confirm the exact symptom.",
+        "Check the BIT log for faults referencing that seat's IDU or endpoint. A hard PoE fault or link-down flag localizes the problem immediately.",
+        "Verify PoE at the endpoint's switch port using the CMS maintenance UI or a PoE tester at the RJ45 — voltage (48 V class) and current draw in the expected range.",
+        "Ping the endpoint by IP from the maintenance laptop on the same VLAN. A device that does not ping is a network or power problem, not an audio problem.",
+        "If the device pings but audio is absent: verify content is streaming to that endpoint (the head end typically exposes a per-seat stream indicator). No stream = routing or license problem, not a seat hardware problem.",
+        "Only after every upstream layer is clean do you touch hardware: substitute a known-good headset, substitute the in-armrest amplifier board (if line-replaceable), substitute the display.",
+        "Retest by passenger use case — play a full audio channel, not just a ping test. A menu that plays but a movie that does not is a codec license issue, not a hardware issue.",
+        "Document the root cause, the corrective action, and the retest result in the discrepancy log. If you swapped a part, record the serial numbers of both the removed and installed units."
+      ],
+      "evaluator_watching_for": [
+        "Candidate interviews the symptom rather than jumping to action.",
+        "BIT log is checked before any hardware is touched.",
+        "PoE voltage is verified physically, not assumed from the switch status LED.",
+        "Ping test is performed on the correct VLAN, not on the passenger Wi-Fi VLAN.",
+        "Hardware is substituted from lowest cost / easiest access inward (headset first, amplifier second, display last), not the other way around.",
+        "Serial numbers of removed and installed components are recorded."
+      ],
+      "common_mistakes": [
+        "Swapping the seat display first because it is the most visible component. 90 percent of seat-audio issues are upstream: cable, switch port, or content routing.",
+        "Testing only with the aircraft's courtesy headsets. They fail too — bring a known-good headset from your tool kit.",
+        "Skipping the ping test because the BIT log looked clean. A stale BIT log on a recently reconfigured zone will mask a live fault.",
+        "Returning to service after only a menu-load test. A device that boots its menu but cannot decode H.264 content is still broken — run the full passenger-use case.",
+        "Failing to capture serial numbers. An uncontrolled part swap creates a configuration-management discrepancy even if the fix worked."
+      ]
+    },
+    "Pairing": {
+      "title": "Passenger Wi-Fi Association and Device Pairing",
+      "step_by_step": [
+        "Verify the access point is broadcasting by scanning with a Wi-Fi analyzer (phone app or laptop utility). Confirm the SSID, band (2.4 GHz, 5 GHz, or 6 GHz if 802.11ax Wi-Fi 6E), and channel match the approved configuration.",
+        "Check received signal strength at the seat position you are testing. Typical acceptance at the seat is > -70 dBm; readings of -80 dBm or worse indicate a coverage gap.",
+        "Associate a known-good test device (tablet or laptop with aerospace-agnostic Wi-Fi client). Enter the WPA2 passphrase or complete the captive portal authentication per the STC configuration.",
+        "Confirm the device receives a DHCP lease. Check the assigned IP, subnet, default gateway, and DNS server. A 169.254.x.x address means the DHCP server did not respond — a head-end or VLAN problem.",
+        "Test captive-portal functionality (if fitted). The device should redirect any HTTP request to the portal page, accept acknowledgment of terms, and then allow traffic.",
+        "Test reachability to the IFE server (internal IP) — streaming IFE content from the server to the personal device is a common feature and a test point.",
+        "If external internet is part of the STC, test reachability through the satcom gateway. Confirm DNS resolution to a known public host and a basic HTTPS session.",
+        "Verify isolation: from the passenger test device, attempt to reach the crew control VLAN or the avionics maintenance VLAN. The connection MUST fail. Passenger traffic that can reach the crew network is a security finding.",
+        "Document the test, the device MAC address, the signal strength at the test location, and the pass/fail result."
+      ],
+      "evaluator_watching_for": [
+        "Candidate uses an actual Wi-Fi analyzer, not 'my phone sees the SSID.'",
+        "Signal strength is measured at the passenger position, not at the access point.",
+        "DHCP lease parameters are verified — not just 'it got an IP.'",
+        "Isolation from crew VLAN is actively tested; a passing result is not assumed.",
+        "Test documentation includes the test device MAC, so the association can be traced in the access point log."
+      ],
+      "common_mistakes": [
+        "Testing only at the access point. The seat on the far side of the cabin is where the passenger sits — test there.",
+        "Trusting a connected-but-no-internet symptom as a satcom problem. It is often a DNS or gateway misconfiguration in the CMS firewall, not the satcom link.",
+        "Skipping the isolation test. A passenger who can reach the crew network from the cabin is a 14 CFR Part 25 cybersecurity finding; this is not optional.",
+        "Re-keying the WPA2 passphrase in the access point because the test failed on one device. The device is more likely broken than the WPA2 config — test with a second known-good device before changing the infrastructure.",
+        "Leaving the test device associated to the passenger network when the test is complete. The access point association table retains stale entries; disconnect cleanly."
+      ]
+    },
+    "Return-to-Service": {
+      "title": "CMS LRU Replacement and Return-to-Service",
+      "step_by_step": [
+        "Positively identify the LRU to be replaced from the maintenance write-up and the wiring diagram. Verify the part number on the removed unit matches the part number of the replacement before unbolting anything.",
+        "De-energize the LRU at the appropriate circuit breaker. Confirm de-energization with a voltmeter at the LRU connector pins — do not trust the breaker label alone.",
+        "Remove the LRU per the maintenance manual procedure: disconnect connectors in the specified order (data first, then power is typical), support the weight, remove the mounting hardware.",
+        "Inspect the mating connectors, backshells, bonding straps, and mounting rack. A failed LRU is often a symptom of an underlying connector corrosion or bond-strap failure — fix the root cause, not just the LRU.",
+        "Install the replacement LRU. Torque mounting hardware to the specified value (typically inch-pounds per AC 43.13-1B Chapter 7). Connect bonding strap FIRST — before power or data connectors.",
+        "Reconnect connectors in the specified order. Verify connector backshell cable clamps are tight and no wires are strain-bearing on the connector pins.",
+        "Restore circuit breaker. Power up the LRU and the CMS. Observe the BIT sequence and confirm the new LRU enumerates in the head-end inventory with the correct serial number.",
+        "Load any configuration the new LRU requires — zone switches and PSUs often come from stock blank and must be configured with the aircraft's specific zone assignment and port map.",
+        "Perform a full functional test of every feature served by this LRU. For a head end, this is a complete cabin walkdown. For a zone switch, it is every endpoint in that zone.",
+        "Make the 14 CFR 43.9 maintenance record entry: part numbers and serial numbers of the removed and installed units, discrepancy that was addressed, corrective action, functional test result, and technician signature."
+      ],
+      "evaluator_watching_for": [
+        "Part number verification BEFORE removal — a wrong-part-on-the-shelf error is expensive and common.",
+        "De-energization confirmed with a voltmeter, not just by flipping a breaker.",
+        "Bonding strap connected before power or data — a loose bond strap during power-up can couple fault current to the chassis.",
+        "Mounting hardware torqued to spec with a calibrated torque wrench.",
+        "Configuration loaded to the new LRU if required — not left blank.",
+        "Full maintenance record entry with both removed and installed serial numbers."
+      ],
+      "common_mistakes": [
+        "Pulling the LRU without confirming the part number. A misidentified replacement will not work, will force a second removal, and may damage the connector.",
+        "Trusting the breaker label. Labels get swapped during re-wiring; verify with a meter.",
+        "Connecting power or data before bonding. A PoE voltage transient at power-up can arc to an ungrounded chassis.",
+        "Skipping the configuration load. A zone switch installed blank will enumerate but will not actually route CMS traffic correctly — cabin appears partially dead.",
+        "Making a functional-test entry like 'tested good' with no detail. The record should state what was tested and how it passed."
+      ]
+    },
+    "Check": {
+      "title": "IFE Content Load and Zone Distribution Check",
+      "step_by_step": [
+        "Verify the content package matches the aircraft's licensing: verify the content license server or the OEM's authorization for this specific aircraft tail. Loading unlicensed content is a legal exposure for the operator, not just a technical one.",
+        "Connect the maintenance laptop to the CMS diagnostic port. Authenticate with the maintenance credentials. Navigate to the content management UI.",
+        "Back up the current content library index (metadata only — the media files themselves are typically too large to back up routinely, but the index of what was on the server matters).",
+        "Initiate the content load. Large content packages (several hundred GB) may take 1-4 hours over a Gigabit maintenance link. Monitor progress and do not interrupt.",
+        "After the load completes, verify the content catalog on the head end. Every movie and audio title should display with a thumbnail and metadata; any 'missing media' flag indicates a failed file.",
+        "Select a representative endpoint in each zone (forward cabin seat, aft cabin seat, lav monitor if fitted) and play a short segment of representative content — an HD movie, a music track, and a safety briefing.",
+        "Verify audio language selection: a movie should offer the expected language tracks per the content license. A seat set to a zone-specific default language should default correctly.",
+        "Verify crew PA override: key the flight-deck or galley PA during IFE playback. TSO-C157a requires the PA to interrupt and duck the IFE audio, then restore cleanly when the PA releases.",
+        "Re-enable passenger services and remove the 'CMS maintenance' placard or closure.",
+        "Document the content part number or release date in the maintenance record and in the operator's content-licensing log."
+      ],
+      "evaluator_watching_for": [
+        "Candidate verifies the content license before loading. Loading unlicensed content is a finding even if 'the file was on the shelf.'",
+        "A representative seat in EACH zone is tested — not just one seat.",
+        "Audio language selection is verified, not just 'audio plays.'",
+        "PA override is actively tested — evaluator may press the PA button and watch for proper duck/restore behavior.",
+        "Content documentation is made in both the maintenance record and the content-licensing log."
+      ],
+      "common_mistakes": [
+        "Loading content without checking the license. OEM content servers often fail silently when a license expires — and the operator is liable.",
+        "Testing playback at only one seat because 'they all share the same server.' They do share the server — but the network path from server to seat is different for each zone, and a failed multicast or VLAN config will show up at one zone only.",
+        "Skipping the PA-override test. A CMS that fails this test is not airworthy per TSO-C157a and the operator cannot legally carry passengers until it is fixed.",
+        "Leaving the maintenance placard up after load. Crew thinks the CMS is still out of service and the aircraft departs without IFE for no reason.",
+        "Missing the documentation. Licensing audits look at the operator's log; a content load that is not logged is a compliance finding."
+      ]
+    }
+  },
+  "synthesized_oral_board": [
+    "Q1: A flight attendant reports that reading lights in the forward cabin (rows 1-4) do not respond to the passenger buttons or the crew master switch. The aft cabin lights work normally. Walk me through your troubleshooting approach and what you expect to find.",
+    "Q2: You are installing a software update on a CMS head end. Mid-update, the maintenance laptop crashes and the update appears to have stopped halfway. The head end will not boot. What do you do, and what mistake earlier in the procedure would you have made if you could not recover?",
+    "Q3: A passenger reports that the Wi-Fi on his phone shows connected but the airline's entertainment web page will not load. Other passengers on the same flight are watching the in-seat IFE without issue. Where is the fault likely to be, and what tests isolate it?",
+    "Q4: Explain why a CMS Ethernet network is kept logically and physically separated from the aircraft's flight-deck avionics networks. What regulations or industry standards require this, and what is the consequence of a breach?",
+    "Q5: You are replacing a Passenger Service Unit (PSU) — reading light, attendant call, gasper, seatbelt-sign indicator — in a business jet. After installation, the attendant call button works from the seat but the light on the PSU itself does not illuminate. Walk me through fault isolation."
+  ],
+  "oral_board_answers": {
+    "Q1": "The symptom isolates to the forward zone — rows 1-4 only — which points me at the forward zone switch or the forward zone controller, not at the head end (the aft zone is fine, so the head end is reaching the aft zone). My first step is to reproduce the symptom from the crew master control panel in front of the attendant, to rule out a user-error or single-panel fault. Next I read the BIT log on the head end, looking for flags on the forward zone: PoE faults at PSU ports, link-down on the forward switch, or DHCP failures from forward endpoints. A hard link-down on the forward switch trunk port is the most common cause of a whole-zone failure. If the BIT is clean I go to the forward avionics bay and verify the zone switch is powered (LEDs on, fans running) and the trunk Ethernet cable is physically connected. I check PoE voltage at one PSU port with a PoE tester; absence of PoE voltage with a healthy switch is a cable or connector issue between switch and PSU. If PoE voltage is present but the PSUs do not respond, I go to one PSU in row 1 and verify it ping-responds on the correct VLAN. Only after network and power are confirmed do I consider an LRU swap. The evaluator trap here is replacing a single PSU because one reading light does not work — the symptom affects all four rows, so a single PSU cannot be the cause.",
+    "Q2": "If the update stopped mid-load and the head end will not boot, I first stop and do not attempt to power-cycle hoping it recovers — that often makes corruption worse. I connect the maintenance laptop to the diagnostic port with the backup software image I staged before the update. Most modern CMS head ends support a recovery boot from the diagnostic port, typically by holding a reset button during power-up or by a serial-console command. I use recovery mode to reload the prior (known-good) software image from the configuration backup I captured before starting the update. After the prior image boots, I verify BIT-clean state, then retry the update — this time with the laptop on stable AC power and a more reliable physical connection. The mistake I would have made earlier is NOT capturing the full configuration backup, or keeping it only on the maintenance laptop whose drive may have been damaged by the crash. If the backup is gone, recovery requires an OEM-assisted restore from the factory default image, and every customization (seat map, lighting presets, Wi-Fi keys, content license activation) has to be rebuilt from scratch. That can easily be eight hours of technician time for a large-cabin aircraft. Backup-before-update is not bureaucratic ritual; it is the only reason recovery is possible in minutes rather than days.",
+    "Q3": "The passenger is associated to the Wi-Fi but cannot reach content — this is a classic 'layer-3 and above' problem, not a layer-1 or layer-2 problem. The fact that other passengers have working in-seat IFE tells me the content server itself is healthy; the fault is in the path between this one device and the content. My first test is to verify the device actually has a usable DHCP lease: a 169.254.x.x address means DHCP failed and the device is not routable. Next I check whether the device can reach the content server by IP (if I can get access to the device or use a known-good test device in its place). If it reaches by IP but not by hostname, the fault is DNS — a common misconfiguration after a firmware update or a DNS server failover. If it cannot reach by IP either, I check the Wi-Fi client isolation setting on the access point: 'client isolation' is a security feature that prevents passenger devices from talking to each other, but if misconfigured it can block traffic to the content server's IP on the same subnet. If the issue is only this one device, the device itself may have stale DNS cache or a VPN/DNS-over-HTTPS client that is overriding the airline's DNS — suggest the passenger disable VPN and reconnect. Most likely culprits ranked: (1) DHCP/DNS configuration on CMS, (2) client isolation on access point, (3) passenger device VPN/DoH, (4) firewall rule change since last successful flight.",
+    "Q4": "Physical and logical separation of the CMS network from flight-deck avionics is required by 14 CFR 25.1309 (system safety) and is enforced in the STC's Systems Safety Assessment. The principle: a failure in the non-essential passenger-facing network must not propagate to essential or critical aircraft systems. ARINC 664 AFDX networks carrying flight-critical data run on separate physical switches and separate cable runs from CMS Ethernet — you will never see an FMS or IRS data line sharing a switch with a seat display. Where the networks must interact (for example, a moving map showing position data from the IRS), the interface is a one-way data diode or a firewalled gateway appliance that exposes only read-only data and drops any traffic flowing the other direction. The regulatory consequence of a breach is significant: a passenger Wi-Fi path that can reach a flight-deck system is a 14 CFR Part 25 cybersecurity finding, and under the FAA's Aircraft Network Security Program and RTCA DO-326A Airworthiness Security Process the STC holder must demonstrate Continuing Airworthiness of the security architecture. Practically, the consequence is worse: demonstrated penetration from the cabin network to avionics has resulted in emergency airworthiness directives grounding affected fleets. The accident driver behind this discipline is Swissair 111 and the subsequent enhanced airworthiness rulemaking — the aviation industry learned that 'just cabin wiring' is not a safe assumption.",
+    "Q5": "The attendant call button works, which tells me the PSU has data connectivity to the CMS and the PSU is responding to the bus — so it is not a dead unit, not a wiring fault to the PSU, and not a configuration issue at the head end. The fault is localized to the reading-light indication circuit within the PSU or the command path from head end to PSU for that specific function. My first check is to exercise the reading light from both the passenger button and the crew master control. If neither works, the failure is downstream of the command source — probably in the PSU's light-driver board or the lamp/LED itself. If the passenger button works but the crew master does not (or vice versa), the fault is in the command routing or in how the new PSU is configured. Business jet PSUs are often configured with a zone and seat assignment loaded at installation; if the new PSU has the wrong seat assignment, crew commands are going to the wrong PSU and this one never sees the reading-light command. I would verify the PSU's configured zone/seat in the maintenance interface and correct it if wrong. Physical check: open the PSU and inspect the lamp or LED — a PSU replacement from stock may have a shipping wedge or a reversed LED polarity that prevents illumination. If the lamp itself is good and the zone/seat configuration is correct, the next candidate is a bad driver stage on the PSU PCA; replace the PSU again or escalate to an OEM return-to-vendor. Do not sign off the install until the reading light works — a partial return-to-service creates a write-up the next crew will inherit."
+  },
+  "background_theory": {
+    "why_poe_works": "Power over Ethernet delivers DC power on the same twisted pairs that carry data by exploiting the fact that Ethernet signals are AC-coupled through the magnetics on each end. A PoE Power Sourcing Equipment (PSE) — the switch port — injects a common-mode DC voltage (44-57 V) across the center-tap of each pair's transformer, while the differential Ethernet signal rides on top unaffected. The Powered Device (PD) at the far end extracts the DC via the same transformer center-tap and feeds it to an internal DC-DC converter that produces the voltages the endpoint actually uses (typically 3.3 V, 5 V, 12 V internal rails). The discovery sequence — where the PSE detects a PD's 25 kΩ signature resistor before applying full power — prevents damage to non-PoE devices. PoE+ (IEEE 802.3at) budgets 30 W at the port and accounts for cable resistive losses so the PD sees a guaranteed 25.5 W. This is why aerospace CAT cable length matters: a 100 m run has measurable resistance, and a PoE endpoint at the far end gets less power than one 10 m from the switch. The engineer's takeaway: a switch rated 370 W total PoE budget cannot run 24 full-load PoE+ ports simultaneously. Cabin retrofits fail when the installer counts ports but not watts.",
+    "why_ethernet_audio_works": "Streaming digital audio over Ethernet is fundamentally a trade between bandwidth, latency, and synchronization. IFE systems use packet-based delivery: the content server breaks an audio stream into small UDP or RTP packets, time-stamps them, and sends them across the switched Ethernet fabric to the endpoint. The endpoint re-assembles the stream in a jitter buffer — typically 50-200 ms of buffered audio — that smooths out variable network delay and produces a clean continuous output. Digital audio latency is not zero; it is bounded and predictable, usually well below the 30 ms threshold where humans perceive echo on live audio. The synchronization challenge appears when the same content must play in multiple zones simultaneously (cabin announcements, synchronized movie audio to seat headsets and overhead speakers): all endpoints must use a common clock reference, typically IEEE 1588 Precision Time Protocol or a proprietary CMS-wide master clock. When zones drift, passengers hear an echo between their headset and the cabin speakers. The standard that governs passenger announcement audio quality and crew override behavior is TSO-C157a, which specifies intelligibility, volume, and priority — the crew PA always preempts IFE, and the ducking must be clean enough that the intelligibility is not compromised.",
+    "why_network_isolation_works": "Zone isolation on a CMS network is implemented by a combination of physical switch topology and logical segmentation with IEEE 802.1Q VLANs. Each cabin zone is served by its own switch (or switch stack) with dedicated uplinks back to the head end; a switch failure in the aft zone physically cannot affect the forward zone because they share no cable and no switching silicon. Logically, VLANs separate traffic classes on the same physical infrastructure — passenger Wi-Fi on one VLAN, crew control on another, cabin lighting on a third, maintenance diagnostic on a fourth. VLANs are enforced by switches at the port level: a passenger device on a passenger VLAN cannot address a MAC or IP on the crew VLAN, because the switch never forwards the frame. Layer 3 routing between VLANs is gated by a firewall on the head-end server or a dedicated routing appliance, with ACLs (Access Control Lists) that permit only known traffic patterns. This layered isolation — physical zoning for availability, logical zoning for security — is why a single passenger device cannot take down the cabin and cannot reach the flight-deck interface. DO-326A and the FAA's Aircraft Network Security Program require the STC holder to document this architecture, prove it with testing, and maintain it under continuing airworthiness. The engineer's takeaway: VLAN misconfiguration on one switch port can silently bridge isolation that the design depended on — every VLAN change demands a regression test."
+  }
+}
