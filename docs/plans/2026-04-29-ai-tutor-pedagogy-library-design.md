@@ -72,14 +72,17 @@ In order, each chapter contains:
 
 ### 3.3 Depth target
 
-**Full chapter depth (8–15 pages each).** Comprehensive academic-grade reference material:
-- 5–10 peer-reviewed citations per file with DOIs
-- Effect sizes from meta-analyses (Cohen's d or equivalent)
-- Theoretical mechanisms explained (cognitive process accounts)
-- Multiple replication notes; mention contested camps where relevant
-- Multi-domain examples in every file (forces principle author to test cross-domain generality)
+**Practice-guideline depth (3–5 pages each, 120–200 lines).** Tight, sharp, every word earns its place. Framed as evidence-based practice guidelines, not academic textbook chapters — the AI doesn't read chapters cover-to-cover, it queries discrete sections.
 
-Aggregate scope: ~50 files × ~12 pages = 500–750 pages of authored content.
+- 5–7 peer-reviewed citations per file (every one verified, no fabrication)
+- Effect sizes from meta-analyses (Cohen's d or equivalent)
+- Theoretical mechanisms in 2–3 dense paragraphs (not 5)
+- 2 cross-domain examples per chapter (avionics + one other) — enough to prove generalization
+- Replication notes where relevant; contested camps cited briefly with verdict
+
+Aggregate scope: ~50 files × ~4 pages = 150–250 pages of authored reference material.
+
+**Why this size, not bigger:** the AI tutor queries operational sections (when/when-not/how-to-apply) constantly, and rarely loads the evidence-base section. Padding the chapter with theoretical discussion impresses human reviewers but doesn't improve runtime decisions. Tight chapters also reduce maintenance burden, agent authoring cost, and citation drift over time.
 
 ## 4. The 50-principle index
 
@@ -201,11 +204,12 @@ Phase 5 — VERIFICATION    Three review passes:
 
 A Library A file is "good" when:
 
-- **Citations:** ≥ 5 peer-reviewed sources with full reference; meta-analyses preferred for effect-size claims; DOIs included where applicable.
+- **Length:** 120–200 lines (3–5 pages of dense content); padding is a defect.
+- **Citations:** 5–7 peer-reviewed sources with full reference; meta-analyses preferred for effect-size claims; DOIs included where applicable.
 - **No fabrication:** Every cited paper actually exists, has the cited authors, and supports the cited claim. (Phase 5 verification pass enforces.)
 - **Effect size quantified** where the literature provides one (Cohen's d, Hedges' g, or odds ratios). Frontmatter `effect_size` field non-null unless the principle is foundational/qualitative.
-- **Operational sections** ("when to apply" / "when not" / "how to apply") give the AI executable decision rules, not platitudes.
-- **Cross-domain examples** present in every file — at minimum avionics + one non-avionics. This forces the author to test that the principle generalizes.
+- **Operational sections** ("when to apply" / "when not" / "how to apply") give the AI executable decision rules, not platitudes. Bullets, not paragraphs.
+- **Cross-domain examples** — exactly 2 per file (avionics + one other). One is too few to prove generalization; three is padding.
 - **Boundary conditions stated** — every chapter explicitly identifies when the principle fails or reverses.
 - **Frontmatter complete** — every required field populated; runtime_triggers and related fields use canonical IDs that match other files.
 

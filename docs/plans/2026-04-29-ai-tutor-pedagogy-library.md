@@ -120,7 +120,7 @@ Run:
 ```bash
 wc -l pedagogy-library/01-learning-science/testing-effect.md
 ```
-Expected: 250–500 lines (corresponds to ~12 pages of dense content).
+Expected: 120–200 lines (corresponds to ~3–5 pages of practice-guideline-dense content).
 
 **Step 4: Commit**
 
@@ -228,10 +228,11 @@ Expected: FAIL (validate function not defined yet).
 **Step 3: Implement minimal validator**
 
 `validate.py` parses the YAML frontmatter via `python-frontmatter`, validates against `chapter-schema.yaml` via `jsonschema`, and additionally checks:
-- ≥5 entries in `key_sources`
+- 5–7 entries in `key_sources` (warn outside this range)
 - Body has all 9 required sections (regex H2 headings)
-- File length ≥ 250 lines
+- File length within 120–200 lines
 - Cross-references in `related:` resolve to actual files
+- Exactly 2 cross-domain examples in section 7 (avionics + one other)
 
 **Step 4: Run tests to verify pass**
 
@@ -334,8 +335,10 @@ git commit -m "docs: define citation discipline for chapter authors"
 This becomes the standard agent prompt template. Include placeholders for `{principle_id}`, `{title}`, `{category}`, `{anchor_citation}`. Tell the agent:
 - Read `pedagogy-library/01-learning-science/testing-effect.md` as the model.
 - Read `_schema/chapter-schema.yaml`, `quality-checklist.md`, `citation-rules.md`.
-- Author `pedagogy-library/{category}/{principle_id}.md` matching the exemplar's structure and depth.
+- Author `pedagogy-library/{category}/{principle_id}.md` matching the exemplar's structure, tone, and **size** (120–200 lines).
+- This is a **practice guideline**, not a textbook chapter — every word earns its place. Bullets over paragraphs in operational sections.
 - Verify every citation by web search; do not fabricate.
+- Include exactly 2 cross-domain examples (avionics + one other domain of your choice).
 - Run `_schema/validate.py` on your output before finishing.
 - Return: file size, citation count, validation result, any caveats about contested claims.
 
@@ -641,4 +644,4 @@ Tell user: "Library A complete. 50 chapters authored across 7 categories, all sc
 - **Phase 4 (Tasks 11–16):** Test agent dispatch with one principle, STOP for user approval, then dispatch remaining 48 in parallel.
 - **Phase 5 (Tasks 17–20):** Citation verification pass, consistency pass, gap analysis with user STOP, final commit.
 
-Estimated wall time: 1 hour for Phase 2, 30 min for Phase 3, 1.5 hours for Phase 4 (mostly agent runtime), 1.5 hours for Phase 5 (mostly verification agent runtime). Frequent commits at every task boundary. STOP gates at Tasks 4, 13, 19.
+Estimated wall time: 30 min for Phase 2 (smaller exemplar), 30 min for Phase 3, 45 min for Phase 4 (agents now ~5 min each instead of ~10), 1 hour for Phase 5. Estimated cost: $25–75 for Phase 4 + 5 agent dispatches (about half the original). Frequent commits at every task boundary. STOP gates at Tasks 4, 13, 19.
