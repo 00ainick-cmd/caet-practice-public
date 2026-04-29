@@ -10,90 +10,92 @@ Every chapter conforms to the schema defined in `_schema/chapter-schema.yaml` (t
 
 ## Full 50-principle index
 
+Slug column gives the canonical filename for each chapter (lowercase-kebab; cross-references in chapter frontmatter `related` and Section 9 links MUST use these exact slugs). File path is `<category>/<slug>.md`.
+
 ### Category 01 — Learning Science (13 chapters)
 
-| # | Principle | Foundational sources | Effect size |
-|---|-----------|----------------------|-------------|
-| 1 | Testing Effect / Retrieval Practice | Roediger & Karpicke (2006); Adesope et al. (2017) | d ≈ 0.5–0.8 |
-| 2 | Spaced Retrieval / Distributed Practice | Cepeda et al. (2006) | d ≈ 0.4–0.6 |
-| 3 | Interleaving | Rohrer & Taylor (2007); Brunmair & Richter (2019) | d ≈ 0.4–0.7 |
-| 4 | Worked Example Effect | Sweller & Cooper (1985); Renkl (2014) | d ≈ 0.5–1.0 |
-| 5 | Expertise Reversal Effect | Kalyuga et al. (2003) | reversal at ~70% mastery |
-| 6 | Cognitive Load Theory | Sweller (1988); Sweller, Ayres & Kalyuga (2011) | — |
-| 7 | Pretesting Effect | Carpenter & Toftness (2017); Pan & Sana (2021) | d ≈ 0.3–0.5 |
-| 8 | Desirable Difficulties | Bjork & Bjork (2011) | — |
-| 9 | Forgetting Curve & Relearning | Ebbinghaus (1885); Murre & Dros (2015) | — |
-| 10 | Dual Coding | Paivio (1991); Mayer (2014) | d ≈ 0.3–0.5 |
-| 11 | Self-Explanation & Elaborative Interrogation | Chi et al. (1994); Dunlosky et al. (2013) | d ≈ 0.4–0.6 |
-| 12 | Schema Theory & Knowledge Components | Anderson (1977); Koedinger et al. (2012) | — |
-| 13 | Transfer of Learning | Barnett & Ceci (2002) | — |
+| # | Principle | Slug | Foundational sources | Effect size |
+|---|-----------|------|----------------------|-------------|
+| 1 | Testing Effect / Retrieval Practice | testing-effect | Roediger & Karpicke (2006); Adesope et al. (2017) | d ≈ 0.5–0.8 |
+| 2 | Spaced Retrieval / Distributed Practice | spaced-retrieval | Cepeda et al. (2006) | d ≈ 0.4–0.6 |
+| 3 | Interleaving | interleaving | Rohrer & Taylor (2007); Brunmair & Richter (2019) | d ≈ 0.4–0.7 |
+| 4 | Worked Example Effect | worked-example-effect | Sweller & Cooper (1985); Renkl (2014) | d ≈ 0.5–1.0 |
+| 5 | Expertise Reversal Effect | expertise-reversal | Kalyuga et al. (2003) | reversal at ~70% mastery |
+| 6 | Cognitive Load Theory | cognitive-load-theory | Sweller (1988); Sweller, Ayres & Kalyuga (2011) | — |
+| 7 | Pretesting Effect | pretesting-effect | Carpenter & Toftness (2017); Pan & Sana (2021) | d ≈ 0.3–0.5 |
+| 8 | Desirable Difficulties | desirable-difficulties | Bjork & Bjork (2011) | — |
+| 9 | Forgetting Curve & Relearning | forgetting-curve | Ebbinghaus (1885); Murre & Dros (2015) | — |
+| 10 | Dual Coding | dual-coding | Paivio (1991); Mayer (2014) | d ≈ 0.3–0.5 |
+| 11 | Self-Explanation & Elaborative Interrogation | self-explanation-elaborative-interrogation | Chi et al. (1994); Dunlosky et al. (2013) | d ≈ 0.4–0.6 |
+| 12 | Schema Theory & Knowledge Components | schema-theory-knowledge-components | Anderson (1977); Koedinger et al. (2012) | — |
+| 13 | Transfer of Learning | transfer-of-learning | Barnett & Ceci (2002) | — |
 
 ### Category 02 — Instructional Design (7 chapters)
 
-| # | Principle | Foundational sources | Effect size |
-|---|-----------|----------------------|-------------|
-| 14 | Backward Design (UbD) | Wiggins & McTighe (2005) | — |
-| 15 | Bloom's Revised Taxonomy | Anderson & Krathwohl (2001) | — |
-| 16 | Merrill's First Principles | Merrill (2002, 2013) | — |
-| 17 | Gagné's Nine Events | Gagné, Briggs & Wager (1992) | — |
-| 18 | 5E Learning Cycle | Bybee et al. (2006); BSCS (1989) | — |
-| 19 | Mastery Learning | Bloom (1968); Guskey (2010) | d ≈ 0.5 |
-| 20 | 4C/ID Model | van Merriënboer & Kirschner (2018) | — |
+| # | Principle | Slug | Foundational sources | Effect size |
+|---|-----------|------|----------------------|-------------|
+| 14 | Backward Design (UbD) | backward-design-ubd | Wiggins & McTighe (2005) | — |
+| 15 | Bloom's Revised Taxonomy | blooms-revised-taxonomy | Anderson & Krathwohl (2001) | — |
+| 16 | Merrill's First Principles | merrills-first-principles | Merrill (2002, 2013) | — |
+| 17 | Gagné's Nine Events | gagnes-nine-events | Gagné, Briggs & Wager (1992) | — |
+| 18 | 5E Learning Cycle | 5e-learning-cycle | Bybee et al. (2006); BSCS (1989) | — |
+| 19 | Mastery Learning | mastery-learning | Bloom (1968); Guskey (2010) | d ≈ 0.5 |
+| 20 | 4C/ID Model | 4c-id-model | van Merriënboer & Kirschner (2018) | — |
 
 ### Category 03 — Assessment Science (6 chapters)
 
-| # | Principle | Foundational sources | Effect size |
-|---|-----------|----------------------|-------------|
-| 21 | Item-Writing Rules (Haladyna + Shank) | Haladyna et al. (2002); Shank (2014, 2017) | — |
-| 22 | Bloom Levels in Assessment | Krathwohl (2002) | — |
-| 23 | Distractor Analysis | Haladyna & Rodriguez (2013) | — |
-| 24 | Pre/Post Assessment & Effect Size | Hattie (2009); Cohen (1988) | — |
-| 25 | Validity & Reliability | Cronbach (1951); Messick (1989) | — |
-| 26 | Mastery Threshold & Transfer Test Design | Bloom (1968); Barnett & Ceci (2002) | — |
+| # | Principle | Slug | Foundational sources | Effect size |
+|---|-----------|------|----------------------|-------------|
+| 21 | Item-Writing Rules (Haladyna + Shank) | item-writing-rules | Haladyna et al. (2002); Shank (2014, 2017) | — |
+| 22 | Bloom Levels in Assessment | bloom-levels-in-assessment | Krathwohl (2002) | — |
+| 23 | Distractor Analysis | distractor-analysis | Haladyna & Rodriguez (2013) | — |
+| 24 | Pre/Post Assessment & Effect Size | pre-post-assessment-effect-size | Hattie (2009); Cohen (1988) | — |
+| 25 | Validity & Reliability | validity-reliability | Cronbach (1951); Messick (1989) | — |
+| 26 | Mastery Threshold & Transfer Test Design | mastery-threshold-transfer-test-design | Bloom (1968); Barnett & Ceci (2002) | — |
 
 ### Category 04 — Delivery Patterns (8 chapters)
 
-| # | Principle | Foundational sources | Effect size |
-|---|-----------|----------------------|-------------|
-| 27 | Socratic Questioning | Paul & Elder (2007); Chi (2009) | — |
-| 28 | Predict-Before-Reveal | Carpenter & Toftness (2017) | — |
-| 29 | Faded Worked Examples | Renkl & Atkinson (2003) | — |
-| 30 | Self-Explanation Prompts | Chi et al. (1994) | — |
-| 31 | Concept Mapping | Novak & Cañas (2008); Nesbit & Adesope (2006) | d ≈ 0.5 |
-| 32 | Error Analysis & Corrective Feedback | Hattie & Timperley (2007) | d ≈ 0.7 |
-| 33 | Analogical Bridging | Gentner (1983); Holyoak (2012) | — |
-| 34 | Productive Failure | Kapur (2008, 2014) | — |
+| # | Principle | Slug | Foundational sources | Effect size |
+|---|-----------|------|----------------------|-------------|
+| 27 | Socratic Questioning | socratic-questioning | Paul & Elder (2007); Chi (2009) | — |
+| 28 | Predict-Before-Reveal | predict-before-reveal | Carpenter & Toftness (2017) | — |
+| 29 | Faded Worked Examples | faded-worked-examples | Renkl & Atkinson (2003) | — |
+| 30 | Self-Explanation Prompts | self-explanation-prompts | Chi et al. (1994) | — |
+| 31 | Concept Mapping | concept-mapping | Novak & Cañas (2008); Nesbit & Adesope (2006) | d ≈ 0.5 |
+| 32 | Error Analysis & Corrective Feedback | error-analysis-corrective-feedback | Hattie & Timperley (2007) | d ≈ 0.7 |
+| 33 | Analogical Bridging | analogical-bridging | Gentner (1983); Holyoak (2012) | — |
+| 34 | Productive Failure | productive-failure | Kapur (2008, 2014) | — |
 
 ### Category 05 — Tutor Personas (4 chapters)
 
-| # | Principle | Foundational sources | Effect size |
-|---|-----------|----------------------|-------------|
-| 35 | Cognitive Apprenticeship Mentor | Collins, Brown & Newman (1989) | — |
-| 36 | Socratic Interlocutor | Paul & Elder (2007) | — |
-| 37 | Coach-Encourager | Hattie & Timperley (2007); Kluger & DeNisi (1996) | — |
-| 38 | Voice Style Guide & Agency-Preserving Language | Reeves & Nass (1996) | — |
+| # | Principle | Slug | Foundational sources | Effect size |
+|---|-----------|------|----------------------|-------------|
+| 35 | Cognitive Apprenticeship Mentor | cognitive-apprenticeship-mentor | Collins, Brown & Newman (1989) | — |
+| 36 | Socratic Interlocutor | socratic-interlocutor | Paul & Elder (2007) | — |
+| 37 | Coach-Encourager | coach-encourager | Hattie & Timperley (2007); Kluger & DeNisi (1996) | — |
+| 38 | Voice Style Guide & Agency-Preserving Language | voice-style-agency-preserving-language | Reeves & Nass (1996) | — |
 
 ### Category 06 — Motivation & Engagement (5 chapters)
 
-| # | Principle | Foundational sources | Effect size |
-|---|-----------|----------------------|-------------|
-| 39 | Self-Determination Theory | Deci & Ryan (2000) | — |
-| 40 | Self-Efficacy | Bandura (1977, 1997) | — |
-| 41 | Goal-Setting Theory | Locke & Latham (2002) | — |
-| 42 | Flow Theory | Csikszentmihalyi (1990); Nakamura & Csikszentmihalyi (2014) | — |
-| 43 | Achievement Goal Theory | Ames (1992); Senko & Hulleman (2013) | — |
+| # | Principle | Slug | Foundational sources | Effect size |
+|---|-----------|------|----------------------|-------------|
+| 39 | Self-Determination Theory | self-determination-theory | Deci & Ryan (2000) | — |
+| 40 | Self-Efficacy | self-efficacy | Bandura (1977, 1997) | — |
+| 41 | Goal-Setting Theory | goal-setting-theory | Locke & Latham (2002) | — |
+| 42 | Flow Theory | flow-theory | Csikszentmihalyi (1990); Nakamura & Csikszentmihalyi (2014) | — |
+| 43 | Achievement Goal Theory | achievement-goal-theory | Ames (1992); Senko & Hulleman (2013) | — |
 
 ### Category 07 — Runtime Decisions (7 chapters)
 
-| # | Principle | Foundational sources | Effect size |
-|---|-----------|----------------------|-------------|
-| 44 | Bayesian Knowledge Tracing | Corbett & Anderson (1995) | — |
-| 45 | Performance Factor Analysis | Pavlik, Cen & Koedinger (2009) | — |
-| 46 | SM-2 / FSRS | Wozniak (1990); FSRS (2022) | — |
-| 47 | Knowledge Graph Traversal | Koedinger et al. (2012) | — |
-| 48 | ZPD Operationalization | Vygotsky (1978) | — |
-| 49 | Mastery Thresholds | Bloom (1968) | — |
-| 50 | Item Difficulty & Discrimination | Lord (1980); Embretson & Reise (2000) | — |
+| # | Principle | Slug | Foundational sources | Effect size |
+|---|-----------|------|----------------------|-------------|
+| 44 | Bayesian Knowledge Tracing | bayesian-knowledge-tracing | Corbett & Anderson (1995) | — |
+| 45 | Performance Factor Analysis | performance-factor-analysis | Pavlik, Cen & Koedinger (2009) | — |
+| 46 | SM-2 / FSRS | sm2-fsrs | Wozniak (1990); FSRS (2022) | — |
+| 47 | Knowledge Graph Traversal | knowledge-graph-traversal | Koedinger et al. (2012) | — |
+| 48 | ZPD Operationalization | zpd-operationalization | Vygotsky (1978) | — |
+| 49 | Mastery Thresholds | mastery-thresholds | Bloom (1968) | — |
+| 50 | Item Difficulty & Discrimination | item-difficulty-discrimination | Lord (1980); Embretson & Reise (2000) | — |
 
 ## Deliberately excluded (with reasons)
 
@@ -107,6 +109,18 @@ The following frameworks are intentionally absent. They are popular in education
 - **10,000-Hour Rule** — A popular misrepresentation of Ericsson's deliberate practice research. Deliberate practice itself is sound, but the round-number rule is a pop-science distortion.
 - **Universal Design for Learning (UDL)** — Strong philosophy and useful design heuristic but mixed empirical evidence on whether the framework itself (vs. its individual components) produces measurable learning gains.
 - **Specific gamification claims** — Effect sizes too variable across studies and contexts to support a runtime principle. Where game elements work, the underlying mechanism is already captured (feedback, goal-setting, self-efficacy).
+
+## Schema conventions
+
+Tag values in `contraindicated_when` (and any other state-predicate fields the schema later adds) use the form `category.predicate` — a lowercase category prefix, a dot, and a lowercase snake_case predicate. The categories define the dimension being asserted; the predicate is the specific state on that dimension. This makes the tags queryable by category and keeps colloquial phrasing out of the controlled vocabulary.
+
+Current category prefixes:
+
+- `learner_state.*` — properties of the learner at the moment the principle would be applied (e.g., `learner_state.overwhelmed`, `learner_state.first_exposure`).
+- `material.*` — properties of the content being learned (e.g., `material.high_element_interactivity_no_scaffolding`).
+- `task_type.*` — properties of the learning activity itself (e.g., `task_type.motor_acquisition`).
+
+Add a new category prefix only when an existing one is genuinely the wrong dimension; do not introduce synonyms. `runtime_triggers` and `applies_to` use simpler forms (event-name underscore strings and phase labels respectively) because they are not state predicates.
 
 ## Authoring discipline
 
