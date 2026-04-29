@@ -103,14 +103,27 @@ properties:
   applies_to:
     type: array
     description: |
-      Learning phases for which the principle is operative. Controlled
+      Phases or functions for which the principle is operative. Controlled
       vocabulary; do not invent new values without updating the schema.
+
+      Learning-phase values (most chapters in categories 01, 02, 04, 05, 06):
+        - acquisition: building new knowledge or skill
+        - retention:  preserving knowledge over time
+        - transfer:   applying knowledge to novel contexts
+
+      Meta-instructional values (most chapters in categories 03, 07):
+        - measurement: assessment of mastery, item quality, or learning effect
+        - sequencing:  ordering or scheduling learning activities
+        - decision:    rules that determine when to advance, remediate, or stop
     items:
       type: string
       enum:
         - acquisition
         - retention
         - transfer
+        - measurement
+        - sequencing
+        - decision
     minItems: 1
     uniqueItems: true
 
