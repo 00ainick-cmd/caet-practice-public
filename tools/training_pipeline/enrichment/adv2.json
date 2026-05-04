@@ -1,0 +1,265 @@
+{
+  "slug": "adv2",
+  "module_name": "EFB and Aircraft Connectivity",
+  "why_this_matters": [
+    "Ten years ago, the left seat of a corporate jet held a Jepp binder weighing eight pounds, a paper weather briefing, and a yellow legal pad. Today that same pilot has an iPad running ForeFlight or Jeppesen FliteDeck, a panel-mounted connector feeding GPS position and ADS-B traffic, and a cabin WiFi system routing data from Iridium Certus or Viasat Ku-band satellites. The electronic flight bag is no longer a convenience — it is a primary reference for checklists, approach plates, weight and balance, weather avoidance, and in many operations the legal chart source under FAR 91.503 and the operator's AC 120-76 authorization. When an EFB goes dark on a missed approach in IMC, the crew's workload spikes exactly when they can least afford it. Your work on mounts, power, and data interfaces is what keeps that from happening.",
+    "The regulatory stakes are real and they are federal. AC 120-76D (and its predecessors A through C) is the FAA's operational approval framework for EFB use. A Class 2 EFB installation — the typical iPad-in-a-mount in a GA or business aircraft — requires a proper mount installation (STC, field approval, or approved model-list STC), a power connection that meets 14 CFR 23/25 wiring standards, and compliance with 14 CFR 91.21 for portable electronic device operation. Get the mount wrong and the tablet becomes a projectile in turbulence or a loose object jamming primary flight controls. Get the power wrong and you introduce a fire source, a bus fault path, or a transient that kills avionics during engine start. Get the data wrong and the pilot flies the wrong approach because the ownship symbol drifted off the chart.",
+    "Connectivity is the bigger iceberg under the EFB waterline. Modern business aircraft carry two, three, or four parallel wireless networks — cockpit EFB WiFi, cabin passenger WiFi, SATCOM data, and sometimes a dedicated crew network for EFIS updates and flight plan uplink. These networks MUST be electrically and logically separated from the certified avionics LAN (typically ARINC 664 AFDX or ARINC 429 buses) because 14 CFR 25.1309 does not permit passenger-facing equipment to affect flight-critical systems. Your evaluator is not grading whether you can set up a WiFi SSID. Your evaluator is grading whether you understand why a misconfigured router in the cabin cannot be allowed to leak traffic into the cockpit — and whether you can defend that understanding to the DER, the DOM, and the pilot who signs the release."
+  ],
+  "key_terms": [
+    {"term": "Class 1 EFB", "definition": "A fully portable device used only during non-critical phases of flight. Removed from the flight deck for taxi, takeoff, and landing unless secured. No aircraft power connection, no installed mount. Most commonly a pilot's personal tablet used for reference only. Defined in AC 120-76D."},
+    {"term": "Class 2 EFB", "definition": "A portable device in an approved mount with optional aircraft power and data connections. The device itself remains portable and can be removed, but the mount is an installed component requiring STC, field approval, or AML-STC. The dominant EFB class in GA and business aviation."},
+    {"term": "Class 3 EFB", "definition": "An installed device that is part of the certified aircraft equipment. Cannot be removed without maintenance action. Typically a panel-mounted display running EFB software, certified under TSO-C165a or equivalent. Common in air-carrier aircraft with fully integrated avionics suites."},
+    {"term": "AC 120-76D", "definition": "FAA Advisory Circular providing guidance for certification, airworthiness, and operational approval of EFBs. Defines the three EFB classes, the software Type A/B distinction, and the operator application process. Current revision is AC 120-76D (October 2017); some operators still reference AC 120-76B/C."},
+    {"term": "DO-160", "definition": "RTCA environmental qualification standard for airborne equipment, covering temperature, altitude, vibration, humidity, EMI, lightning, and power input transients. Any hardwired EFB mount, power supply, or data interface installed under STC must meet the applicable DO-160 sections. Latest revision is DO-160G."},
+    {"term": "DO-311A", "definition": "RTCA minimum operational performance standard for rechargeable lithium batteries used in portable EFBs. Addresses thermal runaway containment, overcharge protection, and crash survival. Referenced by the FAA for Class 2 device battery safety when the device remains installed in the mount during taxi/takeoff/landing."},
+    {"term": "TSO-C195b", "definition": "FAA Technical Standard Order for avionics supporting aircraft interval management and related traffic applications. Not directly an EFB TSO, but governs the ADS-B In receivers whose data populates EFB traffic displays. TSO-C165a covers EFB displays directly."},
+    {"term": "ARINC 429", "definition": "Legacy one-way serial digital data bus used throughout aircraft avionics since 1977. Operates at 12.5 kbit/s (low speed) or 100 kbit/s (high speed). Common source for GPS position, air data, and heading feeding an EFB through a serial-to-WiFi converter."},
+    {"term": "ARINC 664 / AFDX", "definition": "Deterministic switched Ethernet standard (100 Mbit/s) used on modern large transport aircraft for avionics LAN traffic. The cockpit AFDX network MUST be physically or cryptographically isolated from any passenger-facing WiFi per FAA Special Conditions 25-356-SC and related policy."},
+    {"term": "ADS-B In (UAT 978 / 1090ES)", "definition": "Receive-only reception of traffic (TIS-B) and weather (FIS-B) broadcasts on 978 MHz (UAT, US only) or 1090 MHz Extended Squitter (worldwide). ADS-B In is NOT equivalent to ADS-B Out; it does not satisfy the 14 CFR 91.225 Out mandate and must not be represented as such."},
+    {"term": "FIS-B", "definition": "Flight Information Services-Broadcast. A free FAA service transmitted on the 978 MHz UAT link carrying NEXRAD regional and CONUS radar, METARs, TAFs, AIRMETs, SIGMETs, NOTAMs, and TFRs. Updates are cyclical — NEXRAD regional updates every ~2.5 minutes; absolute data age is the key accuracy metric."},
+    {"term": "SATCOM (L-band vs. Ku-band vs. Ka-band)", "definition": "Aircraft satellite communications categorized by frequency. L-band (Iridium, Inmarsat I-4/5/6) provides low-bandwidth voice and data with global coverage including polar regions. Ku-band (Viasat/Gogo 2Ku) and Ka-band (Viasat, Inmarsat GX) provide broadband internet with regional coverage and higher throughput."},
+    {"term": "14 CFR 91.21", "definition": "Federal regulation restricting portable electronic device use on aircraft. PEDs may be used if the operator has determined they will not cause interference with navigation or communication systems. Installed EFBs under AC 120-76D are not considered PEDs once properly approved."},
+    {"term": "Cockpit-Cabin Network Separation", "definition": "Required architectural separation between flight-critical avionics networks and passenger entertainment or WiFi networks. Enforced by physical air-gap, unidirectional data diodes, or certified firewalls. Required by FAA Special Conditions for e-enabled aircraft and 14 CFR 25.1309 for transport category."},
+    {"term": "Latency (SATCOM)", "definition": "One-way signal delay through a satellite link. Geostationary (GEO) satellites at 35,786 km produce ~250 ms one-way (~500 ms round-trip). Low Earth Orbit (LEO) constellations such as Iridium and Starlink Aviation operate at 600-1,200 km, producing 30-50 ms one-way, which is acceptable for real-time weather radar streaming."}
+  ],
+  "knowledge_enrichment": {
+    "12.2.1": {
+      "title": "EFB Classifications (Class 1/2/3) and Software Types",
+      "overview": "The EFB class determines what approval path applies, what hardware is considered installed equipment, and what the technician is responsible for. Class is about the hardware installation; software type (A or B) is about the application function. The FAA treats these as independent axes, and getting the taxonomy wrong on a field approval package gets you kicked back to the FSDO.",
+      "key_points": [
+        "Class 1: fully portable, no mount, no aircraft power. Example: a pilot using their personal iPad off-panel during cruise only. No airworthiness involvement unless the operator requires it.",
+        "Class 2: portable device + installed mount (STC, field approval, or AML-STC) + optional aircraft power + optional data interface. This is the dominant class in GA/BA. The mount and wiring are installed; the tablet is not.",
+        "Class 3: fully installed display running EFB software, approved under TSO-C165a. Not removable without maintenance. Typical in Part 121 air-carrier aircraft with integrated avionics.",
+        "Software Type A: static applications such as document viewers for the AFM, MEL, operations manuals. Lower approval burden.",
+        "Software Type B: dynamic applications such as performance calculations, weight-and-balance, takeoff and landing distance tools. Require operator aircraft-specific evaluation.",
+        "Moving-map ownship symbology in flight is a special case: requires operator authorization under AC 120-76D paragraph 8 and may not be used as a primary means of navigation.",
+        "Operators under Part 91 Subpart F, 91K, 121, 125, 135 all require a Letter of Authorization or OpSpec A061 before using EFB in place of paper charts."
+      ]
+    },
+    "12.2.2": {
+      "title": "EFB Mounting and Power",
+      "overview": "The mount and the power feed are where the avionics technician lives; the tablet itself is somebody else's problem. Three mount requirements govern every installation (AC 120-76D paragraph 9, AC 43.13-2B chapter 2): security of attachment, non-interference with instruments and controls, and quick removability. The power connection adds a fourth discipline — you are introducing a new load onto a certified bus, with a new failure mode, new EMI potential, and a lithium battery that can fail thermally. Every element must be engineered to AC 43.13-1B chapters 11-12 and documented in the STC or field approval.",
+      "key_points": [
+        "Structural attachment: the mount must be secured to aircraft primary or secondary structure using approved hardware. Suction-cup-to-windshield mounts are NOT acceptable for Class 2 — they are Class 1 personal use only.",
+        "Visibility envelope: with the tablet installed, the pilot must retain unobstructed view of all required flight instruments, annunciators, master warning/caution lights, and outside visual reference during taxi, takeoff, and landing.",
+        "Control clearance: full travel of yoke, stick, rudder pedals, throttle quadrant, gear handle, and trim wheel must be verified with the EFB in both stowed and deployed positions.",
+        "Quick-release: pilot must remove the tablet with one hand in under three seconds from normal seated position, without tools. Crashworthiness (9g forward per 14 CFR 23.561/25.561) prevents the tablet from becoming a projectile.",
+        "DO-160G qualification is required for the mount if installed under STC — specifically section 7 (operational shocks and crash safety) and section 8 (vibration). DO-311A addresses the lithium-battery thermal runaway containment for tablets that remain in the mount.",
+        "Circuit breaker sizing: typical USB charging draws 2-3 A at 5 V; upstream DC-DC converter draws ~1.5 A at 28 V or ~3 A at 14 V. Use a 5 A breaker per AC 43.13-1B Table 11-4 for wire protection of the feeder, and locate it in reach of the pilot per 14 CFR 23.1357 / 25.1357.",
+        "Bus selection: EFB power is typically fed from the avionics bus so the tablet de-energizes during engine start (avoiding the ~25 V transient and starter-relay back-EMF). DC-DC converter / USB module should be TSO-C195 or DO-160 qualified — automotive USB chargers are not compliant.",
+        "EMI verification: after installation, ground-check with the EFB powered and charging while cycling COMM 1, COMM 2, NAV, and transponder. Audio noise or display interference is a write-up."
+      ]
+    },
+    "12.2.4": {
+      "title": "EFB Data Interfaces (GPS, ADS-B In, AHRS, WiFi, Bluetooth)",
+      "overview": "The EFB becomes useful when it shows ownship position on a moving map, displays traffic and weather, and receives pitch/roll for a synthetic attitude backup. Every one of those data streams crosses a hardware boundary from certified avionics to a consumer tablet. Your job is to make those boundaries clean, one-way where required, and traceable to the approved data.",
+      "key_points": [
+        "GPS position: typically sourced from a panel-mount GNSS unit (GTN 650/750, IFD 540, GNC 355) via RS-232 ARINC 429 converter to a WiFi gateway (FlightStream 510, GDL 52, SkyConnect). Tablet receives position at 1-5 Hz.",
+        "ADS-B In: 978 MHz UAT (US only) and 1090 ES. UAT provides FIS-B weather and TIS-B traffic when in range of a ground broadcast station. Portable receivers (Stratus 3, Sentry, GDL 52) typically receive both.",
+        "AHRS backup: some receivers (Stratus 3, GDL 52) include MEMS gyros providing non-certified attitude for the EFB. Explicitly advisory only — not a primary flight reference, never IFR, never in place of a real standby.",
+        "Transport: WiFi 2.4 GHz or 5 GHz 802.11n/ac most common, Bluetooth 4.0+ for some peripherals. 5 GHz is preferred on aircraft due to lower congestion and less interference with transponder 1090 MHz harmonics.",
+        "Data rate: WiFi 802.11n at 2.4 GHz delivers ~50 Mbit/s net indoor; ADS-B In traffic+weather data is typically under 200 kbit/s, so bandwidth is never the limit. Signal integrity and antenna placement are.",
+        "Direction of flow: traffic/weather/GPS flows FROM avionics/receiver TO tablet only. The tablet does not and must not inject data back into certified avionics. Any flight-plan transfer from EFB to FMS is specifically authorized and uses a one-way gateway like FlightStream with FAA approval.",
+        "Antenna considerations: external GPS or ADS-B In antennas are often installed on the glareshield or overhead panel. Route coax per AC 43.13-1B chapter 11, avoid sharing conduit with transmit antennas (transponder, COMM), and ground the shield per the STC."
+      ]
+    },
+    "12.2.5": {
+      "title": "WiFi Architecture and ADS-B In Integration",
+      "overview": "A business aircraft with both crew and passenger WiFi runs two or more separate networks that share an airframe and sometimes an antenna; the technician must verify that physical and logical separation meets the certification basis, which is never less than firewall-grade isolation and often requires an air gap. Bolted onto the same airframe is the ADS-B In receiver chain — the pilot-facing half of NextGen surveillance — which feeds free FIS-B weather and TIS-B traffic to the EFB on 978 MHz (UAT) and 1090 MHz (Extended Squitter). The technician must clearly distinguish receive-only ADS-B In from transmit-required ADS-B Out.",
+      "key_points": [
+        "Dual-SSID WiFi architecture: most systems present at least CREW-NET and CABIN-NET on separate VLANs with no layer-2 bridging. Separation basis is 14 CFR 25.1309 plus FAA Special Conditions for e-enabled aircraft network security.",
+        "Physical air-gap is the strongest separation: entirely separate access points, cabling, and DC feeders. Where shared hardware is used, VLAN/firewall configuration is part of the type design and cannot be field-edited.",
+        "Band usage: 2.4 GHz (channels 1/6/11) and 5 GHz (UNII). 5 GHz DFS channels require dynamic frequency selection to avoid interfering with airborne weather radar. Typical aircraft AP is 100 mW (20 dBm), verified for no impact on GPS L1 or SATCOM.",
+        "Passenger egress typically goes through a SATCOM terminal — Iridium Certus (L-band), Viasat Ku, Gogo 5G ATG (US), Inmarsat GX Aviation (Ka-band). Cockpit egress uses a separate path or the same carrier with hard VLAN/data-diode separation.",
+        "ADS-B Out (mandate): 14 CFR 91.225/91.227 requires 1090 ES or 978 UAT Out in Class A/B/C airspace and above 10,000 ft MSL since January 2020. Out is transmit to ATC and TIS-B/FIS-B ground stations.",
+        "ADS-B In (optional, receive-only): A Stratus, Sentry, or GDL 52 is NOT an ADS-B Out solution. The customer claiming 'I have a Stratus so I'm compliant' is confusing In with Out — correct directly.",
+        "Dual-band receivers (978+1090) provide the best traffic picture in the US. FIS-B NEXRAD latency: regional updates ~2.5 minutes, CONUS ~15 minutes; displayed radar is always at minimum 5 minutes old — do NOT penetrate cells based on FIS-B alone.",
+        "Panel ADS-B In (Garmin GTX 345, L3 Lynx NGT-9000) integrates with MFD/EFIS and feeds the EFB via Bluetooth/WiFi gateway. Portable ADS-B In (Stratus 3, Sentry, GDL 52) is treated as a PED under 14 CFR 91.21."
+      ]
+    }
+  },
+  "task_enrichment": {
+    "12.4.1": {
+      "title": "EFB Mount Verification",
+      "step_by_step": [
+        "Obtain the mount STC, field approval, or AML-STC documentation and verify the installed mount matches the approved model and part number.",
+        "With the tablet removed, grasp the mount at its attachment points and apply firm push-pull forces in six axes. Listen and feel for any looseness, click, or play in the base-to-structure joint.",
+        "Inspect the fasteners: verify correct hardware per the STC drawing (not hardware-store screws), verify torque marks or witness lines are intact, and verify self-locking nuts or cotter pins are present where required.",
+        "Install the tablet and seat it fully in the mount. Verify the retention mechanism (latch, clamp, magnet) engages positively.",
+        "From the pilot's normal seated position with seatbelt fastened, visually scan every required flight instrument, master warning/caution annunciator, gear and flap position indicators, and engine instruments. Verify no part of the tablet or mount obscures them.",
+        "Move every primary and secondary flight control through its full mechanical travel: yoke/stick pitch and roll stops, rudder pedal full deflection both directions, throttle quadrant through full range including reverse if applicable, gear handle up/down, flap lever through all detents. Verify zero contact with the mount or tablet.",
+        "Execute the one-handed quick-release: with one hand in under three seconds, remove the tablet and stow it. Repeat three times from the seated position.",
+        "Inspect electrical bonding if the mount has a power/data connection: verify the bonding strap is present, braided, and measures under 2.5 milliohms to structure per AC 43.13-1B paragraph 11-187.",
+        "Document the inspection on the aircraft maintenance record and sign off the mount verification per the operator's inspection program."
+      ],
+      "evaluator_watching_for": [
+        "Candidate references the actual STC/approval document, not a generic statement that 'it looks installed'.",
+        "Push-pull test is firm and in multiple axes, not a perfunctory wiggle.",
+        "Control-clearance check exercises FULL travel of every affected control, not just nominal range.",
+        "Quick-release is timed and done one-handed — candidate does not use two hands to unlatch.",
+        "Visibility check is performed FROM the pilot's seat with seatbelt on, not standing outside the aircraft.",
+        "Bonding resistance measurement (if applicable) is performed with a milliohm meter, not a DMM continuity beep."
+      ],
+      "common_mistakes": [
+        "Accepting a suction-cup or friction-fit mount as Class 2. That is Class 1 only — failing to catch this is an airworthiness error that can fail the aircraft's annual.",
+        "Skipping the full control-travel check because 'obviously it doesn't touch.' Every accident report says 'obviously' right before the part where something touched something.",
+        "Checking visibility from outside the aircraft. The geometry is different from the left seat — check from the seat with the harness on.",
+        "Using hardware-store machine screws to re-secure a loose mount. The STC calls out specific MS or NAS hardware; substitution voids the approval.",
+        "Declaring the bonding strap 'good' by visual inspection alone. Corrosion under paint can push resistance above 2.5 milliohms invisibly — measure it."
+      ]
+    },
+    "12.4.2": {
+      "title": "EFB Power Connection Verification",
+      "step_by_step": [
+        "Pull the aircraft electrical schematic and locate the EFB power circuit — bus source, circuit breaker, routing, and termination at the power outlet or DC-DC converter.",
+        "Verify the circuit breaker is installed in the correct panel position per the schematic, is the correct rating (typically 5 A for a 3 A charging circuit), and is labeled legibly (EFB PWR, EFB CHGR, TABLET, or equivalent).",
+        "With avionics master OFF, inspect the wire run from breaker to outlet: correct gauge (typically 20 AWG MIL-W-22759/16 or /87), correct terminal crimps, correct routing with no chafe points, service loops at connectors, and cable ties at 4-6 inch spacing per AC 43.13-1B.",
+        "Verify the DC-DC converter or USB power module is the part specified in the STC or 337, and that it carries DO-160 qualification or TSO approval for cockpit installation.",
+        "Apply avionics power and measure the output voltage at the USB port: 5.00 +/- 0.25 V under no load, 4.85 V minimum under full 2.4 A load. Use a USB power meter in-line, not just a DMM.",
+        "Connect the EFB tablet and verify it indicates charging. Observe for at least 30 seconds to confirm steady current, not a cyclic connect-disconnect that indicates under-voltage fold-back.",
+        "Perform an EMI operational check: with the EFB charging, cycle COMM 1 transmit on a ground frequency, COMM 2 transmit if installed, NAV audio ident, and transponder reply (ground-test tool). Listen and watch for any injected noise or display corruption.",
+        "Pull the EFB breaker and verify the tablet transitions to battery and continues operation (confirms proper circuit isolation), then reset the breaker.",
+        "Record voltage and current measurements on the inspection form and sign off per the operator's program."
+      ],
+      "evaluator_watching_for": [
+        "Candidate identifies the correct breaker by referencing the electrical schematic, not by following the wire with eyes only.",
+        "Wire gauge and type are verified against MIL-W-22759 specification on the insulation print, not assumed.",
+        "Output voltage is measured UNDER LOAD, not just open-circuit — many cheap converters pass open-circuit and sag under load.",
+        "EMI check is actively performed with radios keyed, not hand-waved.",
+        "Breaker-pull isolation test is performed to confirm the tablet is actually on aircraft power, not running on its own battery the whole time."
+      ],
+      "common_mistakes": [
+        "Assuming a car-style USB charger plugged into a 12 V accessory outlet is acceptable. Automotive USB modules lack DO-160 qualification and can fail EMI during COMM transmission.",
+        "Sizing the breaker to the connector rating (many USB ports are rated 3 A) rather than the wire. Breaker protects the WIRE from overheating; wire gauge drives breaker selection per AC 43.13-1B Table 11-4.",
+        "Leaving the EFB on the main bus so it takes the engine-start transient. One cold-morning start spike can shorten tablet battery life by years.",
+        "Skipping the EMI check because 'it was fine when installed.' Nearby avionics get added and changed over the aircraft's life; re-verify on every inspection.",
+        "Labeling the breaker PHONE CHARGER or similar informal name. Legal label is what the STC specifies — match it."
+      ]
+    },
+    "12.4.3": {
+      "title": "EFB Data Reception (GPS / ADS-B In / AHRS)",
+      "step_by_step": [
+        "Power up the aircraft avionics, the GPS source (panel GNSS or portable receiver), the ADS-B In receiver, and the EFB tablet. Launch the EFB application (ForeFlight, Garmin Pilot, Jeppesen FliteDeck).",
+        "Establish WiFi or Bluetooth connection from the tablet to the data gateway. Verify the SSID on the tablet matches the aircraft-installed gateway, not an adjacent hangar's network.",
+        "Open the EFB's data-source status page (ForeFlight: Settings > Devices; Garmin Pilot: Settings > Connext). Verify the gateway, GPS source, and ADS-B receiver are listed as connected.",
+        "Verify GPS position: confirm ownship symbol is displayed on the moving map at the aircraft's actual ground position, with reasonable accuracy (within 30 feet for WAAS-corrected GPS). Confirm groundspeed reads zero while static.",
+        "Verify satellite count and HDOP: the status page should show 8 or more satellites and HDOP under 2.0 for a useful fix.",
+        "Verify ADS-B In traffic: if another transponder-equipped aircraft is taxiing or parked nearby, confirm its target appears on the EFB. If no nearby traffic, activate a portable transponder tester or request ATC to key a target.",
+        "Verify FIS-B weather (UAT 978 only, US only): confirm NEXRAD radar, METAR, and TAF data are populating. Check the data-age indicator for each product.",
+        "Verify AHRS if equipped: on a level ground position, confirm EFB synthetic attitude reads within 2 degrees of level in pitch and roll. Roll the aircraft on its gear (or reference ground slope) and confirm attitude tracks.",
+        "Document the connected sources, GPS HDOP, and any FIS-B data age on the inspection form."
+      ],
+      "evaluator_watching_for": [
+        "Candidate verifies GPS accuracy against a KNOWN point (surveyed pad, taxiway centerline), not just confirming a number is displayed.",
+        "Candidate checks satellite count and HDOP, demonstrating understanding that a displayed position is not necessarily a good position.",
+        "Data-source status page is opened and cross-checked, not trusted from a quick glance at the map.",
+        "AHRS is explicitly identified as ADVISORY and not a primary reference — evaluator may ask directly.",
+        "FIS-B data age is checked and understood: candidate can state that displayed NEXRAD is at minimum 5 minutes old."
+      ],
+      "common_mistakes": [
+        "Accepting ownship on the map as proof of GPS health without checking HDOP or satellite count. A degraded fix can still display a map position that drifts hundreds of feet.",
+        "Confusing ADS-B In traffic coverage: in the US, TIS-B only transmits when your aircraft is itself ADS-B Out compliant. On a test aircraft without Out active, the traffic picture is incomplete — this is expected behavior, not a data fault.",
+        "Interpreting missing FIS-B data outside the US as a failure. FIS-B is a US-only service; there is no UAT ground infrastructure in Canada, Mexico, Europe, etc.",
+        "Relying on EFB AHRS as a backup attitude indicator. It is advisory only per the STC and placarding — citing it as a standby is a regulatory error.",
+        "Connecting to a WiFi named the same as the aircraft network but actually in a nearby hangar. Confirm SSID and signal strength, and verify data actually flows."
+      ]
+    },
+    "12.4.4": {
+      "title": "Aircraft WiFi System Check",
+      "step_by_step": [
+        "Obtain the WiFi installation STC and wiring diagram. Identify the access point location (commonly headliner, overhead bay, aft baggage bulkhead), power feed, antenna location(s), and SATCOM terminal if installed.",
+        "Verify physical installation: access point mounting is secure per the STC bracket, antenna coax is properly routed and terminated, bonding strap is present at the AP chassis.",
+        "Apply aircraft power and verify the AP boots: indicator LEDs per the manufacturer's manual (typically a boot sequence of 30-60 seconds for enterprise APs).",
+        "Using a test laptop or tablet, scan for SSIDs. Confirm both CREW-NET and CABIN-NET (or equivalent per the operator's naming) are present, on separate VLANs as specified in the type design.",
+        "Connect the test device to the CREW-NET SSID with the posted credentials. Verify DHCP assigns an IP in the crew subnet (typically 192.168.10.0/24 or as configured).",
+        "Attempt to ping a known cabin-network device from the crew network. Expected result: UNREACHABLE. If the ping succeeds, the separation is broken and the system is not airworthy — write it up immediately.",
+        "Repeat signal-strength check at the pilot's seat, co-pilot's seat, and any cabin area where the tablet is used. Verify RSSI better than -65 dBm in all required locations.",
+        "If the aircraft has SATCOM internet, verify the egress path: cabin network routes through the SATCOM terminal only, crew network routes through its own approved path or not at all per the type design.",
+        "Document signal strengths, SSID-isolation test result, and SATCOM link status on the inspection form."
+      ],
+      "evaluator_watching_for": [
+        "Candidate actively TESTS the crew-cabin isolation with a ping or connection attempt, not just trusts that the VLANs are configured.",
+        "Candidate can articulate WHY the separation is mandatory (14 CFR 25.1309, FAA Special Conditions), not just that it is.",
+        "Signal-strength measurement is done at actual use locations, not just next to the AP where signal is always strong.",
+        "Candidate identifies the SATCOM egress path in the architecture diagram and knows which carrier (Iridium, Viasat, Inmarsat, Gogo) is installed.",
+        "Correct identification of band (2.4 vs 5 GHz) and understanding that 5 GHz DFS channels require dynamic frequency selection to coexist with weather radar."
+      ],
+      "common_mistakes": [
+        "Assuming VLAN isolation because the SSIDs are named differently. The only proof is an actual ping test across the segments.",
+        "Measuring RSSI only at the access point location. The required location is where the USER sits with their device.",
+        "Treating the crew network as if it were a certified avionics network. It is not — it is a convenience data network, and no flight-critical function may depend on it.",
+        "Ignoring SATCOM link margin and modem signal-to-noise. A weak SATCOM link drops throughput invisibly and is diagnosed at the modem, not at the tablet.",
+        "Re-configuring the router to 'fix' a complaint about slow passenger WiFi. Router config is part of the type design — changes require re-approval, not a field config edit."
+      ]
+    },
+    "12.4.5": {
+      "title": "Portable ADS-B In Receiver Setup",
+      "step_by_step": [
+        "Verify the portable receiver (Stratus, Sentry, GDL 52, or equivalent) is on the operator's approved equipment list if operating under Part 135 or 121. Part 91 GA has no approval requirement but should still document.",
+        "Charge the receiver to full or connect to aircraft USB power (through the approved EFB USB port from task 12.4.2). Verify the receiver indicates charging.",
+        "Mount the receiver per the manufacturer's guidance: glareshield with clear sky view for GPS and 978 MHz reception, not buried in a seat pocket. Some units require an external antenna in composite aircraft.",
+        "Power on the receiver. Observe the boot sequence and wait for GPS fix indication (may take 2-5 minutes on cold start).",
+        "On the tablet, turn on WiFi and connect to the receiver's SSID (typically named Stratus-xxxx or Sentry-xxxx). Enter the default password per the manual.",
+        "Launch the EFB app. In settings, select the receiver as the GPS and ADS-B source. Confirm ownship appears on the map at the correct position.",
+        "Verify traffic reception: nearby ADS-B Out equipped aircraft should appear as targets. At an airport, several should be visible within 5 nm.",
+        "Verify FIS-B weather: NEXRAD radar should populate within 2-3 minutes if in US UAT coverage. Check data age on each product.",
+        "If the receiver has AHRS, confirm synthetic attitude is available and note the advisory-only limitation."
+      ],
+      "evaluator_watching_for": [
+        "Candidate mounts the receiver with clear sky view, not just sets it on a seat.",
+        "Candidate waits for GPS fix and does not proceed with a degraded fix indication.",
+        "Candidate clearly states that a portable ADS-B In receiver does NOT satisfy the 91.225 ADS-B Out mandate.",
+        "Candidate understands the receiver is a PED under 14 CFR 91.21 and the operator must have determined no interference.",
+        "Data-age awareness: candidate checks FIS-B NEXRAD age and knows it is at least 5 minutes old in the best case."
+      ],
+      "common_mistakes": [
+        "Placing the receiver where it has no sky view, then troubleshooting a poor GPS fix. Move the unit before changing anything else.",
+        "Selling the customer on a portable ADS-B In receiver as their Out solution. This is a compliance failure and the customer will learn the hard way when they are violated for 91.225 non-compliance.",
+        "Not charging the receiver before flight. Many portables run 4-6 hours on battery; a 10-hour day needs aircraft power.",
+        "Connecting the tablet to the wrong receiver's SSID (a receiver in another parked aircraft). Verify the last four characters of the SSID match the serial number of YOUR unit.",
+        "Relying on portable AHRS as primary attitude. It is advisory only and loses its reference in any extended uncoordinated flight."
+      ]
+    },
+    "12.4.6": {
+      "title": "Troubleshooting: EFB Receives No Data",
+      "step_by_step": [
+        "Start with symptoms, not assumptions. Ask: what exactly is missing? No GPS? No traffic? No weather? All three? Narrowing the missing data category narrows the suspect equipment list immediately.",
+        "Verify power at every stage of the signal chain: aircraft bus breaker, gateway/receiver LED status, tablet charge indication. A dark gateway with a bright tablet is a power problem, not a data problem.",
+        "Check WiFi connection status on the tablet: confirm connected SSID matches the aircraft gateway, signal strength is adequate (above -70 dBm), and tablet has received a DHCP IP address.",
+        "Open the EFB app's data-source status page. Note which sources show connected vs. disconnected. A disconnected GPS source with a connected gateway means the gateway is up but is not receiving from the GPS feed.",
+        "If GPS is missing: check the upstream source (panel GNSS or portable receiver). Is it showing a fix? Has the RS-232 or ARINC 429 cable been disturbed? Verify baud rate and protocol match the gateway configuration.",
+        "If ADS-B traffic is missing but weather is present: usually means the 1090 MHz or 978 MHz receive path is degraded. Check antenna connection, coax kinks, or in-flight only it may be a ground-station coverage gap.",
+        "If FIS-B weather is missing: confirm you are in US UAT coverage. Confirm the unit is a dual-band or UAT-capable receiver, not 1090-only.",
+        "If everything is disconnected: restart the gateway/receiver, then restart the EFB app, then reboot the tablet, in that order. Do not reboot everything at once — you lose information about which restart fixed it.",
+        "If the fault persists, break the signal chain at the data gateway physical connector. Bench-test the tablet side (connect to a known-good portable receiver) to isolate aircraft-side vs. tablet-side problems."
+      ],
+      "evaluator_watching_for": [
+        "Candidate asks clarifying questions about symptoms before touching anything.",
+        "Systematic troubleshooting from power to physical to configuration, not random button-pressing.",
+        "Candidate uses the EFB data-source status page as a diagnostic tool, not just the map display.",
+        "Candidate demonstrates understanding that UAT FIS-B is US-only and has coverage gaps, not a defect.",
+        "Post-repair: candidate re-runs the full data reception check from task 12.4.3, not just verifies the one missing item."
+      ],
+      "common_mistakes": [
+        "Rebooting everything at once. You fix the problem but learn nothing about the root cause, so the next occurrence is the same troubleshooting from scratch.",
+        "Blaming the EFB app when the gateway is the problem. Check status lights and protocol on the gateway before touching the tablet.",
+        "Confusing coverage gaps with equipment failures. FIS-B at 5,000 ft over remote terrain may have legitimately no ground station in range; that is not a write-up.",
+        "Replacing the tablet as the first action. The tablet is the least-failure-prone link in the chain and replacing it without isolating the fault wastes hours of labor and customer trust.",
+        "Not documenting the intermittent after it clears. Intermittents that resolved 'on their own' will return on Friday afternoon at 1700 local when the shop is closing."
+      ]
+    }
+  },
+  "oral_board_answers": {
+    "Q1": "The customer is confusing ADS-B In with ADS-B Out, and this is a common and consequential misunderstanding. A Stratus, Sentry, or any similar portable receiver is an ADS-B In device only. It receives TIS-B traffic and FIS-B weather from ground stations and other aircraft; it does not transmit anything. 14 CFR 91.225 and 91.227 require ADS-B OUT — a transmitter — in Class A, B, and C airspace and above 10,000 ft MSL. The Out capability comes from either a compliant 1090 MHz Extended Squitter transponder (Garmin GTX 335/345, Stratus ESG, L3 Lynx, or similar) or a 978 MHz UAT Out unit. I would explain this distinction plainly, show them 91.225's text if needed, and walk them through what installed equipment they actually have. If their panel has a compliant transponder already, we document the pairing and they are fine. If it does not, they need an installation. The Stratus stays useful as an In display source, but it is not and cannot be the compliance piece. I would also offer to check their most recent ADS-B Performance Report through the FAA Public ADS-B Performance Report tool to confirm what ATC actually sees.",
+    "Q2": "An EFB mount installation must satisfy three requirements drawn from AC 120-76D and AC 43.13-2B: security of attachment, non-interference, and quick accessibility. First, security: the mount must be secured to aircraft primary or secondary structure using approved hardware, and must withstand the emergency landing inertia loads of 14 CFR 23.561 or 25.561 — typically 9g forward — so the tablet does not become a loose projectile in a crash or severe turbulence. Suction-cup mounts do not meet this standard for Class 2 and are unacceptable. Second, non-interference: with the tablet installed in the mount, the pilot must have unobstructed view of every required flight instrument, annunciator, and master warning/caution light, and every primary and secondary flight control — yoke, pedals, throttle quadrant, gear handle, flap lever — must have full mechanical travel with zero contact with the mount or tablet. Third, quick accessibility: the pilot must be able to remove the tablet one-handed in under three seconds from the normal seated position with seatbelt fastened, so it can be stowed during turbulence, fire, or if the tablet itself becomes a distraction. All three are verified on installation and re-verified at annual.",
+    "Q3": "I start with the status page, not the map. The EFB application has a data-source status screen — in ForeFlight it is Settings > Devices, in Garmin Pilot it is Settings > Connext — that shows which sources are connected and which are not. If GPS is connected and current, ADS-B In is the degraded source. From there I work the signal chain: is the gateway powered and indicating connected? That tells me aircraft power and the WiFi link are fine. Is the ADS-B receiver itself showing traffic/weather lock on its own status lights? Is the antenna connection seated and the coax intact? I also check whether this is a ground environment or in-flight problem — FIS-B requires a UAT ground station in range, and at low altitude in remote terrain you can legitimately have no coverage, so knowing the altitude and location is diagnostic information not a defect. If traffic is the missing piece and weather is present, I look at the 1090 or 978 RF path specifically. If both are missing, I look at whatever antenna or coax feeds the ADS-B receiver. Last and only after isolating the aircraft side, I would consider tablet-side issues — app permissions, Bluetooth/WiFi settings, or a stale cached setting.",
+    "Q4": "Crew and passenger WiFi networks must be separated because passenger devices cannot be allowed to affect flight-critical operations, and this is both a certification requirement and an operational one. The certification basis is 14 CFR 25.1309 for transport category — no passenger-accessible system may cause a hazardous or catastrophic effect on flight-critical systems — and FAA Special Conditions for e-enabled aircraft that explicitly call out network security isolation between cabin and cockpit domains. Operationally, the crew network typically carries GPS position, ADS-B In traffic and weather, flight-plan data, and sometimes electronic logbook and performance-calculation traffic. A passenger who pulls up a torrent, runs a VPN, or — worst case — attempts to probe the network cannot be allowed to degrade or interfere with any of that. Separation is enforced either by physical air-gap (entirely separate access points, cabling, and DC feeders, which is the strongest architecture) or by VLAN with firewall enforcement as part of the type design. Either way, the separation is not a config option for the shop to tweak in the field; it is a certification artifact. My verification on an inspection is to attempt an actual connection or ping from the passenger subnet to a crew-subnet address and confirm it fails.",
+    "Q5": "Class 1 EFB is fully portable — a pilot's personal tablet or laptop used off-panel during non-critical phases of flight only, with no aircraft power and no installed mount. Class 1 has no airworthiness involvement; it is PED operation under 14 CFR 91.21 and the operator's PED policy. Class 2 EFB is portable hardware in an installed mount — the tablet itself is still portable and can be removed, but the mount is an installed component requiring STC, field approval, or AML-STC. Class 2 may include aircraft power and data connections, which are also installed equipment. This is the dominant class in GA and business aviation and is what we typically install and inspect. Class 3 EFB is fully installed — a display that is permanently part of the certified avionics panel, approved under TSO-C165a or equivalent, not removable without a maintenance action. Class 3 is common in Part 121 airline flight decks where the EFB function is integrated into the EFIS or MCDU. Independently of class, EFB software is categorized as Type A (static documents, MEL, AFM viewer) or Type B (dynamic calculations: performance, weight and balance, takeoff distance). Type B requires operator aircraft-specific validation. The combination of class and type drives the approval path under AC 120-76D."
+  },
+  "background_theory": {
+    "why_cockpit_cabin_separation_is_safety_critical": "The certified avionics LAN on a modern aircraft — ARINC 664 AFDX on large transport, ARINC 429 point-to-point on smaller aircraft — is a deterministic, closed, failure-analyzed system. Every box on the bus has been through DO-254 hardware assurance and DO-178C software assurance, and the integrated system has been shown to meet the 10^-9 per flight hour failure rate required for catastrophic-effect functions under 14 CFR 25.1309. A passenger WiFi network is none of those things. It runs consumer-grade Ethernet, it terminates consumer-grade devices running arbitrary software, and its users actively try to break it for entertainment. If those two networks share a routing path, the avionics assurance argument collapses: you cannot claim 10^-9 per flight hour when an untrusted device can inject traffic. The only architectures that preserve the safety case are physical air-gap or a certified data diode/firewall that is itself part of the type design. This is why the shop cannot reconfigure these networks in the field, and why a ping test across the separation is a real and necessary verification, not paranoia.",
+    "why_satcom_latency_matters": "Signal travel time dominates satellite link budgets. A geostationary satellite sits at 35,786 km altitude, so a one-way path aircraft-to-satellite-to-ground is roughly 72,000 km, or 240 milliseconds at the speed of light, ignoring processing. Round-trip that is approaching 500 ms, which is why GEO-based internet (legacy Inmarsat SwiftBroadband, early Ku-band) feels sluggish — every TCP handshake pays the penalty twice. Low Earth Orbit constellations like Iridium (780 km) and Starlink Aviation (~550 km) reduce the one-way path to roughly 3-4 ms plus processing, delivering 30-50 ms round-trip latency which is competitive with terrestrial 4G. For EFB use, latency matters for two reasons: live radar streams and weather updates tolerate high latency because they are batched, but flight-plan uplink, position reporting through FANS 1/A CPDLC, and SATCOM voice become awkward at 500 ms round-trip. Understanding the link budget and latency tells you why a customer flying mostly over oceans on Inmarsat I-5 has a different experience than one flying Iridium Certus, and why the newer LEO systems are rapidly displacing GEO for business aviation cabin broadband.",
+    "why_efb_hardening_is_mandatory": "A certified avionics box is designed from silicon up to the DO-254 / DO-178C assurance level required by its failure effect. A consumer tablet is designed to ship at lowest cost and highest feature count, with no assurance process whatsoever. You cannot bridge that gap by declaration; you have to engineer it. DO-160G testing — specifically sections 4 (temperature and altitude), 7 (operational shocks and crash safety), 8 (vibration), 20 (RF susceptibility), and 22 (lightning-induced transients) — subjects the hardware to the environments the aircraft will see. DO-311A adds lithium-battery specific tests for thermal runaway containment. The mount and power interface must be qualified because they are installed; the tablet itself is treated as a PED and subject to the operator's PED policy under 14 CFR 91.21 (non-interference determination). This is why automotive USB chargers, hardware-store brackets, and suction-cup mounts cannot be used: they have never seen the test chamber, they have never been through vibration qualification, and they have no data behind them. The hardening is not bureaucracy — it is the difference between the tablet working on approach in the clag and the tablet resetting at the exact moment the pilot needs it."
+  }
+}

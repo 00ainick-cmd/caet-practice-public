@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Section 8: Transponder & ADS-B Systems | CAET Advanced Handbook</title>
+<style>
+  /* Light-theme study document — optimized for reading on screen AND print. */
+  :root {
+    --ink: #1a2332;
+    --ink-soft: #4a5568;
+    --paper: #fbfaf5;
+    --paper-accent: #f5f2e8;
+    --rule: #d8d3c3;
+    --navy: #0a2540;
+    --gold: #8b6914;
+    --gold-soft: #f4ead0;
+    --red: #8b1a1a;
+    --red-soft: #fbe9e7;
+    --green: #1b4332;
+    --green-soft: #e7f0e5;
+    --cyan: #0e4a6e;
+    --cyan-soft: #e4f1f8;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--ink);
+    background: var(--paper);
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 56px 48px 80px;
+  }
+  header.cover {
+    border-bottom: 3px double var(--navy);
+    padding-bottom: 24px;
+    margin-bottom: 40px;
+  }
+  .eyebrow {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    letter-spacing: 3px;
+    font-size: 11px;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 700;
+  }
+  h1 {
+    font-family: Georgia, serif;
+    font-size: 34px;
+    line-height: 1.2;
+    color: var(--navy);
+    margin: 8px 0 12px;
+    font-weight: 700;
+  }
+  .subtitle {
+    font-size: 15px;
+    color: var(--ink-soft);
+    font-style: italic;
+    margin: 0;
+  }
+  h2 {
+    font-family: Georgia, serif;
+    font-size: 24px;
+    color: var(--navy);
+    margin: 56px 0 12px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--rule);
+  }
+  h3 {
+    font-family: Georgia, serif;
+    font-size: 19px;
+    color: var(--navy);
+    margin: 32px 0 10px;
+  }
+  h4 {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin: 20px 0 8px;
+    font-weight: 700;
+  }
+  p { margin: 0 0 16px; }
+  ul, ol { margin: 0 0 18px; padding-left: 24px; }
+  li { margin-bottom: 8px; }
+  .toc {
+    background: var(--paper-accent);
+    border-left: 4px solid var(--gold);
+    padding: 24px 32px;
+    border-radius: 2px;
+    margin: 24px 0 40px;
+  }
+  .toc h2 { margin-top: 0; border: none; font-size: 18px; color: var(--gold); letter-spacing: 2px; text-transform: uppercase; font-family: 'Helvetica Neue', Arial, sans-serif; }
+  .toc ol { columns: 2; column-gap: 32px; font-size: 14px; }
+  .toc li { margin-bottom: 4px; break-inside: avoid; }
+  .toc a { color: var(--navy); text-decoration: none; }
+  .toc a:hover { text-decoration: underline; color: var(--gold); }
+  blockquote.why {
+    font-size: 17px;
+    font-family: Georgia, serif;
+    font-style: italic;
+    color: var(--navy);
+    background: var(--gold-soft);
+    border-left: 4px solid var(--gold);
+    padding: 24px 32px;
+    margin: 24px 0;
+    border-radius: 2px;
+  }
+  blockquote.why p { margin: 0 0 12px; }
+  blockquote.why p:last-child { margin-bottom: 0; }
+  .callout {
+    padding: 16px 22px;
+    margin: 18px 0;
+    border-left: 4px solid var(--cyan);
+    background: var(--cyan-soft);
+    border-radius: 2px;
+    font-size: 15px;
+  }
+  .callout.watching { border-left-color: var(--green); background: var(--green-soft); }
+  .callout.mistakes { border-left-color: var(--red); background: var(--red-soft); }
+  .callout.theory   { border-left-color: var(--gold); background: var(--gold-soft); }
+  .callout strong { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 6px; }
+  .callout.watching strong { color: var(--green); }
+  .callout.mistakes strong { color: var(--red); }
+  .callout.theory   strong { color: var(--gold); }
+  .callout.info     strong { color: var(--cyan); }
+  .key-points { margin: 12px 0 20px; padding-left: 20px; }
+  .key-points li { margin-bottom: 10px; line-height: 1.55; }
+  dl.glossary { margin: 20px 0; }
+  dl.glossary dt { font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 700; color: var(--navy); margin-top: 14px; font-size: 15px; }
+  dl.glossary dd { margin: 4px 0 0 0; padding-left: 0; font-size: 14.5px; line-height: 1.55; color: var(--ink); }
+  .steps { counter-reset: step; padding-left: 0; list-style: none; }
+  .steps li { counter-increment: step; padding-left: 44px; position: relative; margin-bottom: 14px; line-height: 1.55; }
+  .steps li::before {
+    content: counter(step);
+    position: absolute; left: 0; top: -2px;
+    width: 30px; height: 30px; border-radius: 50%;
+    background: var(--navy); color: white;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 700; font-size: 13px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .quiz {
+    background: var(--cyan-soft);
+    border-left: 4px solid var(--cyan);
+    padding: 24px 32px;
+    margin: 24px 0;
+    border-radius: 2px;
+  }
+  .quiz h3 { margin-top: 0; color: var(--cyan); }
+  .quiz ol { margin: 12px 0 0 0; padding-left: 22px; }
+  .quiz li { margin-bottom: 14px; }
+  .answer-key details {
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    padding: 12px 18px;
+    margin-bottom: 10px;
+    background: var(--paper);
+  }
+  .answer-key summary { font-weight: 700; cursor: pointer; color: var(--navy); font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 14px; }
+  .answer-key details[open] summary { margin-bottom: 10px; border-bottom: 1px solid var(--rule); padding-bottom: 6px; }
+  .answer-key p { margin-top: 10px; font-size: 14.5px; line-height: 1.6; }
+  .crosswalk {
+    background: var(--paper-accent);
+    padding: 18px 24px;
+    border-radius: 2px;
+    border: 1px solid var(--rule);
+    margin: 24px 0;
+    font-size: 14.5px;
+    color: var(--ink-soft);
+  }
+  footer {
+    margin-top: 64px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 12px;
+    color: var(--ink-soft);
+    text-align: center;
+  }
+  .section-marker {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--gold); font-weight: 700;
+    margin: 48px 0 0;
+  }
+  @media print {
+    body { padding: 0.6in 0.75in; background: white; font-size: 11pt; max-width: none; }
+    h1 { font-size: 24pt; }
+    h2 { font-size: 16pt; page-break-after: avoid; }
+    h3 { page-break-after: avoid; }
+    .callout, blockquote.why { page-break-inside: avoid; }
+    .toc { page-break-after: always; }
+    details { page-break-inside: avoid; }
+    details[open] > summary ~ * { display: block !important; }
+    .answer-key details { border: none; }
+    a { color: var(--navy); text-decoration: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="cover">
+  <div class="eyebrow">CAET Advanced Certification · Student Handbook</div>
+  <h1>Section 8: Transponder & ADS-B Systems</h1>
+  <p class="subtitle">Aircraft Electronics Association · Workforce Development Division</p>
+</header>
+
+<nav class="toc">
+  <h2>Contents</h2>
+  <ol>
+    <li><a href="#why">Why This Matters</a></li>
+    <li><a href="#terms">Key Terms &amp; Definitions</a></li>
+    <li><a href="#kr-1">8.2.1 — Transponder Modes</a></li><li><a href="#kr-2">8.2.2 — ADS-B Out</a></li><li><a href="#kr-3">8.2.3 — Transponder Test Requirements</a></li><li><a href="#kr-4">8.2.4 — Altitude Encoder</a></li>
+    <li><a href="#task-1">Task 8.4.1 — Transponder Modes and Emergency Codes</a></li><li><a href="#task-2">Task 8.4.2 — Antenna Identification and Diversity</a></li><li><a href="#task-3">Task 8.4.3 — Altitude Encoder Correlation</a></li><li><a href="#task-4">Task 8.4.4 — 91.413 Transponder Test</a></li><li><a href="#task-5">Task 8.4.5 — ADS-B Out Verification</a></li><li><a href="#task-6">Task 8.4.6 — Test Documentation</a></li>
+    <li><a href="#quiz">Self-Check &amp; Oral Board Practice</a></li>
+    <li><a href="#crosswalk">Written Exam Crosswalk</a></li>
+  </ol>
+</nav>
+
+<section id="why">
+  <div class="section-marker">Part I — Orientation</div>
+  <h2>Why This Matters</h2>
+  
+  <blockquote class="why"><p>The transponder is the single point of failure that stands between an aircraft and its legal right to operate in controlled airspace. Every radar target on a controller's scope at an ARTCC or TRACON is painted by an interrogation-reply pair between ground radar and a transponder bolted to the belly of an airplane. When the transponder is wrong - wrong altitude, wrong squawk, wrong ICAO 24-bit address, stale NACp - the controller's separation data is wrong. Separation is the load-bearing function of the National Airspace System. A technician who signs off a bad 91.413 test has not just committed a paperwork error; they have injected a bad data source into the separation system that keeps airplanes from hitting each other. This is why 14 CFR 91.413 is biennial and uncompromising, why the test procedures in Part 43 Appendix F are prescriptive to the kilohertz, and why transponder work is one of the most regulated tasks in the entire Part 145 repair station.</p></blockquote>
+  
+  <blockquote class="why"><p>On January 1, 2020, the FAA's ADS-B Out mandate under 14 CFR 91.225 went into effect for Class A, B, and C airspace (and above the ceiling of Class B/C up to 10,000 ft MSL within the lateral boundaries of the Mode C veil). Overnight, every transponder installation in US-registered aircraft operating in controlled airspace became a compliance artifact - not just an avionics box, but a federally-mandated surveillance source with performance requirements written into 14 CFR 91.227. An installation that meets 91.225 spatially but fails 91.227 on NACp, NIC, SIL, or SDA is a violation regardless of whether anyone gets caught. The FAA's Compliance Monitor tool (public web portal) analyzes every ADS-B broadcast in the US and flags non-performing installations. Your shop's reputation rides on those reports, because they are emailed to the aircraft owner with the tail number in the subject line.</p></blockquote>
+  
+  <blockquote class="why"><p>TCAS II (Traffic Alert and Collision Avoidance System) is the last line of defense against mid-air collisions, and TCAS is entirely dependent on transponder data from both aircraft. When TCAS decides to issue a Resolution Advisory - 'CLIMB, CLIMB' or 'DESCEND, DESCEND' - it is making that decision based on Mode C altitude from the other aircraft's transponder and its own closure geometry. If the other aircraft's encoder is reading 200 ft low because of a sloppy 91.411 pitot-static test that did not catch the encoder drift, TCAS issues an RA that resolves to a wrong altitude. Every altitude-encoder correlation check, every Mode S address verification, every ADS-B broadcast audit you perform is protecting a TCAS RA somebody will receive at 37,000 ft over the Atlantic. The evaluator is not grading your speed - they are grading whether your work can be trusted at the moment the TA/RA logic fires.</p></blockquote>
+  
+  
+  <h4>From the PQS Source</h4>
+  <p>Transponder and ADS-B testing is bread-and-butter Part 145 work. The 91.413 biennial test is one of the most frequently performed avionics inspections, and ADS-B compliance verification is required for every installation or modification affecting the surveillance system. This section is heavily regulatory—you must know the test requirements, tolerances, and documentation standards cold.</p>
+  
+</section>
+
+<section id="terms">
+  <h2>Key Terms &amp; Definitions</h2>
+  <p>Master this vocabulary before continuing. The evaluator expects you to use these terms correctly in the oral board.</p>
+  <dl class="glossary">
+    
+    <dt>Mode A</dt>
+    <dd>Transponder mode that replies to ground interrogation with a 4-digit octal squawk code (0000-7777, 4096 possible codes). Identifies the aircraft to ATC but carries no altitude. Governed by TSO-C74d.</dd>
+    
+    <dt>Mode C</dt>
+    <dd>Transponder mode that replies with the squawk code PLUS the pressure altitude encoded via Gillham (Gray) code from the altitude encoder. Always reports altitude referenced to 29.92 in Hg, regardless of Kollsman setting. Required in Class A/B/C airspace and within the Mode C veil.</dd>
+    
+    <dt>Mode S</dt>
+    <dd>Selective interrogation mode that addresses individual aircraft using a unique 24-bit ICAO address. Carries altitude, squawk, flight ID, and extended data fields. Governed by TSO-C112d and RTCA DO-181E. Required for TCAS II to function and mandatory for ADS-B Out via 1090ES.</dd>
+    
+    <dt>1090ES (Extended Squitter)</dt>
+    <dd>ADS-B Out data link operating on the Mode S 1090 MHz frequency. Uses the Extended Squitter message format to broadcast position, velocity, and ID every 0.5-1 second. Governed by RTCA DO-260B and TSO-C166b. Mandatory for aircraft operating above 18,000 ft MSL (Class A).</dd>
+    
+    <dt>UAT (Universal Access Transceiver)</dt>
+    <dd>ADS-B Out data link operating on 978 MHz, permitted only below 18,000 ft MSL. Lower-cost alternative to 1090ES, popular for GA. Governed by RTCA DO-282B and TSO-C154c. Also carries FIS-B weather and TIS-B traffic as ADS-B In services.</dd>
+    
+    <dt>ADS-B Out</dt>
+    <dd>Automatic Dependent Surveillance-Broadcast transmit function. The aircraft broadcasts position (from GPS), altitude, velocity, heading, and ID automatically and continuously - no interrogation required. Performance rules in 14 CFR 91.227.</dd>
+    
+    <dt>ADS-B In</dt>
+    <dd>Receive function that displays traffic (TIS-B, ADS-R) and weather (FIS-B, UAT only) to the cockpit. Not mandated, but increasingly standard. Requires a receiver on 978 and/or 1090 and a display (MFD or EFB).</dd>
+    
+    <dt>NIC (Navigation Integrity Category)</dt>
+    <dd>A quality metric (0-11) describing the radius of containment of the broadcast position - essentially, how confident the system is that the position is accurate. 91.227 requires NIC >= 7 (Rc < 0.2 NM). A SBAS-capable GPS/WAAS source delivers NIC = 8 or higher.</dd>
+    
+    <dt>NACp (Navigation Accuracy Category - Position)</dt>
+    <dd>A quality metric (0-11) describing the estimated horizontal position accuracy (95% confidence). 91.227 requires NACp >= 8 (EPU < 0.05 NM = 92.6 m). WAAS-corrected GPS sources deliver NACp = 9 or 10. A bad NACp report is the single most common 91.227 compliance failure.</dd>
+    
+    <dt>NACv (Navigation Accuracy Category - Velocity)</dt>
+    <dd>Velocity accuracy metric (0-4). 91.227 requires NACv >= 1 (< 10 m/s horizontal velocity error, 95% confidence). GPS-based velocity usually delivers NACv = 2 or 3.</dd>
+    
+    <dt>SIL (Source Integrity Level)</dt>
+    <dd>Probability that the reported horizontal position exceeds the NIC radius without an alert being issued. 91.227 requires SIL >= 3 (probability <= 1 x 10^-7 per hour or per sample). SIL describes the trustworthiness of the integrity claim itself.</dd>
+    
+    <dt>SDA (System Design Assurance)</dt>
+    <dd>Design-level assurance that the ADS-B transmit subsystem will not generate hazardously misleading information. 91.227 requires SDA >= 2. Satisfied by DO-254/DO-178C design rigor in the GPS and transponder.</dd>
+    
+    <dt>TIS-B (Traffic Information Service-Broadcast)</dt>
+    <dd>Ground-based service that uplinks radar-tracked traffic (non-ADS-B-equipped targets) to ADS-B In receivers. Gives ADS-B-In aircraft a complete traffic picture including Mode-A/C-only aircraft. Free service from FAA ground stations.</dd>
+    
+    <dt>FIS-B (Flight Information Service-Broadcast)</dt>
+    <dd>Ground-based weather and aeronautical information uplink on 978 MHz UAT only. Provides NEXRAD, METAR, TAF, PIREPs, NOTAMs, TFRs. Free to UAT-equipped aircraft - a major reason GA favors UAT.</dd>
+    
+    <dt>ICAO 24-bit address</dt>
+    <dd>Unique aircraft identifier assigned by the registration authority (FAA for US N-numbers). Encoded as a 6-digit hexadecimal value (e.g., N123AB = A12345). Programmed once into the transponder at installation and must be changed if the aircraft is re-registered. Incorrect address = automatic 91.227 violation and incompatibility with TCAS.</dd>
+    
+    <dt>Flight ID (Callsign)</dt>
+    <dd>The 8-character identifier broadcast in the Mode S flight ID field. For GA, typically matches the tail number (N12345). For airlines, matches the ATC callsign (e.g., UAL1234). Must match the flight plan filed with ATC or controllers see a mismatch.</dd>
+    
+    <dt>Squawk Codes</dt>
+    <dd>4-digit octal codes set by the pilot on the transponder. 1200 = VFR default (US). 7500 = hijack (unlawful interference). 7600 = lost communications (radio failure). 7700 = general emergency. 7777 = military interceptor. 0000 = reserved, never assigned.</dd>
+    
+  </dl>
+</section>
+
+<div class="section-marker">Part II — Knowledge Requirements</div>
+
+
+
+
+<section id="kr-1">
+  <h2>8.2.1 — Transponder Modes</h2>
+
+  
+  <p>A transponder is a secondary surveillance radar (SSR) responder. It listens on 1030 MHz for interrogations from ground radar or TCAS, and replies on 1090 MHz with coded data. The mode determines what data is in the reply. Modern installations are universally Mode S, which supersedes Mode A and Mode C while remaining backward-compatible with them. Understanding how each mode is structured is required to interpret test results and troubleshoot ATC squawks.</p>
+  
+
+  
+
+  
+  <h4>Key Points</h4>
+  <ul class="key-points">
+    <li>Mode A replies carry only the 4-digit octal squawk code set by the pilot - 12 data bits total. No altitude, no identity beyond the code. Governed by TSO-C74d and ICAO Annex 10 Volume IV.</li><li>Mode C replies add the pressure altitude in Gillham (Gray) code, 11 bits encoded in 100-foot increments, range -1000 ft to +126,700 ft. The reply is a Mode A frame with altitude bits replacing the zero slots.</li><li>Mode S replies use a completely different waveform: Pulse Position Modulation at 1 Mbps, 56 or 112 bits per reply, addressed to a specific 24-bit ICAO address. Supports selective interrogation, preventing the 'garbling' that occurs when multiple aircraft reply to the same Mode A/C interrogation.</li><li>Mode S Extended Squitter (ES) is what makes 1090ES ADS-B Out possible. The transponder transmits ES messages unsolicited every 0.5-1 second carrying position, velocity, identity, and status. This is 'squitter' because no interrogation triggers it.</li><li>Modern Mode S transponders (Garmin GTX 330/335/345, Trig TT31, L3 Lynx NGT-9000, Honeywell/BendixKing KT74, Avidyne AXP340) respond to all three modes automatically based on the interrogation type. Legacy Mode A/C-only units (Narco AT150, King KT76A) are no longer compliant with ADS-B Out and have been removed from most certified aircraft.</li><li>Transponder RF output power is typically 125-250 W peak (per TSO-C112d: 125 W minimum to 500 W maximum for Class 1 Mode S at the antenna). Field-measured output below 70 W indicates a failing RF final stage or a high-VSWR antenna cable.</li><li>Reply delay spec (Part 43 Appendix F, RTCA DO-181E) is 3.0 us +/- 0.5 us from interrogation. Reply jitter must be < 0.1 us. These are tested automatically by the AVX-10K or IFR-6000 test sets.</li>
+  </ul>
+  
+</section>
+
+
+
+<section id="kr-2">
+  <h2>8.2.2 — ADS-B Out</h2>
+
+  
+  <p>ADS-B Out is the aircraft's self-reported surveillance broadcast. Unlike the transponder, which is interrogated and responds, ADS-B Out broadcasts unsolicited. The aircraft computes its position from an onboard GPS source, packages it with altitude, velocity, identity, and integrity metrics, and transmits it on either 1090 MHz (1090ES) or 978 MHz (UAT). 14 CFR 91.225 mandates ADS-B Out in defined airspace; 14 CFR 91.227 defines the performance the installation must deliver.</p>
+  
+
+  
+  <h4>From the PQS Source</h4>
+  <p>ADS-B (Automatic Dependent Surveillance–Broadcast) Out broadcasts the aircraft’s position, velocity, altitude, and identification continuously. Unlike transponders that respond to interrogation, ADS-B broadcasts automatically. Required in most US controlled airspace since January 2020 under 14 CFR 91.225 (where required) and 91.227 (performance requirements).</p>
+  
+
+  
+  <h4>Key Points</h4>
+  <ul class="key-points">
+    <li>91.225 applies to: Class A, B, and C airspace; Class E airspace above 10,000 ft MSL (excluding airspace at/below 2,500 ft AGL); above the ceiling and within the lateral boundaries of Class B/C airspace up to 10,000 ft MSL; and the ADIZ. Effective date January 1, 2020.</li><li>91.227 performance: NACp >= 8, NIC >= 7, SIL >= 3, SDA >= 2, NACv >= 1. Latency from measurement to broadcast <= 2.0 s (uncompensated) or 2.0 s (compensated if designed to reduce latency). Broadcast rate 1 Hz for position, velocity, and heading.</li><li>1090ES is required above 18,000 ft MSL (Class A). UAT (978 MHz) is permitted below 18,000 MSL only. An aircraft operating in both regimes needs 1090ES or dual-link; many GA aircraft with UAT avoid Class A entirely and only carry 1090 on the transponder as backup Mode S.</li><li>GPS/WAAS position source must be TSO-C145c/C146c (SBAS-capable). Bare TSO-C129 GPS is NOT compliant for ADS-B Out after Jan 2020 because it cannot deliver required NIC/NACp. Garmin GNS 430W/530W and GTN 650/750 are compliant; GNS 430/530 (non-W) are NOT.</li><li>Transponder must be TSO-C166b (1090ES ADS-B) or TSO-C154c (UAT ADS-B). TSO-C166b transponders include Garmin GTX 335/345/45R, L3 Lynx NGT-9000, Trig TT31/TT21/TT22 (with upgrade), Avidyne AXP340, Honeywell/BendixKing KT74. TSO-C154c UAT units include Garmin GDL 82/84/88, FreeFlight FDL-978, uAvionix tailBeacon (EXP) / skyBeacon.</li><li>Installation must meet AC 20-165B (ADS-B Out installation guidance) including antenna placement, GPS antenna bond, and interconnect wiring. An AC 20-172B Airworthiness Flight Manual Supplement (AFMS) is typically required documenting the installation.</li><li>FAA Public ADS-B Performance Report (public.nbaa.org/adsb or equivalent FAA portal) lets any owner or shop query the last 30 days of broadcasts for any N-number. A 'red' report means the installation is non-compliant - this is your most important post-install verification beyond bench testing.</li>
+  </ul>
+  
+</section>
+
+
+
+<section id="kr-3">
+  <h2>8.2.3 — Transponder Test Requirements</h2>
+
+  
+  <p>14 CFR 91.413 requires transponder testing every 24 calendar months. The test is not optional and not negotiable. Part 43 Appendix F prescribes the exact tests, tolerances, and pass/fail criteria that a certified shop must meet. The test must use calibrated test equipment and be recorded in the aircraft maintenance records. Separate from 91.413, ADS-B Out installations added by modification require an installation check per AC 20-165B, and any transponder replacement triggers a re-check of the Mode S address and ADS-B broadcast.</p>
+  
+
+  
+  <h4>From the PQS Source</h4>
+  <p>14 CFR 91.413 requires transponder testing every 24 calendar months. The test must be performed by a certified repair station, an appropriately rated manufacturer, or the holder of a continuous airworthiness maintenance program. Test parameters are defined in FAR Part 43, Appendix F and cover reply frequency, reply delay, suppression, Mode A/C coding, and Mode S address.</p>
+  
+
+  
+  <h4>Key Points</h4>
+  <ul class="key-points">
+    <li>91.413 (transponder test) and 91.411 (altimeter and altitude reporting system test) are cross-referenced. An encoder correlation check appears in both - in practice, shops usually combine the two tests when the aircraft is on the pitot-static jig.</li><li>Who can perform: certified repair station appropriately rated, properly rated manufacturer, or holder of Continuous Airworthiness Maintenance Program (CAMP). Not a standard IA or A&P. This is a 'return to service' item requiring a repair station certificate.</li><li>Part 43 Appendix F tests: (a) radio reply frequency 1090 +/- 3 MHz; (b) suppression (no reply to interrogations at the SLS level); (c) receiver sensitivity (-73 dBm typical); (d) reply delay 3.0 us +/- 0.5 us; (e) reply jitter < 0.1 us; (f) reply rate (up to 500 Mode A/C replies per second); (g) Mode A code correctness; (h) Mode C altitude encoding accuracy (+/- 125 ft of the altimeter at 29.92); (i) Mode S address verification; (j) power output (typically > 125 W for Class 1).</li><li>Test equipment: Aeroflex/VIAVI IFR-6000, Tel-Instrument/Intermarine T-49/T-50, or VIAVI AVX-10K. All are calibrated annually and maintain 37 CFR / NIST traceable standards. Due-date sticker on the unit is mandatory in your test documentation.</li><li>The test is performed with the aircraft on jacks or chocks in a screened room or with a direct-connect coupler to the transponder antenna to prevent over-the-air interference with live ATC. Radiated testing outside an RF-screened room violates FCC rules.</li><li>ADS-B Out verification, while not explicitly in 91.413, is effectively required because 91.227 requires continuous compliance. After any transponder or GPS source replacement, run a full ADS-B performance check AND submit a Public ADS-B Performance Report query 72 hours after first flight.</li><li>Test data form must capture: aircraft N-number and S/N; transponder make/model/S/N; test equipment make/model/S/N and cal date; technician name and certificate number; date of test; pass/fail for each test item with measured value; any discrepancies and corrective action. This becomes a permanent part of the aircraft maintenance record per 14 CFR 91.417.</li>
+  </ul>
+  
+</section>
+
+
+
+<section id="kr-4">
+  <h2>8.2.4 — Altitude Encoder</h2>
+
+  
+  <p>The altitude encoder is a purpose-built pressure transducer that converts barometric pressure altitude into Gillham (Gray) code - an 11-bit parallel output that the transponder reads and encodes into its Mode C reply. The encoder always reports altitude referenced to 29.92 in Hg. This is NOT a design flaw; it is a deliberate standard so that ATC computers can apply the local altimeter setting uniformly across all aircraft. An encoder that reports Kollsman-corrected altitude would break the entire ATC altitude picture.</p>
+  
+
+  
+  <h4>From the PQS Source</h4>
+  <p>The altitude encoder converts barometric pressure altitude into a digital code (Gillham/Gray code) that the transponder transmits as the Mode C reply. The encoder always reports pressure altitude (referenced to 29.92 in Hg), regardless of the altimeter’s Kollsman setting. ATC computers apply the local pressure correction. The encoder must correlate with the altimeter within ±125 feet.</p>
+  
+
+  
+  <h4>Key Points</h4>
+  <ul class="key-points">
+    <li>Gillham code is a reflected binary (Gray) code in 100-ft increments from -1000 ft to +126,700 ft. Each encoder output line corresponds to a specific bit: D2, D4, A1, A2, A4, B1, B2, B4, C1, C2, C4 on 11 open-collector pins.</li><li>The encoder must correlate with the primary altimeter within +/- 125 ft per Part 43 Appendix E (altimeter test) and Appendix F (transponder test). Measured with altimeter Kollsman window set to 29.92 in Hg.</li><li>Common encoders: ACK A-30, Ameri-King AK-350, Trans-Cal SSD120, Sandia Aerospace SAE5-35, Trig TA50. Integrated air data computers (Aspen Avionics EA100, Garmin GDC 74A, Sandia SAC7-35) replace discrete encoders and feed the transponder with RS-232 or ARINC 429 altitude serial data.</li><li>Encoder power: typically 14 V or 28 V DC. Warm-up time 3-5 minutes before altitude output is stable. An encoder that has been unpowered and is tested too quickly will read wrong - always power the aircraft for the stabilization interval before pitot-static testing.</li><li>Altitude source hierarchy for ADS-B Out (14 CFR 91.227): must be within 125 ft of the pressure altitude shown on the primary altimeter. Most certified ADS-B installations take altitude directly from the air data computer (same source as Mode C), not a separate encoder.</li><li>An encoder reading more than 200 ft off while the altimeter is within tolerance at 29.92 almost always indicates a dirty/clogged static line branch to the encoder, not a bad encoder. Check the static tee-fitting, verify no kinks or water traps, and re-leak-test before declaring the encoder bad.</li><li>On aircraft with dual altitude sources (pilot and copilot ADC), the active source for the transponder Mode C and ADS-B Out is configurable - usually pilot-side. A source-switch relay failure can send copilot altitude to ATC while the pilot is looking at a different value. Verify the active source in the ground test.</li>
+  </ul>
+  
+</section>
+
+
+<div class="section-marker">Part III — Task Preparation</div>
+
+
+
+
+<section id="task-1">
+  <h2>Task 8.4.1 — Transponder Modes and Emergency Codes</h2>
+
+  
+  <p>How to demonstrate: At the transponder panel, explain each mode: Standby (receives but does not reply), Mode A (squawk code only), ALT/Mode C (squawk + altitude), Mode S (selective addressing). Demonstrate selecting each mode. State: 7700=emergency, 7600=communication failure, 7500=hijack. Explain that 1200 is the standard VFR code.</p>
+  
+
+  
+  <h4>Step-by-Step Procedure</h4>
+  <ol class="steps">
+    <li>Identify the transponder panel and make/model (e.g., Garmin GTX 345, L3 Lynx NGT-9000, Trig TT31). Note the mode-selector layout: a rotary knob or softkey labeled OFF / STBY / ON (or ALT) / ALT (or Mode C) / TEST.</li><li>Power up aircraft avionics bus and wait for the transponder self-test to complete (3-5 seconds on solid-state units, up to 60 seconds on older cavity units).</li><li>Select STBY and explain: 'In standby, the transponder has power and has performed its internal BIT but will not reply to interrogations. Used on the ground before taxi to avoid cluttering ground surveillance radar.'</li><li>Select ON (some units label this Mode A). Explain: 'In ON, the unit replies to Mode A interrogations with the squawk code but does not reply to Mode C altitude interrogations. Legacy mode - rarely used today because modern Mode S units in ALT serve both purposes.'</li><li>Select ALT (Mode C / Mode S operational). Explain: 'In ALT, the transponder replies to all interrogations - Mode A for squawk, Mode C for altitude, and Mode S for selective interrogation. This is the normal in-flight setting and is required in controlled airspace.'</li><li>Set squawk codes one at a time using the rotary or keypad: 1200 ('standard VFR squawk in the United States - used by any VFR aircraft not receiving flight following'); 7500 ('hijack - unlawful interference with the aircraft'); 7600 ('lost communications - two-way radio failure'); 7700 ('general emergency - any in-flight emergency'); 1202 ('VFR glider code'); 1277 ('Search and Rescue').</li><li>Point out the IDENT button and explain: 'When ATC says ident, pressing this sends an SPI pulse - Special Position Identifier - that highlights the target on the controller's scope for about 15-20 seconds.'</li><li>Explain Mode S specific behavior: 'A Mode S transponder like this GTX 345 responds to its unique ICAO 24-bit address selectively. ATC radar addresses only this aircraft and gets a clean reply without the garbling of Mode A/C.' If asked, demonstrate the flight ID entry (tail number or custom callsign).</li>
+  </ol>
+  
+
+  
+  <div class="callout watching">
+    <strong>Evaluator is watching for</strong>
+    <ul>
+      <li>Candidate correctly identifies all five mode positions (OFF, STBY, ON, ALT, TEST) and can explain the functional difference between each - not just recite the labels.</li><li>Emergency codes recited without hesitation: 7500 hijack, 7600 lost comm, 7700 emergency. Candidate does not mix these up under pressure.</li><li>1200 identified as the US VFR default. Candidate can state which airspace rules require Mode C (Class B/C, Mode C veil, above 10,000 MSL in E).</li><li>Candidate cycles through modes carefully and explains WHY each is used operationally - shows understanding of the ATC side, not just the box.</li><li>Correct demonstration of IDENT - candidate knows not to press IDENT unless instructed, and understands the SPI pulse is what makes the target flash on the scope.</li><li>Mode S distinction explained accurately - selective addressing, 24-bit ICAO, reduces garbling.</li>
+    </ul>
+  </div>
+  
+
+  
+  <div class="callout mistakes">
+    <strong>Common mistakes</strong>
+    <ul>
+      <li>Mixing up 7500 and 7600 emergency codes - hijack vs lost comm. An evaluator will specifically ask this and a wrong answer is disqualifying.</li><li>Calling ALT 'Mode C' exclusively on a Mode S unit. Modern units in ALT respond to A, C, AND S. Saying 'Mode C' reveals shallow understanding.</li><li>Demonstrating by pressing IDENT repeatedly or cycling through 7500/7600/7700 while the unit is in ALT and live. These codes will be received by ATC if the unit radiates - always select STBY or work with a screened antenna coupler on the bench before tuning emergency codes.</li><li>Forgetting that 1200 is US-specific. In ICAO airspace outside the US, 7000 is the VFR default. An evaluator covering international ops expects candidate to know this.</li><li>Skipping the Mode S ICAO-address discussion. The evaluator wants to see that you understand the unit broadcasts more than a squawk code - it broadcasts a unique identity.</li>
+    </ul>
+  </div>
+  
+</section>
+
+
+
+<section id="task-2">
+  <h2>Task 8.4.2 — Antenna Identification and Diversity</h2>
+
+  
+  <p>How to demonstrate: Identify the transponder antenna (blade type, typically on the aircraft belly). If the aircraft has dual antennas (top and bottom), explain diversity: the transponder alternates replies between antennas to ensure radar coverage regardless of aircraft attitude. During 91.413 testing with diversity, both antennas must be tested—cover the untested antenna with a coupler or absorber.</p>
+  
+
+  
+  <h4>Step-by-Step Procedure</h4>
+  <ol class="steps">
+    <li>Identify the belly transponder antenna: a short blade or stub (typically 3-5 inches), bottom-mounted on the fuselage, usually forward of the wing on jets and under the cabin on GA aircraft. Visually distinct from a GPS antenna (puck) or DME antenna (longer blade).</li><li>Locate the antenna specification plate or reference the installation drawing. Transponder antennas are TSO-C66c and operate 1030-1090 MHz with a VSWR typically < 1.5:1 on a 50-ohm cable (RG-393, RG-142, or LMR-240-UF).</li><li>Inspect the antenna mounting: grounding washer (star washer) under the base, torque per the IPC (typically 10-15 in-lb on #10 screws), and sealant fillet (PR-1440 or equivalent) to prevent moisture ingress.</li><li>Identify the coax run: type (solid shield, double-braid, or semi-rigid), connector type at both ends (TNC typical at antenna, BNC or TNC at transponder), and total run length. Installation drawings specify maximum run length to maintain power delivery spec.</li><li>On aircraft with DIVERSITY (top + bottom antennas - typical on Mode S installations in Part 25 aircraft and some Part 23 installations), identify both the dorsal (top) and ventral (bottom) antennas. Explain that the transponder alternates replies between antennas based on interrogation signal strength detection.</li><li>Explain diversity purpose: 'Single-antenna installations can have a blocked aspect - if the aircraft banks sharply the ventral antenna can be shadowed by the wing or fuselage. Ground ATC can lose the target briefly; TCAS from above can lose the return entirely. Diversity ensures at least one antenna has line-of-sight to any interrogator regardless of aircraft attitude.'</li><li>For 91.413 testing on diversity installations, explain the procedure: 'Test each antenna port individually. The test set connects directly to the transponder antenna coax at the antenna end via a 30-40 dB coupler. Cover the OTHER antenna with an RF absorber pad or disconnect it during that half of the test. Then swap.'</li><li>Verify antenna bond-strap or ground-plane continuity. A transponder antenna is ground-plane dependent - if the bond between the antenna base and the airframe is degraded (corrosion at the mounting point, typically under Salt Belt aircraft), the radiation pattern distorts and power efficiency drops. Measure bond resistance < 2.5 milliohms per AC 43.13-1B.</li><li>Point out the separation from other 1 GHz-region antennas: DME (962-1215 MHz) must be 4 ft minimum from transponder antenna per TSO-C66c / AC 43.13-2B guidance. Violation causes mutual interference and intermittent ADS-B dropouts.</li>
+  </ol>
+  
+
+  
+  <div class="callout watching">
+    <strong>Evaluator is watching for</strong>
+    <ul>
+      <li>Candidate correctly identifies the transponder antenna by visual characteristics and reads the part number/spec plate if available, not just guesses based on position.</li><li>On diversity installations, candidate identifies BOTH antennas (top and bottom) and can explain why diversity exists operationally (aircraft attitude coverage, TCAS line-of-sight from above).</li><li>Candidate proposes the correct 91.413 diversity test procedure - independent test per antenna with the other absorbed/disconnected. Does not test 'just the bottom' and call the job complete.</li><li>Bond-strap awareness: candidate mentions the ground-plane dependency and resistance check, not just 'is the screw tight.'</li><li>Candidate knows the DME separation rule (4 ft min) and can articulate why (mutual interference at adjacent frequencies).</li><li>Antenna cable type is identified correctly and connector types match installation - candidate does not confuse BNC/TNC/SMA.</li>
+    </ul>
+  </div>
+  
+
+  
+  <div class="callout mistakes">
+    <strong>Common mistakes</strong>
+    <ul>
+      <li>Confusing the transponder antenna with a DME, ELT, or GPS antenna. All can look similar at casual inspection - read the spec plate or IPC.</li><li>Testing only one antenna on a diversity installation. Both must be verified independently per Part 43 Appendix F - a single-antenna test on a diversity aircraft is an incomplete 91.413 and is uncertifiable.</li><li>Over-torquing antenna mounting screws - cracks the composite backing plate on some aircraft, especially Cirrus and Cessna 400-series composite belly skins.</li><li>Ignoring bond resistance. A corroded bond gives reduced antenna gain even if the coax and connector test fine. Salt Belt aircraft and seaplane operations are common environments for this failure.</li><li>Forgetting to verify antenna separation from DME, UAT, or other 1090 MHz transponders (dual-transponder installations). Separation violations produce 'mystery' ADS-B reliability issues that survive multiple bench-pass transponder tests.</li>
+    </ul>
+  </div>
+  
+</section>
+
+
+
+<section id="task-3">
+  <h2>Task 8.4.3 — Altitude Encoder Correlation</h2>
+
+  
+  <p>How to demonstrate: Set the altimeter Kollsman window to 29.92 in Hg. Apply a known altitude using the pitot-static test set. Compare the encoder output (read from the transponder test set or transponder display) to the altimeter indication. The two must agree within ±125 feet. If out of tolerance: check the encoder’s static line connection, verify the encoder is configured for the correct altitude range, and if still out, the encoder requires calibration or replacement.</p>
+  
+
+  
+  <h4>Step-by-Step Procedure</h4>
+  <ol class="steps">
+    <li>Connect the pitot-static test set (Tronair 6100, LaversabBarfield DPS450, Nav-Aids ATS-100) to the aircraft static port. Leak-check per the aircraft maintenance manual before pressurizing to altitude.</li><li>Power up the avionics master bus. Wait 3-5 minutes for the altitude encoder warm-up and for the transponder to acquire stable input.</li><li>Set the primary altimeter Kollsman window to 29.92 in Hg. Verify the altimeter needle reads field elevation (or close - there will be small offsets due to altitude and weather) - if it is wildly off, the altimeter itself has a problem and the encoder test is meaningless.</li><li>Connect the transponder test set (VIAVI AVX-10K, IFR-6000) to the transponder antenna coax via the coupler / direct connect OR to the transponder's encoder input test port if the test set supports direct encoder monitoring.</li><li>Apply simulated altitudes using the pitot-static set: test points typically 0 ft, 1000 ft, 5000 ft, 10,000 ft, 15,000 ft, 20,000 ft, and the aircraft's service ceiling or test profile max.</li><li>At each test altitude, allow 30-60 seconds for stabilization. Read three values: (1) primary altimeter indication; (2) transponder Mode C altitude reported by the test set; (3) for ADS-B-capable units, the ADS-B altitude field on the test set output.</li><li>Compute the correlation: (Mode C reported altitude) minus (primary altimeter reading). Acceptance per 14 CFR 91.413 / Part 43 Appendix F: <= 125 ft at any test altitude.</li><li>If out of tolerance: (1) verify static line is intact to both altimeter and encoder - common failure is a cracked tee-fitting at the encoder; (2) verify encoder power (usually 14V or 28V, confirm per IPC); (3) verify the correct altitude source is selected if the aircraft has multiple altitude feeds (pilot-side ADC vs standalone encoder).</li><li>If correlation cannot be brought within tolerance after these checks, the encoder requires bench calibration or replacement. Document the discrepancy on the 91.413 test form AND the 91.411 altimeter test form (if performed concurrently) - an out-of-tolerance encoder fails the transponder test.</li>
+  </ol>
+  
+
+  
+  <div class="callout watching">
+    <strong>Evaluator is watching for</strong>
+    <ul>
+      <li>Kollsman set to 29.92 before starting - candidate does not forget this or try to correlate at local pressure.</li><li>Adequate warm-up time given (3-5 min). Candidate is not rushing the test and does not start reading data while the encoder is still stabilizing.</li><li>Test points include multiple altitudes (not just 0 ft and 10,000 ft). Evaluator wants to see candidate understands the encoder can be in-tolerance at one altitude and out at another.</li><li>Correct tolerance recited: 125 ft from Part 43 Appendix F. Candidate does not guess 100 ft or 200 ft.</li><li>Systematic fault isolation if out of tolerance: static lines first, then power, then source selection, then encoder hardware. Not random shotgun 'swap the encoder' approach.</li><li>Test data form filled out completely with each test altitude measured value and pass/fail annotation - not just a single 'passed' checkbox.</li>
+    </ul>
+  </div>
+  
+
+  
+  <div class="callout mistakes">
+    <strong>Common mistakes</strong>
+    <ul>
+      <li>Forgetting to set Kollsman to 29.92. Running the correlation with local altimeter setting will fail at every altitude by the barometric offset (e.g., if QNH is 30.10, encoder will read 180 ft LOW relative to altimeter).</li><li>Not waiting for encoder warm-up. A cold encoder drifts during stabilization and produces false failures. If the aircraft was powered off when you arrived, plan on 5 minutes of power before starting.</li><li>Assuming 200 ft correlation is 'close enough.' It is not - Part 43 Appendix F specifies 125 ft and there is no 'close' on a legal test. Out of tolerance is a rejection.</li><li>Jumping to replacing the encoder before checking the static line. Cracked or loose static fittings on the encoder branch are the #1 cause of encoder correlation failures in my experience at Part 145 shops.</li><li>Testing at only one altitude. An encoder can be perfect at 1000 ft and 300 ft off at 20,000 ft due to nonlinear pressure sensor drift. Multiple altitudes are required by the test, not optional.</li>
+    </ul>
+  </div>
+  
+</section>
+
+
+
+<section id="task-4">
+  <h2>Task 8.4.4 — 91.413 Transponder Test</h2>
+
+  
+  <p>How to demonstrate: Using a calibrated transponder test set (AVX-10K or equivalent), perform the automated test sequence: verify Mode A reply (correct squawk code returned), Mode C altitude (correct altitude encoding), and Mode S address (correct 24-bit ICAO hex address). Document all results on the test data form. Note any out-of-tolerance readings and corrective actions.</p>
+  
+
+  
+  <h4>Step-by-Step Procedure</h4>
+  <ol class="steps">
+    <li>Verify test equipment: VIAVI AVX-10K or IFR-6000 with current calibration sticker (calibration cycle typically 12 months, traceable to NIST). Record test set S/N and cal due date on the test data form.</li><li>Connect the test set to the transponder antenna port via direct coupler (30-40 dB attenuation pad) or RF-screened room. Do NOT radiate over-the-air test signals - violates FCC rules and interferes with active ATC.</li><li>Power up avionics and select the transponder to ALT mode. Allow 60 seconds for transponder warm-up. Confirm aircraft is squawking a test code (typically 1200 or a shop-designated test code, NOT 7500/7600/7700).</li><li>Run the automated 91.413 test sequence. The AVX-10K walks through Part 43 Appendix F items automatically: reply frequency (1090 +/- 3 MHz - should read 1089-1091 typical); suppression pulse response (SLS); receiver sensitivity (-71 to -77 dBm MTL); reply delay (3.0 +/- 0.5 us); reply jitter (< 0.1 us); reply rate vs interrogation rate; reply pulse amplitude and spacing; Mode A squawk correctness (interrogate with test code, verify reply matches); Mode C altitude (compare to altimeter setup in 8.4.3); Mode S 24-bit address.</li><li>For Mode S specifically: the test set sends a Mode S All-Call interrogation, reads the replied ICAO 24-bit hex address, and compares to the address expected from the aircraft tail number (via FAA registration lookup). Address must match exactly. A mismatch is automatic fail.</li><li>Measure RF output power at the antenna test port: Class 1 Mode S spec is 125 W minimum (21 dBW), 500 W maximum. Typical installations read 180-250 W. Below 125 W is a fail; near 125 W indicates a failing final stage.</li><li>Document every test item: reply frequency measured value, reply delay measured value, Mode A correct/incorrect, Mode C error at each altitude tested, Mode S address matches registration yes/no, power output in watts.</li><li>Annotate any discrepancies and corrective actions taken. If the unit passes on the repeat after component adjustment or replacement, document that explicitly - do NOT back-date the initial test to show a pass.</li><li>Sign the test form with technician name, Part 145 repair station certificate number, and date. File a copy in the aircraft's maintenance records per 14 CFR 91.417. Update the aircraft logbook with the 91.413 entry.</li>
+  </ol>
+  
+
+  
+  <div class="callout watching">
+    <strong>Evaluator is watching for</strong>
+    <ul>
+      <li>Test equipment calibration verified and documented before testing begins. Candidate will refuse to test with an out-of-cal set.</li><li>Coupler or screened room used - candidate does not try to radiate over-the-air testing (FCC violation and ATC interference).</li><li>Full Part 43 Appendix F list addressed, not just 'the automated test passed.' Candidate can articulate what each test item means (reply delay, suppression, sensitivity).</li><li>Mode S address verification is done and the result is cross-checked against FAA registry, not just 'the address is something.'</li><li>Power output measured in actual watts and documented, not just 'pass.' Candidate understands that 130 W is marginal even though it passes 125 W minimum.</li><li>Test documentation is complete with measured values, not just checkmarks. A 91.413 form with only 'pass/fail' and no numbers is not legally defensible in an FSDO audit.</li>
+    </ul>
+  </div>
+  
+
+  
+  <div class="callout mistakes">
+    <strong>Common mistakes</strong>
+    <ul>
+      <li>Using an out-of-calibration test set. Typical Part 145 audit finding. Cal traceability must be verifiable back to NIST with an unbroken chain.</li><li>Radiating test signals over-the-air. This is both an FCC violation (unauthorized 1090 MHz transmission on the ground) and a safety hazard to live ATC traffic on nearby frequencies.</li><li>Glossing over the Mode S address check. An incorrect 24-bit address passes some test sets silently because the set only reports the address read, not whether it matches the aircraft registration. You must cross-check manually.</li><li>Skipping individual test items because 'the automated test said pass.' The FSDO inspector will ask you what the reply delay measured. If you can only say 'passed' you fail the audit.</li><li>Recording 'pass' without measured values. A Part 43 Appendix F test with no numerical data is not a legal test. The measurements are the legal record.</li>
+    </ul>
+  </div>
+  
+</section>
+
+
+
+<section id="task-5">
+  <h2>Task 8.4.5 — ADS-B Out Verification</h2>
+
+  
+  <p>How to demonstrate: Using a test set with ADS-B monitoring capability, verify: (1) GPS position is being broadcast (position matches known aircraft location). (2) Aircraft identification matches the tail number or configured flight ID. (3) Squawk code matches the code set on the transponder. (4) NACp value meets 91.227 requirements (NACp ≥ 8). (5) Both airborne and surface condition messages are being transmitted.</p>
+  
+
+  
+  <h4>Step-by-Step Procedure</h4>
+  <ol class="steps">
+    <li>Verify the GPS/WAAS position source is operational and providing a fix. For Garmin GTN 650/750, GNS 430W/530W: verify SBAS mode active (WAAS or EGNOS as appropriate) and HFOM/VFOM are reporting <= 10 meters. For Avidyne IFD440/540: verify LPV-capable and position fix within 30 seconds of power-up.</li><li>Set the transponder to ALT and squawk the test code. Allow 2 minutes for the full ADS-B broadcast chain to stabilize (GPS fix + transponder heartbeat + flight ID registered).</li><li>Using the test set in ADS-B monitor mode (AVX-10K, IFR-6000 with ADS-B option, or a standalone ADS-B analyzer like Aeroflex TR-220), capture 60-120 seconds of broadcast data.</li><li>Verify position: the test set shows the aircraft position in lat/lon. Compare against a known reference (the hangar GPS coordinates from a handheld, or the aircraft maintenance manual coordinates for the parking spot). Accuracy should match WAAS spec (< 10 meters horizontal).</li><li>Verify aircraft identification (Flight ID): the test set decodes the 8-character Flight ID field. Must match the tail number (N-number without the 'N' prefix, e.g., N12345 broadcasts as '12345___' with space padding) OR the custom flight ID programmed into the transponder if the operator filed IFR flight plans with a non-default callsign.</li><li>Verify ICAO 24-bit address: the 6-digit hex address in the broadcast must match the FAA assignment. Look this up in the FAA Aircraft Registry (registry.faa.gov) by N-number. Record the expected hex and the received hex on the test form.</li><li>Verify squawk code broadcast matches the code set on the transponder panel. A mismatch here indicates a wiring or configuration error between the transponder Mode A reply and the ADS-B Out squawk field.</li><li>Verify performance metrics per 91.227: NACp >= 8, NIC >= 7, SIL >= 3, SDA >= 2, NACv >= 1. The test set displays each metric from the broadcast data. Values below spec fail the installation.</li><li>Verify airborne/surface state transition: with the aircraft on the ground, the broadcast should show 'on-ground' state (squat switch activated). In simulated airborne (if the test set can inject), or after a test flight, the 'airborne' state should appear.</li><li>Within 72 hours after the first flight post-installation, query the FAA Public ADS-B Performance Report (at a tool like public.nbaa.org/adsb/ or the FAA ADS-B performance dashboard). A 'green' report confirms live-ATC validation. A 'red' report identifies specific deficiencies (NACp, position jumps, etc.) that must be corrected before the aircraft returns to service.</li>
+  </ol>
+  
+
+  
+  <div class="callout watching">
+    <strong>Evaluator is watching for</strong>
+    <ul>
+      <li>WAAS/SBAS mode verified active before testing - candidate understands that ADS-B Out requires SBAS-capable GPS (TSO-C145/C146), not baseline TSO-C129.</li><li>All 91.227 performance metrics checked individually (NACp, NIC, SIL, SDA, NACv) - not just 'ADS-B passes.' Candidate can recite each threshold.</li><li>ICAO 24-bit address cross-checked against FAA registry, not trusted from the transponder setup menu. Registry is the authoritative source.</li><li>Flight ID format verified - 8 characters with spaces or alphanumerics per ICAO 4444, not just 'it showed a number.'</li><li>Squawk code matches broadcast and panel setting - candidate knows to check consistency because mismatches are wiring failures.</li><li>Post-flight FAA Public ADS-B Performance Report plan articulated - candidate understands live validation completes the verification.</li>
+    </ul>
+  </div>
+  
+
+  
+  <div class="callout mistakes">
+    <strong>Common mistakes</strong>
+    <ul>
+      <li>Accepting NACp = 7 as 'close enough.' 91.227 requires NACp >= 8 and anything less is a compliance violation regardless of how it got that way.</li><li>Not checking the ICAO 24-bit address against the FAA registry. A transponder with a previous owner's address still programmed will broadcast a wrong identity and can trigger enforcement action at the registered owner level.</li><li>Skipping the airborne/surface state check. A stuck squat switch or miswired airborne signal sends 'airborne' to ATC while the aircraft is parked, causing ATC data fusion errors.</li><li>Using baseline TSO-C129 GPS. After Jan 2020 a non-SBAS GPS cannot deliver 91.227 performance and the installation is non-compliant regardless of other test results.</li><li>Declaring verification complete before the FAA public performance report. Bench tests confirm the broadcast is formatted correctly; only the FAA report confirms it is being received and decoded correctly by live ATC surveillance.</li>
+    </ul>
+  </div>
+  
+</section>
+
+
+
+<section id="task-6">
+  <h2>Task 8.4.6 — Test Documentation</h2>
+
+  
+  <p>How to demonstrate: Fill out the test data form (shop-specific or FAA-standard format) with: aircraft N-number and serial, transponder make/model/serial, test equipment make/model/serial and calibration due date, date of test, test results for each mode (pass/fail with measured values), and technician signature with certificate number. This becomes part of the aircraft maintenance records.</p>
+  
+
+  
+  <h4>Step-by-Step Procedure</h4>
+  <ol class="steps">
+    <li>Start with a shop-standard 91.413/91.411 test form or an FAA-provided form 337 if the test is associated with a major alteration or repair. The form identifies the test as a biennial 91.413 OR a post-installation check OR a return-to-service check.</li><li>Complete the aircraft identification block: N-number, manufacturer, model, serial number, total time in service (TTIS), hours since last 91.413.</li><li>Complete the transponder identification block: make (e.g., Garmin), model (GTX 345), serial number (from the unit dataplate, not the tag from the box - they can differ if the unit was bench-swapped).</li><li>Complete the test equipment identification block: make (VIAVI), model (AVX-10K), serial number, current calibration due date. Attach a copy of the cal certificate if required by the shop QCM.</li><li>Record the date of test, start time, and end time. Times matter - an audit can correlate your test duration against the test sequence duration (typical complete 91.413 takes 45-90 minutes including setup).</li><li>For each Part 43 Appendix F test item, record: (1) the test item name; (2) the specification range; (3) the measured value; (4) pass/fail. Example: 'Reply frequency: 1090 +/- 3 MHz, measured 1090.2 MHz, PASS.'</li><li>For Mode C altitude: record every test altitude, the altimeter reading at that altitude, the Mode C reply reported, and the delta. Example table with columns Altitude (ft) / Altimeter (ft) / Mode C (ft) / Delta (ft) / Pass-Fail.</li><li>For Mode S address: record the expected ICAO hex (from FAA registry) and the measured hex. Both must match. For ADS-B installations: record NACp, NIC, SIL, SDA, NACv values captured during the test.</li><li>Record any discrepancies, corrective actions, and retest results. Example: 'Mode C altitude at 10,000 ft read +187 ft. Static line tee-fitting found cracked at the encoder branch, replaced per CMM, retest pass.'</li><li>Sign the test form: technician printed name, technician signature, certificate number (Repairman or A&P with IA), repair station certificate number, date. Enter a corresponding logbook entry in the aircraft maintenance records per 14 CFR 91.417: date, TTIS, N-number, work performed, reference to the test form, and signature block.</li>
+  </ol>
+  
+
+  
+  <div class="callout watching">
+    <strong>Evaluator is watching for</strong>
+    <ul>
+      <li>Form used is approved by the shop's Quality Control Manual or is an FAA standard form. Candidate does not use a handwritten page without a shop header.</li><li>All identifying blocks are complete - no blanks. Missing tail number or test set S/N is an audit finding.</li><li>Every Part 43 Appendix F test item has a measured value AND a specification AND a pass/fail - not just checkmarks.</li><li>Calibration due date on the test set is current at the time of test. Candidate catches it if the cal date is within 30 days of expiry and notes this.</li><li>Logbook entry is made in addition to the test form. Candidate does not treat the test form as the only record.</li><li>Technician signature is legible with the correct certificate number. An illegible signature with no number is not a legal sign-off.</li>
+    </ul>
+  </div>
+  
+
+  
+  <div class="callout mistakes">
+    <strong>Common mistakes</strong>
+    <ul>
+      <li>Leaving the test-set calibration date blank. This is the single most common 91.413 paperwork audit failure at Part 145 shops.</li><li>Recording only 'PASS' without measured values. A form with no numerical data is not a test record - it is an opinion. The FSDO inspector will reject it.</li><li>Forgetting to update the aircraft logbook. The test form is filed at the shop; the logbook is the aircraft's own record, required by 91.417. Missing the logbook entry is a compliance finding against the aircraft.</li><li>Using a transponder serial number from the shipping tag that does not match the unit's internal dataplate. Always verify from the unit itself on the aircraft.</li><li>Not annotating corrective actions when a test fails and is corrected. The audit trail must show what was found, what was done, and the retest result - not a single 'PASS' that conceals a prior failure.</li>
+    </ul>
+  </div>
+  
+</section>
+
+
+
+<div class="section-marker">Part IV — Background Theory</div>
+<section id="theory">
+  <h2>The Science Behind the Procedures</h2>
+  <p>When the oral board examiner asks <em>why</em>, these are the explanations they expect to hear.</p>
+  
+  <div class="callout theory">
+    <strong>Why Mode S Addresses Are Icao Assigned</strong>
+    <p style="margin-top:8px;">A Mode S 24-bit address is not a serial number, not a user-configurable label, and not an arbitrary hex value. It is issued by the aircraft's national civil aviation authority under a block-allocation scheme established by ICAO Annex 10 Volume III. The US block (assigned by the FAA from the ICAO allocation) covers hex values A00000-AFFFFF - approximately 11.2 million unique addresses available for the US registry. Each N-number is algorithmically mapped to a specific hex address by an FAA-published formula, so for example N1 maps to A00001 and N12345 maps to a specific computed hex. This matters because Mode S selective interrogation and TCAS coordination both assume the address is globally unique - two aircraft worldwide broadcasting the same 24-bit address cause collision-avoidance ambiguity. If addresses were assigned by manufacturers at serial-number time, a transponder moved between aircraft or countries would carry a stale address. By tying the address to the registration authority and the aircraft's registration number, ICAO ensures that the address follows the aircraft's legal identity, not its hardware. When an aircraft is re-registered (US N-number to EASA D-number, for example), the transponder must be re-programmed with the new address under the new authority's block allocation (Germany is 3C0000-3FFFFF, UK is 400000-43FFFF, etc.). A shop that replaces a transponder without verifying the address is programmed for the correct registration creates a silent identity mismatch that can take months to catch and generate enforcement notices the entire time.</p>
+  </div>
+  
+  <div class="callout theory">
+    <strong>How 1090es Vs Uat Differ In Fcc Allocation And Atc Adoption</strong>
+    <p style="margin-top:8px;">1090 MHz and 978 MHz ended up as two different ADS-B Out data links for historical and regulatory reasons, not technical necessity. 1090 MHz was already allocated worldwide for SSR transponder replies under ITU and ICAO Annex 10 - so the Extended Squitter (ES) format added onto the existing 1090 MHz transponder channel was a natural evolution: no new spectrum allocation was needed, and the ES broadcast rides on the same antenna and final stage as the Mode S reply. ICAO adopted 1090ES globally in DO-260B / ED-102A. UAT (Universal Access Transceiver) was a US FAA-driven standard on 978 MHz, developed via RTCA DO-282B / TSO-C154c, with the intent of creating a lower-cost ADS-B Out path for GA aircraft that could also support uplink services (FIS-B weather, TIS-B traffic) not available on 1090ES. The FCC allocated 978 MHz for UAT specifically as a US-only channel. As a result: 1090ES is required above 18,000 ft MSL in the US (Class A) because that is the jet and airline regime where worldwide interoperability matters; UAT is permitted only below 18,000 ft and only in the US. International operations and any flight into Class A require 1090ES. Airline and Part 135/121 operators universally run 1090ES. Part 91 GA operators who never leave the US and fly below 18,000 ft often choose UAT because: (1) it is cheaper, (2) it includes free FIS-B weather uplink not available on 1090ES, and (3) TIS-B traffic is re-broadcast on both 978 and 1090 so UAT-In receivers see all traffic. The split has operational consequences: an aircraft with only UAT in Class B airspace broadcasts fine on 978, but any 1090-only ADS-B In receiver on another aircraft will not see it directly - it has to come via ADS-R (ADS-B Rebroadcast) from a ground station. This is the 'blind to each other' problem that the dual-frequency design creates, and it is why dual-link installations (1090 + UAT) are becoming common for owners who want to both comply and see everyone.</p>
+  </div>
+  
+  <div class="callout theory">
+    <strong>Why Nacp Nic Matter For Sbas Gps Feeding Ads B</strong>
+    <p style="margin-top:8px;">NACp and NIC are the ADS-B Out equivalents of a VFR pilot reporting 'I am at 5000 feet plus or minus 30 feet, 95% confident' instead of 'I am somewhere between 4000 and 6000 feet.' They communicate the accuracy and integrity of the broadcast position so that downstream users - ATC separation, TCAS closure prediction, other aircraft's ADS-B In - can apply an appropriate trust level to the data. NACp (Navigation Accuracy Category for Position) describes the expected horizontal accuracy: NACp = 8 means the EPU (Estimated Position Uncertainty, 95%) is under 0.05 NM (about 92.6 m). NIC (Navigation Integrity Category) describes the radius of containment: NIC = 7 means the horizontal position has a containment radius under 0.2 NM with very high probability. SIL (Source Integrity Level) describes how confident the source is that the NIC is being reported correctly - SIL = 3 means the probability of the position exceeding the containment without an alert is 1 x 10^-7 per hour. 14 CFR 91.227 sets the minimums: NACp >= 8, NIC >= 7, SIL >= 3, SDA >= 2, NACv >= 1. These numbers come from the analysis the FAA did during NPRM that produced 91.227 - they are the minimum performance that allows ADS-B to replace secondary surveillance radar as a primary separation service. Below those values, the downstream user cannot trust the position enough to separate aircraft on 3 or 5 NM separation standards. SBAS (Satellite Based Augmentation System) matters because only SBAS-capable GPS (WAAS in North America, EGNOS in Europe, MSAS in Japan) can reliably deliver NACp >= 8. Baseline TSO-C129 GPS without SBAS typically produces NACp = 6 or 7 - insufficient for 91.227. SBAS-capable units (TSO-C145c, C146c) receive the WAAS correction signal from GEO satellites, correct the ionospheric and satellite clock errors in real-time, and reduce horizontal error to under 3 m in practice. The transponder or UAT unit reads the SBAS-corrected accuracy estimate from the GPS and encodes it directly into the NACp and NIC fields of the broadcast. If the GPS is TSO-C129 only, the NACp field is structurally stuck at 6 or 7 no matter how good the position is on an individual sample - because the integrity metrics are locked to the source capability. This is why the ADS-B Out mandate forced the GA fleet to upgrade WAAS-capable boxes (GNS 430W from 430, GTN 650 from GNS 430, etc.) regardless of whether their non-WAAS position accuracy was 'good enough in practice.' The rule is a performance rule, not a practical-accuracy rule - the source integrity and assurance claims are what matter.</p>
+  </div>
+  
+</section>
+
+
+<div class="section-marker">Part V — Self-Check</div>
+
+<section id="quiz">
+  <h2>Oral Board Practice Questions</h2>
+  <p>Answer each aloud before opening the answer key. Mastery means you can explain it to a non-technical person, not just recite a definition.</p>
+  <div class="quiz">
+    <h3>Questions</h3>
+    <ol>
+      <li>Q1: Walk me through a complete 91.413 transponder test from start to finish. What equipment do you use and what do you measure?</li><li>Q2: After replacing a transponder, what ADS-B-related items must you verify before returning the aircraft to service?</li><li>Q3: The altitude encoder reads 200 feet different from the altimeter when both are set to 29.92. Is this acceptable? What do you do?</li><li>Q4: Explain the three emergency squawk codes. In what situation would a pilot use each one?</li><li>Q5: What is the 24-bit ICAO address, where is it configured, and why must it be correct?</li>
+    </ol>
+  </div>
+
+  <h3>Answer Key</h3>
+  <div class="answer-key">
+    
+    
+    
+    <details>
+      <summary>Q1: Walk me through a complete 91.413 transponder test from start to finish. What equipment do you use and what do you measure?</summary>
+      <p>A complete 91.413 transponder test starts with verifying my test equipment is in calibration - for me that is a VIAVI AVX-10K with a current cal sticker, traceable to NIST, with a copy of the cal cert available. I then connect the AVX-10K to the aircraft transponder antenna port using a direct-connect coupler with 30-40 dB of attenuation, because radiating 1090 MHz over-the-air on the ground violates FCC rules and interferes with live ATC. I power up the aircraft avionics, give the transponder 60 seconds to warm up, select ALT mode, and set a non-emergency squawk code like 1200. The AVX-10K runs the automated Part 43 Appendix F sequence, which covers reply frequency (1090 +/- 3 MHz), suppression, receiver sensitivity (minimum triggering level), reply delay (3.0 +/- 0.5 microseconds), reply jitter (under 0.1 microsecond), Mode A code verification, Mode C altitude at multiple altitudes against the primary altimeter at 29.92 Kollsman (tolerance plus or minus 125 ft per Appendix F), Mode S 24-bit ICAO address verification, and RF output power (125 W minimum for Class 1 Mode S). I record every measured value, not just pass/fail. I verify the Mode S address against the FAA registry for that N-number. Any out-of-tolerance finding gets documented with corrective action and a retest. I complete the 91.413 test data form with all values, my name, certificate number, repair station number, and date. I make the corresponding logbook entry per 91.417. If the aircraft also needs 91.411 altimeter testing, I typically combine both while the pitot-static jig is connected.</p>
+    </details>
+    
+    
+    
+    <details>
+      <summary>Q2: After replacing a transponder, what ADS-B-related items must you verify before returning the aircraft to service?</summary>
+      <p>After replacing a transponder, before returning the aircraft to service I have a specific checklist. First, I verify the Mode S 24-bit ICAO address is programmed for THIS tail number by cross-checking against the FAA registry at registry.faa.gov - not trusting whatever was in the shipping package. Second, I verify the Flight ID matches the tail number or the operator's assigned callsign, programmed correctly into the transponder setup menu. Third, I run a full 91.413 test on the new unit since the in-service transponder has changed. Fourth, I run the ADS-B Out verification: GPS/WAAS position source providing a fix with HFOM under 10 m; broadcast position matches the hangar location; NACp >= 8, NIC >= 7, SIL >= 3, SDA >= 2, NACv >= 1 per 14 CFR 91.227; airborne/surface state transitions correctly. Fifth, I verify the squawk code set on the panel matches the ADS-B Out broadcast squawk field - miswiring between Mode A reply and ADS-B Out squawk is a common installation error. Sixth, after the first flight, I have the owner or I personally pull the FAA Public ADS-B Performance Report at 72 hours and confirm the installation is reporting green. A red report means I go back and fix whatever specific parameter the FAA flagged. I document all of this on an installation check form, typically combined with an AC 20-172B Airworthiness Flight Manual Supplement revision if the transponder model changed.</p>
+    </details>
+    
+    
+    
+    <details>
+      <summary>Q3: The altitude encoder reads 200 feet different from the altimeter when both are set to 29.92. Is this acceptable? What do you do?</summary>
+      <p>A 200 ft delta between the altitude encoder and the altimeter at 29.92 Kollsman is not acceptable. Part 43 Appendix F requires the Mode C altitude to correlate within plus or minus 125 ft of the primary altimeter. 200 ft fails the test. Before I condemn the encoder, I check three things in order. First, I verify the primary altimeter itself is in tolerance at 29.92 - if the altimeter is off by 70 ft, then the encoder might actually be correct and the reference is wrong. Second, I inspect the static line branch to the encoder - a cracked tee fitting, a loose B-nut, or water in a trap can cause the encoder to sense pressure different from the altimeter, and this is the single most common cause of encoder correlation failure I see. I leak-check the encoder branch independently. Third, I verify encoder power (14V or 28V per IPC) and warm-up time - a cold encoder can read 100 ft off during stabilization. If all three of those check out and the encoder is still out of tolerance, the encoder itself is drifting and requires bench calibration or replacement. I document all of this on the 91.413 test form and, if the static line was the cause, I note a 91.411 system test is also compromised and must be redone. I do not sign the transponder test off until the correlation is within 125 ft at every test altitude.</p>
+    </details>
+    
+    
+    
+    <details>
+      <summary>Q4: Explain the three emergency squawk codes. In what situation would a pilot use each one?</summary>
+      <p>Three emergency squawk codes exist in US and ICAO airspace, each with a specific meaning and use case. 7500 is hijack - unlawful interference with the aircraft. A pilot sets 7500 when someone has taken control of the aircraft by force or threat, or is attempting to. Setting 7500 is often done covertly without acknowledging to the hijackers; controllers know to treat a 7500 squawk as a life-safety situation and to notify authorities without giving it away. 7600 is lost communication - a two-way radio failure. A VFR pilot with a radio failure enroute sets 7600 to inform ATC that he or she cannot talk but can still see and be seen; an IFR pilot with radio failure sets 7600 and follows the lost-comm procedures in 91.185 (continue the route, altitude, and destination as cleared, with specific rules for reaching the destination). 7700 is the general emergency code - any in-flight emergency not covered by 7500 or 7600. Engine failure, fire, medical emergency, structural issue, rapid decompression - pilot sets 7700 and ATC gives priority handling. A fourth code, 7777, is reserved for military interceptors and should never be set by civil aircraft - it identifies the target as a military intercept aircraft and will trigger confusion if misused. The VFR default is 1200 in the US (7000 in most ICAO airspace outside the US).</p>
+    </details>
+    
+    
+    
+    <details>
+      <summary>Q5: What is the 24-bit ICAO address, where is it configured, and why must it be correct?</summary>
+      <p>The 24-bit ICAO address is a unique aircraft identifier assigned by the aircraft's registration authority - for US-registered aircraft, the FAA - that is broadcast in every Mode S interrogation reply and in every ADS-B Out message. It is a 24-bit binary value, typically expressed as 6 hexadecimal digits (for example, A12345 for an N-registered aircraft). It is assigned to the airframe for life - it does not change with ownership transfer as long as the N-number stays the same. The address is programmed into the transponder during installation via the setup menu - in a Garmin GTX 345 you enter it under the 'Aircraft Data' or 'ICAO Address' page. The address MUST be correct because: first, Mode S selective interrogation uses this address to address a specific aircraft; ATC radar and TCAS interrogate by address, so a wrong address means the aircraft either never replies or replies to someone else's interrogation. Second, ADS-B Out broadcasts tag every message with this address; an incorrect address sends position data to ATC under the wrong aircraft identity, which can result in enforcement action against the registered owner of the hex address you accidentally squatted on. Third, the FAA Public ADS-B Performance Report keys on the ICAO address - a wrong address means the performance data is being recorded against another aircraft's N-number, and the FAA automated compliance monitoring flags the deficiency. I always cross-check the programmed address against the FAA Aircraft Registry at registry.faa.gov for the exact N-number on the tail, because the transponder setup menu value is only correct if someone entered it correctly.</p>
+    </details>
+    
+  </div>
+</section>
+
+
+<section id="crosswalk">
+  <h2>Written Exam Crosswalk</h2>
+  <div class="crosswalk">This section maps to Module 12 (Transponders/ADS-B) Q153–160. Eight new questions covering ADS-B failure diagnosis, TCAS configuration, antenna pattern issues, 91.225 regulatory awareness, NACp requirements, RA compliance at service ceiling, altitude source integration, and TCAS interrogation architecture. Strong overlap with Module 8 (Pitot-Static/RVSM) for altitude encoding topics. End of Section 8 — Transponder & ADS-B Systems</div>
+</section>
+
+
+<footer>
+  © 2026 Aircraft Electronics Association · Workforce Development Division.<br>
+  Derived from CAET Advanced PQS Training Module with supplementary teaching content authored for instructor use.
+</footer>
+
+</body>
+</html>

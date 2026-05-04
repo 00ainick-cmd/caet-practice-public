@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exam Study Module: Smart Probes & Air Data Systems | CAET Advanced Handbook</title>
+<style>
+  /* Light-theme study document — optimized for reading on screen AND print. */
+  :root {
+    --ink: #1a2332;
+    --ink-soft: #4a5568;
+    --paper: #fbfaf5;
+    --paper-accent: #f5f2e8;
+    --rule: #d8d3c3;
+    --navy: #0a2540;
+    --gold: #8b6914;
+    --gold-soft: #f4ead0;
+    --red: #8b1a1a;
+    --red-soft: #fbe9e7;
+    --green: #1b4332;
+    --green-soft: #e7f0e5;
+    --cyan: #0e4a6e;
+    --cyan-soft: #e4f1f8;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--ink);
+    background: var(--paper);
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 56px 48px 80px;
+  }
+  header.cover {
+    border-bottom: 3px double var(--navy);
+    padding-bottom: 24px;
+    margin-bottom: 40px;
+  }
+  .eyebrow {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    letter-spacing: 3px;
+    font-size: 11px;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 700;
+  }
+  h1 {
+    font-family: Georgia, serif;
+    font-size: 34px;
+    line-height: 1.2;
+    color: var(--navy);
+    margin: 8px 0 12px;
+    font-weight: 700;
+  }
+  .subtitle {
+    font-size: 15px;
+    color: var(--ink-soft);
+    font-style: italic;
+    margin: 0;
+  }
+  h2 {
+    font-family: Georgia, serif;
+    font-size: 24px;
+    color: var(--navy);
+    margin: 56px 0 12px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--rule);
+  }
+  h3 {
+    font-family: Georgia, serif;
+    font-size: 19px;
+    color: var(--navy);
+    margin: 32px 0 10px;
+  }
+  h4 {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin: 20px 0 8px;
+    font-weight: 700;
+  }
+  p { margin: 0 0 16px; }
+  ul, ol { margin: 0 0 18px; padding-left: 24px; }
+  li { margin-bottom: 8px; }
+  .toc {
+    background: var(--paper-accent);
+    border-left: 4px solid var(--gold);
+    padding: 24px 32px;
+    border-radius: 2px;
+    margin: 24px 0 40px;
+  }
+  .toc h2 { margin-top: 0; border: none; font-size: 18px; color: var(--gold); letter-spacing: 2px; text-transform: uppercase; font-family: 'Helvetica Neue', Arial, sans-serif; }
+  .toc ol { columns: 2; column-gap: 32px; font-size: 14px; }
+  .toc li { margin-bottom: 4px; break-inside: avoid; }
+  .toc a { color: var(--navy); text-decoration: none; }
+  .toc a:hover { text-decoration: underline; color: var(--gold); }
+  blockquote.why {
+    font-size: 17px;
+    font-family: Georgia, serif;
+    font-style: italic;
+    color: var(--navy);
+    background: var(--gold-soft);
+    border-left: 4px solid var(--gold);
+    padding: 24px 32px;
+    margin: 24px 0;
+    border-radius: 2px;
+  }
+  blockquote.why p { margin: 0 0 12px; }
+  blockquote.why p:last-child { margin-bottom: 0; }
+  .callout {
+    padding: 16px 22px;
+    margin: 18px 0;
+    border-left: 4px solid var(--cyan);
+    background: var(--cyan-soft);
+    border-radius: 2px;
+    font-size: 15px;
+  }
+  .callout.watching { border-left-color: var(--green); background: var(--green-soft); }
+  .callout.mistakes { border-left-color: var(--red); background: var(--red-soft); }
+  .callout.theory   { border-left-color: var(--gold); background: var(--gold-soft); }
+  .callout strong { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 6px; }
+  .callout.watching strong { color: var(--green); }
+  .callout.mistakes strong { color: var(--red); }
+  .callout.theory   strong { color: var(--gold); }
+  .callout.info     strong { color: var(--cyan); }
+  .key-points { margin: 12px 0 20px; padding-left: 20px; }
+  .key-points li { margin-bottom: 10px; line-height: 1.55; }
+  dl.glossary { margin: 20px 0; }
+  dl.glossary dt { font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 700; color: var(--navy); margin-top: 14px; font-size: 15px; }
+  dl.glossary dd { margin: 4px 0 0 0; padding-left: 0; font-size: 14.5px; line-height: 1.55; color: var(--ink); }
+  .steps { counter-reset: step; padding-left: 0; list-style: none; }
+  .steps li { counter-increment: step; padding-left: 44px; position: relative; margin-bottom: 14px; line-height: 1.55; }
+  .steps li::before {
+    content: counter(step);
+    position: absolute; left: 0; top: -2px;
+    width: 30px; height: 30px; border-radius: 50%;
+    background: var(--navy); color: white;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 700; font-size: 13px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .quiz {
+    background: var(--cyan-soft);
+    border-left: 4px solid var(--cyan);
+    padding: 24px 32px;
+    margin: 24px 0;
+    border-radius: 2px;
+  }
+  .quiz h3 { margin-top: 0; color: var(--cyan); }
+  .quiz ol { margin: 12px 0 0 0; padding-left: 22px; }
+  .quiz li { margin-bottom: 14px; }
+  .answer-key details {
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    padding: 12px 18px;
+    margin-bottom: 10px;
+    background: var(--paper);
+  }
+  .answer-key summary { font-weight: 700; cursor: pointer; color: var(--navy); font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 14px; }
+  .answer-key details[open] summary { margin-bottom: 10px; border-bottom: 1px solid var(--rule); padding-bottom: 6px; }
+  .answer-key p { margin-top: 10px; font-size: 14.5px; line-height: 1.6; }
+  .crosswalk {
+    background: var(--paper-accent);
+    padding: 18px 24px;
+    border-radius: 2px;
+    border: 1px solid var(--rule);
+    margin: 24px 0;
+    font-size: 14.5px;
+    color: var(--ink-soft);
+  }
+  footer {
+    margin-top: 64px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 12px;
+    color: var(--ink-soft);
+    text-align: center;
+  }
+  .section-marker {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--gold); font-weight: 700;
+    margin: 48px 0 0;
+  }
+  @media print {
+    body { padding: 0.6in 0.75in; background: white; font-size: 11pt; max-width: none; }
+    h1 { font-size: 24pt; }
+    h2 { font-size: 16pt; page-break-after: avoid; }
+    h3 { page-break-after: avoid; }
+    .callout, blockquote.why { page-break-inside: avoid; }
+    .toc { page-break-after: always; }
+    details { page-break-inside: avoid; }
+    details[open] > summary ~ * { display: block !important; }
+    .answer-key details { border: none; }
+    a { color: var(--navy); text-decoration: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="cover">
+  <div class="eyebrow">CAET Advanced Certification · Student Handbook</div>
+  <h1>Exam Study Module: Smart Probes & Air Data Systems</h1>
+  <p class="subtitle">Aircraft Electronics Association · Workforce Development Division</p>
+</header>
+
+<nav class="toc">
+  <h2>Contents</h2>
+  <ol>
+    <li><a href="#why">Why This Matters</a></li>
+    <li><a href="#terms">Key Terms &amp; Definitions</a></li>
+    <li><a href="#kr-1">Air Data Computer (ADC) Architecture</a></li><li><a href="#kr-2">Smart Probes</a></li><li><a href="#kr-3">Angle of Attack (AOA) Measurement</a></li><li><a href="#kr-4">RVSM (Reduced Vertical Separation Minimum)</a></li><li><a href="#kr-5">Key Exam Topics (15 Questions)</a></li>
+    <li><a href="#task-1">Task 1 — Pitot-Static Leak Check</a></li><li><a href="#task-2">Task 2 — Smart Probe Functional Test</a></li><li><a href="#task-3">Task 3 — AoA Vane Calibration</a></li><li><a href="#task-4">Task 4 — Pitot Heat System Test</a></li><li><a href="#task-5">Task 5 — ADC Output Verification (ARINC 429)</a></li><li><a href="#task-6">Task 6 — RVSM Altimetry Recertification</a></li>
+    <li><a href="#quiz">Self-Check &amp; Oral Board Practice</a></li>
+    
+  </ol>
+</nav>
+
+<section id="why">
+  <div class="section-marker">Part I — Orientation</div>
+  <h2>Why This Matters</h2>
+  
+  <blockquote class="why"><p>Air data is the pilot's connection to the physics of flight. Airspeed, altitude, angle of attack, vertical speed, Mach number, and temperature are not cockpit conveniences. They are the numbers that tell the crew whether the wing is flying or stalling, whether the airframe is at risk of overspeed, and whether the aircraft is at the altitude ATC cleared it to. When those numbers are wrong, the autopilot follows them, the flight directors command to them, and the crew reacts to them. An air data failure is never a benign write-up. It is the beginning of a chain that, if uninterrupted, ends in an accident.</p></blockquote>
+  
+  <blockquote class="why"><p>The history is explicit. Air France 447 (2009, Atlantic): iced pitot probes gave the Airbus A330 unreliable airspeed for 29 seconds; the autopilot disconnected, the crew mishandled manual flight at altitude, and 228 people died in the South Atlantic. Aeroperu 603 (1996, Lima): masking tape left over the static ports during a wash caused the altimeters and airspeed indicators to read garbage for the entire climb; the crew flew into the Pacific at night at cruise power, unable to tell climbing from descending. Birgenair 301 (1996, Puerto Plata): a pitot tube left uncovered on the ramp for weeks had a mud-dauber nest built inside it; the captain's airspeed indication was frozen near rotation speed during climb, the autopilot trimmed the aircraft nose-up to hold the false speed, and the aircraft stalled into the Atlantic. XL Airways 888T (2008, Perpignan): an Airbus A320 on an acceptance flight lost both AoA vanes to ice-contamination residue from a prior ground wash; the alpha-protection system reverted, the crew exceeded the smooth-stall envelope at low altitude, and seven people died.</p></blockquote>
+  
+  <blockquote class="why"><p>Smart probes and modern air data computers embed computation where there used to be a column of mercury and a length of rubber hose. That is mostly good: the digital output is more accurate, the common-mode failures are better managed, and the self-test catches things the old systems could not. But when a smart probe is wrong, it is wrong with full digital confidence, and it pushes that wrong value into the autopilot at 50 or 100 times per second. Your job is not to trust the probe because it is smart. Your job is to verify heating, drainage, pneumatic integrity, calibration, and digital output with the same discipline a craftsperson applied to a rubber hose in 1960 — and then some, because now an embedded processor can lie faster than a human can catch it.</p></blockquote>
+  
+  
+  <h4>From the PQS Source</h4>
+  <p>Air data is the pilot's connection to the physics of flight. Airspeed, altitude, angle of attack, vertical speed, Mach number, and temperature are not cockpit conveniences. They are the numbers that tell the crew whether the wing is flying or stalling, whether the airframe is at risk of overspeed, and whether the aircraft is at the altitude ATC cleared it to. When those numbers are wrong, the autopilot follows them, the flight directors command to them, and the crew reacts to them. An air data failure is never a benign write-up. It is the beginning of a chain that, if uninterrupted, ends in an accident.</p>
+  
+</section>
+
+<section id="terms">
+  <h2>Key Terms &amp; Definitions</h2>
+  <p>Master this vocabulary before continuing. The evaluator expects you to use these terms correctly in the oral board.</p>
+  <dl class="glossary">
+    
+    <dt>Smart Probe</dt>
+    <dd>A pitot-static (and sometimes AoA and TAT) sensor assembly with an integrated processor that converts analog pressures into calibrated digital output at the probe. Replaces pneumatic plumbing from probe to cockpit with a digital data bus (typically ARINC 429). Examples: Rosemount 0858, Thales Multi-Function Probe on A350.</dd>
+    
+    <dt>Multi-Function Probe (MFP)</dt>
+    <dd>A smart probe that integrates pitot pressure, static pressure, AoA vane input, and sometimes TAT into a single externally-mounted unit. Reduces skin penetrations from 6–9 to 2–3 and eliminates many shared-source failure paths, but introduces new ones (a single MFP failure takes multiple parameters with it).</dd>
+    
+    <dt>AoA Vane vs Smart AoA</dt>
+    <dd>A vane AoA sensor is a small aerodynamic flag that rotates on a shaft to align with the relative wind; position is read by an RVDT or resolver. Smart AoA uses multiple static pressure taps around a hemispherical or cylindrical probe and calculates AoA from pressure differentials with no moving parts (example: Rosemount 858AJ). Smart AoA eliminates vane freeze-up but requires cleaner aerodynamic installation.</dd>
+    
+    <dt>TAT Probe</dt>
+    <dd>Total Air Temperature probe. A heated, forward-facing probe that measures the temperature of air brought to rest against a platinum resistance thermometer. Reads higher than static air temperature due to compressibility heating of the incoming flow. Must be heated to prevent icing but with low enough bias to avoid cooking the sensing element on the ground.</dd>
+    
+    <dt>Total Air Temp (TAT) vs Static Air Temp (SAT)</dt>
+    <dd>SAT is the actual ambient temperature of still air at altitude. TAT is the temperature measured by a probe in the moving airstream, including the kinetic (ram-rise) heating. The relationship: TAT = SAT × (1 + 0.2 × M² × Kr), where M is Mach and Kr is the recovery factor (typically 0.95–1.00). At M0.8 the difference is approximately 40 °C — SAT of −55 °C yields TAT of about −15 °C.</dd>
+    
+    <dt>Pitot Heat</dt>
+    <dd>Electrical resistance heating embedded in the pitot tube (and often the static port, AoA vane, and TAT) to prevent ice formation from blocking the sensor. Typically draws 5–15 A at 28 V DC per probe on turbine aircraft. Controlled by a pitot heat control unit that can modulate power on the ground (low heat, preserve probe life) vs. in flight (high heat, prevent ice).</dd>
+    
+    <dt>Mach Number Derivation</dt>
+    <dd>Mach = √[5 × ((qc/p + 1)^(2/7) − 1)] for subsonic flow, where qc is impact pressure (pt − ps) and p is static pressure. The ADC computes Mach in real time from pitot and static inputs, then feeds it to Vmo/Mmo warnings, autothrottle, and Mach trim. Pitot or static errors propagate directly into Mach error.</dd>
+    
+    <dt>Air Data Computer (ADC)</dt>
+    <dd>A computer that receives pitot, static, AoA, and TAT inputs (either as analog pressures through pneumatic lines or as digital data from smart probes) and outputs calibrated altitude, airspeed (IAS/CAS/EAS/TAS), Mach, vertical speed, and air temperature on a digital bus (usually ARINC 429). Feeds PFD, autopilot, autothrottle, FMS, transponder, and FDR.</dd>
+    
+    <dt>ARINC 429 Air Data</dt>
+    <dd>The ARINC 429 labels that carry air data between the ADC and consumers. Label 203 = altitude (BCD), 204 = baro-corrected altitude, 205 = Mach, 206 = computed airspeed (CAS), 210 = true airspeed, 211 = total air temperature, 212 = static air temperature, 221 = AoA. Rate: typically 16–20 Hz. Bus speed: low-speed 12.5 kbps or high-speed 100 kbps.</dd>
+    
+    <dt>OAT (Outside Air Temperature)</dt>
+    <dd>The static air temperature the ADC reports to the cockpit, derived from TAT after correcting for ram-rise heating using Mach and recovery factor. On the ground OAT ≈ TAT because the aircraft is stationary. At M0.8 OAT is computed by subtracting the ram rise.</dd>
+    
+    <dt>IAS/CAS/EAS/TAS</dt>
+    <dd>Four airspeeds, each with a specific meaning. IAS (Indicated) = raw pitot-static pressure converted to airspeed. CAS (Calibrated) = IAS corrected for instrument and position error (what the ADC actually displays on the PFD). EAS (Equivalent) = CAS corrected for compressibility (used in structural loads). TAS (True) = CAS corrected for air density (used for navigation, range, and fuel burn). The ADC computes all four internally.</dd>
+    
+    <dt>Pitot-Static Tree</dt>
+    <dd>The diagram of how pitot and static pressure lines are routed from probes through drains, splits, and ADCs to cockpit instruments. Critical for failure analysis — a single static line blockage may drive three altimeters and two transponders to a common wrong value. Modern aircraft with smart probes have a degenerate pitot-static tree (one probe = one digital bus), which changes the failure modes.</dd>
+    
+    <dt>Heating Element Resistance</dt>
+    <dd>Pitot heat elements are resistive, and the resistance at ambient temperature is a direct check of element health. A Rosemount 0851HT nominal cold resistance is approximately 2 Ω for a 14 A heater at 28 V (P = V²/R, 28²/2 = 392 W per probe). A reading 20% above nominal indicates a broken internal conductor strand or a cracked element; a reading near zero indicates a short to case.</dd>
+    
+    <dt>BITE / CBIT</dt>
+    <dd>Built-In Test Equipment and Continuous Built-In Test. The self-diagnostic capability inside a smart probe or ADC that continuously monitors sensor health, heating, and computation validity and reports faults as ARINC 429 SSM (Sign-Status Matrix) codes or on a maintenance bus. PBIT (Power-up BIT) runs at power on; CBIT runs continuously; IBIT (Initiated BIT) runs on command during maintenance.</dd>
+    
+    <dt>Position Error Correction (PEC)</dt>
+    <dd>The calibration curve inside the ADC that corrects raw pitot-static pressure for the aerodynamic position of the probe on the airframe. Different probe locations see slightly different local static pressure due to aircraft flow field. PEC is AoA- and Mach-dependent and is a unique calibration per airframe type — never swap a Cessna ADC into a Hawker.</dd>
+    
+  </dl>
+</section>
+
+<div class="section-marker">Part II — Knowledge Requirements</div>
+
+
+
+
+<section id="kr-1">
+  <h2>Air Data Computer (ADC) Architecture</h2>
+
+  
+
+  
+  <h4>From the PQS Source</h4>
+  <p>An ADC replaces individual analog instruments with a central computer that processes pitot and static pressure into digital outputs. Instead of three separate instruments each with their own aneroid mechanism, the ADC has precision pressure sensors that feed a computer. The computer calculates altitude, airspeed, vertical speed, Mach number, and air temperature, then distributes this data digitally (typically via ARINC 429 or RS-422) to the PFD, autopilot, transponder, and flight recorder.</p>
+  
+
+  
+</section>
+
+
+
+<section id="kr-2">
+  <h2>Smart Probes</h2>
+
+  
+
+  
+  <h4>From the PQS Source</h4>
+  <p>A smart probe combines pitot, static, angle-of-attack, and temperature sensors in a single externally-mounted unit with an integrated digital processor. Instead of running pneumatic lines from the probe to the cockpit, the smart probe converts pressures to digital data at the source and sends a digital signal down a wire pair. This eliminates pneumatic plumbing leaks, reduces weight, and provides faster response.</p>
+  
+
+  
+</section>
+
+
+
+<section id="kr-3">
+  <h2>Angle of Attack (AOA) Measurement</h2>
+
+  
+
+  
+  <h4>From the PQS Source</h4>
+  <p>AOA sensors measure the angle between the aircraft’s wing chord line and the relative wind. This is critical for stall protection—the wing stalls at a specific angle of attack regardless of airspeed, weight, or configuration. Modern AOA systems provide continuous feedback to the PFD (AOA indicator), stick shaker, stick pusher, and autopilot stall protection systems.</p>
+  
+
+  
+</section>
+
+
+
+<section id="kr-4">
+  <h2>RVSM (Reduced Vertical Separation Minimum)</h2>
+
+  
+
+  
+  <h4>From the PQS Source</h4>
+  <p>RVSM allows aircraft to fly with 1,000-foot vertical separation (instead of 2,000 feet) between FL290 and FL410. This requires extremely accurate altitude measurement. RVSM-approved aircraft must have:
+Two independent altitude measurement systems (ADCs or encoding altimeters)
+One autopilot with altitude-hold capability
+One altitude alerting system
+One transponder with altitude reporting
+Altitude accuracy within ±65 feet at FL350 (RVSM height monitoring standard)
+RVSM compliance is maintained through initial aircraft approval, biennial testing (more stringent than standard 91.411), and periodic height monitoring by ATC. If either ADC drifts out of RVSM tolerance, the aircraft loses RVSM approval and cannot fly in RVSM airspace without ATC coordination.</p>
+  
+
+  
+</section>
+
+
+
+<section id="kr-5">
+  <h2>Key Exam Topics (15 Questions)</h2>
+
+  
+
+  
+  <h4>From the PQS Source</h4>
+  <p>ADC architecture: inputs, outputs, digital distribution
+Smart probe advantages over traditional pitot-static plumbing
+AOA sensor types and stall protection integration
+RVSM requirements: equipment, tolerances, monitoring
+Shared-source failure analysis (static leak affects multiple ADC outputs)
+ADC self-test and fault reporting
+Redundancy architectures (dual ADC, dual smart probes)
+Temperature measurement and TAS computation
+Mach number derivation and application
+End of Exam Module 17 — Smart Probes & Air Data Systems</p>
+  
+
+  
+</section>
+
+
+<div class="section-marker">Part III — Task Preparation</div>
+
+
+
+
+<section id="task-1">
+  <h2>Task 1 — Pitot-Static Leak Check</h2>
+
+  
+  <p>Perform a pitot-static leak check per 14 CFR 91.411 and the aircraft AMM. Apply a calibrated vacuum/pressure to the static and pitot systems, verify no leakage exceeds the AMM specification (typically ≤ 100 feet of altitude drop in 1 minute when tested at an equivalent altitude of 25,000 feet, and ≤ 5 knots of airspeed drop in 1 minute at 100 knots indicated). Identify leak sources when they occur and repair per approved data. Document pass/fail on AC Form 8130-3 or the equivalent maintenance record.</p>
+  
+
+  
+
+  
+
+  
+</section>
+
+
+
+<section id="task-2">
+  <h2>Task 2 — Smart Probe Functional Test</h2>
+
+  
+  <p>Perform an end-to-end functional test of a smart probe (Rosemount 0858 or equivalent) using the aircraft maintenance computer and a calibrated pitot-static test set. Verify probe heater operation at commanded power levels, confirm ARINC 429 output labels and SSM validity, inject simulated pitot and static pressures and verify the smart probe reports altitudes and airspeeds within the AMM tolerance across the envelope. Capture BITE fault history and clear after sign-off.</p>
+  
+
+  
+
+  
+
+  
+</section>
+
+
+
+<section id="task-3">
+  <h2>Task 3 — AoA Vane Calibration</h2>
+
+  
+  <p>Perform an AoA vane calibration on a legacy vane-type sensor using an AoA protractor or manufacturer-specific fixture. Verify the vane moves freely through the full mechanical stop range with no binding or residue. Rotate the vane to five known angles (−20°, −10°, 0°, +10°, +20°) and record the ADC ARINC 429 label 221 output at each point. Tolerance ±0.5° at each angle; if out of tolerance, follow the AMM rigging procedure or replace the vane assembly.</p>
+  
+
+  
+
+  
+
+  
+</section>
+
+
+
+<section id="task-4">
+  <h2>Task 4 — Pitot Heat System Test</h2>
+
+  
+  <p>Perform a functional test of the pitot heat system. Measure pitot heater element resistance with the aircraft cold (typical 2 Ω nominal for a 14 A heater on 28 V; tolerance ±20%). Energize the pitot heat with the aircraft on external power and measure current draw against the AMM spec (typical 5–15 A per probe in flight mode). Verify heater operation by touch with an IR thermometer or by the manufacturer's ohmic-delta method. Confirm the cockpit annunciator logic (heat-on light extinguished, pitot-cold warning on loss of current).</p>
+  
+
+  
+
+  
+
+  
+</section>
+
+
+
+<section id="task-5">
+  <h2>Task 5 — ADC Output Verification (ARINC 429)</h2>
+
+  
+  <p>Use a DAC ARINC 429 analyzer (Avionics Interface Technologies PBA.pro, Data Device Corporation DD-429, or equivalent) to verify the ADC's data bus output. Confirm labels 203 (altitude), 205 (Mach), 206 (CAS), 210 (TAS), 211 (TAT), 212 (SAT), 221 (AoA) are present at the specified update rate (16–20 Hz) with SSM set to 'Normal Operation'. Inject known pitot-static inputs and verify the label values match the test set reference within the AMM tolerance. Capture and decode any failure warnings or NCD indications.</p>
+  
+
+  
+
+  
+
+  
+</section>
+
+
+
+<section id="task-6">
+  <h2>Task 6 — RVSM Altimetry Recertification</h2>
+
+  
+  <p>Perform RVSM-level altimetry testing per AC 91-85, 14 CFR 91.411, and the aircraft's RVSM Maintenance Manual (RMM). Verify altitude accuracy at multiple flight-level points (typically FL250, FL350, FL410) against a traceable master test set. Acceptance: primary altimeter accuracy within ±50 feet at FL350 and case-drain leak-rate below spec. Document the recertification and return the aircraft to RVSM status only after all primary systems pass. Any failure keeps the aircraft out of RVSM airspace until resolved.</p>
+  
+
+  
+
+  
+
+  
+</section>
+
+
+
+<div class="section-marker">Part IV — Background Theory</div>
+<section id="theory">
+  <h2>The Science Behind the Procedures</h2>
+  <p>When the oral board examiner asks <em>why</em>, these are the explanations they expect to hear.</p>
+  
+  <div class="callout theory">
+    <strong>Why Mfp Replaces Discrete Probes</strong>
+    <p style="margin-top:8px;">The multi-function probe consolidates pitot, static, AoA, and TAT into one externally mounted unit with an embedded processor. The motivation is three-fold: weight, reliability, and data quality. A traditional pitot-static installation requires 4–6 pneumatic lines running 20–40 feet through the airframe, each line needing drain traps, heat insulation, and periodic pressure-checks; that is hundreds of pounds of aluminum and brass plus the leak-path maintenance burden. An MFP replaces the pneumatic tree with a single ARINC 429 twisted-shielded pair. Reliability improves because every pneumatic joint eliminated is a potential leak eliminated; the dispatch MEL for a smart probe installation has fewer common single-point failures than a pneumatic-plumbed equivalent. Data quality improves because the analog-to-digital conversion happens at the probe, so pneumatic lag, water condensation, and line volume are removed from the signal chain. BUT — and this is the engineer's uncomfortable counter — integrating pitot + static + AoA into one box creates a new kind of common-mode failure: a single MFP hardware failure (cracked transducer, bad ARINC 429 driver, processor halt) takes out three parameters at once, not one. The mitigation is architectural: the Airbus A350 installs three MFPs on three different sides of the fuselage, each wired to an independent ADC, and the FMS votes on the three solutions to reject any single MFP's bad output. That is genuine redundancy. It is not enough to have one MFP with good BITE; you need three independent sensors of a failure-independent design to make MFP architecture safer than the pneumatic tree it replaced. Every CAET technician should be able to look at an MFP installation and recognize whether it is truly redundant or merely consolidated.</p>
+  </div>
+  
+  <div class="callout theory">
+    <strong>How Pitot Heat Is Regulated For Icing</strong>
+    <p style="margin-top:8px;">A pitot heater is a resistive element embedded in the probe body and sometimes around the probe tip. Power is regulated by a pitot heat control unit (PHCU) that manages two objectives in tension: prevent ice accumulation under the worst icing conditions the aircraft can encounter, while not cooking the probe on the ground with no cooling airflow. The icing side is ruthless — supercooled water droplets at −20 °C and appendix-O mixed-phase ice can deposit on an unheated probe fast enough to block it in 30 seconds, and Appendix D (the historical icing envelope) is known to under-represent real-world high-altitude ice crystal exposure. So the heater must dissipate enough power to evaporate accumulating water: typical 300–500 W per probe, at 28 V DC drawing 10–15 A. On the ground, applying 400 W to a probe with no airflow raises the internal temperature above 300 °C in under a minute; the PHCU detects ground/air state through weight-on-wheels or airspeed and reduces to a maintenance-level power (around 100 W) during ground ops. The PHCU also monitors heater current — a drop to zero means an open heater element, a drop to nominal-minus-20% means a degraded element with internal strand breaks. Both illuminate a cockpit caution. Smart probes add another layer: the internal processor monitors probe tip temperature directly with an embedded thermistor and will modulate heat via pulse-width modulation to hold the tip in a narrow temperature band, regardless of external conditions. The avionics technician verifies heat current draw at cold element resistance (the 2 Ω ± 20% test in Task 4), confirms the PHCU is switching correctly between ground and flight modes, and catches any partial-element degradation before it becomes a full failure during flight in icing.</p>
+  </div>
+  
+  <div class="callout theory">
+    <strong>Why Tat Needs Correction For Mach</strong>
+    <p style="margin-top:8px;">Air temperature measurement is deceptively hard at transonic speed. A thermometer in a moving airstream does not read the temperature of the air; it reads the temperature of air that has been decelerated to near-zero velocity at the sensing element. That deceleration converts kinetic energy to thermal energy — adiabatic ram-rise — and the probe sees a temperature higher than the true static air temperature. The fundamental thermodynamic relation is Tt / Ts = 1 + (γ−1)/2 × M², where γ = 1.4 for air, giving Tt = Ts × (1 + 0.2 × M²) for a probe that captures 100 percent of the ram-rise. Real probes never capture 100 percent because there is always some heat loss from the sensing element to the probe body and airstream; the recovery factor Kr models that loss and is determined empirically for each probe design — typically 0.95 to 1.00 for modern TAT probes. At Mach 0.8 the ram-rise is 12.8 percent of absolute temperature; for SAT = 218 K (−55 °C) at FL350, TAT = 246 K (−27 °C), a 28 °C offset. The ADC must run this correction continuously to give the pilot the SAT reading they need for density altitude, performance charts, and icing-envelope awareness. The correction depends on Mach, and Mach depends on pitot-static inputs, and pitot-static inputs can be wrong — so a corrupt Mach value feeds a corrupt SAT value, which feeds a corrupt TAS value, which the FMS uses for wind calculation, fuel burn prediction, and top-of-descent computation. One static-port blockage propagates into half a dozen downstream errors. This is why smart probe architectures feed the same Mach solution into every calculation, and why the ADC flags SSM = 'No Computed Data' on every derived parameter (not just the primary) when the primary input goes bad. The job of the avionics technician is to verify the integrity of the primary measurements (pitot, static, TAT) because every downstream air-data number the pilot sees is a function of those three.</p>
+  </div>
+  
+</section>
+
+
+<div class="section-marker">Part V — Self-Check</div>
+
+<section id="quiz">
+  <h2>Oral Board Practice Questions</h2>
+  <p>Answer each aloud before opening the answer key. Mastery means you can explain it to a non-technical person, not just recite a definition.</p>
+  <div class="quiz">
+    <h3>Questions</h3>
+    <ol>
+      <li>Q1: Walk me through a pitot-static leak check. What are the acceptance criteria, and what are the three most likely causes of a failure?</li><li>Q2: A smart probe reports valid altitude on ARINC 429 but the SSM on the airspeed label reads 'No Computed Data.' What does that tell you, and how do you troubleshoot?</li><li>Q3: Explain why TAT reads higher than SAT in flight, by how much at Mach 0.8, and why the ADC must be able to correct for it.</li><li>Q4: An aircraft has just had the left pitot probe replaced. The RVSM-approved aircraft is scheduled for a trip tonight. What is the regulatory and maintenance status, and what do you need to do before the aircraft can return to RVSM airspace?</li><li>Q5: Tell me what happened on Air France 447 from an avionics-systems standpoint, and what a modern ADC architecture does differently to prevent a repeat.</li>
+    </ol>
+  </div>
+
+  <h3>Answer Key</h3>
+  <div class="answer-key">
+    
+    
+    
+    <details>
+      <summary>Q1: Walk me through a pitot-static leak check. What are the acceptance criteria, and what are the three most likely causes of a failure?</summary>
+      <p>A pitot-static leak check verifies the pneumatic integrity of both the pitot and static systems by pressurizing them to simulated flight conditions and measuring leak rate over 1 minute. Acceptance per 14 CFR 91.411 and typical AMM specs: static system leaks at no more than 100 feet of altitude drop in 1 minute when tested at 25,000 feet altitude, and pitot system leaks at no more than 5 knots in 1 minute at 100 knots indicated. On RVSM aircraft the tolerances are tighter. The three most common failure causes are: (1) a deteriorated O-ring or gasket at a fitting — often at a drain trap or bulkhead penetration where vibration and temperature cycling have aged the seal; (2) a cracked plastic or aluminum static line from someone bending it during an earlier maintenance action — this is especially common behind instrument panels where the line was disturbed during a radio installation; (3) a loose or damaged static port bonding, where the seal between the port flange and the skin has relaxed. I would verify the adapter seal first (a common false fail), pressurize slowly, and if leakage exceeds spec, use a soap-bubble solution to localize the leak before tearing anything apart.</p>
+    </details>
+    
+    
+    
+    <details>
+      <summary>Q2: A smart probe reports valid altitude on ARINC 429 but the SSM on the airspeed label reads 'No Computed Data.' What does that tell you, and how do you troubleshoot?</summary>
+      <p>The combination of valid altitude with 'No Computed Data' on airspeed tells me the ADC is still seeing valid static pressure (so the static side is intact) but it cannot compute airspeed — which depends on pitot-minus-static. This almost always points to a pitot-side problem. My troubleshooting sequence: first, visually inspect the pitot probe for ice, insect nests, covers left on after wash, or damage. Second, verify pitot heat is working — measure heater current at the breaker and check for the expected 5–15 A draw; a cold pitot at altitude ices over fast. Third, check for water in the pitot line at the drain trap — I drain it and see if any fluid comes out. Fourth, if the probe is a smart probe, I pull its BITE history; an internal pressure-transducer fault shows up there as a specific fault code. Fifth, I run a pneumatic test on just the pitot side with a known input pressure — if the ADC computes a correct airspeed with the test set but not from the probe, the probe is bad. If the ADC will not compute even with a known pitot input, the ADC is bad. I do NOT clear the 'No Computed Data' code and fly the aircraft just because the cockpit display may not show the flag dramatically. 'No Computed Data' means the airspeed is not valid — the autopilot and autothrottle should also be flagged.</p>
+    </details>
+    
+    
+    
+    <details>
+      <summary>Q3: Explain why TAT reads higher than SAT in flight, by how much at Mach 0.8, and why the ADC must be able to correct for it.</summary>
+      <p>TAT reads higher than SAT because of compressibility heating — also called ram-rise or adiabatic heating. Air moving at high speed relative to the aircraft is decelerated to near-zero velocity at the probe's sensing element, and the kinetic energy of that airflow converts to thermal energy. The equation is TAT = SAT × (1 + 0.2 × M² × Kr), where M is Mach and Kr is the recovery factor (how much of theoretical ram-rise the specific probe actually recovers — typically 0.95 to 1.00 for a good probe). At Mach 0.8: 0.2 × 0.8² × 1.0 = 0.128, so TAT is SAT × 1.128. If SAT at cruise is −55 °C, which is 218 K, then TAT is 218 × 1.128 = 246 K, which is −27 °C. That is a 28 °C difference; on a warmer day at Mach 0.8 the difference approaches 40 °C. The ADC must correct for this in both directions: the TAT probe reports the true total air temperature, but what the pilot wants to display is SAT (for density altitude and performance planning) and what the ADC needs to compute TAS (which uses SAT-based density). So the ADC receives Mach from the pitot-static solution, receives TAT from the TAT probe, and computes SAT = TAT / (1 + 0.2 × M² × Kr). If Mach is wrong — say because a blocked pitot port corrupts qc — then SAT is wrong, density altitude is wrong, and TAS is wrong, all in one propagating chain. This is why you never treat the TAT probe as standalone; it is only useful in combination with a good Mach solution.</p>
+    </details>
+    
+    
+    
+    <details>
+      <summary>Q4: An aircraft has just had the left pitot probe replaced. The RVSM-approved aircraft is scheduled for a trip tonight. What is the regulatory and maintenance status, and what do you need to do before the aircraft can return to RVSM airspace?</summary>
+      <p>The aircraft is out of RVSM approval the moment maintenance touches the pitot-static system or any primary air data component. That is not my opinion; it is the RVSM maintenance manual and AC 91-85. Before the aircraft can legally fly in RVSM airspace (FL290 to FL410) it must complete a full 91.411 static-system test with RVSM-grade tolerances — that is stricter than a standard 24-month test. The pitot-probe replacement specifically: I verify the correct part number and serial number for that position, install per AMM torque and sealant spec, perform a pneumatic leak check on the pitot system, run an ADC functional test to verify the new probe feeds good data to the ADC, and then run the RVSM static-system test. If the ADC itself was not touched, I still check the pitot-static integrity end to end. I document in the logbook: 'Pitot probe P/N ___ S/N ___ replaced in LH position. Pneumatic leak check passed. RVSM altimetry test complete per AC 91-85 on [date]. Aircraft returned to RVSM status.' If any test fails, or if I cannot complete the RVSM test before the trip, the aircraft goes in the logbook as 'Not approved for RVSM. Operations limited to below FL290 or with ATC coordination.' I do not bend that rule no matter who is in the cockpit or the schedule pressure, because the whole point of RVSM is that the system is trustworthy at 65-foot accuracy and my signature is what certifies it.</p>
+    </details>
+    
+    
+    
+    <details>
+      <summary>Q5: Tell me what happened on Air France 447 from an avionics-systems standpoint, and what a modern ADC architecture does differently to prevent a repeat.</summary>
+      <p>Air France 447 was an Airbus A330 over the Atlantic at night in June 2009. The aircraft had three pitot probes of the same part number (Thales AA), and all three iced up within seconds of entering a high-altitude convective cell where supercooled ice crystals exceeded the heater's melting capacity. The ADCs lost valid airspeed on all three inputs simultaneously. Because the three ADCs used three probes of the same part with the same weakness, the failure was common-mode — no voting scheme could rescue it. The autopilot disconnected (the A330 cannot fly in normal law without valid airspeed), the aircraft dropped from normal law to alternate law, and the pilots — without the envelope protections they had trained with — mishandled the manual flying at altitude and stalled the aircraft from 37,000 feet into the ocean. All 228 aboard died. From an avionics perspective the lessons are: (1) probe heating matters — Thales AA has since been replaced fleet-wide with the Thales BA or Goodrich probe with higher heater power and different internal aerodynamics. (2) Common-mode failures are the ones that kill — you want your triple redundancy to be genuine redundancy, meaning different probe part numbers, different installation positions, and different heating regulators. (3) ADC architectures now include more aggressive probe-disagreement voting, and the newest systems (A350 with MFP) can cross-check pitot-derived speed against GPS-derived groundspeed plus wind and flag an unreliable-airspeed condition faster than the human can. (4) The BEA report led to new ICAO standards on pitot-probe icing certification — TSO-C16a was revised, and simulator training for unreliable-airspeed procedures became mandatory for airline crews. The avionics technician's takeaway: heat current measurement, element resistance, and drainage are not optional on any inspection, ever.</p>
+    </details>
+    
+  </div>
+</section>
+
+
+
+<footer>
+  © 2026 Aircraft Electronics Association · Workforce Development Division.<br>
+  Derived from CAET Advanced PQS Training Module with supplementary teaching content authored for instructor use.
+</footer>
+
+</body>
+</html>

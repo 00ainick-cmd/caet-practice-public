@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Section 10: Autopilot Systems | CAET Advanced Handbook</title>
+<style>
+  /* Light-theme study document — optimized for reading on screen AND print. */
+  :root {
+    --ink: #1a2332;
+    --ink-soft: #4a5568;
+    --paper: #fbfaf5;
+    --paper-accent: #f5f2e8;
+    --rule: #d8d3c3;
+    --navy: #0a2540;
+    --gold: #8b6914;
+    --gold-soft: #f4ead0;
+    --red: #8b1a1a;
+    --red-soft: #fbe9e7;
+    --green: #1b4332;
+    --green-soft: #e7f0e5;
+    --cyan: #0e4a6e;
+    --cyan-soft: #e4f1f8;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--ink);
+    background: var(--paper);
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 56px 48px 80px;
+  }
+  header.cover {
+    border-bottom: 3px double var(--navy);
+    padding-bottom: 24px;
+    margin-bottom: 40px;
+  }
+  .eyebrow {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    letter-spacing: 3px;
+    font-size: 11px;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 700;
+  }
+  h1 {
+    font-family: Georgia, serif;
+    font-size: 34px;
+    line-height: 1.2;
+    color: var(--navy);
+    margin: 8px 0 12px;
+    font-weight: 700;
+  }
+  .subtitle {
+    font-size: 15px;
+    color: var(--ink-soft);
+    font-style: italic;
+    margin: 0;
+  }
+  h2 {
+    font-family: Georgia, serif;
+    font-size: 24px;
+    color: var(--navy);
+    margin: 56px 0 12px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--rule);
+  }
+  h3 {
+    font-family: Georgia, serif;
+    font-size: 19px;
+    color: var(--navy);
+    margin: 32px 0 10px;
+  }
+  h4 {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin: 20px 0 8px;
+    font-weight: 700;
+  }
+  p { margin: 0 0 16px; }
+  ul, ol { margin: 0 0 18px; padding-left: 24px; }
+  li { margin-bottom: 8px; }
+  .toc {
+    background: var(--paper-accent);
+    border-left: 4px solid var(--gold);
+    padding: 24px 32px;
+    border-radius: 2px;
+    margin: 24px 0 40px;
+  }
+  .toc h2 { margin-top: 0; border: none; font-size: 18px; color: var(--gold); letter-spacing: 2px; text-transform: uppercase; font-family: 'Helvetica Neue', Arial, sans-serif; }
+  .toc ol { columns: 2; column-gap: 32px; font-size: 14px; }
+  .toc li { margin-bottom: 4px; break-inside: avoid; }
+  .toc a { color: var(--navy); text-decoration: none; }
+  .toc a:hover { text-decoration: underline; color: var(--gold); }
+  blockquote.why {
+    font-size: 17px;
+    font-family: Georgia, serif;
+    font-style: italic;
+    color: var(--navy);
+    background: var(--gold-soft);
+    border-left: 4px solid var(--gold);
+    padding: 24px 32px;
+    margin: 24px 0;
+    border-radius: 2px;
+  }
+  blockquote.why p { margin: 0 0 12px; }
+  blockquote.why p:last-child { margin-bottom: 0; }
+  .callout {
+    padding: 16px 22px;
+    margin: 18px 0;
+    border-left: 4px solid var(--cyan);
+    background: var(--cyan-soft);
+    border-radius: 2px;
+    font-size: 15px;
+  }
+  .callout.watching { border-left-color: var(--green); background: var(--green-soft); }
+  .callout.mistakes { border-left-color: var(--red); background: var(--red-soft); }
+  .callout.theory   { border-left-color: var(--gold); background: var(--gold-soft); }
+  .callout strong { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 6px; }
+  .callout.watching strong { color: var(--green); }
+  .callout.mistakes strong { color: var(--red); }
+  .callout.theory   strong { color: var(--gold); }
+  .callout.info     strong { color: var(--cyan); }
+  .key-points { margin: 12px 0 20px; padding-left: 20px; }
+  .key-points li { margin-bottom: 10px; line-height: 1.55; }
+  dl.glossary { margin: 20px 0; }
+  dl.glossary dt { font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 700; color: var(--navy); margin-top: 14px; font-size: 15px; }
+  dl.glossary dd { margin: 4px 0 0 0; padding-left: 0; font-size: 14.5px; line-height: 1.55; color: var(--ink); }
+  .steps { counter-reset: step; padding-left: 0; list-style: none; }
+  .steps li { counter-increment: step; padding-left: 44px; position: relative; margin-bottom: 14px; line-height: 1.55; }
+  .steps li::before {
+    content: counter(step);
+    position: absolute; left: 0; top: -2px;
+    width: 30px; height: 30px; border-radius: 50%;
+    background: var(--navy); color: white;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 700; font-size: 13px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .quiz {
+    background: var(--cyan-soft);
+    border-left: 4px solid var(--cyan);
+    padding: 24px 32px;
+    margin: 24px 0;
+    border-radius: 2px;
+  }
+  .quiz h3 { margin-top: 0; color: var(--cyan); }
+  .quiz ol { margin: 12px 0 0 0; padding-left: 22px; }
+  .quiz li { margin-bottom: 14px; }
+  .answer-key details {
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    padding: 12px 18px;
+    margin-bottom: 10px;
+    background: var(--paper);
+  }
+  .answer-key summary { font-weight: 700; cursor: pointer; color: var(--navy); font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 14px; }
+  .answer-key details[open] summary { margin-bottom: 10px; border-bottom: 1px solid var(--rule); padding-bottom: 6px; }
+  .answer-key p { margin-top: 10px; font-size: 14.5px; line-height: 1.6; }
+  .crosswalk {
+    background: var(--paper-accent);
+    padding: 18px 24px;
+    border-radius: 2px;
+    border: 1px solid var(--rule);
+    margin: 24px 0;
+    font-size: 14.5px;
+    color: var(--ink-soft);
+  }
+  footer {
+    margin-top: 64px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 12px;
+    color: var(--ink-soft);
+    text-align: center;
+  }
+  .section-marker {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--gold); font-weight: 700;
+    margin: 48px 0 0;
+  }
+  @media print {
+    body { padding: 0.6in 0.75in; background: white; font-size: 11pt; max-width: none; }
+    h1 { font-size: 24pt; }
+    h2 { font-size: 16pt; page-break-after: avoid; }
+    h3 { page-break-after: avoid; }
+    .callout, blockquote.why { page-break-inside: avoid; }
+    .toc { page-break-after: always; }
+    details { page-break-inside: avoid; }
+    details[open] > summary ~ * { display: block !important; }
+    .answer-key details { border: none; }
+    a { color: var(--navy); text-decoration: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="cover">
+  <div class="eyebrow">CAET Advanced Certification · Student Handbook</div>
+  <h1>Section 10: Autopilot Systems</h1>
+  <p class="subtitle">Aircraft Electronics Association · Workforce Development Division</p>
+</header>
+
+<nav class="toc">
+  <h2>Contents</h2>
+  <ol>
+    <li><a href="#why">Why This Matters</a></li>
+    <li><a href="#terms">Key Terms &amp; Definitions</a></li>
+    <li><a href="#kr-1">10.2.1 — Basic Autopilot Architecture</a></li><li><a href="#kr-2">10.2.2 — Autopilot Modes</a></li><li><a href="#kr-3">10.2.4 — Disconnect Methods</a></li><li><a href="#kr-4">10.2.5 — Electric Trim and Runaway Protection</a></li>
+    <li><a href="#task-1">Task 10.4.1 — System Identification</a></li><li><a href="#task-2">Task 10.4.2 — Preflight Check</a></li><li><a href="#task-3">Task 10.4.3 — Disconnect Testing</a></li><li><a href="#task-4">Task 10.4.4 — Electric Trim</a></li><li><a href="#task-5">Task 10.4.5 — Functional Check</a></li><li><a href="#task-6">Task 10.4.6 — Flight Director vs. Autopilot</a></li><li><a href="#task-7">Task 10.4.7 — Troubleshoot AP Will Not Engage</a></li>
+    <li><a href="#quiz">Self-Check &amp; Oral Board Practice</a></li>
+    <li><a href="#crosswalk">Written Exam Crosswalk</a></li>
+  </ol>
+</nav>
+
+<section id="why">
+  <div class="section-marker">Part I — Orientation</div>
+  <h2>Why This Matters</h2>
+  
+  <blockquote class="why"><p>Autopilots are the only avionics you will work on that can actively fly the airplane into the ground. A nav radio that fails just stops giving guidance. An ADI that fails just stops showing attitude. An autopilot that fails can command a full-deflection pitch-up, a runaway trim to the stop, or a roll into terrain, and do it faster than most pilots can react. That is why autopilot and servo work is held to a higher standard than almost any other avionics discipline: every installation, every rigging job, every functional check must verify not only that the system works correctly, but that it disconnects reliably and cleanly when the pilot says stop.</p></blockquote>
+  
+  <blockquote class="why"><p>History has written the cost of getting this wrong. Alaska Airlines 261 (January 2000) lost longitudinal control when a jackscrew in the horizontal stabilizer trim system failed from unlubricated wear — a trim system, commanded ultimately by the same kind of servo circuits we adjust on smaller aircraft. The Lion Air 610 (October 2018) and Ethiopian 302 (March 2019) MAX accidents were, at their core, a trim-runaway problem: MCAS, a system with autopilot-like authority, commanded nose-down trim the crew could not out-muscle in time. Air France 447 (2009) showed what happens when pilots are deeply dependent on automation and the automation hands control back unexpectedly in degraded conditions. These are not rare edge cases — they are a repeating pattern, and the pattern is: someone trusted an automated control system further than it had been verified.</p></blockquote>
+  
+  <blockquote class="why"><p>Your job on this module is not to memorize autopilot block diagrams. It is to develop the craftsperson's mindset for a system that can kill: verify the clutch slips at the advertised force, verify every disconnect path works independently of every other, verify the trim cuts out when the pilot says so, verify control-surface direction matches command direction, and never release an aircraft with an autopilot you have not personally seen disengage on every method in the POH. The evaluator is not grading whether the autopilot holds altitude. The evaluator is grading whether you can be trusted to release a system that an unsuspecting pilot will rely on at night, in IMC, in turbulence, when their attention is elsewhere.</p></blockquote>
+  
+  
+  <h4>From the PQS Source</h4>
+  <p>Autopilot systems are the most safety-critical avionics you will work on. A malfunctioning autopilot can actively fly the aircraft into the ground—it does not just fail to navigate, it can command pitch and roll maneuvers that overwhelm the pilot. Every autopilot installation, maintenance event, and functional check must verify that the system not only works correctly but also disconnects reliably when the pilot commands it. This section emphasizes verification and disconnect testing as much as operational testing.</p>
+  
+</section>
+
+<section id="terms">
+  <h2>Key Terms &amp; Definitions</h2>
+  <p>Master this vocabulary before continuing. The evaluator expects you to use these terms correctly in the oral board.</p>
+  <dl class="glossary">
+    
+    <dt>Servo (Capstan vs. Gear-Drive)</dt>
+    <dd>The electromechanical actuator that moves a control surface under autopilot command. A capstan servo wraps a bridle cable around a motor-driven drum and pulls the existing control cable; gear-drive (or pushrod) servos connect directly to the control linkage through a gearbox. Capstan is common on older S-TEC installations; modern Garmin GFC-500/600 uses brushless gear-drive servos. Each servo type is dedicated to one axis — pitch, roll, or yaw.</dd>
+    
+    <dt>Slip Clutch</dt>
+    <dd>A torque-limiting mechanical clutch inside the servo that allows the motor to drive the output shaft until the resisting torque exceeds a set threshold, at which point the clutch slips and the output stops moving even though the motor continues. Typical settings for small-aircraft trim servos are 40–100 in-lb; primary control servos run higher. The slip clutch is the first and most important line of defense against a jammed or runaway servo.</dd>
+    
+    <dt>Pilot Override Force</dt>
+    <dd>The control-wheel or pedal force a pilot must apply to overpower an engaged autopilot servo and cause the slip clutch to release or the autopilot to auto-disconnect. Typical requirement under 14 CFR 23.1329 is that the pilot must be able to override the system with a force not greater than roughly 10–20 lb at the wheel in any axis. Measured directly on rigging with a calibrated pull scale.</dd>
+    
+    <dt>Autopilot Computer (Flight Computer / FCC)</dt>
+    <dd>The central processor that takes sensor inputs (attitude, heading, air data, nav data) and the pilot's mode selection, computes the required control deflections, and commands the servos. Modern units are DO-178C software at Level C or B depending on criticality. Examples: Garmin GSA-28 + GMC-507 on GFC-500; Avidyne DFC-90; S-TEC 3100.</dd>
+    
+    <dt>Trim Servo vs. Primary Servo</dt>
+    <dd>Primary servos drive the main control surfaces (elevator, aileron, rudder) directly and carry the instantaneous control loads. A trim servo drives the trim tab or trim jackscrew to relieve steady-state load off the primary servo so the primary does not fight a sustained moment. Trim runs in PARALLEL with primary — when the primary commands nose-up, trim follows a few seconds later to unload the elevator. A jammed or runaway trim servo is especially dangerous because it moves slowly and progressively.</dd>
+    
+    <dt>Roll-Over-Disconnect (ROD)</dt>
+    <dd>A safety logic that disengages the autopilot if bank angle exceeds a programmed threshold (typically 45°) or pitch exceeds a threshold (typically ±25°). Prevents the autopilot from commanding a recovery maneuver that could further upset the aircraft. Also called 'attitude envelope protection' in some systems.</dd>
+    
+    <dt>Yaw Damper</dt>
+    <dd>A rate-gyro-driven subsystem that senses yaw rate and commands rudder deflection to damp out Dutch-roll oscillations common in swept-wing and T-tail aircraft. Operates independently of the full autopilot in many installations and remains engaged during hand-flying. Typical authority is ±3–5° of rudder deflection.</dd>
+    
+    <dt>Rate-Gyro vs. Attitude-Coupled Autopilot</dt>
+    <dd>An older rate-based autopilot (S-TEC System 20/30) uses a turn coordinator's rate gyro as its only attitude reference — it corrects rate of turn, not absolute attitude. An attitude-coupled autopilot (S-TEC 55X, Garmin GFC-500/600) receives roll and pitch attitude from an AHRS and can hold a specific bank or pitch angle. Attitude-coupled systems support more advanced modes (GPSS, VNAV, auto-level) but depend on a valid AHRS data stream.</dd>
+    
+    <dt>Autopilot Master / Servo Disconnect</dt>
+    <dd>The electrical paths by which the autopilot is removed from the controls. A properly engineered installation has multiple independent paths: (1) the AP ENGAGE switch on the mode controller, (2) the red disconnect button on the pilot's control wheel, (3) the circuit breaker / master switch on the instrument panel, and (4) an automatic disconnect on pilot override force or envelope exceedance. Each path must work with the others failed.</dd>
+    
+    <dt>Pitch Oscillation Damping</dt>
+    <dd>The tuning of the pitch loop gains so the autopilot captures and holds altitude without hunting (continuous small pitch oscillations around the target). Caused by gain too high, mis-rigged pushrod backlash, or degraded air-data update rate. Evaluated by trimming to level cruise and observing ±50 ft altitude stability over two minutes.</dd>
+    
+    <dt>Servo Current vs. Torque Relationship</dt>
+    <dd>Torque output of a DC servo is approximately proportional to armature current: T ≈ K_t × I, where K_t is the motor's torque constant. A servo pulling 1 A is producing a certain torque; at 5 A it is at its limit. Monitoring servo current during troubleshooting tells you whether the servo is working against a jammed linkage, a mis-rigged cable tension, or a control-surface gust load.</dd>
+    
+    <dt>Disconnect Debounce</dt>
+    <dd>The deliberate ~50 ms delay built into the disconnect-button logic to prevent a momentary contact bounce from triggering a nuisance disconnect in turbulence. Too short and bumpy flight randomly drops the autopilot; too long and the pilot presses the button but nothing happens for a perceptible interval. Set in the flight computer software per the manufacturer's certification data.</dd>
+    
+    <dt>Hobbs / AP-Hours Logged</dt>
+    <dd>Some modern flight computers (Garmin GFC, Avidyne DFC) log separate autopilot engaged-time for maintenance scheduling. Servo greasing, capstan-bridle inspection, and slip-clutch torque verification are keyed to engaged-time, not airframe total time. An aircraft that hand-flies 800 hours has a very different servo wear state than one that autopilots 800 hours.</dd>
+    
+    <dt>STC (Supplemental Type Certificate)</dt>
+    <dd>The FAA approval that authorizes installation of a specific autopilot on a specific airframe. AC 23.1329-2B is the guidance document for autopilot STC applicants. The STC defines the exact wiring, servo mounting, pull-test values, disconnect paths, and placards required for the installation to be airworthy. Deviation from the STC is an unapproved modification.</dd>
+    
+    <dt>Yaw Damper Authority</dt>
+    <dd>The maximum rudder deflection the yaw damper can command, typically limited mechanically or electrically to ±3–5° to ensure that a runaway yaw damper cannot produce more than a survivable yaw excursion. The limit is confirmed on functional check by inducing a signal and measuring peak rudder travel.</dd>
+    
+  </dl>
+</section>
+
+<div class="section-marker">Part II — Knowledge Requirements</div>
+
+
+
+
+<section id="kr-1">
+  <h2>10.2.1 — Basic Autopilot Architecture</h2>
+
+  
+
+  
+
+  
+</section>
+
+
+
+<section id="kr-2">
+  <h2>10.2.2 — Autopilot Modes</h2>
+
+  
+
+  
+
+  
+</section>
+
+
+
+<section id="kr-3">
+  <h2>10.2.4 — Disconnect Methods</h2>
+
+  
+
+  
+  <h4>From the PQS Source</h4>
+  <p>Every autopilot installation must have multiple disconnect methods. The pilot must be able to overpower or disconnect the autopilot immediately in any situation:</p>
+  
+
+  
+</section>
+
+
+
+<section id="kr-4">
+  <h2>10.2.5 — Electric Trim and Runaway Protection</h2>
+
+  
+
+  
+  <h4>From the PQS Source</h4>
+  <p>Electric trim is commanded both by the pilot (manual trim switch) and by the autopilot (auto-trim). A trim runaway—where the trim motor runs continuously without stopping—is one of the most dangerous autopilot failures because it progressively moves the control surface until it hits the stop, creating an extreme pitch or roll moment. Every autopilot installation includes trim runaway protection: the pilot’s manual trim switch overrides and disconnects auto-trim, and most systems have an independent trim motor cutoff.</p>
+  
+
+  
+</section>
+
+
+<div class="section-marker">Part III — Task Preparation</div>
+
+
+
+
+<section id="task-1">
+  <h2>Task 10.4.1 — System Identification</h2>
+
+  
+  <p>How to demonstrate: At the aircraft, identify: the mode controller panel (usually on the instrument panel or glareshield), the servo locations (pitch servo connected to elevator control, roll servo connected to aileron control—location varies by aircraft), and the flight computer (usually behind the instrument panel or in the avionics bay). Trace the signal flow: pilot selects mode on controller → computer calculates required control input from sensor data → computer commands servo → servo clutch engages and moves control surface → trim follows to relieve servo load.</p>
+  
+
+  
+  <h4>Step-by-Step Procedure</h4>
+  <ol class="steps">
+    <li>Open the POH/AFM supplement and the installation manual for the specific autopilot before approaching the aircraft. Note STC number, part numbers of each LRU, and the location diagram of servos.</li><li>At the aircraft: locate the mode controller. In most GA installations it is centered on the panel or on the glareshield. Identify the make and model number on its placard (e.g., GMC-507, S-TEC 55X, Avidyne DFC-90).</li><li>Locate the flight computer (FCC). In modern Garmin installations it may be integrated into the G3X/G500 TXi; in legacy S-TEC it is a discrete box behind the panel or in the tailcone.</li><li>Locate each servo. Pitch servo is usually on the elevator control run — often in the tailcone or empennage. Roll servo is on the aileron run — usually in one wing root or in the center section. Yaw servo (if installed) is on the rudder run.</li><li>Identify trim servos separately. Pitch-trim servo drives the elevator trim tab or stabilator trim jackscrew; roll-trim (if installed) drives the aileron trim tab. They are physically separate from the primary servos.</li><li>Trace signal flow verbally to the evaluator: pilot selects mode on controller → controller sends command to FCC over CAN/429 bus → FCC reads sensor inputs (AHRS attitude, ADC air data, GPS/VOR course) → FCC computes error → FCC commands servo via bus or analog line → servo clutch engages and moves the control cable/linkage → control surface deflects → trim servo follows a few seconds later to unload the primary servo.</li><li>Identify every disconnect path: red button on pilot yoke, AP switch on controller, panel master switch, circuit breaker, TRIM DISCONNECT switch. Point to each one on the aircraft.</li><li>Review the wiring diagram in the installation manual to understand which LRUs share power buses and which have dedicated breakers — this will matter for troubleshooting.</li><li>Note the required inspections and life-limited items from the ICA (Instructions for Continued Airworthiness). Capstan servos have bridle-cable life limits; slip clutches may have torque-check intervals.</li>
+  </ol>
+  
+
+  
+  <div class="callout watching">
+    <strong>Evaluator is watching for</strong>
+    <ul>
+      <li>Candidate reads the STC installation manual before touching the aircraft — does not work from memory.</li><li>Correct identification of EACH LRU by part number, not just 'the autopilot box.'</li><li>Candidate physically points to each servo, not waves vaguely at the empennage.</li><li>Candidate names ALL disconnect paths, including the TRIM DISCONNECT and envelope-exceedance auto-disconnect, not just the yoke button.</li><li>Signal flow is described with correct sensor sources (AHRS for attitude, ADC for air data) — candidate does not say 'the gyro' when they mean the AHRS.</li><li>Candidate knows the certification basis: STC number, 14 CFR 23.1329, and whether the aircraft is Part 23 or Part 25.</li>
+    </ul>
+  </div>
+  
+
+  
+  <div class="callout mistakes">
+    <strong>Common mistakes</strong>
+    <ul>
+      <li>Confusing the flight director display unit with the flight computer. The FD symbology lives on the PFD; the FCC is a separate LRU. They talk to each other but they are not the same thing.</li><li>Missing the yaw damper as a separate subsystem. On T-tail and swept-wing aircraft it is mandatory and has its own engagement logic.</li><li>Calling the trim servo a primary servo. They are distinct: primary servos move the control surface directly through the cable; trim servos move the trim tab through a separate trim cable or jackscrew.</li><li>Skipping the TRIM DISCONNECT in the disconnect inventory. In a trim-runaway scenario this may be the only switch that saves the aircraft.</li><li>Not knowing the STC number. The STC is the authorization for the entire installation — without referencing it you cannot know what is approved.</li>
+    </ul>
+  </div>
+  
+</section>
+
+
+
+<section id="task-2">
+  <h2>Task 10.4.2 — Preflight Check</h2>
+
+  
+  <p>How to demonstrate: Follow the specific preflight procedure from the POH or autopilot manufacturer’s documentation. Typical steps include: power on, verify self-test passes, engage heading mode, verify control wheel moves in correct direction, engage altitude hold, verify pitch response, test disconnect button (verify aural alert and visual annunciation), verify manual trim overrides auto-trim.</p>
+  
+
+  
+  <h4>Step-by-Step Procedure</h4>
+  <ol class="steps">
+    <li>Open the manufacturer's preflight procedure — POH supplement, Garmin pilot's guide, S-TEC operating manual — and follow the specific steps for this installation. Do not use a generic checklist.</li><li>Aircraft on the ground with controls free and clear; verify nobody is in the prop arc or near the control surfaces. Call out 'clear controls' before any servo motion.</li><li>Apply aircraft power and avionics master. Observe the autopilot annunciator and controller — it should boot, perform self-test, and display a READY or identical state within the manufacturer's specified time (typically 30–60 seconds).</li><li>Confirm self-test passes. Any red X, fault annunciation, or missing mode indication means stop and troubleshoot before proceeding.</li><li>Engage HDG mode with the heading bug centered on current heading. Rotate the bug left 30° and verify the control wheel rotates left (ailerons deflect in the turn-left direction). Rotate the bug right 30° and verify opposite response.</li><li>Engage ALT HOLD. Gently pull back and push forward on the control wheel within the slip-clutch force threshold — verify no pitch change commanded by the AP. Apply firm force past the threshold — verify the clutch slips and the autopilot disconnects with aural alert and visual annunciation.</li><li>Test disconnect button on pilot yoke: engage AP, press button, verify immediate disconnect and alert.</li><li>Test manual trim override: engage AP, operate pilot's trim switch, verify AP disconnects immediately and trim moves in commanded direction.</li><li>Test TRIM DISCONNECT switch: engage AP, command auto-trim (if testable on ground), throw TRIM DISCONNECT, verify trim motion stops while AP may remain engaged (per STC).</li><li>Document the preflight results in the squawk sheet or maintenance log as required by the operator's procedures.</li>
+  </ol>
+  
+
+  
+  <div class="callout watching">
+    <strong>Evaluator is watching for</strong>
+    <ul>
+      <li>Candidate uses the specific manufacturer's preflight procedure, not a generic one — this is an STC compliance issue.</li><li>Positive 'clear controls' call before energizing servos, and visual verification that nobody is in the control-surface path.</li><li>Self-test completion observed, not assumed. Candidate waits for the READY indication before proceeding.</li><li>Direction of control deflection verified for both roll and pitch — candidate watches the wheel AND the surface, not just the wheel.</li><li>Slip-clutch force is tested gently and progressively, not yanked. Goal is to confirm the clutch slips near the spec value, not to stress the structure.</li><li>Every disconnect path tested independently, not just the primary button. Evaluator expects at least four separate disconnect tests.</li>
+    </ul>
+  </div>
+  
+
+  
+  <div class="callout mistakes">
+    <strong>Common mistakes</strong>
+    <ul>
+      <li>Skipping self-test observation. Candidate powers up and immediately engages — missing a fault annunciation that would have said 'do not fly.'</li><li>Testing only one disconnect path. 'The button works' is not a complete preflight.</li><li>Applying full yoke force to test slip clutch. Overforcing can bend the pushrod or damage the servo; apply enough to exceed threshold, not enough to deform structure.</li><li>Failing to verify direction of deflection. A servo can run, draw current, move the wheel — and still be wired backwards. Only watching the surface confirms direction.</li><li>Not testing TRIM DISCONNECT because 'it's been tested recently.' If you did not personally verify it this flight, you did not verify it. Trim runaway kills fast.</li><li>Ignoring a self-test warning 'because the AP usually works anyway.' The self-test is the system telling you something is wrong; believe it.</li>
+    </ul>
+  </div>
+  
+</section>
+
+
+
+<section id="task-3">
+  <h2>Task 10.4.3 — Disconnect Testing</h2>
+
+  
+  <p>How to demonstrate: (1) Engage autopilot in heading mode. Apply force to the control wheel—the servo clutch should slip and the AP should disconnect with aural alert (tone or voice) and visual annunciation (AP flag or light). (2) Re-engage AP. Press the disconnect button on the control wheel—verify immediate disconnect with annunciation. (3) Re-engage AP. Press the disconnect button on the panel—verify disconnect. All three methods must work; all must produce appropriate annunciation.</p>
+  
+
+  
+  <h4>Step-by-Step Procedure</h4>
+  <ol class="steps">
+    <li>Review the STC's disconnect test procedure and the specific force values and timing in the maintenance manual.</li><li>With aircraft powered and controls clear, engage autopilot in HDG mode.</li><li>TEST 1 — Control Force Override: slowly apply increasing force to the control wheel in the direction opposite the servo's current command. Record the force at which the slip clutch releases and the autopilot auto-disconnects. Must be within STC range (typically 10–20 lb at wheel). Aural and visual annunciations must both occur.</li><li>Re-engage autopilot. TEST 2 — Yoke Disconnect Button: press the red disconnect button on the pilot's control wheel. Verify immediate disconnect with aural alert and visual annunciation.</li><li>Re-engage autopilot. TEST 3 — Controller Disengage: press the AP ENGAGE switch on the mode controller to deactivate. Verify disconnect with annunciation.</li><li>Re-engage autopilot. TEST 4 — Panel/Master Switch: throw the AP master switch or pull the AP circuit breaker. Verify full de-powering of the flight computer and servos. No mode annunciations should remain lit.</li><li>TEST 5 — Attitude Envelope (if testable on ground): inject a bank or pitch reference that exceeds the envelope limit (some systems support a maintenance-mode test); verify auto-disconnect.</li><li>TEST 6 — Trim Interrupt: engage AP, command auto-trim, activate TRIM DISCONNECT. Trim motion must stop immediately; verify per STC whether AP remains engaged or also disconnects.</li><li>Record each disconnect test result — force values, response time, annunciations observed — in the maintenance record. A passing test is documented, not assumed.</li>
+  </ol>
+  
+
+  
+  <div class="callout watching">
+    <strong>Evaluator is watching for</strong>
+    <ul>
+      <li>Force override is measured, not estimated. Candidate uses a fish-scale or inline force gauge where the STC requires one.</li><li>Each disconnect method is tested SEPARATELY with autopilot re-engaged between tests. The goal is to verify each path works with no help from the others.</li><li>Aural AND visual annunciation both observed on every disconnect. An aural alert without visual (or vice versa) is a failure — pilot may not hear it in a loud cockpit or may not see the flash at night.</li><li>Candidate times the disconnect response. A sluggish disconnect (> 1 second) is a failure even if it eventually works.</li><li>TRIM DISCONNECT tested as a separate item, not rolled in with AP disconnect.</li><li>Documentation of force values and response times — not just a checkmark.</li>
+    </ul>
+  </div>
+  
+
+  
+  <div class="callout mistakes">
+    <strong>Common mistakes</strong>
+    <ul>
+      <li>Testing only the yoke button and declaring the task complete. Multiple independent paths = multiple independent tests.</li><li>Applying override force faster than the slip clutch reaction time. A jerk will spike past the spec without showing the true release force; apply a slow, steady increase.</li><li>Failing to reset between tests. If the AP remained disconnected from Test 1 and you do not re-engage, Test 2 is not actually testing a disconnect.</li><li>Ignoring a 'missing annunciation' because you heard the tone. Aural and visual are independent channels — both must work.</li><li>Performing the test without a second person watching the servos and control surfaces. Runaway during test has happened. Always have an observer.</li><li>Not documenting the force values. 'Disconnect tested, ops check good' is not a maintenance entry; actual values are required for STC compliance and future trend analysis.</li>
+    </ul>
+  </div>
+  
+</section>
+
+
+
+<section id="task-4">
+  <h2>Task 10.4.4 — Electric Trim</h2>
+
+  
+  <p>How to demonstrate: With the aircraft powered: (1) Operate the manual trim switch nose-up—verify the trim tab moves in the correct direction and the trim indicator shows nose-up movement. (2) Operate nose-down—verify correct direction. (3) Verify the trim indicator tracks the actual trim position throughout the range. (4) If autopilot-commanded trim is testable on the ground, verify it moves in the correct direction when the AP commands pitch changes.</p>
+  
+
+  
+  <h4>Step-by-Step Procedure</h4>
+  <ol class="steps">
+    <li>Aircraft powered, controls clear, observer at the tail or control surface. Open the AMM section on trim-system check.</li><li>Manual trim nose-up: hold the pilot's trim switch in the nose-up direction. Verify (a) the trim wheel on the pedestal rotates in the nose-up direction, (b) the trim indicator on the PFD or mechanical indicator moves toward nose-up, (c) the trim tab or stabilator jackscrew actually moves in the direction that would trim nose-up at the surface.</li><li>Release the switch before the trim hits the stop. Verify motion stops promptly (< 250 ms typical). A coasting motor indicates brake failure or sticking relay.</li><li>Manual trim nose-down: repeat in the opposite direction. Same three checks — wheel, indicator, surface.</li><li>Full-range test: run trim from one stop to the other. Verify the indicator tracks the actual position throughout (no dead zones) and that the trim does not speed up or slow down mid-range (indicates worn motor brushes or gearbox binding).</li><li>Auto-trim test (with AP engaged, if the aircraft is on jacks and servos can be exercised safely): engage AP in pitch mode, command a pitch change, verify trim servo follows in the direction that would unload the pitch servo.</li><li>Priority override test: with AP engaged and auto-trim running, briefly operate the pilot's manual trim switch. Auto-trim must stop, manual trim must take priority, and the autopilot must disconnect per the STC.</li><li>TRIM DISCONNECT test: with auto-trim running, activate the TRIM DISCONNECT. Trim must stop immediately regardless of other inputs.</li><li>Inspect for grinding, unusual noise, or excess current draw (if servo current is instrumented). Document per the trim-system maintenance record.</li>
+  </ol>
+  
+
+  
+  <div class="callout watching">
+    <strong>Evaluator is watching for</strong>
+    <ul>
+      <li>Candidate verifies direction at the SURFACE, not just the indicator. A reversed motor produces an indicator that still shows the right direction if the sensor was also swapped — only the surface is ground truth.</li><li>Full-range exercise, not just a few seconds at center.</li><li>Pilot-override priority tested — candidate demonstrates manual trim cutting out auto-trim.</li><li>TRIM DISCONNECT tested as an independent path from AP disconnect.</li><li>Observer posted at the control surface during runaway-scenario tests.</li><li>Any abnormal sound, vibration, or current draw is investigated, not hand-waved.</li>
+    </ul>
+  </div>
+  
+
+  
+  <div class="callout mistakes">
+    <strong>Common mistakes</strong>
+    <ul>
+      <li>Testing only center-range motion. Binding and dead spots live at the ends of travel, where jackscrew wear and cable-stretch accumulate.</li><li>Assuming the indicator is correct because the wheel moved. Cable wrap can reverse an indicator if re-rigging was wrong.</li><li>Skipping auto-trim test because 'that's a flight test item.' If the STC provides a ground test for auto-trim direction, perform it.</li><li>Operating manual trim continuously to the stop without a reason. Trim motors can overheat; follow duty-cycle limits in the AMM.</li><li>Missing a slow-moving motor. A runaway does not always mean full-speed travel — a slow, unwanted drift is equally dangerous and harder to catch.</li>
+    </ul>
+  </div>
+  
+</section>
+
+
+
+<section id="task-5">
+  <h2>Task 10.4.5 — Functional Check</h2>
+
+  
+  <p>How to demonstrate: (1) Set the heading bug to a specific heading. Engage HDG mode—verify the ailerons deflect in the direction that would turn the aircraft toward the bug heading. (2) Engage ALT hold—verify the elevator responds to maintain the current altitude reference. (3) If NAV mode is testable, verify the system tracks a selected course. Document which modes were tested and the results.</p>
+  
+
+  
+  <h4>Step-by-Step Procedure</h4>
+  <ol class="steps">
+    <li>Complete preflight check (Task 10.4.2) before starting functional check. Do not functional-check a system that failed preflight.</li><li>Set the heading bug to a heading 30° left of current. Engage HDG mode. Verify ailerons deflect in the direction that would turn the aircraft toward the bug. Verify roll servo clutch engages with an audible click (in most installations).</li><li>Reset bug to current heading, verify ailerons return to neutral. Set bug 30° right, verify opposite response.</li><li>Engage ALT HOLD at current pressure altitude. Verify pitch servo holds elevator neutral. Apply small pitch disturbance — servo should correct to restore altitude reference.</li><li>Engage NAV mode with a loaded flight plan or a VOR tuned to a local station. Verify the AP tracks the course — aileron deflects to null the lateral deviation.</li><li>Engage APR mode with an instrument approach loaded, aircraft positioned for the approach. Verify LOC capture when within range, verify GS capture when glideslope/LPV centers.</li><li>Test VS mode: command +500 fpm. Pitch servo should drive elevator up to establish climb (but aircraft on ground only shows the surface movement, not actual VS).</li><li>Test IAS/FLC if equipped: command a target airspeed, verify pitch servo moves in the direction that would pitch to capture the speed.</li><li>Document which modes were tested, which passed, which failed, any unusual observations (mode hunting, delayed response, annunciation anomalies).</li>
+  </ol>
+  
+
+  
+  <div class="callout watching">
+    <strong>Evaluator is watching for</strong>
+    <ul>
+      <li>Candidate tests multiple modes systematically, not just HDG.</li><li>Direction of deflection verified for EACH mode — not assumed from HDG test.</li><li>Capture logic tested where possible (NAV, APR, ALT preselect).</li><li>Mode transitions observed for clean behavior — no mode hunting, no unexpected drops.</li><li>Any anomaly (hunting, hesitation, annunciation glitch) is noted and investigated, not dismissed.</li><li>Functional check documented with enough detail that a reviewer knows which modes were actually tested and which were not.</li>
+    </ul>
+  </div>
+  
+
+  
+  <div class="callout mistakes">
+    <strong>Common mistakes</strong>
+    <ul>
+      <li>Testing only HDG and ALT HOLD. These are the easiest; the approach, VS, and FLC modes are where real squawks live.</li><li>Missing a scalloping NAV track that is actually a mis-rigged roll servo or mis-tuned lateral gain. A slow weave in the aileron is the beginning of an accident waiting to happen.</li><li>Capturing altitude hold at a bad reference. If you engage ALT HOLD while climbing, you will capture a rising altitude and then try to climb back to it — that is not a bug, that is the system working as designed. Understand the mode before you blame it.</li><li>Skipping APR mode test because 'we can't fly an approach on the ground.' The STC ground check includes arming and simulated capture; do what is testable.</li><li>Not listening for the clutch click on engagement. A servo that does not engage the clutch on command will not move the controls even though the computer thinks it is — listen for the mechanical confirmation.</li>
+    </ul>
+  </div>
+  
+</section>
+
+
+
+<section id="task-6">
+  <h2>Task 10.4.6 — Flight Director vs. Autopilot</h2>
+
+  
+  <p>How to demonstrate: Explain: the flight director (FD) computes the required flight path and displays command bars on the attitude indicator telling the pilot what to do, but the pilot hand-flies following the bars. The autopilot (AP) does the same computation but also commands the servos to fly the aircraft automatically. The FD is guidance; the AP is guidance plus control. Many pilots use FD on takeoff and landing, AP in cruise.</p>
+  
+
+  
+  <h4>Step-by-Step Procedure</h4>
+  <ol class="steps">
+    <li>Review the operational distinction: the Flight Director (FD) is a guidance system that displays command bars on the attitude indicator. It tells the pilot what to do. The Autopilot (AP) is the same guidance system plus servos that command the surfaces. It does what the FD would have told the pilot to do.</li><li>Identify the FD command-bar symbology on the PFD in this aircraft — single cue (V-bar), dual cue (cross-bars), or flight path marker variant. Explain how the pilot 'flies the bars' — roll and pitch to keep the bars centered.</li><li>Identify the FD mode-annunciator area on the PFD — shows active and armed modes independently of the AP engagement state.</li><li>Demonstrate the relationship: engage FD in HDG mode without engaging AP. Command bars command a turn toward the heading bug. Pilot is expected to follow them by hand-flying.</li><li>Engage AP in same mode — servos now follow the command bars. Pilot's hands come off the wheel.</li><li>Disconnect AP but leave FD engaged — bars remain, servos release, pilot hand-flies following the bars.</li><li>Explain operational use: FD often engaged for takeoff (go-around mode bars at V2 attitude and heading bug); AP typically engaged in cruise at 1000+ ft AGL; AP disconnected at decision altitude or earlier on approach, FD flown down by hand through minimums.</li><li>Explain the failure hierarchy: FD fails (bars removed) → pilot loses guidance but aircraft is unaffected. AP fails → servos may command unwanted input; disconnect and hand-fly. The FD is guidance-only; the AP has control authority.</li>
+  </ol>
+  
+
+  
+  <div class="callout watching">
+    <strong>Evaluator is watching for</strong>
+    <ul>
+      <li>Candidate articulates the fundamental distinction: FD = guidance, AP = guidance + control. This is the one-sentence takeaway.</li><li>Physical identification of the command-bar symbology on the specific aircraft's PFD.</li><li>Understanding that FD can be active without AP, but AP active implies FD active (on most modern systems).</li><li>Operational context — when is FD alone used, when is AP used, when is neither.</li><li>Failure modes explained — FD failure is less hazardous than AP failure because FD cannot move the controls.</li><li>Candidate does not use the terms interchangeably and corrects themselves if they slip.</li>
+    </ul>
+  </div>
+  
+
+  
+  <div class="callout mistakes">
+    <strong>Common mistakes</strong>
+    <ul>
+      <li>Using 'autopilot' and 'flight director' interchangeably. They are related but distinct systems; conflating them leads to troubleshooting in the wrong place.</li><li>Thinking the FD bars are driven by the AP. Actually, the AP follows the FD's command signal — the FD computes, the AP executes.</li><li>Missing that FD can be engaged without AP. Many pilots fly the FD by hand during approaches; tech should understand this operational reality.</li><li>Not knowing the single-cue vs. dual-cue symbology difference. Different OEMs, different pilot workload; you will see both.</li><li>Ignoring the FD when troubleshooting an AP complaint. If the bars are jumping, the AP is being commanded to jump — the fault may be in the FD computation, not the servos.</li>
+    </ul>
+  </div>
+  
+</section>
+
+
+
+<section id="task-7">
+  <h2>Task 10.4.7 — Troubleshoot AP Will Not Engage</h2>
+
+  
+  <p>How to demonstrate: Describe the systematic approach: (1) Verify engagement prerequisites are met—most autopilots require specific conditions (airspeed above minimum, attitude within limits, valid sensor data, no conflicting inputs). (2) Check for fault codes or flags on the AP controller/annunciator. (3) Verify power to the AP computer and servos (circuit breakers, wiring). (4) Check sensor inputs—AHRS/DG data, air data, nav data. (5) Check servo clutch engagement—listen for clutch click when engagement is attempted. (6) Consult the troubleshooting section of the maintenance manual.</p>
+  
+
+  
+  <h4>Step-by-Step Procedure</h4>
+  <ol class="steps">
+    <li>Interview the pilot: exactly what happened, what mode was attempted, any annunciation, any fault codes. Ask open-ended — not 'did it fail?' but 'walk me through what you saw.'</li><li>Verify engagement prerequisites per the POH/AFM supplement: airspeed above minimum (typically 60–90 KIAS for light GA), aircraft within attitude envelope (wings-level-ish), valid AHRS data, valid ADC data, valid nav/GPS data if a nav mode is being requested, no conflicting pilot input.</li><li>Check the autopilot controller and PFD for fault codes or flags. Garmin GFC-500/600 and Avidyne DFC-90 display coded fault messages (e.g., 'AP: AHRS FAULT'); S-TEC legacy displays flags on individual annunciators.</li><li>Verify power. Check autopilot CB and servo CBs. If any is popped, note it, reset once, and if it pops again, stop — there is a fault, not a glitch.</li><li>Verify sensor inputs. Open the maintenance mode or cross-check the PFD: is AHRS aligned? Is airspeed valid? Is GPS locked? Is the DG/HSI stable? Any red X or warning flag must be resolved first — autopilot will refuse to engage against invalid data.</li><li>Check interconnect buses. For CAN/ARINC-based installations, disconnected or broken bus wires are common. Use the manufacturer's maintenance software (Garmin G3X Config, Avidyne maintenance mode) to inspect bus health.</li><li>Listen for servo clutch engagement when AP engage is pressed. A click (on most systems) confirms the clutch solenoid is firing. No click = no clutch engagement = AP will not move controls.</li><li>If clutches click but AP will not remain engaged, suspect envelope exceedance: aircraft attitude at time of engagement, or a sensor that is reporting a bank or pitch past the auto-disconnect threshold.</li><li>Consult the manufacturer's troubleshooting guide — each OEM publishes a symptom-based decision tree. Follow it systematically; do not guess.</li><li>Document the symptom, the tests performed, the root cause (when found), and the corrective action in the maintenance log.</li>
+  </ol>
+  
+
+  
+  <div class="callout watching">
+    <strong>Evaluator is watching for</strong>
+    <ul>
+      <li>Candidate interviews the pilot before touching the airplane. 'AP won't engage' is a symptom; the history narrows the cause.</li><li>Prerequisites checked systematically — candidate knows the minimum engagement criteria for this specific STC.</li><li>Fault codes read and interpreted, not dismissed. Garmin, Avidyne, and S-TEC publish code-to-cause tables; use them.</li><li>Sensor validity cross-checked — not assumed because the pilot did not squawk it. AP sees a different data quality threshold than the pilot.</li><li>Candidate listens for and recognizes clutch engagement audibility as a diagnostic.</li><li>Troubleshooting guide referenced, not improvised. Random probing is how you replace working LRUs.</li>
+    </ul>
+  </div>
+  
+
+  
+  <div class="callout mistakes">
+    <strong>Common mistakes</strong>
+    <ul>
+      <li>Swapping the flight computer on the first visit. A replaced FCC that did not fix the problem is an expensive trip and you still do not know the root cause.</li><li>Ignoring a fault code because 'it cleared itself.' Intermittent codes are the system telling you something; log and trend them.</li><li>Not checking AHRS/ADC validity. An AP will not engage if the sensors say attitude is 60° of bank — and that 60° may be a bad AHRS alignment, not a real attitude.</li><li>Assuming circuit breakers are good because they 'look good.' A CB that has tripped recently is re-settable but the cause is still live. Test, do not assume.</li><li>Missing the pilot's description of 'it engaged, then dropped.' That is a different failure mode than 'won't engage at all' and has a different cause (envelope exceedance, brief bus dropout, servo stall).</li>
+    </ul>
+  </div>
+  
+</section>
+
+
+
+<div class="section-marker">Part IV — Background Theory</div>
+<section id="theory">
+  <h2>The Science Behind the Procedures</h2>
+  <p>When the oral board examiner asks <em>why</em>, these are the explanations they expect to hear.</p>
+  
+  <div class="callout theory">
+    <strong>Why Slip Clutches Protect From Control Surface Jam</strong>
+    <p style="margin-top:8px;">A slip clutch is a torque-limiting mechanical coupling — two friction discs pressed together by a calibrated spring, with the spring force set so that the clutch transmits full torque below a threshold and slips freely above it. In an autopilot servo, the clutch sits between the motor output and the control cable/linkage. The engineering insight is that the maximum torque a pilot can comfortably oppose at the wheel is finite (around 10–20 lb of force translates to a known torque at the servo through the mechanical advantage of the control run). If a servo jams — seized bearing, locked gearbox, welded relay commanding continuous drive — the motor tries to drag the control surface through its full travel. Without a slip clutch, the pilot would have to overpower not just the motor's normal output but the full stall torque of the motor against the fault. With a slip clutch set just above normal operating torque, the pilot applies wheel force above the threshold, the clutch slips, and the pilot recovers control even though the motor keeps running. The same logic applies to a jammed control-surface linkage: if ice, a bird strike, or a foreign object locks the surface, the servo motor can no longer move the cable, and without a clutch the servo would stall and eventually burn out while the autopilot kept commanding it. The clutch isolates the motor from the downstream jam, allowing the AP to disconnect on envelope exceedance while the pilot works the problem manually. Slip-clutch torque verification is one of the most important recurring inspections: too tight and the pilot cannot override in an emergency; too loose and the autopilot slips in turbulence and cannot hold altitude.</p>
+  </div>
+  
+  <div class="callout theory">
+    <strong>Why Autopilot Disconnect Paths Must Have Redundancy</strong>
+    <p style="margin-top:8px;">A single disconnect path is a single point of failure in a system that can actively fly the aircraft into the ground. This is not a theoretical concern — multiple accidents and incidents have involved autopilots that the crew could not disengage because the primary disconnect path had failed and the crew did not have an alternate readily available (or did not know about it). The regulatory requirement in 14 CFR 23.1329(g) and AC 23.1329-2B reflects a safety principle from fault-tolerant design: if losing control of the autopilot is catastrophic, then the probability of losing control must be lower than the threshold for catastrophic failure (typically 10^-9 per flight hour for Part 25). A single switch, a single relay, a single wire cannot meet that threshold — no single component is that reliable. Redundancy solves this with diverse failure modes: the yoke disconnect button has a failure mode (broken switch, open wire) that is independent of the mode-controller switch's failure mode, which is independent of the master switch, which is independent of the circuit breaker, which is independent of the mechanical override. The probability of all five failing simultaneously on the same flight is the product of five independent small probabilities — vanishingly small. The design principle: each disconnect path must function INDEPENDENTLY of every other disconnect path, and the technician verifying the system must test each path independently, because an installation that passes 'the disconnect button works' may have shared wiring that defeats the independence. This is why the STC pull-test and disconnect-test procedures specify each test separately and why the maintenance record must document each test result separately.</p>
+  </div>
+  
+  <div class="callout theory">
+    <strong>Why Trim Servos Work In Parallel With Primary Servos</strong>
+    <p style="margin-top:8px;">Primary control servos drive the elevator, aileron, or rudder directly through the main control cables or pushrods. Trim servos drive the trim tab (or stabilator jackscrew, or trimmable stabilizer) through a separate mechanical path. They work in parallel because the aerodynamic load on a control surface in cruise has two components: an instantaneous component that changes second-by-second with turbulence, pitch commands, and airspeed changes, and a steady-state component that represents the trim needed to fly level hands-off at current weight, CG, and airspeed. A primary servo is designed to drive the instantaneous component — responsive, high-authority, but limited in how long it can hold a sustained load without overheating or fighting against pilot trim. A trim servo is designed for the steady-state component — slow, high-authority through mechanical advantage (trim tabs amplify force), and able to hold indefinitely without load on the primary. The operational logic is: autopilot commands pitch-up, primary servo pulls elevator nose-up, aircraft responds, and after a few seconds the trim servo starts running nose-up trim to relieve the load on the primary servo. As trim progresses, primary-servo current drops — the primary is no longer fighting the aerodynamic moment because trim has absorbed it. This is why auto-trim is essential on longer flights: without it, the primary servo would heat up holding the sustained trim load, the slip clutch would start to slip under sustained force, and ultimately the primary would fail. But the parallel relationship is also why trim runaway is so dangerous: a runaway trim servo puts progressive, high-authority input into the control system in a direction the pilot did not command, and because it is mechanically amplified through the trim tab, it can eventually overcome even the pilot's primary control authority. That is why trim runaway protection — priority logic, independent cutouts, watchdog timers — must be verified on every maintenance cycle, and why the design principle of parallel operation requires parallel independent protection.</p>
+  </div>
+  
+</section>
+
+
+<div class="section-marker">Part V — Self-Check</div>
+
+<section id="quiz">
+  <h2>Oral Board Practice Questions</h2>
+  <p>Answer each aloud before opening the answer key. Mastery means you can explain it to a non-technical person, not just recite a definition.</p>
+  <div class="quiz">
+    <h3>Questions</h3>
+    <ol>
+      <li>Q1: A pilot reports the autopilot rolls in the wrong direction when HDG mode is engaged. What could cause this and how do you troubleshoot it?</li><li>Q2: Explain trim runaway protection. What happens if it fails?</li><li>Q3: Name three methods a pilot can use to disconnect the autopilot. Which one works if the others fail?</li><li>Q4: What is the difference between autopilot altitude hold and vertical speed mode?</li><li>Q5: Why is it critical to have someone at the controls during ground autopilot testing?</li>
+    </ol>
+  </div>
+
+  <h3>Answer Key</h3>
+  <div class="answer-key">
+    
+    
+    
+    <details>
+      <summary>Q1: A pilot reports the autopilot rolls in the wrong direction when HDG mode is engaged. What could cause this and how do you troubleshoot it?</summary>
+      <p>An autopilot that rolls the wrong direction in HDG mode has one of three fundamental causes, and I troubleshoot them in order of likelihood. First and most common: the roll servo is wired backwards — the motor leads were reversed at installation or after a recent servo replacement. The fix is to check the wiring against the installation manual pinout and correct the polarity. Second: the heading reference is inverted — the AHRS has a reversed axis calibration, or the installation has the DG/HSI feeding the autopilot with a reversed heading signal. This shows up if the heading bug also appears to work backwards on the display. Third: the roll servo is driving the correct direction but the control-cable wrap on the capstan is reversed — on capstan-type servos the bridle cable must wrap a specific way around the drum, and a technician who re-rigged it can get it backwards, producing a mechanically reversed output. I diagnose by: (a) confirming the heading bug actually points where the pilot thinks it does, (b) watching the servo output shaft direction when HDG is engaged and comparing to the aileron deflection, and (c) inspecting the bridle-cable wrap against the installation manual diagram. Do NOT fly the aircraft with the autopilot engaged until this is fixed — a reversed-direction autopilot at altitude will roll into terrain.</p>
+    </details>
+    
+    
+    
+    <details>
+      <summary>Q2: Explain trim runaway protection. What happens if it fails?</summary>
+      <p>Trim runaway protection is the layered defense against a condition where the trim motor runs continuously without stopping — commanded either by a stuck pilot trim switch, a shorted relay in the autopilot's auto-trim output, a software fault in the FCC, or EMI inducing spurious commands on unshielded wiring. The protection has several parallel mechanisms. First, the pilot's manual trim switch always has priority over auto-trim — operating it immediately disconnects the autopilot and overrides auto-trim commands. Second, an independent TRIM DISCONNECT or PITCH TRIM CUTOFF switch (usually on the pedestal or yoke) removes power from the trim motor regardless of what the flight computer is doing. Third, most systems include a trim-time-out watchdog: if trim is commanded continuously beyond some limit (typically 3–5 seconds in one direction), the logic annunciates and disconnects. Fourth, the manual trim wheel is mechanically connected, so even with power removed the pilot can trim by hand. If ALL of this fails — which has happened, notably in the 737 MAX MCAS accidents where the pilots' attempts to out-trim the system were overwhelmed by repeated MCAS trim commands — the trim drives the surface to its stop, the aerodynamic moment exceeds what the pilot can overcome with primary control force, and the aircraft pitches into an unrecoverable attitude. That is why the ground test of trim runaway protection is not optional, and why every disconnect path must be verified on every annual, not just 'tested once and assumed to still work.'</p>
+    </details>
+    
+    
+    
+    <details>
+      <summary>Q3: Name three methods a pilot can use to disconnect the autopilot. Which one works if the others fail?</summary>
+      <p>Three methods: (1) the red disconnect button on the pilot's control wheel — primary, used on every flight. (2) The AP ENGAGE switch on the mode controller — press to turn off. (3) The autopilot master switch or circuit breaker on the instrument panel — removes power entirely. A fourth method is pilot override force — physically overpowering the servo clutch, which will trip the auto-disconnect. And a fifth is the TRIM DISCONNECT, which is specifically for stopping a runaway trim. If every electrical method fails — the disconnect button doesn't work, the engage switch is stuck, the master switch won't cut power — the path that still works is pilot override force. The slip clutch is a mechanical device. It does not depend on the flight computer agreeing to release. Apply 10–20 lb of wheel force in any axis and the clutch physically slips; the servo keeps turning but the output stops moving the controls. And if that somehow fails too, pulling the autopilot circuit breaker removes power from the servo motor itself — even if every relay is welded shut. That is why the FAA requires multiple independent disconnect paths under 14 CFR 23.1329: the path that still works is the one nobody thought would be needed.</p>
+    </details>
+    
+    
+    
+    <details>
+      <summary>Q4: What is the difference between autopilot altitude hold and vertical speed mode?</summary>
+      <p>Altitude hold (ALT HOLD) and vertical speed (VS) are two different pitch-axis modes with fundamentally different objectives. ALT HOLD has a single goal: hold the pressure altitude that was current when the mode was engaged (or a pre-selected altitude captured during climb/descent). The flight computer treats altitude as the reference and pitch is the manipulated variable — whatever pitch attitude is needed to keep altitude constant, that's what the elevator commands. You engage ALT HOLD at 8,500 ft and the aircraft stays at 8,500 ft by varying pitch. Vertical Speed mode has a different goal: maintain a commanded climb or descent rate in feet per minute. The pilot dials in, say, +500 fpm, and the flight computer commands pitch to achieve that rate. Altitude is NOT the reference in VS mode — the aircraft will climb or descend indefinitely until another mode captures an altitude or the pilot changes the rate. The failure mode of VS is that at high altitude or with a heavy aircraft, the commanded climb rate may exceed what the aircraft can produce at current power — airspeed decays, the autopilot keeps pitching up to hold VS, and you can get into a low-speed situation. That is why IAS/FLC mode exists: it holds airspeed instead of vertical speed, letting rate adjust to power available. A good pilot uses VS for small corrections near an altitude capture, IAS/FLC for enroute climb at high altitude, and ALT HOLD once level.</p>
+    </details>
+    
+    
+    
+    <details>
+      <summary>Q5: Why is it critical to have someone at the controls during ground autopilot testing?</summary>
+      <p>You must have someone physically at the controls during ground autopilot testing for three reasons, every one of them safety-critical. First, the servos are now driving the control surfaces — if a rigging error, mis-wiring, or unexpected fault causes the servo to command a large deflection, someone has to override it immediately. The control-force override is your backup to every other disconnect; it only works if a hand is on the wheel ready to push. Second, a runaway servo or runaway trim is possible. During ground testing you are specifically exercising these failure modes to verify protection — and if the protection does not work, the aircraft will try to move the controls hard, potentially damaging the flight-control system or injuring personnel near the surfaces. A human at the controls can disconnect, cut power, or physically restrain the wheel. Third, you need to observe direction and behavior. Only a person at the controls can feel whether the clutch slipped cleanly, whether the yoke moved smoothly or jerked, whether the disconnect was crisp or sluggish. These tactile cues are how you catch a marginal installation before it flies. The standard procedure is: one person at the controls, one person at the surface or in the tail observing, one person running the test. No autopilot ground test is a one-person job, and no autopilot ground test is done with the controls unattended 'because we're just going to power it up briefly.' That is how hands and heads get hurt.</p>
+    </details>
+    
+  </div>
+</section>
+
+
+<section id="crosswalk">
+  <h2>Written Exam Crosswalk</h2>
+  <div class="crosswalk">This section maps to Module 11 (Autopilot Systems) Q128–152 on the written exam. Twenty-five questions—the largest single exam module—covering servo types, clutch mechanisms, mode operation, disconnect methods, trim systems, flight director vs. autopilot, engagement criteria, sensor integration, and troubleshooting. Also connects to Module 5 (AHRS) for attitude/heading sensor inputs to the autopilot. End of Section 10 — Autopilot Systems</div>
+</section>
+
+
+<footer>
+  © 2026 Aircraft Electronics Association · Workforce Development Division.<br>
+  Derived from CAET Advanced PQS Training Module with supplementary teaching content authored for instructor use.
+</footer>
+
+</body>
+</html>

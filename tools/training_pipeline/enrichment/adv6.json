@@ -1,0 +1,244 @@
+{
+  "slug": "adv6",
+  "module_name": "Audio Panels and Intercom Systems",
+  "why_this_matters": [
+    "The audio panel is the single most safety-critical piece of avionics the crew touches every minute of every flight. Every tower clearance, every stall-warning aural, every TCAS RA callout, every marker-beacon chime, every flight-director 'off' annunciation, and every intercrew coordination call passes through a box the size of a paperback book. When the audio panel fails, the aircraft does not fall out of the sky — but the crew loses their situational awareness one word at a time. A crackling intercom in cruise is an annoyance. A crackling intercom on a published approach in IMC with an altitude restriction buried in a long clearance is an accident waiting for the runway to arrive.",
+    "The NTSB and ASRS docket is full of events that started with a misconfigured or degraded audio path. An Embraer 145 missed a hold-short instruction in 2011 because the captain had selected COM2 transmit while listening to COM1 — the tower's call went unanswered and the aircraft crossed an active runway. A Citation lost situational awareness during an RNAV approach when a failed sidetone circuit led the pilot to believe the radio was dead; he cycled the breaker repeatedly while the tower was, in fact, receiving him loud and clear. The common thread is that audio failures are quiet. The radio does not show you a red X. The panel does not flash an advisory. You have to know the system well enough to hear what is missing.",
+    "Your work on this module is not about memorizing button labels on a PS Engineering PMA-8000 or a Garmin GMA-1347. It is about understanding the signal flow well enough to diagnose an audio fault from the symptom alone — to know, when a pilot reports 'they can hear me but I can't hear them,' whether to start at the headset, the jack, the audio panel, the radio, or the antenna. Your evaluator is grading whether you can read an audio-panel squawk and walk directly to the correct LRU, not trial-and-replace until the symptom moves."
+  ],
+  "key_terms": [
+    {"term": "Audio Panel", "definition": "The central cockpit audio switching unit that routes microphone and headphone signals between the crew positions, COM radios, NAV receivers, ADF, DME, marker beacon, intercom, and passenger address system. Modern panels are software-driven and certified to TSO-C50c (audio selectors) and TSO-C139a (audio systems)."},
+    {"term": "ICS (Intercom System)", "definition": "The internal voice network that connects crew and passenger positions through the audio panel's built-in amplifier. ICS audio is separate from radio audio — you can be heard on intercom without transmitting on any COM. Modes typically include ALL, CREW (ISO), and PILOT ISO."},
+    {"term": "Marker Beacon Audio", "definition": "75 MHz receive-only audio on three tones: 400 Hz continuous dashes (outer marker, blue light), 1300 Hz alternating dot-dash (middle marker, amber light), and 3000 Hz continuous dots (inner marker, white light). Received via a belly-mounted blade or flush antenna and routed through the audio panel with a dedicated SENS/LOW-HIGH selector."},
+    {"term": "VOX (Voice Operated)", "definition": "An intercom mode in which the microphone audio is gated by a voice-detection threshold, opening the audio path only when someone speaks above the threshold and closing it during silence. Reduces background noise but requires correct squelch adjustment. 'Hot mic' is the opposite — always open."},
+    {"term": "IntelliSound / IntelliAudio", "definition": "PS Engineering's proprietary processing that applies spatial separation, distortion suppression, and signal-to-noise enhancement to multiple simultaneous COM streams so each radio appears to come from a different apparent location in the headset. Standard on PMA-450B and PMA-8000BT panels."},
+    {"term": "IsoPilot / Crew Isolate", "definition": "An intercom mode that removes the passenger positions from the pilot/copilot audio loop. In CREW (also labeled ISO on some panels), pilot and copilot hear each other and the radios; passengers hear only entertainment audio and cannot transmit. Essential during IFR workload or non-normal procedures."},
+    {"term": "Passenger Address (PA)", "definition": "A dedicated transmit path through a cabin speaker system, activated by a PA selector on the audio panel. Pilot's voice is routed to cabin speakers only, not to COM radios, not to intercom. On business and regional aircraft, PA typically has its own volume control and override logic so it defeats entertainment audio."},
+    {"term": "Sidetone", "definition": "The portion of the pilot's own transmitted audio that is fed back to the pilot's headset so the pilot hears themselves talking. Without sidetone, pilots feel the radio is dead even when transmitting normally — a disproportionate cause of needless PTT-cycling, carrier bleed, and wrong-frequency transmissions. Adjustable via panel pot on most modern audio panels."},
+    {"term": "SELCAL Audio", "definition": "Selective Calling — a four-letter tone code (HF/VHF) that triggers an aural chime and light when ATC addresses a specific aircraft, freeing the crew from continuous radio monitoring. SELCAL audio enters the audio panel as a dedicated alert input, separate from COM audio."},
+    {"term": "Transformer-Coupled Audio", "definition": "Legacy analog audio distribution in which each output uses a step-down or matching transformer to maintain 600 Ω impedance and block DC. Found on steam-gauge aircraft with King KMA-24 or Collins AMS-43 panels. Modern panels use op-amp driven low-impedance outputs, but many aircraft still have mixed transformer/modern paths."},
+    {"term": "600 Ω Impedance", "definition": "The aviation industry's standard audio line impedance, inherited from telephone plant design. Microphone and headset loads, internal audio bus wiring, and inter-panel cabling are all specified to 600 Ω nominal. Impedance mismatch causes reflections, amplitude loss, and frequency-response errors, especially at the high end where intelligibility lives."},
+    {"term": "Monaural vs. Stereo", "definition": "Aircraft audio panels default to monaural — the same mono signal is sent to both earcups — because ATC COM radio is inherently mono. Stereo operation is an option on panels like the PMA-450B and GMA-35c for entertainment audio or for spatially-separated COM presentation (IntelliAudio). A stereo headset plugged into a mono jack still works but loses left/right separation."},
+    {"term": "Phantom Power (Electret Mic Bias)", "definition": "A small DC voltage (typically 9–16 V through a bias resistor) supplied by the audio panel to power the electret condenser microphone used in modern aviation headsets. Distinct from a dynamic mic, which is passive. Phantom power failure presents as 'mic works intermittently' or 'mic too quiet' and is often traced to the bias resistor network inside the audio panel."},
+    {"term": "Active Noise Reduction (ANR)", "definition": "Headset-integrated circuitry that samples ambient cockpit noise with reference microphones, inverts it, and injects the anti-phase signal into the earcup. Reduces low-frequency cabin noise by ~20 dB. Requires headset power (panel-powered, battery, or LEMO 6-pin). A failed ANR headset audio sounds thin and tinny because the ambient noise returns."},
+    {"term": "LEMO 6-Pin Connector", "definition": "A panel-powered headset connector that carries mic audio, headphone audio (L+R), aircraft power for ANR, and ground on a single push-pull latching plug. Common on business jets and newer GA retrofits; eliminates headset battery changes. Wiring per manufacturer pinout — swapping pins destroys the headset."}
+  ],
+  "knowledge_enrichment": {
+    "5.2.1": {
+      "title": "Audio Panel Functions",
+      "overview": "A modern audio panel is a software-driven audio switcher that independently selects which radios transmit, which radios' received audio reaches the headsets, and how crew voices are distributed via the intercom. Understanding that transmit and receive selections are fully independent is the single most important concept in the module — nearly every 'wrong-frequency transmission' and 'missed ATC call' squawk traces to a crew member who did not understand this.",
+      "key_points": [
+        "Transmit selection is exclusive: only one COM (COM1, COM2, or COM3 if installed) can be armed for transmit at a time. The TX annunciator (often green or amber) indicates which radio will key when the pilot presses PTT.",
+        "Receive selection is non-exclusive: any combination of COM1, COM2, COM3, NAV1, NAV2, ADF, DME audio, and marker beacon can be simultaneously enabled to the headset. Each has its own backlit push-button or soft-key.",
+        "The audio panel does NOT tune the radios. Tuning happens on the COM control head. The audio panel only determines which radio's audio is heard and which is transmitted on.",
+        "Audio panels certified under TSO-C50c (audio selector) and TSO-C139a (integrated audio systems) must meet specific crosstalk, distortion, and failure-mode requirements — including the TSO-mandated failsafe bypass path.",
+        "Typical modern panels: PS Engineering PMA-6000B (non-Bluetooth, basic), PMA-450B (IntelliAudio, Bluetooth, recording), PMA-8000BT (business class); Garmin GMA-340 (legacy), GMA-345 (Bluetooth), GMA-1347 (integrated with GTN series), GMA-35c (remote-mount for G1000/G3000).",
+        "Most panels have a 'split COM' or 'SPLIT' mode in which the pilot transmits on COM1 while the copilot transmits on COM2 — used by crews working ATC and ground/ops simultaneously."
+      ]
+    },
+    "5.2.2": {
+      "title": "Headset and Microphone Connectors",
+      "overview": "The cockpit headset interface is almost never one connector — it is typically a pair (GA dual-plug), a LEMO 6-pin (panel-powered), or an XLR-5 (commercial/military). The pin-out and signal levels are governed by long-standing standards, and plugging a headset into the wrong jack — or wiring a jack incorrectly during a retrofit — is a top-five maintenance squawk source.",
+      "key_points": [
+        "General Aviation dual-plug standard: PJ-068 (smaller, 0.206 in / ¼\") is the microphone jack, PJ-055 (larger, 0.25 in / ¼\" stereo) is the headphone (phone) jack. Do NOT confuse these — they are size-keyed but can be forced.",
+        "Electret microphones require ~9–16 VDC bias supplied from the audio panel through a series resistor (typically 470 Ω–2.2 kΩ). Dynamic (unpowered) aviation mics are now rare but still installed on some legacy aircraft — do not mix.",
+        "LEMO 6-pin panel-powered connector (common on business jets, mandatory on many ANR installations): pin assignments typically mic-hi, mic-lo, phone-hi-L, phone-hi-R, phones-common, aircraft 14/28 V for ANR. Verify pinout from installation manual — LEMO wiring varies by aircraft manufacturer.",
+        "XLR-5 (used on helicopters and commercial aircraft) carries mic, phone-L, phone-R, common, and ANR power in a single locking connector. Standard per USAF MIL-STD, also used in civil business aircraft with military-derived systems.",
+        "Impedance: aircraft mic inputs nominally 150 Ω, headphone outputs drive 150–600 Ω loads. Consumer 32 Ω gaming headsets will overload a small audio panel amp and may fail it.",
+        "Jack grounding: microphone jacks are isolated-ground (ring floats) to prevent ground loops. Phone jacks may be isolated or common-grounded — check the schematic before ringing out a replacement jack."
+      ]
+    },
+    "5.2.3": {
+      "title": "Intercom Modes",
+      "overview": "The intercom system is a separate amplifier inside the audio panel that mixes crew and passenger voice audio onto a shared headset bus. It does not interact with the COM radios — you are on intercom any time your mic is keyed above the VOX threshold, whether or not a radio is selected. Three modes are standard: ALL (or PA), CREW (or ISO), and PILOT (or PILOT ISO).",
+      "key_points": [
+        "ALL mode: every position (pilot, copilot, passengers) hears and is heard by every other position. Entertainment audio (if present) muxes in at reduced level. Default for cruise.",
+        "CREW / ISO mode: pilot and copilot on one loop; passengers on a separate loop with entertainment only. Passengers cannot transmit and cannot hear radios. Used during IMC, approach, or non-normal workload to prevent distraction.",
+        "PILOT / PILOT ISO mode: pilot is isolated; copilot and passengers share a loop. Used when pilot wants dedicated focus on ATC while copilot briefs passengers.",
+        "VOX (voice-operated) squelch: mic opens only above a threshold, closes during silence. Reduces background hiss and motor noise. Threshold is user-adjustable on most panels; too low = open mic hiss; too high = first syllable clipped.",
+        "'Hot mic' operation: VOX disabled, mic always open. Useful for heavy-headset workload or for crew coordination during complex procedures. Not recommended in noisy cabins — continuous cabin noise bleeds onto every transmission.",
+        "Intercom volume is a per-position pot separate from phone volume for radio audio. A crew member complaining 'I can't hear the other pilot but radio is fine' has an intercom volume problem, not a radio problem."
+      ]
+    },
+    "5.2.4": {
+      "title": "Marker Beacon System",
+      "overview": "The marker beacon receiver is a single-frequency 75 MHz AM receiver with three bandpass filters, three visual indicators, and an aural output routed to the audio panel. It is the simplest receiver in the aircraft and one of the most reliable — which is why it is also one of the most neglected in functional checks. Marker beacons still appear on most published ILS approaches and the system must work for an approach to be flown.",
+      "key_points": [
+        "Frequency: 75 MHz, AM, fixed (no tuning). Receiver bandwidth narrow enough to reject adjacent FM broadcast energy.",
+        "Three audio tones: 400 Hz dashes (outer marker, ~5 NM from runway threshold, blue light); 1300 Hz alternating dot-dash (middle marker, ~3500 ft from threshold, amber light); 3000 Hz continuous dots (inner marker, Cat II/III only, ~1000 ft from threshold, white light).",
+        "Antenna: small blade or flush-mount ~5.5 in long, mounted on the belly of the aircraft, often just aft of the nose gear or at the centerline wing root. Linearly polarized horizontal. Cable is RG-58 or equivalent 50 Ω coax.",
+        "Sensitivity / gain selector: most panels have LO / HI (or TEST / NORMAL) sensitivity. LO during final approach (strong signal directly overhead); HI during en-route or during testing. Wrong setting = late or missed marker indications.",
+        "Audio routing: the 75 MHz receiver audio is hard-wired to the marker beacon input on the audio panel; a dedicated MKR receiver pushbutton places the audio on the headset during checks or approach. Lamp drive for the blue/amber/white lamps is a separate discrete output and does not depend on audio selection.",
+        "Test: most audio panels have a built-in marker beacon test that activates all three lamps and sequences the three audio tones. Use it on every post-maintenance check."
+      ]
+    },
+    "5.2.5": {
+      "title": "Sidetone and Emergency Audio",
+      "overview": "Sidetone and failsafe audio are the two 'invisible' parts of an audio panel — they only matter when something goes wrong, but when they matter, they matter completely. Loss of sidetone is a top contributor to wrong-frequency transmissions and to crew loss-of-confidence events. Failsafe audio is the TSO-mandated guarantee that a power loss in the audio panel does not silence the aircraft.",
+      "key_points": [
+        "Sidetone is generated inside the COM radio (a small sample of the transmitter's AM modulation fed back to the receive audio output) and routed through the audio panel to the pilot's headset. Level is usually adjustable by trim pot, either on the radio back shell or inside the audio panel.",
+        "Sidetone failure modes: (1) no sidetone — pilot thinks radio is dead, makes multiple PTT attempts, sometimes switches frequencies; (2) very low sidetone — pilot unsure, yells into mic, resulting in overmodulated/distorted transmissions; (3) excessive sidetone — pilot deafened by own voice, struggles to hear ATC reply.",
+        "Failsafe (emergency) audio: TSO-C50c and TSO-C139a require that COM1 audio (both TX and RX) remain connected to the pilot's headset even when the audio panel has lost all primary power. Implemented with a fail-safe relay that defaults to the direct-connect state when de-energized.",
+        "Failsafe activates on: audio panel circuit-breaker pull, total panel power loss, internal DC-DC converter failure, or manually by a labeled EMER/FAIL switch on the panel front.",
+        "Emergency speaker (on some installations): a small cone speaker, usually overhead, that activates when the audio panel loses power. Provides a minimal listen path even when no headset is plugged in. Driven directly from COM1 audio output.",
+        "Post-maintenance check: pull the audio panel breaker and verify (a) the pilot still hears COM1 audio, (b) PTT still transmits on COM1, and (c) no other receivers/transmitters are selectable. Restore breaker before leaving the cockpit."
+      ]
+    }
+  },
+  "task_enrichment": {
+    "5.4.1": {
+      "title": "Audio Panel Configuration",
+      "step_by_step": [
+        "Ask the evaluator for the scenario (for example: 'monitoring approach on COM1, monitoring ground on COM2, transmitting on COM1, no passenger transmit'). Write it down. Do not guess the intent.",
+        "Power the aircraft bus that feeds the audio panel. Allow the panel to complete its internal self-test (typically 2–5 seconds on a PMA-450B or GMA-1347).",
+        "Set the transmit selector to COM1. Verify the COM1 TX annunciator illuminates (usually green). Only one TX annunciator should be lit.",
+        "Press the COM1 receive (RCV) button. Verify the button backlight illuminates or the panel's OLED shows COM1 in the active-receive list.",
+        "Press the COM2 RCV button. Verify it also illuminates. Confirm you now hear both COM1 and COM2 audio in the headset (if aircraft on ramp, ask for ATIS or ground chatter on one; use a handheld on the other frequency).",
+        "Set intercom mode to CREW / ISO. Verify the mode annunciator reads CREW and, if passengers are occupying seats with headsets, confirm they cannot transmit on the radios.",
+        "Verbally brief the configuration back to the evaluator: 'I am transmitting on COM1, I am receiving COM1 and COM2 audio, intercom is in CREW so passengers cannot transmit.'",
+        "Adjust intercom volume and phone volume as needed. Verify sidetone level on a test transmit to a known-good handheld.",
+        "Document any anomaly (missing sidetone, stuck button, erratic backlight) on the discrepancy form before moving to the next task."
+      ],
+      "evaluator_watching_for": [
+        "Candidate confirms which TX is armed before pressing PTT — does not trust muscle memory.",
+        "Candidate understands TX is exclusive and RX is non-exclusive, and can articulate why.",
+        "Intercom mode is set appropriately for the scenario and the candidate can explain the consequences of each mode.",
+        "Sidetone is verified on a live transmit, not assumed.",
+        "Candidate briefs the configuration out loud — demonstrates intent, not just button-pushing."
+      ],
+      "common_mistakes": [
+        "Pressing the TX button for COM2 instead of the RCV button for COM2 — now transmitting on COM2 with no COM1 receive.",
+        "Leaving intercom in ALL mode during an IFR scenario, exposing the crew to passenger interruptions on approach.",
+        "Confusing panel backlighting with active annunciation — a dimly-lit button is not necessarily selected, read the OLED.",
+        "Adjusting phone volume to zero to quiet a noisy radio and then assuming the radio has failed — always check volume before declaring a receive failure.",
+        "Skipping the sidetone check because 'the radio works' — sidetone is independent of actual transmission."
+      ]
+    },
+    "5.4.2": {
+      "title": "Jack Identification and Signal Flow",
+      "step_by_step": [
+        "At the pilot headset panel, physically identify the two GA jacks. The smaller jack (PJ-068, 0.206 in) is microphone. The larger (PJ-055, 0.25 in) is phone. If the aircraft has a LEMO 6-pin or XLR-5 instead, identify it and locate the pinout in the installation manual.",
+        "Trace the microphone path: mic plug → mic jack → audio panel mic input → panel's selected COM radio TX input → COM radio modulator → COM antenna coax → COM antenna.",
+        "Trace the receive path: COM antenna → COM antenna coax → COM radio RF front end → demodulator → audio output → audio panel RCV input → panel's mix amplifier → phone output → phone jack → headphone plug → headset speakers.",
+        "Point to the audio panel on the aircraft schematic. Identify the P1 connector (usually rear) and the terminal block, if separate. Locate the failsafe relay on the schematic.",
+        "Walk the evaluator through what happens if the audio panel circuit breaker is pulled — specifically, that COM1 TX and RX remain connected to the pilot's headset via the TSO-mandated failsafe bypass.",
+        "Identify where the intercom amplifier lives (integrated on modern panels; may be external on legacy KMA-24 installations). Show the ICS audio bus on the schematic.",
+        "Identify the marker beacon receiver audio input on the audio panel and explain it is separate from the NAV/COM RCV paths.",
+        "Ask about headset impedance if using a stereo consumer headset with an adapter — verify the load is ≥ 150 Ω so it does not overload the panel amp.",
+        "Describe how a sidetone path differs from a standard TX path: sidetone is generated inside the radio and fed back through the RCV audio line, not through a separate wire."
+      ],
+      "evaluator_watching_for": [
+        "Candidate identifies jacks by part number (PJ-068, PJ-055) and size, not 'the little one and the big one.'",
+        "Candidate can draw the full signal flow from mic to antenna without prompting, including the audio panel as a switch point in both directions.",
+        "Candidate locates the failsafe relay on the schematic and explains what it does during panel power loss.",
+        "Candidate understands sidetone is sourced from the radio, not generated in the audio panel.",
+        "Candidate can articulate the difference between mic impedance (~150 Ω) and phone impedance (150–600 Ω)."
+      ],
+      "common_mistakes": [
+        "Calling the mic jack 'phone' and vice versa — size-keyed but mechanically forceable, leading to an unpowered mic and an over-driven phone.",
+        "Assuming all audio panels have an integrated intercom amplifier — some legacy installations have an external ICS amp that must be traced separately.",
+        "Forgetting that the audio panel is in the signal path in both directions — blaming a receive problem on the radio when the panel's RCV mix amplifier is actually at fault.",
+        "Substituting a 32 Ω gaming headset with an adapter — overloads the panel amp, distorts audio, can damage the output stage.",
+        "Not knowing the pinout of a LEMO 6-pin connector on an aircraft the candidate has never worked on — the pinout varies by installation, always verify from the IM."
+      ]
+    },
+    "5.4.3": {
+      "title": "Functional Check",
+      "step_by_step": [
+        "Brief the test: you will verify transmit, receive, intercom, and sidetone independently on every crew position. You are not relying on any one test to verify the others.",
+        "Position a handheld radio (or ground station with known-good COM) approximately 50 ft from the aircraft, tuned to the test frequency assigned by ATC/ground or to a local ground service frequency. Use a frequency that will not interfere with operations.",
+        "TX check: select COM1 transmit on the audio panel, press PTT, and transmit a short test message ('Aircraft N-number audio panel test, how do you read'). Verify the handheld receives strong, clear audio with no crackling or dropouts.",
+        "Repeat TX check for COM2 (swap TX selection on the audio panel, repeat transmission). Verify the handheld still receives clearly.",
+        "RX check: transmit from the handheld on COM1 frequency. Verify the aircraft headset receives clearly with no carrier noise or garbled audio. Repeat on COM2.",
+        "Sidetone check: during TX, confirm you hear your own voice in the headset at a level slightly below the received audio level. Note whether sidetone is present, absent, too low, or too high.",
+        "Intercom check: with a second headset plugged into the copilot position (or passenger jack), speak at normal voice level. Verify both positions can hear each other. Toggle between ALL and CREW modes and confirm the mode behavior matches documentation.",
+        "Marker beacon test: press the built-in MKR test button on the audio panel. Verify all three lamps illuminate and the three characteristic audio tones sequence.",
+        "Sign off the functional check on the discrepancy form with specific pass/fail notes for each sub-step — 'TX COM1 pass, TX COM2 pass, RX COM1 pass, RX COM2 weak (investigate)' is worth more than 'audio check OK.'"
+      ],
+      "evaluator_watching_for": [
+        "Candidate uses a real external reference (handheld or ground station) instead of relying on audio-panel-to-audio-panel loopback, which can mask problems.",
+        "Each sub-step is tested independently — TX does not prove RX, and sidetone does not prove either.",
+        "Candidate uses specific frequency coordination (not transmitting on a busy ATC frequency) and identifies by tail number during test transmissions.",
+        "Intercom is tested in at least two modes, not just the default.",
+        "Marker beacon test is performed, not skipped because it 'always works.'",
+        "Discrepancies are written specifically — 'COM2 sidetone low' rather than 'audio weak.'"
+      ],
+      "common_mistakes": [
+        "Testing transmit and receive simultaneously with two handhelds on the same frequency — creates squelch-bleed that looks like 'good audio' but hides real problems.",
+        "Transmitting on an in-use ATC frequency during a functional check — regulatory violation and safety of flight issue.",
+        "Calling the check 'good' after only one COM is tested because the pilot 'always uses COM1.'",
+        "Not testing both sides of the intercom when only one headset is plugged in — assumes symmetrical wiring which is not always true.",
+        "Skipping the marker beacon test because 'the aircraft is VFR only' — the system may still be required on the equipment list and must function."
+      ]
+    },
+    "5.4.4": {
+      "title": "Marker Beacon",
+      "step_by_step": [
+        "On the aircraft belly, locate the marker beacon antenna — a small (≈5.5 in) blade or flush-mount antenna, usually just aft of the nose gear or at the centerline wing root. Inspect for cracks, paint covering the antenna body, chafed coax at the base, and loose mounting screws.",
+        "Trace the coax from the antenna base through the belly to the marker beacon receiver. Verify the coax is RG-58 (50 Ω) or aircraft-grade equivalent, with strain relief at the antenna base and at the receiver connector.",
+        "In the cockpit, locate the three marker beacon indicator lamps — typically labeled O (outer, blue), M (middle, amber), and I (inner, white). Verify the lamps are legible and press-to-test if equipped.",
+        "Locate the audio panel's marker beacon selector (often labeled MKR) and the sensitivity selector (LO / HI or SENS).",
+        "Press the MKR RCV button to route marker beacon audio to the headset. Set sensitivity to HI for test purposes.",
+        "Activate the audio panel's built-in marker beacon test if equipped. Verify all three lamps illuminate in sequence and the three characteristic audio tones play: 400 Hz dashes (outer), 1300 Hz dot-dash (middle), 3000 Hz dots (inner).",
+        "Explain to the evaluator the approach-phase use: 'Outer marker at ~5 NM from threshold, altitude check against published; middle marker at ~3500 ft from threshold for Cat I approaches; inner marker at ~1000 ft for Cat II/III.'",
+        "Explain the sensitivity selection rationale: HI for distant test/en-route; LO during final approach so the marker indication starts right over the beacon rather than prematurely from off-angle reception.",
+        "Return the audio panel to its normal configuration and record the test result."
+      ],
+      "evaluator_watching_for": [
+        "Candidate physically locates the antenna and inspects it, not just points at the schematic.",
+        "Candidate can state the three tone frequencies (400, 1300, 3000 Hz) and colors (blue/amber/white) from memory.",
+        "Candidate explains LO/HI sensitivity correctly — HI for test, LO for final approach.",
+        "Candidate uses the built-in test function rather than attempting to overfly a real marker beacon.",
+        "Candidate understands that marker beacon audio and lamps are independent outputs — a failed lamp with working audio indicates a lamp driver problem, not a receiver problem."
+      ],
+      "common_mistakes": [
+        "Confusing the marker beacon antenna with the transponder antenna — both are belly-mounted blades but transponder is shorter (~3 in) and tuned for 1030/1090 MHz.",
+        "Not checking for paint over the antenna — a common maintenance-induced fault that kills reception.",
+        "Setting sensitivity to LO during en-route testing and concluding the system is broken because no test signal is received.",
+        "Assuming marker beacons are 'obsolete' because GPS approaches exist — many ILS approaches still use them and they remain part of the functional-check scope.",
+        "Skipping the physical antenna inspection and relying only on the built-in test — the test exercises the receiver and lamps but cannot detect an antenna disconnect."
+      ]
+    },
+    "5.4.5": {
+      "title": "Troubleshoot No-Transmit",
+      "step_by_step": [
+        "Collect the squawk precisely. 'Can hear ATC but ATC cannot hear me' is a different fault from 'sidetone is missing but ATC hears me.' Ask clarifying questions: which crew position? which COM? did it start suddenly or degrade over time? any recent maintenance?",
+        "Visual check at the pilot station: microphone plug fully seated in the mic jack; headset cord not pinched in the seat track; no aftermarket adapter with unknown wiring.",
+        "Confirm the audio panel TX selector is on the intended COM and the TX annunciator is illuminated. A common fault: pilot selected TX on COM2 thinking they selected COM1, then reported 'no transmit on COM1.'",
+        "Press PTT and observe the COM radio. Most modern radios show a TX indication (green or red T, or a 'TX' legend) when the carrier is keyed. If no TX indication appears on the radio, the audio panel is not passing the key signal to the radio — investigate the PTT wiring and audio panel TX relay.",
+        "If the radio shows TX but the handheld at the test position hears nothing, the carrier is keying but audio is not modulating. Check the mic jack with a known-good mic, then the audio panel mic input, then the wire from audio panel to radio's mic audio input.",
+        "If the radio shows TX and modulation reaches the handheld but garbled/weak, work from the antenna side: verify antenna connection, check SWR if equipment allows, inspect coax for kinks/chafes.",
+        "If the radio does not show TX: unplug the audio panel harness from the radio, short the radio's key input to ground per the IM (with power off), and verify the radio keys. If yes, the fault is in the audio panel or its wiring. If no, the radio is the LRU at fault.",
+        "Document each step with measurements or observations — 'COM1 TX annunciator illuminated on audio panel, no TX indication on GTN 750, PTT continuity confirmed from switch to audio panel P1-4, no continuity from audio panel P2-8 to GTN 750 P1-2.' This narrative allows the next shift to pick up without re-testing.",
+        "Return the aircraft to the owner/operator with a clear statement of fault, repair action, and verification testing."
+      ],
+      "evaluator_watching_for": [
+        "Candidate asks for the specific symptom rather than assuming — distinguishes 'cannot transmit at all' from 'transmit weak' from 'sidetone missing.'",
+        "Candidate follows a systematic path from pilot station → audio panel → radio → antenna, halving the search space at each step.",
+        "Candidate uses the radio's own TX indicator as a diagnostic tool, not ignores it.",
+        "Candidate substitutes known-good components (spare headset, handheld on known frequency) to isolate the fault.",
+        "Candidate documents the troubleshooting in enough detail that another technician could verify or continue without re-doing work.",
+        "Candidate verifies the fix with a full functional check, not just 'I wiggled the connector and it works now.'"
+      ],
+      "common_mistakes": [
+        "Replacing the audio panel first because it is the most visible LRU — expensive, often unnecessary, and does not fix a chafed coax.",
+        "Not noticing that the wrong TX is selected on the panel — five seconds of looking would have saved an hour of swapping.",
+        "Blaming the headset without verifying with a known-good substitute — the headset is sometimes the cause but must be proven.",
+        "Probing a live energized audio panel without protection — low-voltage but still capable of damaging test equipment or creating a spark near fuel lines.",
+        "Signing off 'fixed' after a single successful transmission — the fault may be intermittent; verify with multiple transmissions across temperature and vibration conditions."
+      ]
+    }
+  },
+  "oral_board_answers": {
+    "Q1": "I would start at the pilot station and work toward the antenna, halving the search space at each step. First, confirm the obvious: which COM is the pilot trying to transmit on, and is the audio panel TX selector actually on that COM? Look at the TX annunciator. Next, confirm the PTT switch is functional — press it and look at the COM radio for a TX indication (most modern radios show a green T or 'TX' when the carrier is keyed). If the radio shows TX but ATC cannot hear us, the carrier is keying but the audio modulation is not reaching the transmitter — check the mic jack, substitute a known-good headset, inspect the audio panel's mic input, then the wire from audio panel to the radio's mic audio input. If the radio does NOT show TX, the carrier is not keying — the fault is upstream of the radio. Work back toward the PTT switch and the audio panel's TX keying output. Only if the radio keys and audio reaches the modulator but the handheld test still hears nothing do I go to the antenna side — SWR, coax, antenna element. I do not replace the audio panel first. It is expensive, visible, and usually not the problem. Document each step with measurements so the next technician can pick up where I left off.",
+    "Q2": "Sidetone is the portion of the pilot's own transmitted voice that is fed back to the pilot's headset so the pilot hears themselves while talking. It is generated inside the COM radio — a small sample of the transmitter's AM modulation is routed back through the radio's audio output and into the audio panel's receive mix, then out to the headset. The pilot cares about sidetone because without it, transmitting feels exactly like the radio is dead. The pilot presses PTT, says the call, hears nothing in their headset, and assumes they are not transmitting. They cycle PTT, they change volume, they switch frequencies, they pull and reset the breaker — meanwhile ATC is hearing them just fine and issuing instructions to a cockpit that thinks the radio failed. Loss of sidetone is a disproportionate contributor to wrong-frequency transmissions and to crew loss-of-confidence events. When sidetone fails, the usual culprits are: the sidetone trim pot (on the radio back shell or inside the audio panel) drifted low; the radio's sidetone output pin open or shorted; or the audio panel's sidetone audio routing to the headset failing. Fix requires schematic work, not just a parts swap — you have to identify which of those three is failing before ordering replacement hardware.",
+    "Q3": "The audio panel failsafe mode is a TSO-C50c and TSO-C139a mandated failure-mode requirement that says if the audio panel loses primary power or its internal logic fails, COM1 must remain connected — both transmit and receive — directly to the pilot's headset, bypassing all of the panel's normal switching logic. It is implemented with a fail-safe relay whose default (de-energized) state is the direct-connect state: COM1 mic and phone wires are hardwired to the pilot jack through the relay's normally-closed contacts. When the panel is powered and functioning normally, the relay energizes and routes audio through the panel's normal logic. When the panel loses power, the relay drops out and the direct connection is restored automatically. Failsafe activates on: (1) audio panel circuit breaker pulled or popped, (2) total aircraft bus failure feeding the panel, (3) internal DC-DC converter failure inside the panel, and (4) manual activation via a labeled FAIL or EMER switch on some installations. Every post-maintenance audio panel check includes a failsafe verification: pull the breaker and verify the pilot can still hear and transmit on COM1. Restore the breaker before signing off.",
+    "Q4": "The intercom is probably set to ALL mode instead of CREW (also labeled ISO on some panels). In ALL mode, every position — pilot, copilot, and all passenger jacks — is on the same intercom loop and any position can key the selected transmit COM. That means a passenger in the back seat who presses a PTT on their headset (or whose PTT button is stuck, or whose headset cord has worn through and is shorting the PTT line) will transmit on COM1 right over the crew. The fix in the cockpit is immediate: switch intercom mode to CREW / ISO, which removes passengers from the radio-transmit loop entirely. Passengers can still talk to each other on the passenger intercom if the panel supports it, but they cannot key the COM radios. Then investigate the root cause — is the passenger's PTT stuck? Is the headset cord shorted against the seat frame? Is the jack wired incorrectly and the ring is making contact when it should not? A common fault is a passenger's PTT button caught under a seat belt buckle. But the first action, in flight or on the ground, is to move intercom to CREW and stop the transmissions.",
+    "Q5": "The mic jack (PJ-068, smaller, 0.206 inch diameter) carries the microphone signal from the headset's electret condenser microphone back to the audio panel, along with the DC bias voltage (typically 9–16 V) the panel supplies to power the electret element. The phone jack (PJ-055, larger, 0.25 inch stereo) carries the received audio output from the audio panel's mix amplifier back to the headphone speakers in the earcups. They are size-keyed but mechanically can be forced into the wrong jack if you push hard enough. If you plug the mic plug into the phone jack: the mic element receives the phone amplifier's output voltage (several volts AC audio into a ~150 Ω element designed for millivolts of input), which usually survives but can damage the mic. More importantly, there is no mic signal reaching the audio panel — you cannot transmit. If you plug the phone plug into the mic jack: the headphone speakers see the DC bias voltage and potentially the audio panel's mic input impedance, which is wrong for a headphone load. You will hear no audio, or very distorted audio, in the earcups, and the mic bias supply may current-limit or trip protective circuitry. Either way, the symptom is obvious within seconds of plugging in — no sidetone, no audio, dead feel. The fix is to look at the plugs: the smaller one goes to the smaller jack, always."
+  },
+  "background_theory": {
+    "why_600_ohm_impedance_matters": "Aircraft audio systems inherited the 600 Ω impedance standard from the telephone plant of the early 20th century, where it was chosen as a compromise between low-loss signal transmission and the line resistance of long copper pairs. Within an audio panel, impedance matching matters for three reasons. First, a mismatched load causes signal reflections that manifest as frequency-response ripple — high-frequency content (above 2 kHz, where speech intelligibility lives) is selectively attenuated. Second, mismatched loads change the loading on the driving amplifier, which can force it out of its linear operating region and produce harmonic distortion that sounds like 'fuzz' or 'crackle' on peaks. Third, in multi-drop audio buses (panel to panel to speaker amp), a grossly mismatched tap degrades the signal for every downstream load, not just the mismatched one. Aircraft mic inputs are nominally 150 Ω and phone outputs drive 150–600 Ω loads; this is compatible with the 600 Ω standard because reactive matching is wide-tolerant at voice frequencies. It breaks down when consumer equipment is adapted in — a 32 Ω gaming headset plugged into a phone jack presents roughly 1/5 the designed load, drawing enough current to drop the amplifier's output voltage (audible as loss of level) and in the worst case overheating the output stage. This is why installation manuals specify headset impedance and why swapping in non-aviation headsets voids audio-panel warranties.",
+    "how_active_noise_reduction_works": "Active noise reduction (ANR) in aviation headsets is a real-time analog-and-digital feedback loop that samples the acoustic noise inside the earcup, inverts it in phase, and plays the anti-phase signal through the earcup speaker at the same time as the communication audio. The reference microphones are placed inside the earcup cavity close to the listener's ear. They pick up both the ambient noise that leaked through the passive seal and a small amount of the desired signal. The ANR controller filters the reference signal to remove the desired-signal component (using adaptive cancellation algorithms) and feeds the remainder, phase-inverted and gain-adjusted, back into the speaker amplifier's sum node. At the eardrum, the noise and its anti-phase replica partially cancel, reducing effective SPL by ~20 dB at frequencies below 1 kHz (where cabin and engine noise dominates). Above 1 kHz, ANR becomes less effective because phase delay through the digital path approaches a half-wavelength and cancellation turns into reinforcement. For this reason, aviation ANR is tuned specifically to the 30–800 Hz band where the majority of cockpit noise energy lives. ANR requires power — typically 1.5–3 V at 20–50 mA — supplied by either a pair of AA batteries, a panel-powered LEMO connector, or a dedicated DC jack. When ANR fails (dead batteries, broken panel power, filter aging), the headset reverts to passive attenuation only, which is ~10 dB less effective, and the pilot hears a sudden return of cabin drone.",
+    "why_audio_ground_loops_introduce_400_hz_hum": "In an aircraft with a 400 Hz AC electrical system (typical of turbine and transport category aircraft), the main power bus is 115 V 400 Hz three-phase. Every piece of equipment that is bonded to the airframe returns current through the airframe itself — not just intentional bonding, but every mounting screw, every connector shell that grounds at both ends of a cable, every rack grounding strap. The airframe has a small but non-zero impedance, and 400 Hz current flowing through that impedance develops a small voltage drop across it. Two pieces of audio equipment bonded to different points on the airframe therefore sit at slightly different ground potentials — a few millivolts of 400 Hz difference. If an audio cable's shield is grounded at both ends, that potential difference drives a current through the shield. By electromagnetic induction, that shield current couples into the signal conductor inside the shield, adding a 400 Hz component to the audio. The pilot hears it as a steady hum exactly at the AC frequency — 400 Hz on turbine aircraft, 50 or 60 Hz on GPU-powered aircraft (in older installations where the GPU frequency survived into the audio path). The fix is to ground the shield at one end only, typically the source (radio or intercom amplifier) end. This breaks the ground loop — shield still performs its Faraday-cage function for EMI, but there is no circulating current because one end is open. For digital audio above roughly 100 kHz, this rule inverts (you must 360° bond both ends because RF shield currents distribute naturally along the shield and a one-end termination creates an inductive stub that kills shield effectiveness), but for analog voice the single-end rule is absolute."
+  }
+}

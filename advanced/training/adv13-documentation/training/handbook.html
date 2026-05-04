@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Section 2: Maintenance Documentation | CAET Advanced Handbook</title>
+<style>
+  /* Light-theme study document — optimized for reading on screen AND print. */
+  :root {
+    --ink: #1a2332;
+    --ink-soft: #4a5568;
+    --paper: #fbfaf5;
+    --paper-accent: #f5f2e8;
+    --rule: #d8d3c3;
+    --navy: #0a2540;
+    --gold: #8b6914;
+    --gold-soft: #f4ead0;
+    --red: #8b1a1a;
+    --red-soft: #fbe9e7;
+    --green: #1b4332;
+    --green-soft: #e7f0e5;
+    --cyan: #0e4a6e;
+    --cyan-soft: #e4f1f8;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--ink);
+    background: var(--paper);
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 56px 48px 80px;
+  }
+  header.cover {
+    border-bottom: 3px double var(--navy);
+    padding-bottom: 24px;
+    margin-bottom: 40px;
+  }
+  .eyebrow {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    letter-spacing: 3px;
+    font-size: 11px;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 700;
+  }
+  h1 {
+    font-family: Georgia, serif;
+    font-size: 34px;
+    line-height: 1.2;
+    color: var(--navy);
+    margin: 8px 0 12px;
+    font-weight: 700;
+  }
+  .subtitle {
+    font-size: 15px;
+    color: var(--ink-soft);
+    font-style: italic;
+    margin: 0;
+  }
+  h2 {
+    font-family: Georgia, serif;
+    font-size: 24px;
+    color: var(--navy);
+    margin: 56px 0 12px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--rule);
+  }
+  h3 {
+    font-family: Georgia, serif;
+    font-size: 19px;
+    color: var(--navy);
+    margin: 32px 0 10px;
+  }
+  h4 {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin: 20px 0 8px;
+    font-weight: 700;
+  }
+  p { margin: 0 0 16px; }
+  ul, ol { margin: 0 0 18px; padding-left: 24px; }
+  li { margin-bottom: 8px; }
+  .toc {
+    background: var(--paper-accent);
+    border-left: 4px solid var(--gold);
+    padding: 24px 32px;
+    border-radius: 2px;
+    margin: 24px 0 40px;
+  }
+  .toc h2 { margin-top: 0; border: none; font-size: 18px; color: var(--gold); letter-spacing: 2px; text-transform: uppercase; font-family: 'Helvetica Neue', Arial, sans-serif; }
+  .toc ol { columns: 2; column-gap: 32px; font-size: 14px; }
+  .toc li { margin-bottom: 4px; break-inside: avoid; }
+  .toc a { color: var(--navy); text-decoration: none; }
+  .toc a:hover { text-decoration: underline; color: var(--gold); }
+  blockquote.why {
+    font-size: 17px;
+    font-family: Georgia, serif;
+    font-style: italic;
+    color: var(--navy);
+    background: var(--gold-soft);
+    border-left: 4px solid var(--gold);
+    padding: 24px 32px;
+    margin: 24px 0;
+    border-radius: 2px;
+  }
+  blockquote.why p { margin: 0 0 12px; }
+  blockquote.why p:last-child { margin-bottom: 0; }
+  .callout {
+    padding: 16px 22px;
+    margin: 18px 0;
+    border-left: 4px solid var(--cyan);
+    background: var(--cyan-soft);
+    border-radius: 2px;
+    font-size: 15px;
+  }
+  .callout.watching { border-left-color: var(--green); background: var(--green-soft); }
+  .callout.mistakes { border-left-color: var(--red); background: var(--red-soft); }
+  .callout.theory   { border-left-color: var(--gold); background: var(--gold-soft); }
+  .callout strong { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 6px; }
+  .callout.watching strong { color: var(--green); }
+  .callout.mistakes strong { color: var(--red); }
+  .callout.theory   strong { color: var(--gold); }
+  .callout.info     strong { color: var(--cyan); }
+  .key-points { margin: 12px 0 20px; padding-left: 20px; }
+  .key-points li { margin-bottom: 10px; line-height: 1.55; }
+  dl.glossary { margin: 20px 0; }
+  dl.glossary dt { font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 700; color: var(--navy); margin-top: 14px; font-size: 15px; }
+  dl.glossary dd { margin: 4px 0 0 0; padding-left: 0; font-size: 14.5px; line-height: 1.55; color: var(--ink); }
+  .steps { counter-reset: step; padding-left: 0; list-style: none; }
+  .steps li { counter-increment: step; padding-left: 44px; position: relative; margin-bottom: 14px; line-height: 1.55; }
+  .steps li::before {
+    content: counter(step);
+    position: absolute; left: 0; top: -2px;
+    width: 30px; height: 30px; border-radius: 50%;
+    background: var(--navy); color: white;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 700; font-size: 13px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .quiz {
+    background: var(--cyan-soft);
+    border-left: 4px solid var(--cyan);
+    padding: 24px 32px;
+    margin: 24px 0;
+    border-radius: 2px;
+  }
+  .quiz h3 { margin-top: 0; color: var(--cyan); }
+  .quiz ol { margin: 12px 0 0 0; padding-left: 22px; }
+  .quiz li { margin-bottom: 14px; }
+  .answer-key details {
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    padding: 12px 18px;
+    margin-bottom: 10px;
+    background: var(--paper);
+  }
+  .answer-key summary { font-weight: 700; cursor: pointer; color: var(--navy); font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 14px; }
+  .answer-key details[open] summary { margin-bottom: 10px; border-bottom: 1px solid var(--rule); padding-bottom: 6px; }
+  .answer-key p { margin-top: 10px; font-size: 14.5px; line-height: 1.6; }
+  .crosswalk {
+    background: var(--paper-accent);
+    padding: 18px 24px;
+    border-radius: 2px;
+    border: 1px solid var(--rule);
+    margin: 24px 0;
+    font-size: 14.5px;
+    color: var(--ink-soft);
+  }
+  footer {
+    margin-top: 64px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 12px;
+    color: var(--ink-soft);
+    text-align: center;
+  }
+  .section-marker {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--gold); font-weight: 700;
+    margin: 48px 0 0;
+  }
+  @media print {
+    body { padding: 0.6in 0.75in; background: white; font-size: 11pt; max-width: none; }
+    h1 { font-size: 24pt; }
+    h2 { font-size: 16pt; page-break-after: avoid; }
+    h3 { page-break-after: avoid; }
+    .callout, blockquote.why { page-break-inside: avoid; }
+    .toc { page-break-after: always; }
+    details { page-break-inside: avoid; }
+    details[open] > summary ~ * { display: block !important; }
+    .answer-key details { border: none; }
+    a { color: var(--navy); text-decoration: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="cover">
+  <div class="eyebrow">CAET Advanced Certification · Student Handbook</div>
+  <h1>Section 2: Maintenance Documentation</h1>
+  <p class="subtitle">Aircraft Electronics Association · Workforce Development Division</p>
+</header>
+
+<nav class="toc">
+  <h2>Contents</h2>
+  <ol>
+    <li><a href="#why">Why This Matters</a></li>
+    <li><a href="#terms">Key Terms &amp; Definitions</a></li>
+    <li><a href="#kr-1">2.2.1 — Logbook Entry Requirements (43.9 and 43.11)</a></li><li><a href="#kr-2">2.2.3 — FAA Form 337</a></li><li><a href="#kr-3">2.2.4 — Return-to-Service Statements</a></li>
+    <li><a href="#task-1">Task 2.4.1 — 91.413 Transponder Test Logbook Entry</a></li><li><a href="#task-2">Task 2.4.2 — 91.411 Pitot-Static Test Logbook Entry</a></li><li><a href="#task-3">Task 2.4.3 — Installation Logbook Entry</a></li><li><a href="#task-4">Task 2.4.4 — Complete FAA Form 337</a></li><li><a href="#task-5">Task 2.4.5 — Return-to-Service Authority</a></li>
+    <li><a href="#quiz">Self-Check &amp; Oral Board Practice</a></li>
+    <li><a href="#crosswalk">Written Exam Crosswalk</a></li>
+  </ol>
+</nav>
+
+<section id="why">
+  <div class="section-marker">Part I — Orientation</div>
+  <h2>Why This Matters</h2>
+  
+  <blockquote class="why"><p>Incomplete and inaccurate maintenance records are consistently cited as one of the leading findings in FAA Part 145 repair station surveillance audits and FSDO enforcement actions. When an inspector opens an investigation, the first thing requested is rarely the aircraft itself; it is the maintenance records. The aircraft's airworthiness is established not by the quality of the work performed, but by the quality of the documentation that proves the work was performed, was performed correctly, and was performed by an authorized person using approved data. An undocumented repair is, in the eyes of 14 CFR 43.9 and 14 CFR 91.417, an unapproved repair — regardless of how technically perfect the craftsmanship may have been.</p></blockquote>
+  
+  <blockquote class="why"><p>The maintenance record is also the single largest source of personal legal liability an avionics technician accepts during their career. Every return-to-service signature is a sworn attestation: the work complies with 14 CFR Part 43, approved data was used, and the aircraft is airworthy for return to service. That signature follows the technician, cross-referenced to a mechanic or repairman certificate number, for the life of the aircraft and beyond. In post-accident investigations, the NTSB and FAA reconstruct the maintenance history from the logbooks and Form 337 records on file. Entries that are vague, out of sequence, missing required elements, or signed by unauthorized personnel become the focal point of enforcement action. 14 CFR 43.12 makes it a violation to knowingly make a false or fraudulent entry, punishable by certificate suspension or revocation.</p></blockquote>
+  
+  <blockquote class="why"><p>Beyond legality, the logbook is the aircraft's history and a living document of safety. An airframe changes hands many times in its thirty- or forty-year service life. Each new owner, each new mechanic, each new avionics shop inherits nothing but what is written in the records. A gap in documentation is a gap in institutional memory — a cracked bulkhead repair that nobody knows about, an AD that was signed off incorrectly, an STC installation with missing data that now cannot be reproduced. The discipline you develop now in writing complete, legible, legally sufficient entries is how you protect the next technician who touches this aircraft, the crew who will fly it, and the passengers who will trust their lives to work they will never see.</p></blockquote>
+  
+  
+  <h4>From the PQS Source</h4>
+  <p>Documentation is not the paperwork you do after the real work is done—it IS the work. In aviation maintenance, an undocumented repair does not exist. The maintenance record is the legal proof that work was performed, performed correctly, and performed by an authorized person using approved data. If your documentation is incomplete, inaccurate, or missing, the aircraft may be considered unairworthy regardless of how perfect the physical work was.</p><p>This section has five tasks. Several require you to produce actual documents—logbook entries, Form 337s—that become part of your oral board portfolio. Take these seriously; the board will review them line by line.</p>
+  
+</section>
+
+<section id="terms">
+  <h2>Key Terms &amp; Definitions</h2>
+  <p>Master this vocabulary before continuing. The evaluator expects you to use these terms correctly in the oral board.</p>
+  <dl class="glossary">
+    
+    <dt>Maintenance Record</dt>
+    <dd>Any document that records maintenance, preventive maintenance, rebuilding, or alteration performed on an aircraft, engine, propeller, or appliance. Required content is specified in 14 CFR 43.9 and 43.11; retention is governed by 14 CFR 91.417.</dd>
+    
+    <dt>Aircraft Logbook</dt>
+    <dd>The primary maintenance record for the airframe. Contains chronological entries for all airframe maintenance, inspections, alterations, AD compliance, and equipment installations. Maintained by the owner/operator per 14 CFR 91.417(a).</dd>
+    
+    <dt>Engine Logbook</dt>
+    <dd>A separate maintenance record for each engine, including total time, time since overhaul (TSOH), cycles when applicable, AD compliance specific to the engine, and modifications. Required because engines are frequently removed and installed on different airframes.</dd>
+    
+    <dt>Propeller Logbook</dt>
+    <dd>A separate maintenance record for each propeller, tracking total time, time since overhaul, prop-specific ADs and SBs, dynamic balancing, and blade repairs. Follows the propeller from aircraft to aircraft.</dd>
+    
+    <dt>Appliance Record</dt>
+    <dd>Maintenance records for removable appliances (radios, instruments, emergency equipment, rotable components) that follow the appliance rather than the airframe. Required by 14 CFR 43.9 and maintained by the operator per 91.417(a)(2).</dd>
+    
+    <dt>FAA Form 337</dt>
+    <dd>Major Repair and Alteration form. Documents any major repair or major alteration as defined in 14 CFR Part 43 Appendix A. Executed by the certificated person performing the work; the original stays with aircraft records and a copy is filed with the local FSDO within 48 hours per 14 CFR 43.9(d).</dd>
+    
+    <dt>FAA Form 8130-3</dt>
+    <dd>Authorized Release Certificate. Documents approval for return to service of aircraft parts, components, or appliances by a certificated repair station, production approval holder, or designee. Required for newly manufactured parts and for overhauled/repaired parts crossing organizational boundaries.</dd>
+    
+    <dt>FAA Form 8110-3</dt>
+    <dd>Statement of Compliance with Airworthiness Standards. Used by a Designated Engineering Representative (DER) to approve engineering data (repair schemes, modifications) that will be referenced as approved data on a Form 337 or logbook entry.</dd>
+    
+    <dt>FAA Form 8100-9</dt>
+    <dd>Statement of Compliance with Airworthiness Standards for Instructions for Continued Airworthiness (ICA). Documents acceptance of ICA for a major alteration so that the alteration remains maintainable over its service life per 14 CFR 21.50.</dd>
+    
+    <dt>ICA (Instructions for Continued Airworthiness)</dt>
+    <dd>Documentation that describes how to maintain a modification or alteration after installation: inspection intervals, overhaul limits, replacement parts, special procedures. Required for major alterations per 14 CFR 21.50 and 23.1529/25.1529.</dd>
+    
+    <dt>AD (Airworthiness Directive)</dt>
+    <dd>A legally mandatory instruction issued by the FAA under 14 CFR Part 39 to correct an unsafe condition in a product. Compliance is not optional. Recorded in logbook per 14 CFR 43.9 and 91.417 with AD number, revision, method of compliance, and next due (if recurring).</dd>
+    
+    <dt>SB (Service Bulletin)</dt>
+    <dd>A manufacturer-issued notice describing a recommended or required action. Mandatory SBs become mandatory only when referenced by an AD or required by a specific operating regulation (e.g., Part 135). Alert Service Bulletins (ASB) signal urgent safety concerns. Compliance is recorded in the maintenance record.</dd>
+    
+    <dt>AMM / IPC / CMM</dt>
+    <dd>Aircraft Maintenance Manual, Illustrated Parts Catalog, Component Maintenance Manual. Manufacturer publications that constitute approved data (or acceptable data, depending on chapter) for maintenance and repair. Revision status must be current at time of use.</dd>
+    
+    <dt>Work Order / Task Card</dt>
+    <dd>Internal shop documentation that tracks work from intake through return to service. Part 145 repair stations are required by 14 CFR 145.209(h) to retain records for two years. Task cards document step-by-step accomplishment with inspector stamps where required.</dd>
+    
+    <dt>RII (Required Inspection Item)</dt>
+    <dd>An item designated in the operator's maintenance program (Part 121, 125, 135) that requires a second independent inspection by a qualified RII inspector separate from the person performing the work. The inspection is recorded and signed independently in the maintenance record.</dd>
+    
+    <dt>Discrepancy vs Deferral</dt>
+    <dd>A discrepancy is any condition found that does not meet airworthiness standards. It must be either corrected before return to service OR deferred per an approved MEL/CDL procedure with a specific expiration. An uncorrected discrepancy that is not properly deferred renders the aircraft unairworthy.</dd>
+    
+  </dl>
+</section>
+
+<div class="section-marker">Part II — Knowledge Requirements</div>
+
+
+
+
+<section id="kr-1">
+  <h2>2.2.1 — Logbook Entry Requirements (43.9 and 43.11)</h2>
+
+  
+  <p>Two regulations govern the written record of work performed on a civil aircraft. 14 CFR 43.9 controls entries for maintenance, preventive maintenance, rebuilding, and alterations. 14 CFR 43.11 controls entries for inspections — annual, 100-hour, and progressive. For avionics work performed in a Part 145 station or by an individually certificated technician, 43.9 is the governing standard the evaluator will hold you to. Missing any of the five required elements is not a technicality; it is a regulatory violation and it invalidates the entry.</p>
+  
+
+  
+  <h4>From the PQS Source</h4>
+  <p>Two regulations govern maintenance record entries. 14 CFR 43.9 covers entries for maintenance, preventive maintenance, and alterations. 14 CFR 43.11 covers inspection entries (annual, 100-hour, progressive). For avionics work in a Part 145 shop, 43.9 is your primary reference.</p>
+  
+
+  
+  <h4>Key Points</h4>
+  <ul class="key-points">
+    <li>14 CFR 43.9(a) requires five elements in every maintenance entry: (1) a description of the work performed (or reference to acceptable data); (2) the date of completion; (3) the name of the person performing the work if other than the person signing; (4) if the work is approved for return to service, a signature and certificate number of the person approving the work; (5) the kind of certificate held by that person (A&P, IA, repair station, repairman).</li><li>14 CFR 43.11 adds additional elements for inspection entries: type of inspection, total time in service, aircraft total time, the statement "I certify that this aircraft has been inspected in accordance with a (type) inspection and was determined to be in an airworthy condition," and the signature, certificate number, and kind of certificate.</li><li>Descriptions must be specific enough that another mechanic, reading the entry five years from now, can identify what was done and what data was used. "Installed GPS per STC" is not sufficient; "Installed Garmin GTN 650Xi GPS/NAV/COM per STC SA01933LA, Revision 3, Installation Manual P/N 190-01007-A4 Revision 10" is sufficient.</li><li>Corrections: never erase or obliterate an entry. Draw a single line through the error, initial it, and enter the correct information as a new entry. Obliteration can be prosecuted as falsification under 14 CFR 43.12.</li><li>Language must be legible and use standard aviation terminology. Penciled, faded, or illegible entries fail inspection. Black permanent ink is the industry standard; digital entries are acceptable if the recordkeeping system meets 14 CFR 91.417(c) retention and access requirements.</li><li>Reference documents must be cited with revision or date: STC number and revision, installation manual P/N and revision, AC 43.13-1B Chapter and Paragraph, AD number and revision. An entry that references "the manual" without identifying which revision is ambiguous and may be cited on audit.</li>
+  </ul>
+  
+</section>
+
+
+
+<section id="kr-2">
+  <h2>2.2.3 — FAA Form 337</h2>
+
+  
+  <p>Form 337 documents any major repair or major alteration as defined in 14 CFR Part 43 Appendix A. In avionics, the most common trigger is installation of equipment under a Supplemental Type Certificate (STC), though certain non-STC installations (antenna structural modifications, panel cutouts affecting primary structure, weight and balance shifts beyond limits) also require a 337. The form has legal weight beyond the logbook entry: it is the permanent record that a major change to the aircraft occurred, who approved it, and what data authorized it.</p>
+  
+
+  
+  <h4>From the PQS Source</h4>
+  <p>Form 337 documents major repairs and major alterations to aircraft. In avionics, the most common trigger for a 337 is a new equipment installation under an STC. The form has two sides: the front captures the aircraft identification, description of work, and approval; the back captures the technical data used. Both sides must be complete. One copy stays with the aircraft records, one goes to the local FSDO within 48 hours.</p>
+  
+
+  
+  <h4>Key Points</h4>
+  <ul class="key-points">
+    <li>Appendix A to Part 43 lists what constitutes a major alteration (Paragraph (a)) and a major repair (Paragraph (b)). For avionics technicians, the most commonly cited triggers are: installation of previously uncertified equipment, changes to instrument panels affecting primary structure, changes to the electrical system beyond the original type design, and changes that affect weight and balance.</li><li>The form has two sides. Block 1 identifies the aircraft (make, model, serial, N-number). Block 2 identifies the owner. Block 3 captures what was done (repair or alteration). Block 4 captures the applicable approved data. Block 5 is the signoff by the certificated person performing the work. Block 6 is the approval for return to service — for major alterations, this requires an IA (Inspection Authorization) signature unless performed under an approved organization's procedures.</li><li>Back side (Block 8): detailed description of the work. This is where reference to approved data is made with specificity: STC number, installation manual revision, DER-approved data (8110-3), AC 43.13-1B paragraphs. "See attached" is acceptable when the description exceeds the space provided; attached pages must be signed and dated to travel with the form.</li><li>Filing: 14 CFR 43.9(d) requires the completed 337 to be submitted to the local FSDO within 48 hours of aircraft return to service. The original (or a copy with the installer's attestation) stays with aircraft records permanently per 91.417(b)(2). A copy is provided to the aircraft owner.</li><li>Weight and balance: any 337 that changes empty weight or CG requires an updated weight-and-balance record attached or referenced. The new W&B must supersede (not erase) the previous — the older record is retained for reference.</li><li>Instructions for Continued Airworthiness (ICA): under 14 CFR 21.50, major alterations require ICA describing how the alteration will be maintained. A 337 is not considered complete until the ICA is delivered to the owner and referenced on the form. This is one of the most common audit findings on avionics installations.</li>
+  </ul>
+  
+</section>
+
+
+
+<section id="kr-3">
+  <h2>2.2.4 — Return-to-Service Statements</h2>
+
+  
+  <p>A return-to-service statement is the single most legally significant sentence an avionics technician writes. Beneath the administrative formality, it is a sworn attestation: the work was performed in accordance with 14 CFR Part 43, approved data was used, and the aircraft (or component) is airworthy for return to service. Who is permitted to sign and under what authority is strictly defined — signing outside your authority is a 14 CFR 43.12 violation regardless of how skilled the work was.</p>
+  
+
+  
+  <h4>From the PQS Source</h4>
+  <p>A return-to-service (RTS) statement is the most legally significant sentence you will ever write. It says: 'This work is complete, this aircraft is airworthy, and I am staking my certificate on it.' Who can sign depends on the type of work:</p>
+  
+
+  
+  <h4>Key Points</h4>
+  <ul class="key-points">
+    <li>For maintenance and minor alterations: an appropriately rated mechanic (A&P) can sign per 14 CFR 65.85 and 43.7. A repairman with employer authorization can sign per 14 CFR 65.103. An authorized Part 145 repair station employee signs under 14 CFR 145.157 on behalf of the station's repair station certificate.</li><li>For major repairs and major alterations: the work may be performed by an A&P, but the approval for return to service requires an IA (Inspection Authorization) per 14 CFR 65.95 unless performed under an approved Part 145, 121, or 135 program.</li><li>The signature carries personal legal liability. If the FAA later determines the work was non-conforming, the signer — not the shop, not the owner — is the certificated person whose certificate is subject to action. This is true even if a supervisor pressured the signoff. An order to sign off defective work is not a defense.</li><li>Pressure to sign work you did not personally perform or directly supervise is one of the most common paths to certificate revocation in avionics. 14 CFR 65.20 prohibits a certificate holder from performing duties under that certificate when they know the certificate is suspended or revoked; 43.12 prohibits knowingly making a false entry. "Help me out — sign this, I'll owe you" is the opening move of a scenario that ends with two technicians losing their certificates.</li><li>The return-to-service statement must include: tachometer/Hobbs time at completion, statement of airworthiness ("approved for return to service" or the 43.11 inspection phrasing), signature, printed name, certificate number, and kind of certificate.</li><li>Correct phrasing matters. For maintenance under 43.9: "Approved for return to service with respect to the work performed." For inspections under 43.11: the exact statutory phrase quoted in the regulation. Do not paraphrase the inspection statement — the exact wording is required.</li>
+  </ul>
+  
+</section>
+
+
+<div class="section-marker">Part III — Task Preparation</div>
+
+
+
+
+<section id="task-1">
+  <h2>Task 2.4.1 — 91.413 Transponder Test Logbook Entry</h2>
+
+  
+  <p>How to demonstrate: Write a complete logbook entry that includes: date, aircraft N-number and serial, description of work ('Performed transponder inspection per 14 CFR 91.413'), test equipment used with serial number and calibration date, modes tested and results (Mode A reply, Mode C altitude, Mode S address), reference to FAR Part 43 Appendix F, and return-to-service statement with your name and certificate number.</p>
+  
+
+  
+  <h4>Step-by-Step Procedure</h4>
+  <ol class="steps">
+    <li>Confirm the test was performed within the last 30 days by a certificated test facility or appropriately rated technician per 14 CFR 91.413(b) — either Part 145 with Class 3 rating, an authorized manufacturer, or an appropriately rated mechanic with approved test equipment.</li><li>Record the date of test completion (not the date you are writing the entry if different).</li><li>Identify the aircraft precisely: make, model, serial number, N-number. Omitting serial number is a common discrepancy on audit.</li><li>State the work performed in regulatory language: "Performed ATC transponder test and inspection in accordance with 14 CFR 91.413 and 14 CFR Part 43 Appendix F."</li><li>Identify the unit tested by make, model, and serial number. If multiple transponders are installed, test and document each separately.</li><li>Identify the test equipment used by make, model, serial number, and calibration due date. The calibration due date must be after the test date or the entire test is invalid.</li><li>Record the results: Mode A (4096 codes confirmed), Mode C (altitude encoder correlation within ±125 feet per Appendix F), Mode S (24-bit ICAO address verified against aircraft registration). ADS-B Out performance (if equipped) is typically documented separately under 14 CFR 91.227.</li><li>Enter the return-to-service statement: "Approved for return to service with respect to the work performed." Sign with full name, certificate number, and kind of certificate (A&P, Repairman, Repair Station number).</li><li>Make the corresponding entry in the aircraft logbook if the test was conducted with the transponder installed, or in the component logbook/tag if bench tested.</li>
+  </ol>
+  
+
+  
+  <div class="callout watching">
+    <strong>Evaluator is watching for</strong>
+    <ul>
+      <li>All five elements of 14 CFR 43.9(a) present without prompting: description, date, person performing, signature of approver, kind of certificate.</li><li>Specific citation of 14 CFR Part 43 Appendix F, not generic "per the regs."</li><li>Test equipment serial number AND calibration due date — missing either is a rejection.</li><li>Transponder identification by make, model, AND serial number.</li><li>Return-to-service statement uses the correct phrasing for 43.9 work (not the 43.11 inspection phrasing).</li><li>Entry is legible, in permanent ink, with no erasures or obliterations.</li>
+    </ul>
+  </div>
+  
+
+  
+  <div class="callout mistakes">
+    <strong>Common mistakes</strong>
+    <ul>
+      <li>Citing 91.413 but omitting Appendix F — the Appendix is the actual test standard; 91.413 is only the requirement.</li><li>Recording test equipment without the calibration date. An out-of-cal test box invalidates the entire test; proof of currency must be in the entry.</li><li>Writing "transponder tested OK" with no detail. A logbook entry must stand on its own five years later.</li><li>Signing with just initials and no certificate number. The signature must be identifiable to a specific certificate holder.</li><li>Using pencil, correction fluid, or striking through cleanly enough to conceal prior text. Any of these can be cited as falsification under 14 CFR 43.12.</li>
+    </ul>
+  </div>
+  
+</section>
+
+
+
+<section id="task-2">
+  <h2>Task 2.4.2 — 91.411 Pitot-Static Test Logbook Entry</h2>
+
+  
+  <p>How to demonstrate: Same structure as 2.4.1 but for pitot-static: date, aircraft ID, description ('Performed altimeter and pitot-static system test per 14 CFR 91.411'), test equipment with S/N and cal date, altimeter scale error at each test point, static system leak rate, encoder correlation results, reference to Part 43 Appendix E, and RTS statement.</p>
+  
+
+  
+  <h4>Step-by-Step Procedure</h4>
+  <ol class="steps">
+    <li>Confirm the test is being performed within the 24-calendar-month window required by 14 CFR 91.411(a) for IFR operations.</li><li>Verify the technician and facility are qualified: Part 145 with Class 2 rating, an authorized manufacturer, or an appropriately rated mechanic with approved test equipment per 91.411(b).</li><li>Record date, aircraft identification (make, model, serial, N-number), and instrument identification (altimeter make/model/serial, encoder make/model/serial).</li><li>State the work: "Performed altimeter system and static pressure system tests and inspections in accordance with 14 CFR 91.411 and 14 CFR Part 43 Appendix E."</li><li>Identify the test set: make, model, serial, and calibration due date.</li><li>Record altimeter scale error results at each test altitude per Appendix E (typically 1000, 2000, 3000, 5000, 10,000, 15,000, 20,000 feet as applicable to the altimeter's maximum range). List the allowable tolerance and the actual reading.</li><li>Record static system leak rate: must not exceed 100 feet in one minute at a pressure corresponding to 1000 feet above the field elevation (unpressurized) or per the applicable pressurized test per Appendix E.</li><li>Record altimeter / altitude encoder correlation: difference must be within ±125 feet at the altimeter tested altitude per 91.411(a)(2).</li><li>Enter the return-to-service statement with signature, certificate number, and kind of certificate.</li>
+  </ol>
+  
+
+  
+  <div class="callout watching">
+    <strong>Evaluator is watching for</strong>
+    <ul>
+      <li>Citation of both 14 CFR 91.411 AND Part 43 Appendix E.</li><li>Each altimeter and encoder identified by serial number.</li><li>Actual scale error numbers recorded — not just "within tolerance." Appendix E specifies numerical tolerance at each test point.</li><li>Static leak rate quantified with the test pressure and the measured rate.</li><li>Altimeter/encoder correlation recorded numerically, not as "correlates."</li><li>Clear date of test, not date of write-up.</li>
+    </ul>
+  </div>
+  
+
+  
+  <div class="callout mistakes">
+    <strong>Common mistakes</strong>
+    <ul>
+      <li>Omitting altitude test points. Appendix E requires testing at specific altitudes — a summary line is insufficient.</li><li>Writing "altimeter within tolerance" without the number. The number is the legal evidence.</li><li>Forgetting that the encoder is a separate required test element. An altimeter test without the encoder correlation is a partial compliance.</li><li>Omitting leak rate units (feet per minute or inches Hg per minute) or failing to record the test pressure.</li><li>Treating this entry as an inspection and using 43.11 phrasing. A 91.411 test is maintenance under 43.9; use 43.9 phrasing for the RTS.</li>
+    </ul>
+  </div>
+  
+</section>
+
+
+
+<section id="task-3">
+  <h2>Task 2.4.3 — Installation Logbook Entry</h2>
+
+  
+  <p>How to demonstrate: For any avionics installation, your entry must reference the specific approved data used: STC number and revision, manufacturer installation manual title and revision, or AC 43.13-1B section. Include part numbers and serial numbers of installed equipment, condition (new/overhauled/serviceable), and any operational checks performed.</p>
+  
+
+  
+  <h4>Step-by-Step Procedure</h4>
+  <ol class="steps">
+    <li>Identify the specific approved data governing the installation before writing anything: STC number (with revision), manufacturer installation manual (with part number and revision), AC 43.13-1B chapter and paragraph (if acceptable data is being used for a non-STC installation), and any DER data (Form 8110-3).</li><li>Record the aircraft identification and the date the installation was completed and return to service authorized.</li><li>State the work performed: "Installed [equipment make/model/part number/serial number] in accordance with [specific approved data]." Name every piece of equipment installed, with part and serial numbers.</li><li>Reference the installation drawing package by number and revision. Example: "Installation per Garmin Approved Model List (AML) STC SA01933LA Rev 3 and installation drawing 005-00567-00 Rev J."</li><li>Describe structural or electrical modifications: antenna doublers installed, wire bundles added, circuit breakers added (include CB rating and panel position), power source, grounding provisions.</li><li>Record all operational checks performed and their results: power-on self-test, configuration verification, transponder test (if affected), pitot-static test (if affected), compass swing (if affected), functional check of each installed system.</li><li>Update or reference the updated weight-and-balance record; record the weight added and its effect on empty weight and CG.</li><li>If the installation is a major alteration, note that a Form 337 has been executed and filed, and reference the ICA delivered to the owner.</li><li>Enter the return-to-service statement with signature, certificate number, and kind of certificate.</li>
+  </ol>
+  
+
+  
+  <div class="callout watching">
+    <strong>Evaluator is watching for</strong>
+    <ul>
+      <li>Specific citation of STC number AND revision — not just "under STC."</li><li>Installation manual revision cited, not just the manual title.</li><li>Every installed LRU identified by part number and serial number, with condition noted (new/overhauled/serviceable).</li><li>Operational checks documented with results, not just "checked OK."</li><li>Weight-and-balance reference present for any installation that changed empty weight.</li><li>337 and ICA referenced if the installation is a major alteration.</li>
+    </ul>
+  </div>
+  
+
+  
+  <div class="callout mistakes">
+    <strong>Common mistakes</strong>
+    <ul>
+      <li>Writing "Installed GPS per STC" with no STC number. The STC number is the legal authority for the installation.</li><li>Citing an installation manual without the revision. Installation manuals are revised routinely; the revision at time of install is the legal reference.</li><li>Forgetting the circuit breaker rating and position. When the next technician troubleshoots, this information is essential and often absent.</li><li>Omitting operational checks. A physical install with no functional verification does not return an aircraft to service.</li><li>Installing under an STC without confirming the aircraft is on the STC's Approved Model List (AML). An AML mismatch invalidates the installation regardless of how the entry is written.</li>
+    </ul>
+  </div>
+  
+</section>
+
+
+
+<section id="task-4">
+  <h2>Task 2.4.4 — Complete FAA Form 337</h2>
+
+  
+  <p>How to demonstrate: Complete a 337 for a real or realistic installation scenario. Front side: aircraft ID (Block 1), owner info (Block 2), IA approval block (Block 3), unit identification, description of work, weight and balance changes. Back side: approved data references (STC number, installation manual), conformity statement. Both sides must be error-free.</p>
+  
+
+  
+  <h4>Step-by-Step Procedure</h4>
+  <ol class="steps">
+    <li>Confirm the work meets the definition of a major repair or major alteration in 14 CFR Part 43 Appendix A. If it does not, a Form 337 is not required (though a logbook entry still is).</li><li>Obtain a blank Form 337 (most recent revision from the FAA website). Do not use an old cached copy; the form is updated periodically.</li><li>Block 1 — Aircraft: enter make, model, serial number, and N-number exactly as they appear on the registration certificate. No abbreviations.</li><li>Block 2 — Owner: enter the registered owner name and address exactly as on the registration. Mismatch with FAA records is a common return-for-correction reason.</li><li>Block 3 — Agency/Mechanic: check the correct box (mechanic, repair station, manufacturer, foreign-certificated, or other). Fill in certificate number and rating.</li><li>Block 4 — Type of unit: indicate airframe, powerplant, propeller, or appliance.</li><li>Block 5 — Conformity statement: check "Repair" or "Alteration." Sign and date. The signer must be the person who performed or directly supervised the work.</li><li>Block 6 — Approval for return to service: IA signs with certificate number and expiration date. For Part 145 work, the station stamps and the authorized signer signs.</li><li>Block 8 (back) — Description: write a full description of the work. Reference all approved data by specific number and revision. Include references to AC 43.13-1B where it is used as acceptable data. If space is insufficient, attach additional pages; each attachment page must be identified (aircraft N-number, page X of Y), signed, and dated.</li><li>File: deliver one copy to the local FSDO within 48 hours of return to service per 14 CFR 43.9(d). Place the original in the aircraft records. Deliver a copy to the owner with the ICA.</li>
+  </ol>
+  
+
+  
+  <div class="callout watching">
+    <strong>Evaluator is watching for</strong>
+    <ul>
+      <li>Block 1 aircraft information exactly matches the registration certificate.</li><li>Block 3 and Block 5 certificate numbers match.</li><li>Block 8 cites specific approved data with revision numbers, not generic language.</li><li>Attached pages properly identified, signed, and dated.</li><li>Block 6 signed by an appropriately rated person (IA for major alterations unless under Part 145 procedures).</li><li>Candidate can articulate the 48-hour FSDO filing requirement without being prompted.</li>
+    </ul>
+  </div>
+  
+
+  
+  <div class="callout mistakes">
+    <strong>Common mistakes</strong>
+    <ul>
+      <li>Leaving blocks empty that should be filled. Every block has a purpose; blanks are a return-for-correction item.</li><li>Using non-specific approved-data references ("per STC" with no number). Block 8 must be precise.</li><li>Filing late. 14 CFR 43.9(d) requires 48 hours; exceeding this creates a compliance discrepancy.</li><li>Signing Block 6 as an A&P without IA authority on a major alteration. The A&P can perform but cannot approve for return to service on major alterations.</li><li>Forgetting that weight and balance changes require an attached or referenced updated W&B record.</li><li>Failing to deliver ICA with the 337. Under 14 CFR 21.50, ICA is required for major alterations and is one of the most commonly missed items on audit.</li>
+    </ul>
+  </div>
+  
+</section>
+
+
+
+<section id="task-5">
+  <h2>Task 2.4.5 — Return-to-Service Authority</h2>
+
+  
+  <p>How to demonstrate: Explain the RTS chain clearly: for maintenance/minor work, the performing mechanic or Part 145 authorized person signs. For major alterations, the mechanic signs the logbook and an IA signs the 337. The signature means the signer is personally attesting that the work was performed correctly, using approved data, and the aircraft is airworthy. It carries personal legal liability.</p>
+  
+
+  
+  <h4>Step-by-Step Procedure</h4>
+  <ol class="steps">
+    <li>Determine whether the work is maintenance, preventive maintenance, minor alteration, major repair, or major alteration. Reference Part 43 Appendix A to classify.</li><li>For maintenance and minor alterations: the performing A&P signs per 14 CFR 43.7 and 65.85. If performed in a Part 145 station, the authorized station signer signs on behalf of the station's certificate per 14 CFR 145.157.</li><li>For major repairs or major alterations: the A&P performs the work and signs the logbook entry, and an IA (Inspection Authorization per 14 CFR 65.95) signs the Form 337 for approval for return to service. In a Part 145 station, the station's authorized major-repair signer may approve under the station's certificate without an IA, provided the repair station rating covers the work.</li><li>Before signing, verify personally: (1) the work was performed per approved data; (2) all operational checks are complete and passed; (3) all required inspection items (RII if applicable) have a separate independent inspection signoff; (4) weight and balance is updated if affected; (5) the 337 is complete (if applicable); (6) the ICA has been delivered to the owner (if applicable).</li><li>Write the return-to-service statement: "Approved for return to service with respect to the work performed." Add signature, printed name, certificate number, and kind of certificate.</li><li>Never sign work you did not personally perform or directly supervise. This is the single most common path to certificate enforcement action.</li><li>Never sign under pressure from a supervisor, customer, or scheduling urgency. The signature is on your certificate. Document any refusal in writing to protect yourself.</li>
+  </ol>
+  
+
+  
+  <div class="callout watching">
+    <strong>Evaluator is watching for</strong>
+    <ul>
+      <li>Candidate can articulate the difference between 43.7 (return to service after maintenance) and 65.95 (IA authority for major repair/alteration approval).</li><li>Understanding that Part 145 repair stations sign under the station certificate, not the individual employee's A&P certificate.</li><li>Awareness that RII items require a separate inspector signature independent of the person who performed the work.</li><li>Candidate refuses or challenges a scenario in which they are asked to sign off work performed by someone else.</li><li>Candidate can name at least three personal verification steps performed before signing.</li>
+    </ul>
+  </div>
+  
+
+  
+  <div class="callout mistakes">
+    <strong>Common mistakes</strong>
+    <ul>
+      <li>Confusing 43.9 (maintenance entry) with 43.11 (inspection entry) and using the wrong return-to-service phrasing.</li><li>Signing a logbook entry for work done by another technician as a favor — a direct 14 CFR 43.12 violation and a common cause of certificate revocation.</li><li>Assuming an A&P alone can approve a major alteration. Major alteration approval requires IA or equivalent Part 145 authority.</li><li>Signing a 337 Block 6 before confirming the ICA has been delivered to the owner.</li><li>Failing to note the kind of certificate. "Bob Smith 1234567" with no indication of whether that is an A&P, IA, Repairman, or Part 145 authorization is incomplete.</li>
+    </ul>
+  </div>
+  
+</section>
+
+
+
+<div class="section-marker">Part IV — Background Theory</div>
+<section id="theory">
+  <h2>The Science Behind the Procedures</h2>
+  <p>When the oral board examiner asks <em>why</em>, these are the explanations they expect to hear.</p>
+  
+  <div class="callout theory">
+    <strong>Why Faa Standardizes Records</strong>
+    <p style="margin-top:8px;">FAA Order 8130.2 (currently Revision J) standardizes airworthiness certification procedures across every FSDO, every Manufacturing Inspection District Office, and every certificated person nationwide. Standardization serves three purposes. First, it allows an aircraft to cross jurisdictional boundaries without re-certification — the records are prima facie evidence that approved procedures were followed, and any FAA office can read them. Second, it allows the FAA to conduct surveillance efficiently: an inspector walking into a Part 145 repair station knows exactly what records must exist, in what format, and can identify a deficiency in minutes rather than spending days deciphering each shop's internal system. Third, and most importantly, it creates a common legal language. A logbook entry from a shop in Kansas in 1987 is readable by a mechanic in Alaska in 2026 because the required elements, the phrasing of return-to-service statements, and the approval authority hierarchy are the same. This is why deviations from the standard — missing certificate numbers, non-standard RTS phrasing, vague work descriptions — are consistently cited on audit even when the physical work was acceptable. The record must speak the common language or it cannot fulfill its purpose as portable legal evidence.</p>
+  </div>
+  
+  <div class="callout theory">
+    <strong>Why Rii Requires Separate Inspector</strong>
+    <p style="margin-top:8px;">A Required Inspection Item (RII) is an item designated in the operator's maintenance program (Part 121, 125, or 135) whose failure could endanger safe operation of the aircraft. RII items require a second independent inspection by a qualified RII inspector separate from the person who performed the work. The human-factors rationale is rooted in decades of accident investigation: the person who performed a task is the least reliable person to detect their own error. Confirmation bias, fatigue, and assumption of completion all work against self-inspection. An independent set of eyes, applying the same criteria, catches roughly 40–70% of defects that the original technician missed (numbers vary by study, but the effect is consistently large). Beyond the human factors, there is a cultural and legal reason: a separate RII inspector creates accountability. The inspector's signature is itself a certificate-level commitment; they are personally attesting that the work meets airworthiness standards. This dual-signoff structure is also used on flight-critical controls installation, landing gear rigging, and engine installation for the same reason. Avionics technicians will encounter RII requirements most commonly on autopilot servo installations, pitot-static splice work, and flight-instrument wiring on Part 121/135 aircraft. Performing RII work without understanding that a separate inspector must sign is a frequent compliance finding.</p>
+  </div>
+  
+  <div class="callout theory">
+    <strong>Why Records Retention Matters</strong>
+    <p style="margin-top:8px;">14 CFR 91.417 establishes the retention periods for aircraft maintenance records, and the structure is deliberate. Records of routine maintenance must be retained for one year after the work is superseded. Inspection records (annuals, 100-hours, progressive) must be retained for one year after the next inspection of the same kind. But the critical distinction is 91.417(b)(2): records of major alterations, AD compliance, current status of life-limited parts, time since overhaul of components requiring overhaul, and current inspection status must be retained until the aircraft is sold, scrapped, or exported — essentially for the life of the aircraft. This protects three parties simultaneously. It protects the technician: five years after a signature, if an accident investigation opens, the technician's detailed logbook entry and 337 are the evidence that the work was performed correctly and by an authorized person. It protects the aircraft owner: the records are the aircraft's title to airworthiness. An aircraft with incomplete records is worth a fraction of an identical aircraft with complete records, and some major alterations cannot be reconstructed if the original documentation is lost. It protects the flying public: the records are the safety audit trail that makes airworthiness verifiable by any competent inspector, not merely assertable by an interested party. Per 14 CFR 91.419, when an aircraft is sold, the full required records transfer to the new owner — the seller cannot withhold them. This transfer provision is why the retention rule extends across ownership: the records belong to the aircraft, not to any particular owner, mechanic, or shop. Part 145 repair stations additionally retain their internal work-order records for two years per 14 CFR 145.209(h), providing a parallel audit trail within the station even after the aircraft-side records move on.</p>
+  </div>
+  
+</section>
+
+
+<div class="section-marker">Part V — Self-Check</div>
+
+<section id="quiz">
+  <h2>Oral Board Practice Questions</h2>
+  <p>Answer each aloud before opening the answer key. Mastery means you can explain it to a non-technical person, not just recite a definition.</p>
+  <div class="quiz">
+    <h3>Questions</h3>
+    <ol>
+      <li>Q1: Walk me through the logbook entry you would write for a transponder 91.413 test. What specific elements must be included?</li><li>Q2: You completed a GPS installation under an STC. What documentation is required beyond the logbook entry?</li><li>Q3: What is the difference between a logbook entry per 43.9 and a Form 337? When is each required?</li><li>Q4: A new technician in your shop asks you to sign off work he did while you were on lunch. What do you tell him and why?</li><li>Q5: You discover that a previous shop performed a GPS installation with no Form 337 on file. What are the implications?</li>
+    </ol>
+  </div>
+
+  <h3>Answer Key</h3>
+  <div class="answer-key">
+    
+    
+    
+    <details>
+      <summary>Q1: Walk me through the logbook entry you would write for a transponder 91.413 test. What specific elements must be included?</summary>
+      <p>A 91.413 transponder test logbook entry must include the five elements required by 14 CFR 43.9(a), plus the specific technical content that proves the test met Part 43 Appendix F. I would begin with the date the test was completed. Then the aircraft identification: make, model, serial number, and N-number. Then the statement of work, using regulatory language: "Performed ATC transponder test and inspection in accordance with 14 CFR 91.413 and 14 CFR Part 43 Appendix F." Next I would identify the transponder by make, model, and serial number — if there are dual transponders, each is documented separately. The test equipment goes next: make, model, serial number, and calibration due date, because an out-of-cal test set invalidates the entire test. The results follow: Mode A codes confirmed, Mode C encoder altitude correlation within the ±125-foot tolerance specified in 91.217 and Appendix F, Mode S ICAO address verified against the aircraft registration. Finally, the return-to-service statement: "Approved for return to service with respect to the work performed," signed with my full name, certificate number, and kind of certificate. Black permanent ink, no erasures. The most common errors on this entry are forgetting the calibration due date on the test set, citing 91.413 without Appendix F, and writing "transponder tested OK" with no detail — any of those would fail an audit.</p>
+    </details>
+    
+    
+    
+    <details>
+      <summary>Q2: You completed a GPS installation under an STC. What documentation is required beyond the logbook entry?</summary>
+      <p>Beyond the logbook entry, an STC-based GPS installation requires several additional documents. First, a Form 337 is required because installation of previously uncertified equipment under an STC is a major alteration per Part 43 Appendix A. The 337 is completed on both sides, with Block 8 citing the STC number and revision, the installation manual part number and revision, and any referenced AC 43.13-1B sections. A copy of the 337 is filed with the local FSDO within 48 hours of return to service per 14 CFR 43.9(d), the original stays with aircraft records, and a copy goes to the owner. Second, an updated weight-and-balance record is required because the installation adds weight; the new W&B supersedes the prior but the prior is retained for historical reference. Third, Instructions for Continued Airworthiness (ICA) must be delivered to the owner per 14 CFR 21.50 — this is the document that tells future mechanics how to maintain the installation, what the inspection intervals are, and what replacement parts are approved. Fourth, a supplement or insert to the Pilot's Operating Handbook or Airplane Flight Manual is typically required to document the new equipment's operation and any limitations. Fifth, if the GPS affects the transponder or ADS-B Out system, new 91.413 transponder and 91.227 ADS-B performance tests must be performed and documented. The Form 337 is not considered complete until the ICA and the POH supplement are delivered.</p>
+    </details>
+    
+    
+    
+    <details>
+      <summary>Q3: What is the difference between a logbook entry per 43.9 and a Form 337? When is each required?</summary>
+      <p>A 14 CFR 43.9 logbook entry and a Form 337 are not alternatives — they are complementary records for different categories of work. The logbook entry under 43.9 is required for every piece of work performed: maintenance, preventive maintenance, rebuilding, and alterations, whether minor or major. The five required elements are description of work, date, person performing, approving signature, and kind of certificate held. A Form 337 is required in addition to the logbook entry whenever the work meets the definition of a major repair or major alteration in 14 CFR Part 43 Appendix A. So: a capacitor replacement in a radio tray is maintenance, logbook only. A transponder replacement under a minor alteration process is a logbook entry only. Installation of a new GPS under an STC is a major alteration — it requires a Form 337 AND a logbook entry. A structural repair to an antenna doubler that exceeds the manufacturer's acceptable-data limits is a major repair — Form 337 AND a logbook entry. The Form 337 documents the who, what, and legal approval of the major change; the logbook entry provides the chronological record in the aircraft's history. Missing either one is a compliance discrepancy. And the 337 must be filed with the FSDO within 48 hours of return to service; the logbook entry is simply retained per 91.417.</p>
+    </details>
+    
+    
+    
+    <details>
+      <summary>Q4: A new technician in your shop asks you to sign off work he did while you were on lunch. What do you tell him and why?</summary>
+      <p>Absolutely not — and I would explain why clearly so the new technician understands this is about his protection as much as mine. 14 CFR 43.12 prohibits any person from making or causing to be made any fraudulent or intentionally false entry in a maintenance record. A signature in the logbook or on a 337 is a sworn attestation that I personally performed or directly supervised the work and that it is airworthy. If I sign off work I did not personally witness, and something later goes wrong — a cold crimp, a missed step, an incorrect torque — I am the certificate holder on the line. The FAA does not care that I was being helpful; they see only the signature. Enforcement action can result in certificate suspension or revocation. Beyond the regulatory issue, there is a personal integrity issue: the owner and the eventual flight crew are relying on that signature as evidence that an authorized, qualified person has verified the work. I would tell the new technician to bring the paperwork to me BEFORE he starts the work next time, so I can directly supervise or we can plan the scheduling so someone authorized is present. I would also document the refusal in writing to my supervisor — not as a report on the new tech, but as a record of my own integrity in case the pressure comes back around. Signing someone else's work is how careers end; it is non-negotiable.</p>
+    </details>
+    
+    
+    
+    <details>
+      <summary>Q5: You discover that a previous shop performed a GPS installation with no Form 337 on file. What are the implications?</summary>
+      <p>The implications of an undocumented GPS installation are serious and cascading. First, from a pure regulatory standpoint, 14 CFR 43.9 required a logbook entry and 14 CFR Part 43 Appendix A required a Form 337 because an STC installation is a major alteration. Without the 337 on file, the installation is not documented in the aircraft's legal record — and per the FAA's position stated in AC 43-9, an undocumented major alteration is effectively an unapproved alteration, which renders the aircraft unairworthy regardless of how correctly the physical work was done. Second, there is no evidence that the installation was performed under the STC, so the aircraft cannot be shown to be in conformity with the STC's Approved Model List or installation manual; the STC protection is not transferable to the current owner without the paperwork. Third, because there is no ICA on record, the aircraft's continued airworthiness with respect to this installation is not supportable — there are no defined inspection intervals or replacement parts. Fourth, weight and balance was not updated, meaning the aircraft's current W&B record is inaccurate, which is itself a 91.9 and 91.103 issue. The practical path forward is: (1) notify the owner of the finding in writing; (2) verify whether the prior shop can reconstruct and file the 337 retroactively with FSDO acknowledgement — this happens and is typically treated as a voluntary disclosure if done proactively; (3) if reconstruction is not possible, the installation must be either fully removed or re-performed and re-documented; (4) the current inspection (annual or pre-buy) cannot be signed off as airworthy while this discrepancy exists. I would also be cautious about my own exposure — I should document the finding clearly and not become the person who signs off airworthiness on a known undocumented major alteration.</p>
+    </details>
+    
+  </div>
+</section>
+
+
+<section id="crosswalk">
+  <h2>Written Exam Crosswalk</h2>
+  <div class="crosswalk">This section maps primarily to Module 13 (Documentation) Q161–165, which tests logbook entries, Form 337 triggers, return-to-service authority, and documentation completeness. The knowledge here also supports Module 14 (Software/Database Loading) questions about post-installation documentation. End of Section 2 — Maintenance Documentation</div>
+</section>
+
+
+<footer>
+  © 2026 Aircraft Electronics Association · Workforce Development Division.<br>
+  Derived from CAET Advanced PQS Training Module with supplementary teaching content authored for instructor use.
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Emergency Autoland Systems | CAET Advanced Handbook</title>
+<style>
+  /* Light-theme study document — optimized for reading on screen AND print. */
+  :root {
+    --ink: #1a2332;
+    --ink-soft: #4a5568;
+    --paper: #fbfaf5;
+    --paper-accent: #f5f2e8;
+    --rule: #d8d3c3;
+    --navy: #0a2540;
+    --gold: #8b6914;
+    --gold-soft: #f4ead0;
+    --red: #8b1a1a;
+    --red-soft: #fbe9e7;
+    --green: #1b4332;
+    --green-soft: #e7f0e5;
+    --cyan: #0e4a6e;
+    --cyan-soft: #e4f1f8;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--ink);
+    background: var(--paper);
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 56px 48px 80px;
+  }
+  header.cover {
+    border-bottom: 3px double var(--navy);
+    padding-bottom: 24px;
+    margin-bottom: 40px;
+  }
+  .eyebrow {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    letter-spacing: 3px;
+    font-size: 11px;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 700;
+  }
+  h1 {
+    font-family: Georgia, serif;
+    font-size: 34px;
+    line-height: 1.2;
+    color: var(--navy);
+    margin: 8px 0 12px;
+    font-weight: 700;
+  }
+  .subtitle {
+    font-size: 15px;
+    color: var(--ink-soft);
+    font-style: italic;
+    margin: 0;
+  }
+  h2 {
+    font-family: Georgia, serif;
+    font-size: 24px;
+    color: var(--navy);
+    margin: 56px 0 12px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--rule);
+  }
+  h3 {
+    font-family: Georgia, serif;
+    font-size: 19px;
+    color: var(--navy);
+    margin: 32px 0 10px;
+  }
+  h4 {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin: 20px 0 8px;
+    font-weight: 700;
+  }
+  p { margin: 0 0 16px; }
+  ul, ol { margin: 0 0 18px; padding-left: 24px; }
+  li { margin-bottom: 8px; }
+  .toc {
+    background: var(--paper-accent);
+    border-left: 4px solid var(--gold);
+    padding: 24px 32px;
+    border-radius: 2px;
+    margin: 24px 0 40px;
+  }
+  .toc h2 { margin-top: 0; border: none; font-size: 18px; color: var(--gold); letter-spacing: 2px; text-transform: uppercase; font-family: 'Helvetica Neue', Arial, sans-serif; }
+  .toc ol { columns: 2; column-gap: 32px; font-size: 14px; }
+  .toc li { margin-bottom: 4px; break-inside: avoid; }
+  .toc a { color: var(--navy); text-decoration: none; }
+  .toc a:hover { text-decoration: underline; color: var(--gold); }
+  blockquote.why {
+    font-size: 17px;
+    font-family: Georgia, serif;
+    font-style: italic;
+    color: var(--navy);
+    background: var(--gold-soft);
+    border-left: 4px solid var(--gold);
+    padding: 24px 32px;
+    margin: 24px 0;
+    border-radius: 2px;
+  }
+  blockquote.why p { margin: 0 0 12px; }
+  blockquote.why p:last-child { margin-bottom: 0; }
+  .callout {
+    padding: 16px 22px;
+    margin: 18px 0;
+    border-left: 4px solid var(--cyan);
+    background: var(--cyan-soft);
+    border-radius: 2px;
+    font-size: 15px;
+  }
+  .callout.watching { border-left-color: var(--green); background: var(--green-soft); }
+  .callout.mistakes { border-left-color: var(--red); background: var(--red-soft); }
+  .callout.theory   { border-left-color: var(--gold); background: var(--gold-soft); }
+  .callout strong { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 6px; }
+  .callout.watching strong { color: var(--green); }
+  .callout.mistakes strong { color: var(--red); }
+  .callout.theory   strong { color: var(--gold); }
+  .callout.info     strong { color: var(--cyan); }
+  .key-points { margin: 12px 0 20px; padding-left: 20px; }
+  .key-points li { margin-bottom: 10px; line-height: 1.55; }
+  dl.glossary { margin: 20px 0; }
+  dl.glossary dt { font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 700; color: var(--navy); margin-top: 14px; font-size: 15px; }
+  dl.glossary dd { margin: 4px 0 0 0; padding-left: 0; font-size: 14.5px; line-height: 1.55; color: var(--ink); }
+  .steps { counter-reset: step; padding-left: 0; list-style: none; }
+  .steps li { counter-increment: step; padding-left: 44px; position: relative; margin-bottom: 14px; line-height: 1.55; }
+  .steps li::before {
+    content: counter(step);
+    position: absolute; left: 0; top: -2px;
+    width: 30px; height: 30px; border-radius: 50%;
+    background: var(--navy); color: white;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 700; font-size: 13px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .quiz {
+    background: var(--cyan-soft);
+    border-left: 4px solid var(--cyan);
+    padding: 24px 32px;
+    margin: 24px 0;
+    border-radius: 2px;
+  }
+  .quiz h3 { margin-top: 0; color: var(--cyan); }
+  .quiz ol { margin: 12px 0 0 0; padding-left: 22px; }
+  .quiz li { margin-bottom: 14px; }
+  .answer-key details {
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    padding: 12px 18px;
+    margin-bottom: 10px;
+    background: var(--paper);
+  }
+  .answer-key summary { font-weight: 700; cursor: pointer; color: var(--navy); font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 14px; }
+  .answer-key details[open] summary { margin-bottom: 10px; border-bottom: 1px solid var(--rule); padding-bottom: 6px; }
+  .answer-key p { margin-top: 10px; font-size: 14.5px; line-height: 1.6; }
+  .crosswalk {
+    background: var(--paper-accent);
+    padding: 18px 24px;
+    border-radius: 2px;
+    border: 1px solid var(--rule);
+    margin: 24px 0;
+    font-size: 14.5px;
+    color: var(--ink-soft);
+  }
+  footer {
+    margin-top: 64px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 12px;
+    color: var(--ink-soft);
+    text-align: center;
+  }
+  .section-marker {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--gold); font-weight: 700;
+    margin: 48px 0 0;
+  }
+  @media print {
+    body { padding: 0.6in 0.75in; background: white; font-size: 11pt; max-width: none; }
+    h1 { font-size: 24pt; }
+    h2 { font-size: 16pt; page-break-after: avoid; }
+    h3 { page-break-after: avoid; }
+    .callout, blockquote.why { page-break-inside: avoid; }
+    .toc { page-break-after: always; }
+    details { page-break-inside: avoid; }
+    details[open] > summary ~ * { display: block !important; }
+    .answer-key details { border: none; }
+    a { color: var(--navy); text-decoration: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="cover">
+  <div class="eyebrow">CAET Advanced Certification · Student Handbook</div>
+  <h1>Emergency Autoland Systems</h1>
+  <p class="subtitle">Aircraft Electronics Association · Workforce Development Division</p>
+</header>
+
+<nav class="toc">
+  <h2>Contents</h2>
+  <ol>
+    <li><a href="#why">Why This Matters</a></li>
+    <li><a href="#terms">Key Terms &amp; Definitions</a></li>
+    <li><a href="#kr-1">Autoland System Architecture</a></li><li><a href="#kr-2">Certification and Regulatory Framework</a></li><li><a href="#kr-3">Activation and Decision Logic</a></li><li><a href="#kr-4">Pilot Incapacitation Detection</a></li><li><a href="#kr-5">Post-Landing Sequence</a></li>
+    <li><a href="#task-1">Task 15.1 — Activation Button Self-Test</a></li><li><a href="#task-2">Task 15.2 — Radar Altimeter Calibration Check</a></li><li><a href="#task-3">Task 15.3 — Incapacitation Detection Simulation</a></li><li><a href="#task-4">Task 15.4 — Weather and Navigation Database Currency</a></li><li><a href="#task-5">Task 15.5 — Post-Activation Download and Reset</a></li><li><a href="#task-6">Task 15.6 — Autothrottle Servo Verification (Jet Platforms)</a></li>
+    <li><a href="#quiz">Self-Check &amp; Oral Board Practice</a></li>
+    <li><a href="#crosswalk">Written Exam Crosswalk</a></li>
+  </ol>
+</nav>
+
+<section id="why">
+  <div class="section-marker">Part I — Orientation</div>
+  <h2>Why This Matters</h2>
+  
+  <blockquote class="why"><p>Emergency Autoland is the first certified aviation system designed to act without pilot intervention and still deliver a safe outcome. A single button press on the cabin headliner — pressed by a passenger who has never touched a yoke — is expected to result in a successful runway landing. This has never been true of any avionics system before. The regulatory burden that comes with that capability is enormous. As the technician responsible for periodic inspection, software currency, and post-repair verification of these systems, you are now part of a trust chain that did not exist five years ago: passenger → panel → system you maintained.</p></blockquote>
+  
+  <blockquote class="why"><p>The failure modes matter. If Autoland selects a runway that turns out to be closed (NOTAM data stale), or flies an approach through weather the onboard radar didn't detect (weather subscription lapsed), or executes a flare without a valid radar altimeter input (calibration drift), the system does not fail gracefully — it fails terminally. Every scheduled task on these systems has someone's life attached to it. The M600 HomeSafe, Cirrus Safe Return, and Daher HomeSafe certifications all include mandatory inspection intervals specifically because the certification data assumed those inspections would be performed. Skipping one breaks the safety argument the system was certified against.</p></blockquote>
+  
+  <blockquote class="why"><p>Your role is not glamorous: verifying sensor calibration, checking database cycles, exercising the activation button, confirming aural alerts, logging results on Form 337-adjacent documentation. But the chain from your work to a passenger pressing a button on a bad day is direct. The evaluator is looking for someone who understands exactly that — that the paperwork matters, the cycle dates matter, and the post-repair functional test on a system that may never activate in the aircraft's life still has to be done correctly. If the day comes when it is needed, there will be no second chance.</p></blockquote>
+  
+  
+  <h4>From the PQS Source</h4>
+  <p>Emergency Autoland is the newest certified avionics capability in general and business aviation: a system that, with a single button-press from a passenger or incapacitated pilot, will take control of the aircraft, select the best airport, fly an approach, land, shut down the engine, and apply the brakes. First certified on the Piper M600 (Garmin Autoland) and Cirrus Vision Jet (Safe Return), the capability is now expanding to other platforms.</p>
+  
+</section>
+
+<section id="terms">
+  <h2>Key Terms &amp; Definitions</h2>
+  <p>Master this vocabulary before continuing. The evaluator expects you to use these terms correctly in the oral board.</p>
+  <dl class="glossary">
+    
+    <dt>Emergency Autoland</dt>
+    <dd>A certified avionics system that, on activation by a passenger or via automatic pilot-incapacitation detection, takes control of the aircraft, selects a destination airport, flies an approach, lands, and shuts down without further input. First STC: Garmin Autoland on Piper M600 SLS, FAA approval May 2020.</dd>
+    
+    <dt>Garmin Autoland</dt>
+    <dd>Garmin's commercial implementation of Emergency Autoland, built on the G3000 integrated flight deck. Deployed on Piper M600 HomeSafe, Daher TBM 940 HomeSafe, and Beechcraft King Air 260 (category expansion). Requires specific G3000 software part numbers and additional GSA autopilot servos.</dd>
+    
+    <dt>Safe Return</dt>
+    <dd>Cirrus Aircraft's implementation of Emergency Autoland on the Vision Jet SF50, developed in cooperation with Garmin. Adds jet-specific logic: autothrottle management, thrust-lever detent, and VTAS-based approach speed calculation. Separate STC from M600 HomeSafe.</dd>
+    
+    <dt>HomeSafe</dt>
+    <dd>Trade name used by both Piper (M600) and Daher (TBM 940/960) for their Autoland offering. Same core Garmin Autoland engine, but with airframe-specific certification data: max landing weight, minimum runway length, approach profile, and post-landing sequence.</dd>
+    
+    <dt>Activation Button</dt>
+    <dd>A physical button mounted on the cabin headliner or overhead panel, protected by a guard, labeled clearly with emergency instructions. One press starts an activation countdown (typically 15 seconds) with audible warning and passenger prompt before engagement. The button is tested at each 100-hour/annual inspection per AMM.</dd>
+    
+    <dt>Pilot Incapacitation Detection</dt>
+    <dd>An automatic trigger mode that monitors flight-control inputs, attitude, and altitude. If the aircraft deviates from commanded flight path without corrective pilot input for a specified duration (platform-specific, often 30-60 seconds), the system issues aural warnings then engages Autoland if no response. Relies on autopilot engagement state and sensor inputs — technician must verify during maintenance.</dd>
+    
+    <dt>Destination Selection Algorithm</dt>
+    <dd>The runtime logic that selects the optimal landing airport from nearby candidates. Evaluates: fuel remaining vs distance, runway length vs aircraft minimums, current weather at destination (ceiling/visibility from onboard + datalink), approach type availability (LPV/LNAV+V preferred), crosswind component, surrounding terrain, ATC facility availability. Continuously refreshes during flight toward destination.</dd>
+    
+    <dt>Autothrottle (AT)</dt>
+    <dd>Required for jet Autoland (Safe Return on Vision Jet). Commands thrust lever position via electric servo on the quadrant. Computes target thrust from flight phase, wind, weight, and altitude. Verification during maintenance requires checking servo travel limits, thrust-lever force feedback, and emergency-disconnect switch response.</dd>
+    
+    <dt>Radar Altimeter (RA)</dt>
+    <dd>Provides precise height-above-terrain input needed for the landing flare. Autoland requires RA operational and calibrated; a failed RA will inhibit activation or trigger go-around. Typical accuracy ±2 feet below 200 AGL. Calibration verified against known aircraft height on a level ramp, per manufacturer AMM.</dd>
+    
+    <dt>LPV Approach</dt>
+    <dd>Localizer Performance with Vertical guidance, a WAAS/SBAS approach category providing ILS-equivalent minima (typically 200 ft HAT) without ground-based equipment. Preferred by Autoland because it is available at 4000+ US airports vs ILS coverage. Autoland will select LPV if both LPV and non-precision are available at a candidate airport.</dd>
+    
+    <dt>Aural Emergency Announcement</dt>
+    <dd>The synthesized voice message the system plays during Autoland — announcing destination, ETA, altitude, and approach. Broadcasts over cockpit audio AND over 121.5 MHz emergency frequency, and cycles transponder to 7700. Maintenance verifies by running the activation self-test (not a full activation) and confirming the expected audio and transponder behavior.</dd>
+    
+    <dt>Certification Intervals</dt>
+    <dd>Mandatory inspection and test schedule defined in the STC Airworthiness Limitations section (ALS). Typical items: button-press self-test (100-hour), servo torque verification (annual), radar altimeter functional test (annual), weather-database currency (30 days), detailed Autoland activation simulation (24 months). Deferral is NOT authorized — the system's certification depends on these intervals.</dd>
+    
+    <dt>Post-Activation Data Log</dt>
+    <dd>Non-volatile memory that records system state during and after any Autoland activation. Required for NTSB investigation under 49 CFR 830. Includes: activation trigger, destination selection rationale, trajectory, control inputs, aural announcements, post-landing sequence timing. Technician does NOT erase this log — it is legal evidence.</dd>
+    
+    <dt>Go-Around Logic</dt>
+    <dd>Autoland's automatic go-around decision if the approach becomes unsafe: RA not updating, glidepath deviation beyond limits, traffic intrusion detected by ADS-B, runway incursion detected (if equipped with surface traffic). System climbs, re-sequences to the next best destination, and resumes. Technician tests go-around logic using simulator stimuli during 24-month detailed validation.</dd>
+    
+  </dl>
+</section>
+
+<div class="section-marker">Part II — Knowledge Requirements</div>
+
+
+
+
+<section id="kr-1">
+  <h2>Autoland System Architecture</h2>
+
+  
+  <p>Autoland is not a single LRU — it is a coordinated behavior across existing flight-deck computers with additional hardware and software layers. Understanding which box does what is prerequisite to troubleshooting.</p>
+  
+
+  
+  <h4>From the PQS Source</h4>
+  <p>Emergency Autoland systems integrate autopilot, flight management, engine control, and weather/terrain data into a single coordinated failure-tolerant controller. The Garmin Autoland product is built on the G3000 integrated flight deck with additional hardware and software layers. Core components: autopilot servos and primary control surfaces, FMS with autoland approach algorithms, engine throttle/mixture control, autothrottle (on jet platforms), terrain and traffic databases, ADS-B for traffic, weather radar/XM for storm avoidance, radar altimeter for landing flare, and an Emergency Autoland Activation switch (button) visible to passengers.</p>
+  
+
+  
+  <h4>Key Points</h4>
+  <ul class="key-points">
+    <li>The core is the existing integrated flight deck (Garmin G3000/G5000). Autoland adds software in the Garmin Autopilot Computer (GSA 81/87 servos + GCU/GTC controllers), a dedicated Autoland module in the flight management processor, and the aural announcement synthesizer.</li><li>Hardware additions per aircraft: activation button with CAN-bus harness to the flight deck, backup radar altimeter where redundancy is required (single RA not always acceptable to STC), autothrottle servo on jet platforms.</li><li>Data inputs Autoland requires: WAAS/SBAS GPS position (for LPV approach), ADS-B In traffic, datalink weather (XM or FIS-B on UAT), terrain database (TAWS-B minimum), obstacle database, ADAHRS attitude/heading, radar altimeter below 200 AGL, ARINC 429 bus for engine parameters.</li><li>Autopilot authority is escalated during Autoland: normal-mode override forces apply, but Autoland has full authority within certified envelope. Pilot can still disconnect via red Autopilot Disconnect button — this is by design because a pilot who regains consciousness must be able to take over instantly.</li><li>The Autoland software is DAL A per DO-178C — the highest design assurance level. Revisions require full re-certification. The technician does NOT field-modify this software.</li>
+  </ul>
+  
+</section>
+
+
+
+<section id="kr-2">
+  <h2>Certification and Regulatory Framework</h2>
+
+  
+  <p>Emergency Autoland is certified under 14 CFR Part 23 Amendment 64 (normal-category small airplanes) with novel-feature guidance from the FAA Small Airplane Directorate. Each airframe installation is a separate STC with its own Airworthiness Limitations section.</p>
+  
+
+  
+  <h4>From the PQS Source</h4>
+  <p>Emergency Autoland received its first STC on the Piper M600 SLS in May 2020, with FAA certification under 14 CFR Part 23 Amendment 64. This required novel certification approaches because the system must operate safely without pilot intervention — a regulatory first. RTCA special committees developed design assurance guidance; portions of DO-178C DAL A software apply. Subsequent STCs have been added for Cirrus Vision Jet, Daher TBM 940 (HomeSafe), and continuing platforms. Each requires aircraft-specific certification data showing the system meets required performance for that airframe, including max weight, landing roll, and emergency descent profiles.</p>
+  
+
+  
+  <h4>Key Points</h4>
+  <ul class="key-points">
+    <li>The baseline regulatory challenge was showing compliance with 23.1309 (equipment, systems, and installations) and 23.1329 (automatic pilot system) for a system that operates with NO pilot. FAA issued specific issue papers addressing this.</li><li>Novel certification approaches: (1) simulation-based verification showing landing performance across environmental envelope, (2) mandatory pilot incapacitation detection with high-integrity sensors, (3) Airworthiness Limitations section with inspection intervals enforced by Type Certificate Holder.</li><li>STC list as of 2026: Piper M600 SLS HomeSafe (first, May 2020), Cirrus Vision Jet Safe Return, Daher TBM 940/960 HomeSafe, Beechcraft King Air 260 HomeSafe. Expansions to Piper M500, Vision Jet G2+ and other airframes in progress.</li><li>The STC package includes: AFMS supplement (pilot procedures), maintenance manual supplement (technician procedures), Airworthiness Limitations section (inspection intervals — LEGALLY REQUIRED), Instructions for Continued Airworthiness per 14 CFR 21.50.</li><li>No one is authorized to maintain Autoland equipment without specific training: manufacturer-provided coursework is required before signing off inspections. An A&P/IA without specific Autoland training is NOT authorized even though they are authorized for the rest of the avionics.</li>
+  </ul>
+  
+</section>
+
+
+
+<section id="kr-3">
+  <h2>Activation and Decision Logic</h2>
+
+  
+  <p>From button press to touchdown, Autoland runs a deterministic state machine. Every transition is logged. Understanding the state machine helps you interpret post-event data logs during investigation.</p>
+  
+
+  
+  <h4>From the PQS Source</h4>
+  <p>Autoland activates either by passenger button-press or automatically via pilot incapacitation detection (inactivity algorithm on some platforms). Upon activation, the system runs a destination-selection algorithm weighing: distance (fuel endurance), runway length (must be >= minimum for aircraft), weather minima (ceilings, visibility, crosswind), lighting/ATC facility, approach type available (LPV preferred). The system announces destination selection audibly, continues announcing status, and transmits emergency codes (7700 via transponder, voice over 121.5 MHz).</p>
+  
+
+  
+  <h4>Key Points</h4>
+  <ul class="key-points">
+    <li>Activation countdown: after button press, 15-second audible countdown (passenger or pilot may cancel by pressing a second time). After countdown, system engages and transitions to DESTINATION_SELECT state.</li><li>Destination selection runs every 10 seconds until committed to approach. Re-evaluates based on changing weather, fuel, wind. Final commit at Initial Approach Fix (IAF) — thereafter system flies the commit approach unless abort criteria trigger.</li><li>Transponder behavior during Autoland: automatically squawks 7700 (emergency), Flight ID is set to 'AUTOLAND' (or similar, depends on platform), emergency-broadcast message over 1090ES includes Autoland-specific NACp claim.</li><li>ATC communication: system transmits a pre-recorded voice message on 121.5 MHz describing the situation, selected airport, and ETA. Does NOT engage in two-way conversation — ATC coordinates with controllers at destination via landline.</li><li>Landing sequence: RA-based flare at 50 ft, main-gear touchdown, nosewheel lowering, full braking, engine shutdown (piston: mixture to idle-cutoff; turbine: throttle to fuel-off). No automatic door unlock — intentional to avoid passenger egress onto an active runway without verification.</li><li>Abort/go-around triggers during approach: RA invalid, glidepath deviation >0.5° at 500 AGL, traffic within protected volume, commanded airspeed out of tolerance ±5 kt for >10 sec, engine anomaly.</li>
+  </ul>
+  
+</section>
+
+
+
+<section id="kr-4">
+  <h2>Pilot Incapacitation Detection</h2>
+
+  
+  <p>The automatic incapacitation trigger is the most consequential piece of the system because it engages Autoland without passenger knowledge. False negatives mean passenger intervention doesn't work; false positives mean Autoland engages on a conscious pilot.</p>
+  
+
+  
+  <h4>From the PQS Source</h4>
+  <p>Some systems include automatic incapacitation detection: monitoring flight control inputs, seat pressure, or CO levels. If no pilot response occurs for a specified period (typically 30-60 seconds of unusual attitude or altitude excursion), the system prompts the pilot via aural alert, then engages Autoland if no response. The technician must verify these detection sensors and timers during scheduled maintenance, as they are the trigger for a system that may save lives only once.</p>
+  
+
+  
+  <h4>Key Points</h4>
+  <ul class="key-points">
+    <li>Trigger conditions vary by platform; all use flight-path deviation as primary input. Typical: aircraft deviates from commanded track/altitude by more than a calibrated envelope for 30-60 seconds with no control inputs.</li><li>Pre-activation alert: aural 'ARE YOU THERE?' cycling for 30 seconds before engagement. Pilot response (any control-input deflection, button press, radio transmission) cancels the trigger.</li><li>Some platforms monitor CO (carbon monoxide) level in cockpit as secondary trigger — above alarm threshold plus deviation will trigger earlier. Requires CO sensor calibration.</li><li>Technician verification: use manufacturer's simulation stimulus (an RS-232/CAN test harness that injects fake attitude-deviation into the ADAHRS bus). Verify alert timing, audio, and button-cancel logic. NEVER exercise the trigger with real aircraft in flight state.</li><li>False-trigger cases to document: inadvertent engagement during simulated-IMC training, during ferry flight with autopilot disconnected and turbulence, during maintenance ground runs (power system on with aircraft parked).</li>
+  </ul>
+  
+</section>
+
+
+
+<section id="kr-5">
+  <h2>Post-Landing Sequence</h2>
+
+  
+  <p>Once main gear touches down, Autoland continues controlling the aircraft for ~60 seconds. Understanding this sequence tells you what to expect when servicing an aircraft that activated Autoland.</p>
+  
+
+  
+  <h4>From the PQS Source</h4>
+  <p>After touchdown, the system reduces throttle to idle, applies braking to a full stop, shuts down the engine (piston and turbine platforms have different sequences), and continues emergency broadcasting. The passenger door is NOT automatically unlocked — that requires manual action. Post-landing diagnostics log data for investigation. Any Autoland activation, whether emergency or inadvertent, requires detailed documentation and NTSB notification per 49 CFR 830.5.</p>
+  
+
+  
+  <h4>Key Points</h4>
+  <ul class="key-points">
+    <li>Rollout phase: automatic nosewheel-down, progressive braking to target deceleration (typically 0.25 g), rudder-based runway-centerline tracking via nose-wheel steering.</li><li>Stop: brakes held at full after aircraft stops. Parking brake commanded on platforms where equipped. Autoland does NOT release brakes automatically.</li><li>Engine shutdown: piston — mixture control to idle-cutoff; turbine — condition lever/start lever to cutoff (platform-specific). Ignition off. Electrical kept on to sustain emergency radio and strobe.</li><li>Emergency broadcasting continues for 60 seconds on 121.5 MHz with new message: 'Aircraft has landed at [airport]. Emergency services required.'</li><li>Data log finalization: NVRAM writes of full sequence, timing, sensor values. Separate maintenance-action-required flag is set — aircraft MUST have full inspection per STC before next flight.</li><li>Technician handoff: when the aircraft is returned to service, technician downloads the log (via manufacturer-specific dataload procedure), retains copy, and submits incident report per 14 CFR 830 (preliminary within 10 days).</li>
+  </ul>
+  
+</section>
+
+
+<div class="section-marker">Part III — Task Preparation</div>
+
+
+
+
+<section id="task-1">
+  <h2>Task 15.1 — Activation Button Self-Test</h2>
+
+  
+  <p>Perform the 100-hour Autoland activation-button self-test per AMM. Verifies button electrical continuity, audio alert playback, countdown behavior, and abort-by-second-press. Does NOT engage Autoland — the test mode stops before state-machine transition.</p>
+  
+
+  
+
+  
+
+  
+</section>
+
+
+
+<section id="task-2">
+  <h2>Task 15.2 — Radar Altimeter Calibration Check</h2>
+
+  
+  <p>Confirm RA readings on a known-height ramp against manufacturer tolerance. RA is used for the landing flare; errors here land the aircraft early or late. Annual inspection task per STC Airworthiness Limitations.</p>
+  
+
+  
+
+  
+
+  
+</section>
+
+
+
+<section id="task-3">
+  <h2>Task 15.3 — Incapacitation Detection Simulation</h2>
+
+  
+  <p>Use manufacturer-supplied simulation harness to inject attitude-deviation stimuli and verify pilot-incapacitation trigger timing, aural-alert playback, and pilot-cancel response. 24-month interval task per STC ALS.</p>
+  
+
+  
+
+  
+
+  
+</section>
+
+
+
+<section id="task-4">
+  <h2>Task 15.4 — Weather and Navigation Database Currency</h2>
+
+  
+  <p>Verify nav DB (AIRAC), terrain DB, obstacle DB, and weather subscription are all current before returning the aircraft to service. Autoland destination-selection depends on all four; any stale DB is an airworthiness discrepancy.</p>
+  
+
+  
+
+  
+
+  
+</section>
+
+
+
+<section id="task-5">
+  <h2>Task 15.5 — Post-Activation Download and Reset</h2>
+
+  
+  <p>After any Autoland activation (emergency or inadvertent), download the NVRAM data log, retain a copy for records, submit NTSB preliminary report, then perform full STC return-to-service inspection before next flight. Aircraft is grounded until complete.</p>
+  
+
+  
+
+  
+
+  
+</section>
+
+
+
+<section id="task-6">
+  <h2>Task 15.6 — Autothrottle Servo Verification (Jet Platforms)</h2>
+
+  
+  <p>On Vision Jet Safe Return and similar: verify autothrottle servo travel limits, thrust-lever force calibration, and emergency-disconnect switch. Incorrect autothrottle limits during Autoland cause over-/under-shoot of commanded thrust and approach-speed errors.</p>
+  
+
+  
+
+  
+
+  
+</section>
+
+
+
+<div class="section-marker">Part IV — Background Theory</div>
+<section id="theory">
+  <h2>The Science Behind the Procedures</h2>
+  <p>When the oral board examiner asks <em>why</em>, these are the explanations they expect to hear.</p>
+  
+  <div class="callout theory">
+    <strong>Why Autoland Is Dal A</strong>
+    <p style="margin-top:8px;">DO-178C Design Assurance Level A is reserved for software whose failure would cause or contribute to a catastrophic failure condition — loss of aircraft or multiple fatalities. Emergency Autoland software commands control surfaces, engine, and brakes without pilot override during an emergency; a software fault during engagement would be catastrophic. DAL A requires: formal methods for requirements capture, independent verification of every requirement, structural coverage including MCDC (modified condition / decision coverage) at the object-code level, traceability from requirement to code to test, and independent audit. Development typically costs 10-30x compared to DAL C. This is why Autoland software is not field-modifiable and why software revisions trigger full STC re-certification — the DAL A evidence base must be refreshed.</p>
+  </div>
+  
+  <div class="callout theory">
+    <strong>Why Pilot Incapacitation Uses Flight Path Deviation</strong>
+    <p style="margin-top:8px;">Direct physiological monitoring (heart rate, respiration, EEG) was considered during Autoland development but rejected because: (1) requires pilot-worn sensors which are prohibited equipment for most operators, (2) false-positive rate for a sick pilot is too high for an action with such consequential outcome, (3) sensor drift and attachment issues make the signal unreliable. Flight-path deviation as a proxy is stronger because it responds to the REAL safety concern: the aircraft is not being flown. A pilot who is conscious but not flying should intervene when the 'Are you there?' alert sounds; if they don't, the outcome of Autoland engagement (safe landing) is still the desired outcome whether the cause is unconsciousness, impairment, or distraction. The design choice is therefore aligned with the safety goal rather than the root cause.</p>
+  </div>
+  
+  <div class="callout theory">
+    <strong>Why Autoland Selects Lpv Over Ils</strong>
+    <p style="margin-top:8px;">Autoland prefers LPV (Localizer Performance with Vertical) approaches over ILS for three reasons. First: availability — LPV is published at 4000+ US airports vs ILS at 1400, so the probability of a close-in, weather-compatible destination is much higher. Second: signal reliability — LPV is space-based (SBAS correction of GPS) and does not depend on ground transmitters that may have NOTAM outages the onboard database can't verify. Third: autopilot integration — Autoland's autopilot software is certified to track LPV lateral and vertical guidance via the same ARINC 429 data bus as the other approach types; no special handling is needed. ILS requires localizer-tracking logic that responds differently to noise (signal bent by taxiway traffic, vehicle interference) than LPV's steady SBAS-corrected GPS. For an unmanned approach, steadiness beats precision — and LPV provides both to 200 ft AGL.</p>
+  </div>
+  
+</section>
+
+
+<div class="section-marker">Part V — Self-Check</div>
+
+<section id="quiz">
+  <h2>Oral Board Practice Questions</h2>
+  <p>Answer each aloud before opening the answer key. Mastery means you can explain it to a non-technical person, not just recite a definition.</p>
+  <div class="quiz">
+    <h3>Questions</h3>
+    <ol>
+      <li>Q1: A passenger has just pressed the Autoland button. Walk me through what the system does in the first 60 seconds, from button press to committed approach.</li><li>Q2: The STC Airworthiness Limitations section requires a 24-month incapacitation-detection simulation test. Why is this test scheduled at 24 months specifically rather than annually? What's the hazard of deferring it?</li><li>Q3: An aircraft just had an inadvertent Autoland activation during a ferry flight — the automatic pilot-incapacitation detection triggered when the pilot was fully conscious but hands-off during cruise with autopilot disengaged. The aircraft landed safely. What are your maintenance actions?</li><li>Q4: You're inspecting a Piper M600 with HomeSafe. The owner says the nav database is two cycles out because they missed the last AIRAC. Can they fly the aircraft? Can they use Autoland in emergency? What's the technician's action?</li><li>Q5: During the activation button self-test, the aural alert plays on the cockpit speakers but NOT on the cabin speakers. Everything else checks out. Is the aircraft airworthy for Autoland? Defend your answer with specific references.</li>
+    </ol>
+  </div>
+
+  <h3>Answer Key</h3>
+  <div class="answer-key">
+    
+    
+    
+    <details>
+      <summary>Q1: A passenger has just pressed the Autoland button. Walk me through what the system does in the first 60 seconds, from button press to committed approach.</summary>
+      <p>Button press triggers the 15-second activation countdown with audible 'Autoland activating in 15 seconds, press again to cancel' alert. Countdown ends with engagement: transponder to 7700, flight ID to Autoland-specific string, 1090ES NACp set to emergency. Voice message broadcasts on 121.5 MHz: 'This is an Emergency Autoland. Aircraft is en route to a safe landing.' System transitions to DESTINATION_SELECT state and runs the algorithm: evaluates candidate airports within fuel endurance for runway length, weather, approach availability, crosswind. Announces selection: 'Autoland selected [airport name]. Estimated landing in [N] minutes.' Begins flying toward the destination on a route that avoids terrain and weather. Over the next minutes, re-evaluates destination every 10 seconds in case weather changes. Until the Initial Approach Fix, destination can still be changed. At IAF, commits to the approach. From commit, the system will fly the approach, flare using RA, touch down, rollout, brake to a stop, and shut down the engine. Total duration button-to-stop is typically 15-45 minutes depending on destination proximity.</p>
+    </details>
+    
+    
+    
+    <details>
+      <summary>Q2: The STC Airworthiness Limitations section requires a 24-month incapacitation-detection simulation test. Why is this test scheduled at 24 months specifically rather than annually? What's the hazard of deferring it?</summary>
+      <p>The 24-month interval reflects the certification assumption: the manufacturer demonstrated to FAA that incapacitation-detection sensors (attitude, flight-path deviation, optional CO) have a failure mode time-to-discovery that is acceptable when combined with 24-monthly testing. A shorter interval would be over-engineering; annual would duplicate the testing at the autopilot system level. A longer interval would exceed the certification data's demonstrated reliability window. Deferring the test means the STC's safety argument no longer holds — legally, the aircraft is out of compliance with 14 CFR 91.409 (inspection requirements) because the ALS is part of the airworthiness limitations that must be complied with. The hazard: a sensor drift or latent fault in the detection logic that would have been caught by the simulation test remains undetected. If the real incapacitation event occurs with that latent fault present, the system may fail to trigger or may trigger inappropriately. The 24-month cadence is not arbitrary — it's load-bearing.</p>
+    </details>
+    
+    
+    
+    <details>
+      <summary>Q3: An aircraft just had an inadvertent Autoland activation during a ferry flight — the automatic pilot-incapacitation detection triggered when the pilot was fully conscious but hands-off during cruise with autopilot disengaged. The aircraft landed safely. What are your maintenance actions?</summary>
+      <p>Treat it as a full activation event. The fact that the pilot was conscious does not change the regulatory or safety posture. Actions: (1) Ground the aircraft — no taxi, no further flight. (2) Photograph cockpit state as found. (3) Download the NVRAM data log before touching anything. (4) File NTSB preliminary report per 49 CFR 830 — an Autoland activation is a notifiable event regardless of outcome. (5) Inspect incapacitation-detection inputs: review ADAHRS attitude and CAN-bus traffic during the pre-trigger window to understand why the trigger fired. Likely root cause: autopilot disengaged during cruise plus turbulence plus no control inputs met the detection criteria. (6) Perform the full STC return-to-service test sequence. (7) Reset the Autoland flag only after all inspections and tests pass. (8) Counsel the operator: flying hands-off with autopilot disengaged is a known false-trigger condition; the ALS or Pilot Operating Handbook describes this. A POH amendment may be indicated; coordinate with the TCH. Logbook entries: full event description, NTSB report number, inspection findings, RTS test results, operator counseling.</p>
+    </details>
+    
+    
+    
+    <details>
+      <summary>Q4: You're inspecting a Piper M600 with HomeSafe. The owner says the nav database is two cycles out because they missed the last AIRAC. Can they fly the aircraft? Can they use Autoland in emergency? What's the technician's action?</summary>
+      <p>The aircraft may be flyable for non-precision operations — depends on what the MEL says and whether the owner is willing to fly without RNAV/GPS approach capability. But for Autoland specifically: no. The STC and the ALS require current nav database for the destination-selection algorithm. Two cycles out means approximately 42-56 days expired. That falls outside the grace period of any current HomeSafe STC. Autoland would inhibit activation at runtime because the internal self-check finds a stale DB. Even if activation were forced, the system cannot guarantee a valid LPV approach at the selected destination because waypoint data may be incorrect. Technician actions: (1) Inform the owner the aircraft is NOT Autoland-capable until the DB is current. (2) Offer to perform the database load immediately — 30 minutes of work vs days of rescheduled operations. (3) Logbook entry noting the DB was out of currency and has been updated. If the owner declines the update, they still cannot legally operate to minimums the DB would have covered — that is an MEL/airworthiness issue separate from Autoland.</p>
+    </details>
+    
+    
+    
+    <details>
+      <summary>Q5: During the activation button self-test, the aural alert plays on the cockpit speakers but NOT on the cabin speakers. Everything else checks out. Is the aircraft airworthy for Autoland? Defend your answer with specific references.</summary>
+      <p>The aircraft is NOT airworthy for Autoland. The cabin-speaker alert is the passenger's primary notification that Autoland is activating; without it, a passenger who just pressed the button has no confirmation the system received the press, and may press again repeatedly or panic. The Autoland STC certification data assumes the cabin-announcement system is functional; this is specified in the AMM and in the STC functional description. References: (1) AMM Chapter X (Autoland — varies by platform) specifies the cabin-speaker requirement. (2) STC ALS lists the cabin-speaker functional check as part of the 100-hour self-test with PASS being required for Autoland capability. (3) 14 CFR 91.7 prohibits operating in an unairworthy condition; 91.405 requires the owner to assure airworthiness; 91.213 governs deferral. Autoland does not have MEL entries that allow deferral of the cabin audio — it is Required Equipment. Technician action: discrepancy write-up, aircraft is NOT authorized for Autoland until the cabin audio is repaired and retested. The rest of the aircraft can fly if all other airworthiness conditions are met, but the POH supplement for Autoland must be marked as INOP. This is not a matter of judgment — the ALS is explicit.</p>
+    </details>
+    
+  </div>
+</section>
+
+
+<section id="crosswalk">
+  <h2>Written Exam Crosswalk</h2>
+  <div class="crosswalk">This module maps to Module 15 (Autoland & Emergency Systems) on the CAET Advanced written exam. Topics: system architecture (Q01-Q05), regulatory basis (Q06-Q08), activation logic and testing (Q09-Q12), pilot incapacitation detection (Q13-Q14), post-landing and maintenance documentation (Q15-Q16).</div>
+</section>
+
+
+<footer>
+  © 2026 Aircraft Electronics Association · Workforce Development Division.<br>
+  Derived from CAET Advanced PQS Training Module with supplementary teaching content authored for instructor use.
+</footer>
+
+</body>
+</html>

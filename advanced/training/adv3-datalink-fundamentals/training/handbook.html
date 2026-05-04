@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exam Study Module: Datalink Fundamentals | CAET Advanced Handbook</title>
+<style>
+  /* Light-theme study document — optimized for reading on screen AND print. */
+  :root {
+    --ink: #1a2332;
+    --ink-soft: #4a5568;
+    --paper: #fbfaf5;
+    --paper-accent: #f5f2e8;
+    --rule: #d8d3c3;
+    --navy: #0a2540;
+    --gold: #8b6914;
+    --gold-soft: #f4ead0;
+    --red: #8b1a1a;
+    --red-soft: #fbe9e7;
+    --green: #1b4332;
+    --green-soft: #e7f0e5;
+    --cyan: #0e4a6e;
+    --cyan-soft: #e4f1f8;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--ink);
+    background: var(--paper);
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 56px 48px 80px;
+  }
+  header.cover {
+    border-bottom: 3px double var(--navy);
+    padding-bottom: 24px;
+    margin-bottom: 40px;
+  }
+  .eyebrow {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    letter-spacing: 3px;
+    font-size: 11px;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 700;
+  }
+  h1 {
+    font-family: Georgia, serif;
+    font-size: 34px;
+    line-height: 1.2;
+    color: var(--navy);
+    margin: 8px 0 12px;
+    font-weight: 700;
+  }
+  .subtitle {
+    font-size: 15px;
+    color: var(--ink-soft);
+    font-style: italic;
+    margin: 0;
+  }
+  h2 {
+    font-family: Georgia, serif;
+    font-size: 24px;
+    color: var(--navy);
+    margin: 56px 0 12px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--rule);
+  }
+  h3 {
+    font-family: Georgia, serif;
+    font-size: 19px;
+    color: var(--navy);
+    margin: 32px 0 10px;
+  }
+  h4 {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin: 20px 0 8px;
+    font-weight: 700;
+  }
+  p { margin: 0 0 16px; }
+  ul, ol { margin: 0 0 18px; padding-left: 24px; }
+  li { margin-bottom: 8px; }
+  .toc {
+    background: var(--paper-accent);
+    border-left: 4px solid var(--gold);
+    padding: 24px 32px;
+    border-radius: 2px;
+    margin: 24px 0 40px;
+  }
+  .toc h2 { margin-top: 0; border: none; font-size: 18px; color: var(--gold); letter-spacing: 2px; text-transform: uppercase; font-family: 'Helvetica Neue', Arial, sans-serif; }
+  .toc ol { columns: 2; column-gap: 32px; font-size: 14px; }
+  .toc li { margin-bottom: 4px; break-inside: avoid; }
+  .toc a { color: var(--navy); text-decoration: none; }
+  .toc a:hover { text-decoration: underline; color: var(--gold); }
+  blockquote.why {
+    font-size: 17px;
+    font-family: Georgia, serif;
+    font-style: italic;
+    color: var(--navy);
+    background: var(--gold-soft);
+    border-left: 4px solid var(--gold);
+    padding: 24px 32px;
+    margin: 24px 0;
+    border-radius: 2px;
+  }
+  blockquote.why p { margin: 0 0 12px; }
+  blockquote.why p:last-child { margin-bottom: 0; }
+  .callout {
+    padding: 16px 22px;
+    margin: 18px 0;
+    border-left: 4px solid var(--cyan);
+    background: var(--cyan-soft);
+    border-radius: 2px;
+    font-size: 15px;
+  }
+  .callout.watching { border-left-color: var(--green); background: var(--green-soft); }
+  .callout.mistakes { border-left-color: var(--red); background: var(--red-soft); }
+  .callout.theory   { border-left-color: var(--gold); background: var(--gold-soft); }
+  .callout strong { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 6px; }
+  .callout.watching strong { color: var(--green); }
+  .callout.mistakes strong { color: var(--red); }
+  .callout.theory   strong { color: var(--gold); }
+  .callout.info     strong { color: var(--cyan); }
+  .key-points { margin: 12px 0 20px; padding-left: 20px; }
+  .key-points li { margin-bottom: 10px; line-height: 1.55; }
+  dl.glossary { margin: 20px 0; }
+  dl.glossary dt { font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 700; color: var(--navy); margin-top: 14px; font-size: 15px; }
+  dl.glossary dd { margin: 4px 0 0 0; padding-left: 0; font-size: 14.5px; line-height: 1.55; color: var(--ink); }
+  .steps { counter-reset: step; padding-left: 0; list-style: none; }
+  .steps li { counter-increment: step; padding-left: 44px; position: relative; margin-bottom: 14px; line-height: 1.55; }
+  .steps li::before {
+    content: counter(step);
+    position: absolute; left: 0; top: -2px;
+    width: 30px; height: 30px; border-radius: 50%;
+    background: var(--navy); color: white;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 700; font-size: 13px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .quiz {
+    background: var(--cyan-soft);
+    border-left: 4px solid var(--cyan);
+    padding: 24px 32px;
+    margin: 24px 0;
+    border-radius: 2px;
+  }
+  .quiz h3 { margin-top: 0; color: var(--cyan); }
+  .quiz ol { margin: 12px 0 0 0; padding-left: 22px; }
+  .quiz li { margin-bottom: 14px; }
+  .answer-key details {
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    padding: 12px 18px;
+    margin-bottom: 10px;
+    background: var(--paper);
+  }
+  .answer-key summary { font-weight: 700; cursor: pointer; color: var(--navy); font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 14px; }
+  .answer-key details[open] summary { margin-bottom: 10px; border-bottom: 1px solid var(--rule); padding-bottom: 6px; }
+  .answer-key p { margin-top: 10px; font-size: 14.5px; line-height: 1.6; }
+  .crosswalk {
+    background: var(--paper-accent);
+    padding: 18px 24px;
+    border-radius: 2px;
+    border: 1px solid var(--rule);
+    margin: 24px 0;
+    font-size: 14.5px;
+    color: var(--ink-soft);
+  }
+  footer {
+    margin-top: 64px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 12px;
+    color: var(--ink-soft);
+    text-align: center;
+  }
+  .section-marker {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--gold); font-weight: 700;
+    margin: 48px 0 0;
+  }
+  @media print {
+    body { padding: 0.6in 0.75in; background: white; font-size: 11pt; max-width: none; }
+    h1 { font-size: 24pt; }
+    h2 { font-size: 16pt; page-break-after: avoid; }
+    h3 { page-break-after: avoid; }
+    .callout, blockquote.why { page-break-inside: avoid; }
+    .toc { page-break-after: always; }
+    details { page-break-inside: avoid; }
+    details[open] > summary ~ * { display: block !important; }
+    .answer-key details { border: none; }
+    a { color: var(--navy); text-decoration: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="cover">
+  <div class="eyebrow">CAET Advanced Certification · Student Handbook</div>
+  <h1>Exam Study Module: Datalink Fundamentals</h1>
+  <p class="subtitle">Aircraft Electronics Association · Workforce Development Division</p>
+</header>
+
+<nav class="toc">
+  <h2>Contents</h2>
+  <ol>
+    <li><a href="#why">Why This Matters</a></li>
+    <li><a href="#terms">Key Terms &amp; Definitions</a></li>
+    <li><a href="#kr-1">CPDLC (Controller-Pilot Data Link Communications)</a></li><li><a href="#kr-2">ADS-C (Automatic Dependent Surveillance — Contract)</a></li><li><a href="#kr-3">FANS Architecture</a></li><li><a href="#kr-4">Logon and Connection</a></li><li><a href="#kr-5">Key Exam Topics</a></li>
+    <li><a href="#task-1">Task 1 — CPDLC Logon</a></li><li><a href="#task-2">Task 2 — ACARS Addressing</a></li><li><a href="#task-3">Task 3 — Datalink Fallback</a></li><li><a href="#task-4">Task 4 — FANS Interoperability</a></li><li><a href="#task-5">Task 5 — ADS-C Contracts</a></li><li><a href="#task-6">Task 6 — Session Closeout</a></li>
+    <li><a href="#quiz">Self-Check &amp; Oral Board Practice</a></li>
+    
+  </ol>
+</nav>
+
+<section id="why">
+  <div class="section-marker">Part I — Orientation</div>
+  <h2>Why This Matters</h2>
+  
+  <blockquote class="why"><p>For most of aviation history, oceanic and remote-area crews talked to ATC through HF voice — a squelching conversation bounced off the ionosphere, often relayed through a radio operator (ARINC San Francisco, Iceland Radio, Gander Radio) who transcribed the message and called the controller by phone. A simple level change could take ten minutes to clear, and one transcription error could place two aircraft at the same flight level on the same track. Datalink ended that era. CPDLC and ADS-C over FANS 1/A+ let an aircraft hold a written, time-stamped conversation with Oakland Oceanic or Shanwick while the controller watches a surveillance display that updates every 14 minutes. The cost of a bad datalink install, a misconfigured ARINC 620 address, or a mis-terminated SATCOM feed is measured in lost separation over airspace where the nearest radar is a thousand miles away.</p></blockquote>
+  
+  <blockquote class="why"><p>Datalink is not an optional upgrade — it is the admission ticket to the airspace where the money is made. The North Atlantic Tracks (NAT HLA), the Pacific OTS, AUSOTS, and Polar routes require FANS 1/A+ with CPDLC and ADS-C as a condition of operation. An aircraft whose CMU fails its performance-based-communication (PBC) test on the ramp in Anchorage does not get a clearance to Tokyo; the crew waits for a fix or files a reroute that adds an hour of fuel. The technician who can read an ACARS log, trace an ARINC 429 MCDU-to-CMU discrete, and verify a SATCOM log-on before the crew arrives is the technician who gets the airplane out on time.</p></blockquote>
+  
+  <blockquote class="why"><p>This module is an exam-study module. The evaluator will not hand you a harness — they will hand you a scenario and expect a crisp, correct explanation. The difference between pass and fail is not memorizing acronyms; it is understanding the architecture well enough to diagnose where a message got stuck. A craftsperson-grade answer traces the message from the pilot's keystroke on the MCDU, through the CMU logon manager, down the VDL Mode 2 or SATCOM pipe, across the ARINC/SITA ground network, into the ATC CPDLC host, and back. If you cannot draw that picture from memory, you are not ready for the oral board and you are not ready to release an airplane to the North Atlantic.</p></blockquote>
+  
+  
+  <h4>From the PQS Source</h4>
+  <p>For most of aviation history, oceanic and remote-area crews talked to ATC through HF voice — a squelching conversation bounced off the ionosphere, often relayed through a radio operator (ARINC San Francisco, Iceland Radio, Gander Radio) who transcribed the message and called the controller by phone. A simple level change could take ten minutes to clear, and one transcription error could place two aircraft at the same flight level on the same track. Datalink ended that era. CPDLC and ADS-C over FANS 1/A+ let an aircraft hold a written, time-stamped conversation with Oakland Oceanic or Shanwick while the controller watches a surveillance display that updates every 14 minutes. The cost of a bad datalink install, a misconfigured ARINC 620 address, or a mis-terminated SATCOM feed is measured in lost separation over airspace where the nearest radar is a thousand miles away.</p>
+  
+</section>
+
+<section id="terms">
+  <h2>Key Terms &amp; Definitions</h2>
+  <p>Master this vocabulary before continuing. The evaluator expects you to use these terms correctly in the oral board.</p>
+  <dl class="glossary">
+    
+    <dt>ACARS (Aircraft Communications Addressing and Reporting System)</dt>
+    <dd>Character-oriented datalink protocol developed by ARINC in 1978. Carries short text messages (OOOI times, weather, flight plans, maintenance faults, ATC clearances) between aircraft and ground via VDL (Mode 0/A/2), HF, or SATCOM. Standardized in ARINC 618 (air-ground), 619 (CMU-host interface), and 620 (ground-network formats). Typical message ~220 characters; block-level acknowledgement.</dd>
+    
+    <dt>CPDLC (Controller-Pilot Data Link Communications)</dt>
+    <dd>Text-based replacement for routine voice ATC. Controller selects a pre-formatted uplink (UM20 CLIMB TO FL380); crew responds WILCO / UNABLE / STANDBY. Runs over FANS 1/A+ (RTCA DO-258A, over ACARS) in oceanic/remote airspace, or ATN-B2 (RTCA DO-280) in European continental airspace. Target uplink-to-acknowledge 95th percentile under 60 seconds per ICAO Doc 10037 (GOLD).</dd>
+    
+    <dt>ADS-C (Automatic Dependent Surveillance — Contract)</dt>
+    <dd>Position-reporting service distinct from ADS-B. The ATC facility establishes contracts (periodic, event, on-demand); the FMS then transmits lat/long, altitude, speed, heading, vertical rate, next waypoint, and ETA on the agreed schedule — typically every 10-14 minutes oceanic. Uses the same ACARS pipe as CPDLC. Only the contracting facility sees the reports.</dd>
+    
+    <dt>FANS 1/A</dt>
+    <dd>Future Air Navigation System, first generation — CPDLC and ADS-C on top of ACARS. 'FANS 1' Boeing, 'FANS A' Airbus; 'FANS 1/A+' (DO-258A) is the interoperable upgrade required on the NAT HLA since 2020. Operates over VDL Mode 2, Inmarsat Classic Aero, Iridium SBD, and SwiftBroadband-Safety.</dd>
+    
+    <dt>FANS-B / ATN-B2</dt>
+    <dd>Second-generation datalink built on the bit-oriented Aeronautical Telecommunications Network OSI stack (RTCA DO-280B). Used in European continental CPDLC under EUROCONTROL Link 2000+. Not interoperable with FANS 1/A+; modern aircraft often install both stacks (dual-stack CMU).</dd>
+    
+    <dt>VDL Mode 2</dt>
+    <dd>VHF Data Link Mode 2 — modern terrestrial ACARS bearer. Packet-switched D8PSK in the 118.000-136.975 MHz band, primary channel 136.975 MHz, raw 31.5 kbps (user throughput ~4-6 kbps after CSMA/protocol overhead). Services: ARINC GlobaLink/VHF and SITA AIRCOM VHF. Has largely replaced legacy Mode A (AM-MSK at 2.4 kbps).</dd>
+    
+    <dt>SATCOM (Satellite Communications)</dt>
+    <dd>Over-ocean datalink bearer. (1) Inmarsat Classic Aero — geostationary L-band, 'H' low-gain / 'H+' high-gain, ~10.5 kbps. (2) Inmarsat SwiftBroadband-Safety — higher-speed L-band IP. (3) Iridium — LEO, pole-to-pole, SBD for short messages / Certus for broadband. SATCOM is mandatory for true oceanic — VDL2 does not exist mid-ocean.</dd>
+    
+    <dt>AOC / AOA (Airline Operational Control / Aeronautical Operational Agency)</dt>
+    <dd>Non-ATC side of ACARS: company-to-aircraft traffic — flight plans, load sheets, weather, maintenance alerts, engine snapshots. Addressing per ARINC 620 using the operator's 4-char identifier and sub-addresses (e.g. .MT maintenance, .WX weather, .OC operations). Routed to lower-priority queues than ATC.</dd>
+    
+    <dt>ARINC 618 / 619 / 620 / 622</dt>
+    <dd>ACARS standard family. 618 = air-ground character protocol (blocks, ACKs, addressing). 619 = internal CMU/MCDU or CMU/FMS interface (ARINC 429 or Ethernet). 620 = ground-network routing, 4-char address, ARINC/SITA DSPs. 622 = FANS ATS application message formats (AFN_Contact, CPDLC connection request) carried inside ARINC 620 blocks.</dd>
+    
+    <dt>Logon (FANS)</dt>
+    <dd>Handshake binding an aircraft to a ground ATS facility before CPDLC/ADS-C can flow. Crew enters the 4-char ICAO facility code (KZAK Oakland, EGGX Shanwick, CZQX Gander, PANC Anchorage, RJJJ Fukuoka, YMMM Melbourne). CMU sends AFN_Contact; ground replies AFN_Response (accepted/rejected). Required before any clearance.</dd>
+    
+    <dt>SELCAL vs Datalink Addressing</dt>
+    <dd>SELCAL is a 4-letter voice tone-code on HF/VHF alerting a specific aircraft. Datalink uses ICAO 24-bit hex address (same as Mode S) routed through ARINC/SITA. Unrelated systems — a SELCAL failure does not block datalink and vice-versa, though both are typically tested during a datalink signoff.</dd>
+    
+    <dt>Queue Management</dt>
+    <dd>CMU prioritization of outbound messages. Standard ARINC 620 classes: Q (ATS emergency, ~2-second target), N (AOC normal), U (AOC urgent), L (AOC low). A correct setup routes CPDLC uplinks/downlinks to Q queue over the best available bearer; a misconfigured queue sends a clearance behind a maintenance report.</dd>
+    
+    <dt>Media Advisory / Bearer Selection</dt>
+    <dd>CMU's live selection of which pipe to send each message on. Typical priority: VDL Mode 2 first (cheap, low-latency, terrestrial), then Inmarsat SwiftBroadband, Classic Aero H+, Classic Aero H, and Iridium SBD. Crew sees this on DATALINK STATUS as PRIMARY V/S/I. A dropping bearer triggers automatic re-logon on the next.</dd>
+    
+    <dt>RNP 10 / RNP 4 Oceanic</dt>
+    <dd>RNP 10 (older NAT) requires 10-NM lateral and 10-min longitudinal separation; no datalink required. RNP 4 (modern tracks, PACOTS, AUSOTS) requires 4 NM / 30 NM separation AND mandates FANS 1/A+ CPDLC plus ADS-C. Tighter spacing is legal only because the controller has ADS-C surveillance and CPDLC communication.</dd>
+    
+    <dt>CMU / MU (Communications Management Unit)</dt>
+    <dd>The box that aggregates datalink: ACARS character stack, FANS 1/A or ATN applications, AOC router, media manager. Stand-alone LRU (Honeywell MCS-7200, Rockwell Collins CMU-900/4000, Thales FMS-CMU) or an IMA cabinet function. MCDU = user interface; VDR, SATCOM SDU, Iridium LBT = bearers.</dd>
+    
+  </dl>
+</section>
+
+<div class="section-marker">Part II — Knowledge Requirements</div>
+
+
+
+
+<section id="kr-1">
+  <h2>CPDLC (Controller-Pilot Data Link Communications)</h2>
+
+  
+  <p>CPDLC is a structured, message-catalog conversation between an aircraft and an ATC facility. Every message is pulled from a fixed table of uplink (UM) and downlink (DM) elements defined in ICAO Doc 4444 and RTCA DO-258A (FANS) or DO-280 (ATN) — no free-typing a clearance. Crew sees each uplink on the MCDU ATC page, responds WILCO / UNABLE / STANDBY, and the system timestamps and logs every exchange. The pre-formatting is the whole point: transcription errors are impossible and the record is legally authoritative.</p>
+  
+
+  
+  <h4>From the PQS Source</h4>
+  <p>CPDLC replaces routine voice communications with text-based messages. Instead of the pilot calling ATC on the radio to request a climb, they send a digital message ('REQUEST FL380') and receive a digital clearance back ('CLIMB TO FL380'). The messages are pre-formatted to reduce errors and are logged automatically for record-keeping.</p>
+  
+
+  
+  <h4>Key Points</h4>
+  <ul class="key-points">
+    <li>Every exchange is paired: UMxx uplink (e.g. UM20 CLIMB TO FL380) with DMxx downlink (DM0 WILCO, DM1 UNABLE, DM2 STANDBY, DM3 ROGER). ICAO-numbered message elements, identical across operators.</li><li>FANS 1/A+ target per ICAO Doc 10037 (GOLD): 60 seconds for 95th percentile uplink-acknowledge; three missed in a sector triggers PBC review. ATN-B2 targets are tighter because of the bit-oriented stack.</li><li>Only one ATC facility is Current Data Authority (CDA) at a time. Transitioning KZAK to RJJJ goes through a Next Data Authority (NDA) handoff — the next facility becomes CDA, previous drops passive.</li><li>CPDLC en-route is separate from D-ATIS and from CPDLC-DCL (departure clearance). D-ATIS is recorded info; CPDLC-DCL is a pre-departure clearance on the ground — neither substitutes for en-route CPDLC.</li><li>A CPDLC session drop does NOT cancel the last clearance. Aircraft remains obligated to the last active uplink; crew reverts to voice until a new CPDLC connection is established.</li>
+  </ul>
+  
+</section>
+
+
+
+<section id="kr-2">
+  <h2>ADS-C (Automatic Dependent Surveillance — Contract)</h2>
+
+  
+  <p>ADS-C is the oceanic surveillance counterpart to CPDLC. Unlike ADS-B, which broadcasts 1090 MHz to anyone, ADS-C transmits only to ATC facilities that have explicitly 'contracted' with the aircraft. The FMS assembles a position report (lat/long, altitude, speed, heading, vertical rate, next waypoint, ETA) and pushes it over the ACARS pipe — normally SATCOM in oceanic airspace. This is how Oakland and Shanwick maintain surveillance across thousands of miles where radar is impossible.</p>
+  
+
+  
+  <h4>From the PQS Source</h4>
+  <p>ADS-C is different from ADS-B. While ADS-B broadcasts position to anyone listening, ADS-C sends position reports only to ATC facilities that have established a 'contract' (agreement) with the aircraft. ADS-C is used in oceanic and remote areas where radar coverage does not exist. The aircraft periodically reports its position, altitude, speed, and intent (next waypoint) to oceanic ATC centers via satellite datalink.</p>
+  
+
+  
+  <h4>Key Points</h4>
+  <ul class="key-points">
+    <li>Three contract types per ARINC 622 / DO-258A: Periodic (every N minutes, typically 10-14 oceanic), Event (altitude change, lateral deviation, waypoint crossing, vertical-rate change), On-Demand (single position dump on controller request).</li><li>Basic group: position, altitude, time. Optional groups: meteorological (wind/temp at FL), vertical rate, intended flight path, predicted route. Controller picks which groups the contract demands.</li><li>Emergency mode auto-activates on 7500/7600/7700 squawk or ELT — contract frequency increases and emergency flag is asserted on every report.</li><li>Waypoint change event (WCE): when a report crosses a fix, the ground strip updates without voice or CPDLC — frees controller bandwidth.</li><li>ADS-C contract does NOT replace CPDLC CDA — separate subscriptions. Modern practice keeps them aligned; older aircraft could hold ADS-C with a non-logged-on facility.</li>
+  </ul>
+  
+</section>
+
+
+
+<section id="kr-3">
+  <h2>FANS Architecture</h2>
+
+  
+  <p>FANS is not a single radio — it is a layered architecture spanning the flight deck interface, the CMU, the radios, and the ground network. Understanding where a message sits when it fails is the difference between swapping the wrong LRU and finding the actual fault in twenty minutes. Top-down: MCDU user interface, FANS application (CPDLC/ADS-C) on DO-258A or DO-280, ACARS character protocol (ARINC 618/622), physical bearers (VDL2, Inmarsat, Iridium).</p>
+  
+
+  
+
+  
+  <h4>Key Points</h4>
+  <ul class="key-points">
+    <li>MCDU / CDU — user interface. ATC page holds logon dialog, CPDLC inbox, report composition. Honeywell calls it ATC MENU; Rockwell Collins Pro Line Fusion uses a DLK/ATC tab of the PFD/MFD.</li><li>CMU / MU — the brain. Hosts FANS 1/A or ATN-B2, the ACARS stack, the AOC router, the logon manager, media advisory. Cross-talks to the FMS over ARINC 429 (or Ethernet on newer installs) for position, route, time.</li><li>VDR-3 / VDR-2100 — VDL2 bearer. Tunes 136.975 MHz primary (or operator alternate), provides D8PSK 31.5 kbps to ARINC/SITA ground stations.</li><li>SDU + HGA/LGA — Inmarsat bearer. L-band modulation, Doppler correction, antenna steering, network log-on. Classic Aero H+ ~10.5 kbps; SwiftBroadband-Safety much faster but packet-switched latency.</li><li>Iridium LBT / Certus — LEO bearer. Pole-to-pole coverage, critical above ~80 deg latitude where Inmarsat GEO visibility drops. SBD for ACARS-class, Certus for broadband.</li><li>Ground side — ARINC GlobaLink and SITA AIRCOM AIRMAIL (the two DSPs) aggregate air traffic, de-duplicate, route per ARINC 620 4-char address to the correct ATC CPDLC host (Harris GLOBAL, Lockheed Martin) or airline host.</li>
+  </ul>
+  
+</section>
+
+
+
+<section id="kr-4">
+  <h2>Logon and Connection</h2>
+
+  
+  <p>Before any CPDLC clearance can flow, the aircraft must log on to the controlling ATS facility. The logon is a discrete handshake, not just 'tuning in' — it creates an authenticated session in the ground CPDLC host and binds the aircraft identifier, flight ID, and a session key. Each oceanic FIR has its own ICAO 4-letter facility code and its own logon; crossing a boundary means either an automatic NDA handoff or a manual log-on.</p>
+  
+
+  
+  <h4>From the PQS Source</h4>
+  <p>Before using CPDLC, the aircraft must log on to the appropriate ATC facility. The FMS sends a logon request containing the aircraft identification, and the ATC facility accepts or rejects the connection. Once logged on, the crew can send and receive clearances, requests, and instructions. When transitioning between ATC facilities (e.g., crossing from one oceanic region to another), the aircraft must log on to the next facility and log off from the previous one.</p>
+  
+
+  
+  <h4>Key Points</h4>
+  <ul class="key-points">
+    <li>Crew verifies tail/flight ID on the MCDU ATC INIT page matches the filed flight plan. A mismatch causes the facility to reject the logon as no-flight-plan-match.</li><li>Logon = AFN_Contact (ARINC 622) carrying aircraft ID, flight ID, target facility ICAO. Ground replies AFN_Response (accepted / rejected-with-reason). Common rejection: 'flight plan not on file' when the plan has not propagated yet.</li><li>Facility codes seen daily: KZAK Oakland, KZNY New York, EGGX Shanwick, CZQX Gander, PANC Anchorage, RJJJ Fukuoka, YMMM Melbourne, ZSPD/ZPPP/ZBBB China. One wrong character = logon failure.</li><li>Handoff: CDA in Oakland hands off to NDA Anchorage. Ground triggers NDA; aircraft acknowledges; Oakland drops passive; Anchorage becomes CDA. Normally transparent to crew.</li><li>'NO COMM' arises when both VDL2 and SATCOM logon fail, or a session drops and no bearer re-establishes within 6-12 min. Crew reverts to HF voice or SATCOM voice and declares CPDLC-OUT at next position report.</li>
+  </ul>
+  
+</section>
+
+
+
+<section id="kr-5">
+  <h2>Key Exam Topics</h2>
+
+  
+  <p>The oral board focuses on whether you understand what each box does, how the message flows, and where it can break. You do not need to recite every message element number — you need to draw the architecture on a whiteboard, trace a clearance from controller to cockpit, and name the common failures with their troubleshooting paths.</p>
+  
+
+  
+  <h4>From the PQS Source</h4>
+  <p>CPDLC message types and flow (request → clearance → acknowledgment)
+Difference between ADS-B (broadcast) and ADS-C (contract-based)
+FANS architecture: FMS + SATCOM + crew interface
+Logon/logoff procedures between ATC facilities
+Message latency and acknowledgment requirements
+End of Exam Module 15 — Datalink Fundamentals</p>
+  
+
+  
+  <h4>Key Points</h4>
+  <ul class="key-points">
+    <li>Message flow: MCDU keystroke -> ARINC 429 to CMU -> FANS builds DM message -> ACARS frames it -> media manager picks bearer (VDL2 / SATCOM) -> RF -> ground station -> ARINC/SITA DSP routes per ARINC 620 -> ATC CPDLC host -> controller display.</li><li>ADS-B vs ADS-C: ADS-B is 1090 MHz extended squitter, broadcast, every second, open to all. ADS-C is over ACARS, contract-based, every 10-14 min, only the contracted facility sees it. Completely different avionics chains.</li><li>FANS 1/A+ vs ATN-B2: FANS is character-oriented on ACARS (DO-258A), used on NAT/Pacific. ATN-B2 is bit-oriented OSI stack (DO-280), used in European Link 2000+. Not interoperable; many aircraft carry both.</li><li>Latency target: 60 sec 95th percentile CPDLC uplink-acknowledge on FANS 1/A+ per GOLD. Exceeding triggers PBC monitoring.</li><li>Bearer fallback: VDL2 first (cheapest, terrestrial), Inmarsat SwiftBroadband, Classic Aero H+, Iridium SBD last (primary at high latitude). Automatic in the CMU; the technician must prove each link on the ground.</li>
+  </ul>
+  
+</section>
+
+
+<div class="section-marker">Part III — Task Preparation</div>
+
+
+
+
+<section id="task-1">
+  <h2>Task 1 — CPDLC Logon</h2>
+
+  
+  <p>Demonstrate verifying a successful CPDLC logon to an oceanic ATC facility after a datalink LRU replacement. Show the MCDU ATC page, verify aircraft/flight ID, initiate logon to the appropriate facility (e.g. KZAK for a Pacific crossing), and confirm AFN_Response 'ACCEPTED' is received. Document logon time and facility code in the maintenance log.</p>
+  
+
+  
+  <h4>Step-by-Step Procedure</h4>
+  <ol class="steps">
+    <li>Power avionics on ground power. Wait for the CMU BITE self-test (60-120 seconds) and for the MCDU ATC page to become available.</li><li>On the MCDU ATC INIT page, verify the tail number, ICAO 24-bit hex address, and flight ID match the filed flight plan. Mismatch is the #1 cause of rejection.</li><li>Enter the 4-character ICAO facility code of the controlling center (KZAK Oakland, CZQX Gander, EGGX Shanwick, YMMM Melbourne).</li><li>Press LOGON/NOTIFY. The CMU composes AFN_Contact per ARINC 622 and sends it over the preferred bearer (VDL2 in coverage, otherwise SATCOM).</li><li>Watch ATC STATUS. You should see 'LOGON IN PROGRESS' for up to 30 seconds, then either 'ACTIVE' with the facility code, or 'LOGON FAIL' with a reason.</li><li>If accepted, verify CPDLC is ACTIVE and the facility is CDA. Trigger a ground simulator test uplink (if available) and confirm crew WILCO is acknowledged.</li><li>If rejected, note the reason (FLIGHT PLAN NOT ON FILE — wait 5 min and retry; WRONG AIRCRAFT ID — fix the flight ID; FACILITY NOT AVAILABLE — try alternate or voice).</li><li>Document successful logon time, facility code, and bearer (VDL2 / SATCOM) in the maintenance record; close the discrepancy with AMM paragraph reference.</li><li>Before release, verify clean logoff from the test facility — leaving a test session open can cause in-flight logon failures.</li>
+  </ol>
+  
+
+  
+  <div class="callout watching">
+    <strong>Evaluator is watching for</strong>
+    <ul>
+      <li>Candidate verifies aircraft/flight ID on ATC INIT BEFORE attempting logon — does not just mash buttons.</li><li>Correct facility ICAO code for the flight phase; knows the common ones (KZAK/KZNY/CZQX) without a reference card.</li><li>Waits the full protocol timeout (30-60 sec) — does not re-send logon after 5 seconds and cause duplicate-session errors on the ground.</li><li>Can interpret the rejection reason and state the next action.</li><li>Documents the bearer used — matters for PBC records.</li><li>Verifies clean logoff — no ghost session left in the facility.</li>
+    </ul>
+  </div>
+  
+
+  
+  <div class="callout mistakes">
+    <strong>Common mistakes</strong>
+    <ul>
+      <li>Attempting logon before CMU BITE completes. ATC page may appear but the app is not ready; logon fails silently.</li><li>Entering a wrong facility code (KZOA vs KZAK) and blaming the ground for rejection.</li><li>Confusing CPDLC logon with ACARS AOC session — AOC needs only the AOC address, not a facility logon.</li><li>Re-sending logon every few seconds. Each duplicate burns bearer capacity and can lock the ground CPDLC host.</li><li>Documenting 'CPDLC functional' without noting bearer and facility. Evaluator will ask, and 'I didn't check' is a failure.</li>
+    </ul>
+  </div>
+  
+</section>
+
+
+
+<section id="task-2">
+  <h2>Task 2 — ACARS Addressing</h2>
+
+  
+  <p>Demonstrate configuring and verifying ACARS addressing after a CMU swap. Show ATC, AOC, and company sub-addresses on the CMU/MCDU configuration pages. Verify the ICAO 24-bit hex matches the registration, the operator AOC 4-char identifier is loaded, and sub-address routing (.MT, .WX, .OC) is correct. Send a test AOC message and confirm ground delivery via ARINC or SITA.</p>
+  
+
+  
+  <h4>Step-by-Step Procedure</h4>
+  <ol class="steps">
+    <li>Pull the operator's ACARS config sheet — tail number, ICAO 24-bit hex, 4-char ARINC/SITA operator code (UAL, DAL, AAL), and the sub-address scheme per ARINC 620.</li><li>On the CMU config page (load card on Honeywell, MCDU MAINT on Collins), enter the ICAO 24-bit hex. Verify it matches the Mode S transponder — they MUST be identical.</li><li>Configure AOC routing: .MT -> maintenance host, .WX -> weather, .OC -> flight operations, .CF -> company flight plan. Each routes to a different 7-character ARINC 620 ground address.</li><li>Configure ATC routing: CPDLC and ADS-C to the highest-priority queue (Q); ATIS requests to N or U; D-ATIS to the ARINC/SITA D-ATIS service address.</li><li>Load the SELCAL code from the type certificate data sheet or operator record. Verify accepted by CMU and by the VHF/HF radios.</li><li>Power cycle the CMU so the configuration takes effect on next boot — most platforms require this.</li><li>Send a test AOC free-text message to the operator's ground ops test address. Verify delivery in the ARINC GlobaLink or SITA AIRCOM portal within 30 seconds.</li><li>Send a test ATC logon to a test facility (if available). Verify acceptance.</li><li>Close the discrepancy with a printout or screenshot of the successful round-trip and the specific ARINC 620 address loaded.</li>
+  </ol>
+  
+
+  
+  <div class="callout watching">
+    <strong>Evaluator is watching for</strong>
+    <ul>
+      <li>Candidate cross-checks the ICAO 24-bit hex against the Mode S transponder. A mismatch means ATC sees two different aircraft.</li><li>All four AOC sub-addresses are entered; no blanks left to fall through to a default.</li><li>Understands SELCAL (voice alerting) vs ICAO 24-bit (datalink routing) — does not confuse the two.</li><li>Performs CMU power cycle after config — does not assume 'saved' means 'loaded'.</li><li>Verifies delivery on the ground side, not just 'sent' on the aircraft side.</li><li>Documents the ARINC or SITA portal confirmation number.</li>
+    </ul>
+  </div>
+  
+
+  
+  <div class="callout mistakes">
+    <strong>Common mistakes</strong>
+    <ul>
+      <li>Typing the 24-bit hex with a transposed digit. 6 hex chars; one wrong character routes to someone else's queue.</li><li>Forgetting to reload the flight ID after a CMU reset. The aircraft address persists; the flight ID is per-leg.</li><li>Leaving a default operator code when the operator actually uses the other DSP. Wrong network silently drops traffic.</li><li>Confusing SELCAL letters with datalink addressing and trying to use one in place of the other.</li><li>Declaring config good after only a 'sent' indication. No round-trip confirmation = no proof.</li>
+    </ul>
+  </div>
+  
+</section>
+
+
+
+<section id="task-3">
+  <h2>Task 3 — Datalink Fallback</h2>
+
+  
+  <p>Demonstrate troubleshooting a datalink NO COMM by verifying media advisory behavior. Simulate VDL2 loss; verify CMU falls back to SATCOM (Inmarsat H+ or SwiftBroadband). Verify SATCOM log-on on the SATCOM page, confirm re-logon to the controlling ATS facility over the new bearer, and verify a test CPDLC exchange succeeds.</p>
+  
+
+  
+  <h4>Step-by-Step Procedure</h4>
+  <ol class="steps">
+    <li>Confirm the reported symptom: 'CPDLC FAIL' on MCDU, or crew report of no datalink over a specific area. Pull the CMU BITE ACARS log if available.</li><li>Verify current bearer on DATALINK STATUS. You should see PRIMARY V/S/I with signal quality. If 'V' is RED/NO SIGNAL, VDL2 is the failure point.</li><li>Test VDL2: confirm VDR tuned to the correct primary (136.975 MHz in NA/Europe). Verify CMU ground-station list is current — outdated tables prevent association.</li><li>Simulate VDL2 loss (coordinate with crew): pull the VDR CB. CMU media advisory should fail over to SATCOM within 30-60 seconds.</li><li>Verify SATCOM log-on: SDU status page should show LOGGED ON to the Inmarsat NCS and a GES ID. 'LOG-ON IN PROGRESS' lasting >2 min indicates antenna or HPA fault.</li><li>Attempt re-logon to the ATS facility over SATCOM. AFN_Contact should route through Inmarsat; logon should complete within 60 seconds.</li><li>Restore VDL2 (reset CB). Wait 60 seconds for the CMU to detect VHF availability; verify the media advisory returns to VDL2 primary.</li><li>If the original fault was SDU/HPA and SATCOM was the failing bearer, the aircraft is VDL2-only. Not dispatchable for oceanic regardless of CPDLC working.</li>
+  </ol>
+  
+
+  
+  <div class="callout watching">
+    <strong>Evaluator is watching for</strong>
+    <ul>
+      <li>Structured bearer test — checks DATALINK STATUS first, not the VDR.</li><li>Coordinates CB pulls with crew before triggering cockpit messages.</li><li>Knows the VDL2 primary frequency and the Inmarsat vs Iridium coverage model cold.</li><li>Waits the full media advisory timeout — 60 seconds is not unusual.</li><li>Can explain dispatch impact — VDL2-only cannot be released to oceanic/polar regardless of CPDLC otherwise working.</li><li>Restores original configuration and verifies automatic re-selection of preferred bearer.</li>
+    </ul>
+  </div>
+  
+
+  
+  <div class="callout mistakes">
+    <strong>Common mistakes</strong>
+    <ul>
+      <li>Starting at the VDR without checking CMU DATALINK STATUS first — wastes time on the wrong bearer.</li><li>Not coordinating CB pulls; causes cockpit cautions that have to be explained to ops.</li><li>Declaring SATCOM bad when the aircraft is parked in a hangar with no L-band visibility.</li><li>Ignoring the media advisory timer and swapping the VDR when the fault is in the ground-station table configuration.</li><li>Releasing with SATCOM deferred for an oceanic route. Read the MEL before declaring dispatchable.</li>
+    </ul>
+  </div>
+  
+</section>
+
+
+
+<section id="task-4">
+  <h2>Task 4 — FANS Interoperability</h2>
+
+  
+  <p>Demonstrate verifying FANS 1/A+ and (if installed) ATN-B2 interoperability after a CMU software load. Using an approved ground simulator, log on to a FANS 1/A+ simulated facility, exchange UM20/DM0, log off, then log on to an ATN-B2 simulated facility and repeat. Verify both stacks pass with correct timing and facility-code handling.</p>
+  
+
+  
+  <h4>Step-by-Step Procedure</h4>
+  <ol class="steps">
+    <li>Confirm the installed CMU loadable-software part numbers match the operator's approved list — FANS 1/A+ load and, on dual-stack aircraft, ATN-B2 load each have their own part number.</li><li>Verify FANS 1/A+ is DO-258A-compliant (the '+' revision has been mandatory on the NAT HLA since 2020). Check CMU data plate or BITE ID page.</li><li>Using an approved ground simulator (Harris GLOBAL test driver, Jeppesen/Honeywell test set, or OEM ground tool), stand up a simulated FANS 1/A+ CDA.</li><li>From the MCDU, log on to the simulated facility. Verify AFN handshake completes, facility shows ACTIVE, and bearer used is logged.</li><li>Exchange a baseline message pair: UM20 CLIMB TO FL380 uplink / DM0 WILCO downlink. Verify timestamps, under-60-second round-trip, and both present in CMU BITE log.</li><li>Request an ADS-C contract (periodic, 10-min interval) from the simulator. Verify FMS assembles basic + projected-route group and sends the first report on time.</li><li>Log off FANS with AFN_Disconnect. If dual-stack, repeat with simulated ATN-B2 facility (DO-280 stack). Verify the CMU selects the ATN application, not the FANS one.</li><li>Document: FANS part number, ATN part number, test facility, round-trip times, any retries or timeouts. File with configuration paperwork.</li><li>Leave the CMU in operator's default state (usually FANS primary) before release.</li>
+  </ol>
+  
+
+  
+  <div class="callout watching">
+    <strong>Evaluator is watching for</strong>
+    <ul>
+      <li>Candidate checks and records CMU software part numbers before testing — essential for config control.</li><li>Knows FANS 1/A+ and ATN-B2 are not interchangeable — cannot say 'datalink is datalink'.</li><li>Uses an approved ground test tool, not a random utility.</li><li>Logs round-trip times against DO-258A / DO-280 targets.</li><li>Performs ADS-C contract testing as part of FANS verification — CPDLC alone is not complete.</li><li>Leaves aircraft in operator's normal dispatch config, not in test mode.</li>
+    </ul>
+  </div>
+  
+
+  
+  <div class="callout mistakes">
+    <strong>Common mistakes</strong>
+    <ul>
+      <li>Assuming a FANS-only aircraft can handle European Link 2000+. It cannot; the ground system rejects it on logon.</li><li>Loading new CMU software outside the operator-approved loadable-software process.</li><li>Testing CPDLC but skipping ADS-C — a broken contract causes dispatch problems that CPDLC-only testing didn't catch.</li><li>Not timing round-trip. PBC metrics require evidence, not 'it seemed to work'.</li><li>Leaving the aircraft in ATN primary when normal flight is NAT/FANS — first oceanic logon fails.</li>
+    </ul>
+  </div>
+  
+</section>
+
+
+
+<section id="task-5">
+  <h2>Task 5 — ADS-C Contracts</h2>
+
+  
+  <p>Demonstrate configuring and verifying ADS-C contract parameters. After logon, verify the facility establishes a periodic contract (10-14 min) and an event contract (waypoint change, altitude change). Confirm a waypoint-change report is sent when the aircraft crosses a simulated fix. Verify the report group contents (basic + projected route + meteorological) match the contract.</p>
+  
+
+  
+  <h4>Step-by-Step Procedure</h4>
+  <ol class="steps">
+    <li>On MCDU ATC, confirm an active CPDLC logon — ADS-C rides the same authenticated session and cannot exist without an active logon.</li><li>On the ADS-C STATUS sub-page, observe the contracts the ground facility has established. Typical oceanic set: periodic @ 14 min, event on waypoint change, event on altitude change >300 ft.</li><li>Verify the aircraft is building the required report groups: basic (lat, long, altitude, time), projected route, meteorological (wind/temp) per DO-258A.</li><li>Watch the periodic send event (DLK TX indication or CMU BITE log entry). Interval must match the contract — 14-min contract should produce a report every 14:00 +/- 15 sec.</li><li>Simulate or wait for a waypoint crossing. Verify an event report is generated within 30 seconds, flagged as waypoint-change, with new next-waypoint and updated ETA.</li><li>Verify emergency-mode escalation: pull ELT or squawk 7700 (coordinate with crew AND ATC — use simulator). Contract frequency should jump to ~1 min; emergency flag asserted.</li><li>Restore normal squawk; verify contract returns to the scheduled interval.</li><li>Review CMU BITE ADS-C log for the flight: timestamps, group contents, acknowledgements. Export or photograph for the work package.</li><li>Close with the AMM ADS-C functional-check paragraph and the operator's datalink config reference.</li>
+  </ol>
+  
+
+  
+  <div class="callout watching">
+    <strong>Evaluator is watching for</strong>
+    <ul>
+      <li>Candidate confirms active CPDLC logon first — knows ADS-C cannot exist standalone.</li><li>Can name the three contract types and cite a typical periodic interval (10-14 min).</li><li>Verifies each report group is populated — does not assume 'ESTABLISHED' means working.</li><li>Demonstrates emergency-mode escalation without disrupting a live facility (simulator or coordination).</li><li>Pulls evidence from BITE; does not rely on MCDU recollection.</li><li>Returns the aircraft to normal — confirms squawk, contract, and emergency flag all cleared.</li>
+    </ul>
+  </div>
+  
+
+  
+  <div class="callout mistakes">
+    <strong>Common mistakes</strong>
+    <ul>
+      <li>Confusing ADS-B and ADS-C on the bench. Different avionics chains entirely.</li><li>Testing ADS-C without an active CPDLC logon. Contract won't establish; candidate blames ADS-C when the problem is the logon.</li><li>Not timing the periodic. A 14-min contract sending every 20 is a legitimate write-up that only a stopwatch finds.</li><li>Triggering emergency mode on a live facility without coordination.</li><li>Failing to document group contents. 'ADS-C works' is not enough; specify what the ground requested and the aircraft sent.</li>
+    </ul>
+  </div>
+  
+</section>
+
+
+
+<section id="task-6">
+  <h2>Task 6 — Session Closeout</h2>
+
+  
+  <p>Demonstrate closing out a CPDLC session at end of flight. Send AFN_Disconnect or use 'ATC LOGOFF'. Verify the ground facility shows the aircraft logged off. Document session end time, any unresolved uplinks, and any deferred responses.</p>
+  
+
+  
+  <h4>Step-by-Step Procedure</h4>
+  <ol class="steps">
+    <li>Review ATC for open uplinks (messages without responses). A pending STANDBY or un-responded UNABLE is a loose end — coordinate with crew for proper response before disconnecting.</li><li>If ADS-C is active, verify whether to tear down with the CPDLC session or transfer to the next facility (NDA handoff). End-of-flight = tear down both.</li><li>Send LOGOFF from MCDU. CMU composes AFN_Disconnect per ARINC 622.</li><li>Verify ground acknowledgement: ATC STATUS should transition ACTIVE to ARMED/IDLE within 30 seconds.</li><li>Check CMU BITE for the AFN_Disconnect acknowledge. Confirm message counter shows no pending outbound messages.</li><li>Record session start time, end time, unresolved uplinks, bearer changes during flight, closing ADS-C report count.</li><li>If the aircraft is scheduled immediate next leg, leave CMU powered for fast re-logon. If hangar, power down is acceptable but next crew must re-verify ACARS and CPDLC before departure.</li><li>File BITE export with the maintenance record if CPDLC issues occurred — primary evidence for a write-up investigation.</li>
+  </ol>
+  
+
+  
+  <div class="callout watching">
+    <strong>Evaluator is watching for</strong>
+    <ul>
+      <li>Candidate checks for open uplinks before initiating logoff — does not orphan a pending message.</li><li>Understands ADS-C lifecycle and whether to tear down or transfer with the CPDLC session.</li><li>Waits for ground AFN_Disconnect acknowledgement; does not assume 'pressed the button' = 'logged off'.</li><li>Pulls BITE evidence to support the close documentation.</li><li>Documents bearer history — essential for later PBC investigation.</li><li>Knows the difference between a clean end-of-flight logoff and a dropped session with pending traffic.</li>
+    </ul>
+  </div>
+  
+
+  
+  <div class="callout mistakes">
+    <strong>Common mistakes</strong>
+    <ul>
+      <li>Powering off CMU to 'disconnect' without sending AFN_Disconnect. Ground holds a ghost session and rejects the next logon.</li><li>Ignoring an open uplink at logoff — ground CPDLC host flags it unresolved and may trigger voice callback.</li><li>Assuming ADS-C tears down automatically with CPDLC. Some grounds do, some don't — verify.</li><li>Not logging the session timeline. A later 'why did we miss an uplink at 04:12Z?' investigation needs the timeline.</li><li>Leaving the aircraft in a state where the next crew has to debug a stale logon.</li>
+    </ul>
+  </div>
+  
+</section>
+
+
+
+<div class="section-marker">Part IV — Background Theory</div>
+<section id="theory">
+  <h2>The Science Behind the Procedures</h2>
+  <p>When the oral board examiner asks <em>why</em>, these are the explanations they expect to hear.</p>
+  
+  <div class="callout theory">
+    <strong>Why Cpdlc Is Safer Than Hf Voice Oceanic</strong>
+    <p style="margin-top:8px;">For sixty years, oceanic ATC depended on HF voice relayed through a radio operator — the pilot spoke to ARINC San Francisco or Iceland Radio, a human operator wrote the message on paper, phoned the controller, read back the controller's clearance, relayed it back on HF. Each link injected latency (five to fifteen minutes common) and a transcription opportunity. A climb clearance transcribed as FL360 instead of FL380 put two aircraft at the same altitude on the same track. Every NAT or Pacific midair of the HF era traces back to that chain. CPDLC eliminates it: the clearance leaves the controller's console as a structured ICAO message element number (UM20 CLIMB TO FL380), rides ARINC 622 over ACARS, arrives verbatim on the pilot's MCDU, is acknowledged with DM0 WILCO, and the exchange is timestamped and logged. No voice, no relay, no paper. The tighter spacing that would have been unsafe with HF voice becomes safe with CPDLC — which is why RNP 4 and reduced vertical separation over the NAT (FL290 to FL410 in 1000 ft layers) is only legal with FANS 1/A+.</p>
+  </div>
+  
+  <div class="callout theory">
+    <strong>How Vdl Mode 2 Packet Switching Works</strong>
+    <p style="margin-top:8px;">VDL Mode 2 is not AM voice on a VHF channel — it is a packet-switched digital protocol operating in the same aeronautical VHF band (118.000-136.975 MHz) using D8PSK modulation at 31.5 kbps raw data rate. The aircraft VDR tunes the assigned frequency (globally 136.975 MHz as primary) and runs CSMA (Carrier Sense Multiple Access) — it listens for other transmissions, waits its slot, then sends. Each packet is an AVLC frame (Aviation VHF Link Control, ARINC 631) carrying an ACARS block. Ground stations (ARINC GlobaLink or SITA AIRCOM) receive, acknowledge, and forward to the DSP's ground network. Because it is packet-switched, dozens of aircraft share the same frequency simultaneously over a major terminal area, with CSMA scheduling. Raw 31.5 kbps yields ~4-6 kbps user throughput after CSMA overhead, framing, and acknowledgements — plenty for ACARS-class messages (a 220-char message fits in 2-3 AVLC frames). This is why VDL2 replaced the old 2.4 kbps Mode A — more aircraft, faster delivery, same frequency allocation.</p>
+  </div>
+  
+  <div class="callout theory">
+    <strong>Why Fans Is Separate From Atn B2</strong>
+    <p style="margin-top:8px;">FANS 1/A+ and ATN-B2 both deliver CPDLC but are built on incompatible foundations. FANS 1/A+ (RTCA DO-258A) is character-oriented — it wraps CPDLC and ADS-C in ARINC 622 messages riding on existing character-oriented ACARS (ARINC 618/620). Pragmatic: in the late 1990s, airlines already had ACARS everywhere, and layering a new app on top was cheap. The trade-off: character overhead makes FANS comparatively slow and inefficient for high-volume continental traffic. ATN-B2 (RTCA DO-280B) is bit-oriented — OSI-style Aeronautical Telecommunications Network with proper network/transport layers, security, and much more efficient encoding. EUROCONTROL's Link 2000+ mandate forced ATN on European continental traffic because the density demanded it. But retrofitting ATN to every airframe was never going to happen; the ACARS-based FANS installed base was too large and too functional oceanic. So today the world runs with both: FANS 1/A+ on the NAT, Pacific, and Polar; ATN-B2 in European continental; modern CMUs carry both stacks. A technician on airline fleet work must understand that 'CPDLC' means one of two completely different protocol stacks depending on where the airplane is — and that a software part number supporting one does not imply support for the other.</p>
+  </div>
+  
+</section>
+
+
+<div class="section-marker">Part V — Self-Check</div>
+
+<section id="quiz">
+  <h2>Oral Board Practice Questions</h2>
+  <p>Answer each aloud before opening the answer key. Mastery means you can explain it to a non-technical person, not just recite a definition.</p>
+  <div class="quiz">
+    <h3>Questions</h3>
+    <ol>
+      <li>Q1: Your crew reports a CPDLC NO COMM over the North Atlantic, 1500 NM from VDL2 coverage. Aircraft is FANS 1/A+ with Inmarsat Classic Aero H+ and Iridium SBD. Walk me through how the CMU media advisory should have handled this, and how you would troubleshoot it on the ground after landing.</li><li>Q2: Explain the complete difference between ADS-B and ADS-C. If an aircraft has an ADS-B Out fault but ADS-C is working normally, can it still dispatch to an RNP 4 North Pacific track? Why or why not?</li><li>Q3: An aircraft returning from Hong Kong has a write-up: 'CPDLC logon to Fukuoka rejected three times; crew reverted to HF voice.' Logon to Oakland on the same bearer worked fine. Give me your top three suspected causes in order of likelihood, and how you would confirm or exclude each.</li><li>Q4: Walk me from a pilot pressing WILCO on the MCDU all the way to the controller seeing the acknowledgement on a display in Oakland. Name every hardware and software layer the message passes through.</li><li>Q5: You are asked to release an aircraft with one deferred item: 'SDU inoperative — VDL2 and Iridium operational'. Next leg is LAX-SYD with a filed Pacific track requiring FANS 1/A+. Can you release it? What factors, standards, and documents do you cite?</li>
+    </ol>
+  </div>
+
+  <h3>Answer Key</h3>
+  <div class="answer-key">
+    
+    
+    
+    <details>
+      <summary>Q1: Your crew reports a CPDLC NO COMM over the North Atlantic, 1500 NM from VDL2 coverage. Aircraft is FANS 1/A+ with Inmarsat Classic Aero H+ and Iridium SBD. Walk me through how the CMU media advisory should have handled this, and how you would troubleshoot it on the ground after landing.</summary>
+      <p>Expected CMU behavior: at 1500 NM from VDL2 coverage, VDL2 was never a candidate — SATCOM should have been primary since departure. If CPDLC went NO COMM, the CMU should have detected SATCOM packet loss, tried retransmit up to 3 attempts per ARINC 620, then failed the bearer and attempted Iridium SBD fallback. Ground would have sent AFN_Disconnect after the session timer (6-12 min). On the ground afterwards: (1) pull the CMU BITE log for exact SATCOM-loss and Iridium-fallback timestamps; (2) check SDU log for Inmarsat LES handover events — common cause is crossing satellite footprints at the equator or far north; (3) check Iridium LBT status for log-on attempts; (4) verify antenna system — HGA steering and HPA output on Inmarsat, SBD ground-station visibility on Iridium. If both SATCOM paths show clean log-ons, the issue was transient ground-system routing — check ARINC or SITA DSP delivery logs. If SATCOM shows no log-on for extended periods, the SDU or antenna is the fault.</p>
+    </details>
+    
+    
+    
+    <details>
+      <summary>Q2: Explain the complete difference between ADS-B and ADS-C. If an aircraft has an ADS-B Out fault but ADS-C is working normally, can it still dispatch to an RNP 4 North Pacific track? Why or why not?</summary>
+      <p>ADS-B Out is 1090 MHz extended squitter broadcast, line-of-sight, to any ADS-B receiver — runs through the Mode S transponder. Required where ADS-B surveillance replaces radar (US enroute above FL180, most European class A/B/C). ADS-C is contract-based, ACARS-carried, to the specific ATC facility that established the contract. Uses the CMU, FMS, and SATCOM/VDL2 bearers — completely different chain from the transponder. For an RNP 4 North Pacific track (PACOTS), the requirement is FANS 1/A+ CPDLC plus ADS-C per the operator's OpsSpec and ICAO Doc 4444. ADS-B Out is NOT required oceanic — no ADS-B ground infrastructure over the Pacific. So if ADS-C is working, the aircraft can dispatch to RNP 4 PACOTS even with ADS-B Out deferred, provided the MEL permits ADS-B deferral and the filed route does not traverse any airspace requiring ADS-B Out. The dispatcher and MEL control the answer, not the technician, but the technician must explain the distinction so the right MEL entry is used.</p>
+    </details>
+    
+    
+    
+    <details>
+      <summary>Q3: An aircraft returning from Hong Kong has a write-up: 'CPDLC logon to Fukuoka rejected three times; crew reverted to HF voice.' Logon to Oakland on the same bearer worked fine. Give me your top three suspected causes in order of likelihood, and how you would confirm or exclude each.</summary>
+      <p>Three suspects in likelihood order: (1) Flight plan propagation. Fukuoka's CPDLC host receives plans from JCAB via ICAO AFTN. A plan arriving too close to logon can trigger 'FLIGHT PLAN NOT ON FILE'. Confirm: pull CMU AFN_Response log for rejection reason; if NO FLIGHT PLAN, crew waits 5-10 min and re-logs. (2) Aircraft/flight ID mismatch. If the flight ID on MCDU doesn't exactly match the filed plan (appended letter, leading zero), Fukuoka rejects where Oakland was lenient. Confirm: compare MCDU ATC INIT against the filed plan; fix and retry. (3) Facility code entry error. RJJJ (Fukuoka Oceanic) vs RJTT (Tokyo/Haneda) transposition gets silently rejected. Confirm: verify the code against the operator's route package. Less likely: CMU software version mismatch with Fukuoka's current expected DO-258A revision, or an ARINC/SITA DSP routing issue where the logon never reached Fukuoka — check DSP delivery logs.</p>
+    </details>
+    
+    
+    
+    <details>
+      <summary>Q4: Walk me from a pilot pressing WILCO on the MCDU all the way to the controller seeing the acknowledgement on a display in Oakland. Name every hardware and software layer the message passes through.</summary>
+      <p>Layer by layer from WILCO keystroke to controller display: (1) MCDU key matrix registers the press; (2) MCDU firmware interprets WILCO as DM0 for the highlighted uplink; (3) MCDU sends a logical message over ARINC 429 (or Ethernet per ARINC 619) to the CMU; (4) CMU FANS 1/A+ application (DO-258A) assembles DM0 into an ARINC 622 ATS application message; (5) ACARS character stack (ARINC 618) frames it with header, block count, checksum; (6) media manager picks primary bearer (VDL2 in coverage, else SATCOM); (7) VDR-3 modulates D8PSK at 31.5 kbps on the assigned VHF, or SDU+HGA transmits L-band to Inmarsat; (8) satellite/ground station demodulates and forwards to the ARINC or SITA DSP (GlobaLink / AIRCOM); (9) DSP parses the ARINC 620 envelope, routes by 4-char destination to Oakland's CPDLC host; (10) Oakland's host (Harris GLOBAL or Lockheed Martin) matches DM0 to the pending uplink by session/message ID, marks it acknowledged; (11) controller display refreshes. Target end-to-end: under 60 seconds per ICAO Doc 10037 (GOLD).</p>
+    </details>
+    
+    
+    
+    <details>
+      <summary>Q5: You are asked to release an aircraft with one deferred item: 'SDU inoperative — VDL2 and Iridium operational'. Next leg is LAX-SYD with a filed Pacific track requiring FANS 1/A+. Can you release it? What factors, standards, and documents do you cite?</summary>
+      <p>Analysis: deferred = 'SDU inoperative — VDL2 and Iridium operational'. SDU inoperative removes Inmarsat Classic Aero / SwiftBroadband. LAX-SYD on PACOTS requires FANS 1/A+ CPDLC and ADS-C as a condition of entry. Factors: (1) Inmarsat GEO coverage spans almost the entire LAX-SYD route — losing it removes the primary SATCOM bearer over open ocean. (2) Iridium SBD provides alternate pole-to-pole; it is a qualified FANS bearer but historically secondary, and may not meet all operator PBC latency requirements on all routes. (3) VDL2 is useful only in coastal coverage; irrelevant mid-Pacific. Documents I cite: operator's MMEL/MEL entry for the SDU — this specifies whether dispatch with SATCOM deferred is permitted oceanic. Also ICAO Doc 10037 (GOLD) for PBC, and the operator's OpsSpec for PACOTS/FANS 1/A+ which tells the dispatcher whether Iridium-only datalink qualifies. Cross-check: can the aircraft sustain an Iridium-only CPDLC session with Oakland/Auckland/Brisbane across the filed track? Most operator MELs will NOT allow SDU deferred on a FANS-mandated oceanic route — the dispatch decision is likely NO-GO for PACOTS. I would release for maintenance to fix the SDU; I would NOT sign it off as dispatchable for LAX-SYD with the SDU deferred.</p>
+    </details>
+    
+  </div>
+</section>
+
+
+
+<footer>
+  © 2026 Aircraft Electronics Association · Workforce Development Division.<br>
+  Derived from CAET Advanced PQS Training Module with supplementary teaching content authored for instructor use.
+</footer>
+
+</body>
+</html>

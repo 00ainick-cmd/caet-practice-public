@@ -1,0 +1,271 @@
+{
+  "slug": "adv14",
+  "module_name": "Software and Database Loading (FMS/GPS/ADS-B)",
+  "why_this_matters": [
+    "A navigation database is not a convenience file. It is the aircraft's authoritative picture of every runway threshold, every waypoint, every SID, STAR, and instrument procedure in the operating area. When that picture is wrong \u2014 by a single decimal place, by one missing obstacle, by one approach that was NOTAMed out last cycle \u2014 the crew flies the wrong track, descends to the wrong altitude, or commands the autopilot to capture a waypoint that no longer exists. Expired nav databases have contributed to controlled-flight-into-terrain events, missed-approach obstacle conflicts, and RNP deviations large enough to trigger Part 121 safety reports. The AIRAC 28-day cycle exists precisely because procedure data changes continuously, and the entire global system depends on every operator loading the same effective data on the same Thursday at 0901Z.",
+    "Software and database loading is formally recognized by the FAA as a maintenance action under 14 CFR Part 43. A technician who presses ENTER on a data loader is signing that the software part number installed on the aircraft now matches the configuration listed on the equipment list, that the CRC verified, that the effective date is within the approved window, and that no other subsystem was inadvertently affected. The load itself is governed by RTCA DO-178C for the software side and RTCA DO-200B/DO-201A for the aeronautical data side. AC 20-153B (aeronautical data quality), AC 20-170 (database management), and AC 20-177A (software aspects of airborne systems) together establish the regulatory framework. When any step is skipped \u2014 compatibility check, effective-date verification, post-load checksum, logbook entry \u2014 the aircraft has been released to service with undocumented configuration, and that is a finding in every audit that catches it.",
+    "The most dangerous failure mode is not a database that refuses to load. It is a database that loads successfully and is wrong. A waypoint with the correct name but a shifted latitude, an approach procedure whose minimum-descent altitude was revised, an ADS-B Out configuration whose ICAO address or emitter category no longer matches the aircraft registry \u2014 all of these load cleanly, pass CRC, and put the aircraft into service looking perfectly normal until the day the error matters. Your discipline in this module \u2014 verifying source, verifying cycle, verifying hardware compatibility, verifying post-load integrity, and documenting every action \u2014 is what stands between the data chain and an accident. The evaluator is not grading whether you can press buttons. The evaluator is grading whether your process will catch the one database in a thousand that is silently corrupted."
+  ],
+  "key_terms": [
+    {"term": "AIRAC Cycle", "definition": "Aeronautical Information Regulation And Control. A globally synchronized 28-day cycle (13 cycles per year) that defines when procedure and navigation data becomes effective. Every cycle takes effect at 0901Z on a Thursday, worldwide simultaneously. Cycles are numbered YYCC (e.g., 2405 = 5th cycle of 2024). Loading a database that has already expired is a no-go item; loading one that becomes effective in the next cycle is acceptable if within the approved-for-use window."},
+    {"term": "Navigation Database (NavDB / NDB)", "definition": "The dataset containing waypoints, navaids, airways, airports, runways, SIDs, STARs, approach procedures, and holding patterns used by the FMS/GPS. Typically 200\u2013800 MB depending on coverage region. Providers include Jeppesen, Lido (Lufthansa Systems), Garmin, and NavBlue (Airbus). Must be DO-200B/DO-201A compliant and tagged with an AIRAC cycle number."},
+    {"term": "Terrain and Obstacle Databases", "definition": "Separate datasets used by TAWS/EGPWS for terrain alerting and by some FMS installations for obstacle-aware routing. Terrain databases update on long intervals (annually or less) because the Earth changes slowly; obstacle databases update more frequently as new towers, cranes, and structures are registered. Both are subject to TSO-C151 and DO-276/DO-272 data-quality standards."},
+    {"term": "Data Loader (ARINC 615A)", "definition": "The standardized protocol for uploading software and data to avionics line-replaceable units. ARINC 615A operates over Ethernet or ARINC 664 (AFDX) and is used on most modern transport and business jet platforms. The older ARINC 615 operates over ARINC 429 and is still in service on legacy systems. Both define a file-transfer protocol, a part-number verification sequence, and a CRC check performed by the target LRU."},
+    {"term": "Portable Data Loader (PDL)", "definition": "A ruggedized laptop or dedicated hardware device that hosts the load-file library and connects to the aircraft data-loading network. Examples include the Teledyne-Controls PDL, the Rockwell Collins PDL-1000 series, and OEM equivalents. The PDL enforces part-number control, logs every transaction, and typically requires a login tied to a technician ID."},
+    {"term": "Datacard Media", "definition": "Physical removable media (SD card, compact flash, USB drive) used on smaller avionics platforms \u2014 most commonly Garmin GTN, GNS, and G1000 series. The card is programmed from the provider's desktop application (Garmin Jeppesen Services, Garmin FlyGarmin, or equivalent) and then inserted into the unit. The unit reads the card on power-up and prompts the pilot/technician to accept the load."},
+    {"term": "CRC (Cyclic Redundancy Check)", "definition": "A mathematical checksum computed over the contents of a data file, used to detect bit-level corruption during storage or transfer. The target LRU recomputes the CRC after receiving a load and compares it to the expected value published by the data provider. A CRC mismatch is an absolute reject \u2014 the unit will refuse to commit the load, or will boot to the previous version."},
+    {"term": "Software Part Number (SW P/N)", "definition": "The OEM-assigned identifier for a specific release of avionics software. Governed by the equipment manufacturer's configuration control system and listed on the aircraft equipment list (or Illustrated Parts Catalog). After any software load, the SW P/N visible on the unit's status page must match the SW P/N entered in the maintenance record. If they disagree, the aircraft is not in a known configuration."},
+    {"term": "Configuration Module", "definition": "A small memory device (typically a tiny PCB mounted in a connector backshell) that stores aircraft-specific configuration data \u2014 tail number, ICAO 24-bit address, installed options, emitter category, strapping selections. Used on Garmin GTX/GTN, Collins, and similar units. Must be reprogrammed when a unit is replaced so the new unit inherits the aircraft identity rather than the unit's factory defaults."},
+    {"term": "DO-178C DAL (Design Assurance Level)", "definition": "RTCA DO-178C classifies airborne software by the severity of failure: DAL A (catastrophic), DAL B (hazardous), DAL C (major), DAL D (minor), DAL E (no effect). An FMS is typically DAL B or C; a flight control computer is DAL A; in-flight entertainment is DAL E. Higher DALs require more rigorous development, test, and loading procedures. The load procedure supplied by the OEM reflects the DAL of the target."},
+    {"term": "DO-200B / DO-201A", "definition": "RTCA standards for processing and exchange of aeronautical data. DO-200B governs the data chain from origination (state authority) through provider (Jeppesen, Lido) to end user (operator). DO-201A defines the quality attributes \u2014 accuracy, resolution, integrity, timeliness \u2014 each type of data must meet. AC 20-153B incorporates both into FAA policy."},
+    {"term": "Provisional vs. Permanent Load", "definition": "Some systems accept a provisional load that becomes permanent only after a successful operational test or after the unit is power-cycled a defined number of times without anomaly. The provisional state protects against corruption detected during early operation. If the unit reverts, the previous version remains in service and no maintenance discrepancy is created."},
+    {"term": "Binary-Identical Verification", "definition": "The confirmation that the bit pattern installed on the LRU is exactly the bit pattern released by the OEM, performed by comparing CRCs or hashes published in the service bulletin / release note to the values reported by the unit after load. This is the legal evidence that the aircraft matches its approved configuration, not merely that \u201ca load completed successfully.\u201d"},
+    {"term": "FSB Software Evaluation", "definition": "The Flight Standardization Board (FSB) review that determines whether a new software release introduces training or operational differences significant enough to require crew training, an AFM/RFM supplement update, or a MMEL revision. Technicians must know when a software release is FSB-significant because it changes the documentation that must be updated alongside the load."},
+    {"term": "TSO-C115c / TSO-C146e / TSO-C145", "definition": "Technical Standard Orders for FMS (C115c) and SBAS-augmented GPS position sources (C145 non-integrated, C146e integrated). The TSO defines minimum performance; the installed equipment list in the 337 / 8110-3 approval links a specific software release to the TSO-approved configuration. A software load outside the TSO-approved envelope is not a legal maintenance action."}
+  ],
+  "knowledge_enrichment": {
+    "workflow": {
+      "title": "The Software / Database Update Workflow",
+      "overview": "Every software or database update \u2014 whether a routine 28-day nav database, an annual terrain database, or a service-bulletin-driven firmware revision \u2014 follows the same five-step workflow. The workflow exists because every step catches a failure mode the others cannot. Skipping any step is the pattern that produces the ramp-check findings, the audit write-ups, and the in-service events that trace back to maintenance.",
+      "key_points": [
+        "Step 1 \u2014 Pre-load verification. Confirm aircraft is grounded/secured, establish external ground power sufficient to avoid a brown-out mid-load, verify hardware part number and dash number against the equipment list, verify the load file media (cycle number for data, software part number for firmware), and read the applicable service bulletin or install manual section through once before touching anything.",
+          "Step 2 \u2014 Configuration backup. Extract the current configuration module contents, current software part numbers, and current database cycle. This is the fallback. On ARINC 615A systems the PDL typically offers a one-click backup; on datacard systems the technician writes the current values in a work card.",
+          "Step 3 \u2014 Load execution. For ARINC 615A: connect PDL, select target LRU, select load file, authenticate, initiate transfer, monitor progress, wait for CRC verification and commit message. For datacard: insert media, power-cycle the unit, accept the load prompt, wait for unit to report successful commit. Do not remove power during either operation.",
+          "Step 4 \u2014 Post-load verification. Confirm the unit reports the expected software part number and/or expected database cycle/effective dates. Compare against the provider's release note or service bulletin, not against memory. Perform the operational test specified by the AMM (often a short self-test followed by a functional check such as receiving GPS position, tuning a navaid, or displaying a waypoint on the map).",
+          "Step 5 \u2014 Documentation. Make the maintenance record entry citing the software P/N or database cycle loaded, the data source (release note, SB number), the part number of the LRU it was loaded onto, the effective/expiration dates (for databases), and a statement that post-load test was satisfactory. Update the aircraft configuration sheet if the OEM requires one. Return the aircraft to service only after documentation is complete."
+      ]
+    },
+    "navigation_database": {
+      "title": "Navigation Database Updates",
+      "overview": "Navigation databases follow the AIRAC 28-day cycle. The cycle number is global and independent of the data provider; cycle 2405 from Jeppesen covers the same effective window as cycle 2405 from Lido. What differs between providers is coverage area, format, and supplementary data. Selecting the wrong provider-format for a given unit is a common mistake \u2014 a Garmin NavData card programmed for a GTN 750 will not work in a GNS 530.",
+      "key_points": [
+        "Before loading: verify the effective date against the current calendar. A database whose effective date is in the future is acceptable and will simply activate on its effective Thursday at 0901Z. A database whose expiration date has passed is not acceptable for IFR operation per 91.205(d)(2) equivalence and OEM limitations.",
+        "Coverage region matters. A North America cycle loaded in an aircraft flown into Europe will fly the aircraft into empty airspace on the map \u2014 the FMS may refuse to load a flight plan using ICAO waypoints the database does not contain. Match coverage to the operation.",
+        "The AIRAC cycle number format is YYCC: 2403 = 3rd cycle of 2024. Nav providers publish cycles typically 10\u201314 days before the effective date so operators have a download window.",
+        "After loading, verify on the unit's database status page: cycle number, effective date range, and region. Garmin GTN displays this on the System \u2192 System Status \u2192 Database page. Collins Pro Line Fusion displays it on the MFD DB STATUS page.",
+        "Many units store two cycles simultaneously \u2014 current and next. The unit automatically switches at 0901Z on the effective Thursday. This feature allows loading the upcoming cycle days ahead without removing the active one, which is why you must always verify which cycle the unit is currently using, not just which is installed.",
+        "Databases are certified per DO-200B / AC 20-153B. The data provider's Letter of Acceptance (LOA) from the FAA covers the data chain from origination to the media in your hand. Aftermarket or hand-edited database files are not acceptable and void the LOA coverage."
+      ]
+    },
+    "software_updates": {
+      "title": "Software Updates (Firmware)",
+      "overview": "Avionics software updates range from simple (load a file, reboot, confirm part number) to complex (staged multi-part loads with strict ordering, inter-LRU dependencies, and mandatory operational tests). The OEM service bulletin or install manual is the authoritative procedure \u2014 the PDL interface hides complexity but does not substitute for reading the SB.",
+      "key_points": [
+        "Always read the Service Bulletin in full before starting. Look for: affected serial-number effectivity, prerequisite software versions, required accomplishment of prior SBs, test equipment requirements, flight test requirements (some SBs require a check flight before return to service).",
+        "Hardware compatibility is verified by reading the LRU data plate or by querying the unit via the PDL for its hardware part number. A software release built for hardware dash-2 will typically refuse to load on dash-1; some units do not check and will brick with a mismatched load.",
+        "Staged loads: many ARINC 615A targets require a specific sequence \u2014 e.g., load the bootloader first, then the operating software, then the configuration, then the options data. The PDL workflow enforces sequence; a manual workaround defeats the protection.",
+        "Some loads require inhibits: pulling specific circuit breakers to prevent an in-progress LRU from driving a partially-loaded peer. The SB will call these out explicitly.",
+        "DO-178C DAL drives procedural rigor. For DAL A/B software, OEMs typically require two-person verification and recorded PDL session logs. For DAL C/D, a single-technician workflow with post-load signature may be acceptable. Always follow the SB \u2014 do not decide the rigor yourself.",
+        "Provisional commit behavior: some systems (especially FMS computers) commit a new software load only after a successful power-up self-test or after N successful flight-phase transitions. If a failure is detected during the provisional period, the system reverts to the previous version automatically and the load is not considered successful."
+      ]
+    },
+    "failed_load_recovery": {
+      "title": "Failed Load Recovery",
+      "overview": "Most modern avionics retain the previous software version or previous database as a safety fallback during any load attempt. When a load fails \u2014 corrupted file, interrupted transfer, unexpected power loss, CRC mismatch, compatibility error \u2014 the target LRU typically reverts to the prior good version on the next power cycle. The technician's job during a failed load is to recognize the failure, not to force past it.",
+      "key_points": [
+        "Standard recovery: cycle external power (not battery-only, which may brown out during the reboot), verify on power-up that the unit reports the previous software P/N or previous database cycle, then retry the load using a freshly-written copy of the source file (corruption is often in the media, not the LRU).",
+        "Never retry a failed load from the same media without recreating it. If the SD card wrote corrupt data once, it is likely to do so again; reformat and rewrite the card from a fresh master, or use a different PDL if one is available.",
+        "If the LRU fails to boot entirely after a failed load (blank screen, repeated reboot loop, BITE failure on first power-up), stop. Do not attempt additional loads. The unit typically requires return to the manufacturer or authorized repair station for low-level recovery via JTAG or a diagnostic connector not available in the field.",
+        "Document the failed load attempt in the maintenance record even if you recover successfully. The record should show the software/database that was attempted, the failure observed, and the corrective action that produced success. Audit trails depend on this documentation.",
+        "A load that appears to succeed but produces anomalies in operation (wrong waypoint positions on the map, unexpected BITE faults, degraded GPS SBAS performance) is a failed load even if the unit did not declare the failure itself. Investigate by comparing reported part numbers and CRCs to the release note; if they do not match, reload from a verified master."
+      ]
+    },
+    "exam_key_topics": {
+      "title": "Key Exam Topics",
+      "overview": "The written exam concentrates five questions on software and database loading. The questions are workflow-focused: they test whether the candidate follows a disciplined process, not whether the candidate can recite memorized part numbers.",
+      "key_points": [
+        "Pre-load verification: AIRAC cycle date (still effective? becomes effective this cycle?), hardware compatibility (LRU P/N and dash), media integrity (fresh master, no prior failed writes).",
+        "Configuration backup: the step most commonly skipped and the one most frequently tested. Expect a question on what you back up and when.",
+        "Failed load recovery: power cycle first, verify revert to previous version, then retry with fresh media. A question will almost always probe whether the candidate knows to NOT keep hammering the load button.",
+        "Hardware compatibility verification: part number from the data plate or from the equipment list, not from memory. Dash numbers matter.",
+        "Post-load operational test per the AMM or SB: candidates who say \u201cit booted, so it's good\u201d lose points. Candidates who cite the specific operational test called out in the maintenance data earn them."
+      ]
+    },
+    "regulatory_framework": {
+      "title": "Regulatory and Standards Framework",
+      "overview": "Software and database loading is governed by a layered stack of standards. Technicians do not need to memorize the full text of each, but they must know which document governs which decision \u2014 because an auditor will ask.",
+      "key_points": [
+        "RTCA DO-178C \u2014 Software considerations in airborne systems. Defines DALs A\u2013E and the development/test/configuration-control evidence required at each level. Governs the load procedure rigor.",
+        "RTCA DO-200B \u2014 Standards for processing aeronautical data. Covers the data chain from origination through delivery to the aircraft. Ensures the data you receive from Jeppesen or Lido traces to the state authority.",
+        "RTCA DO-201A \u2014 Aeronautical information data quality requirements (accuracy, resolution, integrity, timeliness per data type).",
+        "ARINC 615A \u2014 Data loader standard over Ethernet/ARINC 664. Defines the wire-level protocol, the part-number handshake, and the CRC check that every compliant PDL implements.",
+        "AC 20-153B \u2014 FAA acceptance of aeronautical data processes for airborne navigation databases. The regulatory enablement of DO-200B for operators.",
+        "AC 20-170 \u2014 Airworthiness approval of data management, including database configuration management.",
+        "AC 20-177A \u2014 Software aspects of airborne systems. FAA acceptance of DO-178C.",
+        "TSO-C115c (FMS), TSO-C146e (integrated SBAS GPS), TSO-C145 (non-integrated SBAS), TSO-C151d (TAWS). Each TSO installation approval specifies the software part numbers that remain inside the approved envelope.",
+        "14 CFR 91.213 (MEL) governs dispatch with a deferred database or software item. 14 CFR 43 Appendix A lists software/data loading as a maintenance action requiring record entry."
+      ]
+    }
+  },
+  "synthesized_tasks": [
+    {"heading": "Task 1 \u2014 Nav Database Loading via SD Card", "body": "Load a new AIRAC nav database onto a Garmin GTN 750 (or equivalent panel-mount navigator) using a prepared SD datacard. Verify effective dates, cycle number, coverage region, and post-load integrity before releasing the aircraft to service."},
+    {"heading": "Task 2 \u2014 ARINC 615A Dataload (PDL)", "body": "Using a portable data loader, transfer a software release to a target LRU over ARINC 615A. Establish the PDL-to-aircraft connection, authenticate, select the correct target and load, monitor the transfer through CRC verification and commit, and confirm post-load part number."},
+    {"heading": "Task 3 \u2014 Post-Load Verification and Logbook Entry", "body": "Following any software or database load, perform the operational test specified by the maintenance data and make a compliant maintenance record entry. Verify reported part numbers and cycle data, cite the data source, and return the aircraft to service."},
+    {"heading": "Task 4 \u2014 FMS Configuration Module Reprogramming", "body": "Replace an FMS or transponder LRU and reprogram the associated configuration module so the new unit inherits aircraft-specific identity and strapping data (tail number, ICAO 24-bit address, emitter category, installed options). Verify post-programming ADS-B Out compliance."},
+    {"heading": "Task 5 \u2014 Obstacle/Terrain Database Update", "body": "Load a current terrain and obstacle database set into a TAWS or EGPWS unit. Verify the database version, expiration window, and post-load functional behavior (terrain display, alerting envelope check) consistent with the OEM AMM procedure."}
+  ],
+  "task_enrichment": {
+    "Card": {
+      "title": "Nav Database Loading via SD Card",
+      "step_by_step": [
+        "Ground the aircraft and connect external ground power. Nav-DB loads on a GTN series take 5\u201320 minutes and a battery brown-out mid-load can corrupt the target.",
+        "Verify the aircraft equipment list or 337 to confirm the installed navigator part number and dash (e.g., GTN 750H vs GTN 750Xi). Match the ordered database to this configuration \u2014 datacards are format-specific.",
+        "At your bench workstation, use Garmin's Flight Stream or Jeppesen Services application to write the new AIRAC cycle to a formatted SD card. Do not reuse an old card that has seen a failed write \u2014 reformat or use fresh media.",
+        "Verify the card contents on the workstation: effective date range, cycle number (YYCC format), coverage region. Label the card with cycle and expiration before walking to the aircraft.",
+        "At the aircraft, power the avionics bus (battery plus ground power). Note the currently-loaded cycle on the Garmin System \u2192 System Status \u2192 Database page and record it on the work card as your backup reference.",
+        "Power the unit OFF, insert the SD card in the correct slot (GTN uses the lower slot for the primary nav database; the upper slot is for terrain/obstacle/SafeTaxi on older models \u2014 verify in the AMM).",
+        "Power the unit ON. The GTN reads the card on boot and presents an \u201cUpdate database?\u201d prompt. Confirm the effective dates shown match what you intended to load. Accept.",
+        "Do not touch controls during the load. The progress bar indicates copy status; the unit performs a CRC check at completion and reports success or failure.",
+        "On successful completion, cycle power one additional time to let the unit recognize the new cycle. Navigate to System \u2192 System Status \u2192 Database and confirm cycle number, effective dates, and region match the release note.",
+        "Remove the card, return it to the carrier, and proceed to logbook entry (see Task 3)."
+      ],
+      "evaluator_watching_for": [
+        "Candidate verifies hardware part number and dash from the equipment list BEFORE selecting a database card \u2014 does not assume.",
+        "External ground power established. If the candidate starts a load on battery alone, the evaluator marks it down immediately.",
+        "Candidate reads effective-date range off the acceptance prompt and confirms it matches the target cycle before accepting.",
+        "Post-load verification is done from the System Status page, not from the acceptance prompt \u2014 two different sources.",
+        "SD card handled properly: stored in carrier, not left in the cockpit, not pocketed."
+      ],
+      "common_mistakes": [
+        "Loading a cycle that has already expired. The unit may accept it; the aircraft is not legal IFR. Always check effective-date math against today\u2019s date.",
+        "Using an SD card that previously experienced a failed write. Flash media with one bad write typically repeats the failure. Reformat or replace the card.",
+        "Removing the card during the copy-and-verify phase. Produces a corrupted database that may or may not declare itself.",
+        "Confusing the terrain database slot with the nav database slot on older GTN units. Wrong card in wrong slot will not load and may trip a BITE warning.",
+        "Skipping the post-load System Status check because the acceptance prompt \u201csaid it worked.\u201d The prompt reports acceptance; the System Status page is the installed-configuration truth."
+      ]
+    },
+    "PDL": {
+      "title": "ARINC 615A Dataload (Portable Data Loader)",
+      "step_by_step": [
+        "Review the service bulletin or software release notice in full. Identify target LRUs, prerequisite software versions, required accomplishment of prior SBs, and required post-load tests. Note inter-LRU ordering if staged.",
+        "Configure the PDL with the current load-file library from the OEM portal or maintenance software vault. Verify file integrity on the PDL by checking the OEM-published SHA-256 hash or CRC against the file on disk.",
+        "Apply external ground power to the aircraft and engage any inhibits called out in the SB \u2014 circuit-breaker pulls, weight-on-wheels overrides, maintenance mode selections.",
+        "Connect the PDL to the aircraft data-loading port (typically an RJ-45 or a dedicated connector in an avionics bay). The PDL handshakes over ARINC 615A and enumerates all available LRUs that advertise a loadable software component.",
+        "Authenticate on the PDL with your technician ID. The session log tracks every action tied to this ID \u2014 do not share credentials.",
+        "Select the target LRU. The PDL queries the LRU for its current hardware part number and current software part number. Compare these to the SB effectivity before proceeding.",
+        "Select the load file matching the target's hardware dash and the SB-specified destination software version. Confirm the file name and CRC displayed by the PDL.",
+        "Initiate the transfer. Monitor the progress indicator. The PDL displays transfer progress, then handshake as the LRU writes to non-volatile memory, then CRC verification by the LRU itself.",
+        "At commit, the PDL displays the new software part number reported by the LRU. Confirm it matches the SB-specified post-load part number. If it does not match, do not release the aircraft.",
+        "If the SB prescribes a sequence (e.g., bootloader first, then operating software, then configuration), complete each step before moving to the next and verify part numbers between steps.",
+        "At the end of all loads, disconnect the PDL, remove any inhibits, remove external power as needed, and perform the post-load functional test specified by the SB."
+      ],
+      "evaluator_watching_for": [
+        "Candidate reads the SB before plugging anything in. An evaluator will often place the SB on the bench and watch whether it is actually consulted.",
+        "SHA-256 / CRC of load files verified on the PDL against OEM-published values before starting.",
+        "Inhibits (breaker pulls, weight-on-wheels) established per SB.",
+        "Candidate confirms PDL-reported current P/N against SB pre-load effectivity before committing a load.",
+        "Staged load order followed exactly \u2014 candidate does not skip ahead or recombine steps.",
+        "Post-load part number compared against SB, not trusted to display."
+      ],
+      "common_mistakes": [
+        "Relying on the PDL library without verifying file integrity. Libraries have been caught with truncated files after network outages; OEM-published hashes are the defense.",
+        "Logging in with a shared or generic credential. Breaks the audit trail; DO-178C DAL A/B loads require an individually attributable session.",
+        "Pulling the PDL cable partway through a transfer \u2014 even briefly \u2014 to plug in something else. 615A will typically abort and leave the target in a provisional state.",
+        "Loading out of SB-specified sequence because the target LRU is \u201calready done\u201d or the candidate wants to finish faster. Staged loads depend on each prior step establishing a known state.",
+        "Releasing the aircraft after a load that reported an unexpected final P/N. The display is the truth, not the intent."
+      ]
+    },
+    "Entry": {
+      "title": "Post-Load Verification and Logbook Entry",
+      "step_by_step": [
+        "After any load, perform the operational test specified by the AMM or SB. For nav DB: verify flight plan entry, waypoint display on map, and distance/bearing computation against a known reference. For firmware: verify self-test, BITE status, and any function the release notes specifically touched.",
+        "Capture the reported data: installed software part number and/or AIRAC cycle, effective date range, hardware part number of the host LRU, serial number of the host LRU.",
+        "Cross-check captured data against the OEM release note or service bulletin. Every field must match. If a field disagrees, do not sign the release \u2014 investigate.",
+        "Make the maintenance record entry. Minimum content: date, aircraft tail number, work card or task reference, LRU part number and serial number, software P/N or database cycle loaded, source of data (SB number, release note, provider letter), statement that post-load operational test was satisfactory, technician signature and certificate number.",
+        "Update the aircraft configuration sheet or equipment list if the OEM maintains one separate from the logbook. Some Part 121/135 operators require a separate software configuration log.",
+        "For ADS-B Out touches, verify the ICAO 24-bit address, emitter category, and equipment class reported by the transponder match the aircraft registry. A ramp-check discrepancy here generates an FAA 8020-1 investigation.",
+        "Close the work card, file the SB compliance record if applicable, and mark the discrepancy cleared. The aircraft is not returned to service until this paperwork is complete."
+      ],
+      "evaluator_watching_for": [
+        "Candidate performs the AMM-specified operational test, not a generic \u201cit booted, so good\u201d shortcut.",
+        "Every post-load value cross-checked against a written source (release note, SB), not from memory.",
+        "Logbook entry contains all required fields: aircraft ID, LRU P/N and S/N, software/database identifiers, data source, ops test statement, technician ID.",
+        "ADS-B-related loads include an explicit ICAO 24-bit address verification against aircraft registry.",
+        "Aircraft is not declared airworthy until documentation is complete \u2014 candidate does not move airplane off jacks or remove chocks prematurely."
+      ],
+      "common_mistakes": [
+        "Abbreviating the logbook entry to \u201cloaded new database, ops check good.\u201d Insufficient \u2014 missing source, cycle, expiration, and test detail.",
+        "Logging the intended software P/N instead of the reported software P/N. If there is a disagreement the log must reflect what was actually installed.",
+        "Overlooking a separate configuration sheet. Operators using ATA spec configuration management require it to match the logbook.",
+        "Missing the ICAO address verification after a transponder or FMS software change that touches ADS-B Out. Ramp-check findings and civil penalties have resulted.",
+        "Returning the aircraft to service before the SB compliance record is filed, creating a paperwork backlog that auditors will find."
+      ]
+    },
+    "Reprogramming": {
+      "title": "FMS / Transponder Configuration Module Reprogramming",
+      "step_by_step": [
+        "Confirm the new LRU's hardware part number and dash match the equipment list and the SB/STC data package. A wrong-dash unit cannot be corrected by reprogramming.",
+        "Prior to removing the old unit, extract its configuration module contents if technically possible. This provides a reference in case the aircraft as-installed data differs from the install documentation.",
+        "Remove the old unit. Transfer the configuration module from the old unit connector to the new unit connector if the design uses a connector-mounted module (e.g., Garmin GTX 345 uses the connector-back config module so the new unit inherits the module on installation).",
+        "If the design uses an internal config module (e.g., some Collins units), the new unit comes from the factory blank and must be programmed from the install data.",
+        "Install the new unit and apply ground power. Enter configuration mode per the AMM (typically a power-up key combination or a maintenance mode menu).",
+        "Program required fields: aircraft tail number (exact FAA registry spelling), ICAO 24-bit address (read from the aircraft registration or the airframe data plate, entered in hex), emitter category (per DO-260B \u2014 e.g., Light <15500 lb, Small 15500\u201375000 lb, Large), equipment class, installed antenna/GPS source strapping, and any option enables.",
+        "Save configuration. The unit typically requires a power cycle to commit.",
+        "Perform ADS-B Out verification: file an ADS-B PAPR (Public ADS-B Performance Report) request with the FAA after a short test flight in ADS-B coverage, or use a ramp ADS-B analyzer to confirm the transmission matches the configured fields.",
+        "Document the reprogramming in the logbook with all programmed field values. A later auditor will reference this entry."
+      ],
+      "evaluator_watching_for": [
+        "Candidate verifies hardware dash BEFORE removing the old unit \u2014 catches a wrong-part receipt while the aircraft is still airworthy.",
+        "ICAO 24-bit address entered in hex, verified against the aircraft registry or data plate letter for letter. Candidate reads values back aloud or to a second technician.",
+        "Emitter category selected by reading the aircraft type certificate data, not guessed from memory.",
+        "Power cycle performed after save \u2014 the commit step.",
+        "ADS-B Out verified post-install via PAPR or ramp analyzer \u2014 candidate does not assume correctness from configuration alone.",
+        "All programmed fields recorded in the logbook."
+      ],
+      "common_mistakes": [
+        "Transposing one character of the ICAO 24-bit address. ADS-B continues to transmit but reports the wrong aircraft. FAA 8020-1 inquiries and potential civil penalty.",
+        "Selecting the wrong emitter category (Light vs Small based on rough weight estimate instead of TCDS MTOW).",
+        "Forgetting a post-installation PAPR / analyzer check. A mis-programmed unit will transmit incorrect data until a flight crew or controller notices.",
+        "Entering the tail number with formatting differences (\u201cN123AB\u201d vs \u201cN-123AB\u201d vs \u201cN123-AB\u201d). The format in the unit must match the FAA registry exactly.",
+        "Not extracting the old unit's configuration before removing it when that capability existed, losing a useful reference."
+      ]
+    },
+    "Update": {
+      "title": "Terrain / Obstacle Database Update",
+      "step_by_step": [
+        "Identify the TAWS/EGPWS unit by part number (e.g., Honeywell MK V/VI/VII/VIII, Garmin G1000/GTN integrated TAWS-B). Each unit family has its own update medium and cadence.",
+        "Obtain the current terrain and obstacle database from the OEM or authorized distributor. Terrain databases update infrequently (typically annually); obstacle databases update on shorter cadences (often 56 days).",
+        "Verify the database version number against the OEM release note \u2014 not a memorized version. Obstacle databases especially are often out-of-phase with the nav database cycle.",
+        "Apply external ground power. Some TAWS loads take 20\u201360 minutes depending on coverage area and media speed.",
+        "Insert the loader media (USB, SD, or datacard depending on OEM) per AMM. For Honeywell MK VII, this is typically a compact flash card via the terrain database loader interface; for Garmin, an SD card in the appropriate bezel slot; for Collins, an ARINC 615A transfer.",
+        "Initiate load per AMM. Do not power-cycle or disconnect during the load.",
+        "On completion, perform the AMM post-load verification: check database version displayed on the TAWS status page, perform the self-test (typically aural \u201cTERRAIN TEST OK\u201d and visual display test), and confirm no new BITE faults.",
+        "Functional check per AMM: some installations require a simulated terrain-ahead scenario during run-up or a specific maintenance-mode test pattern.",
+        "Document the terrain and obstacle database versions separately in the logbook. Each has its own effective/expiration window; each is a separate database of record."
+      ],
+      "evaluator_watching_for": [
+        "Candidate distinguishes terrain from obstacle databases and loads both when both are due.",
+        "Database version verified against release note in writing \u2014 obstacle DBs have been known to be misaligned with pilot expectations.",
+        "External power used for long loads.",
+        "AMM-specified self-test performed and result recorded (e.g., \u201cTERRAIN TEST OK aural tone verified\u201d).",
+        "Terrain and obstacle DB versions logged separately in the maintenance record."
+      ],
+      "common_mistakes": [
+        "Loading only the terrain DB when the obstacle DB is also out of date \u2014 or vice versa. They expire on independent cycles.",
+        "Assuming the terrain DB updates on the AIRAC cycle. It does not; it is on its own schedule.",
+        "Skipping the TAWS self-test because \u201cthe unit booted.\u201d The self-test validates the speaker chain and the display chain, not just the computer.",
+        "Treating the terrain/obstacle load as a single-line log entry. Each database has its own version and the logbook should show both.",
+        "Loading onto a TAWS unit with a different hardware dash than the media was prepared for, producing a load failure or a subtle performance change."
+      ]
+    }
+  },
+  "synthesized_oral_board": [
+    "Q1: Walk me through a nav-database load on a Garmin GTN series from before you walk to the aircraft to after the logbook entry is signed. What do you verify at each step?",
+    "Q2: You start an ARINC 615A software load to an FMS, and 60% of the way through the PDL display freezes. You wait five minutes and it has not moved. What do you do?",
+    "Q3: The aircraft equipment list says the installed transponder is a GTX 345R dash-02. The unit on the aircraft reads dash-01. You have a software release in hand marked \u201cApplicable dash-02 and subsequent.\u201d What is your next action?",
+    "Q4: Explain the difference between the AIRAC cycle and the terrain database update cycle. Can you load a database that becomes effective next week?",
+    "Q5: After replacing a transponder, you reprogram the configuration module and release the aircraft. Two weeks later, the operator gets an FAA ADS-B performance report flagging an incorrect ICAO 24-bit address. Walk me through what went wrong, how you should have caught it, and what the regulatory exposure is."
+  ],
+  "oral_board_answers": {
+    "Q1": "Starts at the bench, not at the aircraft. Check the equipment list: what's the installed navigator part number and dash (e.g., GTN 750H dash-01)? Pull the matching database card format from stock. Use Garmin's distribution software (Jeppesen Services or Garmin Pilot for JeppView) to write the current AIRAC cycle to a fresh or reformatted SD card. Verify on-screen that the card now contains the intended cycle (YYCC), effective-date window, and coverage region. Label the card. At the aircraft, establish external ground power \u2014 GTN loads take 10 to 20 minutes and a battery brown-out will corrupt the target. Power up the unit, go to System, System Status, Database, and record the currently-installed cycle as your fallback. Power off. Insert the SD card into the correct slot (nav DB slot on the GTN front bezel, not the terrain slot). Power on. Accept the update prompt only after the unit's displayed effective-date range matches the intended cycle \u2014 this is the second verification point. Wait for the copy and CRC verification to complete; do not touch the unit. Cycle power. Go back to System Status, Database, and confirm the new cycle number, effective dates, and coverage region match the release note, not the acceptance prompt. Remove the card to its carrier. Perform the AMM operational check: enter a flight plan using a waypoint, verify it displays on the map, verify bearing and distance match a known reference. Logbook entry captures aircraft tail, LRU P/N and serial, cycle number loaded, effective and expiration dates, data source (Jeppesen JeppView release letter), statement that the ops test was satisfactory, technician signature and certificate number.",
+    "Q2": "A frozen PDL mid-load means I do not know the state of the target LRU, and that uncertainty is the priority. Step one: do not power-cycle the aircraft and do not yank the PDL cable. The target is almost certainly in a provisional state that will recover cleanly if I let it. Step two: check the PDL host. Is the laptop frozen, or is just the 615A session frozen? Try to bring up a second window on the laptop to test. If the laptop itself is locked, I have a different problem but still should not disturb the aircraft until I understand. Step three: if the PDL session is confirmed hung but the laptop is fine, the 615A standard allows the session to time out and the target to abort cleanly. Wait the timeout period specified by the OEM (often 5 to 10 minutes more). Step four: once the target aborts, it should revert to its previous software part number on the next power cycle. Remove the PDL cable, cycle aircraft power, and read the software part number on the unit's status page. If it matches the pre-load P/N, the target recovered and I can investigate the PDL failure on the bench, create a fresh load file, and retry. Step five: if the target does NOT boot, or boots with an unexpected P/N, stop. This is now a manufacturer-return scenario and I am not going to make it worse. Step six: document the entire attempt \u2014 what was loaded, when it hung, what recovery was done, what state the aircraft is in. The log trail is how an audit establishes that I did not release an aircraft in an unknown configuration.",
+    "Q3": "Stop and do not load. The hardware part number on the equipment list disagrees with the hardware part number in the aircraft, which means one of three things: the equipment list is wrong, the unit in the aircraft is wrong, or the install history has a gap. Each is a separate problem that I resolve before touching software. First I walk both ends \u2014 I read the dash off the actual LRU data plate with my own eyes, and I read the equipment list again to make sure I did not misread dashes. If the physical unit truly is dash-01 and the list says dash-02, I do a records search: was there a prior STC or 337 that authorized a dash-01 installation? Was there a unit swap that was not reflected on the equipment list? Did the SB I hold supersede dash-01 down to an approved substitute configuration? Second, I do not load a dash-02 release onto a dash-01 unit under any circumstances based on my own judgment. The SB applicability line is legally the outer envelope. Loading outside it is an unapproved alteration. Third, once I have resolved the configuration question on paper, one of two outcomes: either the equipment list gets corrected to match reality (with appropriate record entry), and I find the correct dash-01 software release, or the unit in the aircraft is wrong and needs to be exchanged for a dash-02 before any software load. Either way, I do not make the load the point at which I resolve a configuration discrepancy.",
+    "Q4": "The AIRAC cycle is a globally synchronized 28-day cycle for navigation data \u2014 waypoints, airways, SIDs, STARs, approach procedures, airport information. Every AIRAC cycle takes effect at 0901 Zulu on a Thursday, worldwide simultaneously. There are 13 cycles per year. Providers like Jeppesen, Lido, and NavBlue deliver on this cycle because the state authorities publish on this cycle. Terrain databases are completely independent. They capture the physical shape of the Earth's surface, which changes very slowly, so terrain DBs update on their own schedule \u2014 often annually or less frequently. Obstacle databases sit in between; towers and cranes come and go faster than terrain but slower than airspace, so obstacle DBs typically run on a 56-day or 28-day cycle depending on provider. Yes \u2014 you can load a nav database that becomes effective next week. In fact, that is how the system is designed. Providers publish cycles roughly 10 to 14 days before effective date so operators can load ahead. Most modern units store the current and next cycles simultaneously and auto-switch at 0901Z Thursday. What you cannot load is a cycle that has already expired. The FAA approved-for-use window does not extend past the expiration date; operating IFR on an expired database is a regulatory violation and, more importantly, a safety problem because every NOTAMed procedure change after the expiration is invisible to the airplane.",
+    "Q5": "What went wrong: during configuration programming, a character of the ICAO 24-bit address got transposed or mistyped, and the transponder has been broadcasting ADS-B Out with an incorrect 24-bit address ever since. Every squitter the aircraft sent for two weeks reported an ID that does not match the registry. The FAA's ADS-B monitoring network \u2014 the Public ADS-B Performance Report system \u2014 caught it. How I should have caught it before release: first, during programming, the ICAO address should have been entered by reading off the aircraft data plate or registration certificate, not from memory or a transcribed sticky note. Second, the entered value should have been read back aloud or verified by a second technician character-by-character before commit. Third, after the configuration was committed, the release procedure calls for an ADS-B Out verification \u2014 either a ramp ADS-B analyzer that decodes the transmitted frames and displays the 24-bit address, or filing a PAPR request after a short test flight in ADS-B coverage. Either of those would have shown the wrong address before the aircraft was released to revenue service. Regulatory exposure: 14 CFR 91.225 and 91.227 require correct ADS-B Out information. Incorrect transmission is a violation potentially attributable to both the operator and the certified technician who released the aircraft. The FAA may issue an 8020-1 investigation, a Letter of Investigation, and in egregious cases civil penalties or certificate action. Internally, there is a maintenance records audit finding: the logbook entry likely recorded an address that differs from what was actually programmed, which is a falsification concern if not clearly a clerical error. Corrective action is immediate: ground the aircraft, verify the data plate, reprogram with the correct address, perform the PAPR/analyzer verification, log the correction, and self-disclose to the FSDO."
+  },
+  "background_theory": {
+    "why_airac_locks_global_effective_dates": "The AIRAC 28-day cycle exists because airspace is a shared global system. Every country that is an ICAO member publishes procedure changes on a coordinated schedule so that when a SID changes in Frankfurt, it changes simultaneously worldwide in every operator's database. If the United States used its own cycle and Europe used another, an aircraft crossing the Atlantic would need to switch databases mid-flight, or worse, fly with stale data on half its route. AIRAC solves this by defining a 28-day grid, anchored to a reference date, with 13 cycles per year. Every publication by every state authority targets a specific cycle's effective Thursday at 0901Z. Providers (Jeppesen, Lido, Garmin, NavBlue) receive these publications, integrate them, apply DO-200B/DO-201A data-quality processes, and ship the cycle to operators with a 10-to-14-day lead. Units that store two cycles simultaneously let the operator load ahead, and the unit itself switches at 0901Z on the effective Thursday. The discipline is not bureaucratic. It is the mechanism by which a pilot in Dallas, a pilot in Paris, and a controller in Dubai share the same picture of the airspace at the same moment.",
+    "why_crc_verification_instead_of_filename_matching": "A filename confirms only that the technician grabbed the intended file. A CRC confirms that every bit of that file arrived at the LRU exactly as the author signed it. CRC \u2014 cyclic redundancy check \u2014 computes a fixed-length checksum over the entire payload using a polynomial that is highly sensitive to any change. A one-bit flip in the middle of a 400 MB database produces a totally different CRC, so mismatches are caught with near certainty. The target LRU recomputes the CRC after writing the data to non-volatile memory and compares it to the expected value shipped in the load-file header. A mismatch causes an immediate commit refusal, and the unit reverts. This is why ARINC 615A defines the CRC handshake as mandatory, and why OEMs publish SHA-256 hashes on their release portals for technicians to verify the load file at the PDL before transfer. Filename matching fails silently \u2014 a file truncated at 99% completeness has the same name and the same first 99%, and would boot and fly, until the corrupted region was accessed in flight. CRC verification catches the corruption at load time, when it can be corrected without consequence.",
+    "why_do178c_dal_determines_load_procedures": "DO-178C assigns each software item a Design Assurance Level (DAL) based on the severity of failure: A (catastrophic), B (hazardous), C (major), D (minor), E (no effect). The DAL drives the rigor of the development evidence the manufacturer must produce \u2014 structural coverage, independent test witness, tool qualification, and configuration management. That same rigor propagates to the field load procedure. A DAL A flight-control load may require two-person integrity-witness sign-off, recorded PDL session logs, a specific sequence of power cycles, and a flight-test verification before return to service. A DAL D cabin-lighting controller may accept a single-technician workflow and a simple post-load indicator check. Treating every load with the same level of rigor is wasteful; treating a DAL A load as if it were DAL D is unsafe and non-compliant. The service bulletin for the target reflects the DAL by prescribing the procedure, and the technician's obligation is to follow that procedure exactly \u2014 not to decide, based on personal judgment, that a step can be skipped because \u201cit worked last time.\u201d The DAL is the bridge between the regulatory airworthiness framework and the ratchet-click of the PDL in the technician's hand."
+  }
+}

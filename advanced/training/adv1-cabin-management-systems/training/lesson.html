@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exam Study Module: Cabin Management Systems — Interactive Lesson</title>
+<style>
+  :root {
+    --ink: #1a2332;
+    --ink-soft: #4a5568;
+    --paper: #fbfaf5;
+    --paper-accent: #f5f2e8;
+    --rule: #d8d3c3;
+    --navy: #0a2540;
+    --gold: #8b6914;
+    --gold-soft: #f4ead0;
+    --cyan: #0e4a6e;
+    --cyan-soft: #e4f1f8;
+    --green: #1b4332;
+    --green-soft: #e7f0e5;
+    --red: #8b1a1a;
+    --red-soft: #fbe9e7;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 16px; line-height: 1.65;
+    color: var(--ink); background: var(--paper);
+    max-width: 900px; margin: 0 auto;
+    padding: 40px 32px 80px;
+  }
+  header.lesson-cover {
+    border-bottom: 3px double var(--navy);
+    padding-bottom: 20px; margin-bottom: 32px;
+  }
+  .eyebrow {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    letter-spacing: 3px; font-size: 11px;
+    text-transform: uppercase; color: var(--gold); font-weight: 700;
+  }
+  h1 {
+    font-family: Georgia, serif; font-size: 30px; line-height: 1.2;
+    color: var(--navy); margin: 8px 0 6px;
+  }
+  .lesson-meta {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 13px; color: var(--ink-soft);
+    display: flex; gap: 20px; flex-wrap: wrap;
+  }
+  .lesson-meta span { background: var(--paper-accent); padding: 4px 12px; border-radius: 12px; }
+
+  .progress-bar {
+    height: 6px; background: var(--rule); border-radius: 3px;
+    overflow: hidden; margin: 24px 0 40px;
+  }
+  .progress-fill { height: 100%; background: var(--gold); width: 0; transition: width .4s; }
+
+  .phase {
+    background: white; border: 1px solid var(--rule); border-radius: 6px;
+    padding: 28px 32px; margin: 20px 0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+  .phase-header {
+    display: flex; align-items: baseline; justify-content: space-between;
+    gap: 16px; flex-wrap: wrap;
+    border-bottom: 1px solid var(--rule); padding-bottom: 10px; margin-bottom: 18px;
+  }
+  .phase-label {
+    display: inline-block;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    letter-spacing: 2px; font-size: 11px; text-transform: uppercase;
+    color: white; font-weight: 700;
+    padding: 4px 12px; border-radius: 3px;
+  }
+  .phase-engage    .phase-label { background: #8b6914; }
+  .phase-explore   .phase-label { background: #0e4a6e; }
+  .phase-explain   .phase-label { background: #1b4332; }
+  .phase-elaborate .phase-label { background: #6b2c91; }
+  .phase-evaluate  .phase-label { background: #8b1a1a; }
+
+  .phase h2 { font-family: Georgia, serif; font-size: 22px; color: var(--navy); margin: 4px 0 0; }
+  .timing { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 13px; color: var(--ink-soft); }
+
+  p { margin: 0 0 14px; }
+  ul, ol { padding-left: 22px; margin: 0 0 16px; }
+  li { margin-bottom: 6px; }
+
+  .scenario {
+    background: var(--gold-soft); border-left: 4px solid var(--gold);
+    padding: 18px 24px; margin: 18px 0;
+    border-radius: 2px;
+    font-style: italic;
+  }
+  .think-prompt {
+    background: var(--cyan-soft); border-left: 4px solid var(--cyan);
+    padding: 14px 20px; margin: 12px 0;
+    border-radius: 2px;
+  }
+  .think-prompt strong {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase;
+    color: var(--cyan); display: block; margin-bottom: 6px;
+  }
+  .card-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 14px; margin: 16px 0;
+  }
+  .card {
+    background: var(--paper-accent); border: 1px solid var(--rule);
+    border-radius: 4px; padding: 18px 22px;
+  }
+  .card h3 { margin: 0 0 10px; font-size: 16px; color: var(--navy); font-family: Georgia, serif; }
+  .card p { font-size: 14px; margin: 0; line-height: 1.55; }
+
+  .evaluate-cta {
+    background: var(--navy); color: white;
+    display: inline-block; text-decoration: none;
+    padding: 14px 28px; border-radius: 4px;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 700; font-size: 14px; letter-spacing: 1px; text-transform: uppercase;
+    border: none; cursor: pointer; transition: all .2s;
+  }
+  .evaluate-cta:hover { background: var(--gold); color: var(--navy); }
+  .evaluate-cta.secondary { background: white; color: var(--navy); border: 2px solid var(--navy); margin-left: 8px; }
+  .evaluate-cta.secondary:hover { background: var(--navy); color: white; }
+
+  .reflection {
+    border: 2px solid var(--rule); border-radius: 4px;
+    padding: 18px 22px; margin: 20px 0; background: white;
+  }
+  .reflection h4 { margin: 0 0 10px; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold); }
+  .reflection textarea {
+    width: 100%; min-height: 90px;
+    padding: 10px 14px;
+    font-family: inherit; font-size: 14px; line-height: 1.5;
+    border: 1px solid var(--rule); border-radius: 3px;
+    background: var(--paper); color: var(--ink); resize: vertical;
+  }
+
+  footer { margin-top: 60px; padding-top: 20px; border-top: 1px solid var(--rule);
+           font-size: 12px; color: var(--ink-soft); text-align: center; }
+
+  @media print {
+    body { background: white; padding: 0.6in 0.75in; max-width: none; font-size: 11pt; }
+    .phase { page-break-inside: avoid; box-shadow: none; }
+    .evaluate-cta { border: 1px solid var(--navy); color: var(--navy); background: white; }
+  }
+</style>
+</head>
+<body>
+
+<header class="lesson-cover">
+  <div class="eyebrow">CAET Advanced · Interactive 5E Lesson</div>
+  <h1>Exam Study Module: Cabin Management Systems</h1>
+  <div class="lesson-meta">
+    <span>⏱ ~45 minutes</span>
+    <span>📖 Engage → Explore → Explain → Elaborate → Evaluate</span>
+    <span>🛠 Hands-on + drill</span>
+  </div>
+</header>
+
+<div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
+
+<!-- ENGAGE -->
+<section class="phase phase-engage" data-phase="1">
+  <div class="phase-header">
+    <div>
+      <div class="phase-label">Engage</div>
+      <h2>Why should you care about this?</h2>
+    </div>
+    <div class="timing">~4 min</div>
+  </div>
+
+  
+  <p>A modern business aviation Cabin Management System is not a luxury feature — it is a federated network of embedded computers, PoE-powered endpoints, shielded Ethernet runs, wireless access points, and passenger-facing displays that shares the pressure vessel, the 28 V DC bus, and the structural bond network with flight-critical avionics. When a CMS designer, installer, or maintainer treats the system as 'just entertainment,' the aircraft ends up with Cat 5e runs chafing against flight control bundles, unbonded IFE chassis injecting conducted noise into the 400 Hz bus, and Wi-Fi access points radiating in frequency bands that couple into the passenger's hearing-aid loops. 14 CFR 25.1301 still applies to every wire you pull for the CMS. 14 CFR 25.1309 still applies to the failure analysis of every box you install. The craftsperson treats a passenger-service wire the same way they treat a primary-flight-control wire — because the aircraft does.</p>
+  <p>The accident record has made this lesson expensive. Swissair Flight 111 (MD-11, 1998) originated from arcing in an in-flight entertainment network that was installed under a supplemental type certificate without adequate attention to wire separation, circuit protection, and material flammability. The Transportation Safety Board of Canada traced the fire propagation to metallized Mylar insulation ignited by arcing in the IFE wiring above the cockpit ceiling. One hundred and twenty-nine people died because installers, inspectors, and approval engineers did not treat the cabin network with the discipline that flight-critical wiring demands. Every CMS wire you route, every backshell you torque, every circuit breaker you size, and every software load you validate is a response to that accident. The FAA's subsequent enhanced airworthiness program — EAPAS, now integrated into 14 CFR Part 26 and Advisory Circular 25-27 — exists because the industry learned the hard way that cabin wiring is not a second-class citizen.</p>
+  
+
+  <div class="think-prompt">
+    <strong>Pause &amp; Think</strong>
+    Before you continue — what is the single most common workmanship mistake a newly-qualified technician makes on this kind of task? Write one sentence in the reflection box below. You'll come back to it at the end.
+  </div>
+
+  <div class="reflection">
+    <h4>Your prediction</h4>
+    <textarea id="engage-reflection" placeholder="What do you think the #1 mistake is, and why?"></textarea>
+  </div>
+</section>
+
+<!-- EXPLORE -->
+<section class="phase phase-explore" data-phase="2">
+  <div class="phase-header">
+    <div>
+      <div class="phase-label">Explore</div>
+      <h2>Discover the terminology</h2>
+    </div>
+    <div class="timing">~8 min</div>
+  </div>
+
+  <p>Avionics work has its own vocabulary. Master these terms before procedures, because the oral-board examiner expects precision, not approximations.</p>
+
+  <div class="card-grid">
+    
+    <div class="card">
+      <h3>ARINC 628</h3>
+      <p>The ARINC industry standard defining the Cabin Equipment Interfaces specification — seat electronics, passenger control units, reading lights, and attendant call systems. Parts 1-9 cover everything from PSU wiring to in-seat power outlets. This is the primary ARINC reference for cabin electronics architecture and is required reading for any CMS retrofit STC.</p>
+    </div>
+    
+    <div class="card">
+      <h3>ARINC 763</h3>
+      <p>The standard defining Network Server Systems (NSS) for aircraft — the servers hosting cabin content, EFB ground-link services, and crew information. ARINC 763 specifies the hardware form factor, Ethernet interfaces, and airworthiness requirements for on-aircraft servers, including DO-160 environmental qualification for RTCA categories.</p>
+    </div>
+    
+    <div class="card">
+      <h3>ARINC 664 (AFDX)</h3>
+      <p>Avionics Full-Duplex Switched Ethernet — the deterministic Ethernet variant used on Boeing 787, Airbus A380/A350, and most modern transport-category aircraft for avionics data networks. CMS networks are typically isolated from AFDX but may share physical routing and must maintain the physical separation mandated by the Systems Safety Assessment.</p>
+    </div>
+    
+    <div class="card">
+      <h3>PoE+ (Power over Ethernet, IEEE 802.3at)</h3>
+      <p>Standard delivering up to 30 W per port at 48-54 V DC over Cat 5e or better twisted pair, powering endpoint devices (seat displays, Wi-Fi access points, cabin cameras) from the network switch. PoE++ (802.3bt) extends to 60-90 W. Budget planning is critical: a 24-port switch rated 370 W cannot run 24 full-load PoE+ ports.</p>
+    </div>
+    
+    <div class="card">
+      <h3>PSU (Passenger Service Unit)</h3>
+      <p>The overhead panel containing reading light, attendant call button, air gasper, and 'fasten seatbelt / no smoking' indicators, defined by ARINC 628. PSUs connect to the CMS via CAN bus or Ethernet and receive both power and control through a common backshell harness. A failed PSU is a common write-up and a common CAET practical task.</p>
+    </div>
+    
+    <div class="card">
+      <h3>IFE (In-Flight Entertainment)</h3>
+      <p>The audio/video distribution portion of the CMS. Modern IFE is IP-based: content stored on an ARINC 763 server, delivered as streaming H.264 or H.265 over the switched Ethernet network, decoded at each seat endpoint. Legacy IFE used RF distribution over coaxial cable — you will still see this on older aircraft and must know both architectures.</p>
+    </div>
+    
+  </div>
+
+  
+  <p style="font-size:13px; color:var(--ink-soft);"><em>+ 9 more terms in the full handbook glossary.</em></p>
+  
+
+  <div class="think-prompt">
+    <strong>Self-check</strong>
+    Close your browser tab for 30 seconds. Re-open and list 4 of the 6 terms above from memory, each with a one-sentence definition. If you can't, re-read before continuing.
+  </div>
+</section>
+
+<!-- EXPLAIN -->
+<section class="phase phase-explain" data-phase="3">
+  <div class="phase-header">
+    <div>
+      <div class="phase-label">Explain</div>
+      <h2>The theory you need</h2>
+    </div>
+    <div class="timing">~12 min</div>
+  </div>
+
+  <p>Memorizing steps isn't enough. The evaluator asks <em>why</em>. Here is what you need to understand.</p>
+
+  
+    
+    
+    
+    <h3 style="font-family:Georgia,serif; color:var(--navy); margin-top:28px;">CMS Architecture</h3>
+    <p>A modern business aviation CMS is a federated system: a central processor orchestrates subsystems distributed across the cabin over a switched Ethernet fabric. Understanding the architecture means knowing what data flows over which medium, what power flows over which bus, and which failures propagate where. CMS networks are logically and physically isolated from flight-critical avionics — ARINC 664 AFDX or ARINC 429 buses do not carry cabin data, and the Systems Safety Assessment documents the isolation.</p>
+    
+    <ul>
+      <li>Head-end architecture: a Central CMS Processor (ARINC 763 Network Server System) hosts the application, configuration database, and content library. On larger aircraft the head end is dual-redundant with automatic failover; on smaller platforms a single head end is typical and its failure darkens the cabin.</li><li>Distribution: an Ethernet switching fabric (typically managed Layer 2 switches with 802.1Q VLANs) carries both IFE streams and CMS control traffic. Zone switches are placed in avionics bays forward and aft; seat-group switches sit under the cabin floor in IDUs (Integrated Distribution Units).</li><li>Endpoints: PSUs, seat displays, reading lights, attendant call buttons, cabin speakers, Wi-Fi access points. Each endpoint is a network node with a MAC address, often receiving PoE+ power from its upstream switch port per IEEE 802.3at (up to 30 W).</li><li>Control: the cabin crew control panels are thin clients — the UI runs locally, but all state lives on the head-end server. A crew control panel reboot does not disrupt the cabin; a head-end reboot does.</li>
+    </ul>
+    
+    
+  
+    
+    
+    
+    <h3 style="font-family:Georgia,serif; color:var(--navy); margin-top:28px;">Systematic Troubleshooting for CMS</h3>
+    <p>CMS troubleshooting follows the same systematic method as any avionics system — observe, isolate, verify, repair, retest — but with the added complexity that multiple interconnected subsystems can produce the same symptom. The exam and the evaluator both test that you do NOT skip steps. Swapping an LRU before verifying cabling, power, and configuration is the single most common failure mode at the practical qualification.</p>
+    
+    <ul>
+      <li>Step 1 — Reproduce the fault from the crew control panel. If the crew cannot reproduce it, the crew cannot operate around it, and you have no repeatable test point.</li><li>Step 2 — Read the BIT log. Modern CMS head ends log PoE faults, network link drops, DHCP failures, and content server errors. The log often points directly at the LRU, port, or software fault.</li><li>Step 3 — Verify power at the suspect endpoint. Use a PoE tester at the RJ45 to confirm the switch is sourcing voltage and the endpoint is in the correct PoE class. A dead endpoint without PoE voltage is a switch or cable problem, not the endpoint.</li><li>Step 4 — Verify network connectivity. Ping the endpoint by IP from the head end or from a maintenance laptop on the same VLAN. A device that responds to ping but not to CMS commands is a software or configuration problem, not a hardware problem.</li>
+    </ul>
+    
+    
+  
+    
+    
+    
+    <h3 style="font-family:Georgia,serif; color:var(--navy); margin-top:28px;">CMS Network Architecture</h3>
+    <p>A modern business aviation CMS is a federated system: a central processor orchestrates subsystems distributed across the cabin over a switched Ethernet fabric. Understanding the architecture means knowing what data flows over which medium, what power flows over which bus, and which failures propagate where. CMS networks are logically and physically isolated from flight-critical avionics — ARINC 664 AFDX or ARINC 429 buses do not carry cabin data, and the Systems Safety Assessment documents the isolation.</p>
+    
+    <ul>
+      <li>Head-end architecture: a Central CMS Processor (ARINC 763 Network Server System) hosts the application, configuration database, and content library. On larger aircraft the head end is dual-redundant with automatic failover; on smaller platforms a single head end is typical and its failure darkens the cabin.</li><li>Distribution: an Ethernet switching fabric (typically managed Layer 2 switches with 802.1Q VLANs) carries both IFE streams and CMS control traffic. Zone switches are placed in avionics bays forward and aft; seat-group switches sit under the cabin floor in IDUs (Integrated Distribution Units).</li><li>Endpoints: PSUs, seat displays, reading lights, attendant call buttons, cabin speakers, Wi-Fi access points. Each endpoint is a network node with a MAC address, often receiving PoE+ power from its upstream switch port per IEEE 802.3at (up to 30 W).</li><li>Control: the cabin crew control panels are thin clients — the UI runs locally, but all state lives on the head-end server. A crew control panel reboot does not disrupt the cabin; a head-end reboot does.</li>
+    </ul>
+    
+    
+  
+    
+    
+    
+    <h3 style="font-family:Georgia,serif; color:var(--navy); margin-top:28px;">Software Updates and Configuration</h3>
+    <p>CMS software updates touch flight attendants' daily workflow — seat maps, lighting presets, playlist structures, Wi-Fi keys — and an update done wrong can wipe hours of customization. The exam tests the backup-before-update principle as a universal avionics rule, not a CMS quirk. It applies to FMS databases, engine monitor configurations, and GPS nav databases just the same. The method you learn here is the method you will use for every software load of your career.</p>
+    
+    <ul>
+      <li>Before any update: capture a configuration backup to the maintenance laptop. The CMS maintenance interface typically exposes a 'Save Configuration' function that writes a signed archive file. Label it with aircraft tail number, date, and 'pre-update' in the filename.</li><li>Verify the software load file is the correct version for this aircraft per the service bulletin or manufacturer release notes. A CMS head end and a CMS zone switch may require different software parts — do not cross-load.</li><li>Disable passenger access during the update. Some updates reboot the head end and kill Wi-Fi and IFE mid-procedure — doing this with passengers watching a movie generates complaints you do not need.</li><li>Verify software integrity after load: check sum or cryptographic hash matches the release notes. Modern CMS head ends verify this automatically and refuse to boot a corrupted image, but older systems will happily run a half-loaded file.</li>
+    </ul>
+    
+    
+  
+    
+    
+    
+    <h3 style="font-family:Georgia,serif; color:var(--navy); margin-top:28px;">Key Exam Topics</h3>
+    <p>The written exam for the CAET Advanced CMS module focuses on architectural understanding and troubleshooting discipline, not manufacturer-specific procedures. Questions test whether you can identify CMS components vs. aircraft system components, whether you know the order of the troubleshooting steps, and whether you understand why zone isolation and network separation exist. Preparing means reviewing the architecture diagrams from ARINC 628, the generic network topology, and the backup-before-update principle from every angle.</p>
+    
+    <ul>
+      <li>Component identification: given a photograph or schematic, identify which boxes are CMS (head end, zone switch, PSU, seat display) vs. aircraft system (IRS, FMS, transponder, engine EEC). Overlapping form factors in the equipment bay make this a real test.</li><li>Troubleshooting sequence: questions present a symptom and a list of actions — select the correct ORDER. Skipping the BIT log or swapping hardware before verifying power are distractor answers that will trap candidates who have not internalized the method.</li><li>Zone architecture: understand that a failed zone switch takes down one zone, not the whole cabin. Understand that a failed head end takes down the whole cabin unless redundant. Expect questions drawn from real block diagrams.</li><li>Software update method: backup first, update, verify, document. Expect questions on what to do when a step is skipped and something breaks. The correct answer is usually 'restore from backup,' not 'call the OEM.'</li>
+    </ul>
+    
+    
+  
+
+  
+  <div class="think-prompt">
+    <strong>Deep dive</strong>
+    The full <em>Background Theory</em> section in the handbook explains the physics: why crimps create gas-tight joints, why shielding works as a Faraday cage, and why insulation fails gradually before it arcs. Read it when you want the oral-board answer that makes the examiner smile.
+  </div>
+  
+</section>
+
+<!-- ELABORATE -->
+<section class="phase phase-elaborate" data-phase="4">
+  <div class="phase-header">
+    <div>
+      <div class="phase-label">Elaborate</div>
+      <h2>Apply it to a scenario</h2>
+    </div>
+    <div class="timing">~15 min</div>
+  </div>
+
+  
+  
+  
+  
+
+  <div class="scenario">
+    <strong>Scenario:</strong> You're on day one of your practical exam. The evaluator hands you a wire list and says, <em>"Build me a three-conductor shielded harness, 24 inches long, ring-terminated on both ends. You have 45 minutes. Questions before you start?"</em> What do you ask — and then what do you do?
+  </div>
+
+  <h3>Task focus: Task 1 — CMS Power-Up and Built-In Test</h3>
+
+  
+
+  
+
+  <div class="reflection">
+    <h4>Now reflect</h4>
+    <p style="font-size:14px; margin-bottom:8px;">Go back up to your Engage-phase reflection. Was your predicted #1 mistake in the <em>Common Mistakes</em> list? Update your answer with what you now know.</p>
+    <textarea id="elaborate-reflection" placeholder="What changed in your understanding?"></textarea>
+  </div>
+  
+</section>
+
+<!-- EVALUATE -->
+<section class="phase phase-evaluate" data-phase="5">
+  <div class="phase-header">
+    <div>
+      <div class="phase-label">Evaluate</div>
+      <h2>Prove you know it</h2>
+    </div>
+    <div class="timing">~6 min</div>
+  </div>
+
+  <p>You've read, explored, and reflected. Now test yourself.</p>
+
+  <ul>
+    <li><strong>Drill</strong> — answer every question in the practice bank (~20 questions). Aim for ≥80%.</li>
+    <li><strong>Oral-board practice</strong> — the handbook has 5 example questions with full answer explanations. Practice answering them aloud, unaided, until each takes &lt;90 seconds.</li>
+    <li><strong>Worksheet</strong> — complete the printable worksheet, then self-grade against the answer key.</li>
+  </ul>
+
+  <div style="margin:28px 0;">
+    <a href="../drill.html" class="evaluate-cta">Start Drill →</a>
+    <a href="handbook.html#quiz" class="evaluate-cta secondary">Practice Oral Board →</a>
+  </div>
+
+  <div class="think-prompt">
+    <strong>Gate criterion</strong>
+    You are ready for the practical when you can: (1) score ≥80% on the drill, (2) answer every oral-board question in under 90 seconds without looking, and (3) complete the worksheet with zero wrong answers.
+  </div>
+</section>
+
+<footer>
+  © 2026 Aircraft Electronics Association · This lesson is one of six study artifacts for Exam Study Module: Cabin Management Systems. Return to the module hub for the full library.
+</footer>
+
+<script>
+  // Simple progress bar driven by scroll position.
+  const progress = document.getElementById('progress');
+  window.addEventListener('scroll', () => {
+    const pct = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+    progress.style.width = Math.min(100, Math.max(0, pct)) + '%';
+  });
+</script>
+
+</body>
+</html>

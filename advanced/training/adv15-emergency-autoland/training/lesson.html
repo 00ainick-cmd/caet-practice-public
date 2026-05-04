@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Emergency Autoland Systems — Interactive Lesson</title>
+<style>
+  :root {
+    --ink: #1a2332;
+    --ink-soft: #4a5568;
+    --paper: #fbfaf5;
+    --paper-accent: #f5f2e8;
+    --rule: #d8d3c3;
+    --navy: #0a2540;
+    --gold: #8b6914;
+    --gold-soft: #f4ead0;
+    --cyan: #0e4a6e;
+    --cyan-soft: #e4f1f8;
+    --green: #1b4332;
+    --green-soft: #e7f0e5;
+    --red: #8b1a1a;
+    --red-soft: #fbe9e7;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 16px; line-height: 1.65;
+    color: var(--ink); background: var(--paper);
+    max-width: 900px; margin: 0 auto;
+    padding: 40px 32px 80px;
+  }
+  header.lesson-cover {
+    border-bottom: 3px double var(--navy);
+    padding-bottom: 20px; margin-bottom: 32px;
+  }
+  .eyebrow {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    letter-spacing: 3px; font-size: 11px;
+    text-transform: uppercase; color: var(--gold); font-weight: 700;
+  }
+  h1 {
+    font-family: Georgia, serif; font-size: 30px; line-height: 1.2;
+    color: var(--navy); margin: 8px 0 6px;
+  }
+  .lesson-meta {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 13px; color: var(--ink-soft);
+    display: flex; gap: 20px; flex-wrap: wrap;
+  }
+  .lesson-meta span { background: var(--paper-accent); padding: 4px 12px; border-radius: 12px; }
+
+  .progress-bar {
+    height: 6px; background: var(--rule); border-radius: 3px;
+    overflow: hidden; margin: 24px 0 40px;
+  }
+  .progress-fill { height: 100%; background: var(--gold); width: 0; transition: width .4s; }
+
+  .phase {
+    background: white; border: 1px solid var(--rule); border-radius: 6px;
+    padding: 28px 32px; margin: 20px 0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+  .phase-header {
+    display: flex; align-items: baseline; justify-content: space-between;
+    gap: 16px; flex-wrap: wrap;
+    border-bottom: 1px solid var(--rule); padding-bottom: 10px; margin-bottom: 18px;
+  }
+  .phase-label {
+    display: inline-block;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    letter-spacing: 2px; font-size: 11px; text-transform: uppercase;
+    color: white; font-weight: 700;
+    padding: 4px 12px; border-radius: 3px;
+  }
+  .phase-engage    .phase-label { background: #8b6914; }
+  .phase-explore   .phase-label { background: #0e4a6e; }
+  .phase-explain   .phase-label { background: #1b4332; }
+  .phase-elaborate .phase-label { background: #6b2c91; }
+  .phase-evaluate  .phase-label { background: #8b1a1a; }
+
+  .phase h2 { font-family: Georgia, serif; font-size: 22px; color: var(--navy); margin: 4px 0 0; }
+  .timing { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 13px; color: var(--ink-soft); }
+
+  p { margin: 0 0 14px; }
+  ul, ol { padding-left: 22px; margin: 0 0 16px; }
+  li { margin-bottom: 6px; }
+
+  .scenario {
+    background: var(--gold-soft); border-left: 4px solid var(--gold);
+    padding: 18px 24px; margin: 18px 0;
+    border-radius: 2px;
+    font-style: italic;
+  }
+  .think-prompt {
+    background: var(--cyan-soft); border-left: 4px solid var(--cyan);
+    padding: 14px 20px; margin: 12px 0;
+    border-radius: 2px;
+  }
+  .think-prompt strong {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase;
+    color: var(--cyan); display: block; margin-bottom: 6px;
+  }
+  .card-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 14px; margin: 16px 0;
+  }
+  .card {
+    background: var(--paper-accent); border: 1px solid var(--rule);
+    border-radius: 4px; padding: 18px 22px;
+  }
+  .card h3 { margin: 0 0 10px; font-size: 16px; color: var(--navy); font-family: Georgia, serif; }
+  .card p { font-size: 14px; margin: 0; line-height: 1.55; }
+
+  .evaluate-cta {
+    background: var(--navy); color: white;
+    display: inline-block; text-decoration: none;
+    padding: 14px 28px; border-radius: 4px;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 700; font-size: 14px; letter-spacing: 1px; text-transform: uppercase;
+    border: none; cursor: pointer; transition: all .2s;
+  }
+  .evaluate-cta:hover { background: var(--gold); color: var(--navy); }
+  .evaluate-cta.secondary { background: white; color: var(--navy); border: 2px solid var(--navy); margin-left: 8px; }
+  .evaluate-cta.secondary:hover { background: var(--navy); color: white; }
+
+  .reflection {
+    border: 2px solid var(--rule); border-radius: 4px;
+    padding: 18px 22px; margin: 20px 0; background: white;
+  }
+  .reflection h4 { margin: 0 0 10px; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold); }
+  .reflection textarea {
+    width: 100%; min-height: 90px;
+    padding: 10px 14px;
+    font-family: inherit; font-size: 14px; line-height: 1.5;
+    border: 1px solid var(--rule); border-radius: 3px;
+    background: var(--paper); color: var(--ink); resize: vertical;
+  }
+
+  footer { margin-top: 60px; padding-top: 20px; border-top: 1px solid var(--rule);
+           font-size: 12px; color: var(--ink-soft); text-align: center; }
+
+  @media print {
+    body { background: white; padding: 0.6in 0.75in; max-width: none; font-size: 11pt; }
+    .phase { page-break-inside: avoid; box-shadow: none; }
+    .evaluate-cta { border: 1px solid var(--navy); color: var(--navy); background: white; }
+  }
+</style>
+</head>
+<body>
+
+<header class="lesson-cover">
+  <div class="eyebrow">CAET Advanced · Interactive 5E Lesson</div>
+  <h1>Emergency Autoland Systems</h1>
+  <div class="lesson-meta">
+    <span>⏱ ~45 minutes</span>
+    <span>📖 Engage → Explore → Explain → Elaborate → Evaluate</span>
+    <span>🛠 Hands-on + drill</span>
+  </div>
+</header>
+
+<div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
+
+<!-- ENGAGE -->
+<section class="phase phase-engage" data-phase="1">
+  <div class="phase-header">
+    <div>
+      <div class="phase-label">Engage</div>
+      <h2>Why should you care about this?</h2>
+    </div>
+    <div class="timing">~4 min</div>
+  </div>
+
+  
+  <p>Emergency Autoland is the first certified aviation system designed to act without pilot intervention and still deliver a safe outcome. A single button press on the cabin headliner — pressed by a passenger who has never touched a yoke — is expected to result in a successful runway landing. This has never been true of any avionics system before. The regulatory burden that comes with that capability is enormous. As the technician responsible for periodic inspection, software currency, and post-repair verification of these systems, you are now part of a trust chain that did not exist five years ago: passenger → panel → system you maintained.</p>
+  <p>The failure modes matter. If Autoland selects a runway that turns out to be closed (NOTAM data stale), or flies an approach through weather the onboard radar didn't detect (weather subscription lapsed), or executes a flare without a valid radar altimeter input (calibration drift), the system does not fail gracefully — it fails terminally. Every scheduled task on these systems has someone's life attached to it. The M600 HomeSafe, Cirrus Safe Return, and Daher HomeSafe certifications all include mandatory inspection intervals specifically because the certification data assumed those inspections would be performed. Skipping one breaks the safety argument the system was certified against.</p>
+  
+
+  <div class="think-prompt">
+    <strong>Pause &amp; Think</strong>
+    Before you continue — what is the single most common workmanship mistake a newly-qualified technician makes on this kind of task? Write one sentence in the reflection box below. You'll come back to it at the end.
+  </div>
+
+  <div class="reflection">
+    <h4>Your prediction</h4>
+    <textarea id="engage-reflection" placeholder="What do you think the #1 mistake is, and why?"></textarea>
+  </div>
+</section>
+
+<!-- EXPLORE -->
+<section class="phase phase-explore" data-phase="2">
+  <div class="phase-header">
+    <div>
+      <div class="phase-label">Explore</div>
+      <h2>Discover the terminology</h2>
+    </div>
+    <div class="timing">~8 min</div>
+  </div>
+
+  <p>Avionics work has its own vocabulary. Master these terms before procedures, because the oral-board examiner expects precision, not approximations.</p>
+
+  <div class="card-grid">
+    
+    <div class="card">
+      <h3>Emergency Autoland</h3>
+      <p>A certified avionics system that, on activation by a passenger or via automatic pilot-incapacitation detection, takes control of the aircraft, selects a destination airport, flies an approach, lands, and shuts down without further input. First STC: Garmin Autoland on Piper M600 SLS, FAA approval May 2020.</p>
+    </div>
+    
+    <div class="card">
+      <h3>Garmin Autoland</h3>
+      <p>Garmin's commercial implementation of Emergency Autoland, built on the G3000 integrated flight deck. Deployed on Piper M600 HomeSafe, Daher TBM 940 HomeSafe, and Beechcraft King Air 260 (category expansion). Requires specific G3000 software part numbers and additional GSA autopilot servos.</p>
+    </div>
+    
+    <div class="card">
+      <h3>Safe Return</h3>
+      <p>Cirrus Aircraft's implementation of Emergency Autoland on the Vision Jet SF50, developed in cooperation with Garmin. Adds jet-specific logic: autothrottle management, thrust-lever detent, and VTAS-based approach speed calculation. Separate STC from M600 HomeSafe.</p>
+    </div>
+    
+    <div class="card">
+      <h3>HomeSafe</h3>
+      <p>Trade name used by both Piper (M600) and Daher (TBM 940/960) for their Autoland offering. Same core Garmin Autoland engine, but with airframe-specific certification data: max landing weight, minimum runway length, approach profile, and post-landing sequence.</p>
+    </div>
+    
+    <div class="card">
+      <h3>Activation Button</h3>
+      <p>A physical button mounted on the cabin headliner or overhead panel, protected by a guard, labeled clearly with emergency instructions. One press starts an activation countdown (typically 15 seconds) with audible warning and passenger prompt before engagement. The button is tested at each 100-hour/annual inspection per AMM.</p>
+    </div>
+    
+    <div class="card">
+      <h3>Pilot Incapacitation Detection</h3>
+      <p>An automatic trigger mode that monitors flight-control inputs, attitude, and altitude. If the aircraft deviates from commanded flight path without corrective pilot input for a specified duration (platform-specific, often 30-60 seconds), the system issues aural warnings then engages Autoland if no response. Relies on autopilot engagement state and sensor inputs — technician must verify during maintenance.</p>
+    </div>
+    
+  </div>
+
+  
+  <p style="font-size:13px; color:var(--ink-soft);"><em>+ 8 more terms in the full handbook glossary.</em></p>
+  
+
+  <div class="think-prompt">
+    <strong>Self-check</strong>
+    Close your browser tab for 30 seconds. Re-open and list 4 of the 6 terms above from memory, each with a one-sentence definition. If you can't, re-read before continuing.
+  </div>
+</section>
+
+<!-- EXPLAIN -->
+<section class="phase phase-explain" data-phase="3">
+  <div class="phase-header">
+    <div>
+      <div class="phase-label">Explain</div>
+      <h2>The theory you need</h2>
+    </div>
+    <div class="timing">~12 min</div>
+  </div>
+
+  <p>Memorizing steps isn't enough. The evaluator asks <em>why</em>. Here is what you need to understand.</p>
+
+  
+    
+    
+    
+    <h3 style="font-family:Georgia,serif; color:var(--navy); margin-top:28px;">Autoland System Architecture</h3>
+    <p>Autoland is not a single LRU — it is a coordinated behavior across existing flight-deck computers with additional hardware and software layers. Understanding which box does what is prerequisite to troubleshooting.</p>
+    
+    <ul>
+      <li>The core is the existing integrated flight deck (Garmin G3000/G5000). Autoland adds software in the Garmin Autopilot Computer (GSA 81/87 servos + GCU/GTC controllers), a dedicated Autoland module in the flight management processor, and the aural announcement synthesizer.</li><li>Hardware additions per aircraft: activation button with CAN-bus harness to the flight deck, backup radar altimeter where redundancy is required (single RA not always acceptable to STC), autothrottle servo on jet platforms.</li><li>Data inputs Autoland requires: WAAS/SBAS GPS position (for LPV approach), ADS-B In traffic, datalink weather (XM or FIS-B on UAT), terrain database (TAWS-B minimum), obstacle database, ADAHRS attitude/heading, radar altimeter below 200 AGL, ARINC 429 bus for engine parameters.</li><li>Autopilot authority is escalated during Autoland: normal-mode override forces apply, but Autoland has full authority within certified envelope. Pilot can still disconnect via red Autopilot Disconnect button — this is by design because a pilot who regains consciousness must be able to take over instantly.</li>
+    </ul>
+    
+    
+  
+    
+    
+    
+    <h3 style="font-family:Georgia,serif; color:var(--navy); margin-top:28px;">Certification and Regulatory Framework</h3>
+    <p>Emergency Autoland is certified under 14 CFR Part 23 Amendment 64 (normal-category small airplanes) with novel-feature guidance from the FAA Small Airplane Directorate. Each airframe installation is a separate STC with its own Airworthiness Limitations section.</p>
+    
+    <ul>
+      <li>The baseline regulatory challenge was showing compliance with 23.1309 (equipment, systems, and installations) and 23.1329 (automatic pilot system) for a system that operates with NO pilot. FAA issued specific issue papers addressing this.</li><li>Novel certification approaches: (1) simulation-based verification showing landing performance across environmental envelope, (2) mandatory pilot incapacitation detection with high-integrity sensors, (3) Airworthiness Limitations section with inspection intervals enforced by Type Certificate Holder.</li><li>STC list as of 2026: Piper M600 SLS HomeSafe (first, May 2020), Cirrus Vision Jet Safe Return, Daher TBM 940/960 HomeSafe, Beechcraft King Air 260 HomeSafe. Expansions to Piper M500, Vision Jet G2+ and other airframes in progress.</li><li>The STC package includes: AFMS supplement (pilot procedures), maintenance manual supplement (technician procedures), Airworthiness Limitations section (inspection intervals — LEGALLY REQUIRED), Instructions for Continued Airworthiness per 14 CFR 21.50.</li>
+    </ul>
+    
+    
+  
+    
+    
+    
+    <h3 style="font-family:Georgia,serif; color:var(--navy); margin-top:28px;">Activation and Decision Logic</h3>
+    <p>From button press to touchdown, Autoland runs a deterministic state machine. Every transition is logged. Understanding the state machine helps you interpret post-event data logs during investigation.</p>
+    
+    <ul>
+      <li>Activation countdown: after button press, 15-second audible countdown (passenger or pilot may cancel by pressing a second time). After countdown, system engages and transitions to DESTINATION_SELECT state.</li><li>Destination selection runs every 10 seconds until committed to approach. Re-evaluates based on changing weather, fuel, wind. Final commit at Initial Approach Fix (IAF) — thereafter system flies the commit approach unless abort criteria trigger.</li><li>Transponder behavior during Autoland: automatically squawks 7700 (emergency), Flight ID is set to 'AUTOLAND' (or similar, depends on platform), emergency-broadcast message over 1090ES includes Autoland-specific NACp claim.</li><li>ATC communication: system transmits a pre-recorded voice message on 121.5 MHz describing the situation, selected airport, and ETA. Does NOT engage in two-way conversation — ATC coordinates with controllers at destination via landline.</li>
+    </ul>
+    
+    
+  
+    
+    
+    
+    <h3 style="font-family:Georgia,serif; color:var(--navy); margin-top:28px;">Pilot Incapacitation Detection</h3>
+    <p>The automatic incapacitation trigger is the most consequential piece of the system because it engages Autoland without passenger knowledge. False negatives mean passenger intervention doesn't work; false positives mean Autoland engages on a conscious pilot.</p>
+    
+    <ul>
+      <li>Trigger conditions vary by platform; all use flight-path deviation as primary input. Typical: aircraft deviates from commanded track/altitude by more than a calibrated envelope for 30-60 seconds with no control inputs.</li><li>Pre-activation alert: aural 'ARE YOU THERE?' cycling for 30 seconds before engagement. Pilot response (any control-input deflection, button press, radio transmission) cancels the trigger.</li><li>Some platforms monitor CO (carbon monoxide) level in cockpit as secondary trigger — above alarm threshold plus deviation will trigger earlier. Requires CO sensor calibration.</li><li>Technician verification: use manufacturer's simulation stimulus (an RS-232/CAN test harness that injects fake attitude-deviation into the ADAHRS bus). Verify alert timing, audio, and button-cancel logic. NEVER exercise the trigger with real aircraft in flight state.</li>
+    </ul>
+    
+    
+  
+    
+    
+    
+    <h3 style="font-family:Georgia,serif; color:var(--navy); margin-top:28px;">Post-Landing Sequence</h3>
+    <p>Once main gear touches down, Autoland continues controlling the aircraft for ~60 seconds. Understanding this sequence tells you what to expect when servicing an aircraft that activated Autoland.</p>
+    
+    <ul>
+      <li>Rollout phase: automatic nosewheel-down, progressive braking to target deceleration (typically 0.25 g), rudder-based runway-centerline tracking via nose-wheel steering.</li><li>Stop: brakes held at full after aircraft stops. Parking brake commanded on platforms where equipped. Autoland does NOT release brakes automatically.</li><li>Engine shutdown: piston — mixture control to idle-cutoff; turbine — condition lever/start lever to cutoff (platform-specific). Ignition off. Electrical kept on to sustain emergency radio and strobe.</li><li>Emergency broadcasting continues for 60 seconds on 121.5 MHz with new message: 'Aircraft has landed at [airport]. Emergency services required.'</li>
+    </ul>
+    
+    
+  
+
+  
+  <div class="think-prompt">
+    <strong>Deep dive</strong>
+    The full <em>Background Theory</em> section in the handbook explains the physics: why crimps create gas-tight joints, why shielding works as a Faraday cage, and why insulation fails gradually before it arcs. Read it when you want the oral-board answer that makes the examiner smile.
+  </div>
+  
+</section>
+
+<!-- ELABORATE -->
+<section class="phase phase-elaborate" data-phase="4">
+  <div class="phase-header">
+    <div>
+      <div class="phase-label">Elaborate</div>
+      <h2>Apply it to a scenario</h2>
+    </div>
+    <div class="timing">~15 min</div>
+  </div>
+
+  
+  
+  
+  
+
+  <div class="scenario">
+    <strong>Scenario:</strong> You're on day one of your practical exam. The evaluator hands you a wire list and says, <em>"Build me a three-conductor shielded harness, 24 inches long, ring-terminated on both ends. You have 45 minutes. Questions before you start?"</em> What do you ask — and then what do you do?
+  </div>
+
+  <h3>Task focus: Task 15.1 — Activation Button Self-Test</h3>
+
+  
+
+  
+
+  <div class="reflection">
+    <h4>Now reflect</h4>
+    <p style="font-size:14px; margin-bottom:8px;">Go back up to your Engage-phase reflection. Was your predicted #1 mistake in the <em>Common Mistakes</em> list? Update your answer with what you now know.</p>
+    <textarea id="elaborate-reflection" placeholder="What changed in your understanding?"></textarea>
+  </div>
+  
+</section>
+
+<!-- EVALUATE -->
+<section class="phase phase-evaluate" data-phase="5">
+  <div class="phase-header">
+    <div>
+      <div class="phase-label">Evaluate</div>
+      <h2>Prove you know it</h2>
+    </div>
+    <div class="timing">~6 min</div>
+  </div>
+
+  <p>You've read, explored, and reflected. Now test yourself.</p>
+
+  <ul>
+    <li><strong>Drill</strong> — answer every question in the practice bank (~20 questions). Aim for ≥80%.</li>
+    <li><strong>Oral-board practice</strong> — the handbook has 5 example questions with full answer explanations. Practice answering them aloud, unaided, until each takes &lt;90 seconds.</li>
+    <li><strong>Worksheet</strong> — complete the printable worksheet, then self-grade against the answer key.</li>
+  </ul>
+
+  <div style="margin:28px 0;">
+    <a href="../drill.html" class="evaluate-cta">Start Drill →</a>
+    <a href="handbook.html#quiz" class="evaluate-cta secondary">Practice Oral Board →</a>
+  </div>
+
+  <div class="think-prompt">
+    <strong>Gate criterion</strong>
+    You are ready for the practical when you can: (1) score ≥80% on the drill, (2) answer every oral-board question in under 90 seconds without looking, and (3) complete the worksheet with zero wrong answers.
+  </div>
+</section>
+
+<footer>
+  © 2026 Aircraft Electronics Association · This lesson is one of six study artifacts for Emergency Autoland Systems. Return to the module hub for the full library.
+</footer>
+
+<script>
+  // Simple progress bar driven by scroll position.
+  const progress = document.getElementById('progress');
+  window.addEventListener('scroll', () => {
+    const pct = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+    progress.style.width = Math.min(100, Math.max(0, pct)) + '%';
+  });
+</script>
+
+</body>
+</html>

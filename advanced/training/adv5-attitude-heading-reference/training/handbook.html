@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exam Study Module: AHRS — Attitude & Heading Reference | CAET Advanced Handbook</title>
+<style>
+  /* Light-theme study document — optimized for reading on screen AND print. */
+  :root {
+    --ink: #1a2332;
+    --ink-soft: #4a5568;
+    --paper: #fbfaf5;
+    --paper-accent: #f5f2e8;
+    --rule: #d8d3c3;
+    --navy: #0a2540;
+    --gold: #8b6914;
+    --gold-soft: #f4ead0;
+    --red: #8b1a1a;
+    --red-soft: #fbe9e7;
+    --green: #1b4332;
+    --green-soft: #e7f0e5;
+    --cyan: #0e4a6e;
+    --cyan-soft: #e4f1f8;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--ink);
+    background: var(--paper);
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 56px 48px 80px;
+  }
+  header.cover {
+    border-bottom: 3px double var(--navy);
+    padding-bottom: 24px;
+    margin-bottom: 40px;
+  }
+  .eyebrow {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    letter-spacing: 3px;
+    font-size: 11px;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 700;
+  }
+  h1 {
+    font-family: Georgia, serif;
+    font-size: 34px;
+    line-height: 1.2;
+    color: var(--navy);
+    margin: 8px 0 12px;
+    font-weight: 700;
+  }
+  .subtitle {
+    font-size: 15px;
+    color: var(--ink-soft);
+    font-style: italic;
+    margin: 0;
+  }
+  h2 {
+    font-family: Georgia, serif;
+    font-size: 24px;
+    color: var(--navy);
+    margin: 56px 0 12px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--rule);
+  }
+  h3 {
+    font-family: Georgia, serif;
+    font-size: 19px;
+    color: var(--navy);
+    margin: 32px 0 10px;
+  }
+  h4 {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin: 20px 0 8px;
+    font-weight: 700;
+  }
+  p { margin: 0 0 16px; }
+  ul, ol { margin: 0 0 18px; padding-left: 24px; }
+  li { margin-bottom: 8px; }
+  .toc {
+    background: var(--paper-accent);
+    border-left: 4px solid var(--gold);
+    padding: 24px 32px;
+    border-radius: 2px;
+    margin: 24px 0 40px;
+  }
+  .toc h2 { margin-top: 0; border: none; font-size: 18px; color: var(--gold); letter-spacing: 2px; text-transform: uppercase; font-family: 'Helvetica Neue', Arial, sans-serif; }
+  .toc ol { columns: 2; column-gap: 32px; font-size: 14px; }
+  .toc li { margin-bottom: 4px; break-inside: avoid; }
+  .toc a { color: var(--navy); text-decoration: none; }
+  .toc a:hover { text-decoration: underline; color: var(--gold); }
+  blockquote.why {
+    font-size: 17px;
+    font-family: Georgia, serif;
+    font-style: italic;
+    color: var(--navy);
+    background: var(--gold-soft);
+    border-left: 4px solid var(--gold);
+    padding: 24px 32px;
+    margin: 24px 0;
+    border-radius: 2px;
+  }
+  blockquote.why p { margin: 0 0 12px; }
+  blockquote.why p:last-child { margin-bottom: 0; }
+  .callout {
+    padding: 16px 22px;
+    margin: 18px 0;
+    border-left: 4px solid var(--cyan);
+    background: var(--cyan-soft);
+    border-radius: 2px;
+    font-size: 15px;
+  }
+  .callout.watching { border-left-color: var(--green); background: var(--green-soft); }
+  .callout.mistakes { border-left-color: var(--red); background: var(--red-soft); }
+  .callout.theory   { border-left-color: var(--gold); background: var(--gold-soft); }
+  .callout strong { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 6px; }
+  .callout.watching strong { color: var(--green); }
+  .callout.mistakes strong { color: var(--red); }
+  .callout.theory   strong { color: var(--gold); }
+  .callout.info     strong { color: var(--cyan); }
+  .key-points { margin: 12px 0 20px; padding-left: 20px; }
+  .key-points li { margin-bottom: 10px; line-height: 1.55; }
+  dl.glossary { margin: 20px 0; }
+  dl.glossary dt { font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 700; color: var(--navy); margin-top: 14px; font-size: 15px; }
+  dl.glossary dd { margin: 4px 0 0 0; padding-left: 0; font-size: 14.5px; line-height: 1.55; color: var(--ink); }
+  .steps { counter-reset: step; padding-left: 0; list-style: none; }
+  .steps li { counter-increment: step; padding-left: 44px; position: relative; margin-bottom: 14px; line-height: 1.55; }
+  .steps li::before {
+    content: counter(step);
+    position: absolute; left: 0; top: -2px;
+    width: 30px; height: 30px; border-radius: 50%;
+    background: var(--navy); color: white;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 700; font-size: 13px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .quiz {
+    background: var(--cyan-soft);
+    border-left: 4px solid var(--cyan);
+    padding: 24px 32px;
+    margin: 24px 0;
+    border-radius: 2px;
+  }
+  .quiz h3 { margin-top: 0; color: var(--cyan); }
+  .quiz ol { margin: 12px 0 0 0; padding-left: 22px; }
+  .quiz li { margin-bottom: 14px; }
+  .answer-key details {
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    padding: 12px 18px;
+    margin-bottom: 10px;
+    background: var(--paper);
+  }
+  .answer-key summary { font-weight: 700; cursor: pointer; color: var(--navy); font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 14px; }
+  .answer-key details[open] summary { margin-bottom: 10px; border-bottom: 1px solid var(--rule); padding-bottom: 6px; }
+  .answer-key p { margin-top: 10px; font-size: 14.5px; line-height: 1.6; }
+  .crosswalk {
+    background: var(--paper-accent);
+    padding: 18px 24px;
+    border-radius: 2px;
+    border: 1px solid var(--rule);
+    margin: 24px 0;
+    font-size: 14.5px;
+    color: var(--ink-soft);
+  }
+  footer {
+    margin-top: 64px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 12px;
+    color: var(--ink-soft);
+    text-align: center;
+  }
+  .section-marker {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--gold); font-weight: 700;
+    margin: 48px 0 0;
+  }
+  @media print {
+    body { padding: 0.6in 0.75in; background: white; font-size: 11pt; max-width: none; }
+    h1 { font-size: 24pt; }
+    h2 { font-size: 16pt; page-break-after: avoid; }
+    h3 { page-break-after: avoid; }
+    .callout, blockquote.why { page-break-inside: avoid; }
+    .toc { page-break-after: always; }
+    details { page-break-inside: avoid; }
+    details[open] > summary ~ * { display: block !important; }
+    .answer-key details { border: none; }
+    a { color: var(--navy); text-decoration: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="cover">
+  <div class="eyebrow">CAET Advanced Certification · Student Handbook</div>
+  <h1>Exam Study Module: AHRS — Attitude & Heading Reference</h1>
+  <p class="subtitle">Aircraft Electronics Association · Workforce Development Division</p>
+</header>
+
+<nav class="toc">
+  <h2>Contents</h2>
+  <ol>
+    <li><a href="#why">Why This Matters</a></li>
+    <li><a href="#terms">Key Terms &amp; Definitions</a></li>
+    <li><a href="#kr-1">AHRS Architecture</a></li><li><a href="#kr-2">Sensor Technologies</a></li><li><a href="#kr-3">AHRS Error Sources and Management</a></li><li><a href="#kr-4">AHRS Failure Modes</a></li><li><a href="#kr-5">Dual AHRS and Redundancy</a></li><li><a href="#kr-6">AHRS Integration with Other Systems</a></li><li><a href="#kr-7">Key Exam Topics (18 Questions)</a></li>
+    <li><a href="#task-1">Task 1 — AHRS Installation and Leveling</a></li><li><a href="#task-2">Task 2 — Heading Alignment and Compass Swing</a></li><li><a href="#task-3">Task 3 — Post-Install Functional Test</a></li><li><a href="#task-4">Task 4 — Troubleshooting AHRS Fault Codes</a></li><li><a href="#task-5">Task 5 — Magnetic Calibration (Hard-Iron / Soft-Iron Compensation)</a></li><li><a href="#task-6">Task 6 — Return-to-Service Documentation</a></li>
+    <li><a href="#quiz">Self-Check &amp; Oral Board Practice</a></li>
+    
+  </ol>
+</nav>
+
+<section id="why">
+  <div class="section-marker">Part I — Orientation</div>
+  <h2>Why This Matters</h2>
+  
+  <blockquote class="why"><p>Every time a pilot rolls into a turn in IMC, they trust that a small box of MEMS sensors and a magnetometer mounted somewhere in the airframe is telling them the truth about which way is up and which way is north. AHRS replaced the spinning-mass attitude gyro and the slaved remote gyro compass that dominated panels for fifty years, and it did so because solid-state sensors are more reliable, lighter, and cheaper. But the trade is that AHRS errors are no longer mechanical and obvious (a tumbled gyro you can hear and see) — they are computational and silent. A miscompensated magnetometer can drive a GPSS autopilot into a 20-degree heading error over a ten-minute leg without ever raising a flag. That is the failure mode you are installing against.</p></blockquote>
+  
+  <blockquote class="why"><p>The accident record is unforgiving. The B-2 Spirit crash at Andersen AFB in 2008 was traced to moisture in three of the aircraft's 24 port-transducer units skewing the air data feeding the flight control system — a calibration and initialization failure in the sensor suite that left the aircraft believing it was in a different attitude than it actually was. Air France 447 (2009), while primarily a pitot-icing and crew-response accident, exposed how rapidly spatial disorientation sets in when the displayed attitude disagrees with the seat-of-the-pants feel, and how badly line pilots handle an unreliable attitude display. General aviation CFIT accidents under the heading 'loss of control — IMC' routinely involve pilots following a heading bug that was three to eight degrees off because the magnetometer was mounted too close to a newly installed LED landing light.</p></blockquote>
+  
+  <blockquote class="why"><p>Your work on an AHRS installation is the last line of defense between a calibration spreadsheet and a spatial-disorientation accident. The evaluator is not checking whether you can bolt the LRU to the shelf — they are checking whether you understand why the shelf has to be shimmed level within 0.5 degrees, why the magnetometer has to be 24 inches minimum from ferrous hardware and 12 inches from current-carrying wires, why the compass swing has to be performed with the engines running and the avionics master ON, and why an AHRS that passes BIT at the ramp can still fail a flight-profile validation because you never re-verified heading against a known runway reference. This module teaches you to build in that margin intentionally.</p></blockquote>
+  
+  
+  <h4>From the PQS Source</h4>
+  <p>Every time a pilot rolls into a turn in IMC, they trust that a small box of MEMS sensors and a magnetometer mounted somewhere in the airframe is telling them the truth about which way is up and which way is north. AHRS replaced the spinning-mass attitude gyro and the slaved remote gyro compass that dominated panels for fifty years, and it did so because solid-state sensors are more reliable, lighter, and cheaper. But the trade is that AHRS errors are no longer mechanical and obvious (a tumbled gyro you can hear and see) — they are computational and silent. A miscompensated magnetometer can drive a GPSS autopilot into a 20-degree heading error over a ten-minute leg without ever raising a flag. That is the failure mode you are installing against.</p>
+  
+</section>
+
+<section id="terms">
+  <h2>Key Terms &amp; Definitions</h2>
+  <p>Master this vocabulary before continuing. The evaluator expects you to use these terms correctly in the oral board.</p>
+  <dl class="glossary">
+    
+    <dt>AHRS (Attitude & Heading Reference System)</dt>
+    <dd>A solid-state sensor package that outputs aircraft attitude (pitch, roll) and magnetic heading to the PFD, autopilot, flight director, and other consumers. Replaces mechanical vertical gyro, directional gyro, and slaved remote compass. Typical units: Garmin GRS 77/GRS 79, Collins AHC-3000, Honeywell AH-2100, Aspen EA100, Sandia SAI-340.</dd>
+    
+    <dt>MEMS Gyroscope</dt>
+    <dd>Micro-Electro-Mechanical System rate sensor that uses the Coriolis force on a vibrating silicon mass to detect angular rate about an axis. No moving macro parts. Typical consumer-grade drift: 10-50 degrees per hour; tactical-grade: 1-10 degrees per hour; navigation-grade: <0.1 degrees per hour. Drift is corrected by sensor fusion with accelerometers, magnetometer, and GPS.</dd>
+    
+    <dt>Ring Laser Gyro (RLG)</dt>
+    <dd>Optical rotation sensor that splits a laser beam in two counter-rotating paths around a closed cavity; the Sagnac effect produces a frequency difference proportional to rotation rate. Drift of 0.01 degrees per hour is typical. Found in IRS/INS on transport aircraft (Honeywell Laseref series). Not common in GA AHRS due to cost and size.</dd>
+    
+    <dt>Fiber Optic Gyro (FOG)</dt>
+    <dd>Similar Sagnac-effect optical gyro using a coiled fiber to extend the optical path. Performance between MEMS and RLG, with no moving parts and good shock tolerance. Used in mid-tier AHRS and some tactical IRS (Northrop LN-100, Honeywell HG1700 family).</dd>
+    
+    <dt>IMU (Inertial Measurement Unit)</dt>
+    <dd>Physical sensor block containing 3-axis gyros and 3-axis accelerometers (sometimes a magnetometer). An IMU by itself does not output attitude — it outputs raw rates and accelerations. An AHRS is an IMU plus the software to fuse those signals into stable attitude and heading.</dd>
+    
+    <dt>IRS vs AHRS</dt>
+    <dd>An Inertial Reference System (IRS) outputs position, velocity, and attitude — a full navigation solution using navigation-grade gyros and accelerometers, typically requiring a stationary gyrocompassing alignment. An AHRS outputs only attitude and heading (no position or velocity) using lower-grade sensors and accepts external GPS aiding. AHRS is standard in GA and regional aircraft; IRS is standard in transport aircraft.</dd>
+    
+    <dt>Magnetic Heading vs True Heading</dt>
+    <dd>Magnetic heading is measured relative to magnetic north (where the magnetometer actually points). True heading is relative to the geographic pole. The difference is magnetic variation (declination), currently ranging from approximately +20 degrees East in the eastern US to -20 degrees West in the western US. AHRS typically outputs magnetic heading for pilot display and true heading for navigation databases.</dd>
+    
+    <dt>Compensation (Hard-Iron / Soft-Iron)</dt>
+    <dd>The process of characterizing and removing the aircraft's own magnetic signature from the magnetometer reading. Hard-iron error is a constant bias from permanently magnetized steel (engine mounts, landing gear). Soft-iron error is a direction-dependent distortion from ferromagnetic material that bends the earth's field (airframe structure, tool steel). Compensation is performed during compass swing and stored in the AHRS as a calibration table.</dd>
+    
+    <dt>Deviation Card</dt>
+    <dd>The placarded record of residual magnetic heading error after compensation. Required per 14 CFR 91.205(b)(3) / 91.205(d)(1) for any compass used for navigation. Typical tolerance is +/-10 degrees on a standby wet compass per AC 43.13-1B, but AHRS systems are expected to hold +/-1 to 2 degrees post-calibration. The card must show heading readings at 30-degree intervals around the compass rose.</dd>
+    
+    <dt>Gyrocompassing</dt>
+    <dd>The process by which a navigation-grade inertial system (IRS, not AHRS) detects true north by sensing the component of earth rotation along each gyro axis. Requires the aircraft to be stationary for 5-15 minutes. AHRS does NOT gyrocompass — MEMS gyros cannot resolve earth rate (15 deg/hr) from their own drift (10-50 deg/hr). AHRS gets initial heading from the magnetometer.</dd>
+    
+    <dt>Alignment (AHRS)</dt>
+    <dd>The initialization period during which the AHRS establishes a stable attitude and heading solution. Typical modern AHRS: 30 seconds to 2 minutes static, with continued in-flight refinement as GPS ground track and magnetic heading converge. Some systems require level ramp; others accept slight slope but extend alignment time. Moving the aircraft during alignment is a common ramp-generated fault.</dd>
+    
+    <dt>Slaving (Flux Gate / Magnetometer)</dt>
+    <dd>Legacy term from slaved directional gyros: the process by which the heading gyro is continuously pulled toward the magnetometer's reading to prevent long-term drift. In modern AHRS, slaving is a continuous Kalman-filter update — the magnetometer corrects gyro yaw drift at low bandwidth (seconds-to-minutes timescale) while the gyro provides short-term heading stability during maneuvers that upset the magnetometer.</dd>
+    
+    <dt>GPS Aiding</dt>
+    <dd>The use of GPS ground track, ground speed, and position as external truth references fed into the AHRS Kalman filter. Corrects gyro and accelerometer bias, detects magnetometer errors, and provides in-flight heading validation. Required for modern attitude-heading-reference performance per RTCA DO-334. Loss of GPS aiding causes the AHRS to revert to magnetometer-only heading, which may degrade after several minutes.</dd>
+    
+    <dt>Pitch/Roll Level (Installation Level)</dt>
+    <dd>The requirement that the AHRS box be installed with its internal reference frame aligned to the aircraft's longitudinal and lateral axes within a tight tolerance — typically +/-0.5 degrees, or whatever the installation manual specifies. Error here cannot be calibrated out — it offsets attitude display on every flight. Verified with a precision inclinometer on the rigging fixture, NOT the hangar floor.</dd>
+    
+  </dl>
+</section>
+
+<div class="section-marker">Part II — Knowledge Requirements</div>
+
+
+
+
+<section id="kr-1">
+  <h2>AHRS Architecture</h2>
+
+  
+  <p>An AHRS is not a sensor — it is a computer running a sensor-fusion algorithm (typically an extended Kalman filter) that combines the outputs of several imperfect sensors into one attitude and heading solution that is better than any single sensor. Understanding how the filter weights its inputs is how you diagnose an AHRS that is displaying something wrong.</p>
+  
+
+  
+  <h4>From the PQS Source</h4>
+  <p>Modern AHRS (like the Garmin GRS 77/GI 275 AHRS or Honeywell AHR-150) use solid-state MEMS sensors instead of spinning gyroscopes. MEMS sensors have no moving parts, require no warm-up time, and are significantly more reliable than mechanical gyros. However, they have their own error characteristics that must be managed through software algorithms.</p>
+  
+
+  
+  <h4>Key Points</h4>
+  <ul class="key-points">
+    <li>A representative modern AHRS (Garmin GRS 77/79, Collins AHC-3000, Honeywell AH-2100, Aspen EA100) is a Line Replaceable Unit that contains three MEMS rate gyros, three MEMS accelerometers, and an internal processor. The magnetometer is typically a separate remote sensor (Garmin GMU 44B, Aspen EA100 remote mag) mounted away from the AHRS box in a magnetically clean area.</li><li>The Kalman filter treats the gyros as short-term truth and the accelerometers/magnetometer/GPS as long-term truth. During a turn, the gyros carry the attitude solution; during level flight, the accelerometers pull the solution back toward the gravity vector and the magnetometer pulls heading toward magnetic north.</li><li>GPS aiding (per RTCA DO-334 and RTCA DO-229 interoperability expectations) provides a ground-track reference that the filter uses to detect and correct magnetometer errors in flight. A modern installation without GPS aiding is degraded by design — verify the GPS feed is active during your post-install functional test.</li><li>Pitch and roll accuracy on certified AHRS (TSO-C4c replacement for older gyro horizons, or TSO-C6e-equivalent integrated systems) is typically better than +/-1 degree under non-accelerated conditions and +/-2 degrees during maneuvering. Heading accuracy post-compensation is typically +/-1 to 2 degrees per TSO-C6e for magnetic heading instruments.</li><li>The system is not self-checking in a way you can rely on for installation sign-off. BIT (Built-In-Test) verifies that the sensors are electrically alive; it does NOT verify that the box is installed level or that the magnetometer is compensated. That work is on you.</li>
+  </ul>
+  
+</section>
+
+
+
+<section id="kr-2">
+  <h2>Sensor Technologies</h2>
+
+  
+  <p>You will not install a Ring Laser Gyro on a Cessna 172. But you will be asked in an oral why the King Air has a MEMS AHRS and the G650 has a fiber-optic IRS, and the answer is about drift, cost, and what the aircraft needs to know without external aiding.</p>
+  
+
+  
+  <h4>From the PQS Source</h4>
+  <p>MEMS Gyroscopes
+MEMS (Micro-Electro-Mechanical Systems) gyroscopes sense rotation rate using the Coriolis effect on a vibrating mass. Unlike spinning-mass gyros that maintain orientation in space, MEMS gyros detect the rate of rotation and the AHRS computer integrates this rate over time to calculate attitude. This integration introduces drift, which must be corrected by accelerometer and GPS references.
+MEMS Accelerometers
+Accelerometers sense gravitational force to determine which way is 'down.' In straight and level flight, the accelerometer output directly indicates pitch and roll. During turns, climbs, and acceleration, the accelerometer senses the combined effect of gravity and maneuvering forces—which is why AHRS algorithms use gyro data to filter out transient maneuver effects and use the accelerometer for long-term level reference.
+Magnetometers
+Magnetometers sense the earth’s magnetic field to determine heading. Modern AHRS use 3-axis magnetometers (essentially a solid-state flux gate) to measure the magnetic field vector. The AHRS computer uses the known attitude (from gyros and accelerometers) to resolve the magnetic field into a horizontal heading reference, compensating for the aircraft’s pitch and roll angles.</p>
+  
+
+  
+  <h4>Key Points</h4>
+  <ul class="key-points">
+    <li>MEMS gyros use a vibrating silicon tuning fork; the Coriolis force on the vibrating mass during rotation is sensed capacitively. Consumer-grade drift is 10-50 deg/hr; tactical-grade MEMS used in aviation AHRS is typically 1-10 deg/hr. This drift is why MEMS AHRS requires continuous external aiding (accelerometer gravity reference, magnetometer heading reference, GPS ground-track reference).</li><li>Ring Laser Gyros (RLG) — Honeywell Laseref IRS family (GG1320 gyro) — achieve drift of 0.01 deg/hr, good enough for unaided inertial navigation for many hours. They use a helium-neon laser path around a triangular cavity and detect rotation via the Sagnac frequency shift. Expensive, heavy, and needing dithering to avoid 'lock-in' at low rates.</li><li>Fiber Optic Gyros (FOG) — Honeywell HG1700 family, Northrop LN-200 — use a coiled optical fiber for the same Sagnac effect in a smaller, more shock-tolerant package. Drift of 0.1-1 deg/hr places them between MEMS and RLG. Common in mid-tier AHRS and tactical IMU applications.</li><li>Accelerometers in modern AHRS are typically MEMS pendulous/capacitive types with bias stability in the milli-g range. They provide the long-term 'down' reference during straight-and-level flight and contribute to coordinated-turn and slip/skid indications.</li><li>Magnetometers are three-axis fluxgate or anisotropic-magnetoresistive (AMR) sensors. Their bandwidth is intentionally low (fraction of a Hz) because the magnetometer has to be filtered heavily to reject transient magnetic disturbances from the aircraft's own electrical loads.</li>
+  </ul>
+  
+</section>
+
+
+
+<section id="kr-3">
+  <h2>AHRS Error Sources and Management</h2>
+
+  
+
+  
+
+  
+</section>
+
+
+
+<section id="kr-4">
+  <h2>AHRS Failure Modes</h2>
+
+  
+  <p>When an AHRS fails, the pilot needs to know within seconds, because a slowly-drifting attitude display is more dangerous than a failed one. The failure annunciations and the logic behind them are a required-knowledge area on the oral.</p>
+  
+
+  
+
+  
+  <h4>Key Points</h4>
+  <ul class="key-points">
+    <li>Complete failure: PFD attitude and/or heading presents a Red X or 'ATT FAIL' / 'HDG FAIL' annunciation. Pilot transitions to standby attitude indicator (an independent electric or mechanical unit per 14 CFR 91.205) and magnetic compass. The autopilot typically disengages automatically.</li><li>Disagreement between dual AHRS: in aircraft with dual AHRS (typical in Part 23 Level 3/4 aircraft and most Part 25), a 'ATT MISCOMPARE' or 'HDG MISCOMPARE' annunciation illuminates when the two sources disagree beyond a threshold (typically 6 degrees attitude, 6 degrees heading). Pilot must determine which is correct — cross-check with standby indicators and GPS ground track.</li><li>GPS aiding loss: annunciated as 'GPS AID LOST' or 'AHRS DEGRADED'. The system continues to operate but heading accuracy may gradually degrade. Not an immediate emergency but the pilot should note the time to estimate compounding error.</li><li>Magnetometer out of tolerance: annunciated as 'MAG INVALID' or 'HDG FAIL'. This can happen during start (compensation data corrupted) or in flight (strong nearby field, e.g. ramp-level ground equipment). The AHRS reverts to gyro-only heading, which will drift without magnetic reference.</li><li>AHRS initialization failure: if the box was moved during alignment, or the aircraft was towed during start-up, alignment fails and the system presents 'AHRS INIT' or 'AHRS ALIGN' persistently. Cure is to park level, power cycle, and allow the full alignment interval without disturbance.</li><li>Do not chase intermittent failures without reviewing the crew's description: temperature, altitude, maneuver phase. Many AHRS faults are traceable to loose DC power connections (voltage dips on bus transfer) or unshielded wiring inducing magnetometer noise.</li>
+  </ul>
+  
+</section>
+
+
+
+<section id="kr-5">
+  <h2>Dual AHRS and Redundancy</h2>
+
+  
+  <p>Dual AHRS is not redundancy for redundancy's sake. It is how the system verifies itself in flight. When you install or troubleshoot dual AHRS, you must understand the reversion logic and the source-switching that keeps the pilot in the loop.</p>
+  
+
+  
+  <h4>From the PQS Source</h4>
+  <p>Most glass cockpit aircraft have dual AHRS for redundancy. Each AHRS independently computes attitude and heading. The system compares both outputs—if they disagree beyond a threshold, the pilot is alerted and must determine which AHRS is correct (typically by comparing heading to GPS track and attitude to the standby attitude indicator). The autopilot and flight director can be switched between AHRS sources.</p>
+  
+
+  
+  <h4>Key Points</h4>
+  <ul class="key-points">
+    <li>Each AHRS (AHRS 1, AHRS 2) operates independently with its own magnetometer, its own GPS feed, and its own data bus (typically ARINC 429 to each PFD plus a crossfeed channel for comparison).</li><li>The pilot's PFD normally displays AHRS 1; the copilot's displays AHRS 2. A reversion switch (mechanical or soft-key) allows either pilot to select the opposite side if their side fails or disagrees. Documented reversion procedure is in the AFM/POH supplement for the installed AHRS.</li><li>The autopilot must be fed a single, verified attitude source. On dual-AHRS systems, the autopilot typically follows the pilot's PFD-selected source; some installations allow autopilot-specific selection. Know the aircraft's architecture before signing off an installation.</li><li>The standby attitude indicator (SAI, e.g. Mid-Continent MD302, Sandia SAI-340) is a self-contained independent AHRS/battery unit that is NOT fed from the main AHRS. It operates on ship's DC power with a battery backup of typically 1 hour. Required per 14 CFR 91.205(d) for IFR aircraft.</li><li>Comparator logic: the 'ATT MISCOMPARE' annunciation fires when the two AHRS differ beyond the threshold for longer than a debounce period (typically 3-5 seconds). Short transient disagreements during startup or violent maneuvering do not annunciate, which is intentional.</li><li>Source switching under failure: when the pilot selects AHRS 2 onto the pilot's PFD, the autopilot follows; the flight director follows; the heading bug re-centers on the new source's heading. Make sure this transition is tested in the post-install functional test per the installation manual.</li>
+  </ul>
+  
+</section>
+
+
+
+<section id="kr-6">
+  <h2>AHRS Integration with Other Systems</h2>
+
+  
+
+  
+
+  
+</section>
+
+
+
+<section id="kr-7">
+  <h2>Key Exam Topics (18 Questions)</h2>
+
+  
+
+  
+  <h4>From the PQS Source</h4>
+  <p>AHRS sensor types: MEMS gyro, MEMS accelerometer, magnetometer
+How each sensor contributes to attitude and heading computation
+AHRS error sources and how the system manages them
+GPS aiding: what it provides and what happens when it is lost
+Magnetometer calibration: when required, how performed
+AHRS failure modes and indications (Red X, HDG disagree, ATT disagree)
+Dual AHRS redundancy and source switching
+AHRS data consumers: PFD, autopilot, flight director, weather radar, SVT
+Difference between AHRS and traditional gyro instruments
+AHRS initialization and alignment procedures
+End of Exam Module 16 — AHRS / Attitude & Heading Reference</p>
+  
+
+  
+</section>
+
+
+<div class="section-marker">Part III — Task Preparation</div>
+
+
+
+
+<section id="task-1">
+  <h2>Task 1 — AHRS Installation and Leveling</h2>
+
+  
+  <p>Perform a ground-up installation of an AHRS LRU and its remote magnetometer per the STC / installation manual. Shim the mounting tray to specification, install the magnetometer in a magnetically clean zone, route DC power and data cabling per EWIS rules, and verify pitch/roll level with a precision inclinometer against the aircraft rigging reference (NOT the hangar floor).</p>
+  
+
+  
+
+  
+
+  
+</section>
+
+
+
+<section id="task-2">
+  <h2>Task 2 — Heading Alignment and Compass Swing</h2>
+
+  
+  <p>Position the aircraft on a compass rose or using a sighting compass. Perform the compensation procedure per the installation manual (typically a 12- or 24-heading walk with the engines running and avionics master ON), record residual errors, and generate the deviation card placard per 14 CFR 91.205 requirements.</p>
+  
+
+  
+
+  
+
+  
+</section>
+
+
+
+<section id="task-3">
+  <h2>Task 3 — Post-Install Functional Test</h2>
+
+  
+  <p>Run the complete post-install functional test per the installation manual. Validate attitude and heading display on pilot and copilot PFDs, autopilot engagement and source reversion, weather radar stabilization, and any integrated consumer (SVT, TCAS heading). Verify against GPS ground track during a taxi run.</p>
+  
+
+  
+
+  
+
+  
+</section>
+
+
+
+<section id="task-4">
+  <h2>Task 4 — Troubleshooting AHRS Fault Codes</h2>
+
+  
+  <p>Interpret an AHRS fault annunciation (e.g., 'AHRS ALIGN', 'GPS AID LOST', 'HDG FAIL', 'ATT MISCOMPARE') reported by a flight crew. Use the installation manual fault tree, AHRS built-in maintenance data (BITE logs), and installation manual test points to isolate the fault to LRU, magnetometer, wiring, or configuration data.</p>
+  
+
+  
+
+  
+
+  
+</section>
+
+
+
+<section id="task-5">
+  <h2>Task 5 — Magnetic Calibration (Hard-Iron / Soft-Iron Compensation)</h2>
+
+  
+  <p>Perform the magnetometer calibration procedure when a new magnetometer is installed, after airframe changes that add ferrous material, or when a deviation card is out of tolerance. Distinguish hard-iron from soft-iron contributions, correctly position the aircraft through the required headings, and verify the post-calibration card is within installation-manual tolerance (typically +/-1 to 2 degrees for AHRS, vs. the +/-10 degree legacy compass limit in AC 43.13-1B).</p>
+  
+
+  
+
+  
+
+  
+</section>
+
+
+
+<section id="task-6">
+  <h2>Task 6 — Return-to-Service Documentation</h2>
+
+  
+  <p>Complete maintenance logbook entries, deviation card placard, weight-and-balance revision (if applicable), and 337 / STC documentation for the installation. Verify that the Minimum Equipment List (MEL) and flight manual supplement are on board and current.</p>
+  
+
+  
+
+  
+
+  
+</section>
+
+
+
+<div class="section-marker">Part IV — Background Theory</div>
+<section id="theory">
+  <h2>The Science Behind the Procedures</h2>
+  <p>When the oral board examiner asks <em>why</em>, these are the explanations they expect to hear.</p>
+  
+  <div class="callout theory">
+    <strong>Why Mems Drifts And Kalman Saves You</strong>
+    <p style="margin-top:8px;">A MEMS gyro outputs a rate signal: angular rate in degrees per second, sampled hundreds to thousands of times per second. To get attitude in degrees, the AHRS integrates this rate over time. Any bias in the rate output (and every MEMS gyro has some bias, usually temperature- and vibration-dependent) integrates into an ever-growing error. A 1 deg/hr bias, integrated over a one-hour flight, is a 1-degree attitude error; a 10 deg/hr bias on a consumer-grade MEMS chip is a 10-degree error. Unaided, the AHRS would be useless after a few minutes. The fix is sensor fusion. An accelerometer is noisy but unbiased for long-term gravity direction — it does not drift. A magnetometer is noisy and distorted but unbiased for long-term magnetic north. GPS ground track is externally referenced and does not drift. The Kalman filter is a statistical recursive estimator that computes, at every sample, the most probable state (attitude, heading, gyro biases) given all the sensor outputs and their known noise characteristics. During a turn, the filter weights the gyros (short-term accurate) and ignores the accelerometers (corrupted by centripetal acceleration). During level unaccelerated flight, the filter weights the accelerometers and uses them to estimate and subtract gyro bias. Over minutes to hours of flight, GPS and magnetometer corrections drive the gyro bias estimate to near-zero. This is why you can fly a $5,000 MEMS AHRS for hours and maintain +/-1 degree attitude accuracy — the sensor by itself has 50 deg/hr of drift, but the filter holds the solution by continuously re-referencing against truth sources.</p>
+  </div>
+  
+  <div class="callout theory">
+    <strong>Why Compass Swing Is Still Needed With Modern Mems</strong>
+    <p style="margin-top:8px;">A MEMS AHRS has a three-axis magnetometer as sophisticated as any on the market, but the earth's magnetic field at the magnetometer's location is not the earth's field alone — it is the earth's field plus the aircraft's contribution. Engine mounts, landing gear, firewalls, steel cable runs, hydraulic lines, avionics-rack structure, and landing lights are all made of ferromagnetic materials that either carry permanent magnetization (hard iron) or distort the earth's field (soft iron). The hard-iron contribution is a constant 3-axis offset in the aircraft's frame: wherever the aircraft is pointed, the aircraft adds some fixed X, Y, Z magnetic component to what the magnetometer measures. The soft-iron contribution is more subtle: it bends the field direction in a way that depends on which direction the aircraft is pointed. A compass swing characterizes both. Walking the aircraft through 12 headings (or whatever count the manufacturer specifies), the AHRS captures 12 samples of 'measured field vector' at known aircraft orientation. From those samples, the software computes the best-fit hard-iron offset (a 3-vector of milligauss) and soft-iron transformation (a 3x3 matrix) that, when subtracted and applied to every future measurement, yields a magnetometer output that looks like the undistorted earth field. Without the swing, hard-iron alone can create 20+ degree heading errors on some aircraft headings. Modern MEMS does not change this because the magnetometer hardware improvements do not help you subtract the airframe's magnetic signature — only characterization data does. The swing must be redone whenever the aircraft's magnetic signature changes, which includes new radios, new lights, new engine installations, repaired control surfaces, or any ferrous component added within the magnetometer's influence radius.</p>
+  </div>
+  
+  <div class="callout theory">
+    <strong>Why Ahrs Needs A Level Bench For Installation</strong>
+    <p style="margin-top:8px;">When the AHRS box is mounted in the aircraft, its internal body frame — the 3-axis coordinate system that the gyros and accelerometers measure in — must coincide with the aircraft's body frame within a tight tolerance, typically +/-0.5 degrees in pitch and roll. The magnetometer's yaw axis must coincide with the aircraft's yaw within similar tolerance. Any mismatch appears as a constant offset on every flight. A 2-degree pitch misalignment makes the PFD show a 2-degree false pitch attitude from the moment the system is powered on through every landing for the life of the aircraft. You cannot compensate this in software because the filter has no external truth reference for installation level — the gyros and accelerometers by themselves just see 'what the box sees', and if the box is tilted, the box's idea of level is tilted. GPS aiding helps somewhat because GPS ground track gives a yaw reference, but GPS provides no pitch reference; pitch depends entirely on the accelerometers agreeing with the aircraft's unaccelerated attitude. This is why the installation manual specifies a rigid tray, precision shim stock, and an inclinometer referenced to the aircraft's rigging points. Hangar floors slope 1-2 percent for drainage; hangar floors are not aircraft rigging references. You cannot look at the AHRS mounting tray and tell whether it is level to 0.5 degrees by eye. You have to measure — against the fuselage rigging marks or a wing-rib chord line that the airframe manufacturer specifies as the aircraft's horizontal reference. Shim stock comes in 0.002 to 0.010 inch increments; a 0.010 inch shim on a 10 inch tray is 0.06 degrees. This is the scale of tolerance that separates a quiet installation from a pilot complaint every flight for the next decade.</p>
+  </div>
+  
+</section>
+
+
+<div class="section-marker">Part V — Self-Check</div>
+
+<section id="quiz">
+  <h2>Oral Board Practice Questions</h2>
+  <p>Answer each aloud before opening the answer key. Mastery means you can explain it to a non-technical person, not just recite a definition.</p>
+  <div class="quiz">
+    <h3>Questions</h3>
+    <ol>
+      <li>Q1: Walk me through a complete compass swing on an AHRS-equipped aircraft. Why are both the pitch-roll-level alignment and the hard-iron / soft-iron compensation required, and what happens if you do one without the other?</li><li>Q2: A pilot complains that the autopilot flies 6 degrees right of the commanded heading in cruise, but agrees with the commanded heading on the ground. The compass swing is 18 months old and was in tolerance. What is your troubleshooting approach?</li><li>Q3: Explain why an AHRS needs GPS aiding and what happens when GPS is lost in flight. How is this different from an IRS, and why do transport aircraft have IRS instead of AHRS?</li><li>Q4: The PFD shows 'ATT MISCOMPARE' on a dual-AHRS aircraft. The standby attitude indicator agrees with AHRS 1. What is your procedure to determine which AHRS is correct, and what would you do next from a maintenance perspective?</li><li>Q5: Describe the sensors inside a modern MEMS AHRS and how the Kalman filter uses each one. Why doesn't a MEMS AHRS gyrocompass the way a ring-laser IRS does, and what is the practical implication for ramp operations?</li>
+    </ol>
+  </div>
+
+  <h3>Answer Key</h3>
+  <div class="answer-key">
+    
+    
+    
+    <details>
+      <summary>Q1: Walk me through a complete compass swing on an AHRS-equipped aircraft. Why are both the pitch-roll-level alignment and the hard-iron / soft-iron compensation required, and what happens if you do one without the other?</summary>
+      <p>A compass swing on an AHRS has two distinct tasks that are often confused. The first is the installation-level alignment of the LRU on its tray — shimming the box so that its internal sensor axes are within +/-0.5 degrees of the aircraft's rigging pitch and roll axes. This is done once at installation using a precision inclinometer against the aircraft's rigging reference (fuselage station marks or wing-rib chord line), not against the hangar floor. You cannot calibrate this out in software — any misalignment appears as a constant pitch or roll offset on every flight. The second task is the magnetometer compensation — characterizing and removing the aircraft's own hard-iron bias (a constant 3-axis magnetic offset from permanently magnetized steel like engine mounts and landing gear) and soft-iron distortion (a heading-dependent bending of the earth's field by ferromagnetic structure). This is done with the aircraft on a compass rose, all normal-flight electrical loads energized, engines running, walking through the manufacturer's heading sequence (typically 12 headings for Garmin GMU 44B; point count varies by manufacturer). The AHRS builds a 3x3 soft-iron matrix and a 3-vector hard-iron offset, stores them, and applies them to every future magnetometer reading. If you skip the leveling, you have a permanently wrong attitude display that no compass swing can fix. If you skip the mag compensation, you have heading errors of 5-20 degrees that no amount of leveling can fix. Both are required before sign-off and the deviation card reflects only the mag-compensation residuals.</p>
+    </details>
+    
+    
+    
+    <details>
+      <summary>Q2: A pilot complains that the autopilot flies 6 degrees right of the commanded heading in cruise, but agrees with the commanded heading on the ground. The compass swing is 18 months old and was in tolerance. What is your troubleshooting approach?</summary>
+      <p>Six degrees of heading bias that appears in cruise but not on the ground is a classic GPS-aiding or magnetometer-interference symptom. The compass swing currency is a secondary concern — 18 months is within the typical 24-month interval and an in-tolerance record does not guarantee in-flight accuracy. My first step is to pull the AHRS BIT history from the maintenance pages or Service Tool and look for any 'GPS AID LOST' or degraded-mode annunciations logged during cruise flight. If GPS aiding is dropping out in cruise (often due to a marginal GPS antenna installation or a specific altitude where a transmitter on another aircraft system creates RF interference with the GPS receiver), the AHRS reverts to magnetometer-only heading and any uncompensated magnetic error grows. Second, I check for electrical loads that are on in cruise but off on the ground — pitot heat most commonly, but also certain lighting configurations or de-ice equipment. The compass swing was done with avionics master ON; if pitot heat was off during the swing but is on in cruise, you have a 100 A current in airframe wiring near the magnetometer that was not present during calibration, and it distorts heading. Third, I verify the installation level has not shifted — the AHRS tray shims can loosen with vibration, and a rigidly-mounted LRU can lose 1-2 degrees of level over years. None of that shows up on a static ramp heading check. The fix depends on the root cause: GPS antenna re-siting, magnetometer relocation away from pitot heat wiring, or re-leveling and re-swinging the AHRS.</p>
+    </details>
+    
+    
+    
+    <details>
+      <summary>Q3: Explain why an AHRS needs GPS aiding and what happens when GPS is lost in flight. How is this different from an IRS, and why do transport aircraft have IRS instead of AHRS?</summary>
+      <p>GPS aiding provides an external ground-track and ground-speed reference to the AHRS Kalman filter. The gyros are short-term accurate but drift; the accelerometers are corrupted by maneuvering acceleration; the magnetometer is vulnerable to interference and magnetic-field-gradient issues. GPS ground track is long-term stable and externally referenced — the Kalman filter uses it to estimate and correct gyro bias, magnetometer compensation drift, and installed-axis error in flight. RTCA DO-334 covers integrated ADAHRS performance and effectively expects GPS aiding for certified systems. When GPS is lost, a modern AHRS annunciates 'GPS AID LOST' or 'AHRS DEGRADED' and reverts to magnetometer-only heading with gyro yaw integration. The heading error growth depends on how badly the magnetometer was calibrated and how much the aircraft maneuvers — typical specifications allow up to several degrees of degraded accuracy. An IRS (Inertial Reference System) uses navigation-grade sensors — typically Ring Laser Gyros with drift under 0.01 degrees per hour — and gyrocompasses at startup by sensing the earth's rotation rate (15 deg/hr) along each gyro axis. An IRS can maintain position, velocity, and heading for many hours without any external aiding. This is why transport aircraft use IRS (or hybrid IRS with GPS) — they operate over long ocean legs where GPS loss or magnetic anomalies cannot be allowed to affect the navigation solution. AHRS MEMS gyros cannot detect earth rotation because their own drift (10-50 deg/hr consumer, 1-10 deg/hr tactical) is larger than 15 deg/hr — the earth-rate signal is buried in noise. Practical implication: AHRS MUST have an external heading reference (magnetometer + GPS) to function correctly; an IRS can operate standalone.</p>
+    </details>
+    
+    
+    
+    <details>
+      <summary>Q4: The PFD shows 'ATT MISCOMPARE' on a dual-AHRS aircraft. The standby attitude indicator agrees with AHRS 1. What is your procedure to determine which AHRS is correct, and what would you do next from a maintenance perspective?</summary>
+      <p>An 'ATT MISCOMPARE' annunciation means the two AHRS disagree on attitude beyond the comparator threshold (typically 6 degrees). The standby attitude indicator is an independent third source, so if it agrees with AHRS 1, the probability that AHRS 1 is correct and AHRS 2 is wrong is very high — but probability is not proof. In flight, the pilot's procedure is to fly the attitude that the standby and AHRS 1 both show, select AHRS 1 onto both PFDs via the reversion switch, and if doubt remains, partial-panel to the standby indicator plus GPS ground track for heading. Maintenance action after the flight starts with the BIT logs from both AHRS units — the one that logged an internal fault during the event is the prime suspect. If both are clean, the fault could be in the wiring, the magnetometer for one of them, or a power-supply issue affecting only one bus. I check DC power quality at both LRU pins on the affected bus, verify the ARINC 429 output of each AHRS with an analyzer, and check magnetometer signal integrity (shield continuity, cable routing). If one magnetometer shows drift or noise that the other does not, that LRU's compass swing is a likely candidate. Replacement is LRU-level — I would not field-repair either AHRS box. Post-replacement requires a full compass swing and full post-install functional test, not just a bench check, because the installed-level of the new unit may differ from the unit it replaces.</p>
+    </details>
+    
+    
+    
+    <details>
+      <summary>Q5: Describe the sensors inside a modern MEMS AHRS and how the Kalman filter uses each one. Why doesn't a MEMS AHRS gyrocompass the way a ring-laser IRS does, and what is the practical implication for ramp operations?</summary>
+      <p>A modern MEMS AHRS like the Garmin GRS 77/79 or Collins AHC-3000 contains three orthogonal MEMS rate gyros (measuring angular rate about X, Y, Z body axes using the Coriolis force on vibrating silicon tuning forks), three orthogonal MEMS accelerometers (measuring specific force including gravity), a three-axis magnetometer (separate remote sensor, typically a fluxgate or anisotropic-magnetoresistive type), and a processor running an extended Kalman filter. The filter treats the gyros as short-term truth — during a turn, the gyro-integrated attitude change is trusted even as the accelerometers see centripetal acceleration that would otherwise be misread as gravity. The accelerometers provide the long-term 'down' reference during unaccelerated flight, pulling the filter's attitude estimate back toward the true gravity vector and correcting gyro bias. The magnetometer provides long-term heading reference, corrected for aircraft pitch and roll by the attitude solution, pulled toward magnetic north at a slow bandwidth (sub-Hz). GPS ground track is the external truth reference that corrects bias in all of the above. The AHRS cannot gyrocompass — gyrocompassing requires detecting the earth's rotation rate of 15 degrees per hour along the gyro sensitive axis, and MEMS gyros have drift of 1-50 degrees per hour. The earth-rate signal is below the gyro noise floor. An IRS uses Ring Laser Gyros (0.01 deg/hr drift) where earth rate is above the noise floor and gyrocompassing works. Practical implication on the ramp: AHRS alignment takes 30 seconds to 2 minutes and depends on a static level surface plus a valid magnetometer for initial heading. It does NOT care about aircraft latitude or the direction you parked the aircraft — it gets initial heading from the magnetometer and refines in flight with GPS. An IRS, by contrast, has to sit still for 5-15 minutes of gyrocompassing and pilots must enter the park position latitude/longitude to seed the alignment. Bottom line: do not tow an aircraft during AHRS alignment — it breaks the static reference — and do not expect AHRS to find north without a working magnetometer, because it has no other means to do so.</p>
+    </details>
+    
+  </div>
+</section>
+
+
+
+<footer>
+  © 2026 Aircraft Electronics Association · Workforce Development Division.<br>
+  Derived from CAET Advanced PQS Training Module with supplementary teaching content authored for instructor use.
+</footer>
+
+</body>
+</html>

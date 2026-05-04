@@ -1,0 +1,164 @@
+$schema: "http://json-schema.org/draft-07/schema#"
+$id: "https://aea.net/pedagogy-library/_schema/chapter-schema.yaml"
+title: "AI Tutor Pedagogy Library Chapter Frontmatter"
+description: |
+  JSON Schema (in YAML form) for the YAML frontmatter of every chapter in
+  pedagogy-library. Derived from the exemplar
+  pedagogy-library/01-learning-science/testing-effect.md. The schema covers
+  only frontmatter fields; body-content rules (the nine ordered H2 sections,
+  line-count bounds, and citation-count bounds) are enforced by validate.py.
+type: object
+additionalProperties: false
+
+required:
+  - id
+  - title
+  - category
+  - evidence_strength
+  - effect_size
+  - key_sources
+  - last_reviewed
+  - applies_to
+  - contraindicated_when
+  - runtime_triggers
+  - related
+
+properties:
+
+  id:
+    type: string
+    description: |
+      Lowercase-kebab slug. MUST match the principle's slug in the README index
+      and the chapter's filename (without the .md extension).
+    pattern: "^[a-z0-9][a-z0-9-]*[a-z0-9]$"
+    minLength: 2
+    maxLength: 80
+
+  title:
+    type: string
+    description: Human-readable chapter title; appears as the H1 of the body.
+    minLength: 3
+    maxLength: 200
+
+  category:
+    type: string
+    description: Category directory (also the parent folder of the chapter file).
+    enum:
+      - "01-learning-science"
+      - "02-instructional-design"
+      - "03-assessment-science"
+      - "04-delivery-patterns"
+      - "05-tutor-personas"
+      - "06-motivation-engagement"
+      - "07-runtime-decisions"
+
+  aliases:
+    type: array
+    description: |
+      Alternate slugs the principle is known by. Optional but recommended when
+      the literature uses multiple names (e.g., "retrieval-practice" for
+      testing-effect).
+    items:
+      type: string
+      pattern: "^[a-z0-9][a-z0-9-]*[a-z0-9]$"
+    uniqueItems: true
+
+  evidence_strength:
+    type: string
+    description: |
+      Library only admits "strong" or "moderate". Contested or weak findings
+      are excluded entirely (see README "Deliberately excluded").
+    enum:
+      - strong
+      - moderate
+
+  effect_size:
+    description: |
+      Free-form quantification of the effect with a citation, e.g.
+      "Cohen's d ~ 0.5-0.8 (Adesope et al. 2017)". Nullable for foundational
+      principles where a single effect-size summary is not meaningful (e.g.,
+      cognitive load theory, schema theory).
+    oneOf:
+      - type: string
+        minLength: 3
+      - type: "null"
+
+  key_sources:
+    type: array
+    description: |
+      Peer-reviewed citations supporting the principle. Five to seven entries.
+      Each entry SHOULD include author, year, journal, and DOI when available.
+    items:
+      type: string
+      minLength: 20
+    minItems: 5
+    maxItems: 7
+    uniqueItems: true
+
+  last_reviewed:
+    type: string
+    description: ISO date (YYYY-MM-DD) the chapter was last reviewed against current literature.
+    pattern: "^\\d{4}-\\d{2}-\\d{2}$"
+
+  applies_to:
+    type: array
+    description: |
+      Phases or functions for which the principle is operative. Controlled
+      vocabulary; do not invent new values without updating the schema.
+
+      Learning-phase values (most chapters in categories 01, 02, 04, 05, 06):
+        - acquisition: building new knowledge or skill
+        - retention:  preserving knowledge over time
+        - transfer:   applying knowledge to novel contexts
+
+      Meta-instructional values (most chapters in categories 03, 07):
+        - measurement: assessment of mastery, item quality, or learning effect
+        - sequencing:  ordering or scheduling learning activities
+        - decision:    rules that determine when to advance, remediate, or stop
+    items:
+      type: string
+      enum:
+        - acquisition
+        - retention
+        - transfer
+        - measurement
+        - sequencing
+        - decision
+    minItems: 1
+    uniqueItems: true
+
+  contraindicated_when:
+    type: array
+    description: |
+      Conditions under which the principle should NOT be applied. Each entry
+      uses category.predicate dot-notation; see README "Schema conventions".
+      Current category prefixes: learner_state, material, task_type.
+    items:
+      type: string
+      pattern: "^(learner_state|material|task_type)\\.[a-z][a-z0-9_]*$"
+    minItems: 1
+    uniqueItems: true
+
+  runtime_triggers:
+    type: array
+    description: |
+      Event names the runtime should listen for to know when this principle
+      may be relevant. Lowercase snake_case; no dots (these are not state
+      predicates).
+    items:
+      type: string
+      pattern: "^[a-z][a-z0-9_]*$"
+    minItems: 1
+    uniqueItems: true
+
+  related:
+    type: array
+    description: |
+      Slugs (from the README index) of other chapters that connect to this one.
+      Used by the runtime for graph traversal and by validate.py to check that
+      cross-references resolve. Empty array allowed for genuinely standalone
+      chapters but discouraged.
+    items:
+      type: string
+      pattern: "^[a-z0-9][a-z0-9-]*[a-z0-9]$"
+    uniqueItems: true
